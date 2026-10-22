@@ -129,7 +129,7 @@ Source tags: [PM:<board>] / [DS:<board>] / [MX:<board>] = board id in specs/2026
 - R-098 [DS:ds-recent-task] Reopening a drama restores its latest stage (outline, characters, storyboard, video).
 
 ## Credits and limits (MX)
-- R-099 [DS:ds-mx-link] The first three creations are free: action cards show "Free for your first 3 creations - {n} left."
+- R-099 [DS:ds-mx-link] The first three creations are free: action cards show "Free for your first 3 creations - {n} left." — Changed 2026-10-22 (REQ-029): the Design 1016 frame shows 「Free • {n} left」 on the Create storyboard card (see R-259, R-260).
 - R-100 [DS:ds-mx-link] With enough credits, spending shows a confirmation "You'll have {n} left" with Confirm before charging. (PM 10/6 frames show direct Generate — Q-3.)
 - R-101 [DS:ds-mx-link] Without enough credits the card shows "Not enough credits / {X} credits needed. You have {Y} credits left." with Buy Credits → "Top up your credits".
 - R-102 [DS:ds-mx-link] Free users who reach the daily chat limit see "Daily Free Chat Limit Reached / You have used up your AI Mini Drama free chats. To keep chatting, please upgrade to Premium." with Upgrade to Premium.
@@ -330,7 +330,7 @@ Every cell names the rows that check it, or n/a when the spec defines nothing fo
 | Scene image and Location | TC-071 | TC-064, TC-065 | TC-067, TC-068, TC-069 | TC-070, TC-141 | n/a (spec silent) | TC-292 | n/a (no Stop) | n/a | n/a | n/a |
 | Chat image update | TC-072, TC-073 | TC-073, TC-074 | TC-293 | TC-293 | n/a (spec silent) | TC-293 | TC-294 | TC-294 | n/a | n/a |
 | Storyboard Preview | TC-075 | TC-075, TC-076 | TC-077, TC-078, TC-299 , TC-355 | TC-078, TC-299 | n/a (spec silent) | n/a | n/a | n/a | n/a | n/a |
-| Scene video (clip) | TC-081 | TC-086 | TC-091, TC-092, TC-095 | TC-092, TC-149 | TC-092 | TC-091, TC-093 | TC-157 | TC-082, TC-144, TC-166 | TC-173 | n/a |
+| Scene video (clip) | TC-081 | TC-086 | TC-091, TC-092, TC-095 , TC-362, TC-363 | TC-092, TC-149 | TC-092 | TC-091, TC-093 | TC-157 | TC-082, TC-144, TC-166 | TC-173 | n/a |
 | Video regeneration | TC-096 | TC-096, TC-145, TC-297 | TC-296 | n/a (spec silent) | n/a | n/a | n/a | TC-144 | n/a | TC-297 |
 | Full video | TC-081, TC-084 | TC-086, TC-087 | TC-094 | TC-094 | n/a (spec silent) | TC-091 | TC-157 | TC-082, TC-167 | TC-173 | TC-085, TC-303, TC-304, TC-305, TC-306, TC-307, TC-308 |
 | Captions | TC-098 | TC-099 | TC-098 | TC-098, TC-151 | TC-298 | n/a (never partial: TC-098) | n/a | n/a | n/a | n/a |
@@ -356,6 +356,7 @@ Every cell names the rows that check it, or n/a when the spec defines nothing fo
 | REQ-025 PM Spec 20261021 | R-245, R-246, R-247, R-248, R-249, R-250, R-251, R-252, R-253, R-254 |
 | REQ-026 decisions Q-15 – Q-17 (2026-10-22) | R-253, R-254; rows TC-045, TC-046, TC-073, TC-079, TC-080 |
 | REQ-028 decisions Q-12, Q-14 (2026-10-22) | R-255, R-256; row TC-051 |
+| REQ-029 Figma 1016 frames; PM 10/21 governs older Design frames (2026-10-22) | R-259, R-260, R-261, R-262, R-263, R-264; row TC-114 |
 
 ## Added 2026-10-21 — PM Spec 20261021 (16:04)
 PM-only rows carry 「PM-only: no Design frame yet (Design 2026-10-19)」 in Notes and change when the Design spec draws them (REQ-024).
@@ -373,3 +374,43 @@ PM-only rows carry 「PM-only: no Design frame yet (Design 2026-10-19)」 in Not
 ## Added 2026-10-22 — answers to Q-12 and Q-14
 - R-255 [DS:ds-characters 1005_Update "Exceed word limit"; Req: REQ-028] The character description keeps text over 1,000 characters with a red count (e.g. 「1120/1000」) and 「You've reached the 1,000-character limit.」 in the field and the expanded editor; Generate is disabled until the text is back under the limit.
 - R-256 [PM:pm-1002-update E4, pm-error-handling; Req: REQ-028] When the Storyboard Preview fails, its card shows 「Couldn't create the storyboard preview. Your credits have been refunded. Try again.」 with Retry ◆1, and a 「Create video anyways」 button sits below the card.
+
+## Added 2026-10-22 — Figma 1016 frames and the spec agent comparison
+Three Design frames dated 1016 are in Figma but not in the Design PDF of this set (`specs/2026-10-21-2/extracted/figma-frames.json`,
+board-notes 「Design — Figma only」). They are older than PM Spec 20261021, so the PM governs where they differ (REQ-029).
+- R-257 [PM:pm-error-handling Video (4xxx), 10/13 update; Req: REQ-030] A scene video that fails with 4xxx shows 「Couldn't create video ⓘ」 with the refund text; ⓘ opens 「Couldn't generate this video」/「Your credits have been refunded. The description may not meet our terms of service, such as violence, NSFW content, or content involving minors. Edit the description to try again.」 with Got it.
+- R-258 [PM:pm-error-handling Video (5xxx), 10/13 update; Req: REQ-030] A scene video that fails with 5xxx shows 「Couldn't create video」 with the refund text and no ⓘ, and opens no dialog.
+- R-259 [DS:figma 1016_support free trial 4847:34277; Req: REQ-029] While free storyboard tries remain, the Create storyboard card shows the price struck through (◆15) and 「Free • {n} left」, {n} = tries left. Replaces R-099's older MX-board wording.
+- R-260 [DS:figma 1016_support free trial 4847:34277; Req: REQ-029] Once the free tries are used up, the card shows only the price (◆15): no strikethrough, no 「Free」.
+- R-261 [PM:pm-main-flow §3.2/§3.3, Bug 0018; DS:figma 1016_Chat navigation 4858:34930 (exits, landing pages); Req: REQ-029] While the outline is generating, every top exit (Back, History, New chat, credit pill) shows 「Leave this chat?」/「Your story outline isn't ready yet, so this chat won't be saved.」 with Leave anyway / Stay; Stay keeps the chat; Leave anyway saves nothing and opens the exit's page (home, Recent Task, a new room, My Credits).
+- R-262 [PM:pm-1002-update §13.6, pm-update-4; DS:figma 1016_Chat navigation 4858:34930 (exits, landing pages); Req: REQ-029] During a short job (storyboard, chat image update, character update), every top exit shows 「Stop and lose your credits?」/「This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded.」 with Leave anyway / Keep Generating; Leave anyway stops the job and opens the exit's page.
+- R-263 [PM:pm-main-flow Bug 0012; DS:figma 1016_Chat navigation 4858:34930 (exits, landing pages); Req: REQ-029] A chat already saved to History with nothing generating leaves through any top exit with no dialog and opens the exit's page.
+- R-264 [PM:pm-update-4 (10/13 video leave); DS:figma 1016_Chat navigation 4858:34930 (exits, landing pages); Req: REQ-029] During video generation every top exit leaves with no dialog, shows 「We'll keep making your video. Find it in History.」 and opens the exit's page; the video keeps generating.
+
+### Exit × stage
+Every top exit in every stage (coverage pass 8, REQ-030). iOS has no system back. Cells name the rows, or n/a with the reason.
+
+| Stage | Back | History | New chat | Credit pill |
+|---|---|---|---|---|
+| Empty chat | TC-186 | n/a (spec silent) | TC-199 | n/a (spec silent) |
+| Outline generating | TC-025, TC-027, TC-028 | TC-026, TC-027 | TC-200, TC-357 | TC-357, TC-358 |
+| Outline saved, nothing generating | TC-029 | TC-360 | TC-360 | TC-360 |
+| Character generating (Make your character) | n/a (sheet: X and Cancel, TC-333, TC-334) | n/a (sheet covers the chat) | n/a (sheet covers the chat) | n/a (sheet covers the chat) |
+| Storyboard generating | TC-061, TC-063 | TC-359 | TC-359 | TC-359 |
+| Chat image update generating | TC-294 | n/a (same short-job dialog as TC-359) | n/a (same short-job dialog as TC-359) | n/a (same short-job dialog as TC-359) |
+| Character update generating | TC-351 | n/a (same short-job dialog as TC-359) | n/a (same short-job dialog as TC-359) | n/a (same short-job dialog as TC-359) |
+| Video generating | TC-082, TC-083 | TC-361 | TC-361 | TC-361 |
+
+### Error classes
+Each job's failure by class (coverage pass 2, REQ-030): card copy, ⓘ, dialog and refund.
+
+| Job | 4xxx | 5xxx | 6xxx |
+|---|---|---|---|
+| Outline | TC-031 | TC-030 | n/a (spec silent) |
+| Characters (Generate with AI) | TC-042 | TC-043 | n/a (spec silent) |
+| Create my character | n/a (spec silent) | TC-137 | n/a (spec silent) |
+| Storyboard image | TC-067 | TC-068 | n/a (spec silent) |
+| Storyboard Preview | n/a (TTS / STT failures instead: TC-078, TC-299) | n/a (TTS / STT failures instead: TC-078, TC-299) | n/a (spec silent) |
+| Scene video | TC-362 | TC-363 | TC-095 |
+| Whole video | n/a (spec silent) | TC-094 | TC-095 |
+

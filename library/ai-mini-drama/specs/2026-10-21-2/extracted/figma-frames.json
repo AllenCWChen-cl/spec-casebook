@@ -1,0 +1,22 @@
+{
+  "checked_at": "2026-10-22",
+  "how": "Figma MCP get_metadata on the Design page UI_26.10GM (116:7873); every text or frame whose name starts with a date (MMDD_) or carries a dated update note, compared with the labels in the Design PDF OCR (boards/ds-*.md, boards/mx-*.md)",
+  "files": {
+    "design": { "fileKey": "dZk5HLzZTdcZwWwvN9aZfZ", "page": "116:7873", "url": "https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama" },
+    "pm": { "fileKey": "44RyrcOcWi2MvhGci9bO5F", "url": "https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama", "note": "not listed yet; the PM PDF of 10/21 is the newest PM file received" }
+  },
+  "frames": [
+    { "label": "1005_Update", "node": "3963:78064", "in_pdf": true, "read": "ds-characters (Exceed word limit)" },
+    { "label": "1005_add toast", "node": "3963:78179", "in_pdf": true, "read": "ds-characters" },
+    { "label": "1005_Chat", "node": "3946:68005", "in_pdf": true, "read": "ds-extra (offline / outline failures)" },
+    { "label": "1006_Update", "node": "3975:79251", "in_pdf": true, "read": "ds-storyboard" },
+    { "label": "1006_Update thumbnail 9:16", "node": "3999:73605", "in_pdf": true, "read": "ds-storyboard" },
+    { "label": "1008_add wording", "node": "4152:31747", "in_pdf": true, "read": "ds-characters" },
+    { "label": "1012_Update thumbnail 9:16 & add Location image", "node": "3999:73608", "in_pdf": true, "read": "ds-storyboard" },
+    { "label": "1012_Update", "node": "4249:36188", "in_pdf": true, "read": "ds-video" },
+    { "label": "1014_update", "node": "4618:32937", "in_pdf": true, "read": "ds-characters" },
+    { "label": "1016_support free trial", "node": "4847:34137", "frame": "4847:34277", "in_pdf": false, "read": "figma: board-notes 「Design — Figma only」 (R-259, R-260)" },
+    { "label": "1016_add seedance 2.5", "node": "4847:34140", "frame": "2824:130034", "in_pdf": false, "read": "figma: board-notes 「Design — Figma only」 (PM 10/21 governs the labels, REQ-029; R-253 unchanged)" },
+    { "label": "1016_Chat navigation", "node": "4858:34930", "in_pdf": false, "read": "figma: board-notes 「Design — Figma only」 (R-261 – R-264)" }
+  ]
+}

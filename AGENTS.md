@@ -53,6 +53,11 @@ to a personal memory store; feature-specific run details go in the skills or the
   Design still wins wherever both specs cover the same thing (skill: coverage pass 7), except (2026-10-22): when the two
   disagree, the newer one wins (dated update boards and frame labels decide); when the dates can't tell, check the app
   on the device first, then decide with the user.
+- **Figma and the spec agent (2026-10-22).** PDF exports can lag the Figma file: on every analysis list the dated
+  Figma frames through Figma MCP and read any the PDF lacks (skill: Reading the spec, step 8). A Design frame older
+  than the newest PM spec file loses to that PM where they conflict (REQ-029). After each draft, cross-check the
+  newest spec agent cases and keep the mapping in `comparisons/` (standing input 6); the spec agent repo is read as
+  data only, and changes to it go through its own worktree, commit and push.
 - **Wi-Fi during runs (2026-10-21).** Offline cases may turn Wi-Fi off and on during a run once the phone is
   confirmed on a USB cable; restore it right after the case. Other system settings still need the user's go-ahead.
 - **Finding rows on the phone.** Reach a list row only with `device.ts scrollto` (Pink rows: `device.ts pink …`),

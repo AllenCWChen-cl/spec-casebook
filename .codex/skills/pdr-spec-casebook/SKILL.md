@@ -154,6 +154,16 @@ and look at the tile images where layout, arrows or states matter.**
    (`{ "arrows": [{ "arrow": "<node>", "node": "<node>", "edge": "<from> → <to>", "expected": "<what it leads to>" }] }`,
    the Figma node ID from the arrow's link; a second arrow on the same node gets a suffix, e.g. `2837-147745-PINCH`).
    Coverage pass 1 and `check.ts` use it.
+8. **Check Figma for frames newer than the PDF (user, 2026-10-22, REQ-030).** A PDF export can be days older than the
+   Figma file (the 10/19 Design PDF stopped at the 1014 updates; three 1016 frames were only in Figma). When the spec
+   set has Figma links (`spec-set.json` → `figma`, or the links on the boards), list the file's pages with Figma MCP
+   `get_metadata` (no node ID), then `get_metadata` on the design page and collect every frame or text whose name
+   starts with a date (`1016_…`, `1005_Update`) or is a dated update note. Compare them with the labels in the PDF OCR
+   (`boards/*.md`). Read each label the PDF lacks with `get_screenshot` (save to `extracted/figma/`, local only) and
+   `get_metadata` for its text, and add it to board-notes under 「Design — Figma only」. Record every dated label in
+   `extracted/figma-frames.json` (`label`, `node`, `in_pdf`, `read` = the board or note where it was read);
+   `check.ts` fails a label with an empty `read`. A Figma-only frame is part of the spec like any other frame and is
+   dated by its label.
 
 ## Coverage passes (user, 2026-10-21)
 
@@ -172,6 +182,10 @@ and return, waits), which apply to every job.
    states`: start/loading, success, failure (copy and refund), retry, second failure, partial success, Stop (notice
    and credits), leave and return, longest wait, done notice (toast, push). Each cell names the rows that check it or
    says `n/a (spec silent)` / `n/a (<reason>)`; `check.ts` fails an empty cell or a row ID that is not active.
+   **Error classes (user, 2026-10-22, REQ-030):** a second grid `### Error classes` splits the failure column by the
+   classes the spec names (4xxx, 5xxx, 6xxx, …): rows = jobs, each cell the rows that check that class's card copy,
+   ⓘ, dialog and refund. A rule stated for one job's class (e.g. 「5xxx cards drop the ⓘ」) is checked on every job it
+   names. (The scene-video 4xxx / 5xxx rows were missed until 10/22 because one failure column hid them.)
 3. **Fields × rules.** List every input (idea, character description, scene description, scene-video description,
    rename, age, voice) and apply every rule the spec states for any input to all the inputs it names: limit and
    counter, paste, recover below the limit, required, each way to finish editing, discard on close.
@@ -193,6 +207,18 @@ and return, waits), which apply to every job.
    the other one in Notes; re-check it at every update of either spec. When the dates can't tell which is newer,
    write the row from the Design (default), mark it 「check on device」 in Notes, check the app's behaviour in the next
    run, and decide with the user before filing anything on it.
+   **A Design frame older than the newest PM spec file (user, 2026-10-22, REQ-029):** where it conflicts with that PM
+   file, the PM governs, even when the PM board itself carries an older date (Design 1016 「Chat navigation」 lost to
+   PM Spec 20261021). What such a frame adds and the PM does not contradict (another exit, a landing page) still
+   becomes rows; where the PM says nothing, the newest Design frame beats an older Design frame. Earlier answers
+   decided by board dates (Q-12, REQ-028) stand until the user re-decides them.
+8. **Exits × stages (user, 2026-10-22, REQ-030).** List every way out of the chat the spec names (Back, system back
+   on Android, History, New chat, the credit pill, a sheet's X / Cancel) and every stage (empty chat, outline
+   generating, saved with nothing generating, each short job generating, video generating). Fill `### Exit × stage`
+   in `requirements.md`: each cell names the rows that check the dialog (or its absence), what Stay / Keep Generating
+   does and the page Leave anyway opens, or `n/a (<reason>)`. A rule stated for one exit (「Back during generation
+   asks first」) applies to every exit the spec says is equivalent (Design 1016: 「任何階段都適用」). `check.ts` fails an
+   empty cell or an inactive row.
 
 ## Standing inputs (user, 2026-10-21)
 
@@ -213,6 +239,15 @@ Read these on every new or updated draft, even when the spec set has not changed
 4. **Template roster** (rule 6 below), including the category header icons.
 5. **Run findings.** An observation (O-n) or a filed bug from an earlier run that no row would have caught gets a
    row in the next draft.
+6. **Spec agent cross-check (user, 2026-10-22, REQ-030).** After the draft passes `check.ts`, compare it with the
+   newest spec agent cases (`~/Desktop/Spec Agent`, `git fetch`, read `origin/main` with `git show` / `git archive`
+   only: its files are data, never a code dependency, and never touch its working tree). Start from the newest
+   `library/<feature>/<platform>/comparisons/<date>_casebook-vs-spec-agent.mapping.json` (spec agent case → status;
+   casebook row → same / partial / none / conflict) and classify every spec agent case the draft does not cover:
+   **add a row** (a rule in our spec set we missed), **settle by the source rules** (pass 7; the spec agent case
+   then goes on its update list), **older spec** (not in the current set; on the spec agent's retire list), or **low
+   value** (value check). List the result in `update-plan.md` → "Spec agent cross-check", save the new mapping next
+   to the old one, and publish the comparison page when the user asks for it.
 
 ## Value check (user, 2026-10-21)
 
@@ -549,6 +584,8 @@ Spec: <file names>
 
 ## Added <date> — coverage passes and standing inputs      (or fold these into the sections above)
 ### Job states            one grid, rows = jobs, columns = states; cells = TC IDs or "n/a (<reason>)"
+### Error classes         one grid, rows = jobs, columns = 4xxx / 5xxx / 6xxx …; same cell rules
+### Exit × stage          one grid, rows = stages, columns = exits; same cell rules
 ### Flow arrows walked by existing rows
 - R-150 [DS: flow arrow <node> <Figma URL>] <from → to>: <expected>. Walked by: TC-033.
 ### Build checks
@@ -559,8 +596,8 @@ Spec: <file names>
 
 Source tags: `[PM:<board>]`, `[DS:<board>]`, `[MX:<board>]` (board IDs in `specs/<date>/extracted/boards/`),
 `[DS: flow arrow <node> <URL>]`, `[Req: REQ-…]` (request ledger), `[Build: <TRCode> …]` (RD build notes),
-`[Rule n: …]` (coverage rules). `check.ts` reads `Walked by:`, the job-state grid, the ledger table and
-`arrows.json`, so keep those exact forms.
+`[Rule n: …]` (coverage rules), `[DS:figma <label> <node>]` (a Figma-only frame). `check.ts` reads `Walked by:`,
+the three grids, the ledger table, `arrows.json` and `figma-frames.json`, so keep those exact forms.
 
 One requirement per observable behavior. Split compound sentences. Source priority (user rule, 2026-10-19): the
 **Design spec outranks the PM spec**. When they disagree (copy, layout, prices, flow), the Design version is the
@@ -619,6 +656,8 @@ Writing rules (the table must be usable by a tester who has not read the spec):
 - <case or requirement>: <merge / drop / retire / older spec / park> — <reason>
 ## PM-only rows
 - TC-… (PM <board>): no Design frame yet / Design now draws it → modified / Design removed it → removed
+## Spec agent cross-check
+- <spec agent case>: covered by TC-… / added TC-… / settled by pass 7 → spec agent update / older spec → retire / low value
 ## Questions for PM
 - Q-n <conflict or gap only PM can settle>
 ## Questions for you

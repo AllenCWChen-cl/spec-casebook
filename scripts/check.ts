@@ -4,7 +4,9 @@
 // - every Design flow arrow in specs/<set>/extracted/arrows.json has a requirement in requirements.md;
 // - a requirement is covered by a row's Spec Ref, or by "Walked by: TC-…" naming an active row;
 // - every open "table" entry of library/<feature>/requests.md for this platform is cited in requirements.md;
-// - the "Job states" grid in requirements.md has no empty cell and names only existing, active rows.
+// - the "Job states", "Exit × stage" and "Error classes" grids in requirements.md have no empty cell and name only
+//   existing, active rows (the last two from 2026-10-22, REQ-030);
+// - every dated frame in specs/<set>/extracted/figma-frames.json says where it was read (REQ-030).
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { CHANGES, COLUMNS, arg, assertIds, draftsDir, featureDir, readManifest, readTable, tableDir } from './lib/library.ts';
@@ -88,16 +90,28 @@ if (reqText && reqIds) {
     }
   } else warnings.push(`No library/${feature}/requests.md: request ledger not checked`);
 
-  // Job-state grid.
-  const grid = reqText.match(/\n#+ Job states\n[\s\S]*?\n(\|[^\n]*\n(?:\|[^\n]*\n?)+)/)?.[1];
-  if (!grid) warnings.push('No "Job states" grid in requirements.md (coverage pass 2)');
-  else {
+  // Coverage grids: Job states (pass 2), Exit × stage (pass 8) and Error classes (pass 2), REQ-030.
+  const checkGrid = (name: string, required: boolean) => {
+    const esc = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const grid = reqText.match(new RegExp(`\\n#+ ${esc}\\n[\\s\\S]*?\\n(\\|[^\\n]*\\n(?:\\|[^\\n]*\\n?)+)`))?.[1];
+    if (!grid) { (required ? errors : warnings).push(`No "${name}" grid in requirements.md`); return; }
     const [head, , ...body] = grid.trim().split('\n').map(l => l.split('|').slice(1, -1).map(c => c.trim()));
     for (const r of body) r.forEach((cell, i) => {
-      if (!cell) errors.push(`Job states: empty cell "${r[0]}" × "${head[i]}" (name the rows, or n/a with the reason)`);
-      for (const tc of tcRefs(cell)) if (!active.has(tc)) errors.push(`Job states: "${r[0]}" × "${head[i]}" names ${tc}, which is not an active row`);
+      if (!cell) errors.push(`${name}: empty cell "${r[0]}" × "${head[i]}" (name the rows, or n/a with the reason)`);
+      for (const tc of tcRefs(cell)) if (!active.has(tc)) errors.push(`${name}: "${r[0]}" × "${head[i]}" names ${tc}, which is not an active row`);
     });
-  }
+  };
+  checkGrid('Job states', false);
+  checkGrid('Exit × stage', false);
+  checkGrid('Error classes', false);
+
+  // Figma dated frames (Reading the spec, step 8): each one says where it was read.
+  const figmaPath = specFolder ? join(featureDir(feature), specFolder, 'extracted', 'figma-frames.json') : '';
+  if (figmaPath && existsSync(figmaPath)) {
+    const frames: { label: string; read?: string }[] = JSON.parse(readFileSync(figmaPath, 'utf8')).frames ?? [];
+    const unread = frames.filter(f => !f.read?.trim()).map(f => f.label);
+    if (unread.length) errors.push(`Figma dated frames not read yet: ${unread.join(', ')} (figma-frames.json)`);
+  } else warnings.push(`No figma-frames.json for ${specFolder ?? 'this spec set'}: Figma dated frames not compared with the PDF (Reading the spec, step 8)`);
 }
 console.log(JSON.stringify({ table: csv, rows: rows.length, errors, warnings }, null, 2));
 process.exit(errors.length ? 1 : 0);

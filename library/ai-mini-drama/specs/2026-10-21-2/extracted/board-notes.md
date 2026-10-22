@@ -342,3 +342,25 @@ and the Main flow have only OCR differences: no rule changed. Real changes:
 - Text over 1,000 is kept: counter red "1120/1000" and "You've reached the 1,000-character limit." in the field and in
   the expanded editor; Generate is greyed out. This frame (10/05) is newer than PM §13.11 (10/02), which cuts pasted
   text at 1,000; the character description follows this frame (Q-12, decided 2026-10-22).
+
+## Design — Figma only, newer than the Design PDF (read 2026-10-22 through Figma MCP, REQ-029 / REQ-030)
+The Design PDF of this set stops at the 1014 updates. Figma (file dZk5HLzZTdcZwWwvN9aZfZ, page UI_26.10GM) has three
+1016 frames the PDF lacks; `figma-frames.json` lists every dated label and where it was read. Screenshots are in
+`figma/` (local only).
+- **1016_Chat navigation** (4858:34930): 「Chat 上方入口（任何階段都適用）」— the top exits in every stage: ① ← / system
+  back → AI Mini Drama home · ② New chat → a new room · ③ Credit pill → My Credits · ④ History → Recent Task. Each
+  shows 「Leave this chat?」 with Leave anyway / Stay (Stay closes the dialog). Body A (progress would be lost: outline
+  not made yet, storyboard / images generating): "Your progress isn't saved yet, so leaving now will lose it." Body B
+  (saved to History, video generating in the background): "Your progress is saved, so you can pick it up anytime in
+  History." **Older than PM Spec 20261021, so PM governs where they differ (REQ-029):** outline → PM copy
+  "Your story outline isn't ready yet, so this chat won't be saved."; storyboard / short jobs → 「Stop and lose your
+  credits?」 (PM §13.6); saved chat → no dialog; video → toast only. Kept from the Design (PM does not contradict
+  it): the credit pill is an exit too, and each exit's landing page. Build 189729 behaves as PM says (TC-025/026,
+  TC-029, TC-061, TC-082 runs of 10/16–10/21).
+- **1016_support free trial** (MX board, frame 4847:34277, note 4847:34907 「還有免費次數 → Free • {n} left（{n} 為剩餘次數）
+  用完 → 只顯示原價（15）」): the Create storyboard card shows ◆15 struck through and 「Free • {n} left」 while free
+  tries remain; once used up, only the price. Newer than the MX-board frame 「Free for your first 3 creations - 3
+  left.」; PM says nothing different, so the 1016 frame wins (REQ-029).
+- **1016_add seedance 2.5** (frame 2824:130034): 「Choose your video settings」 with 「Quality」 Best / Standard / Fast,
+  「Seedance 2.5 · Sharper motion and richer detail」, 「Length」 Preview · 30 sec / Full Video · 90 sec. Older than
+  PM 10/21; the casebook keeps the PM 10/16 labels (R-253, REQ-026, REQ-029).
