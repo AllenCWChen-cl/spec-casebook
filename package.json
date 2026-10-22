@@ -1,0 +1,27 @@
+{
+  "name": "pdr-spec-casebook",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Turn PowerDirector feature specs into reviewed, versioned test-case tables (one per platform).",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "check": "node scripts/check.ts",
+    "status": "node scripts/status.ts",
+    "fingerprint": "node scripts/fingerprint.ts",
+    "review": "node scripts/review.ts",
+    "export": "node scripts/export.ts",
+    "add-spec": "node scripts/add-spec.ts",
+    "new-draft": "node scripts/new-draft.ts",
+    "spec-boards": "node scripts/spec-boards.ts",
+    "render-tiles": "node scripts/render-tiles.ts",
+    "render-region": "node scripts/render-region.ts",
+    "ebug-defaults": "node scripts/ebug-defaults.ts"
+  },
+  "dependencies": {
+    "exceljs": "4.4.0",
+    "mupdf": "1.28.1"
+  }
+}

@@ -1,0 +1,127 @@
+{
+ "16.9.0_amd37_fix_clips_ending.jpg": [
+  [
+   0.04,
+   0.215,
+   0.96,
+   0.81
+  ]
+ ],
+ "16.9.0_amd37_try_again_ending.jpg": [
+  [
+   0.04,
+   0.585,
+   0.96,
+   0.81
+  ]
+ ],
+ "16.9.0_amd37_no_card_ending.jpg": [
+  [
+   0.04,
+   0.815,
+   0.96,
+   0.88
+  ]
+ ],
+ "16.9.0_amd32_storyboard_running.jpg": [],
+ "16.9.0_amd32_storyboard_after_stop.jpg": [
+  [
+   0.04,
+   0.6,
+   0.96,
+   0.815
+  ]
+ ],
+ "16.9.0_amd32_video_running.jpg": [],
+ "16.9.0_amd32_video_after_stop.jpg": [
+  [
+   0.04,
+   0.62,
+   0.96,
+   0.83
+  ]
+ ],
+ "16.9.0_amd33_characters_locked.jpg": [
+  [
+   0.065,
+   0.86,
+   0.935,
+   0.925
+  ]
+ ],
+ "16.9.0_amd33_close_ignored.jpg": [
+  [
+   0.04,
+   0.585,
+   0.11,
+   0.63
+  ]
+ ],
+ "16.9.0_amd33_storyboard_wait.jpg": [
+  [
+   0.04,
+   0.6,
+   0.96,
+   0.89
+  ]
+ ],
+ "16.9.0_amd34_video_running.jpg": [],
+ "16.9.0_amd34_no_bubble.jpg": [
+  [
+   0.84,
+   0.075,
+   0.97,
+   0.17
+  ]
+ ],
+ "16.9.0_amd35_preview_no_card.jpg": [
+  [
+   0.04,
+   0.815,
+   0.96,
+   0.88
+  ]
+ ],
+ "16.9.0_amd35_card_after_asking.jpg": [],
+ "16.9.0_amd36_card_before.jpg": [],
+ "16.9.0_amd36_option_after.jpg": [
+  [
+   0.043,
+   0.445,
+   0.957,
+   0.508
+  ]
+ ],
+ "16.9.0_amd38_card.jpg": [
+  [
+   0.065,
+   0.425,
+   0.935,
+   0.525
+  ]
+ ],
+ "16.9.0_amd38_info_dialog.jpg": [],
+ "16.9.0_amd39_leave_dialog.jpg": [
+  [
+   0.14,
+   0.44,
+   0.86,
+   0.495
+  ]
+ ],
+ "16.9.0_amd39_history_without_it.jpg": [
+  [
+   0.04,
+   0.145,
+   0.96,
+   0.295
+  ]
+ ],
+ "16.9.0_amd32_log.txt": [],
+ "16.9.0_amd33_log.txt": [],
+ "16.9.0_amd34_log.txt": [],
+ "16.9.0_amd35_log.txt": [],
+ "16.9.0_amd37_log.txt": [],
+ "16.9.0_amd38_log.txt": [],
+ "16.9.0_amd39_log.txt": []
+}

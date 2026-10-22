@@ -1,0 +1,328 @@
+{
+ "AI Mini Drama - PM Spec 20261021.pdf": [
+  {
+   "id": "pm-top-mockups",
+   "title": "Chat result states (top mockup group)",
+   "region": [
+    14400,
+    0,
+    3100,
+    4950
+   ]
+  },
+  {
+   "id": "pm-main-flow",
+   "title": "Main flow",
+   "region": [
+    300,
+    5600,
+    9700,
+    9100
+   ]
+  },
+  {
+   "id": "pm-error-handling",
+   "title": "Error Handling",
+   "region": [
+    10550,
+    5500,
+    6900,
+    8900
+   ]
+  },
+  {
+   "id": "pm-0930-updates",
+   "title": "0930 updated",
+   "region": [
+    10450,
+    14650,
+    3550,
+    2800
+   ]
+  },
+  {
+   "id": "pm-1002-update",
+   "title": "1002 update",
+   "region": [
+    14300,
+    14650,
+    6950,
+    3450
+   ]
+  },
+  {
+   "id": "pm-update-3",
+   "title": "Update board 3",
+   "region": [
+    14300,
+    17950,
+    6400,
+    2450
+   ]
+  },
+  {
+   "id": "pm-update-4",
+   "title": "Update board 4",
+   "region": [
+    14300,
+    20350,
+    3700,
+    1450
+   ]
+  },
+  {
+   "id": "pm-update-5",
+   "title": "Update board 5",
+   "region": [
+    14300,
+    21700,
+    7000,
+    1650
+   ]
+  },
+  {
+   "id": "pm-update-6",
+   "title": "Update board 6 (Error)",
+   "region": [
+    14100,
+    23250,
+    4750,
+    2850
+   ]
+  },
+  {
+   "id": "pm-update-7",
+   "title": "Update board 7",
+   "region": [
+    14300,
+    26050,
+    2950,
+    1550
+   ]
+  },
+  {
+   "id": "pm-update-8",
+   "title": "Update board 8 (new 10/21)",
+   "region": [
+    14300,
+    27500,
+    2600,
+    1050
+   ]
+  },
+  {
+   "id": "pm-update-9",
+   "title": "Update board 9 (new 10/21)",
+   "region": [
+    14300,
+    28450,
+    2950,
+    2450
+   ]
+  },
+  {
+   "id": "pm-update-10",
+   "title": "Update board 10 (new 10/21)",
+   "region": [
+    14300,
+    30850,
+    2050,
+    1450
+   ]
+  },
+  {
+   "id": "pm-update-11",
+   "title": "Update board 11 (new 10/21)",
+   "region": [
+    14300,
+    32200,
+    1700,
+    1500
+   ]
+  }
+ ],
+ "AI Mini Drama - Design Spec.pdf": [
+  {
+   "id": "ds-main-flow",
+   "title": "Main flow",
+   "region": [
+    600,
+    1800,
+    9450,
+    4900
+   ]
+  },
+  {
+   "id": "ds-home-custom-chat",
+   "title": "AI Mini Drama home page / Custom detail / Chat room detail",
+   "region": [
+    600,
+    6850,
+    9450,
+    2300
+   ]
+  },
+  {
+   "id": "ds-template-detail",
+   "title": "Template Detail",
+   "region": [
+    600,
+    9300,
+    9450,
+    2300
+   ]
+  },
+  {
+   "id": "ds-characters",
+   "title": "Characters: Flow, Create my character, Filter, Error",
+   "region": [
+    600,
+    11700,
+    9450,
+    8550
+   ]
+  },
+  {
+   "id": "ds-storyboard",
+   "title": "Storyboard",
+   "region": [
+    600,
+    20600,
+    9450,
+    4500
+   ]
+  },
+  {
+   "id": "ds-video",
+   "title": "Video",
+   "region": [
+    600,
+    25400,
+    11300,
+    3350
+   ]
+  },
+  {
+   "id": "ds-recent-task",
+   "title": "Recent Task",
+   "region": [
+    600,
+    29250,
+    9450,
+    3500
+   ]
+  },
+  {
+   "id": "ds-mx-link",
+   "title": "MX Spec Link",
+   "region": [
+    600,
+    33100,
+    9450,
+    3100
+   ]
+  },
+  {
+   "id": "ds-extra",
+   "title": "Extra board",
+   "region": [
+    600,
+    36550,
+    2650,
+    1850
+   ]
+  }
+ ],
+ "PDRM MX.pdf": [
+  {
+   "id": "mx-a-left",
+   "title": "v1 ① Free Chat Times ② Charging Flow & First-time Credit Discount",
+   "region": [
+    127,
+    2587,
+    4738,
+    5699
+   ]
+  },
+  {
+   "id": "mx-a-mid",
+   "title": "v1 Paid/Free user charging flows",
+   "region": [
+    4694,
+    2587,
+    5902,
+    5699
+   ]
+  },
+  {
+   "id": "mx-a-right",
+   "title": "v1 ③ Credit Charging Table (action id)",
+   "region": [
+    10389,
+    2587,
+    3628,
+    1446
+   ]
+  },
+  {
+   "id": "mx-b-left",
+   "title": "v2 ① P1 Free Chat Times ② P1 First-time Free Use Credit",
+   "region": [
+    127,
+    17138,
+    4738,
+    5699
+   ]
+  },
+  {
+   "id": "mx-b-mid",
+   "title": "v2 ③ P2 Real-time Credit Charging System",
+   "region": [
+    4694,
+    17138,
+    5902,
+    5699
+   ]
+  },
+  {
+   "id": "mx-b-right",
+   "title": "v2 ④ Charging Price",
+   "region": [
+    10667,
+    17138,
+    3628,
+    2741
+   ]
+  },
+  {
+   "id": "mx-c-left",
+   "title": "v3 ① Free Chat Times ② First-time Free Use Credit",
+   "region": [
+    109,
+    27862,
+    3850,
+    3443
+   ]
+  },
+  {
+   "id": "mx-c-mid",
+   "title": "v3 ③ Real-time Credit Charging System",
+   "region": [
+    3751,
+    27899,
+    5884,
+    5681
+   ]
+  },
+  {
+   "id": "mx-c-right",
+   "title": "v3 ④ Charging Price",
+   "region": [
+    9705,
+    27899,
+    3628,
+    2759
+   ]
+  }
+ ]
+}

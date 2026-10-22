@@ -1,0 +1,12 @@
+{
+  "ISS-AMD-01": "不開單（重複：DRI261896P0020，NeedMoreInfo — 補充本次 3/3 證據）",
+  "ISS-AMD-09": "不開單（重複：DRI261896P0008，NeedCodeReview）",
+  "ISS-AMD-11": "不開單（重複：DRI261894P0039 已 RDResolved，189631 仍重現 — 建議 reopen）",
+  "ISS-AMD-21": "不開單（重複：DRI261895P0023）",
+  "ISS-AMD-24": "不開單（重複：DRI261896P0030）",
+  "ISS-AMD-25": "不開單（重複：DRI261893-0013 / DRI261896P0026）",
+  "ISS-AMD-28": "不開單（重複：DRI261894P0015，Propose Wont Fix）",
+  "ISS-AMD-30": "不開單（重複：DRI261894P0009 已 RDResolved，189631 仍重現 — 建議 reopen）",
+  "ISS-AMD-16": "撤回（Design 優先：與 Design 稿一致）",
+  "ISS-AMD-19": "撤回（Design 優先：與 Design 稿一致）"
+}

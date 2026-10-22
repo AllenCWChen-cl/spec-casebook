@@ -1,0 +1,56 @@
+Filing as Creator: ETHAN_HSU
+  Creator verified — last filed DRI261896P0039 on 2026-10-16
+Format check: PDR-I 16.9.0
+
+21 bug(s) checked — 0 error(s), 0 warning(s)
+Format OK — clear to file.
+
+[AI-Mini-Drama-02] created DRI261896P0041
+  DRI261896P0041  sev 2  PM  NewCreated  build 189631  by ETHAN_HSU
+[AI-Mini-Drama-03] created DRI261896P0042
+[AI-Mini-Drama-04] created DRI261896P0043
+[AI-Mini-Drama-05] created DRI261896P0044
+[AI-Mini-Drama-06] created DRI261896P0045
+[AI-Mini-Drama-07] created DRI261896P0046
+[AI-Mini-Drama-08] created DRI261896P0047
+[AI-Mini-Drama-10] created DRI261896P0048
+[AI-Mini-Drama-12] created DRI261896P0049
+[AI-Mini-Drama-13] created DRI261896P0050
+[AI-Mini-Drama-14] created DRI261896P0051
+[AI-Mini-Drama-15] created DRI261896P0052
+[AI-Mini-Drama-16] created DRI261896P0053
+[AI-Mini-Drama-17] created DRI261896P0054
+[AI-Mini-Drama-18] created DRI261896P0055
+[AI-Mini-Drama-20] created DRI261896P0056
+[AI-Mini-Drama-21] created DRI261896P0057
+[AI-Mini-Drama-24] created DRI261896P0058
+[AI-Mini-Drama-25] created DRI261896P0059
+[AI-Mini-Drama-27] created DRI261896P0060
+[AI-Mini-Drama-29] created DRI261896P0061
+
+created 21 · skipped 0 · failed 0
+
+Read-back (Status: OK is not proof — Version has been seen not to persist):
+  DRI261896P0041  sev 2  PM  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0042  sev 2  RD  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0043  sev 2  RD  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0044  sev 2  RD  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0045  sev 2  RD  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0046  sev 2  PM  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0047  sev 2  RD  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0048  sev 2  RD  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0049  sev 2  RD  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0050  sev 3  RD  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0051  sev 2  RD  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0052  sev 2  RD  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0053  sev 3  RD  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0054  sev 3  RD  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0055  sev 3  RD  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0056  sev 2  RD  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0057  sev 2  RD  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0058  sev 2  RD  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0059  sev 3  RD  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0060  sev 3  PM  NewCreated  build 189631  by ETHAN_HSU
+  DRI261896P0061  sev 3  RD  NewCreated  build 189631  by ETHAN_HSU
+
+Attachments are NOT part of create — upload each file to POST /IF3/api/Attachment/<JobID> (JobID is in filed_formcodes.json; SKILL.md → IF3 attachments over the API).

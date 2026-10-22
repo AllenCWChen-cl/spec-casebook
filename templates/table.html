@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__</title>
+<style>
+/* Layout: a spreadsheet-like review sheet — header facts, filter bar, rows grouped by section, sticky action bar. */
+:root{
+  --bg:#f4f5f7; --surface:#fff; --fg:#1b2430; --muted:#5f6b7a; --line:#dde1e7; --head:#2f3b52;
+  --new:#1f7a4d; --new-soft:#dff3e8; --mod:#9a5b00; --mod-soft:#fbecd2; --rem:#b3261e; --rem-soft:#fadcd9; --edit:#3d5bd9; --edit-soft:#e2e7fb;
+  --body:system-ui,-apple-system,"Segoe UI","PingFang TC","Microsoft JhengHei",sans-serif; --mono:ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12161c; --surface:#1a2029; --fg:#e5e9ef; --muted:#9aa5b3; --line:#2c3541; --head:#0d1117;
+  --new:#5cc58e; --new-soft:#173a29; --mod:#e7a94a; --mod-soft:#3b2c12; --rem:#f07a70; --rem-soft:#3e1d1a; --edit:#93a6ff; --edit-soft:#232c55; color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 var(--body)}
+header{background:var(--head);color:#fff;padding:18px 20px;display:grid;gap:8px}
+header h1{margin:0;font-size:1.35rem}
+header .facts{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.84rem;opacity:.9}
+header .facts code{font-family:var(--mono);font-size:.8rem}
+main{padding:16px 20px 110px;display:grid;gap:14px;max-width:1500px;margin:0 auto}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px}
+details.panel>summary{cursor:pointer;padding:10px 14px;font-weight:600}
+details.panel .md{padding:0 14px 14px;max-height:460px;overflow:auto;font-size:13px}
+.md h2,.md h3,.md h4{margin:12px 0 4px;font-size:.95rem}
+.md ul{margin:4px 0;padding-left:18px}
+.md table{min-width:0;width:auto;border-collapse:collapse;margin:6px 0}
+.md td,.md th{border:1px solid var(--line);padding:4px 8px;position:static;text-transform:none;letter-spacing:0;font:13px var(--body);color:var(--fg)}
+.md code{font-family:var(--mono);font-size:.85em}
+details.panel pre{margin:0;padding:0 14px 14px;white-space:pre-wrap;font:13px/1.55 var(--body);max-height:420px;overflow:auto}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 12px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:4px 10px;font:500 .82rem var(--body);cursor:pointer}
+.chip b{font-family:var(--mono);color:var(--muted);margin-left:3px}
+.chip[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.chip[aria-pressed="true"] b{color:var(--bg)}
+input[type=search],select{font:inherit;padding:5px 9px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg)}
+input[type=search]{flex:1 1 220px;min-width:0}
+.sep{width:1px;height:22px;background:var(--line)}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:1150px;background:var(--surface)}
+th{position:sticky;top:0;background:var(--surface);z-index:1;text-align:left;font:600 .72rem var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);padding:8px;border-bottom:2px solid var(--line)}
+td{border-bottom:1px solid var(--line);padding:6px 8px;vertical-align:top}
+tr.section td{background:var(--bg);font-weight:700;padding:10px 8px}
+tr.section td .add{margin-left:10px}
+td.id{font-family:var(--mono);font-size:.8rem;white-space:nowrap}
+textarea{width:100%;min-height:2.2em;resize:vertical;border:1px solid transparent;background:transparent;color:var(--fg);font:13px/1.45 var(--body);padding:4px;border-radius:4px;field-sizing:content}
+textarea:hover{border-color:var(--line)} textarea:focus{border-color:var(--edit);outline:none;background:var(--surface)}
+.was{font-size:.76rem;color:var(--muted);text-decoration:line-through;padding:0 4px;white-space:pre-wrap}
+.badge{display:inline-block;font:600 .68rem var(--mono);padding:2px 6px;border-radius:4px;text-transform:uppercase;margin-top:4px}
+.b-new{background:var(--new-soft);color:var(--new)} .b-modified{background:var(--mod-soft);color:var(--mod)} .b-removed{background:var(--rem-soft);color:var(--rem)} .b-edited{background:var(--edit-soft);color:var(--edit)} .b-added{background:var(--new-soft);color:var(--new)}
+.reason{font-size:.74rem;color:var(--muted);margin-top:3px;max-width:14em}
+tr.deleted td:not(.dec){opacity:.45} tr.deleted textarea{text-decoration:line-through}
+td.dec{white-space:nowrap}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.seg button{border:0;background:var(--surface);color:var(--muted);font:600 .76rem var(--body);padding:4px 8px;cursor:pointer}
+.seg button[aria-pressed="true"].k{background:var(--new);color:#fff} .seg button[aria-pressed="true"].d{background:var(--rem);color:#fff}
+button:focus-visible,.chip:focus-visible{outline:2px solid var(--edit);outline-offset:2px}
+.add{border:1px dashed var(--line);background:transparent;color:var(--muted);border-radius:6px;padding:3px 8px;font:500 .78rem var(--body);cursor:pointer}
+footer{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);padding:10px 20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;z-index:5}
+footer .counts{font-size:.84rem;color:var(--muted)} footer .counts b{color:var(--fg)}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:8px 14px;border-radius:6px;font:600 .86rem var(--body);cursor:pointer}
+.btn.primary{background:var(--edit);color:#fff;border-color:var(--edit)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+#toast{position:fixed;right:20px;bottom:70px;background:var(--fg);color:var(--bg);padding:10px 14px;border-radius:6px;font-size:.86rem;max-width:520px;display:none;z-index:6}
+.note{font-size:.8rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="h"></h1>
+  <div class="facts" id="facts"></div>
+</header>
+<main>
+  <details class="panel" id="planBox" hidden><summary>Update plan</summary><div class="md" id="plan"></div></details>
+  <details class="panel" id="reqBox" hidden><summary>Requirements extracted from the spec</summary><div class="md" id="req"></div></details>
+  <div class="panel bar" id="filters"></div>
+  <div class="panel tablewrap"><table id="tbl"><thead><tr><th>ID</th><th>Precondition</th><th>Action</th><th>Expected Result</th><th>Priority</th><th>Spec Ref</th><th>Notes</th><th id="decHead">Decision</th></tr></thead><tbody></tbody></table></div>
+  <p class="note" id="foot"></p>
+</main>
+<footer>
+  <span class="counts" id="counts"></span>
+  <span style="display:flex;gap:8px;flex-wrap:wrap">
+    <button class="btn" id="copyCsv">Copy final CSV</button>
+    <button class="btn" id="copyDec">Copy decisions</button>
+    <button class="btn primary" id="save">Save as approved table</button>
+  </span>
+</footer>
+<div id="toast" role="status"></div>
+<script>
+const D=/*__DATA__*/null;
+const FIELDS=['Section','Precondition','Action','Expected Result','Priority','Spec Ref','Notes'];
+const EDIT=['Precondition','Action','Expected Result','Spec Ref','Notes'];
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const REVIEW=D.mode==='review';
+const KEY='casebook:'+D.feature+':'+D.platform+':'+D.draft;
+// state: each row keeps its original values, current values, and the decision (keep/delete)
+let rows=D.rows.map((r,i)=>({orig:{...r},cur:{...r},dec:r.Change==='removed'?'delete':'keep',added:false,i}));
+try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(REVIEW&&s&&s.rows){rows=s.rows;}}catch(e){}
+const F={q:'',section:'',change:'',state:''};
+const persist=()=>{try{localStorage.setItem(KEY,JSON.stringify({rows}))}catch(e){}};
+const edited=r=>!r.added&&FIELDS.some(f=>(r.cur[f]??'')!==(r.orig[f]??''));
+const state=r=>r.dec==='delete'?'deleted':r.added?'added':edited(r)?'edited':'kept';
+const sections=()=>[...new Set(rows.map(r=>r.cur.Section||'(no section)'))];
+function nextId(){const nums=rows.map(r=>+(String(r.cur.ID).match(/(\d+)$/)||[0,0])[1]);const pre=(String(rows[0]?.cur.ID||'TC-000').match(/^(.*?)(\d+)$/)||[0,'TC-'])[1];return pre+String(Math.max(0,...nums)+1).padStart(3,'0')}
+function toast(t){const el=$('#toast');el.textContent=t;el.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>el.style.display='none',6000)}
+function md(src){
+  const inline=s=>esc(s).replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
+  const out=[];let list=false,table=null;
+  const flush=()=>{if(list){out.push('</ul>');list=false}if(table){out.push('<table>'+table.map((r,i)=>'<tr>'+r.map(c=>i?`<td>${inline(c)}</td>`:`<th>${inline(c)}</th>`).join('')+'</tr>').join('')+'</table>');table=null}};
+  for(const line of src.split(/\r?\n/)){
+    const l=line.trim();
+    if(/^\|/.test(l)){if(/^\|[\s:|-]+\|?$/.test(l))continue;if(list){out.push('</ul>');list=false}(table??=[]).push(l.replace(/^\||\|$/g,'').split('|').map(c=>c.trim()));continue}
+    if(table)flush();
+    const h=l.match(/^(#{1,4})\s+(.*)/);
+    if(h){flush();out.push(`<h${Math.min(4,h[1].length+1)}>${inline(h[2])}</h${Math.min(4,h[1].length+1)}>`);continue}
+    if(/^[-*]\s+/.test(l)){if(!list){out.push('<ul>');list=true}out.push(`<li>${inline(l.replace(/^[-*]\s+/,''))}</li>`);continue}
+    flush();if(l)out.push(`<p>${inline(l)}</p>`);
+  }
+  flush();return out.join('');
+}
+function header(){
+  const plat=D.platform==='ios'?'iOS':'Android';
+  $('#h').textContent=`${D.title} · ${plat} · ${REVIEW?'Review':'Approved test cases'}`;
+  const f=[];
+  if(REVIEW){f.push(`Draft <code>${esc(D.draft)}</code>`);f.push(D.based_on_version?`Updates approved version ${D.based_on_version}`:'No approved table yet');}
+  else f.push(`Version ${D.version} · approved ${esc((D.approved_at||'').slice(0,10))}`);
+  f.push(`Spec: ${D.spec_files.map(s=>esc(s.name)).join(', ')}`);
+  $('#facts').innerHTML=f.map(x=>`<span>${x}</span>`).join('');
+  if(D.update_plan){$('#planBox').hidden=false;$('#planBox').open=true;$('#plan').innerHTML=md(D.update_plan)}
+  if(D.requirements){$('#reqBox').hidden=false;$('#req').innerHTML=md(D.requirements)}
+  if(!REVIEW){document.body.classList.add('view');$('#decHead').hidden=true;$('#copyDec').hidden=true;$('#save').hidden=true}
+  if(REVIEW&&!D.save){$('#save').disabled=true;$('#save').title='Open this page through scripts/review.ts to save.'}
+  $('#foot').textContent=REVIEW?'Edits are kept in this browser until you save. Save writes the approved CSV, keeps the previous version in history/, and regenerates the Excel and HTML views.':'Read-only view generated from cases.csv.';
+}
+function filters(){
+  const cnt=(k,v)=>rows.filter(r=>k==='change'?(r.cur.Change||'')===v:state(r)===v).length;
+  const changes=['new','modified','removed','unchanged'].filter(v=>cnt('change',v));
+  const states=['kept','edited','added','deleted'];
+  let h=`<input type="search" id="q" placeholder="Search ID or text" value="${esc(F.q)}"><select id="sec"><option value="">All sections (${rows.length})</option>${sections().map(s=>`<option${F.section===s?' selected':''}>${esc(s)}</option>`).join('')}</select>`;
+  if(changes.length){h+=`<span class="sep"></span>`+[['','All changes'],...changes.map(c=>[c,c])].map(([v,l])=>`<button class="chip" data-k="change" data-v="${v}" aria-pressed="${F.change===v}">${l}${v?` <b>${cnt('change',v)}</b>`:''}</button>`).join('')}
+  if(REVIEW)h+=`<span class="sep"></span>`+[['','Any decision'],...states.map(s=>[s,s])].map(([v,l])=>`<button class="chip" data-k="state" data-v="${v}" aria-pressed="${F.state===v}">${l}${v?` <b>${cnt('state',v)}</b>`:''}</button>`).join('');
+  $('#filters').innerHTML=h;
+  $('#q').oninput=e=>{F.q=e.target.value;body()};
+  $('#sec').onchange=e=>{F.section=e.target.value;body()};
+  $('#filters').querySelectorAll('.chip').forEach(b=>b.onclick=()=>{F[b.dataset.k]=b.dataset.v;filters();body()});
+}
+function visible(r){
+  const t=(r.cur.ID+' '+FIELDS.map(f=>r.cur[f]).join(' ')).toLowerCase();
+  return (!F.q||t.includes(F.q.toLowerCase()))&&(!F.section||(r.cur.Section||'(no section)')===F.section)&&(!F.change||(r.cur.Change||'')===F.change)&&(!F.state||state(r)===F.state);
+}
+function cell(r,f){
+  const prev=D.previous[r.cur.ID];
+  const was=prev&&r.cur.Change==='modified'&&(prev[f]??'')!==(r.orig[f]??'')?`<div class="was">${esc(prev[f])}</div>`:'';
+  return `<td><textarea data-id="${esc(r.cur.ID)}" data-f="${f}" rows="2">${esc(r.cur[f])}</textarea>${was}</td>`;
+}
+function idCell(r){
+  const st=state(r),ch=r.cur.Change;
+  const badges=[ch&&ch!=='unchanged'?`<span class="badge b-${ch}">${ch}</span>`:'',REVIEW&&st!=='kept'?`<span class="badge b-${st==='deleted'?'removed':st}">${st}</span>`:''].join(' ');
+  return `${esc(r.cur.ID)}<div>${badges}</div>${r.cur['Change Reason']?`<div class="reason">${esc(r.cur['Change Reason'])}</div>`:''}`;
+}
+function body(){
+  const tb=$('#tbl tbody');let h='';
+  for(const s of sections()){
+    const rs=rows.filter(r=>(r.cur.Section||'(no section)')===s&&visible(r));
+    if(!rs.length)continue;
+    h+=`<tr class="section"><td colspan="8">${esc(s)} <span class="note">(${rs.length})</span>${REVIEW?`<button class="add" data-sec="${esc(s)}">+ Add case</button>`:''}</td></tr>`;
+    for(const r of rs){
+      const st=state(r);
+      h+=`<tr class="${st==='deleted'?'deleted':''}"><td class="id">${idCell(r)}</td>
+      ${cell(r,'Precondition')}${cell(r,'Action')}${cell(r,'Expected Result')}
+      <td><select data-id="${esc(r.cur.ID)}" data-f="Priority" ${REVIEW?'':'disabled'}>${['','P1','P2','P3'].map(p=>`<option${(r.cur.Priority||'')===p?' selected':''}>${p}</option>`).join('')}</select></td>
+      ${cell(r,'Spec Ref')}${cell(r,'Notes')}
+      ${REVIEW?`<td class="dec"><span class="seg"><button class="k" data-id="${esc(r.cur.ID)}" data-d="keep" aria-pressed="${r.dec==='keep'}">Keep</button><button class="d" data-id="${esc(r.cur.ID)}" data-d="delete" aria-pressed="${r.dec==='delete'}">Delete</button></span></td>`:''}</tr>`;
+    }
+  }
+  tb.innerHTML=h||`<tr><td colspan="8" class="note">No cases match these filters.</td></tr>`;
+  const find=id=>rows.find(r=>r.cur.ID===id);
+  tb.querySelectorAll('textarea,select').forEach(el=>{if(!REVIEW){el.readOnly=true;return}el.onchange=el.oninput=()=>{const r=find(el.dataset.id);r.cur[el.dataset.f]=el.value;persist();counts();const tr=el.closest('tr');tr.querySelector('td.id').innerHTML=idCell(r);};el.onblur=()=>filters()});
+  tb.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{find(b.dataset.id).dec=b.dataset.d;persist();filters();body();counts()});
+  tb.querySelectorAll('.add').forEach(b=>b.onclick=()=>{const id=nextId();rows.push({orig:{},cur:{ID:id,Section:b.dataset.sec==='(no section)'?'':b.dataset.sec,Priority:'P2',Change:'new','Change Reason':'Added in review'},dec:'keep',added:true,i:rows.length});persist();filters();body();counts();setTimeout(()=>tb.querySelector(`textarea[data-id="${id}"][data-f="Action"]`)?.focus(),0)});
+}
+function counts(){
+  const c=s=>rows.filter(r=>state(r)===s).length;
+  const fin=rows.filter(r=>r.dec!=='delete').length;
+  $('#counts').innerHTML=REVIEW?`<b>${fin}</b> cases in the final table · kept ${c('kept')} · edited ${c('edited')} · added ${c('added')} · deleted ${c('deleted')}`:`<b>${rows.length}</b> cases`;
+}
+const COLS=['ID','Section','Precondition','Action','Expected Result','Priority','Spec Ref','Notes'];
+const q=v=>/[",\r\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;
+const finalRows=()=>rows.filter(r=>r.dec!=='delete').map(r=>Object.fromEntries(COLS.map(c=>[c,(r.cur[c]??'').trim()])));
+const csv=()=>[COLS,...finalRows().map(r=>COLS.map(c=>r[c]))].map(r=>r.map(q).join(',')).join('\n');
+function decisions(){
+  const out=[];
+  for(const r of rows){const s=state(r);if(s==='kept')continue;
+    if(s==='deleted')out.push({type:'delete',id:r.cur.ID,was_change:r.cur.Change||''});
+    else if(s==='added')out.push({type:'add',id:r.cur.ID,row:Object.fromEntries(COLS.map(c=>[c,r.cur[c]??'']))});
+    else out.push({type:'edit',id:r.cur.ID,fields:Object.fromEntries(FIELDS.filter(f=>(r.cur[f]??'')!==(r.orig[f]??'')).map(f=>[f,{from:r.orig[f]??'',to:r.cur[f]??''}]))});}
+  return out;
+}
+function decisionText(){
+  const d=decisions(),c=s=>rows.filter(r=>state(r)===s).length;
+  const L=[`Review: ${D.feature} / ${D.platform} · draft ${D.draft}`,`Final table: ${finalRows().length} cases · kept ${c('kept')} · edited ${c('edited')} · added ${c('added')} · deleted ${c('deleted')}`,''];
+  for(const x of d){
+    if(x.type==='delete')L.push(`DELETE ${x.id}`);
+    if(x.type==='add')L.push(`ADD ${x.id} [${x.row.Section}] Action: ${x.row.Action} | Expected: ${x.row['Expected Result']} | Spec Ref: ${x.row['Spec Ref']}`);
+    if(x.type==='edit')L.push(`EDIT ${x.id} `+Object.entries(x.fields).map(([f,v])=>`${f}: "${v.to}"`).join(' | '));
+  }
+  return L.join('\n');
+}
+async function copy(text,label){try{await navigator.clipboard.writeText(text);toast(label+' copied.')}catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast(label+' copied.')}catch(_){toast('Copy failed; select the text manually.')}ta.remove()}}
+$('#copyCsv').onclick=()=>copy(csv(),'Final CSV');
+$('#copyDec').onclick=()=>copy(decisionText(),'Decisions');
+$('#save').onclick=async()=>{
+  const empty=finalRows().filter(r=>!r.Action||!r['Expected Result']);
+  if(empty.length){toast(`Fill in Action and Expected Result for ${empty.map(r=>r.ID).join(', ')} before saving.`);return}
+  $('#save').disabled=true;
+  try{const res=await fetch('/save',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({rows:finalRows(),decisions:decisions(),summary:decisionText()})});
+    const j=await res.json();if(!res.ok)throw new Error(j.error||res.statusText);
+    try{localStorage.removeItem(KEY)}catch(e){}
+    toast(`Saved as approved version ${j.version}: ${j.cases} cases. ${j.csv}`);
+  }catch(e){toast('Save failed: '+e.message)}finally{$('#save').disabled=false}
+};
+header();filters();body();counts();
+</script>
+</body>
+</html>

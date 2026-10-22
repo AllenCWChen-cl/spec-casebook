@@ -1,0 +1,288 @@
+{
+ "AI Mini Drama - PM spec.pdf": [
+  {
+   "id": "pm-top-mockups",
+   "title": "Chat result states (top mockup group)",
+   "region": [
+    14400,
+    0,
+    2900,
+    3700
+   ]
+  },
+  {
+   "id": "pm-main-flow",
+   "title": "Main flow",
+   "region": [
+    400,
+    5700,
+    9600,
+    8900
+   ]
+  },
+  {
+   "id": "pm-error-handling",
+   "title": "Error Handling",
+   "region": [
+    10550,
+    5500,
+    6850,
+    8800
+   ]
+  },
+  {
+   "id": "pm-0930-updates",
+   "title": "0930 updated",
+   "region": [
+    10450,
+    14650,
+    3500,
+    2700
+   ]
+  },
+  {
+   "id": "pm-1002-update",
+   "title": "1002 update",
+   "region": [
+    14300,
+    14650,
+    6850,
+    3350
+   ]
+  },
+  {
+   "id": "pm-update-3",
+   "title": "Update board 3",
+   "region": [
+    14300,
+    17950,
+    6300,
+    2350
+   ]
+  },
+  {
+   "id": "pm-update-4",
+   "title": "Update board 4",
+   "region": [
+    14300,
+    20300,
+    3600,
+    1450
+   ]
+  },
+  {
+   "id": "pm-update-5",
+   "title": "Update board 5",
+   "region": [
+    14300,
+    21700,
+    6900,
+    1550
+   ]
+  },
+  {
+   "id": "pm-update-6",
+   "title": "Update board 6 (Error)",
+   "region": [
+    14150,
+    23250,
+    4650,
+    2700
+   ]
+  },
+  {
+   "id": "pm-update-7",
+   "title": "Update board 7",
+   "region": [
+    14300,
+    25950,
+    2600,
+    1550
+   ]
+  }
+ ],
+ "AI Mini Drama - Design Spec.pdf": [
+  {
+   "id": "ds-main-flow",
+   "title": "Main flow",
+   "region": [
+    600,
+    1800,
+    9450,
+    4900
+   ]
+  },
+  {
+   "id": "ds-home-custom-chat",
+   "title": "AI Mini Drama home page / Custom detail / Chat room detail",
+   "region": [
+    600,
+    6850,
+    9450,
+    2300
+   ]
+  },
+  {
+   "id": "ds-template-detail",
+   "title": "Template Detail",
+   "region": [
+    600,
+    9300,
+    9450,
+    2300
+   ]
+  },
+  {
+   "id": "ds-characters",
+   "title": "Characters: Flow, Create my character, Filter, Error",
+   "region": [
+    600,
+    11700,
+    9450,
+    8550
+   ]
+  },
+  {
+   "id": "ds-storyboard",
+   "title": "Storyboard",
+   "region": [
+    600,
+    20600,
+    9450,
+    4500
+   ]
+  },
+  {
+   "id": "ds-video",
+   "title": "Video",
+   "region": [
+    600,
+    25400,
+    11300,
+    3350
+   ]
+  },
+  {
+   "id": "ds-recent-task",
+   "title": "Recent Task",
+   "region": [
+    600,
+    29250,
+    9450,
+    3500
+   ]
+  },
+  {
+   "id": "ds-mx-link",
+   "title": "MX Spec Link",
+   "region": [
+    600,
+    33100,
+    9450,
+    3100
+   ]
+  },
+  {
+   "id": "ds-extra",
+   "title": "Extra board",
+   "region": [
+    600,
+    36550,
+    2650,
+    1850
+   ]
+  }
+ ],
+ "PDRM MX.pdf": [
+  {
+   "id": "mx-a-left",
+   "title": "v1 \u2460 Free Chat Times \u2461 Charging Flow & First-time Credit Discount",
+   "region": [
+    127,
+    2587,
+    4738,
+    5699
+   ]
+  },
+  {
+   "id": "mx-a-mid",
+   "title": "v1 Paid/Free user charging flows",
+   "region": [
+    4694,
+    2587,
+    5902,
+    5699
+   ]
+  },
+  {
+   "id": "mx-a-right",
+   "title": "v1 \u2462 Credit Charging Table (action id)",
+   "region": [
+    10389,
+    2587,
+    3628,
+    1446
+   ]
+  },
+  {
+   "id": "mx-b-left",
+   "title": "v2 \u2460 P1 Free Chat Times \u2461 P1 First-time Free Use Credit",
+   "region": [
+    127,
+    17138,
+    4738,
+    5699
+   ]
+  },
+  {
+   "id": "mx-b-mid",
+   "title": "v2 \u2462 P2 Real-time Credit Charging System",
+   "region": [
+    4694,
+    17138,
+    5902,
+    5699
+   ]
+  },
+  {
+   "id": "mx-b-right",
+   "title": "v2 \u2463 Charging Price",
+   "region": [
+    10667,
+    17138,
+    3628,
+    2741
+   ]
+  },
+  {
+   "id": "mx-c-left",
+   "title": "v3 \u2460 Free Chat Times \u2461 First-time Free Use Credit",
+   "region": [
+    109,
+    27862,
+    3850,
+    3443
+   ]
+  },
+  {
+   "id": "mx-c-mid",
+   "title": "v3 \u2462 Real-time Credit Charging System",
+   "region": [
+    3751,
+    27899,
+    5884,
+    5681
+   ]
+  },
+  {
+   "id": "mx-c-right",
+   "title": "v3 \u2463 Charging Price",
+   "region": [
+    9705,
+    27899,
+    3628,
+    2759
+   ]
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+# ISS-AMD-39 leaving while the outline generates
+# PowerDirector 16.9.0 (189729), Developer Server, iPhone 17 Air / iOS 26.2.1. Excerpt of the app's AI Mini Drama log
+# (Write Log + Pink 'Log stage timings'); only lines about turns, charges and failures in the windows below. Signed storage URLs are truncated.
+
+## Outline sent, Back + Leave anyway (TC-159) (2026-10-19 20:51:20–20:52:20)
+2026-10-19 20:51:23:770 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=5F47F4F4-058B-4FBC-97AE-0B8372B3916D iris=261019_205048_4efcca2e stage= trigger= answers=0 attachments=0
+2026-10-19 20:51:23:770  [AMDPerf] ════ turn begin · stage=unknown
+2026-10-19 20:51:35:510 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=5F47F4F4-058B-4FBC-97AE-0B8372B3916D iris=261019_205048_4efcca2e turn=261019_205048_4efcca2e_t2 final_state=complete status_code=0 error_message="" reply=""
+2026-10-19 20:51:35:516 [AIDramaIrisConversationService] [#398] [AIDrama AMD] send reply drama=5F47F4F4-058B-4FBC-97AE-0B8372B3916D iris=261019_205048_4efcca2e source=blueprint stage=outline failures=0 text=""
+2026-10-19 20:51:37:594  [AMDPerf] ════ turn end · stage=unknown → outline · card=none · ok · wall   11.747s

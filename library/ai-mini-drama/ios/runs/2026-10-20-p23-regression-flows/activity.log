@@ -1,0 +1,2441 @@
+2026-10-20T07:35:12.428Z status 
+2026-10-20T07:35:12.581Z start 00008150-00081D403A38401C
+2026-10-20T07:35:12.988Z status 
+2026-10-20T07:35:23.244Z build 
+2026-10-20T07:35:23.583Z reinstall 16.9.0 189729 --check-only
+2026-10-20T07:36:15.411Z launch 
+2026-10-20T07:36:15.628Z server 
+2026-10-20T07:36:16.277Z credits 
+2026-10-20T07:36:33.600Z els 
+2026-10-20T07:36:38.113Z id creditsHomePage.UIButton.backButton
+2026-10-20T07:36:39.912Z tapif launcher.UIButton.homeButton
+2026-10-20T07:36:42.315Z pink open [z] AI Mini Drama
+2026-10-20T07:37:54.668Z pink set Log stage timings on
+2026-10-20T07:38:54.624Z pink set Unlimited daily chat on
+2026-10-20T07:40:28.727Z pink show [z] AI Mini Drama
+2026-10-20T07:42:27.222Z pink close
+2026-10-20T07:42:33.675Z devserver 
+2026-10-20T07:43:36.904Z source 
+2026-10-20T07:43:47.346Z drag 200 250 200 750 300
+2026-10-20T07:43:50.664Z source 
+2026-10-20T07:43:53.603Z drag 200 250 200 750 300
+2026-10-20T07:43:56.944Z source 
+2026-10-20T07:44:12.499Z drag 200 250 200 750 300
+2026-10-20T07:44:14.271Z source 
+2026-10-20T07:44:17.141Z drag 200 250 200 750 300
+2026-10-20T07:44:18.929Z source 
+2026-10-20T07:44:21.796Z drag 200 250 200 750 300
+2026-10-20T07:44:23.574Z source 
+2026-10-20T07:44:26.472Z drag 200 250 200 750 300
+2026-10-20T07:44:28.271Z source 
+2026-10-20T07:44:31.121Z drag 200 250 200 750 300
+2026-10-20T07:44:32.900Z source 
+2026-10-20T07:44:35.758Z drag 200 250 200 750 300
+2026-10-20T07:44:37.570Z source 
+2026-10-20T07:44:54.083Z tapif debugViewController.UIButton.btnBack
+2026-10-20T07:45:03.175Z devserver 
+2026-10-20T07:46:27.810Z do ?tapif launcher.UIButton.homeButton ;; lbl AI Mini Drama ;; waitfor aiMiniDramaE
+2026-10-20T07:46:27.812Z tapif launcher.UIButton.homeButton
+2026-10-20T07:46:33.578Z lbl AI Mini Drama
+2026-10-20T07:46:39.767Z waitfor aiMiniDramaEntry.UIButton.createDrama --timeout 20
+2026-10-20T07:46:41.042Z shot p23-pre-entry
+2026-10-20T07:46:41.539Z els 
+2026-10-20T07:46:53.058Z do lbl Merger Season ;; waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion -
+2026-10-20T07:46:53.059Z lbl Merger Season
+2026-10-20T07:46:55.493Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T07:47:02.483Z shot p23-pre-template-preview
+2026-10-20T07:47:02.872Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T07:47:03.719Z waitfor aiMiniDramaFormat.UIButton.continue --timeout 60
+2026-10-20T07:47:10.593Z shot p23-pre-format
+2026-10-20T07:47:10.983Z els 
+2026-10-20T07:47:16.672Z do id aiMiniDramaFormat.UIButton.language.0 ;; id aiMiniDramaFormat.UIButton.captio
+2026-10-20T07:47:16.674Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T07:47:17.452Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T07:47:18.174Z id aiMiniDramaFormat.UIButton.continue
+2026-10-20T07:47:18.886Z waitfor Possible Characters|Something went wrong|Server is busy|Try again|Generate all|C
+2026-10-20T07:51:24.671Z els 
+2026-10-20T07:51:31.940Z do id aiMiniDramaOutline.UIButton.scrollToBottom ;; wait 2 ;; shot p23-pre-outline-
+2026-10-20T07:51:31.942Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T07:51:32.864Z wait 2
+2026-10-20T07:51:35.078Z shot p23-pre-outline-bottom
+2026-10-20T07:51:35.474Z els 
+2026-10-20T07:51:43.318Z do id aiMiniDramaCredits.UIButton.consume ;; waitfor "Seedance|Generate Video|Story
+2026-10-20T07:51:43.320Z id aiMiniDramaCredits.UIButton.consume
+2026-10-20T07:51:44.237Z waitfor Seedance|Generate Video|Storyboard Preview|Something went wrong|Server is busy|T
+2026-10-20T08:03:35.633Z status 
+2026-10-20T08:03:36.178Z shot resume-check
+2026-10-20T08:04:08.500Z status 
+2026-10-20T08:04:09.019Z shot gate-resume
+2026-10-20T08:04:09.455Z els 
+2026-10-20T08:04:19.955Z do id aiMiniDramaOutline.UIButton.scrollToBottom ;; wait 2 ;; shot gate-chat-bottom
+2026-10-20T08:04:19.957Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T08:04:21.056Z wait 2
+2026-10-20T08:04:23.335Z shot gate-chat-bottom
+2026-10-20T08:04:23.718Z els 
+2026-10-20T08:04:39.206Z do id aiMiniDramaCredits.UIButton.model.seedance2 ;; id aiMiniDramaCredits.UIButton
+2026-10-20T08:04:39.208Z id aiMiniDramaCredits.UIButton.model.seedance2
+2026-10-20T08:04:40.311Z id aiMiniDramaCredits.UIButton.videoLength.0
+2026-10-20T08:04:41.338Z shot gate-video-settings
+2026-10-20T08:04:41.593Z id aiMiniDramaCredits.UIButton.consume
+2026-10-20T08:04:42.602Z wait 5
+2026-10-20T08:04:47.866Z shot gate-video-started
+2026-10-20T08:04:54.898Z waitfor Try creating your video again|Fix Clips|Something went wrong|Server is busy|Try 
+2026-10-20T08:14:53.511Z waitfor Try creating your video again|Fix Clips|Something went wrong|Server is busy|Try 
+2026-10-20T08:17:06.510Z shot gate-video-result
+2026-10-20T08:17:06.949Z els 
+2026-10-20T08:17:13.660Z els creditEntry
+2026-10-20T08:17:15.844Z pull-logs P23-gate
+2026-10-20T08:17:43.272Z logs P23-gate
+2026-10-20T08:18:11.801Z credits 
+2026-10-20T08:18:23.436Z shot gate-credits-page
+2026-10-20T08:18:23.988Z els 
+2026-10-20T08:18:27.912Z do id creditsHomePage.UIButton.detail ;; wait 3 ;; shot gate-ledger
+2026-10-20T08:18:27.914Z id creditsHomePage.UIButton.detail
+2026-10-20T08:18:29.020Z wait 3
+2026-10-20T08:18:38.187Z shot gate-ledger
+2026-10-20T08:18:38.445Z ledger GATE-video
+2026-10-20T08:20:48.535Z run-log gate video fail
+2026-10-20T08:21:57.559Z status 
+2026-10-20T08:22:01.512Z shot 
+2026-10-20T08:22:09.700Z shot p23a-start
+2026-10-20T08:22:10.133Z els 
+2026-10-20T08:24:13.908Z id creditsDetailPage.UIButton.backButton
+2026-10-20T08:24:29.226Z els 
+2026-10-20T08:24:33.497Z id creditsHomePage.UIButton.backButton
+2026-10-20T08:24:35.322Z els 
+2026-10-20T08:24:40.709Z lbl AI Mini Drama
+2026-10-20T08:24:43.744Z waitfor aiMiniDramaEntry.UIButton.createDrama --timeout 20
+2026-10-20T08:24:45.447Z id aiMiniDramaEntry.UIButton.createDrama
+2026-10-20T08:24:46.704Z waitfor aiMiniDramaComposer --timeout 15
+2026-10-20T08:24:50.787Z shot TC-186-empty-chat
+2026-10-20T08:24:51.165Z els 
+2026-10-20T08:24:57.247Z source 
+2026-10-20T08:24:58.362Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T08:25:01.306Z shot TC-186-after-back
+2026-10-20T08:25:01.670Z els 
+2026-10-20T08:25:09.454Z run-log set TC-186 Fail
+2026-10-20T08:25:09.562Z lbl Stay
+2026-10-20T08:25:13.386Z hidekb 
+2026-10-20T08:25:13.989Z id aiMiniDramaOutline.UIButton.newChat
+2026-10-20T08:25:16.848Z shot TC-199-newchat-empty
+2026-10-20T08:25:17.216Z els 
+2026-10-20T08:25:25.112Z run-log set TC-199 Fail
+2026-10-20T08:25:25.225Z lbl Stay
+2026-10-20T08:25:28.979Z id aiMiniDramaComposer.UITextView.text
+2026-10-20T08:25:30.018Z type A lighthouse keeper finds a message in a bottle
+2026-10-20T08:25:50.931Z hidekb 
+2026-10-20T08:25:51.518Z shot TC-200-prompt-typed
+2026-10-20T08:25:52.013Z id aiMiniDramaOutline.UIButton.newChat
+2026-10-20T08:25:54.876Z shot TC-200-dialog
+2026-10-20T08:25:55.243Z lbl Leave anyway
+2026-10-20T08:26:00.101Z shot TC-200-after-leave
+2026-10-20T08:26:00.697Z els 
+2026-10-20T08:26:10.801Z run-log set TC-200 Fail
+2026-10-20T08:26:10.915Z id aiMiniDramaEntry.UIButton.createDrama
+2026-10-20T08:26:12.168Z waitfor aiMiniDramaComposer --timeout 15
+2026-10-20T08:26:15.547Z id aiMiniDramaComposer.UITextView.text
+2026-10-20T08:26:16.587Z type A shy baker enters a city cake contest against her ex
+2026-10-20T08:26:40.082Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T08:26:41.164Z hidekb 
+2026-10-20T08:26:41.406Z waitfor What format would you like for your video?|aiMiniDramaFormat.UIButton.continue|S
+2026-10-20T08:26:44.770Z shot TC-213-format-card
+2026-10-20T08:26:45.187Z els 
+2026-10-20T08:26:51.722Z id aiMiniDramaComposer.UITextView.text
+2026-10-20T08:26:53.006Z type Make it bittersweet
+2026-10-20T08:27:01.777Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T08:27:03.199Z hidekb 
+2026-10-20T08:27:06.851Z shot TC-213-second-msg
+2026-10-20T08:27:07.283Z waitfor Possible Characters|What format would you like|Something went wrong|Server is bu
+2026-10-20T08:29:43.450Z shot TC-213-result
+2026-10-20T08:29:43.844Z els 
+2026-10-20T08:29:53.241Z hidekb 
+2026-10-20T08:29:53.946Z drag 210 300 210 800 300
+2026-10-20T08:29:55.257Z drag 210 300 210 800 300
+2026-10-20T08:29:56.584Z shot TC-213-chat-top
+2026-10-20T08:29:56.940Z els 
+2026-10-20T08:30:11.979Z run-log set TC-213 Fail
+2026-10-20T08:30:12.092Z setval aiMiniDramaComposer.UITextView.text In a rain-soaked harbor town where the fishi
+2026-10-20T08:30:21.693Z shot TC-286-idea-long
+2026-10-20T08:30:22.112Z els 
+2026-10-20T08:30:33.249Z clear aiMiniDramaComposer.UITextView.text
+2026-10-20T08:30:34.318Z hidekb 
+2026-10-20T08:30:36.033Z lbl Clara Evans
+2026-10-20T08:30:44.024Z shot TC-177-choose-character
+2026-10-20T08:30:44.405Z els 
+2026-10-20T08:30:50.544Z id aiMiniDramaCharacters.UIControl.character.0
+2026-10-20T08:30:55.986Z shot TC-177-choose-character
+2026-10-20T08:30:56.334Z els 
+2026-10-20T08:31:03.136Z waitfor libraryLoading --gone --timeout 30
+2026-10-20T08:31:04.070Z shot TC-177-library
+2026-10-20T08:31:04.543Z els 
+2026-10-20T08:31:10.634Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T08:31:13.976Z shot TC-177-filter
+2026-10-20T08:31:14.349Z els 
+2026-10-20T08:31:24.565Z lbl Clear
+2026-10-20T08:31:30.844Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T08:31:33.801Z els 
+2026-10-20T08:31:44.184Z tap 210 400
+2026-10-20T08:31:44.831Z tap 340 530
+2026-10-20T08:31:45.461Z tap 80 665
+2026-10-20T08:31:46.110Z tap 210 665
+2026-10-20T08:31:46.746Z tap 340 665
+2026-10-20T08:31:47.373Z tap 80 800
+2026-10-20T08:31:47.989Z tap 210 530
+2026-10-20T08:31:48.613Z tap 340 400
+2026-10-20T08:31:49.284Z tap 152 175
+2026-10-20T08:31:49.924Z tap 210 530
+2026-10-20T08:31:50.568Z tap 58 175
+2026-10-20T08:31:51.216Z tap 340 665
+2026-10-20T08:31:53.464Z shot TC-177-after
+2026-10-20T08:32:15.979Z run-log set TC-177 Pass
+2026-10-20T08:32:21.935Z id aiMiniDramaChangeCharacters.cell.create
+2026-10-20T08:32:25.854Z shot TC-286-create-form
+2026-10-20T08:32:26.220Z els 
+2026-10-20T08:32:36.125Z setval aiMiniDramaMakeCharacter.UITextView.prompt A woman in her late twenties with sho
+2026-10-20T08:32:47.775Z shot TC-286-desc-long
+2026-10-20T08:32:48.173Z els 
+2026-10-20T08:32:59.314Z lbl Done
+2026-10-20T08:33:10.173Z hidekb 
+2026-10-20T08:33:10.456Z shot TC-286-desc-collapsed
+2026-10-20T08:33:22.891Z run-log set TC-286 Pass
+2026-10-20T08:33:23.008Z id aiMiniDramaMakeCharacter.UIButton.close
+2026-10-20T08:33:25.966Z els 
+2026-10-20T08:33:35.386Z lbl Discard
+2026-10-20T08:33:42.649Z id aiMiniDramaChangeCharacters.UIButton.close
+2026-10-20T08:33:46.369Z els 
+2026-10-20T08:33:53.723Z shot nav-check
+2026-10-20T08:33:54.147Z els 
+2026-10-20T08:34:06.409Z id aiMiniDramaMakeCharacter.UIButton.close
+2026-10-20T08:34:08.848Z tap 285 513
+2026-10-20T08:34:11.577Z els 
+2026-10-20T08:34:17.328Z id aiMiniDramaChangeCharacters.UIButton.close
+2026-10-20T08:34:20.109Z els 
+2026-10-20T08:34:26.825Z id Leave
+2026-10-20T08:34:29.646Z els 
+2026-10-20T08:34:36.868Z id aiMiniDramaComposer.UITextView.text
+2026-10-20T08:34:38.208Z type I want vertical 9:16 and only 15 seconds
+2026-10-20T08:35:13.773Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T08:35:15.326Z hidekb 
+2026-10-20T08:35:16.033Z waitfor Thinking --timeout 20
+2026-10-20T08:35:24.941Z waitfor Thinking --gone --timeout 150
+2026-10-20T08:35:28.322Z shot TC-189-reply
+2026-10-20T08:35:28.774Z els 
+2026-10-20T08:35:39.930Z waitfor Updating project settings and continuing production. --gone --timeout 200
+2026-10-20T08:35:46.977Z hidekb 
+2026-10-20T08:35:49.722Z shot TC-189-reply2
+2026-10-20T08:35:50.118Z els 
+2026-10-20T08:35:59.611Z hidekb 
+2026-10-20T08:36:00.360Z drag 210 250 210 600 400
+2026-10-20T08:36:02.814Z shot TC-189-reply-up
+2026-10-20T08:36:03.207Z els 
+2026-10-20T08:36:15.191Z drag 210 250 210 650 400
+2026-10-20T08:36:17.654Z shot TC-189-reply-up2
+2026-10-20T08:36:18.039Z els 
+2026-10-20T08:36:27.567Z run-log set TC-189 Fail
+2026-10-20T08:36:34.507Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T08:36:38.113Z els 
+2026-10-20T08:36:45.680Z do id aiMiniDramaEntry.UIButton.createDrama ;; waitfor aiMiniDramaComposer --timeou
+2026-10-20T08:36:45.682Z id aiMiniDramaEntry.UIButton.createDrama
+2026-10-20T08:36:46.752Z waitfor aiMiniDramaComposer --timeout 15
+2026-10-20T08:36:50.073Z id aiMiniDramaComposer.UITextView.text
+2026-10-20T08:36:50.885Z type my grandma's cat steals her false teeth every morning and she chases him around 
+2026-10-20T08:49:22.122Z status 
+2026-10-20T08:49:46.025Z waitfor Ready to create your characters?|Something went wrong|Try again --timeout 120
+2026-10-20T08:54:46.160Z hidekb 
+2026-10-20T08:56:20.420Z shot TC-193-outline
+2026-10-20T08:56:20.910Z els 
+2026-10-20T08:56:27.320Z shot TC-193-state
+2026-10-20T08:56:27.730Z els 
+2026-10-20T08:56:38.042Z do id aiMiniDramaComposer.UIButton.send ;; ?hidekb ;; waitfor aiMiniDramaFormat.UIB
+2026-10-20T08:56:38.044Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T08:56:58.910Z hidekb 
+2026-10-20T08:56:58.998Z waitfor aiMiniDramaFormat.UIButton.continue --timeout 60
+2026-10-20T08:57:01.486Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T08:57:22.249Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T08:57:43.037Z id aiMiniDramaFormat.UIButton.continue
+2026-10-20T08:58:08.983Z waitfor Ready to create your characters?|Something went wrong|Server is busy|Try again -
+2026-10-20T09:01:54.631Z hidekb 
+2026-10-20T09:01:54.881Z shot TC-193-outline
+2026-10-20T09:01:55.326Z els 
+2026-10-20T09:02:07.498Z id aiMiniDramaFormat.UIButton.continue
+2026-10-20T09:02:28.618Z waitfor Ready to create your characters?|Something went wrong|Server is busy|Try again -
+2026-10-20T09:06:10.026Z shot TC-193-outline
+2026-10-20T09:06:10.425Z els 
+2026-10-20T09:06:19.963Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T09:06:45.700Z shot TC-193-characters
+2026-10-20T09:06:46.108Z els 
+2026-10-20T09:06:57.751Z run-log set TC-193 Fail
+2026-10-20T09:07:05.195Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T09:07:28.314Z id aiMiniDramaEntry.UIButton.moreTemplates
+2026-10-20T09:07:52.244Z els 
+2026-10-20T09:08:00.999Z scrollto The Beer Heir 210 150 700
+2026-10-20T09:08:48.489Z els 
+2026-10-20T09:08:57.931Z drag 30 800 30 250 400
+2026-10-20T09:09:01.322Z drag 30 800 30 250 400
+2026-10-20T09:09:04.682Z drag 30 800 30 250 400
+2026-10-20T09:09:08.054Z drag 30 800 30 250 400
+2026-10-20T09:09:11.383Z els 
+2026-10-20T09:09:19.566Z tap 199 750
+2026-10-20T09:09:43.456Z shot TC-192-template
+2026-10-20T09:09:44.130Z els 
+2026-10-20T09:09:52.498Z do id aiMiniDramaTemplatePreview.UIButton.makeMyVersion ;; waitfor aiMiniDramaForma
+2026-10-20T09:09:52.500Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T09:10:13.273Z waitfor aiMiniDramaFormat.UIButton.continue --timeout 60
+2026-10-20T09:10:15.696Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T09:10:36.452Z hidekb 
+2026-10-20T09:10:37.693Z shot TC-192-format-ja
+2026-10-20T09:10:38.198Z id aiMiniDramaFormat.UIButton.continue
+2026-10-20T09:11:04.666Z waitfor aiMiniDramaCharacters.UIControl.character.0|Something went wrong|Server is busy|
+2026-10-20T09:11:09.395Z shot TC-192-after
+2026-10-20T09:11:09.893Z els 
+2026-10-20T09:11:18.036Z waitfor aiMiniDramaCharacters.UIControl.character.0|Something went wrong|Server is busy|
+2026-10-20T09:14:33.443Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T09:15:00.392Z shot TC-192-result
+2026-10-20T09:15:00.829Z els 
+2026-10-20T09:15:13.776Z drag 210 200 210 750 500
+2026-10-20T09:15:18.322Z shot TC-192-outline-top
+2026-10-20T09:15:18.738Z els 
+2026-10-20T09:15:31.716Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T09:15:57.848Z lbl Try again
+2026-10-20T09:16:25.801Z waitfor Something went wrong|Try again|Choose your video settings|storyboard|Storyboard 
+2026-10-20T09:17:05.132Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T09:17:31.574Z shot TC-192-retry
+2026-10-20T09:17:32.017Z els 
+2026-10-20T09:17:48.543Z run-log set TC-192 Fail
+2026-10-20T09:17:48.666Z launch --lang ja
+2026-10-20T09:17:57.138Z shot TC-207-launch-ja
+2026-10-20T09:17:57.749Z els 
+2026-10-20T09:18:06.367Z lbl AI ショートドラマ
+2026-10-20T09:18:11.765Z waitfor aiMiniDramaEntry.UIButton.moreTemplates --timeout 20
+2026-10-20T09:18:13.370Z id aiMiniDramaEntry.UIButton.moreTemplates
+2026-10-20T09:18:17.246Z drag 30 800 30 250 400
+2026-10-20T09:18:18.966Z drag 30 800 30 250 400
+2026-10-20T09:18:20.721Z drag 30 800 30 250 400
+2026-10-20T09:18:22.606Z drag 30 800 30 250 400
+2026-10-20T09:18:24.351Z els 
+2026-10-20T09:18:32.400Z shot TC-207-list-ja
+2026-10-20T09:18:33.034Z tap 199 750
+2026-10-20T09:18:36.841Z do id aiMiniDramaTemplatePreview.UIButton.makeMyVersion ;; waitfor aiMiniDramaForma
+2026-10-20T09:18:36.843Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T09:18:37.479Z waitfor aiMiniDramaFormat.UIButton.continue --timeout 60
+2026-10-20T09:18:43.527Z hidekb 
+2026-10-20T09:18:43.746Z els 
+2026-10-20T09:18:51.280Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T09:18:52.242Z shot TC-207-beer-format
+2026-10-20T09:18:52.813Z id aiMiniDramaFormat.UIButton.continue
+2026-10-20T09:19:13.821Z waitfor aiMiniDramaOutline.UIButton.scrollToBottom|Try again|もう一度|サーバー --timeout 200
+2026-10-20T11:03:22.009Z status 
+2026-10-20T11:03:25.908Z start 00008150-00081D403A38401C
+2026-10-20T11:03:26.386Z shot TC-207-resume
+2026-10-20T11:03:34.446Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T11:03:39.949Z shot TC-207-bottom
+2026-10-20T11:03:49.984Z els 
+2026-10-20T11:03:56.041Z drag 340 280 40 280 400
+2026-10-20T11:03:58.257Z shot TC-207-chars2
+2026-10-20T11:03:58.738Z drag 340 280 40 280 400
+2026-10-20T11:04:00.616Z shot TC-207-chars3
+2026-10-20T11:04:12.881Z drag 100 280 250 280 600
+2026-10-20T11:04:14.485Z shot TC-207-chars-ume
+2026-10-20T11:04:25.142Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T11:04:26.214Z waitfor aiMiniDramaEntry.UIButton.moreTemplates --timeout 20
+2026-10-20T11:04:47.499Z id aiMiniDramaEntry.UIButton.moreTemplates
+2026-10-20T11:04:49.754Z els StaticText
+2026-10-20T11:04:54.071Z els Button
+2026-10-20T11:04:58.457Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T11:05:01.274Z els StaticText
+2026-10-20T11:05:02.885Z shot TC-207-list2
+2026-10-20T11:05:07.968Z tap 74 750
+2026-10-20T11:05:08.773Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T11:05:10.119Z shot TC-207-ring-preview
+2026-10-20T11:05:18.120Z do id aiMiniDramaTemplatePreview.UIButton.makeMyVersion ;; waitfor aiMiniDramaForma
+2026-10-20T11:05:18.121Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T11:05:18.741Z waitfor aiMiniDramaFormat.UIButton.continue --timeout 60
+2026-10-20T11:05:24.537Z hidekb 
+2026-10-20T11:05:24.759Z els aiMiniDramaFormat
+2026-10-20T11:05:30.767Z do id aiMiniDramaFormat.UIButton.language.4 ;; id aiMiniDramaFormat.UIButton.captio
+2026-10-20T11:05:30.768Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T11:05:31.541Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T11:05:32.256Z shot TC-207-ring-format
+2026-10-20T11:05:32.540Z id aiMiniDramaFormat.UIButton.continue
+2026-10-20T11:05:37.121Z waitfor aiMiniDramaCredits.UIButton.consume|Try again|もう一度|サーバー|Something went wrong|Ser
+2026-10-20T11:12:53.514Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T11:12:57.961Z shot TC-207-ring-bottom
+2026-10-20T11:12:58.412Z els TextView
+2026-10-20T11:13:15.856Z run-log set TC-207 Pass
+2026-10-20T11:13:26.890Z launch 
+2026-10-20T11:13:30.145Z shot p23a-relaunch
+2026-10-20T11:13:47.746Z launch 
+2026-10-20T11:13:56.185Z shot p23a-relaunch-plain
+2026-10-20T11:14:04.812Z pink open [z] AI Mini Drama
+2026-10-20T11:15:05.519Z els Switch
+2026-10-20T11:15:11.435Z shot pink-check-p23a
+2026-10-20T11:15:31.730Z pink set Log stage timings on
+2026-10-20T11:16:28.534Z pink set Unlimited daily chat on
+2026-10-20T11:17:57.586Z pink close
+2026-10-20T11:18:03.501Z pull-logs P23-a
+2026-10-20T11:18:22.635Z logs P23-a
+2026-10-20T11:21:05.122Z status 
+2026-10-20T11:21:05.575Z shot b-start
+2026-10-20T11:21:29.907Z do library/ai-mini-drama/ios/recipes/new-drama.steps A young widowed father raising
+2026-10-20T11:21:29.909Z tapif launcher.UIButton.homeButton
+2026-10-20T11:21:35.225Z drag 210 300 210 800 300
+2026-10-20T11:21:36.355Z drag 210 300 210 800 300
+2026-10-20T11:21:37.456Z lbl AI Mini Drama
+2026-10-20T11:21:42.777Z waitfor aiMiniDramaEntry.UIButton.createDrama --timeout 20
+2026-10-20T11:21:44.261Z id aiMiniDramaEntry.UIButton.createDrama
+2026-10-20T11:21:44.850Z waitfor aiMiniDramaComposer --timeout 15
+2026-10-20T11:21:48.969Z type A young widowed father raising his baby daughter clashes with the strict elderly
+2026-10-20T11:22:54.149Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T11:22:54.769Z hidekb 
+2026-10-20T11:22:54.866Z waitfor aiMiniDramaFormat.UIButton.continue --timeout 60
+2026-10-20T11:22:57.229Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T11:22:57.958Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T11:22:58.724Z id aiMiniDramaFormat.UIButton.continue
+2026-10-20T11:22:59.470Z waitfor Possible Characters|Something went wrong|Server is busy|Try again --timeout 180
+2026-10-20T11:26:17.211Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T11:26:19.289Z shot b-outline-bottom
+2026-10-20T11:26:19.675Z els 
+2026-10-20T11:26:45.383Z id aiMiniDramaCharacters.UIControl.character.0
+2026-10-20T11:26:46.398Z waitfor Choose for David --timeout 20
+2026-10-20T11:26:49.429Z shot b-choose-david
+2026-10-20T11:26:49.980Z els 
+2026-10-20T11:26:56.256Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T11:26:58.769Z shot b-filter-open
+2026-10-20T11:26:59.139Z els 
+2026-10-20T11:27:14.907Z source 
+2026-10-20T11:27:42.035Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T11:27:44.733Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T11:27:46.932Z id aiMiniDramaCharacterFilter.UIButton.clear
+2026-10-20T11:27:48.543Z source 
+2026-10-20T11:27:50.634Z tap 224 713
+2026-10-20T11:27:52.033Z shot TC-288-filter-african
+2026-10-20T11:27:52.387Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T11:27:55.489Z shot TC-288-result-african
+2026-10-20T11:27:56.002Z source 
+2026-10-20T11:28:06.768Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T11:28:08.915Z id aiMiniDramaCharacterFilter.UIButton.clear
+2026-10-20T11:28:10.487Z source 
+2026-10-20T11:28:12.532Z tap 93 713
+2026-10-20T11:28:13.888Z shot TC-288-filter-east-asian
+2026-10-20T11:28:14.225Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T11:28:17.305Z shot TC-288-result-east-asian
+2026-10-20T11:28:17.784Z source 
+2026-10-20T11:28:18.784Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T11:28:20.977Z id aiMiniDramaCharacterFilter.UIButton.clear
+2026-10-20T11:28:22.647Z source 
+2026-10-20T11:28:24.663Z tap 347 713
+2026-10-20T11:28:26.050Z shot TC-288-filter-hispanic
+2026-10-20T11:28:26.391Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T11:28:29.482Z shot TC-288-result-hispanic
+2026-10-20T11:28:29.978Z source 
+2026-10-20T11:28:31.003Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T11:28:33.198Z id aiMiniDramaCharacterFilter.UIButton.clear
+2026-10-20T11:28:34.771Z source 
+2026-10-20T11:28:36.817Z drag 380 713 60 713 400
+2026-10-20T11:28:40.605Z source 
+2026-10-20T11:28:42.608Z drag 60 713 380 713 400
+2026-10-20T11:28:46.431Z source 
+2026-10-20T11:28:48.477Z drag 380 713 60 713 400
+2026-10-20T11:28:52.254Z tap 455 713
+2026-10-20T11:28:53.626Z shot TC-288-filter-arab
+2026-10-20T11:28:53.994Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T11:28:57.064Z shot TC-288-result-arab
+2026-10-20T11:28:57.439Z source 
+2026-10-20T11:28:58.134Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T11:29:00.288Z id aiMiniDramaCharacterFilter.UIButton.clear
+2026-10-20T11:29:01.823Z source 
+2026-10-20T11:29:03.232Z drag 380 713 60 713 400
+2026-10-20T11:29:06.932Z source 
+2026-10-20T11:29:08.301Z tap 70 713
+2026-10-20T11:29:09.575Z shot TC-288-filter-indian
+2026-10-20T11:29:09.929Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T11:29:12.940Z shot TC-288-result-indian
+2026-10-20T11:29:13.420Z source 
+2026-10-20T11:29:14.396Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T11:29:16.553Z id aiMiniDramaCharacterFilter.UIButton.clear
+2026-10-20T11:29:18.132Z source 
+2026-10-20T11:29:20.062Z drag 380 713 60 713 400
+2026-10-20T11:29:23.846Z source 
+2026-10-20T11:29:25.763Z tap 177 713
+2026-10-20T11:29:27.092Z shot TC-288-filter-other
+2026-10-20T11:29:27.502Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T11:29:30.523Z shot TC-288-result-other
+2026-10-20T11:29:31.044Z source 
+2026-10-20T11:29:32.099Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T11:29:34.285Z id aiMiniDramaCharacterFilter.UIButton.clear
+2026-10-20T11:29:35.808Z source 
+2026-10-20T11:29:37.863Z drag 380 713 60 713 400
+2026-10-20T11:29:41.659Z source 
+2026-10-20T11:29:43.837Z tap 288 713
+2026-10-20T11:29:45.219Z shot TC-288-filter-white
+2026-10-20T11:29:45.555Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T11:29:48.589Z shot TC-288-result-white
+2026-10-20T11:29:49.097Z source 
+2026-10-20T11:29:50.269Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T11:29:52.404Z id aiMiniDramaCharacterFilter.UIButton.clear
+2026-10-20T11:29:53.949Z source 
+2026-10-20T11:29:55.993Z drag 380 713 60 713 400
+2026-10-20T11:29:59.782Z source 
+2026-10-20T11:30:01.780Z drag 380 713 60 713 400
+2026-10-20T11:30:04.430Z source 
+2026-10-20T11:30:06.454Z tap 351 713
+2026-10-20T11:30:07.803Z shot TC-288-filter-indigenous
+2026-10-20T11:30:08.162Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T11:30:11.183Z shot TC-288-result-indigenous
+2026-10-20T11:30:11.553Z source 
+2026-10-20T11:30:20.495Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T11:30:22.507Z id aiMiniDramaCharacterFilter.UIButton.clear
+2026-10-20T11:30:23.988Z source 
+2026-10-20T11:30:34.498Z drag 300 713 100 713 1200
+2026-10-20T11:30:37.663Z source 
+2026-10-20T11:30:44.708Z tap 276 713
+2026-10-20T11:30:46.000Z shot TC-288-filter-arab
+2026-10-20T11:30:46.359Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T11:30:49.331Z shot TC-288-result-arab
+2026-10-20T11:30:49.797Z source 
+2026-10-20T11:31:12.340Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T11:31:14.460Z id aiMiniDramaCharacterFilter.UIButton.clear
+2026-10-20T11:31:16.045Z lbl Male
+2026-10-20T11:31:20.680Z drag 380 713 60 713 1500
+2026-10-20T11:31:24.112Z drag 380 713 60 713 1500
+2026-10-20T11:31:27.789Z source 
+2026-10-20T11:31:33.945Z tap 351 713
+2026-10-20T11:31:35.306Z shot TC-288-filter-male-indigenous
+2026-10-20T11:31:35.670Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T11:31:38.763Z shot TC-288-result-male-indigenous
+2026-10-20T11:31:39.095Z els 
+2026-10-20T11:31:51.589Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T11:31:53.644Z id aiMiniDramaCharacterFilter.UIButton.clear
+2026-10-20T11:31:55.167Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T11:31:57.630Z source 
+2026-10-20T11:31:58.662Z drag 210 800 210 420 600
+2026-10-20T11:32:02.468Z source 
+2026-10-20T11:32:03.466Z drag 210 800 210 420 600
+2026-10-20T11:32:07.238Z source 
+2026-10-20T11:32:08.233Z drag 210 800 210 420 600
+2026-10-20T11:32:11.972Z source 
+2026-10-20T11:32:12.998Z drag 210 800 210 420 600
+2026-10-20T11:32:16.721Z source 
+2026-10-20T11:32:17.781Z drag 210 800 210 420 600
+2026-10-20T11:32:21.657Z source 
+2026-10-20T11:32:22.693Z drag 210 800 210 420 600
+2026-10-20T11:32:26.696Z source 
+2026-10-20T11:32:27.709Z drag 210 800 210 420 600
+2026-10-20T11:32:31.473Z source 
+2026-10-20T11:32:32.495Z drag 210 800 210 420 600
+2026-10-20T11:32:36.254Z source 
+2026-10-20T11:32:37.283Z drag 210 800 210 420 600
+2026-10-20T11:32:41.029Z source 
+2026-10-20T11:32:42.093Z drag 210 800 210 420 600
+2026-10-20T11:32:45.942Z source 
+2026-10-20T11:32:46.962Z drag 210 800 210 420 600
+2026-10-20T11:32:50.866Z source 
+2026-10-20T11:32:51.879Z drag 210 800 210 420 600
+2026-10-20T11:32:55.767Z source 
+2026-10-20T11:32:56.783Z drag 210 800 210 420 600
+2026-10-20T11:33:00.535Z source 
+2026-10-20T11:33:01.577Z drag 210 800 210 420 600
+2026-10-20T11:33:05.368Z source 
+2026-10-20T11:33:06.388Z drag 210 800 210 420 600
+2026-10-20T11:33:10.125Z source 
+2026-10-20T11:33:11.118Z drag 210 800 210 420 600
+2026-10-20T11:33:14.082Z source 
+2026-10-20T11:33:15.095Z drag 210 800 210 420 600
+2026-10-20T11:33:17.803Z source 
+2026-10-20T11:33:53.698Z run-log set TC-288 Fail
+2026-10-20T11:34:01.722Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T11:34:03.881Z lbl Female
+2026-10-20T11:34:08.686Z tap 224 713
+2026-10-20T11:34:09.615Z drag 37 803 150 803 800
+2026-10-20T11:34:11.369Z drag 382 803 300 803 800
+2026-10-20T11:34:13.143Z id aiMiniDramaCharacterFilter.UIControl.myCharacters
+2026-10-20T11:34:14.673Z shot TC-119-before-clear
+2026-10-20T11:34:15.021Z els 
+2026-10-20T11:34:24.522Z id aiMiniDramaCharacterFilter.UIButton.clear
+2026-10-20T11:34:26.422Z shot TC-119-after-clear
+2026-10-20T11:34:35.100Z run-log set TC-119 Pass
+2026-10-20T11:34:35.206Z lbl Female
+2026-10-20T11:34:40.183Z tap 224 713
+2026-10-20T11:34:40.985Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T11:34:43.509Z shot TC-120-before
+2026-10-20T11:34:44.003Z id aiMiniDramaChangeCharacters.slot.char_316f5227
+2026-10-20T11:34:46.575Z shot TC-120-after
+2026-10-20T11:34:47.075Z els 
+2026-10-20T11:35:03.776Z run-log set TC-120 Pass
+2026-10-20T11:35:03.883Z id aiMiniDramaChangeCharacters.cell.Style_Mini-Drama-Character_female_east_asian_78
+2026-10-20T11:35:05.896Z shot TC-181-picked
+2026-10-20T11:35:06.412Z id aiMiniDramaChangeCharacters.UIButton.close
+2026-10-20T11:35:08.589Z shot TC-181-close-dialog
+2026-10-20T11:35:09.139Z els 
+2026-10-20T11:35:15.728Z lbl Leave
+2026-10-20T11:35:22.479Z shot TC-181-chat
+2026-10-20T11:35:22.948Z els 
+2026-10-20T11:35:29.853Z tap 210 501
+2026-10-20T11:35:33.194Z shot TC-181-chat
+2026-10-20T11:35:33.610Z els 
+2026-10-20T11:35:55.783Z run-log set TC-181 Pass
+2026-10-20T11:35:55.885Z run-log set TC-176 Blocked
+2026-10-20T11:35:56.000Z id aiMiniDramaCharacters.UIControl.character.0
+2026-10-20T11:35:57.073Z waitfor Choose for David --timeout 20
+2026-10-20T11:36:00.129Z id aiMiniDramaChangeCharacters.UIButton.confirm
+2026-10-20T11:36:02.641Z shot TC-121-finish-sheet
+2026-10-20T11:36:02.995Z els 
+2026-10-20T11:36:10.217Z id aiMiniDramaFinishCharacters.UIButton.primary
+2026-10-20T11:36:11.222Z waitfor Your characters are ready|couldn't be created|Something went wrong|Server is bus
+2026-10-20T11:38:11.442Z shot TC-121-ready
+2026-10-20T11:38:11.843Z els 
+2026-10-20T11:38:19.164Z id aiMiniDramaFinishCharacters.UIButton.close
+2026-10-20T11:38:21.683Z shot TC-121-after-x
+2026-10-20T11:38:22.211Z els 
+2026-10-20T11:38:44.125Z run-log set TC-121 Fail
+2026-10-20T11:38:44.247Z source 
+2026-10-20T11:38:45.474Z tap 389 347
+2026-10-20T11:38:47.876Z shot TC-291-enlarge
+2026-10-20T11:38:48.390Z els 
+2026-10-20T11:38:54.977Z id aiMiniDramaCharacterPreview.UIButton.more
+2026-10-20T11:38:57.186Z shot TC-291-more-menu
+2026-10-20T11:38:57.713Z els 
+2026-10-20T11:39:06.149Z tap 100 250
+2026-10-20T11:39:07.990Z els 
+2026-10-20T11:39:09.821Z tapif aiMiniDramaCharacterPreview.UIButton.close
+2026-10-20T11:39:15.189Z hold 58 228 1.2
+2026-10-20T11:39:18.145Z shot TC-291-name-hold
+2026-10-20T11:39:18.677Z els 
+2026-10-20T11:39:30.673Z id aiMiniDramaChangeCharacters.UIButton.close
+2026-10-20T11:39:32.913Z els 
+2026-10-20T11:39:35.019Z shot TC-121-x-dialog
+2026-10-20T11:39:40.775Z tap 210 501
+2026-10-20T11:39:44.150Z shot TC-121-chat-after-leave
+2026-10-20T11:39:44.534Z els 
+2026-10-20T11:39:52.470Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T11:39:58.559Z shot TC-208-bottom
+2026-10-20T11:39:58.985Z els 
+2026-10-20T11:40:13.035Z drag 210 300 210 750 700
+2026-10-20T11:40:17.017Z drag 210 300 210 750 700
+2026-10-20T11:40:21.033Z drag 210 300 210 750 700
+2026-10-20T11:40:25.004Z shot TC-208-mid
+2026-10-20T11:40:25.401Z els 
+2026-10-20T11:40:34.194Z source 
+2026-10-20T11:40:54.151Z run-log set TC-208 Fail
+2026-10-20T11:41:00.379Z id aiMiniDramaComposer.UITextView.text
+2026-10-20T11:41:01.463Z setval aiMiniDramaComposer.UITextView.text I want to change the story outline: strength
+2026-10-20T11:41:05.336Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T11:41:06.406Z hidekb 
+2026-10-20T11:41:07.162Z waitfor Story Outline & Characters Result|Ready to create the storyboard|Create storyboa
+2026-10-20T11:41:26.268Z waitfor Stop|Generating|Thinking --gone --timeout 300
+2026-10-20T11:41:45.909Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T11:41:53.786Z shot TC-197-result
+2026-10-20T11:42:06.836Z hidekb 
+2026-10-20T11:42:08.698Z source 
+2026-10-20T11:42:37.281Z run-log set TC-197 Pass
+2026-10-20T11:42:37.400Z setval aiMiniDramaComposer.UITextView.text Please rename David to Daniel everywhere in 
+2026-10-20T11:42:39.773Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T11:42:40.983Z hidekb 
+2026-10-20T11:42:49.778Z waitfor Stop|Generating|Thinking --gone --timeout 300
+2026-10-20T11:43:19.205Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T11:43:27.853Z shot TC-291-chat-rename
+2026-10-20T11:43:28.276Z source 
+2026-10-20T11:43:42.583Z hidekb 
+2026-10-20T11:43:43.426Z id aiMiniDramaCharacters.UIControl.character.0
+2026-10-20T11:43:44.716Z waitfor Choose for Daniel|Choose for David --timeout 15
+2026-10-20T11:44:05.341Z shot TC-291-picker-daniel
+2026-10-20T11:44:05.765Z id aiMiniDramaChangeCharacters.UIButton.close
+2026-10-20T11:44:07.384Z els 
+2026-10-20T11:44:30.925Z id aiMiniDramaCharacters.UIControl.character.0
+2026-10-20T11:44:32.111Z waitfor Choose for Daniel|Choose for David --timeout 15
+2026-10-20T11:44:35.207Z shot TC-291-picker-daniel
+2026-10-20T11:44:35.714Z els 
+2026-10-20T11:44:46.206Z run-log set TC-291 Pass
+2026-10-20T11:44:46.321Z id aiMiniDramaChangeCharacters.UIButton.close
+2026-10-20T11:44:48.532Z els 
+2026-10-20T11:44:50.586Z tapif Leave without finishing?
+2026-10-20T11:45:03.185Z tap 210 501
+2026-10-20T11:45:06.053Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T11:45:10.500Z id aiMiniDramaCharacters.UIControl.addCharacter
+2026-10-20T11:45:13.757Z shot TC-194-after-tap
+2026-10-20T11:45:14.202Z els 
+2026-10-20T11:45:23.645Z waitfor aiMiniDramaComposer.UIButton.stop --gone --timeout 300
+2026-10-20T11:45:33.773Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T11:45:41.262Z shot TC-194-result
+2026-10-20T11:45:41.693Z source 
+2026-10-20T11:46:17.124Z run-log set TC-194 Fail
+2026-10-20T11:46:38.376Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T11:46:41.695Z waitfor aiMiniDramaEntry.UIButton.moreTemplates --timeout 15
+2026-10-20T11:46:43.485Z id aiMiniDramaEntry.UIButton.moreTemplates
+2026-10-20T11:46:46.367Z scrollto The Art of Falling 210 150 700
+2026-10-20T11:46:48.067Z shot TC-212-roster
+2026-10-20T11:46:57.068Z drag 350 250 150 250 800
+2026-10-20T11:46:59.901Z els 
+2026-10-20T11:47:09.084Z tap 265 250
+2026-10-20T11:47:09.901Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T11:47:12.135Z shot TC-212-preview
+2026-10-20T11:47:12.734Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T11:47:13.584Z waitfor aiMiniDramaFormat.UIButton.continue --timeout 60
+2026-10-20T11:47:19.786Z shot TC-212-format
+2026-10-20T11:47:20.276Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T11:47:21.191Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T11:47:22.138Z id aiMiniDramaFormat.UIButton.continue
+2026-10-20T11:47:23.079Z waitfor Story Outline & Characters Result|Something went wrong|Server is busy|Try again 
+2026-10-20T11:49:20.320Z waitfor aiMiniDramaComposer.UIButton.stop --gone --timeout 300
+2026-10-20T11:49:21.588Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T11:49:27.683Z shot TC-212-characters
+2026-10-20T11:49:38.252Z drag 210 300 210 650 700
+2026-10-20T11:49:42.294Z shot TC-212-possible-characters
+2026-10-20T11:49:42.684Z source 
+2026-10-20T11:49:53.420Z run-log set TC-212 Fail
+2026-10-20T11:50:00.875Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T11:50:03.942Z els 
+2026-10-20T11:50:04.797Z tapif aiMiniDramaEntry.UIButton.moreTemplates
+2026-10-20T11:50:07.971Z scrollto The Dog Who Remembered Her 210 150 700
+2026-10-20T11:50:13.647Z shot TC-206-roster
+2026-10-20T11:50:22.893Z tap 36 95
+2026-10-20T11:50:25.579Z scrollto The Dog Who Remembered Her 210 150 700
+2026-10-20T11:50:38.704Z drag 350 500 150 500 800
+2026-10-20T11:50:41.721Z els 
+2026-10-20T11:50:50.102Z tap 345 500
+2026-10-20T11:50:50.941Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T11:50:52.895Z shot TC-206-preview
+2026-10-20T11:50:53.575Z els 
+2026-10-20T11:50:54.347Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T11:50:55.182Z waitfor aiMiniDramaFormat.UIButton.continue --timeout 60
+2026-10-20T11:51:01.358Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T11:51:02.292Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T11:51:03.243Z id aiMiniDramaFormat.UIButton.continue
+2026-10-20T11:51:04.171Z waitfor Story Outline & Characters Result|Something went wrong|Server is busy|Try again 
+2026-10-20T11:51:44.937Z waitfor aiMiniDramaComposer.UIButton.stop --gone --timeout 300
+2026-10-20T11:51:46.095Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T11:51:51.701Z shot TC-206-characters
+2026-10-20T11:52:03.653Z source 
+2026-10-20T11:52:19.632Z drag 330 640 100 640 600
+2026-10-20T11:52:22.469Z shot TC-201-scrolled
+2026-10-20T11:52:22.893Z source 
+2026-10-20T11:52:32.985Z run-log set TC-201 Fail
+2026-10-20T11:52:33.089Z drag 100 640 330 640 600
+2026-10-20T11:52:35.745Z id aiMiniDramaCharacters.UIControl.character.2
+2026-10-20T11:52:36.834Z waitfor Choose for Murphy --timeout 15
+2026-10-20T11:52:40.101Z shot TC-206-choose-murphy
+2026-10-20T11:52:49.215Z id aiMiniDramaChangeCharacters.UIButton.confirm
+2026-10-20T11:52:51.736Z els 
+2026-10-20T11:52:53.802Z id aiMiniDramaFinishCharacters.UIButton.primary
+2026-10-20T11:52:54.848Z waitfor Your characters are ready|couldn't be created|Something went wrong|Server is bus
+2026-10-20T11:55:17.326Z shot TC-206-murphy-ready
+2026-10-20T11:55:17.695Z id aiMiniDramaFinishCharacters.UIButton.primary
+2026-10-20T11:55:21.721Z waitfor aiMiniDramaComposer.UIButton.stop --gone --timeout 200
+2026-10-20T11:56:15.493Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T11:56:21.732Z shot TC-206-cast-confirmed
+2026-10-20T11:56:22.174Z els 
+2026-10-20T11:56:41.036Z els 
+2026-10-20T11:56:42.872Z setval aiMiniDramaComposer.UITextView.text Please change Mia's look: she should wear a 
+2026-10-20T11:56:45.941Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T11:56:46.987Z hidekb 
+2026-10-20T11:56:53.745Z waitfor aiMiniDramaComposer.UIButton.stop --gone --timeout 300
+2026-10-20T11:57:51.704Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T11:58:00.646Z shot TC-206-after-request
+2026-10-20T11:58:01.050Z source 
+2026-10-20T11:58:12.785Z hidekb 
+2026-10-20T11:58:14.622Z shot TC-206-create-characters-card
+2026-10-20T11:58:15.050Z id aiMiniDramaCredits.UIButton.consume
+2026-10-20T11:58:21.354Z waitfor aiMiniDramaComposer.UIButton.stop --gone --timeout 420
+2026-10-20T11:58:23.000Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T11:58:27.154Z shot TC-206-result
+2026-10-20T11:58:27.599Z source 
+2026-10-20T11:58:39.195Z id aiMiniDramaCredits.UIButton.consume
+2026-10-20T11:58:44.383Z shot TC-206-generating
+2026-10-20T11:58:44.822Z els 
+2026-10-20T11:58:53.282Z waitfor aiMiniDramaComposer.UIButton.stop --gone --timeout 480
+2026-10-20T11:59:11.402Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T11:59:15.324Z shot TC-206-result
+2026-10-20T11:59:15.747Z source 
+2026-10-20T11:59:24.028Z shot TC-206-fail
+2026-10-20T11:59:24.537Z els 
+2026-10-20T11:59:26.705Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T11:59:29.893Z els 
+2026-10-20T11:59:36.909Z id aiMiniDramaTemplatePreview.UIButton.history
+2026-10-20T11:59:40.317Z shot TC-206-history
+2026-10-20T11:59:40.683Z els 
+2026-10-20T11:59:47.004Z lbl Number 99
+2026-10-20T11:59:53.423Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T11:59:56.795Z shot TC-206-reopened
+2026-10-20T11:59:57.190Z els 
+2026-10-20T12:00:02.810Z els 
+2026-10-20T12:00:14.316Z credits 
+2026-10-20T12:00:20.547Z id creditsHomePage.UIButton.detail
+2026-10-20T12:00:24.333Z shot TC-206-ledger
+2026-10-20T12:00:24.701Z ledger TC-206
+2026-10-20T12:02:33.742Z drag 210 700 210 400 800
+2026-10-20T12:02:41.376Z ledger TC-121
+2026-10-20T12:04:20.135Z pull-logs P23-b
+2026-10-20T12:05:15.811Z logs P23-b
+2026-10-20T12:06:23.538Z run-log set TC-206 Fail
+2026-10-20T12:06:23.642Z run-log set TC-121 Fail
+2026-10-20T12:06:45.134Z shot P23-b-end
+2026-10-20T12:06:45.730Z els 
+2026-10-20T12:08:27.150Z status 
+2026-10-20T12:08:27.608Z shot 
+2026-10-20T12:08:43.483Z shot P23-c-resume
+2026-10-20T12:09:18.233Z lbl AI Mini Drama
+2026-10-20T12:09:24.034Z waitfor aiMiniDramaEntry.UIButton.createDrama --timeout 20
+2026-10-20T12:09:25.838Z els 
+2026-10-20T12:09:31.170Z id aiMiniDramaEntry.UIButton.history
+2026-10-20T12:09:34.055Z els 
+2026-10-20T12:09:39.179Z lbl Storm and Shelter
+2026-10-20T12:09:45.644Z shot P23-c-storm-open
+2026-10-20T12:09:54.975Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T12:09:59.144Z hidekb 
+2026-10-20T12:09:59.394Z els 
+2026-10-20T12:10:00.637Z shot P23-c-storm-bottom
+2026-10-20T12:10:06.054Z id aiMiniDramaCharacters.UIControl.character.1
+2026-10-20T12:10:10.027Z els 
+2026-10-20T12:10:17.500Z source 
+2026-10-20T12:10:18.715Z id aiMiniDramaChangeCharacters.cell.create
+2026-10-20T12:10:21.749Z els 
+2026-10-20T12:10:24.063Z shot TC-126-empty
+2026-10-20T12:10:29.648Z id aiMiniDramaMakeCharacter.UIControl.aiSuggestion
+2026-10-20T12:10:34.724Z els 
+2026-10-20T12:10:37.094Z shot TC-126-after
+2026-10-20T12:10:57.866Z run-log set TC-126 Fail
+2026-10-20T12:10:57.972Z run-log set TC-211 Fail
+2026-10-20T12:11:02.860Z id aiMiniDramaMakeCharacter.UITextField.age
+2026-10-20T12:11:05.456Z shot TC-127-keypad
+2026-10-20T12:11:05.848Z els 
+2026-10-20T12:11:20.202Z run-log set TC-127 Pass
+2026-10-20T12:11:20.314Z lbl 7
+2026-10-20T12:11:27.250Z lbl 2
+2026-10-20T12:11:34.354Z id aiMiniDramaNumberInput.UIButton.confirm
+2026-10-20T12:11:36.508Z id aiMiniDramaMakeCharacter.gender.0
+2026-10-20T12:11:38.627Z els 
+2026-10-20T12:11:40.887Z shot TC-284-no-ethnicity
+2026-10-20T12:11:46.769Z source 
+2026-10-20T12:11:58.209Z tap 210 818
+2026-10-20T12:12:00.075Z shot TC-284-tap-disabled
+2026-10-20T12:12:00.438Z els 
+2026-10-20T12:12:15.555Z run-log set TC-284 Pass
+2026-10-20T12:12:15.668Z id aiMiniDramaMakeCharacter.ethnicity.0
+2026-10-20T12:12:16.746Z id aiMiniDramaMakeCharacter.UITextField.age
+2026-10-20T12:12:18.896Z lbl Delete
+2026-10-20T12:12:26.348Z lbl Delete
+2026-10-20T12:12:33.941Z id aiMiniDramaNumberInput.UIButton.confirm
+2026-10-20T12:12:36.128Z source 
+2026-10-20T12:12:38.575Z shot TC-285-no-age
+2026-10-20T12:12:52.980Z run-log set TC-285 Pass
+2026-10-20T12:12:53.091Z source 
+2026-10-20T12:13:04.394Z id aiMiniDramaMakeCharacter.ethnicity.0
+2026-10-20T12:13:06.054Z setval aiMiniDramaMakeCharacter.UITextView.prompt A golden retriever dog with a red col
+2026-10-20T12:13:14.174Z hidekb 
+2026-10-20T12:13:14.932Z id aiMiniDramaMakeCharacter.UITextField.age
+2026-10-20T12:13:17.304Z lbl 5
+2026-10-20T12:13:20.834Z shot TC-204-dog-no-ethnicity
+2026-10-20T12:13:21.297Z source 
+2026-10-20T12:13:44.245Z els aiMiniDramaPromptEditor
+2026-10-20T12:13:47.535Z lbl Done
+2026-10-20T12:13:58.834Z shot TC-124-after-done
+2026-10-20T12:13:59.205Z source 
+2026-10-20T12:14:09.417Z id aiMiniDramaMakeCharacter.gender.1
+2026-10-20T12:14:10.498Z id aiMiniDramaMakeCharacter.UITextField.age
+2026-10-20T12:14:12.606Z id 5
+2026-10-20T12:14:13.760Z id aiMiniDramaNumberInput.UIButton.confirm
+2026-10-20T12:14:15.938Z shot TC-204-dog-no-ethnicity
+2026-10-20T12:14:16.319Z source 
+2026-10-20T12:14:35.437Z run-log set TC-124 Pass
+2026-10-20T12:14:35.552Z id aiMiniDramaMakeCharacter.UIButton.close
+2026-10-20T12:14:37.707Z els 
+2026-10-20T12:14:45.677Z tap 285 513
+2026-10-20T12:14:48.079Z id aiMiniDramaChangeCharacters.cell.create
+2026-10-20T12:14:51.093Z tap 210 467
+2026-10-20T12:14:53.465Z els aiMiniDramaPromptEditor
+2026-10-20T12:15:08.049Z setval aiMiniDramaPromptEditor.UITextView.prompt A golden retriever dog with a red coll
+2026-10-20T12:15:10.774Z id aiMiniDramaPromptEditor.UIButton.done
+2026-10-20T12:15:13.001Z id aiMiniDramaMakeCharacter.gender.1
+2026-10-20T12:15:14.105Z id aiMiniDramaMakeCharacter.UITextField.age
+2026-10-20T12:15:16.215Z id 5
+2026-10-20T12:15:17.351Z id aiMiniDramaNumberInput.UIButton.confirm
+2026-10-20T12:15:19.498Z shot TC-204-dog-no-ethnicity
+2026-10-20T12:15:19.845Z source 
+2026-10-20T12:15:33.748Z drag 300 697 60 697 400
+2026-10-20T12:15:37.631Z els ethnicity
+2026-10-20T12:15:45.325Z id aiMiniDramaMakeCharacter.ethnicity.5
+2026-10-20T12:15:47.427Z shot TC-204-dog-other
+2026-10-20T12:15:47.772Z source 
+2026-10-20T12:15:58.792Z id aiMiniDramaMakeCharacter.UIButton.expandPrompt
+2026-10-20T12:16:01.433Z shot TC-122-expanded
+2026-10-20T12:16:01.814Z els aiMiniDramaPromptEditor
+2026-10-20T12:16:04.976Z els Keyboard
+2026-10-20T12:16:28.020Z run-log set TC-122 Pass
+2026-10-20T12:16:28.143Z run-log set TC-183 Pass
+2026-10-20T12:16:28.247Z setval aiMiniDramaPromptEditor.UITextView.prompt A golden retriever dog with a red coll
+2026-10-20T12:16:32.411Z shot TC-123-edited
+2026-10-20T12:16:32.781Z id aiMiniDramaPromptEditor.UIButton.collapse
+2026-10-20T12:16:35.491Z shot TC-123-after-collapse
+2026-10-20T12:16:35.828Z source 
+2026-10-20T12:16:38.194Z els /1000
+2026-10-20T12:16:51.415Z run-log set TC-123 Pass
+2026-10-20T12:16:51.542Z id aiMiniDramaMakeCharacter.UIButton.expandPrompt
+2026-10-20T12:16:53.702Z setval aiMiniDramaPromptEditor.UITextView.prompt A golden retriever dog with a red coll
+2026-10-20T12:17:06.445Z id aiMiniDramaPromptEditor.UIButton.done
+2026-10-20T12:17:09.151Z shot TC-125-before
+2026-10-20T12:17:09.528Z source 
+2026-10-20T12:17:17.699Z drag 200 495 200 440 600
+2026-10-20T12:17:20.362Z shot TC-125-after-drag
+2026-10-20T12:17:20.741Z els aiMiniDramaPromptEditor
+2026-10-20T12:17:23.135Z els Create my character
+2026-10-20T12:17:57.136Z run-log set TC-125 Pass
+2026-10-20T12:18:05.491Z els credits
+2026-10-20T12:18:07.875Z tap 200 460
+2026-10-20T12:18:09.964Z els Keyboard
+2026-10-20T12:18:13.380Z shot TC-287-keyboard
+2026-10-20T12:18:13.796Z id aiMiniDramaPromptEditor.UIButton.done
+2026-10-20T12:18:15.024Z id aiMiniDramaMakeCharacter.UIButton.generate
+2026-10-20T12:18:17.620Z shot TC-287-after-generate
+2026-10-20T12:18:17.973Z els 
+2026-10-20T12:18:26.753Z waitfor Save to library|Couldn't create|Something went wrong|Got it|No person detected -
+2026-10-20T12:21:27.105Z shot TC-134-dog-result
+2026-10-20T12:21:27.474Z els 
+2026-10-20T12:21:38.043Z waitfor Save to library|Couldn't create|Something went wrong|Got it --timeout 400
+2026-10-20T12:21:50.950Z shot TC-134-dog-result
+2026-10-20T12:21:51.470Z els 
+2026-10-20T12:22:10.857Z id aiMiniDramaMakeCharacter.UIButton.close
+2026-10-20T12:22:13.434Z els 
+2026-10-20T12:22:14.614Z shot TC-134-after-x
+2026-10-20T12:22:15.122Z source 
+2026-10-20T12:22:57.622Z run-log set TC-287 Pass
+2026-10-20T12:22:57.736Z run-log set TC-134 Pass
+2026-10-20T12:22:57.852Z run-log set TC-204 Fail
+2026-10-20T12:23:05.467Z tap 258 348
+2026-10-20T12:23:07.800Z shot TC-135-enlarged
+2026-10-20T12:23:08.303Z els 
+2026-10-20T12:23:21.735Z run-log set TC-135 Pass
+2026-10-20T12:23:21.847Z id aiMiniDramaCharacterPreview.UIButton.close
+2026-10-20T12:23:23.868Z id aiMiniDramaChangeCharacters.cell.create
+2026-10-20T12:23:26.897Z id aiMiniDramaMakeCharacter.UIControl.upload
+2026-10-20T12:23:30.564Z shot TC-128-select-media
+2026-10-20T12:23:31.211Z els 
+2026-10-20T12:23:51.319Z drag 210 800 210 300 500
+2026-10-20T12:23:55.698Z drag 210 800 210 300 500
+2026-10-20T12:24:00.078Z shot TC-128-scrolled
+2026-10-20T12:24:14.033Z run-log set TC-128 Pass
+2026-10-20T12:24:14.143Z els fileName
+2026-10-20T12:24:19.286Z els fileName
+2026-10-20T12:24:32.248Z tap 330 400
+2026-10-20T12:24:35.777Z shot TC-129-crop
+2026-10-20T12:24:36.392Z els 
+2026-10-20T12:24:56.799Z run-log set TC-129 Pass
+2026-10-20T12:24:56.919Z drag 210 450 120 380 700
+2026-10-20T12:24:59.686Z shot TC-130-after-drag
+2026-10-20T12:25:16.696Z shot TC-130-after-pinch
+2026-10-20T12:25:26.513Z drag 210 300 230 520 700
+2026-10-20T12:25:29.269Z shot TC-130-after-zoom-drag
+2026-10-20T12:25:51.535Z run-log set TC-130 Pass
+2026-10-20T12:25:51.641Z id aiMiniDramaCrop.UIButton.confirm
+2026-10-20T12:25:54.814Z shot TC-131-form
+2026-10-20T12:25:55.200Z els 
+2026-10-20T12:26:13.776Z run-log set TC-131 Pass
+2026-10-20T12:26:13.893Z id aiMiniDramaMakeCharacter.UIControl.upload
+2026-10-20T12:26:17.508Z els 
+2026-10-20T12:26:29.150Z drag 210 800 210 300 500
+2026-10-20T12:26:33.506Z drag 210 800 210 300 500
+2026-10-20T12:26:37.835Z els IMG_4308
+2026-10-20T12:26:49.741Z tap 330 380
+2026-10-20T12:26:53.292Z shot TC-283-crop
+2026-10-20T12:26:53.903Z els Crop
+2026-10-20T12:26:56.042Z id aiMiniDramaCrop.UIButton.confirm
+2026-10-20T12:26:59.199Z shot TC-283-form
+2026-10-20T12:27:15.810Z run-log set TC-283 Pass
+2026-10-20T12:27:15.924Z id aiMiniDramaMakeCharacter.UIButton.close
+2026-10-20T12:27:18.005Z els alertController
+2026-10-20T12:27:28.166Z tap 285 513
+2026-10-20T12:27:30.573Z id aiMiniDramaChangeCharacters.cell.create
+2026-10-20T12:27:33.626Z tap 210 467
+2026-10-20T12:27:36.034Z setval aiMiniDramaPromptEditor.UITextView.prompt An elderly woman in her early seventie
+2026-10-20T12:27:40.537Z id aiMiniDramaPromptEditor.UIButton.done
+2026-10-20T12:27:42.768Z id aiMiniDramaMakeCharacter.gender.0
+2026-10-20T12:27:43.881Z drag 300 697 60 697 400
+2026-10-20T12:27:47.761Z id aiMiniDramaMakeCharacter.ethnicity.6
+2026-10-20T12:27:48.857Z id aiMiniDramaMakeCharacter.UITextField.age
+2026-10-20T12:27:50.998Z id 7
+2026-10-20T12:27:52.146Z id 2
+2026-10-20T12:27:53.300Z id aiMiniDramaNumberInput.UIButton.confirm
+2026-10-20T12:27:55.484Z shot TC-132-form
+2026-10-20T12:27:55.856Z source 
+2026-10-20T12:27:58.236Z els credits
+2026-10-20T12:28:10.163Z id aiMiniDramaMakeCharacter.UIButton.generate
+2026-10-20T12:28:13.334Z shot TC-132-loading
+2026-10-20T12:28:13.704Z waitfor Save to library|Couldn't create|Something went wrong|Got it --timeout 400
+2026-10-20T12:28:54.322Z shot TC-132-result
+2026-10-20T12:28:54.783Z els 
+2026-10-20T12:29:09.068Z run-log set TC-132 Pass
+2026-10-20T12:29:09.193Z lbl Save to library
+2026-10-20T12:29:15.283Z shot TC-133-after-save
+2026-10-20T12:29:15.808Z els 
+2026-10-20T12:29:19.098Z shot TC-133-after-save-2
+2026-10-20T12:29:34.224Z id aiMiniDramaChangeCharacters.UIButton.confirm
+2026-10-20T12:29:38.251Z shot TC-133-chat
+2026-10-20T12:29:38.651Z els 
+2026-10-20T12:29:52.156Z run-log set TC-133 Pass
+2026-10-20T12:29:52.260Z waitfor Create storyboard|Ready to create the storyboard|Something went wrong|Try again 
+2026-10-20T12:34:10.157Z tapif aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T12:34:17.896Z shot P23-c-chat-bottom
+2026-10-20T12:34:18.308Z els 
+2026-10-20T12:34:28.373Z els aiMiniDramaCast
+2026-10-20T12:34:36.783Z id aiMiniDramaCast.UIButton.refresh.char_316f5227
+2026-10-20T12:34:40.977Z els Choose\|filter
+2026-10-20T12:34:42.190Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T12:34:45.238Z shot TC-289-filter
+2026-10-20T12:34:45.616Z els 
+2026-10-20T12:35:00.815Z tap 185 616
+2026-10-20T12:35:01.672Z drag 330 713 60 713 500
+2026-10-20T12:35:05.688Z els 
+2026-10-20T12:35:13.833Z drag 330 713 130 713 500
+2026-10-20T12:35:16.385Z els 
+2026-10-20T12:35:24.410Z tap 230 713
+2026-10-20T12:35:25.796Z drag 36 805 262 805 800
+2026-10-20T12:35:28.620Z shot TC-289-filter-set
+2026-10-20T12:35:38.487Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T12:35:41.630Z shot TC-289-filtered
+2026-10-20T12:35:42.028Z els aiMiniDramaChangeCharacters.cell
+2026-10-20T12:35:56.098Z run-log set TC-289 Pass
+2026-10-20T12:35:56.212Z id aiMiniDramaChangeCharacters.cell.create
+2026-10-20T12:35:59.075Z id aiMiniDramaMakeCharacter.UIControl.upload
+2026-10-20T12:36:02.641Z els fileName
+2026-10-20T12:36:06.723Z shot TC-180-recents
+2026-10-20T12:36:22.624Z run-log set TC-180 Pass
+2026-10-20T12:36:22.737Z id materialFullScreenVC.UIButton.backButton
+2026-10-20T12:36:25.486Z id aiMiniDramaMakeCharacter.UIButton.close
+2026-10-20T12:36:28.063Z els alertController
+2026-10-20T12:36:28.837Z id aiMiniDramaChangeCharacters.UIButton.close
+2026-10-20T12:36:31.205Z els alertController
+2026-10-20T12:36:32.515Z shot P23-c-back-chat
+2026-10-20T12:36:39.326Z els back
+2026-10-20T12:36:52.428Z tap 210 502
+2026-10-20T12:36:54.673Z tap 38 95
+2026-10-20T12:36:57.529Z els 
+2026-10-20T12:37:04.924Z id aiMiniDramaHistory.UIButton.back
+2026-10-20T12:37:07.337Z id aiMiniDramaEntry.UIButton.back
+2026-10-20T12:37:10.239Z do library/ai-mini-drama/ios/recipes/new-drama.steps A retired schoolteacher in her
+2026-10-20T12:37:10.240Z tapif launcher.UIButton.homeButton
+2026-10-20T12:37:15.793Z drag 210 300 210 800 300
+2026-10-20T12:37:16.969Z drag 210 300 210 800 300
+2026-10-20T12:37:18.080Z lbl AI Mini Drama
+2026-10-20T12:37:23.693Z waitfor aiMiniDramaEntry.UIButton.createDrama --timeout 20
+2026-10-20T12:37:25.442Z id aiMiniDramaEntry.UIButton.createDrama
+2026-10-20T12:37:26.086Z waitfor aiMiniDramaComposer --timeout 15
+2026-10-20T12:37:27.830Z setval aiMiniDramaComposer.UITextView.text A retired schoolteacher in her seventies tea
+2026-10-20T12:37:31.179Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T12:37:31.951Z hidekb 
+2026-10-20T12:37:32.293Z waitfor aiMiniDramaFormat.UIButton.continue --timeout 60
+2026-10-20T12:37:34.993Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T12:37:35.747Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T12:37:36.494Z id aiMiniDramaFormat.UIButton.continue
+2026-10-20T12:37:37.227Z waitfor Story Outline & Characters Result|Something went wrong|Server is busy|Try again 
+2026-10-20T12:41:10.388Z expect-not Something went wrong|Server is busy
+2026-10-20T12:41:12.219Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T12:41:12.966Z waitfor Ready to create your characters?|Something went wrong|Server is busy|Try again -
+2026-10-20T12:41:17.069Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T12:41:17.180Z expect-not Something went wrong|Server is busy
+2026-10-20T12:41:43.834Z els aiMiniDramaCharacters
+2026-10-20T12:41:45.317Z shot TC-290-new-drama
+2026-10-20T12:41:50.885Z id aiMiniDramaCharacters.UIControl.character.0
+2026-10-20T12:41:54.924Z shot TC-290-picker
+2026-10-20T12:41:55.419Z els aiMiniDramaChangeCharacters.cell
+2026-10-20T12:41:56.724Z els Choose for
+2026-10-20T12:42:03.890Z id aiMiniDramaChangeCharacters.cell.393D693F-28FD-4D0A-BF28-A6F61AEFF63F
+2026-10-20T12:42:06.413Z shot TC-290-picked
+2026-10-20T12:42:06.974Z id aiMiniDramaChangeCharacters.UIButton.confirm
+2026-10-20T12:42:10.975Z els 
+2026-10-20T12:42:13.121Z shot TC-290-after-confirm
+2026-10-20T12:42:33.123Z run-log set TC-290 Pass
+2026-10-20T12:42:40.835Z tap 31 405
+2026-10-20T12:42:43.687Z shot P23-c-after-finish-x
+2026-10-20T12:42:44.076Z els 
+2026-10-20T12:42:52.308Z id aiMiniDramaFinishCharacters.UIButton.close
+2026-10-20T12:42:55.341Z els 
+2026-10-20T12:42:56.621Z shot P23-c-after-finish-x
+2026-10-20T12:43:04.373Z id aiMiniDramaChangeCharacters.UIButton.close
+2026-10-20T12:43:06.889Z tapif Leave
+2026-10-20T12:43:14.193Z els 
+2026-10-20T12:43:22.058Z tap 38 95
+2026-10-20T12:43:24.885Z tapif aiMiniDramaHistory.UIButton.back
+2026-10-20T12:43:27.009Z tapif aiMiniDramaEntry.UIButton.back
+2026-10-20T12:43:31.273Z els Developer Server\|homeButton\|AI Mini Drama
+2026-10-20T12:43:33.492Z pink open [z] AI Mini Drama
+2026-10-20T12:44:46.848Z pink set Fail media tool TextToImage
+2026-10-20T12:45:35.438Z pink set Fail every call on
+2026-10-20T16:02:11.664Z status 
+2026-10-20T16:02:11.899Z shot resume-tc137
+2026-10-20T16:02:15.926Z start 00008150-00081D403A38401C
+2026-10-20T16:02:16.380Z shot resume-tc137
+2026-10-20T16:02:28.544Z pink show
+2026-10-20T16:04:12.645Z pink set Fail every call (ignores number) on
+2026-10-20T16:07:47.515Z shot pink-state
+2026-10-20T16:07:48.016Z pink set Fail every call (ignores number) on
+2026-10-20T16:08:25.486Z pink close
+2026-10-20T16:08:31.377Z lbl AI Mini Drama
+2026-10-20T16:08:40.068Z els aiMiniDramaEntry
+2026-10-20T16:08:44.747Z els creditEntry
+2026-10-20T16:08:45.465Z id aiMiniDramaEntry.UIButton.history
+2026-10-20T16:08:48.370Z shot TC-137-history
+2026-10-20T16:09:02.344Z tap 205 200
+2026-10-20T16:09:07.165Z shot TC-137-chat
+2026-10-20T16:09:07.553Z els aiMiniDramaCharacters
+2026-10-20T16:09:15.480Z id aiMiniDramaCharacters.UIControl.character.1
+2026-10-20T16:09:19.488Z shot TC-137-choose
+2026-10-20T16:09:19.999Z els Create my character
+2026-10-20T16:09:30.347Z tap 79 396
+2026-10-20T16:09:33.677Z els aiMiniDramaMakeCharacter
+2026-10-20T16:09:40.815Z id aiMiniDramaMakeCharacter.UIControl.upload
+2026-10-20T16:09:44.974Z els IMG_4308
+2026-10-20T16:09:49.978Z shot TC-137-select-media
+2026-10-20T16:10:02.468Z tap 210 730
+2026-10-20T16:10:06.474Z shot TC-137-crop
+2026-10-20T16:10:15.828Z tap 389 95
+2026-10-20T16:10:19.240Z setval aiMiniDramaMakeCharacter.UITextView.prompt A young woman in her late twenties wi
+2026-10-20T16:10:24.530Z els aiMiniDramaPromptEditor\|Done\|aiMiniDramaMakeCharacter.UITextView
+2026-10-20T16:10:31.617Z shot TC-137-desc
+2026-10-20T16:10:40.575Z lbl Done
+2026-10-20T16:10:51.462Z id aiMiniDramaMakeCharacter.gender.0
+2026-10-20T16:10:52.543Z id aiMiniDramaMakeCharacter.ethnicity.0
+2026-10-20T16:10:53.638Z id aiMiniDramaMakeCharacter.UITextField.age
+2026-10-20T16:10:56.242Z els aiMiniDramaNumberInput
+2026-10-20T16:11:03.197Z type 28
+2026-10-20T16:11:04.344Z id aiMiniDramaNumberInput.UIButton.confirm
+2026-10-20T16:11:06.971Z els creditEntry.UILabel
+2026-10-20T16:11:09.343Z shot TC-137-form-filled
+2026-10-20T16:11:21.146Z els UITextView.prompt
+2026-10-20T16:11:30.836Z id aiMiniDramaMakeCharacter.UIButton.generate
+2026-10-20T16:11:31.939Z waitfor Got it|Save to library|Something went wrong|Try again --timeout 300
+2026-10-20T16:16:35.025Z shot TC-137-error
+2026-10-20T16:16:50.892Z lbl Generate anyway
+2026-10-20T16:16:57.325Z waitfor Got it|Save to library|Something went wrong|Try again|More than one person --tim
+2026-10-20T16:17:28.848Z shot TC-137-error
+2026-10-20T16:17:38.134Z lbl Got it
+2026-10-20T16:17:44.990Z shot TC-137-after-got-it
+2026-10-20T16:17:45.334Z els aiMiniDramaMakeCharacter\|creditEntry.UILabel\|credits left
+2026-10-20T16:17:57.226Z id aiMiniDramaMakeCharacter.UIButton.close
+2026-10-20T16:17:59.848Z els alertController
+2026-10-20T16:18:02.203Z id aiMiniDramaChangeCharacters.UIButton.close
+2026-10-20T16:18:05.050Z shot TC-137-closed
+2026-10-20T16:18:20.108Z run-log set TC-137 Pass
+2026-10-20T16:18:25.994Z id aiMiniDramaMakeCharacter.UIButton.close
+2026-10-20T16:18:28.581Z lbl Discard
+2026-10-20T16:18:36.648Z id aiMiniDramaChangeCharacters.UIButton.close
+2026-10-20T16:18:39.388Z els alertController\|Leave
+2026-10-20T16:18:46.956Z tap 38 95
+2026-10-20T16:18:49.851Z tapif aiMiniDramaHistory.UIButton.back
+2026-10-20T16:18:54.862Z tapif aiMiniDramaEntry.UIButton.back
+2026-10-20T16:19:00.273Z els homeButton\|Developer Server
+2026-10-20T16:19:06.382Z shot nav-check
+2026-10-20T16:19:21.001Z id aiMiniDramaMakeCharacter.UIButton.close
+2026-10-20T16:19:23.613Z els alertController
+2026-10-20T16:19:25.980Z tap 285 513
+2026-10-20T16:19:28.897Z els aiMiniDramaMakeCharacter.UIButton.close\|aiMiniDramaChangeCharacters.UIButton.cl
+2026-10-20T16:19:34.608Z shot nav-check2
+2026-10-20T16:19:42.947Z tap 38 95
+2026-10-20T16:19:45.750Z els alertController\|aiMiniDramaChat\|back
+2026-10-20T16:19:51.304Z els 
+2026-10-20T16:19:57.727Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T16:20:00.740Z els alertController\|aiMiniDramaEntry.UIButton.back\|homeButton
+2026-10-20T16:20:06.585Z shot nav-check3
+2026-10-20T16:20:30.444Z tap 38 95
+2026-10-20T16:20:32.654Z tapif aiMiniDramaEntry.UIButton.back
+2026-10-20T16:20:36.384Z lbl Mine
+2026-10-20T16:20:44.190Z els Credit\|credit
+2026-10-20T16:20:55.467Z credits 
+2026-10-20T16:21:06.189Z els Details\|detail
+2026-10-20T16:21:10.619Z els creditsHomePage
+2026-10-20T16:21:20.470Z id creditsHomePage.UIButton.detail
+2026-10-20T16:21:24.251Z ledger TC-137
+2026-10-20T16:23:24.016Z shot TC-137-ledger
+2026-10-20T16:23:38.799Z pull-logs P23-c
+2026-10-20T16:24:25.229Z logs P23-c
+2026-10-20T16:25:00.052Z run-log set TC-137 Fail
+2026-10-20T16:25:06.916Z pink open [z] AI Mini Drama
+2026-10-20T16:26:13.274Z pink set Fail every call (ignores number) off
+2026-10-20T16:26:42.861Z pink set Fail media tool Off
+2026-10-20T16:27:32.213Z pink show
+2026-10-20T16:29:06.472Z pink close
+2026-10-20T16:31:17.806Z status 
+2026-10-20T16:31:35.449Z help 
+2026-10-20T16:31:35.560Z shot 
+2026-10-20T16:31:43.137Z shot d-start
+2026-10-20T16:31:52.337Z lbl AI Mini Drama
+2026-10-20T16:31:58.111Z waitfor aiMiniDramaEntry.UIButton.createDrama --timeout 20
+2026-10-20T16:32:00.171Z els 
+2026-10-20T16:32:05.198Z id aiMiniDramaEntry.UIButton.history
+2026-10-20T16:32:06.045Z waitfor Merger Season --timeout 15
+2026-10-20T16:32:27.914Z els 
+2026-10-20T16:32:32.149Z scrollto Merger Season 210 130 800
+2026-10-20T16:32:55.193Z els StaticText
+2026-10-20T16:32:55.950Z shot d-history
+2026-10-20T16:33:00.759Z drag 210 750 210 300 400
+2026-10-20T16:33:03.762Z els StaticText
+2026-10-20T16:33:04.487Z drag 210 750 210 300 400
+2026-10-20T16:33:06.068Z els StaticText
+2026-10-20T16:33:06.746Z drag 210 750 210 300 400
+2026-10-20T16:33:08.464Z els StaticText
+2026-10-20T16:33:15.377Z lbl Corporate rivals to lovers
+2026-10-20T16:33:17.413Z wait 4
+2026-10-20T16:33:21.881Z els 
+2026-10-20T16:33:24.078Z shot d-merger-open
+2026-10-20T16:33:29.606Z drag 210 250 210 650 400
+2026-10-20T16:33:32.748Z shot d-storyboard-card
+2026-10-20T16:33:33.180Z els 
+2026-10-20T16:33:43.769Z tap 240 560
+2026-10-20T16:33:44.672Z wait 2
+2026-10-20T16:33:46.960Z shot TC-138-scene-detail
+2026-10-20T16:33:47.457Z els 
+2026-10-20T16:33:56.475Z run-log set TC-138 Pass
+2026-10-20T16:34:03.787Z lbl Previous scene
+2026-10-20T16:34:05.513Z wait 1
+2026-10-20T16:34:06.802Z els 
+2026-10-20T16:34:07.498Z shot TC-278-scene1
+2026-10-20T16:34:07.990Z lbl Next scene
+2026-10-20T16:34:09.742Z wait 1
+2026-10-20T16:34:11.038Z els 
+2026-10-20T16:34:11.733Z shot TC-278-scene2
+2026-10-20T16:34:12.237Z lbl Next scene
+2026-10-20T16:34:14.050Z wait 1
+2026-10-20T16:34:15.339Z els 
+2026-10-20T16:34:16.058Z shot TC-278-scene3
+2026-10-20T16:34:16.530Z lbl Next scene
+2026-10-20T16:34:18.271Z wait 1
+2026-10-20T16:34:19.579Z els 
+2026-10-20T16:34:20.285Z shot TC-278-scene4
+2026-10-20T16:34:20.768Z lbl Next scene
+2026-10-20T16:34:22.562Z wait 1
+2026-10-20T16:34:23.863Z els 
+2026-10-20T16:34:24.530Z shot TC-278-scene5
+2026-10-20T16:34:25.033Z lbl Next scene
+2026-10-20T16:34:26.814Z wait 1
+2026-10-20T16:34:28.104Z els 
+2026-10-20T16:34:28.823Z shot TC-278-scene6
+2026-10-20T16:34:29.296Z lbl Next scene
+2026-10-20T16:34:31.067Z wait 1
+2026-10-20T16:34:43.654Z lbl Previous scene
+2026-10-20T16:34:45.408Z lbl Previous scene
+2026-10-20T16:34:47.156Z lbl Previous scene
+2026-10-20T16:34:49.120Z lbl Previous scene
+2026-10-20T16:34:50.878Z lbl Previous scene
+2026-10-20T16:34:52.657Z wait 1
+2026-10-20T16:34:53.963Z source 
+2026-10-20T16:34:54.668Z lbl Next scene
+2026-10-20T16:34:56.431Z wait 1
+2026-10-20T16:34:57.707Z source 
+2026-10-20T16:34:58.420Z lbl Next scene
+2026-10-20T16:35:00.347Z wait 1
+2026-10-20T16:35:01.605Z source 
+2026-10-20T16:35:02.309Z lbl Next scene
+2026-10-20T16:35:04.093Z wait 1
+2026-10-20T16:35:05.394Z source 
+2026-10-20T16:35:06.102Z lbl Next scene
+2026-10-20T16:35:07.897Z wait 1
+2026-10-20T16:35:09.188Z source 
+2026-10-20T16:35:09.882Z lbl Next scene
+2026-10-20T16:35:11.641Z wait 1
+2026-10-20T16:35:12.940Z source 
+2026-10-20T16:35:13.648Z lbl Next scene
+2026-10-20T16:35:15.419Z wait 1
+2026-10-20T16:35:39.342Z hold 150 520 1.5
+2026-10-20T16:35:41.457Z wait 1
+2026-10-20T16:35:42.798Z shot TC-203-longpress
+2026-10-20T16:35:43.290Z els 
+2026-10-20T16:35:58.513Z lbl Copy
+2026-10-20T16:36:00.881Z lbl ic xmark
+2026-10-20T16:36:02.693Z wait 1
+2026-10-20T16:36:04.134Z id aiMiniDramaComposer.UITextView.text
+2026-10-20T16:36:05.296Z wait 1
+2026-10-20T16:36:06.742Z hold 100 836 1.2
+2026-10-20T16:36:08.843Z wait 1
+2026-10-20T16:36:10.546Z els 
+2026-10-20T16:36:19.339Z shot TC-203-paste-menu
+2026-10-20T16:36:19.754Z els 
+2026-10-20T16:36:28.410Z tap 100 440
+2026-10-20T16:36:29.633Z wait 1
+2026-10-20T16:36:31.318Z els 
+2026-10-20T16:36:40.764Z lbl Paste
+2026-10-20T16:36:53.840Z wait 2
+2026-10-20T16:36:56.467Z tapif Allow Paste
+2026-10-20T16:37:02.773Z wait 1
+2026-10-20T16:37:04.413Z els 
+2026-10-20T16:37:08.991Z shot TC-203-pasted
+2026-10-20T16:37:14.948Z clear aiMiniDramaComposer.UITextView.text
+2026-10-20T16:37:16.566Z hidekb 
+2026-10-20T16:37:21.474Z run-log set TC-203 Pass
+2026-10-20T16:37:27.759Z tap 210 200
+2026-10-20T16:37:28.990Z wait 1
+2026-10-20T16:37:30.401Z els 
+2026-10-20T16:37:32.636Z id aiMiniDramaStoryboard.UIButton.viewMore
+2026-10-20T16:37:33.955Z wait 2
+2026-10-20T16:37:36.210Z shot TC-175-viewmore
+2026-10-20T16:37:36.671Z els 
+2026-10-20T16:37:42.726Z tap 200 560
+2026-10-20T16:37:43.405Z wait 1
+2026-10-20T16:37:44.690Z shot TC-175-desc-tap
+2026-10-20T16:37:45.154Z els 
+2026-10-20T16:37:45.864Z tap 280 255
+2026-10-20T16:37:46.535Z wait 2
+2026-10-20T16:37:48.803Z shot TC-178-image-tap
+2026-10-20T16:37:49.302Z els 
+2026-10-20T16:38:01.676Z hold 280 255 1.5
+2026-10-20T16:38:03.875Z wait 1
+2026-10-20T16:38:05.139Z els 
+2026-10-20T16:38:05.848Z shot TC-178-image-hold
+2026-10-20T16:38:13.104Z run-log set TC-175 Fail
+2026-10-20T16:38:13.216Z run-log set TC-178 Fail
+2026-10-20T16:38:19.353Z lbl ic xmark
+2026-10-20T16:38:21.098Z wait 1
+2026-10-20T16:38:22.561Z scrollto Storyboard Preview 210 200 700
+2026-10-20T16:38:29.212Z els 
+2026-10-20T16:38:35.744Z tap 90 700
+2026-10-20T16:38:36.634Z wait 2
+2026-10-20T16:38:38.894Z shot TC-209-preview-open
+2026-10-20T16:38:39.569Z els 
+2026-10-20T16:39:00.118Z tap 210 450
+2026-10-20T16:39:00.744Z wait 1
+2026-10-20T16:39:01.962Z els 
+2026-10-20T16:39:02.357Z waitfor 00:52/00:52 --timeout 70
+2026-10-20T16:39:32.225Z shot TC-209-preview-end
+2026-10-20T16:39:32.845Z els 
+2026-10-20T16:39:40.885Z run-log set TC-209 Blocked
+2026-10-20T16:39:41.001Z run-log set TC-210 Blocked
+2026-10-20T16:39:46.785Z lbl Close
+2026-10-20T16:39:48.136Z wait 1
+2026-10-20T16:39:49.545Z drag 210 250 210 800 300
+2026-10-20T16:39:52.991Z drag 210 250 210 800 300
+2026-10-20T16:39:54.695Z drag 210 250 210 800 300
+2026-10-20T16:39:56.475Z drag 210 250 210 800 300
+2026-10-20T16:39:58.227Z drag 210 250 210 800 300
+2026-10-20T16:40:00.019Z drag 210 250 210 800 300
+2026-10-20T16:40:01.769Z els 
+2026-10-20T16:40:13.979Z drag 210 250 210 800 300
+2026-10-20T16:40:15.771Z drag 210 250 210 800 300
+2026-10-20T16:40:17.620Z drag 210 250 210 800 300
+2026-10-20T16:40:19.388Z drag 210 250 210 800 300
+2026-10-20T16:40:21.151Z drag 210 250 210 800 300
+2026-10-20T16:40:22.918Z drag 210 250 210 800 300
+2026-10-20T16:40:24.660Z drag 210 250 210 800 300
+2026-10-20T16:40:26.546Z drag 210 250 210 800 300
+2026-10-20T16:40:28.336Z shot TC-278-chat-top
+2026-10-20T16:40:28.730Z els 
+2026-10-20T16:40:47.698Z run-log set TC-278 Pass
+2026-10-20T16:40:47.817Z run-log set TC-279 Pass
+2026-10-20T16:40:47.928Z run-log set TC-280 Pass
+2026-10-20T16:40:48.036Z run-log set TC-281 Pass
+2026-10-20T16:40:48.142Z run-log set TC-282 Pass
+2026-10-20T16:41:06.154Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:41:07.314Z wait 1
+2026-10-20T16:41:08.732Z id aiMiniDramaComposer.UITextView.text
+2026-10-20T16:41:09.889Z setval aiMiniDramaComposer.UITextView.text Cut it down to 3 scenes only, and the ending
+2026-10-20T16:41:12.382Z els 
+2026-10-20T16:41:21.106Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T16:41:22.326Z tap 210 200
+2026-10-20T16:41:23.279Z waitfor Generate|Create storyboard|Something went wrong|Server is busy|Try again|couldn'
+2026-10-20T16:46:30.194Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:46:31.570Z shot TC-188-reply
+2026-10-20T16:46:32.004Z els 
+2026-10-20T16:47:01.049Z drag 210 250 210 750 400
+2026-10-20T16:47:04.422Z els 
+2026-10-20T16:47:07.990Z drag 210 250 210 750 400
+2026-10-20T16:47:11.337Z els 
+2026-10-20T16:47:14.905Z drag 210 250 210 750 400
+2026-10-20T16:47:18.248Z els 
+2026-10-20T16:47:33.168Z drag 210 750 210 300 400
+2026-10-20T16:47:36.477Z drag 210 750 210 400 400
+2026-10-20T16:47:39.646Z els 
+2026-10-20T16:47:47.681Z drag 210 700 210 300 400
+2026-10-20T16:47:50.916Z shot TC-188-new-storyboard
+2026-10-20T16:47:51.340Z els 
+2026-10-20T16:48:00.640Z tap 240 300
+2026-10-20T16:48:01.630Z wait 2
+2026-10-20T16:48:03.919Z els 
+2026-10-20T16:48:04.617Z shot TC-188-scene1
+2026-10-20T16:48:05.110Z lbl Next scene
+2026-10-20T16:48:06.881Z wait 1
+2026-10-20T16:48:08.168Z els 
+2026-10-20T16:48:08.909Z shot TC-188-scene2
+2026-10-20T16:48:09.391Z lbl Next scene
+2026-10-20T16:48:11.227Z wait 1
+2026-10-20T16:48:12.515Z els 
+2026-10-20T16:48:13.205Z shot TC-188-scene3
+2026-10-20T16:48:13.685Z lbl Next scene
+2026-10-20T16:48:15.610Z wait 1
+2026-10-20T16:48:16.883Z els 
+2026-10-20T16:48:28.046Z lbl ic xmark
+2026-10-20T16:48:29.971Z run-log set TC-188 Pass
+2026-10-20T16:48:44.592Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:48:45.980Z id aiMiniDramaComposer.UITextView.text
+2026-10-20T16:48:47.403Z setval aiMiniDramaComposer.UITextView.text Please make Malcolm Voss a white-haired man 
+2026-10-20T16:48:50.931Z els 
+2026-10-20T16:48:54.860Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T16:49:04.858Z tap 210 200
+2026-10-20T16:49:13.907Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:49:14.309Z els 
+2026-10-20T16:49:25.861Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:49:26.284Z els 
+2026-10-20T16:49:37.821Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:49:38.223Z els 
+2026-10-20T16:49:49.709Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:49:51.315Z els 
+2026-10-20T16:50:01.486Z shot TC-205-reply
+2026-10-20T16:50:01.913Z drag 210 250 210 700 400
+2026-10-20T16:50:05.291Z els 
+2026-10-20T16:50:10.094Z drag 210 250 210 700 400
+2026-10-20T16:50:13.479Z els 
+2026-10-20T16:50:17.847Z drag 210 250 210 700 400
+2026-10-20T16:50:21.224Z els 
+2026-10-20T16:50:37.606Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:50:39.185Z wait 1
+2026-10-20T16:50:40.739Z drag 210 250 210 650 400
+2026-10-20T16:50:44.048Z els 
+2026-10-20T16:50:55.079Z els 
+2026-10-20T16:50:59.254Z id aiMiniDramaStoryboard.UIButton.viewMore
+2026-10-20T16:51:01.086Z wait 2
+2026-10-20T16:51:03.350Z shot TC-205-scene1
+2026-10-20T16:51:03.845Z lbl Next scene
+2026-10-20T16:51:05.598Z wait 1
+2026-10-20T16:51:06.888Z shot TC-205-scene2
+2026-10-20T16:51:07.386Z lbl Next scene
+2026-10-20T16:51:09.239Z wait 1
+2026-10-20T16:51:10.540Z shot TC-205-scene3
+2026-10-20T16:51:11.027Z lbl Next scene
+2026-10-20T16:51:12.935Z wait 1
+2026-10-20T16:51:27.510Z lbl ic xmark
+2026-10-20T16:51:29.448Z run-log set TC-205 Pass
+2026-10-20T16:51:38.064Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:51:39.626Z id aiMiniDramaComposer.UITextView.text
+2026-10-20T16:51:41.206Z setval aiMiniDramaComposer.UITextView.text Add a new character: Tom, the grumpy fisherm
+2026-10-20T16:51:44.263Z els 
+2026-10-20T16:51:49.361Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T16:51:50.970Z tap 210 200
+2026-10-20T16:52:00.085Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:52:00.554Z els 
+2026-10-20T16:52:13.253Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:52:13.738Z els 
+2026-10-20T16:52:25.798Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:52:26.249Z els 
+2026-10-20T16:52:38.321Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:52:38.787Z els 
+2026-10-20T16:52:50.792Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:52:51.265Z els 
+2026-10-20T16:53:03.311Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:53:03.765Z els 
+2026-10-20T16:53:15.839Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:53:16.317Z els 
+2026-10-20T16:53:28.306Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:53:28.756Z els 
+2026-10-20T16:53:40.720Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:53:41.162Z els 
+2026-10-20T16:53:53.250Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:53:53.695Z els 
+2026-10-20T16:54:06.250Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:54:06.725Z els 
+2026-10-20T16:54:18.767Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:54:19.218Z els 
+2026-10-20T16:54:31.260Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:54:31.709Z els 
+2026-10-20T16:54:43.807Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:54:44.258Z els 
+2026-10-20T16:54:56.277Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:54:56.727Z els 
+2026-10-20T16:55:08.708Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:55:09.177Z els 
+2026-10-20T16:55:21.146Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:55:21.590Z els 
+2026-10-20T16:55:33.660Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:55:34.138Z els 
+2026-10-20T16:55:46.193Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:55:46.666Z els 
+2026-10-20T16:55:58.589Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:55:59.064Z els 
+2026-10-20T16:56:11.070Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:56:11.509Z els 
+2026-10-20T16:56:23.502Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:56:23.948Z els 
+2026-10-20T16:56:35.984Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:56:36.424Z els 
+2026-10-20T16:56:48.437Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:56:48.911Z els 
+2026-10-20T16:57:00.944Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:57:01.417Z els 
+2026-10-20T16:57:13.501Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:57:13.942Z els 
+2026-10-20T16:57:25.944Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:57:26.386Z els 
+2026-10-20T16:57:38.420Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:57:38.860Z els 
+2026-10-20T16:57:50.863Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:57:51.305Z els 
+2026-10-20T16:58:03.333Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:58:03.778Z els 
+2026-10-20T16:58:16.591Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:58:17.067Z els 
+2026-10-20T16:58:29.132Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:58:29.607Z els 
+2026-10-20T16:58:30.784Z shot TC-214-now
+2026-10-20T16:58:33.957Z els 
+2026-10-20T16:58:41.663Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:58:42.142Z els 
+2026-10-20T16:58:54.759Z id aiMiniDramaComposer.UITextView.text
+2026-10-20T16:58:56.351Z setval aiMiniDramaComposer.UITextView.text Update the story and add a new character: To
+2026-10-20T16:59:00.803Z els 
+2026-10-20T16:59:05.831Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T16:59:07.446Z tap 210 200
+2026-10-20T16:59:27.426Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:59:27.905Z els 
+2026-10-20T16:59:40.571Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:59:41.049Z els 
+2026-10-20T16:59:53.789Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T16:59:55.442Z els 
+2026-10-20T17:00:07.665Z shot TC-214-turn-failed
+2026-10-20T17:00:08.220Z id aiMiniDramaChat.UIButton.retryTurn
+2026-10-20T17:00:17.898Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:00:19.536Z els 
+2026-10-20T17:00:32.710Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:00:34.425Z els 
+2026-10-20T17:00:47.912Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:00:48.432Z els 
+2026-10-20T17:01:01.861Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:01:02.365Z els 
+2026-10-20T17:01:15.863Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:01:16.342Z els 
+2026-10-20T17:01:29.768Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:01:30.246Z els 
+2026-10-20T17:01:43.139Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:01:43.647Z els 
+2026-10-20T17:01:56.527Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:01:57.034Z els 
+2026-10-20T17:02:10.403Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:02:10.896Z els 
+2026-10-20T17:02:23.724Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:02:24.233Z els 
+2026-10-20T17:02:37.692Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:02:38.190Z els 
+2026-10-20T17:02:51.576Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:02:52.053Z els 
+2026-10-20T17:03:05.444Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:03:05.951Z els 
+2026-10-20T17:03:19.430Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:03:19.905Z els 
+2026-10-20T17:03:32.835Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:03:33.316Z els 
+2026-10-20T17:03:46.778Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:03:47.291Z els 
+2026-10-20T17:04:00.726Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:04:01.209Z els 
+2026-10-20T17:04:14.705Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:04:15.214Z els 
+2026-10-20T17:04:28.685Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:04:29.184Z els 
+2026-10-20T17:04:42.071Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:04:42.543Z els 
+2026-10-20T17:04:55.954Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:04:56.454Z els 
+2026-10-20T17:05:09.943Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:05:10.455Z els 
+2026-10-20T17:05:23.852Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:05:24.328Z els 
+2026-10-20T17:05:37.261Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:05:37.743Z els 
+2026-10-20T17:05:49.767Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:05:50.270Z els 
+2026-10-20T17:06:03.691Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:06:04.200Z els 
+2026-10-20T17:06:17.076Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:06:17.586Z els 
+2026-10-20T17:06:31.033Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:06:31.499Z els 
+2026-10-20T17:06:45.031Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:06:45.539Z els 
+2026-10-20T17:06:59.072Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:06:59.581Z els 
+2026-10-20T17:07:12.991Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:07:13.448Z els 
+2026-10-20T17:07:21.475Z shot TC-214-retry-now
+2026-10-20T17:07:21.967Z els 
+2026-10-20T17:07:26.088Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:07:27.221Z els 
+2026-10-20T17:07:37.800Z drag 380 620 60 620 400
+2026-10-20T17:07:39.796Z wait 1
+2026-10-20T17:07:41.443Z shot TC-214-slots-swiped
+2026-10-20T17:07:41.868Z els 
+2026-10-20T17:07:52.682Z shot TC-214-tom-slot
+2026-10-20T17:07:53.097Z id aiMiniDramaCharacters.UIControl.character.3
+2026-10-20T17:07:54.803Z wait 3
+2026-10-20T17:07:58.432Z shot TC-214-after-tap
+2026-10-20T17:07:58.866Z els 
+2026-10-20T17:08:11.680Z tap 211 627
+2026-10-20T17:08:12.833Z wait 3
+2026-10-20T17:08:16.424Z els 
+2026-10-20T17:08:21.836Z tap 90 627
+2026-10-20T17:08:22.949Z wait 3
+2026-10-20T17:08:26.541Z els 
+2026-10-20T17:08:31.960Z shot TC-214-malcolm-tap
+2026-10-20T17:08:32.409Z tap 332 627
+2026-10-20T17:08:33.525Z wait 3
+2026-10-20T17:08:37.110Z els 
+2026-10-20T17:08:42.511Z shot TC-214-addnew-tap
+2026-10-20T17:08:42.959Z els 
+2026-10-20T17:09:01.178Z waitfor Adding character --gone --timeout 300
+2026-10-20T17:09:04.631Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:09:05.140Z wait 1
+2026-10-20T17:09:06.788Z shot TC-214-addnew-result
+2026-10-20T17:09:07.271Z els 
+2026-10-20T17:09:19.539Z drag 380 640 60 640 400
+2026-10-20T17:09:21.561Z wait 1
+2026-10-20T17:09:23.215Z els 
+2026-10-20T17:09:28.758Z shot TC-214-card2-slots
+2026-10-20T17:09:29.164Z id aiMiniDramaCharacters.UIControl.character.3
+2026-10-20T17:09:30.869Z wait 3
+2026-10-20T17:09:34.472Z shot TC-214-card2-tom-tap
+2026-10-20T17:09:34.906Z els 
+2026-10-20T17:09:46.388Z tap 211 640
+2026-10-20T17:09:47.656Z wait 3
+2026-10-20T17:09:51.281Z els 
+2026-10-20T17:09:56.091Z id aiMiniDramaCharacters.UIControl.character.2
+2026-10-20T17:09:57.827Z wait 3
+2026-10-20T17:10:01.421Z shot TC-214-card2-malcolm-tap
+2026-10-20T17:10:01.849Z els 
+2026-10-20T17:10:17.476Z run-log set TC-214 Fail
+2026-10-20T17:10:28.468Z id aiMiniDramaComposer.UITextView.text
+2026-10-20T17:10:30.203Z setval aiMiniDramaComposer.UITextView.text Remove Tom Reed from the story and keep the 
+2026-10-20T17:10:33.625Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T17:10:35.318Z tap 210 200
+2026-10-20T17:10:44.465Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:10:44.934Z els 
+2026-10-20T17:10:58.385Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:10:58.885Z els 
+2026-10-20T17:11:12.206Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:11:12.677Z els 
+2026-10-20T17:11:25.859Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:11:27.666Z els 
+2026-10-20T17:11:39.832Z id aiMiniDramaComposer.UITextView.text
+2026-10-20T17:11:41.613Z setval aiMiniDramaComposer.UITextView.text Make the whole drama Japanese instead of Eng
+2026-10-20T17:11:44.770Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T17:11:46.539Z tap 210 200
+2026-10-20T17:11:55.714Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:11:56.222Z els 
+2026-10-20T17:12:10.056Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:12:10.569Z els 
+2026-10-20T17:12:24.429Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:12:24.919Z els 
+2026-10-20T17:12:38.916Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:12:40.874Z els 
+2026-10-20T17:12:53.517Z shot TC-187-reply
+2026-10-20T17:12:53.943Z drag 210 250 210 700 400
+2026-10-20T17:12:57.518Z els 
+2026-10-20T17:13:04.073Z drag 210 250 210 700 400
+2026-10-20T17:13:07.632Z els 
+2026-10-20T17:13:14.319Z drag 210 250 210 700 400
+2026-10-20T17:13:17.896Z els 
+2026-10-20T17:13:24.655Z drag 210 250 210 700 400
+2026-10-20T17:13:28.199Z els 
+2026-10-20T17:13:43.595Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:13:45.557Z wait 1
+2026-10-20T17:13:47.272Z drag 210 250 210 700 400
+2026-10-20T17:13:50.828Z els 
+2026-10-20T17:13:57.202Z shot TC-187-storyboard-card
+2026-10-20T17:14:03.774Z id aiMiniDramaStoryboard.UIButton.viewMore
+2026-10-20T17:14:06.082Z wait 2
+2026-10-20T17:14:08.388Z shot TC-187-scene1
+2026-10-20T17:14:08.859Z els 
+2026-10-20T17:14:09.463Z lbl Next scene
+2026-10-20T17:14:11.218Z wait 1
+2026-10-20T17:14:12.517Z shot TC-187-scene2
+2026-10-20T17:14:12.991Z els 
+2026-10-20T17:14:13.689Z lbl Next scene
+2026-10-20T17:14:15.513Z wait 1
+2026-10-20T17:14:16.812Z shot TC-187-scene3
+2026-10-20T17:14:17.275Z els 
+2026-10-20T17:14:17.973Z lbl Next scene
+2026-10-20T17:14:19.732Z wait 1
+2026-10-20T17:14:32.242Z lbl ic xmark
+2026-10-20T17:14:34.010Z wait 1
+2026-10-20T17:14:35.717Z scrollto ライバルの共闘 210 200 700
+2026-10-20T17:14:52.800Z els 
+2026-10-20T17:15:00.162Z els 
+2026-10-20T17:15:07.488Z tap 90 700
+2026-10-20T17:15:08.783Z wait 4
+2026-10-20T17:15:13.054Z shot TC-187-caption1
+2026-10-20T17:15:13.744Z wait 12
+2026-10-20T17:15:25.967Z shot TC-187-caption2
+2026-10-20T17:15:26.654Z els 
+2026-10-20T17:15:56.421Z lbl Close
+2026-10-20T17:15:57.574Z run-log set TC-187 Fail
+2026-10-20T17:16:23.371Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T17:16:25.328Z wait 1
+2026-10-20T17:16:26.622Z tapif aiMiniDramaEntry.UIButton.back
+2026-10-20T17:16:27.629Z wait 1
+2026-10-20T17:16:28.947Z pink open [z] AI Mini Drama
+2026-10-20T17:16:34.051Z els 
+2026-10-20T17:16:40.057Z id aiMiniDramaHistory.UIButton.back
+2026-10-20T17:16:40.909Z wait 1
+2026-10-20T17:16:42.221Z tapif aiMiniDramaEntry.UIButton.back
+2026-10-20T17:16:44.456Z wait 1
+2026-10-20T17:16:45.836Z pink open [z] AI Mini Drama
+2026-10-20T17:17:52.685Z pink set Fail media tool TextToImage
+2026-10-20T17:18:45.480Z pink close
+2026-10-20T17:18:51.268Z lbl AI Mini Drama
+2026-10-20T17:18:57.128Z waitfor aiMiniDramaEntry.UIButton.history --timeout 20
+2026-10-20T17:18:59.040Z id aiMiniDramaEntry.UIButton.history
+2026-10-20T17:18:59.894Z wait 3
+2026-10-20T17:19:03.183Z els StaticText
+2026-10-20T17:19:13.522Z lbl ライバルの共闘
+2026-10-20T17:19:15.933Z wait 4
+2026-10-20T17:19:20.349Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:19:21.621Z id aiMiniDramaComposer.UITextView.text
+2026-10-20T17:19:22.739Z setval aiMiniDramaComposer.UITextView.text Add a new Scene 4 at the end: a rooftop epil
+2026-10-20T17:19:26.850Z els 
+2026-10-20T17:19:29.321Z els 
+2026-10-20T17:19:31.815Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T17:19:32.974Z tap 210 200
+2026-10-20T17:19:41.922Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:19:42.266Z els 
+2026-10-20T17:19:52.403Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:19:52.721Z els 
+2026-10-20T17:20:02.806Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:20:03.135Z els 
+2026-10-20T17:20:13.228Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:20:13.571Z els 
+2026-10-20T17:20:23.748Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:20:24.102Z els 
+2026-10-20T17:20:34.311Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:20:35.662Z els 
+2026-10-20T17:20:45.976Z shot TC-141-offer
+2026-10-20T17:20:46.496Z els 
+2026-10-20T17:20:49.443Z id aiMiniDramaCredits.UIButton.consume
+2026-10-20T17:20:50.768Z wait 3
+2026-10-20T17:20:54.236Z shot TC-141-generating
+2026-10-20T17:20:54.728Z waitfor Regenerate|couldn't|Something went wrong|failed|Video length|Try again --timeout
+2026-10-20T17:21:19.681Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:21:20.069Z shot TC-141-result
+2026-10-20T17:21:20.525Z els 
+2026-10-20T17:21:34.189Z drag 210 250 210 700 400
+2026-10-20T17:21:37.458Z shot TC-140-failed-scene
+2026-10-20T17:21:37.839Z els 
+2026-10-20T17:21:47.153Z tap 240 700
+2026-10-20T17:21:48.077Z wait 2
+2026-10-20T17:21:50.396Z shot TC-141-regen-offer
+2026-10-20T17:21:50.763Z els 
+2026-10-20T17:21:58.210Z id aiMiniDramaScene.UIButton.editFailedMedia
+2026-10-20T17:21:59.064Z wait 2
+2026-10-20T17:22:01.454Z shot TC-140-edit-sheet
+2026-10-20T17:22:01.814Z els 
+2026-10-20T17:22:12.099Z type  Soft golden sunrise light.
+2026-10-20T17:22:23.925Z wait 1
+2026-10-20T17:22:25.304Z els 
+2026-10-20T17:22:26.916Z source 
+2026-10-20T17:22:28.544Z shot TC-140-edited
+2026-10-20T17:22:33.494Z id aiMiniDramaPromptEditor.UIButton.collapse
+2026-10-20T17:22:34.531Z wait 2
+2026-10-20T17:22:36.855Z shot TC-140-after-collapse
+2026-10-20T17:22:37.188Z els 
+2026-10-20T17:22:50.670Z run-log set TC-140 Pass
+2026-10-20T17:22:59.734Z lbl Back
+2026-10-20T17:23:01.694Z wait 1
+2026-10-20T17:23:02.993Z els 
+2026-10-20T17:23:03.858Z tapif ic xmark
+2026-10-20T17:23:06.032Z wait 1
+2026-10-20T17:23:07.527Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T17:23:08.795Z wait 1
+2026-10-20T17:23:10.095Z tapif aiMiniDramaHistory.UIButton.back
+2026-10-20T17:23:12.419Z wait 1
+2026-10-20T17:23:13.754Z tapif aiMiniDramaEntry.UIButton.back
+2026-10-20T17:23:15.924Z wait 1
+2026-10-20T17:23:17.387Z pink open [z] AI Mini Drama
+2026-10-20T17:24:24.515Z pink set Fail media tool Off
+2026-10-20T17:25:10.732Z pink close
+2026-10-20T17:25:22.975Z lbl AI Mini Drama
+2026-10-20T17:25:28.947Z waitfor aiMiniDramaEntry.UIButton.history --timeout 20
+2026-10-20T17:25:30.896Z id aiMiniDramaEntry.UIButton.history
+2026-10-20T17:25:31.758Z wait 3
+2026-10-20T17:25:35.051Z lbl ライバルの共闘
+2026-10-20T17:25:37.457Z wait 4
+2026-10-20T17:25:41.847Z scrollto Scene 4 — Dawn on the Terrace 210 200 650
+2026-10-20T17:25:43.942Z els 
+2026-10-20T17:25:52.767Z tap 70 408
+2026-10-20T17:25:53.644Z wait 2
+2026-10-20T17:25:55.955Z shot TC-141-offer2
+2026-10-20T17:25:56.305Z els 
+2026-10-20T17:26:02.834Z els 
+2026-10-20T17:26:03.711Z id aiMiniDramaScene.UIButton.editFailedMedia
+2026-10-20T17:26:04.606Z wait 2
+2026-10-20T17:26:06.968Z id aiMiniDramaPromptEditor.UIButton.collapse
+2026-10-20T17:26:08.024Z wait 2
+2026-10-20T17:26:10.326Z els 
+2026-10-20T17:26:17.158Z id aiMiniDramaScene.UIButton.regenerateImage
+2026-10-20T17:26:17.999Z shot TC-141-skeleton
+2026-10-20T17:26:18.396Z els 
+2026-10-20T17:26:33.800Z els 
+2026-10-20T17:26:39.619Z els 
+2026-10-20T17:26:45.484Z els 
+2026-10-20T17:26:51.307Z els 
+2026-10-20T17:26:57.118Z els 
+2026-10-20T17:27:03.036Z els 
+2026-10-20T17:27:08.863Z els 
+2026-10-20T17:27:14.662Z els 
+2026-10-20T17:27:20.479Z els 
+2026-10-20T17:27:21.212Z shot TC-141-regenerated
+2026-10-20T17:27:29.408Z lbl ic xmark
+2026-10-20T17:27:31.271Z wait 1
+2026-10-20T17:27:32.689Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:27:33.024Z wait 1
+2026-10-20T17:27:34.403Z shot TC-141-chat-after
+2026-10-20T17:27:34.837Z els 
+2026-10-20T17:27:43.482Z drag 210 700 210 250 300
+2026-10-20T17:27:45.219Z drag 210 700 210 250 300
+2026-10-20T17:27:46.918Z shot TC-141-chat-bottom
+2026-10-20T17:27:47.325Z els 
+2026-10-20T17:28:03.513Z drag 210 250 210 750 400
+2026-10-20T17:28:06.765Z els 
+2026-10-20T17:28:08.722Z drag 210 250 210 750 400
+2026-10-20T17:28:10.590Z els 
+2026-10-20T17:28:30.212Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T17:28:31.309Z wait 1
+2026-10-20T17:28:32.596Z tapif aiMiniDramaHistory.UIButton.back
+2026-10-20T17:28:35.083Z wait 1
+2026-10-20T17:28:36.380Z tapif aiMiniDramaEntry.UIButton.back
+2026-10-20T17:28:38.589Z wait 1
+2026-10-20T17:28:40.055Z pink open [z] AI Mini Drama
+2026-10-20T17:29:45.853Z pink tap Fail turn
+2026-10-20T17:30:24.308Z els 
+2026-10-20T17:30:39.521Z lbl unavailable
+2026-10-20T17:30:53.158Z wait 1.5
+2026-10-20T17:30:55.274Z shot pink-fail-turn-unavailable
+2026-10-20T17:30:55.807Z els 
+2026-10-20T17:31:10.866Z pink close
+2026-10-20T17:31:16.749Z lbl AI Mini Drama
+2026-10-20T17:31:22.572Z waitfor aiMiniDramaEntry.UIButton.history --timeout 20
+2026-10-20T17:31:24.229Z id aiMiniDramaEntry.UIButton.history
+2026-10-20T17:31:25.091Z wait 3
+2026-10-20T17:31:28.419Z lbl ライバルの共闘
+2026-10-20T17:31:30.788Z wait 4
+2026-10-20T17:31:35.218Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:31:36.321Z id aiMiniDramaComposer.UITextView.text
+2026-10-20T17:31:37.440Z setval aiMiniDramaComposer.UITextView.text The storyboard looks good. Let's make the vi
+2026-10-20T17:31:39.782Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T17:31:40.933Z tap 210 200
+2026-10-20T17:31:49.916Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:31:50.261Z els 
+2026-10-20T17:31:52.288Z shot TC-184-fail-turn
+2026-10-20T17:32:01.234Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T17:32:02.296Z wait 2
+2026-10-20T17:32:04.631Z tapif aiMiniDramaEntry.UIButton.history
+2026-10-20T17:32:05.799Z wait 2
+2026-10-20T17:32:08.080Z lbl ライバルの共闘
+2026-10-20T17:32:10.429Z wait 4
+2026-10-20T17:32:14.811Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:32:15.898Z wait 1
+2026-10-20T17:32:17.331Z drag 210 700 210 300 300
+2026-10-20T17:32:19.052Z shot TC-184-reopened
+2026-10-20T17:32:19.494Z els 
+2026-10-20T17:32:31.503Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T17:32:32.562Z wait 1
+2026-10-20T17:32:33.864Z tapif aiMiniDramaHistory.UIButton.back
+2026-10-20T17:32:36.242Z wait 1
+2026-10-20T17:32:37.555Z tapif aiMiniDramaEntry.UIButton.back
+2026-10-20T17:32:39.727Z wait 1
+2026-10-20T17:32:41.119Z pink open [z] AI Mini Drama
+2026-10-20T17:33:48.637Z pink set Fail turn Off
+2026-10-20T17:34:42.282Z pink close
+2026-10-20T17:35:07.807Z lbl AI Mini Drama
+2026-10-20T17:35:13.894Z waitfor aiMiniDramaEntry.UIButton.history --timeout 20
+2026-10-20T17:35:15.824Z id aiMiniDramaEntry.UIButton.history
+2026-10-20T17:35:16.688Z wait 3
+2026-10-20T17:35:20.027Z lbl ライバルの共闘
+2026-10-20T17:35:22.412Z wait 4
+2026-10-20T17:35:26.826Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:35:27.886Z wait 1
+2026-10-20T17:35:29.314Z id aiMiniDramaChat.UIButton.retryTurn
+2026-10-20T17:35:38.456Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:35:39.551Z els 
+2026-10-20T17:35:49.661Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:35:50.026Z els 
+2026-10-20T17:35:52.199Z shot TC-184-retry-result
+2026-10-20T17:36:10.642Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T17:36:11.758Z wait 1
+2026-10-20T17:36:13.060Z tapif aiMiniDramaHistory.UIButton.back
+2026-10-20T17:36:15.436Z wait 1
+2026-10-20T17:36:16.728Z tapif aiMiniDramaEntry.UIButton.back
+2026-10-20T17:36:18.908Z wait 1
+2026-10-20T17:36:20.354Z lbl Mine
+2026-10-20T17:36:26.416Z wait 2
+2026-10-20T17:36:28.879Z els 
+2026-10-20T17:36:48.649Z id mineUserCardView.UIButton.creditsRow
+2026-10-20T17:36:49.875Z wait 3
+2026-10-20T17:36:53.158Z els 
+2026-10-20T17:36:59.218Z els 
+2026-10-20T17:36:59.665Z id creditsHomePage.UIButton.detail
+2026-10-20T17:37:00.432Z wait 3
+2026-10-20T17:37:10.114Z shot TC-179-ledger1
+2026-10-20T17:37:10.486Z ledger TC-179
+2026-10-20T17:38:59.698Z drag 210 750 210 250 500
+2026-10-20T17:39:07.281Z wait 1
+2026-10-20T17:39:12.315Z shot TC-179-ledger2
+2026-10-20T17:39:12.679Z ledger TC-179-p2
+2026-10-20T17:40:55.493Z drag 210 300 210 550 500
+2026-10-20T17:41:02.746Z wait 1
+2026-10-20T17:41:07.809Z shot TC-179-ledger-overlap
+2026-10-20T17:41:08.156Z ledger TC-179-overlap
+2026-10-20T17:43:01.513Z run-log set TC-141 Pass
+2026-10-20T17:43:01.624Z run-log set TC-179 Fail
+2026-10-20T17:43:01.736Z run-log set TC-139 Blocked
+2026-10-20T17:43:15.324Z pull-logs P23-d
+2026-10-20T17:44:02.458Z logs P23-d
+2026-10-20T17:45:00.618Z run-log set TC-184 Fail
+2026-10-20T17:45:00.736Z run-log set TC-182 Pass
+2026-10-20T17:45:00.858Z run-log set TC-196 Pass
+2026-10-20T17:45:35.152Z run-log set TC-214 Fail
+2026-10-20T17:45:35.380Z run-log set TC-140 Pass
+2026-10-20T17:45:40.968Z pink open [z] AI Mini Drama
+2026-10-20T17:46:47.943Z pink show
+2026-10-20T17:48:23.629Z pink close
+2026-10-20T17:49:08.569Z shot d-end
+2026-10-20T17:49:09.157Z els 
+2026-10-20T17:50:49.686Z status 
+2026-10-20T17:50:50.164Z shot f-start
+2026-10-20T17:51:06.088Z launch --lang en
+2026-10-20T17:51:08.541Z waitfor AI Mini Drama|Home --timeout 40
+2026-10-20T17:51:36.554Z els 
+2026-10-20T17:52:02.982Z lbl AI Mini Drama
+2026-10-20T17:52:08.563Z waitfor aiMiniDramaEntry.UIButton.createDrama --timeout 20
+2026-10-20T17:52:10.311Z texts TC-275-entry
+2026-10-20T17:52:22.735Z els Button
+2026-10-20T17:52:23.398Z lbl More
+2026-10-20T17:52:27.490Z texts TC-275-templates
+2026-10-20T17:52:29.529Z els Button
+2026-10-20T17:52:47.336Z do drag 210 750 210 200 400 ;; drag 210 750 210 200 400 ;; texts TC-275-templates-2
+2026-10-20T17:52:47.337Z drag 210 750 210 200 400
+2026-10-20T17:52:48.941Z drag 210 750 210 200 400
+2026-10-20T17:52:50.535Z texts TC-275-templates-2
+2026-10-20T17:52:52.280Z drag 210 750 210 200 400
+2026-10-20T17:52:53.852Z texts 
+2026-10-20T17:52:59.162Z do lbl The Beer Heir ;; wait 3 ;; texts TC-275-template-card ;; els Button
+2026-10-20T17:52:59.163Z lbl The Beer Heir
+2026-10-20T17:53:02.931Z wait 3
+2026-10-20T17:53:06.028Z texts TC-275-template-card
+2026-10-20T17:53:06.898Z els Button
+2026-10-20T17:53:12.107Z do id aiMiniDramaTemplatePreview.UIButton.back ;; wait 1 ;; id aiMiniDramaTemplateL
+2026-10-20T17:53:12.108Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T17:53:12.712Z wait 1
+2026-10-20T17:53:13.906Z id aiMiniDramaTemplateList.UIButton.back
+2026-10-20T17:53:14.706Z wait 1
+2026-10-20T17:53:15.833Z id aiMiniDramaEntry.UIButton.history
+2026-10-20T17:53:16.455Z wait 3
+2026-10-20T17:53:19.583Z texts TC-275-history
+2026-10-20T17:53:20.342Z els Button
+2026-10-20T17:53:29.052Z do id aiMiniDramaHistory.UIButton.info ;; wait 2 ;; texts TC-275-history-info ;; el
+2026-10-20T17:53:29.053Z id aiMiniDramaHistory.UIButton.info
+2026-10-20T17:53:29.715Z wait 2
+2026-10-20T17:53:31.843Z texts TC-275-history-info
+2026-10-20T17:53:32.599Z els Button
+2026-10-20T17:53:43.111Z do tap 210 500 ;; wait 1 ;; tap 377 306 ;; wait 2 ;; texts TC-275-history-more
+2026-10-20T17:53:43.113Z tap 210 500
+2026-10-20T17:53:43.778Z wait 1
+2026-10-20T17:53:44.960Z tap 377 306
+2026-10-20T17:53:45.550Z wait 2
+2026-10-20T17:53:47.722Z texts TC-275-history-more
+2026-10-20T17:53:55.034Z do ?id aiMiniDramaOutline.UIButton.scrollToBottom ;; wait 2 ;; texts TC-275-chat-st
+2026-10-20T17:53:55.035Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:53:55.206Z wait 2
+2026-10-20T17:53:57.397Z texts TC-275-chat-storm-bottom
+2026-10-20T17:54:08.681Z do lbl ic arrow down ;; wait 2 ;; texts TC-275-chat-storm-card ;; els aiMiniDrama
+2026-10-20T17:54:08.683Z lbl ic arrow down
+2026-10-20T17:54:12.326Z wait 2
+2026-10-20T17:54:14.519Z texts TC-275-chat-storm-card
+2026-10-20T17:54:16.036Z els aiMiniDrama
+2026-10-20T17:54:22.793Z do id aiMiniDramaOutline.ThemeCreditEntryView.creditEntry ;; wait 3 ;; texts TC-275
+2026-10-20T17:54:22.795Z id aiMiniDramaOutline.ThemeCreditEntryView.creditEntry
+2026-10-20T17:54:23.627Z wait 3
+2026-10-20T17:54:26.718Z texts TC-275-credit-pill
+2026-10-20T17:54:31.642Z els Button
+2026-10-20T17:54:36.307Z do id creditsHomePage.UIButton.backButton ;; wait 2 ;; els aiMiniDramaCast
+2026-10-20T17:54:36.308Z id creditsHomePage.UIButton.backButton
+2026-10-20T17:54:36.872Z wait 2
+2026-10-20T17:54:39.062Z els aiMiniDramaCast
+2026-10-20T17:54:46.370Z do tap 80 410 ;; wait 2 ;; texts TC-275-char-tap
+2026-10-20T17:54:46.371Z tap 80 410
+2026-10-20T17:54:47.052Z wait 2
+2026-10-20T17:54:49.237Z texts TC-275-char-tap
+2026-10-20T17:54:58.779Z els Button
+2026-10-20T17:55:00.102Z do lbl Filter ;; wait 2 ;; texts TC-275-filter ;; els Button
+2026-10-20T17:55:00.103Z lbl Filter
+2026-10-20T17:55:03.922Z wait 2
+2026-10-20T17:55:06.144Z texts TC-275-filter
+2026-10-20T17:55:08.631Z els Button
+2026-10-20T17:55:20.600Z do drag 300 522 60 522 400 ;; texts ;; id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T17:55:20.602Z drag 300 522 60 522 400
+2026-10-20T17:55:21.993Z texts 
+2026-10-20T17:55:24.260Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T17:55:25.111Z wait 2
+2026-10-20T17:55:27.278Z lbl Create
+2026-10-20T17:55:30.332Z wait 3
+2026-10-20T17:55:33.547Z texts TC-275-create-char
+2026-10-20T17:55:35.837Z els Button
+2026-10-20T17:55:47.166Z do id aiMiniDramaMakeCharacter.UIButton.info ;; wait 2 ;; texts TC-275-create-char-
+2026-10-20T17:55:47.168Z id aiMiniDramaMakeCharacter.UIButton.info
+2026-10-20T17:55:48.059Z wait 2
+2026-10-20T17:55:50.272Z texts TC-275-create-char-info
+2026-10-20T17:55:58.914Z do tap 210 150 ;; wait 1 ;; id aiMiniDramaMakeCharacter.UIButton.close ;; wait 2 ;;
+2026-10-20T17:55:58.916Z tap 210 150
+2026-10-20T17:55:59.644Z wait 1
+2026-10-20T17:56:00.860Z id aiMiniDramaMakeCharacter.UIButton.close
+2026-10-20T17:56:01.700Z wait 2
+2026-10-20T17:56:03.879Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T17:56:04.616Z wait 2
+2026-10-20T17:56:06.817Z tap 41 510
+2026-10-20T17:56:07.469Z wait 1
+2026-10-20T17:56:08.668Z texts TC-275-filter-restored
+2026-10-20T17:56:19.814Z do drag 380 715 60 715 400 ;; wait 1 ;; texts TC-275-filter-eth2 ;; id aiMiniDramaC
+2026-10-20T17:56:19.817Z drag 380 715 60 715 400
+2026-10-20T17:56:22.669Z wait 1
+2026-10-20T17:56:23.880Z texts TC-275-filter-eth2
+2026-10-20T17:56:26.012Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T17:56:26.833Z wait 2
+2026-10-20T17:56:29.024Z tap 249 338
+2026-10-20T17:56:29.637Z wait 2
+2026-10-20T17:56:31.830Z texts TC-275-enlarge
+2026-10-20T17:56:33.907Z els Button
+2026-10-20T17:56:40.477Z do id aiMiniDramaCharacterPreview.UIButton.more ;; wait 2 ;; texts TC-275-enlarge-m
+2026-10-20T17:56:40.478Z id aiMiniDramaCharacterPreview.UIButton.more
+2026-10-20T17:56:41.311Z wait 2
+2026-10-20T17:56:43.515Z texts TC-275-enlarge-more
+2026-10-20T17:56:56.081Z do id aiMiniDramaCharacterPreview.UIButton.more ;; wait 1 ;; texts ;; ?id aiMiniDra
+2026-10-20T17:56:56.083Z id aiMiniDramaCharacterPreview.UIButton.more
+2026-10-20T17:56:57.083Z wait 1
+2026-10-20T17:56:58.265Z texts 
+2026-10-20T17:56:59.975Z id aiMiniDramaCharacterPreview.UIButton.close
+2026-10-20T17:57:00.789Z wait 1
+2026-10-20T17:57:01.970Z texts 
+2026-10-20T17:57:14.103Z do id aiMiniDramaChangeCharacters.UIButton.close ;; wait 2 ;; texts ;; id aiMiniDra
+2026-10-20T17:57:14.105Z id aiMiniDramaChangeCharacters.UIButton.close
+2026-10-20T17:57:15.040Z wait 2
+2026-10-20T17:57:17.245Z texts 
+2026-10-20T17:57:19.194Z id aiMiniDramaOutline.UIButton.history
+2026-10-20T17:57:27.339Z do shot TC-275-leave-dialog ;; id Leave ;; wait 2 ;; id aiMiniDramaOutline.UIButton
+2026-10-20T17:57:27.341Z shot TC-275-leave-dialog
+2026-10-20T17:57:27.683Z id Leave
+2026-10-20T17:57:28.513Z wait 2
+2026-10-20T17:57:30.709Z id aiMiniDramaOutline.UIButton.history
+2026-10-20T17:57:31.494Z wait 3
+2026-10-20T17:57:34.633Z lbl ライバルの共闘
+2026-10-20T17:57:36.775Z wait 4
+2026-10-20T17:57:41.009Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T17:57:41.854Z lbl ic arrow down
+2026-10-20T17:57:43.168Z wait 2
+2026-10-20T17:57:45.400Z texts TC-275-merger-bottom
+2026-10-20T17:58:07.610Z els aiMiniDramaCredits
+2026-10-20T17:58:09.703Z source 
+2026-10-20T17:58:19.849Z do id aiMiniDramaOutline.UIButton.newChat ;; wait 3 ;; texts TC-275-newchat ;; els 
+2026-10-20T17:58:19.851Z id aiMiniDramaOutline.UIButton.newChat
+2026-10-20T17:58:20.829Z wait 3
+2026-10-20T17:58:23.956Z texts TC-275-newchat
+2026-10-20T17:58:24.912Z els Button
+2026-10-20T17:58:29.747Z do id aiMiniDramaEntry.UIButton.createDrama ;; wait 3 ;; texts TC-275-composer ;; e
+2026-10-20T17:58:29.748Z id aiMiniDramaEntry.UIButton.createDrama
+2026-10-20T17:58:30.412Z wait 3
+2026-10-20T17:58:33.602Z texts TC-275-composer
+2026-10-20T17:58:34.793Z els Button
+2026-10-20T17:58:42.705Z do id aiMiniDramaComposer.UIButton.send ;; wait 1 ;; texts TC-275-empty-send
+2026-10-20T17:58:42.707Z id aiMiniDramaComposer.UIButton.send
+2026-10-20T17:58:43.515Z wait 1
+2026-10-20T17:58:44.682Z texts TC-275-empty-send
+2026-10-20T17:58:51.455Z do ?hidekb ;; id aiMiniDramaOutline.UIButton.back ;; wait 2 ;; texts ;; lbl After C
+2026-10-20T17:58:51.456Z hidekb 
+2026-10-20T17:58:51.915Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T17:58:52.670Z wait 2
+2026-10-20T17:58:54.802Z texts 
+2026-10-20T17:58:55.559Z lbl After Closing
+2026-10-20T17:59:01.868Z do shot TC-275-leave-chat-dialog ;; lbl Leave anyway ;; wait 2 ;; lbl After Closing
+2026-10-20T17:59:01.870Z shot TC-275-leave-chat-dialog
+2026-10-20T17:59:02.099Z lbl Leave anyway
+2026-10-20T17:59:04.179Z wait 2
+2026-10-20T17:59:06.306Z lbl After Closing
+2026-10-20T17:59:08.265Z wait 3
+2026-10-20T17:59:11.467Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T17:59:12.218Z waitfor aiMiniDramaFormat.UIButton.continue --timeout 60
+2026-10-20T17:59:18.400Z texts TC-275-format-card
+2026-10-20T17:59:19.542Z els aiMiniDramaFormat
+2026-10-20T17:59:38.516Z do id aiMiniDramaOutline.UIButton.back ;; wait 2 ;; texts ;; id alertController.UIB
+2026-10-20T17:59:38.518Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T17:59:39.258Z wait 2
+2026-10-20T17:59:41.416Z texts 
+2026-10-20T17:59:42.541Z id alertController.UIButton.button
+2026-10-20T17:59:43.292Z wait 2
+2026-10-20T17:59:45.502Z els Button
+2026-10-20T18:00:06.014Z do id aiMiniDramaTemplatePreview.UIButton.history ;; wait 3 ;; id aiMiniDramaHistor
+2026-10-20T18:00:06.015Z id aiMiniDramaTemplatePreview.UIButton.history
+2026-10-20T18:00:06.889Z wait 3
+2026-10-20T18:00:10.019Z id aiMiniDramaHistory.UIButton.manage
+2026-10-20T18:00:10.644Z wait 2
+2026-10-20T18:00:12.780Z texts TC-275-history-manage
+2026-10-20T18:00:13.651Z els Button
+2026-10-20T18:00:18.962Z do id aiMiniDramaHistory.UIButton.cancel ;; wait 1 ;; tap 377 306 ;; wait 2 ;; text
+2026-10-20T18:00:18.964Z id aiMiniDramaHistory.UIButton.cancel
+2026-10-20T18:00:19.680Z wait 1
+2026-10-20T18:00:20.802Z tap 377 306
+2026-10-20T18:00:21.411Z wait 2
+2026-10-20T18:00:23.555Z texts TC-275-history-more
+2026-10-20T18:00:29.098Z do lbl Rename ;; wait 2 ;; texts TC-275-rename ;; els Button
+2026-10-20T18:00:29.099Z lbl Rename
+2026-10-20T18:00:31.748Z wait 2
+2026-10-20T18:00:33.969Z texts TC-275-rename
+2026-10-20T18:00:35.868Z els Button
+2026-10-20T18:00:43.585Z do tap 142 391 ;; wait 1 ;; texts ;; id aiMiniDramaHistory.UIButton.back ;; wait 2 
+2026-10-20T18:00:43.586Z tap 142 391
+2026-10-20T18:00:44.311Z wait 1
+2026-10-20T18:00:45.439Z texts 
+2026-10-20T18:00:46.035Z id aiMiniDramaHistory.UIButton.back
+2026-10-20T18:00:46.682Z wait 2
+2026-10-20T18:00:48.903Z els Button
+2026-10-20T18:01:20.359Z do id aiMiniDramaTemplatePreview.UIButton.back ;; wait 1 ;; id aiMiniDramaEntry.UIB
+2026-10-20T18:01:20.363Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T18:01:21.248Z wait 1
+2026-10-20T18:01:22.376Z id aiMiniDramaEntry.UIButton.back
+2026-10-20T18:01:22.999Z wait 2
+2026-10-20T18:01:25.239Z launch --lang zh-Hant
+2026-10-20T18:01:27.460Z waitfor launcher.UIButton.homeButton --timeout 40
+2026-10-20T18:01:48.173Z run-log set TC-275 Fail
+2026-10-20T18:01:52.551Z do library/ai-mini-drama/ios/recipes/text-tour.steps TC-276
+2026-10-20T18:01:52.553Z tapif launcher.UIButton.homeButton
+2026-10-20T18:01:57.998Z drag 210 300 210 800 300
+2026-10-20T18:01:59.111Z id launcher.collectionViewCell.pdrm_launcher_AI_create_AI_Mini_Drama
+2026-10-20T18:01:59.992Z waitfor aiMiniDramaEntry.UIButton.createDrama --timeout 20
+2026-10-20T18:02:01.580Z texts TC-276-entry
+2026-10-20T18:02:02.468Z id aiMiniDramaEntry.UIButton.moreTemplates
+2026-10-20T18:02:03.088Z wait 2
+2026-10-20T18:02:05.283Z texts TC-276-templates
+2026-10-20T18:02:07.075Z drag 210 750 210 200 400
+2026-10-20T18:02:08.603Z drag 210 750 210 200 400
+2026-10-20T18:02:10.195Z texts TC-276-templates-2
+2026-10-20T18:02:11.930Z drag 210 750 210 200 400
+2026-10-20T18:02:13.531Z texts TC-276-templates-3
+2026-10-20T18:02:15.181Z id aiMiniDramaTemplateList.UIButton.back
+2026-10-20T18:02:15.980Z wait 1
+2026-10-20T18:02:17.096Z tap 340 480
+2026-10-20T18:02:17.712Z wait 3
+2026-10-20T18:02:20.917Z texts TC-276-template-card
+2026-10-20T18:02:23.263Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T18:02:24.098Z waitfor aiMiniDramaFormat.UIButton.continue --timeout 60
+2026-10-20T18:02:29.867Z texts TC-276-format-card
+2026-10-20T18:02:30.999Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T18:02:31.689Z wait 2
+2026-10-20T18:02:33.850Z texts TC-276-leave-chat-dialog
+2026-10-20T18:02:35.205Z id alertController.UIButton.button
+2026-10-20T18:02:35.924Z wait 2
+2026-10-20T18:02:38.126Z id aiMiniDramaTemplatePreview.UIButton.history
+2026-10-20T18:02:38.940Z wait 3
+2026-10-20T18:02:42.065Z texts TC-276-history
+2026-10-20T18:02:42.891Z id aiMiniDramaHistory.UIButton.info
+2026-10-20T18:02:43.492Z wait 2
+2026-10-20T18:02:45.618Z texts TC-276-history-info
+2026-10-20T18:02:46.450Z tap 210 160
+2026-10-20T18:02:46.926Z wait 1
+2026-10-20T18:02:48.047Z id aiMiniDramaHistory.UIButton.manage
+2026-10-20T18:02:48.685Z wait 2
+2026-10-20T18:02:50.815Z texts TC-276-history-manage
+2026-10-20T18:02:51.690Z id aiMiniDramaHistory.UIButton.cancel
+2026-10-20T18:02:52.332Z wait 1
+2026-10-20T18:02:53.467Z tap 377 306
+2026-10-20T18:02:53.988Z wait 2
+2026-10-20T18:02:56.132Z texts TC-276-history-more
+2026-10-20T18:02:57.329Z tap 91 794
+2026-10-20T18:02:57.802Z wait 2
+2026-10-20T18:03:00.015Z texts TC-276-rename
+2026-10-20T18:03:01.993Z tap 142 391
+2026-10-20T18:03:02.655Z wait 1
+2026-10-20T18:03:03.774Z lbl Storm and Shelter
+2026-10-20T18:03:05.921Z wait 4
+2026-10-20T18:03:10.110Z lbl ic arrow down
+2026-10-20T18:03:13.700Z wait 2
+2026-10-20T18:03:15.887Z texts TC-276-chat-storm
+2026-10-20T18:03:17.375Z id aiMiniDramaOutline.ThemeCreditEntryView.creditEntry
+2026-10-20T18:03:18.144Z wait 3
+2026-10-20T18:03:21.235Z texts TC-276-credits
+2026-10-20T18:03:21.847Z id creditsHomePage.UIButton.backButton
+2026-10-20T18:03:22.370Z wait 2
+2026-10-20T18:03:24.555Z tap 80 410
+2026-10-20T18:03:25.179Z wait 3
+2026-10-20T18:03:28.370Z texts TC-276-choose-character
+2026-10-20T18:03:29.686Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T18:03:30.454Z wait 2
+2026-10-20T18:03:32.671Z texts TC-276-filter
+2026-10-20T18:03:35.194Z drag 380 715 60 715 400
+2026-10-20T18:03:37.993Z wait 1
+2026-10-20T18:03:39.211Z texts TC-276-filter-2
+2026-10-20T18:03:41.654Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T18:03:42.487Z wait 2
+2026-10-20T18:03:44.671Z tap 79 395
+2026-10-20T18:03:45.286Z wait 3
+2026-10-20T18:03:48.516Z texts TC-276-create-char
+2026-10-20T18:03:50.984Z id aiMiniDramaMakeCharacter.UIButton.info
+2026-10-20T18:03:51.841Z wait 2
+2026-10-20T18:03:54.082Z texts TC-276-create-char-info
+2026-10-20T18:03:56.527Z tap 210 150
+2026-10-20T18:03:57.208Z wait 1
+2026-10-20T18:03:58.434Z id aiMiniDramaMakeCharacter.UIButton.close
+2026-10-20T18:03:59.278Z wait 2
+2026-10-20T18:04:01.463Z tap 249 338
+2026-10-20T18:04:02.064Z wait 2
+2026-10-20T18:04:04.256Z id aiMiniDramaCharacterPreview.UIButton.more
+2026-10-20T18:04:05.035Z wait 2
+2026-10-20T18:04:07.237Z texts TC-276-enlarge-more
+2026-10-20T18:04:09.401Z id aiMiniDramaCharacterPreview.UIButton.more
+2026-10-20T18:04:10.327Z wait 1
+2026-10-20T18:04:11.512Z id aiMiniDramaCharacterPreview.UIButton.close
+2026-10-20T18:04:12.283Z wait 1
+2026-10-20T18:04:13.465Z id aiMiniDramaChangeCharacters.UIButton.close
+2026-10-20T18:04:14.222Z wait 2
+2026-10-20T18:04:16.428Z texts TC-276-leave-picker-dialog
+2026-10-20T18:04:18.674Z tap 210 499
+2026-10-20T18:04:19.322Z wait 2
+2026-10-20T18:04:21.507Z id aiMiniDramaOutline.UIButton.history
+2026-10-20T18:04:22.286Z wait 3
+2026-10-20T18:04:25.416Z lbl ライバルの共闘
+2026-10-20T18:04:27.523Z wait 4
+2026-10-20T18:04:31.759Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T18:04:32.597Z lbl ic arrow down
+2026-10-20T18:04:33.888Z wait 2
+2026-10-20T18:04:36.125Z texts TC-276-merger-bottom
+2026-10-20T18:04:38.273Z drag 210 300 210 750 400
+2026-10-20T18:04:41.268Z texts TC-276-merger-storyboard
+2026-10-20T18:04:43.556Z id aiMiniDramaOutline.UIButton.newChat
+2026-10-20T18:04:44.467Z wait 3
+2026-10-20T18:04:47.592Z id aiMiniDramaEntry.UIButton.createDrama
+2026-10-20T18:04:48.208Z wait 3
+2026-10-20T18:04:51.392Z texts TC-276-composer
+2026-10-20T18:04:52.567Z hidekb 
+2026-10-20T18:04:52.948Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T18:04:53.694Z wait 2
+2026-10-20T18:04:55.825Z texts TC-276-leave-composer-dialog
+2026-10-20T18:04:56.767Z id alertController.UIButton.button
+2026-10-20T18:04:57.398Z wait 2
+2026-10-20T18:04:59.524Z id aiMiniDramaEntry.UIButton.back
+2026-10-20T18:05:00.132Z wait 2
+2026-10-20T18:05:02.349Z shot TC-276-end
+2026-10-20T21:02:15.465Z status 
+2026-10-20T21:02:19.727Z start 00008150-00081D403A38401C
+2026-10-20T21:02:20.202Z shot resume-20261021
+2026-10-20T21:02:49.703Z run-log set TC-276 Fail
+2026-10-20T21:02:54.230Z launch --lang ja
+2026-10-20T21:02:56.652Z waitfor launcher.UIButton.homeButton --timeout 40
+2026-10-20T21:03:00.719Z do library/ai-mini-drama/ios/recipes/text-tour.steps TC-277
+2026-10-20T21:03:00.721Z tapif launcher.UIButton.homeButton
+2026-10-20T21:03:05.148Z drag 210 300 210 800 300
+2026-10-20T21:03:06.315Z id launcher.collectionViewCell.pdrm_launcher_AI_create_AI_Mini_Drama
+2026-10-20T21:03:07.222Z waitfor aiMiniDramaEntry.UIButton.createDrama --timeout 20
+2026-10-20T21:03:08.799Z texts TC-277-entry
+2026-10-20T21:03:09.669Z id aiMiniDramaEntry.UIButton.moreTemplates
+2026-10-20T21:03:10.278Z wait 2
+2026-10-20T21:03:12.471Z texts TC-277-templates
+2026-10-20T21:03:14.288Z drag 210 750 210 200 400
+2026-10-20T21:03:15.807Z drag 210 750 210 200 400
+2026-10-20T21:03:17.387Z texts TC-277-templates-2
+2026-10-20T21:03:19.077Z drag 210 750 210 200 400
+2026-10-20T21:03:20.647Z texts TC-277-templates-3
+2026-10-20T21:03:22.377Z id aiMiniDramaTemplateList.UIButton.back
+2026-10-20T21:03:23.167Z wait 1
+2026-10-20T21:03:24.277Z tap 340 480
+2026-10-20T21:03:24.766Z wait 3
+2026-10-20T21:03:27.969Z texts TC-277-template-card
+2026-10-20T21:03:30.251Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T21:03:31.035Z waitfor aiMiniDramaFormat.UIButton.continue --timeout 60
+2026-10-20T21:03:36.973Z texts TC-277-format-card
+2026-10-20T21:03:38.094Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T21:03:38.783Z wait 2
+2026-10-20T21:03:40.944Z texts TC-277-leave-chat-dialog
+2026-10-20T21:03:42.274Z id alertController.UIButton.button
+2026-10-20T21:03:42.994Z wait 2
+2026-10-20T21:03:45.202Z id aiMiniDramaTemplatePreview.UIButton.history
+2026-10-20T21:03:46.007Z wait 3
+2026-10-20T21:03:49.138Z texts TC-277-history
+2026-10-20T21:03:49.903Z id aiMiniDramaHistory.UIButton.info
+2026-10-20T21:03:50.517Z wait 2
+2026-10-20T21:03:52.644Z texts TC-277-history-info
+2026-10-20T21:03:53.466Z tap 210 160
+2026-10-20T21:03:53.962Z wait 1
+2026-10-20T21:03:55.085Z id aiMiniDramaHistory.UIButton.manage
+2026-10-20T21:03:55.728Z wait 2
+2026-10-20T21:03:57.856Z texts TC-277-history-manage
+2026-10-20T21:03:58.725Z id aiMiniDramaHistory.UIButton.cancel
+2026-10-20T21:03:59.355Z wait 1
+2026-10-20T21:04:00.482Z tap 377 306
+2026-10-20T21:04:01.100Z wait 2
+2026-10-20T21:04:03.239Z texts TC-277-history-more
+2026-10-20T21:04:04.445Z tap 91 794
+2026-10-20T21:04:04.953Z wait 2
+2026-10-20T21:04:07.161Z texts TC-277-rename
+2026-10-20T21:04:09.202Z tap 142 391
+2026-10-20T21:04:09.853Z wait 1
+2026-10-20T21:04:10.975Z lbl Storm and Shelter
+2026-10-20T21:04:13.058Z wait 4
+2026-10-20T21:04:17.251Z lbl ic arrow down
+2026-10-20T21:04:20.880Z wait 2
+2026-10-20T21:04:23.063Z texts TC-277-chat-storm
+2026-10-20T21:04:24.546Z id aiMiniDramaOutline.ThemeCreditEntryView.creditEntry
+2026-10-20T21:04:25.322Z wait 3
+2026-10-20T21:04:28.412Z texts TC-277-credits
+2026-10-20T21:04:29.066Z id creditsHomePage.UIButton.backButton
+2026-10-20T21:04:29.609Z wait 2
+2026-10-20T21:04:31.807Z tap 80 410
+2026-10-20T21:04:32.438Z wait 3
+2026-10-20T21:04:35.632Z texts TC-277-choose-character
+2026-10-20T21:04:37.033Z id aiMiniDramaChangeCharacters.UIButton.filter
+2026-10-20T21:04:37.798Z wait 2
+2026-10-20T21:04:40.013Z texts TC-277-filter
+2026-10-20T21:04:42.408Z drag 380 715 60 715 400
+2026-10-20T21:04:45.219Z wait 1
+2026-10-20T21:04:46.440Z texts TC-277-filter-2
+2026-10-20T21:04:48.745Z id aiMiniDramaCharacterFilter.UIButton.apply
+2026-10-20T21:04:49.577Z wait 2
+2026-10-20T21:04:51.763Z tap 79 395
+2026-10-20T21:04:52.378Z wait 3
+2026-10-20T21:04:55.605Z texts TC-277-create-char
+2026-10-20T21:04:57.988Z id aiMiniDramaMakeCharacter.UIButton.info
+2026-10-20T21:04:58.848Z wait 2
+2026-10-20T21:05:01.071Z texts TC-277-create-char-info
+2026-10-20T21:05:03.513Z tap 210 150
+2026-10-20T21:05:04.185Z wait 1
+2026-10-20T21:05:05.405Z id aiMiniDramaMakeCharacter.UIButton.close
+2026-10-20T21:05:06.253Z wait 2
+2026-10-20T21:05:08.435Z tap 249 338
+2026-10-20T21:05:09.054Z wait 2
+2026-10-20T21:05:11.238Z id aiMiniDramaCharacterPreview.UIButton.more
+2026-10-20T21:05:12.004Z wait 2
+2026-10-20T21:05:14.203Z texts TC-277-enlarge-more
+2026-10-20T21:05:16.443Z id aiMiniDramaCharacterPreview.UIButton.more
+2026-10-20T21:05:17.386Z wait 1
+2026-10-20T21:05:18.578Z id aiMiniDramaCharacterPreview.UIButton.close
+2026-10-20T21:05:19.355Z wait 1
+2026-10-20T21:05:20.533Z id aiMiniDramaChangeCharacters.UIButton.close
+2026-10-20T21:05:21.282Z wait 2
+2026-10-20T21:05:23.483Z texts TC-277-leave-picker-dialog
+2026-10-20T21:05:25.755Z tap 210 499
+2026-10-20T21:05:26.417Z wait 2
+2026-10-20T21:05:28.609Z id aiMiniDramaOutline.UIButton.history
+2026-10-20T21:05:29.398Z wait 3
+2026-10-20T21:05:32.532Z lbl ライバルの共闘
+2026-10-20T21:05:34.700Z wait 4
+2026-10-20T21:05:38.939Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T21:05:39.778Z lbl ic arrow down
+2026-10-20T21:05:41.091Z wait 2
+2026-10-20T21:05:43.334Z texts TC-277-merger-bottom
+2026-10-20T21:05:45.499Z drag 210 300 210 750 400
+2026-10-20T21:05:48.482Z texts TC-277-merger-storyboard
+2026-10-20T21:05:50.768Z id aiMiniDramaOutline.UIButton.newChat
+2026-10-20T21:05:51.655Z wait 3
+2026-10-20T21:05:54.780Z id aiMiniDramaEntry.UIButton.createDrama
+2026-10-20T21:05:55.405Z wait 3
+2026-10-20T21:05:58.573Z texts TC-277-composer
+2026-10-20T21:05:59.736Z hidekb 
+2026-10-20T21:06:00.123Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T21:06:00.859Z wait 2
+2026-10-20T21:06:02.988Z texts TC-277-leave-composer-dialog
+2026-10-20T21:06:03.919Z id alertController.UIButton.button
+2026-10-20T21:06:04.577Z wait 2
+2026-10-20T21:06:06.705Z id aiMiniDramaEntry.UIButton.back
+2026-10-20T21:06:07.416Z wait 2
+2026-10-20T21:06:09.661Z shot TC-277-end
+2026-10-20T21:06:37.513Z run-log set TC-277 Fail
+2026-10-20T21:06:37.623Z launch 
+2026-10-20T21:06:40.028Z waitfor launcher.UIButton.homeButton --timeout 40
+2026-10-20T21:06:51.735Z id launcher.collectionViewCell.pdrm_launcher_AI_create_AI_Mini_Drama
+2026-10-20T21:06:52.834Z waitfor aiMiniDramaEntry.UIButton.createDrama --timeout 20
+2026-10-20T21:06:54.800Z els Button
+2026-10-20T21:07:01.512Z shot TC-185-entry
+2026-10-20T21:07:02.102Z do id aiMiniDramaEntry.UIButton.history ;; wait 3 ;; shot TC-185-history ;; els But
+2026-10-20T21:07:02.103Z id aiMiniDramaEntry.UIButton.history
+2026-10-20T21:07:02.776Z wait 3
+2026-10-20T21:07:05.908Z shot TC-185-history
+2026-10-20T21:07:06.106Z els Button
+2026-10-20T21:07:06.627Z lbl Storm and Shelter
+2026-10-20T21:07:08.574Z wait 4
+2026-10-20T21:07:12.765Z lbl ic arrow down
+2026-10-20T21:07:16.301Z wait 2
+2026-10-20T21:07:18.488Z shot TC-185-chat
+2026-10-20T21:07:18.730Z els Button
+2026-10-20T21:07:19.947Z tap 80 410
+2026-10-20T21:07:20.505Z wait 3
+2026-10-20T21:07:23.688Z shot TC-185-choose-character
+2026-10-20T21:07:23.971Z els Button
+2026-10-20T21:07:35.977Z run-log set TC-185 Fail
+2026-10-20T21:07:36.090Z do id aiMiniDramaChangeCharacters.UIButton.close ;; wait 2 ;; ?tap 210 499 ;; wait 
+2026-10-20T21:07:36.091Z id aiMiniDramaChangeCharacters.UIButton.close
+2026-10-20T21:07:36.912Z wait 2
+2026-10-20T21:07:39.122Z tap 210 499
+2026-10-20T21:07:39.777Z wait 2
+2026-10-20T21:07:41.974Z shot TC-198-pre
+2026-10-20T21:08:03.745Z appearance 
+2026-10-20T21:08:03.925Z appearance light
+2026-10-20T21:08:04.295Z appearance 
+2026-10-20T21:08:04.449Z shot TC-198-light-after-switch
+2026-10-20T21:08:15.012Z do id aiMiniDramaOutline.UIButton.back ;; wait 2 ;; ?tapif aiMiniDramaEntry.UIButto
+2026-10-20T21:08:15.013Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T21:08:15.861Z wait 2
+2026-10-20T21:08:17.993Z tapif aiMiniDramaEntry.UIButton.createDrama-none
+2026-10-20T21:08:18.924Z shot TC-198-entry-light
+2026-10-20T21:08:19.140Z tap 340 480
+2026-10-20T21:08:19.622Z wait 3
+2026-10-20T21:08:22.823Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T21:08:28.841Z do id aiMiniDramaOutline.UIButton.back ;; wait 2 ;; shot TC-198-entry-light
+2026-10-20T21:08:28.842Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T21:08:29.696Z wait 2
+2026-10-20T21:08:31.831Z shot TC-198-entry-light
+2026-10-20T21:08:42.470Z do id aiMiniDramaHistory.UIButton.back ;; waitfor aiMiniDramaEntry.UIButton.createD
+2026-10-20T21:08:42.473Z id aiMiniDramaHistory.UIButton.back
+2026-10-20T21:08:43.180Z waitfor aiMiniDramaEntry.UIButton.createDrama --timeout 15
+2026-10-20T21:08:44.965Z shot TC-198-entry-light
+2026-10-20T21:08:45.365Z tap 340 480
+2026-10-20T21:08:45.870Z wait 3
+2026-10-20T21:08:49.075Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T21:08:49.825Z waitfor aiMiniDramaFormat.UIButton.continue --timeout 60
+2026-10-20T21:08:55.992Z shot TC-198-format-light
+2026-10-20T21:08:56.311Z id aiMiniDramaFormat.UIButton.continue
+2026-10-20T21:08:57.017Z wait 1
+2026-10-20T21:08:58.152Z shot TC-198-loading-light-1
+2026-10-20T21:08:58.486Z wait 2
+2026-10-20T21:09:00.628Z shot TC-198-loading-light-2
+2026-10-20T21:09:00.960Z wait 3
+2026-10-20T21:09:04.100Z shot TC-198-loading-light-3
+2026-10-20T21:09:18.188Z waitfor Create storyboard|Ready to create your characters?|Something went wrong|Try agai
+2026-10-20T21:15:58.976Z shot TC-198-outline-done-light
+2026-10-20T21:16:07.932Z texts 
+2026-10-20T21:16:16.864Z run-log set TC-198 Pass
+2026-10-20T21:16:16.985Z appearance dark
+2026-10-20T21:16:17.304Z appearance 
+2026-10-20T21:16:24.848Z do id aiMiniDramaOutline.UIButton.history ;; wait 3 ;; lbl ライバルの共闘 ;; wait 4 ;; ?id
+2026-10-20T21:16:24.849Z id aiMiniDramaOutline.UIButton.history
+2026-10-20T21:16:25.744Z wait 3
+2026-10-20T21:16:28.883Z lbl ライバルの共闘
+2026-10-20T21:16:31.082Z wait 4
+2026-10-20T21:16:35.328Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T21:16:36.175Z lbl ic arrow down
+2026-10-20T21:16:37.518Z wait 2
+2026-10-20T21:16:39.761Z shot gate2-video-card
+2026-10-20T21:16:40.146Z els 
+2026-10-20T21:17:16.029Z source 
+2026-10-20T21:17:24.219Z do id aiMiniDramaCredits.UIButton.videoLength.0 ;; shot gate2-video-settings ;; id 
+2026-10-20T21:17:24.223Z id aiMiniDramaCredits.UIButton.videoLength.0
+2026-10-20T21:17:25.177Z shot gate2-video-settings
+2026-10-20T21:17:25.442Z id aiMiniDramaCredits.UIButton.consume
+2026-10-20T21:17:26.466Z wait 5
+2026-10-20T21:17:31.702Z shot gate2-video-started
+2026-10-20T21:17:32.094Z texts 
+2026-10-20T21:17:39.238Z waitfor Here's your drama|Ready for the full video|Create the full episode|Video couldn'
+2026-10-20T21:24:45.453Z texts gate2-video-result
+2026-10-20T21:24:47.811Z do id aiMiniDramaOutline.UIButton.history ;; wait 3 ;; lbl ライバルの共闘 ;; wait 4 ;; ?id
+2026-10-20T21:24:47.812Z id aiMiniDramaOutline.UIButton.history
+2026-10-20T21:24:48.759Z wait 3
+2026-10-20T21:24:51.899Z lbl ライバルの共闘
+2026-10-20T21:24:54.010Z wait 4
+2026-10-20T21:24:58.243Z id aiMiniDramaOutline.UIButton.scrollToBottom
+2026-10-20T21:24:59.058Z lbl ic arrow down
+2026-10-20T21:25:00.260Z wait 2
+2026-10-20T21:25:02.608Z texts gate2-video-result-reopen
+2026-10-20T21:25:13.649Z do id aiMiniDramaOutline.ThemeCreditEntryView.creditEntry ;; wait 3 ;; texts gate2-
+2026-10-20T21:25:13.650Z id aiMiniDramaOutline.ThemeCreditEntryView.creditEntry
+2026-10-20T21:25:14.570Z wait 3
+2026-10-20T21:25:17.661Z texts gate2-credits-page
+2026-10-20T21:25:18.309Z id creditsHomePage.UIButton.detail
+2026-10-20T21:25:18.847Z wait 4
+2026-10-20T21:25:29.382Z shot gate2-ledger
+2026-10-20T21:25:33.197Z ledger GATE2-video
+2026-10-20T21:27:28.085Z pull-logs P23-f
+2026-10-20T21:28:35.408Z logs P23-f

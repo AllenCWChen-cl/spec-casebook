@@ -1,0 +1,31 @@
+Filing as Creator: ETHAN_HSU
+  Creator verified — last filed DRI261897P0013 on 2026-10-20
+Format check: PDR-I 16.9.0
+⚠ WARN  AI-Mini-Drama-P23-05  Repro Steps do not start with '1. Launch the APP'
+⚠ WARN  AI-Mini-Drama-P23-06  Repro Steps do not start with '1. Launch the APP'
+⚠ WARN  AI-Mini-Drama-P23-07  Repro Steps do not start with '1. Launch the APP'
+
+7 bug(s) checked — 0 error(s), 3 warning(s)
+Format OK — clear to file.
+
+[AI-Mini-Drama-P23-01] created DRI261897P0016
+  DRI261897P0016  sev 2  RD  NewCreated  build 189729  by ETHAN_HSU
+[AI-Mini-Drama-P23-02] created DRI261897P0017
+[AI-Mini-Drama-P23-03] created DRI261897P0018
+[AI-Mini-Drama-P23-04] created DRI261897P0019
+[AI-Mini-Drama-P23-05] created DRI261897P0020
+[AI-Mini-Drama-P23-06] created DRI261897P0021
+[AI-Mini-Drama-P23-07] created DRI261897P0022
+
+created 7 · skipped 0 · failed 0
+
+Read-back (Status: OK is not proof — Version has been seen not to persist):
+  DRI261897P0016  sev 2  RD  NewCreated  build 189729  by ETHAN_HSU
+  DRI261897P0017  sev 3  RD  NewCreated  build 189729  by ETHAN_HSU
+  DRI261897P0018  sev 2  PM  NewCreated  build 189729  by ETHAN_HSU
+  DRI261897P0019  sev 3  RD  NewCreated  build 189729  by ETHAN_HSU
+  DRI261897P0020  sev 3  RD  NewCreated  build 189729  by ETHAN_HSU
+  DRI261897P0021  sev 3  RD  NewCreated  build 189729  by ETHAN_HSU
+  DRI261897P0022  sev 3  RD  NewCreated  build 189729  by ETHAN_HSU
+
+Attachments are NOT part of create — upload them with `ecl_if3.py upload <BugCode> <files…>` (SKILL.md → IF3 attachments over the API).

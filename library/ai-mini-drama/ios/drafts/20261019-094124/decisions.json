@@ -1,0 +1,17 @@
+{
+  "saved_at": "2026-10-19T03:51:35.912Z",
+  "version": 1,
+  "decisions": [
+    {
+      "scope": "all rows",
+      "decision": "approved as drafted",
+      "by": "user in chat, 2026-10-19"
+    },
+    {
+      "scope": "TC-083, TC-104, TC-105, TC-224",
+      "decision": "fresh install made part of each case; moved to segment P1-h",
+      "by": "user in chat, 2026-10-19"
+    }
+  ],
+  "summary": "Approved draft 20261019-094124: 291 rows. Fresh-install cases TC-083/104/105/224 reinstall the app themselves (segment P1-h)."
+}

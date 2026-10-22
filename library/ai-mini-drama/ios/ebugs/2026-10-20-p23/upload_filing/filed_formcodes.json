@@ -1,0 +1,51 @@
+{
+  "AI-Mini-Drama-P23-01": {
+    "FormCode": "DRI261897P0016",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0016",
+    "JobID": 22649699093,
+    "short": "PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Failed character and video generations keep their charged credits with no refund",
+    "at": "2026-10-21T09:30:49"
+  },
+  "AI-Mini-Drama-P23-02": {
+    "FormCode": "DRI261897P0017",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0017",
+    "JobID": 22649699861,
+    "short": "PDR-I 16.9.0 - [AIAgent] AI Mini Drama: X on Finish your characters keeps the generated looks instead of discarding them",
+    "at": "2026-10-21T09:30:52"
+  },
+  "AI-Mini-Drama-P23-03": {
+    "FormCode": "DRI261897P0018",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0018",
+    "JobID": 22649700373,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Character filter with no matches shows a blank grid with no empty state",
+    "at": "2026-10-21T09:30:54"
+  },
+  "AI-Mini-Drama-P23-04": {
+    "FormCode": "DRI261897P0019",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0019",
+    "JobID": 22649700885,
+    "short": "PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Create my character description text runs under the expand icon",
+    "at": "2026-10-21T09:30:57"
+  },
+  "AI-Mini-Drama-P23-05": {
+    "FormCode": "DRI261897P0020",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0020",
+    "JobID": 22649701909,
+    "short": "PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Feature strings stay English in Traditional Chinese and Japanese",
+    "at": "2026-10-21T09:31:00"
+  },
+  "AI-Mini-Drama-P23-06": {
+    "FormCode": "DRI261897P0021",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0021",
+    "JobID": 22649702421,
+    "short": "PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Character filter sheet is titled 濾鏡 instead of 篩選 in Traditional Chinese",
+    "at": "2026-10-21T09:31:02"
+  },
+  "AI-Mini-Drama-P23-07": {
+    "FormCode": "DRI261897P0022",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0022",
+    "JobID": 22649702933,
+    "short": "PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Template list link reads その他 instead of もっと見る in Japanese",
+    "at": "2026-10-21T09:31:04"
+  }
+}

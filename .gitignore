@@ -1,0 +1,46 @@
+node_modules/
+.DS_Store
+
+# Images and videos stay local (user, 2026-10-22): run screenshots, eBug attachments, renders and recordings.
+# The repo keeps the text that points at them (results.csv, reports, eBug drafts with file names).
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.heic
+*.bmp
+*.tif
+*.tiff
+*.mp4
+*.mov
+*.m4v
+
+# Python caches and patch leftovers
+__pycache__/
+*.pyc
+*.orig
+*.rej
+
+# Original spec files (large PDFs, images) and rendered page tiles stay local; the repo keeps
+# spec-set.json (names, sizes, SHA-256), the SUPERSEDED note of a replaced set, and the extracted text.
+library/*/specs/*/*
+!library/*/specs/*/spec-set.json
+!library/*/specs/*/SUPERSEDED.md
+!library/*/specs/*/extracted/
+library/*/specs/*/extracted/*
+!library/*/specs/*/extracted/*.txt
+!library/*/specs/*/extracted/*.md
+!library/*/specs/*/extracted/*.json
+!library/*/specs/*/extracted/boards/
+library/*/specs/*/extracted/boards/*/
+library/*/*/drafts/*/server.log
+
+# Run screenshot folders stay local, including the on-screen text dumps saved next to each screenshot
+library/*/*/runs/*/screenshots/
+
+# Pulled app logs (may hold tokens) stay local
+library/*/*/runs/*/logs/
+library/*/*/runs/*/.session
+# Full pulled app logs attached to eBugs (may hold tokens) stay local; excerpts in ebugs/*/logs are checked first
+library/*/*/ebugs/*/full_logs/

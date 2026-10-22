@@ -1,0 +1,58 @@
+{
+  "AI-Mini-Drama-P1-01": {
+    "FormCode": "DRI261897P0006",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0006",
+    "JobID": 22631762453,
+    "short": "PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Video generation always fails after ~6 min as the storage upload times out",
+    "at": "2026-10-20T14:03:04"
+  },
+  "AI-Mini-Drama-P1-02": {
+    "FormCode": "DRI261897P0007",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0007",
+    "JobID": 22631762965,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Storyboard and video Stop cancel silently with no credit message",
+    "at": "2026-10-20T14:03:06"
+  },
+  "AI-Mini-Drama-P1-03": {
+    "FormCode": "DRI261897P0008",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0008",
+    "JobID": 22631763221,
+    "short": "PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Character and storyboard generation block the screen for over a minute",
+    "at": "2026-10-20T14:03:07"
+  },
+  "AI-Mini-Drama-P1-04": {
+    "FormCode": "DRI261897P0009",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0009",
+    "JobID": 22631763733,
+    "short": "PDR-I 16.9.0 - [AIAgent] AI Mini Drama: No Find your video here in History bubble after leaving the first video",
+    "at": "2026-10-20T14:03:09"
+  },
+  "AI-Mini-Drama-P1-05": {
+    "FormCode": "DRI261897P0010",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0010",
+    "JobID": 22631763989,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: No video settings card after a successful storyboard preview Retry",
+    "at": "2026-10-20T14:03:11"
+  },
+  "AI-Mini-Drama-P1-06": {
+    "FormCode": "DRI261897P0011",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0011",
+    "JobID": 22631764501,
+    "short": "PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Create storyboard card loses its price after the chat-limit dialog",
+    "at": "2026-10-20T14:03:12"
+  },
+  "AI-Mini-Drama-P1-07": {
+    "FormCode": "DRI261897P0012",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0012",
+    "JobID": 22631765781,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Failed scene image card copy differs from the Design error frame",
+    "at": "2026-10-20T14:03:17"
+  },
+  "AI-Mini-Drama-P1-08": {
+    "FormCode": "DRI261897P0013",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0013",
+    "JobID": 22631766037,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Leaving during outline generation discards the drama instead of keeping it",
+    "at": "2026-10-20T14:03:18"
+  }
+}

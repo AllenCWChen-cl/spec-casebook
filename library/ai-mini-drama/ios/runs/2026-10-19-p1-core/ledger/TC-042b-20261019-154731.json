@@ -1,0 +1,50 @@
+[
+ {
+  "time": "2026-10-19 15:42",
+  "credits": "+3",
+  "feature": "Generation failed, credits returned",
+  "product": "PowerDirector (iOS)"
+ },
+ {
+  "time": "2026-10-19 15:42",
+  "credits": "-1",
+  "feature": "Text to Speech",
+  "product": "PowerDirector (iOS)"
+ },
+ {
+  "time": "2026-10-19 15:42",
+  "credits": "-3",
+  "feature": "Text to Image",
+  "product": "PowerDirector (iOS)"
+ },
+ {
+  "time": "2026-10-19 15:41",
+  "credits": "-1",
+  "feature": "Text to Speech",
+  "product": "PowerDirector (iOS)"
+ },
+ {
+  "time": "2026-10-19 15:41",
+  "credits": "+3",
+  "feature": "Generation failed, credits returned",
+  "product": "PowerDirector (iOS)"
+ },
+ {
+  "time": "2026-10-19 15:41",
+  "credits": "-1",
+  "feature": "Text to Speech",
+  "product": "PowerDirector (iOS)"
+ },
+ {
+  "time": "2026-10-19 15:41",
+  "credits": "-3",
+  "feature": "Text to Image",
+  "product": "PowerDirector (iOS)"
+ },
+ {
+  "time": "2026-10-19 15:41",
+  "credits": "-3",
+  "feature": "Text to Image",
+  "product": "PowerDirector (iOS)"
+ }
+]

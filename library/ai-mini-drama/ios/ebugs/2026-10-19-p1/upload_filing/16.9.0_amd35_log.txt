@@ -1,0 +1,11 @@
+# ISS-AMD-35 preview Retry succeeds, no video settings card
+# PowerDirector 16.9.0 (189729), Developer Server, iPhone 17 Air / iOS 26.2.1. Excerpt of the app's AI Mini Drama log
+# (Write Log + Pink 'Log stage timings'); only lines about turns, charges and failures in the windows below. Signed storage URLs are truncated.
+
+## Preview Retry ◆1 and the following turns (O-15) (2026-10-19 20:12:30–20:17:40)
+2026-10-19 20:17:24:641 [AIDramaPermissionGate] [#108] [AIDrama Permission] revoke drama=C8F6CBDF-A286-4992-A656-19270682868C unused_tools=[TextToImagex0,TextToSpeechx0] unused_credit=1
+2026-10-19 20:17:24:678 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=C8F6CBDF-A286-4992-A656-19270682868C iris=261019_193541_ccfb733c stage=storyboard trigger= answers=0 attachments=0
+2026-10-19 20:17:24:678  [AMDPerf] ════ turn begin · stage=storyboard
+2026-10-19 20:17:34:606 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=C8F6CBDF-A286-4992-A656-19270682868C iris=261019_193541_ccfb733c turn=261019_193541_ccfb733c_t4 final_state=complete status_code=0 error_message="" reply=""
+2026-10-19 20:17:34:622 [AIDramaIrisConversationService] [#398] [AIDrama AMD] send reply drama=C8F6CBDF-A286-4992-A656-19270682868C iris=261019_193541_ccfb733c source=blueprint stage=beat failures=0 text=""
+2026-10-19 20:17:36:734  [AMDPerf] ════ turn end · stage=storyboard → beat · card=none · ok · wall    9.946s

@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "creator": "ETHAN_HSU",
+    "creators_read_back": [
+      "ETHAN_HSU"
+    ],
+    "token_owner": "",
+    "method": "api",
+    "tr": "TR261019-0014",
+    "server": "Developer",
+    "version": "16.9.0",
+    "build": "189729",
+    "filed_on": "2026-10-21"
+  },
+  "bugs": [
+    {
+      "bugcode": "DRI261897P0023",
+      "short": "PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Template detail player cuts off the cover title on 7 templates",
+      "status": "NewCreated",
+      "severity": 2,
+      "priority": 5,
+      "belong": "RD",
+      "creator": "ETHAN_HSU",
+      "created": "2026-10-21T09:31:53",
+      "build": "189729",
+      "tr": "TR261019-0014",
+      "product": "PowerDirector Mobile for iOS",
+      "template": "PowerDirector iOS 16.9",
+      "assignee": null,
+      "handler": "SYSTEM",
+      "version": "16.9.0",
+      "bug_source": "QA",
+      "reproduce": "7/7",
+      "happened": "Unknown",
+      "desc": "Repro Steps:\n1. Launch the APP\n2. Tap AI Mini Drama on the Launcher\n3. Tap More\n4. Swipe up to Family & Life\n5. Tap The Heiress and Her Protector\n6. Look at the cover frame the player shows as the page opens\n7. Check the result\n\nResult:\nThe cover title is cut off at both edges of the player, while the More card shows it in full.\n摘要：詳細頁播放器中的封面標題左右兩側被裁切（如 PROTECTOR、SIX THINGS），More 頁卡片則完整顯示。\n{16.9.0_amd46_heiress_crop.jpg} {16.9.0_amd46_six_things_crop.jpg} {16.9.0_amd46_dragon_crop.jpg} {16.9.0_amd46_art_of_falling_detail.jpg} {16.9.0_amd46_more_cards_full.jpg}\n\nExpect Result:\nThe cover title is fully visible in the detail player, as on the More card.\n摘要：詳細頁播放器應完整顯示封面標題，與 More 頁卡片一致。\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama Design spec, Template Detail board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\n<Claude Reviewed>",
+      "attachments": [
+        "16.9.0_amd46_heiress_crop.jpg",
+        "16.9.0_amd46_six_things_crop.jpg",
+        "16.9.0_amd46_dragon_crop.jpg",
+        "16.9.0_amd46_art_of_falling_detail.jpg",
+        "16.9.0_amd46_more_cards_full.jpg"
+      ],
+      "key": "AI-Mini-Drama-P4-01",
+      "iss": "ISS-AMD-46",
+      "feature": "AI-Mini-Drama-P4",
+      "problem_type": "UI"
+    },
+    {
+      "bugcode": "DRI261897P0024",
+      "short": "PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Proposal Across Every Lifetime cover reads Proposal Across Lifetimes",
+      "status": "NewCreated",
+      "severity": 2,
+      "priority": 5,
+      "belong": "PM",
+      "creator": "ETHAN_HSU",
+      "created": "2026-10-21T09:31:55",
+      "build": "189729",
+      "tr": "TR261019-0014",
+      "product": "PowerDirector Mobile for iOS",
+      "template": "PowerDirector iOS 16.9",
+      "assignee": null,
+      "handler": "SYSTEM",
+      "version": "16.9.0",
+      "bug_source": "QA",
+      "reproduce": "2/2",
+      "happened": "Unknown",
+      "desc": "Repro Steps:\n1. Launch the APP\n2. Tap AI Mini Drama on the Launcher\n3. Tap More\n4. Swipe up to Family & Life\n5. Tap Proposal Across Every Lifetime\n6. Tap Make my version\n7. Check the result\n\nResult:\nThe cover art reads Proposal Across Lifetimes, but the template name is Proposal Across Every Lifetime.\n摘要：封面標題為 Proposal Across Lifetimes，與模板名稱不符。\n{16.9.0_amd47_more_card.jpg} {16.9.0_amd47_detail_cover.jpg} {16.9.0_amd47_chat_bubble.jpg}\n\nExpect Result:\nThe cover art title and the template name match.\n摘要：封面圖標題應與模板名稱一致。\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama Design spec, Template Detail board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\nRelated: DRI261894P0008 (same kind of mismatch on The Fake Engagement; no longer reproduces on 189729)\n<Claude Reviewed>",
+      "attachments": [
+        "16.9.0_amd47_more_card.jpg",
+        "16.9.0_amd47_detail_cover.jpg",
+        "16.9.0_amd47_chat_bubble.jpg"
+      ],
+      "key": "AI-Mini-Drama-P4-02",
+      "iss": "ISS-AMD-47",
+      "feature": "AI-Mini-Drama-P4",
+      "problem_type": "UI"
+    },
+    {
+      "bugcode": "DRI261897P0025",
+      "short": "PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Template sample videos show garbled sign text",
+      "status": "NewCreated",
+      "severity": 3,
+      "priority": 5,
+      "belong": "PM",
+      "creator": "ETHAN_HSU",
+      "created": "2026-10-21T09:31:57",
+      "build": "189729",
+      "tr": "TR261019-0014",
+      "product": "PowerDirector Mobile for iOS",
+      "template": "PowerDirector iOS 16.9",
+      "assignee": null,
+      "handler": "SYSTEM",
+      "version": "16.9.0",
+      "bug_source": "QA",
+      "reproduce": "3/3",
+      "happened": "Unknown",
+      "desc": "Repro Steps:\n1. Launch the APP\n2. Tap AI Mini Drama on the Launcher\n3. Tap More\n4. Tap Glad We Came\n5. Watch the sample video\n6. Tap Back\n7. Tap After Closing\n8. Watch the sample video\n9. Tap Back\n10. Tap The Ring He Worked For\n11. Watch the sample video\n12. Check the result\n\nResult:\nSigns read GREEN I'ECH, CFIDKAICE and MIIANNY RING in three sample videos.\n摘要：範例影片中的招牌文字為亂碼：GREEN I'ECH、CFIDKAICE、MIIANNY RING。\n{16.9.0_amd48_glad_we_came.jpg} {16.9.0_amd48_after_closing.jpg} {16.9.0_amd48_ring_he_worked_for.jpg}\n\nExpect Result:\nText shown in template sample videos is spelled correctly, or the frames show no readable text.\n摘要：模板範例影片中的文字應拼寫正確，或畫面中不出現可辨識的文字。\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama Design spec, Template Detail board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\n<Claude Reviewed>",
+      "attachments": [
+        "16.9.0_amd48_glad_we_came.jpg",
+        "16.9.0_amd48_after_closing.jpg",
+        "16.9.0_amd48_ring_he_worked_for.jpg"
+      ],
+      "key": "AI-Mini-Drama-P4-03",
+      "iss": "ISS-AMD-48",
+      "feature": "AI-Mini-Drama-P4",
+      "problem_type": "UI"
+    }
+  ],
+  "dispositions": {}
+}

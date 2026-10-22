@@ -1,0 +1,300 @@
+{
+  "DRI261896P0041": {
+    "key": "AI-Mini-Drama-02",
+    "job": 22605306389,
+    "expected": [
+      "16.9.0_amd02_celebrity_ref.jpg",
+      "16.9.0_amd02_lookalike.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd02_celebrity_ref.jpg",
+      "16.9.0_amd02_lookalike.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0042": {
+    "key": "AI-Mini-Drama-03",
+    "job": 22605306901,
+    "expected": [
+      "16.9.0_amd03_generate_all.jpg",
+      "16.9.0_amd03_partial_silent.jpg",
+      "16.9.0_amd03_single_silent.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd03_generate_all.jpg",
+      "16.9.0_amd03_partial_silent.jpg",
+      "16.9.0_amd03_single_silent.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0043": {
+    "key": "AI-Mini-Drama-04",
+    "job": 22605307413,
+    "expected": [
+      "16.9.0_amd04_after_cast.jpg",
+      "16.9.0_amd04_after_request.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd04_after_cast.jpg",
+      "16.9.0_amd04_after_request.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0044": {
+    "key": "AI-Mini-Drama-05",
+    "job": 22605307669,
+    "expected": [
+      "16.9.0_amd05_cast_only.jpg",
+      "16.9.0_amd05_jump_to_video.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd05_cast_only.jpg",
+      "16.9.0_amd05_jump_to_video.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0045": {
+    "key": "AI-Mini-Drama-06",
+    "job": 22605309461,
+    "expected": [
+      "16.9.0_amd06_card.jpg",
+      "16.9.0_amd06_progress.jpg",
+      "16.9.0_amd06_vanished.jpg",
+      "16.9.0_amd06_scene2_same.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd06_card.jpg",
+      "16.9.0_amd06_progress.jpg",
+      "16.9.0_amd06_vanished.jpg",
+      "16.9.0_amd06_scene2_same.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0046": {
+    "key": "AI-Mini-Drama-07",
+    "job": 22605309717,
+    "expected": [
+      "16.9.0_amd07_generate_all_8.jpg",
+      "16.9.0_amd07_create_4.jpg",
+      "16.9.0_amd07_regen_3_per_image.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd07_generate_all_8.jpg",
+      "16.9.0_amd07_create_4.jpg",
+      "16.9.0_amd07_regen_3_per_image.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0047": {
+    "key": "AI-Mini-Drama-08",
+    "job": 22605310229,
+    "expected": [
+      "16.9.0_amd08_thinking.jpg",
+      "16.9.0_amd08_saved_anyway.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd08_thinking.jpg",
+      "16.9.0_amd08_saved_anyway.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0048": {
+    "key": "AI-Mini-Drama-10",
+    "job": 22605310741,
+    "expected": [
+      "16.9.0_amd10_generating.jpg",
+      "16.9.0_amd10_history_no_dialog.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd10_generating.jpg",
+      "16.9.0_amd10_history_no_dialog.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0049": {
+    "key": "AI-Mini-Drama-12",
+    "job": 22605311253,
+    "expected": [
+      "16.9.0_amd12_chat_5924.jpg",
+      "16.9.0_amd12_template_6068.jpg",
+      "16.9.0_amd12_more_6068.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd12_chat_5924.jpg",
+      "16.9.0_amd12_template_6068.jpg",
+      "16.9.0_amd12_more_6068.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0050": {
+    "key": "AI-Mini-Drama-13",
+    "job": 22605311765,
+    "expected": [
+      "16.9.0_amd13_generating.jpg",
+      "16.9.0_amd13_no_toast.jpg",
+      "16.9.0_amd13_no_processing.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd13_generating.jpg",
+      "16.9.0_amd13_no_toast.jpg",
+      "16.9.0_amd13_no_processing.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0051": {
+    "key": "AI-Mini-Drama-14",
+    "job": 22605312277,
+    "expected": [
+      "16.9.0_amd14_first_retry.jpg",
+      "16.9.0_amd14_beat_prompt.jpg",
+      "16.9.0_amd14_no_model_selector.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd14_first_retry.jpg",
+      "16.9.0_amd14_beat_prompt.jpg",
+      "16.9.0_amd14_no_model_selector.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0052": {
+    "key": "AI-Mini-Drama-15",
+    "job": 22605312533,
+    "expected": [
+      "16.9.0_amd15_failed_clip.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd15_failed_clip.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0053": {
+    "key": "AI-Mini-Drama-16",
+    "job": 22605313045,
+    "expected": [
+      "16.9.0_amd17_free_form.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd17_free_form.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0054": {
+    "key": "AI-Mini-Drama-17",
+    "job": 22605313557,
+    "expected": [
+      "16.9.0_amd18_wrong_prompt.jpg",
+      "16.9.0_amd18_no_got_it.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd18_wrong_prompt.jpg",
+      "16.9.0_amd18_no_got_it.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0055": {
+    "key": "AI-Mini-Drama-18",
+    "job": 22605314069,
+    "expected": [
+      "16.9.0_amd20_no_remaining_line.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd20_no_remaining_line.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0056": {
+    "key": "AI-Mini-Drama-20",
+    "job": 22605314325,
+    "expected": [
+      "16.9.0_amd22_before.jpg",
+      "16.9.0_amd22_after.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd22_before.jpg",
+      "16.9.0_amd22_after.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0057": {
+    "key": "AI-Mini-Drama-21",
+    "job": 22605314837,
+    "expected": [
+      "16.9.0_amd23_before.jpg",
+      "16.9.0_amd23_after.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd23_before.jpg",
+      "16.9.0_amd23_after.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0058": {
+    "key": "AI-Mini-Drama-24",
+    "job": 22605315349,
+    "expected": [
+      "16.9.0_amd26_clipped.jpg",
+      "16.9.0_amd26_sheet.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd26_clipped.jpg",
+      "16.9.0_amd26_sheet.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0059": {
+    "key": "AI-Mini-Drama-25",
+    "job": 22605315605,
+    "expected": [
+      "16.9.0_amd27_no_chip.jpg",
+      "16.9.0_amd27_chip_elsewhere.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd27_no_chip.jpg",
+      "16.9.0_amd27_chip_elsewhere.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0060": {
+    "key": "AI-Mini-Drama-27",
+    "job": 22605316373,
+    "expected": [
+      "16.9.0_amd29_quick_draft.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd29_quick_draft.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  },
+  "DRI261896P0061": {
+    "key": "AI-Mini-Drama-29",
+    "job": 22605316885,
+    "expected": [
+      "16.9.0_amd31_keyboard_stuck.jpg"
+    ],
+    "listed": [
+      "16.9.0_amd31_keyboard_stuck.jpg"
+    ],
+    "uploaded": [],
+    "missing": []
+  }
+}

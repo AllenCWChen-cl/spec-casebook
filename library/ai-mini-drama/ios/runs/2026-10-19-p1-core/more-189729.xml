@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AppiumAUT>
+  <XCUIElementTypeApplication type="XCUIElementTypeApplication" name="PowerDirector" label="PowerDirector" enabled="true" visible="true" accessible="false" x="0" y="0" width="420" height="912" index="0" traits="" processId="1336" bundleId="com.cyberlink.ios.powerdirector">
+    <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="true" accessible="false" x="0" y="0" width="420" height="912" index="0" traits="">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="420" height="912" index="0" traits="">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="420" height="912" index="0" traits="">
+          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="420" height="912" index="0" traits="">
+            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="420" height="912" index="0" traits="">
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="420" height="912" index="0" traits="">
+                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="0" width="420" height="912" index="0" traits="">
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="68" width="420" height="54" index="0" traits="">
+                    <XCUIElementTypeButton type="XCUIElementTypeButton" name="aiMiniDramaTemplateList.UIButton.back" label="5019E4A7 9AF5 4F63 914C D314E0" enabled="true" visible="true" accessible="true" x="18" y="75" width="40" height="40" index="0" traits="Button"/>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.ThemeCreditEntryView.creditEntry" enabled="true" visible="true" accessible="false" x="244" y="78" width="100" height="34" index="1" traits="">
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" name="creditEntry.UIView.background" enabled="true" visible="true" accessible="false" x="246" y="80" width="96" height="30" index="0" traits=""/>
+                      <XCUIElementTypeImage type="XCUIElementTypeImage" name="creditEntry.UIImageView.credit" enabled="true" visible="true" accessible="true" x="257" y="86" width="18" height="18" index="1" traits="Image"/>
+                      <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="20316" name="creditEntry.UILabel.remainCredits" label="20316" enabled="true" visible="true" accessible="true" x="279" y="85" width="52" height="20" index="2" traits="StaticText"/>
+                    </XCUIElementTypeOther>
+                    <XCUIElementTypeButton type="XCUIElementTypeButton" name="aiMiniDramaTemplateList.UIButton.history" label="FEE83EDD E794 455E AC21 0D00D9" enabled="true" visible="true" accessible="true" x="362" y="75" width="40" height="40" index="2" traits="Button"/>
+                  </XCUIElementTypeOther>
+                  <XCUIElementTypeScrollView type="XCUIElementTypeScrollView" enabled="true" visible="true" accessible="false" x="0" y="140" width="420" height="738" index="1" traits="">
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="140" width="420" height="1193" index="0" traits="">
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="140" width="420" height="221" index="0" traits="">
+                        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="140" width="420" height="27" index="0" traits="">
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="18" y="140" width="384" height="27" index="0" traits="">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="18" y="140" width="27" height="27" index="0" traits=""/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Workplace Romance" name="aiMiniDramaTemplateList.UILabel.category.Workplace Romance" label="Workplace Romance" enabled="true" visible="true" accessible="true" x="49" y="141" width="189" height="25" index="1" traits="StaticText"/>
+                          </XCUIElementTypeOther>
+                        </XCUIElementTypeOther>
+                        <XCUIElementTypeScrollView type="XCUIElementTypeScrollView" name="aiMiniDramaTemplateList.UIScrollView.category.Workplace Romance" enabled="true" visible="true" accessible="false" x="0" y="176" width="420" height="185" index="1" traits="">
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="18" y="176" width="612" height="185" index="0" traits="">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_merger-season" enabled="true" visible="true" accessible="false" x="18" y="176" width="112" height="185" index="0" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="18" y="176" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="true" accessible="false" x="18" y="176" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Merger Season" name="Merger Season" label="Merger Season" enabled="true" visible="true" accessible="true" x="18" y="329" width="112" height="15" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_forbidden-office-romance" enabled="true" visible="true" accessible="false" x="143" y="176" width="112" height="185" index="1" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="143" y="176" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="true" accessible="false" x="143" y="176" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Forbidden Office Romance" name="Forbidden Office Romance" label="Forbidden Office Romance" enabled="true" visible="true" accessible="true" x="143" y="329" width="112" height="30" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-new-guys-secret" enabled="true" visible="true" accessible="false" x="268" y="176" width="112" height="185" index="2" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="268" y="176" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="true" accessible="false" x="268" y="176" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="The New Guy's Secret" name="The New Guy's Secret" label="The New Guy's Secret" enabled="true" visible="true" accessible="true" x="268" y="329" width="112" height="30" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-art-of-falling" enabled="true" visible="true" accessible="false" x="393" y="176" width="112" height="185" index="3" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="393" y="176" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="true" accessible="false" x="393" y="176" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="The Art of Falling" name="The Art of Falling" label="The Art of Falling" enabled="true" visible="true" accessible="true" x="393" y="329" width="112" height="15" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_glad-we-came" enabled="true" visible="false" accessible="false" x="518" y="176" width="112" height="185" index="4" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="518" y="176" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="false" accessible="false" x="518" y="176" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Glad We Came" name="Glad We Came" label="Glad We Came" enabled="true" visible="false" accessible="true" x="518" y="329" width="112" height="15" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                          </XCUIElementTypeOther>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" value="0%" name="Vertical scroll bar, 2 pages" label="Vertical scroll bar, 2 pages" enabled="true" visible="true" accessible="false" x="387" y="176" width="30" height="185" index="1" traits="Adjustable">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="414" y="351" width="3" height="7" index="0" traits=""/>
+                          </XCUIElementTypeOther>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" value="0%" name="Vertical scroll bar, 2 pages" label="Vertical scroll bar, 2 pages" enabled="true" visible="true" accessible="false" x="387" y="176" width="30" height="185" index="2" traits="Adjustable">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="414" y="351" width="3" height="7" index="0" traits=""/>
+                          </XCUIElementTypeOther>
+                        </XCUIElementTypeScrollView>
+                      </XCUIElementTypeOther>
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="383" width="420" height="221" index="1" traits="">
+                        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="383" width="420" height="27" index="0" traits="">
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="18" y="383" width="384" height="27" index="0" traits="">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="18" y="383" width="27" height="27" index="0" traits=""/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Fantasy &amp; Destiny" name="aiMiniDramaTemplateList.UILabel.category.Fantasy &amp; Destiny" label="Fantasy &amp; Destiny" enabled="true" visible="true" accessible="true" x="49" y="384" width="165" height="25" index="1" traits="StaticText"/>
+                          </XCUIElementTypeOther>
+                        </XCUIElementTypeOther>
+                        <XCUIElementTypeScrollView type="XCUIElementTypeScrollView" name="aiMiniDramaTemplateList.UIScrollView.category.Fantasy &amp; Destiny" enabled="true" visible="true" accessible="false" x="0" y="419" width="420" height="185" index="1" traits="">
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="18" y="419" width="612" height="185" index="0" traits="">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_love-unscripted" enabled="true" visible="true" accessible="false" x="18" y="419" width="112" height="185" index="0" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="18" y="419" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="true" accessible="false" x="18" y="419" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Love, Unscripted" name="Love, Unscripted" label="Love, Unscripted" enabled="true" visible="true" accessible="true" x="18" y="572" width="112" height="15" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-dragons-chosen-bride" enabled="true" visible="true" accessible="false" x="143" y="419" width="112" height="185" index="1" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="143" y="419" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="true" accessible="false" x="143" y="419" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="The Dragon's Chosen Bride" name="The Dragon's Chosen Bride" label="The Dragon's Chosen Bride" enabled="true" visible="true" accessible="true" x="143" y="572" width="112" height="30" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_awakening-the-storm" enabled="true" visible="true" accessible="false" x="268" y="419" width="112" height="185" index="2" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="268" y="419" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="true" accessible="false" x="268" y="419" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Awakening the Storm" name="Awakening the Storm" label="Awakening the Storm" enabled="true" visible="true" accessible="true" x="268" y="572" width="112" height="30" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-heros-dangerous-heart" enabled="true" visible="true" accessible="false" x="393" y="419" width="112" height="185" index="3" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="393" y="419" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="true" accessible="false" x="393" y="419" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="The Hero's Dangerous Heart" name="The Hero's Dangerous Heart" label="The Hero's Dangerous Heart" enabled="true" visible="true" accessible="true" x="393" y="572" width="112" height="30" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-rebel-and-the-valedictorian" enabled="true" visible="false" accessible="false" x="518" y="419" width="112" height="185" index="4" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="518" y="419" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="false" accessible="false" x="518" y="419" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="The Rebel and the Valedictorian" name="The Rebel and the Valedictorian" label="The Rebel and the Valedictorian" enabled="true" visible="false" accessible="true" x="518" y="572" width="112" height="30" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                          </XCUIElementTypeOther>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" value="0%" name="Vertical scroll bar, 2 pages" label="Vertical scroll bar, 2 pages" enabled="true" visible="true" accessible="false" x="387" y="419" width="30" height="185" index="1" traits="Adjustable">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="414" y="594" width="3" height="7" index="0" traits=""/>
+                          </XCUIElementTypeOther>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" value="0%" name="Vertical scroll bar, 2 pages" label="Vertical scroll bar, 2 pages" enabled="true" visible="true" accessible="false" x="387" y="419" width="30" height="185" index="2" traits="Adjustable">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="414" y="594" width="3" height="7" index="0" traits=""/>
+                          </XCUIElementTypeOther>
+                        </XCUIElementTypeScrollView>
+                      </XCUIElementTypeOther>
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="626" width="420" height="221" index="2" traits="">
+                        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="626" width="420" height="27" index="0" traits="">
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="18" y="626" width="384" height="27" index="0" traits="">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="18" y="626" width="27" height="27" index="0" traits=""/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Urban Romance" name="aiMiniDramaTemplateList.UILabel.category.Urban Romance" label="Urban Romance" enabled="true" visible="true" accessible="true" x="49" y="627" width="147" height="25" index="1" traits="StaticText"/>
+                          </XCUIElementTypeOther>
+                        </XCUIElementTypeOther>
+                        <XCUIElementTypeScrollView type="XCUIElementTypeScrollView" name="aiMiniDramaTemplateList.UIScrollView.category.Urban Romance" enabled="true" visible="true" accessible="false" x="0" y="662" width="420" height="185" index="1" traits="">
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="18" y="662" width="487" height="185" index="0" traits="">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_after-closing" enabled="true" visible="true" accessible="false" x="18" y="662" width="112" height="185" index="0" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="18" y="662" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="true" accessible="false" x="18" y="662" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="After Closing" name="After Closing" label="After Closing" enabled="true" visible="true" accessible="true" x="18" y="815" width="112" height="15" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-fake-engagement" enabled="true" visible="true" accessible="false" x="143" y="662" width="112" height="185" index="1" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="143" y="662" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="true" accessible="false" x="143" y="662" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="The Fake Engagement" name="The Fake Engagement" label="The Fake Engagement" enabled="true" visible="true" accessible="true" x="143" y="815" width="112" height="30" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-pop-stars-secret-girlfriend" enabled="true" visible="true" accessible="false" x="268" y="662" width="112" height="185" index="2" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="268" y="662" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="true" accessible="false" x="268" y="662" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="The Pop Star's Secret Girlfriend" name="The Pop Star's Secret Girlfriend" label="The Pop Star's Secret Girlfriend" enabled="true" visible="true" accessible="true" x="268" y="815" width="112" height="30" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-house-we-both-wanted" enabled="true" visible="true" accessible="false" x="393" y="662" width="112" height="185" index="3" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="393" y="662" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="true" accessible="false" x="393" y="662" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="The House We Both Wanted" name="The House We Both Wanted" label="The House We Both Wanted" enabled="true" visible="true" accessible="true" x="393" y="815" width="112" height="30" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                          </XCUIElementTypeOther>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" value="0%" name="Vertical scroll bar, 2 pages" label="Vertical scroll bar, 2 pages" enabled="true" visible="true" accessible="false" x="387" y="662" width="30" height="185" index="1" traits="Adjustable">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="414" y="837" width="3" height="7" index="0" traits=""/>
+                          </XCUIElementTypeOther>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" value="0%" name="Vertical scroll bar, 2 pages" label="Vertical scroll bar, 2 pages" enabled="true" visible="true" accessible="false" x="387" y="662" width="30" height="185" index="2" traits="Adjustable">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="414" y="837" width="3" height="7" index="0" traits=""/>
+                          </XCUIElementTypeOther>
+                        </XCUIElementTypeScrollView>
+                      </XCUIElementTypeOther>
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="869" width="420" height="221" index="3" traits="">
+                        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="0" y="869" width="420" height="27" index="0" traits="">
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="18" y="869" width="384" height="27" index="0" traits="">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" accessible="false" x="18" y="869" width="27" height="27" index="0" traits=""/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Family &amp; Life" name="aiMiniDramaTemplateList.UILabel.category.Family &amp; Life" label="Family &amp; Life" enabled="true" visible="true" accessible="true" x="49" y="870" width="116" height="25" index="1" traits="StaticText"/>
+                          </XCUIElementTypeOther>
+                        </XCUIElementTypeOther>
+                        <XCUIElementTypeScrollView type="XCUIElementTypeScrollView" name="aiMiniDramaTemplateList.UIScrollView.category.Family &amp; Life" enabled="true" visible="false" accessible="false" x="0" y="905" width="420" height="185" index="1" traits="">
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="18" y="905" width="487" height="185" index="0" traits="">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-heiress-and-her-protector" enabled="true" visible="false" accessible="false" x="18" y="905" width="112" height="185" index="0" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="18" y="905" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="false" accessible="false" x="18" y="905" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="The Heiress and Her Protector" name="The Heiress and Her Protector" label="The Heiress and Her Protector" enabled="true" visible="false" accessible="true" x="18" y="1058" width="112" height="30" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_proposal-across-every-lifetime" enabled="true" visible="false" accessible="false" x="143" y="905" width="112" height="185" index="1" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="143" y="905" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="false" accessible="false" x="143" y="905" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Proposal Across Every Lifetime" name="Proposal Across Every Lifetime" label="Proposal Across Every Lifetime" enabled="true" visible="false" accessible="true" x="143" y="1058" width="112" height="30" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_six-things-you-didnt-know" enabled="true" visible="false" accessible="false" x="268" y="905" width="112" height="185" index="2" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="268" y="905" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="false" accessible="false" x="268" y="905" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Six Things You Didn't Know" name="Six Things You Didn't Know" label="Six Things You Didn't Know" enabled="true" visible="false" accessible="true" x="268" y="1058" width="112" height="30" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-dog-who-remembered-her" enabled="true" visible="false" accessible="false" x="393" y="905" width="112" height="185" index="3" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="393" y="905" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="false" accessible="false" x="393" y="905" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="The Dog Who Remembered Her" name="The Dog Who Remembered Her" label="The Dog Who Remembered Her" enabled="true" visible="false" accessible="true" x="393" y="1058" width="112" height="30" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                          </XCUIElementTypeOther>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" value="0%" name="Vertical scroll bar, 2 pages" label="Vertical scroll bar, 2 pages" enabled="true" visible="false" accessible="false" x="387" y="905" width="30" height="178" index="1" traits="Adjustable">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="414" y="1080" width="3" height="7" index="0" traits=""/>
+                          </XCUIElementTypeOther>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" value="0%" name="Vertical scroll bar, 2 pages" label="Vertical scroll bar, 2 pages" enabled="true" visible="false" accessible="false" x="387" y="905" width="30" height="178" index="2" traits="Adjustable">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="414" y="1080" width="3" height="7" index="0" traits=""/>
+                          </XCUIElementTypeOther>
+                        </XCUIElementTypeScrollView>
+                      </XCUIElementTypeOther>
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="1112" width="420" height="221" index="4" traits="">
+                        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="0" y="1112" width="420" height="27" index="0" traits="">
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="18" y="1112" width="384" height="27" index="0" traits="">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="18" y="1112" width="27" height="27" index="0" traits=""/>
+                            <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Animated Stories" name="aiMiniDramaTemplateList.UILabel.category.Animated Stories" label="Animated Stories" enabled="true" visible="false" accessible="true" x="49" y="1113" width="158" height="25" index="1" traits="StaticText"/>
+                          </XCUIElementTypeOther>
+                        </XCUIElementTypeOther>
+                        <XCUIElementTypeScrollView type="XCUIElementTypeScrollView" name="aiMiniDramaTemplateList.UIScrollView.category.Animated Stories" enabled="true" visible="false" accessible="false" x="0" y="1148" width="420" height="185" index="1" traits="">
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="18" y="1148" width="237" height="185" index="0" traits="">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-ring-he-worked-for" enabled="true" visible="false" accessible="false" x="18" y="1148" width="112" height="185" index="0" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="18" y="1148" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="false" accessible="false" x="18" y="1148" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="The Ring He Worked For" name="The Ring He Worked For" label="The Ring He Worked For" enabled="true" visible="false" accessible="true" x="18" y="1301" width="112" height="30" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" name="aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-beer-heir" enabled="true" visible="false" accessible="false" x="143" y="1148" width="112" height="185" index="1" traits="">
+                              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="143" y="1148" width="112" height="150" index="0" traits="">
+                                <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="false" accessible="false" x="143" y="1148" width="112" height="150" index="0" traits="Image"/>
+                              </XCUIElementTypeOther>
+                              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="The Beer Heir" name="The Beer Heir" label="The Beer Heir" enabled="true" visible="false" accessible="true" x="143" y="1301" width="112" height="15" index="1" traits="StaticText"/>
+                            </XCUIElementTypeOther>
+                          </XCUIElementTypeOther>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" value="0%" name="Vertical scroll bar, 1 page" label="Vertical scroll bar, 1 page" enabled="true" visible="false" accessible="false" x="387" y="1148" width="30" height="185" index="1" traits="Adjustable">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="414" y="1323" width="3" height="7" index="0" traits=""/>
+                          </XCUIElementTypeOther>
+                          <XCUIElementTypeOther type="XCUIElementTypeOther" value="0%" name="Vertical scroll bar, 1 page" label="Vertical scroll bar, 1 page" enabled="true" visible="false" accessible="false" x="387" y="1148" width="30" height="185" index="2" traits="Adjustable">
+                            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="414" y="1323" width="3" height="7" index="0" traits=""/>
+                          </XCUIElementTypeOther>
+                        </XCUIElementTypeScrollView>
+                      </XCUIElementTypeOther>
+                    </XCUIElementTypeOther>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" value="0%" name="Horizontal scroll bar, 1 page" label="Horizontal scroll bar, 1 page" enabled="true" visible="true" accessible="false" x="28" y="845" width="364" height="30" index="1" traits="Adjustable">
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="-39" y="872" width="36" height="3" index="0" traits=""/>
+                    </XCUIElementTypeOther>
+                    <XCUIElementTypeOther type="XCUIElementTypeOther" value="0%" name="Horizontal scroll bar, 1 page" label="Horizontal scroll bar, 1 page" enabled="true" visible="true" accessible="false" x="28" y="845" width="364" height="30" index="2" traits="Adjustable">
+                      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" accessible="false" x="-39" y="872" width="36" height="3" index="0" traits=""/>
+                    </XCUIElementTypeOther>
+                  </XCUIElementTypeScrollView>
+                </XCUIElementTypeOther>
+              </XCUIElementTypeOther>
+            </XCUIElementTypeOther>
+          </XCUIElementTypeOther>
+        </XCUIElementTypeOther>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeWindow>
+  </XCUIElementTypeApplication>
+</AppiumAUT>
+

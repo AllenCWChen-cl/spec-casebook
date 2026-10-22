@@ -1,0 +1,535 @@
+{
+  "source": "Design flow arrows of the 2026-10-19 Design spec (Figma file dZk5HLzZTdcZwWwvN9aZfZ). One-time import 2026-10-21 of the arrow inventory the spec agent recorded with node IDs (user approved); later spec sets build this list in the analysis (Coverage pass 1).",
+  "figma": "https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=",
+  "count": 88,
+  "arrows": [
+    {
+      "arrow": "2778-129128",
+      "node": "2778-129128",
+      "edge": "Launcher AI Mini Drama banner → Mini Drama landing",
+      "expected": "The AI Mini Drama launcher banner opens the Mini Drama entry page."
+    },
+    {
+      "arrow": "2778-129129",
+      "node": "2778-129129",
+      "edge": "Launcher AI Mini Drama shortcut → Mini Drama landing",
+      "expected": "Activating the AI Mini Drama launcher shortcut opens the Mini Drama landing page."
+    },
+    {
+      "arrow": "2778-129130",
+      "node": "2778-129130",
+      "edge": "Create Your Drama → empty custom idea input with keyboard",
+      "expected": "Create Your Drama opens an empty custom-idea input with the keyboard displayed."
+    },
+    {
+      "arrow": "2778-129131",
+      "node": "2778-129131",
+      "edge": "Displayed inspiration → populated unsent idea",
+      "expected": "Selecting a displayed inspiration populates the empty drama idea input."
+    },
+    {
+      "arrow": "2778-129132",
+      "node": "2778-129132",
+      "edge": "Idea Send → Format options",
+      "expected": "Before video creation the chat asks for video format, including language and captions."
+    },
+    {
+      "arrow": "2778-129133",
+      "node": "2778-129133",
+      "edge": "Custom Format Generate → outline loading",
+      "expected": "Generate on the custom-story Format card starts outline drafting."
+    },
+    {
+      "arrow": "2778-129134",
+      "node": "2778-129134",
+      "edge": "Template Format Generate → outline loading",
+      "expected": "Generate on the template-story Format card starts outline drafting."
+    },
+    {
+      "arrow": "2778-129135",
+      "node": "2778-129135",
+      "edge": "Outline character slot → Choose Character",
+      "expected": "Activating a named chat cast slot opens Choose Character for that slot."
+    },
+    {
+      "arrow": "2778-129136",
+      "node": "2778-129136",
+      "edge": "Completed picker checkmark → Characters Result",
+      "expected": "Character results show each character name with its corresponding photo."
+    },
+    {
+      "arrow": "2778-129137",
+      "node": "2778-129137",
+      "edge": "Custom storyboard Generate → storyboard loading",
+      "expected": "Generate on the custom-story storyboard offer starts storyboard loading."
+    },
+    {
+      "arrow": "2778-129138",
+      "node": "2778-129138",
+      "edge": "Template storyboard Generate → storyboard loading",
+      "expected": "Generate on the template-story storyboard offer starts storyboard loading."
+    },
+    {
+      "arrow": "2778-129139",
+      "node": "2778-129139",
+      "edge": "Custom preview-video Generate → video loading",
+      "expected": "Starting video creation displays an in-progress video state in the chat; no fixed Generating Video literal is required."
+    },
+    {
+      "arrow": "2778-129140",
+      "node": "2778-129140",
+      "edge": "Template preview-video Generate → video loading",
+      "expected": "Starting video creation displays an in-progress video state in the chat; no fixed Generating Video literal is required."
+    },
+    {
+      "arrow": "2778-129141",
+      "node": "2778-129141",
+      "edge": "Custom full-video offer Generate → video loading",
+      "expected": "Starting video creation displays an in-progress video state in the chat; no fixed Generating Video literal is required."
+    },
+    {
+      "arrow": "2778-129142",
+      "node": "2778-129142",
+      "edge": "Custom outline drafting → cast-building loading",
+      "expected": "Successful custom outline drafting advances to cast-building loading."
+    },
+    {
+      "arrow": "2778-129143",
+      "node": "2778-129143",
+      "edge": "Custom cast-building loading → outline with unset character slots",
+      "expected": "Successful custom cast-building presents the outline with unset character slots awaiting selection."
+    },
+    {
+      "arrow": "2778-129145",
+      "node": "2778-129145",
+      "edge": "Template full-video offer Generate → video loading",
+      "expected": "Starting video creation displays an in-progress video state in the chat; no fixed Generating Video literal is required."
+    },
+    {
+      "arrow": "2778-129147",
+      "node": "2778-129147",
+      "edge": "Template outline drafting → cast-building loading",
+      "expected": "Successful template outline drafting advances to cast-building loading."
+    },
+    {
+      "arrow": "2778-129148",
+      "node": "2778-129148",
+      "edge": "Template cast-building loading → completed Characters Result",
+      "expected": "Character results show each character name with its corresponding photo."
+    },
+    {
+      "arrow": "2778-129149",
+      "node": "2778-129149",
+      "edge": "Custom full-video loading → completed video and next-episode offer",
+      "expected": "The completed custom drama offers Create Next Episode."
+    },
+    {
+      "arrow": "2778-129150",
+      "node": "2778-129150",
+      "edge": "Unassigned picker → assigned cast portraits",
+      "expected": "Selecting a library character applies that look to the currently selected cast slot."
+    },
+    {
+      "arrow": "2778-129151",
+      "node": "2778-129151",
+      "edge": "Custom storyboard loading → preview and model/length offer",
+      "expected": "Before video generation, the completed storyboard exposes the Storyboard Preview surface, separately from its generated scene cards."
+    },
+    {
+      "arrow": "2778-129152",
+      "node": "2778-129152",
+      "edge": "Template storyboard loading → preview and model/length offer",
+      "expected": "Before video generation, the completed storyboard exposes the Storyboard Preview surface, separately from its generated scene cards."
+    },
+    {
+      "arrow": "2778-129153",
+      "node": "2778-129153",
+      "edge": "Custom preview-video loading → completed preview/full-video offer",
+      "expected": "Successful custom preview-video generation presents its playable preview and full-video offer."
+    },
+    {
+      "arrow": "2778-129154",
+      "node": "2778-129154",
+      "edge": "Template full-video loading → completed video and Edit",
+      "expected": "Successful template full-video generation presents the completed video and Edit action."
+    },
+    {
+      "arrow": "2778-129155",
+      "node": "2778-129155",
+      "edge": "Template preview-video loading → completed preview/full-video offer",
+      "expected": "Successful template preview-video generation presents its playable preview and full-video offer."
+    },
+    {
+      "arrow": "2811-90143",
+      "node": "2811-90143",
+      "edge": "Named chat cast slot → picker targeting that character",
+      "expected": "Activating a named chat cast slot opens Choose Character for that slot."
+    },
+    {
+      "arrow": "2811-90144",
+      "node": "2811-90144",
+      "edge": "Finish your characters X → picker (right to left)",
+      "expected": "X on Finish your characters returns to the picker without applying generated replacements."
+    },
+    {
+      "arrow": "2811-90145",
+      "node": "2811-90145",
+      "edge": "Expanded character text collapse → form (right to left)",
+      "expected": "The expanded custom-character text editor collapse control returns to the character form."
+    },
+    {
+      "arrow": "2811-90146",
+      "node": "2811-90146",
+      "edge": "Missing-character loading → completed portraits and Confirm",
+      "expected": "Successful missing-character generation replaces loading with the generated portraits and Confirm."
+    },
+    {
+      "arrow": "2811-90147",
+      "node": "2811-90147",
+      "edge": "Custom character loading → completed views and Save",
+      "expected": "Successful custom-character generation replaces the loading state with the generated views and Save to library."
+    },
+    {
+      "arrow": "2811-90151",
+      "node": "2811-90151",
+      "edge": "Library look thumbnail → selected look and cast portrait",
+      "expected": "Selecting a library character applies that look to the currently selected cast slot."
+    },
+    {
+      "arrow": "2811-90152",
+      "node": "2811-90152",
+      "edge": "Picker checkmark with unset slots → Finish your characters",
+      "expected": "The incomplete-character prompt identifies the characters that remain unset and reports their count accurately."
+    },
+    {
+      "arrow": "2811-90153",
+      "node": "2811-90153",
+      "edge": "Picker X → leave warning → chat, routed above screens",
+      "expected": "Closing the unfinished character picker presents a warning that leaving will lose the current picks, with Leave and Keep choosing actions. Leave exits the unfinished character picker without saving its unsaved picks."
+    },
+    {
+      "arrow": "2811-90153-KEEP-CHOOSING",
+      "node": "2811-90153",
+      "edge": "Picker warning Keep choosing preserves unsaved picks",
+      "expected": "Keep choosing dismisses the unfinished-picker warning and retains the current unsaved picks."
+    },
+    {
+      "arrow": "2811-90214",
+      "node": "2811-90214",
+      "edge": "Generate all missing → missing-character loading",
+      "expected": "Generate all on Finish your characters starts loading for the unset characters."
+    },
+    {
+      "arrow": "2811-90215",
+      "node": "2811-90215",
+      "edge": "Completed missing-character Confirm → Characters Result",
+      "expected": "Confirm after missing-character generation returns to chat with the completed cast."
+    },
+    {
+      "arrow": "2811-90216",
+      "node": "2811-90216",
+      "edge": "Insufficient missing-character Generate → credit top-up",
+      "expected": "Attempting missing-character generation with insufficient credits opens the credit panel."
+    },
+    {
+      "arrow": "2811-90468",
+      "node": "2811-90468",
+      "edge": "Annotation identifying long-press character description scrolling range",
+      "expected": "Long custom-character description text can be scrolled within its annotated text area."
+    },
+    {
+      "arrow": "2811-90583",
+      "node": "2811-90583",
+      "edge": "Create my character → custom-character form",
+      "expected": "Create my character opens the custom-character form for the currently selected cast slot."
+    },
+    {
+      "arrow": "2811-90584",
+      "node": "2811-90584",
+      "edge": "AI Suggestion → populated description and attributes",
+      "expected": "AI Suggestion fills the custom-character description and accompanying attributes."
+    },
+    {
+      "arrow": "2811-90585",
+      "node": "2811-90585",
+      "edge": "Character description tap/expand → text editor",
+      "expected": "The custom-character description expansion control opens its expanded text editor."
+    },
+    {
+      "arrow": "2811-90586",
+      "node": "2811-90586",
+      "edge": "Age field → numeric input",
+      "expected": "Editing character age opens numeric input for the age field."
+    },
+    {
+      "arrow": "2811-90587",
+      "node": "2811-90587",
+      "edge": "Reference → Add Media",
+      "expected": "Reference opens Add Media for choosing a reference photo."
+    },
+    {
+      "arrow": "2811-90588",
+      "node": "2811-90588",
+      "edge": "Character text Done → form, returning left",
+      "expected": "Done returns from the expanded custom-character text editor to the character form."
+    },
+    {
+      "arrow": "2811-90589",
+      "node": "2811-90589",
+      "edge": "Selected photo → Crop",
+      "expected": "Choosing a reference photo opens Crop with that photo."
+    },
+    {
+      "arrow": "2811-90590",
+      "node": "2811-90590",
+      "edge": "Custom Generate with reference → character loading",
+      "expected": "Generate on the valid custom-character form starts character loading for the submitted description and reference."
+    },
+    {
+      "arrow": "2811-90591",
+      "node": "2811-90591",
+      "edge": "Completed Save to library → selected new Mine character",
+      "expected": "Save to library stores the completed custom character and applies it to the selected cast slot."
+    },
+    {
+      "arrow": "2811-90592",
+      "node": "2811-90592",
+      "edge": "Thumbnail magnify → enlarged character preview",
+      "expected": "The character thumbnail preview control opens an enlarged character preview."
+    },
+    {
+      "arrow": "2811-90593",
+      "node": "2811-90593",
+      "edge": "Completed custom X → unselected picker, routed above screens",
+      "expected": "X after completed custom-character generation does not apply the generated character to the cast slot."
+    },
+    {
+      "arrow": "2811-97718",
+      "node": "2811-97718",
+      "edge": "Filter checkmark → filtered picker",
+      "expected": "The Filter checkmark returns to the character picker with the selected criteria applied."
+    },
+    {
+      "arrow": "2811-97719",
+      "node": "2811-97719",
+      "edge": "Default Filter → chosen gender/ethnicity/age criteria",
+      "expected": "Selecting gender, ethnicity and age criteria updates the Filter panel selections before applying them."
+    },
+    {
+      "arrow": "2811-105834",
+      "node": "2811-105834",
+      "edge": "Filter Clear → default filter values (right to left)",
+      "expected": "Clear resets selected character filter criteria to their default state."
+    },
+    {
+      "arrow": "2811-105836",
+      "node": "2811-105836",
+      "edge": "Picker Filter icon → Filter panel",
+      "expected": "The Choose Character filter icon opens the Filter panel."
+    },
+    {
+      "arrow": "2811-105838",
+      "node": "2811-105838",
+      "edge": "Different cast slot → changed target and reset filters",
+      "expected": "Choosing a different cast slot updates the target name and resets character filters to default."
+    },
+    {
+      "arrow": "2820-113559",
+      "node": "2820-113559",
+      "edge": "Annotation identifying long-press scene description scrolling range",
+      "expected": "Long scene-description text can be scrolled within its annotated text area."
+    },
+    {
+      "arrow": "2820-113560",
+      "node": "2820-113560",
+      "edge": "Storyboard scene card → illustration details",
+      "expected": "Activating a storyboard scene card opens scene details."
+    },
+    {
+      "arrow": "2820-113561",
+      "node": "2820-113561",
+      "edge": "Scene 1 right arrow → Scene 2 detail",
+      "expected": "The scene-detail right arrow opens the next scene."
+    },
+    {
+      "arrow": "2820-113562",
+      "node": "2820-113562",
+      "edge": "Storyboard Preview play → preview player",
+      "expected": "The Storyboard Preview play control opens the preview player."
+    },
+    {
+      "arrow": "2820-113563",
+      "node": "2820-113563",
+      "edge": "Second storyboard scene card → illustration details",
+      "expected": "Activating a storyboard scene card opens scene details."
+    },
+    {
+      "arrow": "2820-115457",
+      "node": "2820-115457",
+      "edge": "Full-video settings Generate → video loading",
+      "expected": "Starting video creation displays an in-progress video state in the chat; no fixed Generating Video literal is required."
+    },
+    {
+      "arrow": "2820-115458",
+      "node": "2820-115458",
+      "edge": "Full-video loading → completed video and next-episode offer",
+      "expected": "The completed custom drama offers Create Next Episode."
+    },
+    {
+      "arrow": "2820-115460",
+      "node": "2820-115460",
+      "edge": "Completed video play → scene-video detail/player",
+      "expected": "Activating the completed chat video play control opens the scene-video player."
+    },
+    {
+      "arrow": "2820-116878",
+      "node": "2820-116878",
+      "edge": "Repeated-failure Edit → expanded scene description",
+      "expected": "Edit on a failed scene-video opens its description editor."
+    },
+    {
+      "arrow": "2820-116880",
+      "node": "2820-116880",
+      "edge": "Regenerate scene quote → same scene loading",
+      "expected": "Submitting the scene-video regeneration request starts clip generation."
+    },
+    {
+      "arrow": "2820-118509",
+      "node": "2820-118509",
+      "edge": "Failed video editor collapse → regeneration quote",
+      "expected": "Collapsing the failed scene-video description editor returns to its regeneration offer."
+    },
+    {
+      "arrow": "2820-118510",
+      "node": "2820-118510",
+      "edge": "Failed video editor Done → regeneration quote",
+      "expected": "Done in the failed scene-video editor returns to its regeneration offer."
+    },
+    {
+      "arrow": "2820-123493",
+      "node": "2820-123493",
+      "edge": "Recent Task state → Rename/Delete menu",
+      "expected": "A Recent Task action menu exposes Rename and Delete."
+    },
+    {
+      "arrow": "2820-123494",
+      "node": "2820-123494",
+      "edge": "Outline-stage Recent Task → restored outline chat",
+      "expected": "Reopening a saved task shows the latest outline state rather than the complete session chat history."
+    },
+    {
+      "arrow": "2820-123495",
+      "node": "2820-123495",
+      "edge": "Storyboard-stage Recent Task → restored storyboard chat",
+      "expected": "Reopening a saved storyboard-stage task restores its latest saved storyboard information."
+    },
+    {
+      "arrow": "2820-125869",
+      "node": "2820-125869",
+      "edge": "Insufficient storyboard Buy Credits → top-up",
+      "expected": "When credits are insufficient for a generation or regeneration offer, its credit action opens the top-up panel."
+    },
+    {
+      "arrow": "2824-132729",
+      "node": "2824-132729",
+      "edge": "Keyboard-visible long idea → collapsed idea after keyboard dismissal",
+      "expected": "Dismissing the keyboard collapses a long idea input to at most three displayed lines."
+    },
+    {
+      "arrow": "2831-134024",
+      "node": "2831-134024",
+      "edge": "Insufficient full-video Buy Credits → top-up",
+      "expected": "When credits are insufficient for a generation or regeneration offer, its credit action opens the top-up panel."
+    },
+    {
+      "arrow": "2837-147745",
+      "node": "2837-147745",
+      "edge": "Crop drag/pinch → adjusted reference framing",
+      "expected": "Dragging the reference photo in Crop adjusts how it fits the frame."
+    },
+    {
+      "arrow": "2837-147745-PINCH",
+      "node": "2837-147745",
+      "edge": "Crop pinch changes reference framing",
+      "expected": "Pinching the reference photo in Crop adjusts how it fits the frame."
+    },
+    {
+      "arrow": "2837-147912",
+      "node": "2837-147912",
+      "edge": "Crop checkmark → form with reference",
+      "expected": "The Crop checkmark returns to Create my character with the selected cropped reference."
+    },
+    {
+      "arrow": "3142-70052",
+      "node": "3142-70052",
+      "edge": "Failed storyboard image card → failed scene details",
+      "expected": "Opening a failed storyboard scene exposes its failed image and Edit route in scene details."
+    },
+    {
+      "arrow": "3142-70054",
+      "node": "3142-70054",
+      "edge": "Failed storyboard editor Done → regeneration offer",
+      "expected": "Done from the failed-scene description editor opens the regeneration offer with the edited text."
+    },
+    {
+      "arrow": "3142-70055",
+      "node": "3142-70055",
+      "edge": "Failed storyboard editor collapse → regeneration offer",
+      "expected": "Collapsing the failed-scene description editor returns to the regeneration offer."
+    },
+    {
+      "arrow": "3142-70056",
+      "node": "3142-70056",
+      "edge": "Regenerate Image → same scene loading",
+      "expected": "Regenerate Image starts replacement generation for the failed storyboard scene."
+    },
+    {
+      "arrow": "3167-119744",
+      "node": "3167-119744",
+      "edge": "Missing-character failure Got it → picker with partial results",
+      "expected": "Got it dismisses the character-image failure message and returns to the character picker."
+    },
+    {
+      "arrow": "3172-66578",
+      "node": "3172-66578",
+      "edge": "Custom-character failure Got it → retained custom form",
+      "expected": "Got it on a custom-character server failure returns to the character form with the reference and description retained."
+    },
+    {
+      "arrow": "3172-101673",
+      "node": "3172-101673",
+      "edge": "Failed scene Retry → same scene loading",
+      "expected": "Retry on a failed scene video starts generation for that scene."
+    },
+    {
+      "arrow": "3172-101674",
+      "node": "3172-101674",
+      "edge": "Scene retry loading → repeated-failure Edit state",
+      "expected": "A repeatedly failed scene-video request exposes Edit with the retry-failure explanation."
+    },
+    {
+      "arrow": "4006-73627",
+      "node": "4006-73627",
+      "edge": "Scene-video detail Back during regeneration → chat retains existing video and shows Updating 1 scene / video will refresh when done",
+      "expected": "Returning from a generating scene video to chat retains the existing video and shows the scene-update status."
+    },
+    {
+      "arrow": "4006-73628",
+      "node": "4006-73628",
+      "edge": "Chat updating-scene state → refreshed completed video, download and Create Next Episode",
+      "expected": "When scene-video regeneration finishes, chat replaces the prior video with the refreshed completed video."
+    },
+    {
+      "arrow": "4078-177644",
+      "node": "4078-177644",
+      "edge": "Captions could not be added: Try again → Adding captions state; video and next-episode offer remain visible",
+      "expected": "Try again below a caption-failed video changes the status to Adding captions while retaining the video and next-episode offer."
+    },
+    {
+      "arrow": "4078-177645",
+      "node": "4078-177645",
+      "edge": "Adding captions → completed captioned video with download and next-episode offer",
+      "expected": "Successful caption retry replaces Adding captions with the captioned video and removes the failure message."
+    }
+  ]
+}

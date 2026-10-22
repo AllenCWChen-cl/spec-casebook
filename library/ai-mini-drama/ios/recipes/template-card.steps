@@ -1,0 +1,68 @@
+# One template card check, stopping before 「Generate」 (P4 card rows, user 2026-10-20: never tap Generate).
+# Starts: More (all-categories page) with the template's card fully on screen. Ends: back on More. Charges nothing.
+# Detail page (preview shots 3 s apart, Mute/Unmute, tap-to-pause), Make my version, the chat opening, every format
+# option (single choice per group), then Back › Stay › Back › Leave anyway › detail › Back.
+# Args: $1 template slug (style_aidrama_…) · $2 screenshot prefix (e.g. tc237)
+# Written 2026-10-21 (P4-a) from the TC-235 command history. The detail page is a horizontal pager over the whole
+# category row and every off-screen page has its own 「Unmute」 button, so `id Mute`/`id Unmute` can hit another page and
+# page over to it (first run, TC-237: landed on Merger Season) — tap the speaker by its point and `expect` the card id.
+id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.$1
+waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+wait 1
+expect aiMiniDramaTemplatePreview.card.$1
+texts $2-detail
+wait 3
+shot $2-preview-t2
+tap 345 697
+wait 1
+els Unmute
+shot $2-muted
+tap 345 697
+wait 1
+els Mute
+expect aiMiniDramaTemplatePreview.card.$1
+tap 210 430
+wait 1
+shot $2-paused-a
+els Play
+wait 2
+shot $2-paused-b
+tap 210 430
+wait 1
+expect aiMiniDramaTemplatePreview.card.$1
+id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+waitfor "What format would you like for your video?" --timeout 30
+wait 1
+texts $2-chat-open
+id aiMiniDramaFormat.UIButton.language.1
+shot $2-fmt-l1
+id aiMiniDramaFormat.UIButton.language.2
+shot $2-fmt-l2
+id aiMiniDramaFormat.UIButton.language.3
+shot $2-fmt-l3
+id aiMiniDramaFormat.UIButton.language.4
+shot $2-fmt-l4
+id aiMiniDramaFormat.UIButton.language.5
+shot $2-fmt-l5
+id aiMiniDramaFormat.UIButton.language.6
+shot $2-fmt-l6
+id aiMiniDramaFormat.UIButton.captions.1
+shot $2-fmt-c1
+id aiMiniDramaFormat.UIButton.language.0
+id aiMiniDramaFormat.UIButton.captions.0
+shot $2-fmt-reset
+id aiMiniDramaOutline.UIButton.back
+waitfor "Leave this chat?" --timeout 10
+texts $2-leave-dialog
+lbl Stay
+wait 1
+expect "What format would you like for your video?"
+shot $2-stay
+id aiMiniDramaOutline.UIButton.back
+waitfor "Leave anyway" --timeout 10
+lbl "Leave anyway"
+waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+expect aiMiniDramaTemplatePreview.card.$1
+texts $2-left
+id aiMiniDramaTemplatePreview.UIButton.back
+waitfor aiMiniDramaTemplateList.UIButton.history --timeout 15

@@ -1,0 +1,86 @@
+# ISS-AMD-37 video generation fails: storage upload timeout
+# PowerDirector 16.9.0 (189729), Developer Server, iPhone 17 Air / iOS 26.2.1. Excerpt of the app's AI Mini Drama log
+# (Write Log + Pink 'Log stage timings'); only lines about turns, charges and failures in the windows below. Signed storage URLs are truncated.
+
+## Shared Turf storyboard-image revision 1 (TC-073) (2026-10-19 17:10:00–17:16:30)
+2026-10-19 17:10:12:046 [AIDramaPermissionGate] [#93] [AIDrama Permission] authorize drama=68FED75C-22E1-4A00-9307-DB50AA6C6B2E tools=[TextToImagex1] credit=3 video_model=nil
+2026-10-19 17:10:12:063 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=68FED75C-22E1-4A00-9307-DB50AA6C6B2E iris=261019_152052_6142473d stage=beat trigger= answers=1 attachments=0
+2026-10-19 17:10:12:063  [AMDPerf] ════ turn begin · stage=beat
+2026-10-19 17:16:16:624  [AMDPerf] ✗   +3.121s   361.440s  iris/prompt_1/beat-edit
+2026-10-19 17:16:16:624 [AIDramaRequestCoordinator] [#64] [AIDrama AMD] workflow step failed drama=68FED75C-22E1-4A00-9307-DB50AA6C6B2E workflow=ai-mini-drama/plan/routed/asset_routed step=prompt_1 skill=beat-edit call=261019_152052_6142473d_t8_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompt_1 error="HTTP PUT to storage URL failed: Failed to write connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/o1p6k3w21mb7/input.1.png?<signed query removed>"
+2026-10-19 17:16:16:634 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=68FED75C-22E1-4A00-9307-DB50AA6C6B2E iris=261019_152052_6142473d turn=261019_152052_6142473d_t8 final_state=complete status_code=0 error_message="" reply=""
+2026-10-19 17:16:16:649 [AIDramaIrisConversationService] [#398] [AIDrama AMD] send reply drama=68FED75C-22E1-4A00-9307-DB50AA6C6B2E iris=261019_152052_6142473d source=blueprint stage=beat failures=1 text=""
+2026-10-19 17:16:16:649 [AIDramaIrisConversationService] [#406] [AIDrama AMD] send failure[0] tool=prompt target=beat_2fa188b7 status=tool_error reason="HTTP PUT to storage URL failed: Failed to write connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/o1p6k3w21mb7/input.1.png?<signed query removed>"
+2026-10-19 17:16:18:767  [AMDPerf] ════ turn end · stage=beat · card=none · ok · wall  364.588s
+
+## Shared Turf storyboard-image revision 2 (TC-073) (2026-10-19 17:18:40–17:25:10)
+2026-10-19 17:18:48:059 [AIDramaPermissionGate] [#93] [AIDrama Permission] authorize drama=68FED75C-22E1-4A00-9307-DB50AA6C6B2E tools=[TextToImagex1] credit=3 video_model=nil
+2026-10-19 17:18:48:076 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=68FED75C-22E1-4A00-9307-DB50AA6C6B2E iris=261019_152052_6142473d stage=beat trigger= answers=1 attachments=0
+2026-10-19 17:18:48:076  [AMDPerf] ════ turn begin · stage=beat
+2026-10-19 17:24:51:843  [AMDPerf] ✗   +2.620s   361.146s  iris/prompt_1/beat-edit
+2026-10-19 17:24:51:843 [AIDramaRequestCoordinator] [#64] [AIDrama AMD] workflow step failed drama=68FED75C-22E1-4A00-9307-DB50AA6C6B2E workflow=ai-mini-drama/plan/routed/asset_routed step=prompt_1 skill=beat-edit call=261019_152052_6142473d_t10_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompt_1 error="HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/o1p6k3w21mb7/input.2.png?<signed query removed>"
+2026-10-19 17:24:51:870 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=68FED75C-22E1-4A00-9307-DB50AA6C6B2E iris=261019_152052_6142473d turn=261019_152052_6142473d_t10 final_state=complete status_code=0 error_message="" reply=""
+2026-10-19 17:24:51:883 [AIDramaIrisConversationService] [#398] [AIDrama AMD] send reply drama=68FED75C-22E1-4A00-9307-DB50AA6C6B2E iris=261019_152052_6142473d source=blueprint stage=beat failures=1 text=""
+2026-10-19 17:24:51:884 [AIDramaIrisConversationService] [#406] [AIDrama AMD] send failure[0] tool=prompt target=beat_2fa188b7 status=tool_error reason="HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/o1p6k3w21mb7/input.2.png?<signed query removed>"
+2026-10-19 17:24:53:994  [AMDPerf] ════ turn end · stage=beat · card=none · ok · wall  363.810s
+
+## Echoes in the Dark preview video (2026-10-19 19:47:40–19:54:00)
+2026-10-19 19:47:46:288 [AIDramaPermissionGate] [#93] [AIDrama Permission] authorize drama=3214B9EA-20D3-463C-9F7C-074844997C80 tools=[RefToVideox2] credit=120 video_model=seedance2
+2026-10-19 19:47:46:289 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=3214B9EA-20D3-463C-9F7C-074844997C80 iris=261019_191157_c363f33c stage=beat trigger= answers=2 attachments=0
+2026-10-19 19:47:46:289  [AMDPerf] ════ turn begin · stage=beat
+2026-10-19 19:53:50:870  [AMDPerf] ✗   +3.504s   361.078s  iris/prompt_1/video-generation-batch
+2026-10-19 19:53:50:871 [AIDramaRequestCoordinator] [#64] [AIDrama AMD] workflow step failed drama=3214B9EA-20D3-463C-9F7C-074844997C80 workflow=ai-mini-drama/plan/routed/asset_routed step=prompt_1 skill=video-generation-batch call=261019_191157_c363f33c_t8_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompt_1 error="HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/v7dd7mkm1jc0/input.1.png?<signed query removed>"
+2026-10-19 19:53:50:886 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=3214B9EA-20D3-463C-9F7C-074844997C80 iris=261019_191157_c363f33c turn=261019_191157_c363f33c_t8 final_state=complete status_code=0 error_message="" reply=""
+2026-10-19 19:53:50:900 [AIDramaIrisConversationService] [#398] [AIDrama AMD] send reply drama=3214B9EA-20D3-463C-9F7C-074844997C80 iris=261019_191157_c363f33c source=blueprint stage=beat failures=1 text=""
+2026-10-19 19:53:50:900 [AIDramaIrisConversationService] [#406] [AIDrama AMD] send failure[0] tool=prompt target=storyboard status=tool_error reason="HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/v7dd7mkm1jc0/input.1.png?<signed query removed>"
+2026-10-19 19:53:53:016  [AMDPerf] ════ turn end · stage=beat · card=none · ok · wall  364.614s
+
+## Echoes in the Dark clip regenerate (2026-10-19 19:59:40–20:06:00)
+2026-10-19 19:59:45:921 [AIDramaPermissionGate] [#108] [AIDrama Permission] revoke drama=3214B9EA-20D3-463C-9F7C-074844997C80 unused_tools=[RefToVideox2] unused_credit=120
+2026-10-19 19:59:46:000 [AIDramaPermissionGate] [#93] [AIDrama Permission] authorize drama=3214B9EA-20D3-463C-9F7C-074844997C80 tools=[RefToVideox1] credit=60 video_model=seedance2
+2026-10-19 19:59:46:006 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=3214B9EA-20D3-463C-9F7C-074844997C80 iris=261019_191157_c363f33c stage=beat trigger=generate_video answers=0 attachments=0
+2026-10-19 19:59:46:006  [AMDPerf] ════ turn begin · generate_video · stage=beat
+2026-10-19 20:00:12:929 [AIDramaIrisConversationService] [#269] [AIDrama AMD] resume begin drama=C8F6CBDF-A286-4992-A656-19270682868C iris=261019_193541_ccfb733c
+2026-10-19 20:05:49:707  [AMDPerf] ✗   +2.542s   361.158s  iris/prompt_1/video-generation-batch
+2026-10-19 20:05:49:707 [AIDramaRequestCoordinator] [#64] [AIDrama AMD] workflow step failed drama=3214B9EA-20D3-463C-9F7C-074844997C80 workflow=ai-mini-drama/plan/routed/asset_routed step=prompt_1 skill=video-generation-batch call=261019_191157_c363f33c_t9_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompt_1 error="HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/v7dd7mkm1jc0/input.2.png?<signed query removed>"
+2026-10-19 20:05:49:717 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=3214B9EA-20D3-463C-9F7C-074844997C80 iris=261019_191157_c363f33c turn=261019_191157_c363f33c_t9 final_state=complete status_code=0 error_message="" reply=""
+2026-10-19 20:05:49:731 [AIDramaIrisConversationService] [#398] [AIDrama AMD] send reply drama=3214B9EA-20D3-463C-9F7C-074844997C80 iris=261019_191157_c363f33c source=blueprint stage=beat failures=1 text=""
+2026-10-19 20:05:49:731 [AIDramaIrisConversationService] [#406] [AIDrama AMD] send failure[0] tool=prompt target=storyboard status=tool_error reason="HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/v7dd7mkm1jc0/input.2.png?<signed query removed>"
+2026-10-19 20:05:51:850  [AMDPerf] ════ turn end · generate_video · stage=beat · card=none · ok · wall  363.727s
+
+## Shared Solitude preview video (2026-10-19 20:18:05–20:24:30)
+2026-10-19 20:18:11:908 [AIDramaPermissionGate] [#93] [AIDrama Permission] authorize drama=C8F6CBDF-A286-4992-A656-19270682868C tools=[RefToVideox2] credit=120 video_model=seedance2
+2026-10-19 20:18:11:909 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=C8F6CBDF-A286-4992-A656-19270682868C iris=261019_193541_ccfb733c stage=beat trigger= answers=2 attachments=0
+2026-10-19 20:18:11:909  [AMDPerf] ════ turn begin · stage=beat
+2026-10-19 20:24:16:558  [AMDPerf] ✗   +3.546s   361.102s  iris/prompt_1/video-generation-batch
+2026-10-19 20:24:16:558 [AIDramaRequestCoordinator] [#64] [AIDrama AMD] workflow step failed drama=C8F6CBDF-A286-4992-A656-19270682868C workflow=ai-mini-drama/plan/routed/asset_routed step=prompt_1 skill=video-generation-batch call=261019_193541_ccfb733c_t5_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompt_1 error="HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/1meh17kq5xche/input.1.png?<signed query removed>"
+2026-10-19 20:24:16:567 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=C8F6CBDF-A286-4992-A656-19270682868C iris=261019_193541_ccfb733c turn=261019_193541_ccfb733c_t5 final_state=complete status_code=0 error_message="" reply=""
+2026-10-19 20:24:16:583 [AIDramaIrisConversationService] [#398] [AIDrama AMD] send reply drama=C8F6CBDF-A286-4992-A656-19270682868C iris=261019_193541_ccfb733c source=blueprint stage=beat failures=1 text=""
+2026-10-19 20:24:16:583 [AIDramaIrisConversationService] [#406] [AIDrama AMD] send failure[0] tool=prompt target=storyboard status=tool_error reason="HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/1meh17kq5xche/input.1.png?<signed query removed>"
+2026-10-19 20:24:16:593 [AIDramaChatPresenter] [#1131] [AIDrama] video turn failed before filming, offering retry: Optional(PowerDirector.AIDramaChatError.turnFailureReported("HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/1meh17kq5xche/input.1.png?<signed query removed>)"))
+2026-10-19 20:24:18:711  [AMDPerf] ════ turn end · stage=beat · card=none · ok · wall  364.676s
+
+## Across Distance preview video (2026-10-19 21:13:10–21:22:00)
+2026-10-19 21:13:16:387 [AIDramaPermissionGate] [#93] [AIDrama Permission] authorize drama=ABD9836D-BF9D-40F4-BBC4-F9F05E34791C tools=[RefToVideox2] credit=120 video_model=seedance2
+2026-10-19 21:13:16:389 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=ABD9836D-BF9D-40F4-BBC4-F9F05E34791C iris=261019_205419_25c92513 stage=storyboard trigger= answers=2 attachments=0
+2026-10-19 21:13:16:389  [AMDPerf] ════ turn begin · stage=storyboard
+2026-10-19 21:19:20:471  [AMDPerf] ✗   +2.661s   361.421s  iris/prompt_1/video-generation-batch
+2026-10-19 21:19:20:471 [AIDramaRequestCoordinator] [#64] [AIDrama AMD] workflow step failed drama=ABD9836D-BF9D-40F4-BBC4-F9F05E34791C workflow=ai-mini-drama/plan/routed/asset_routed step=prompt_1 skill=video-generation-batch call=261019_205419_25c92513_t11_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompt_1 error="HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/1meh17kq5xche/input.2.png?<signed query removed>"
+2026-10-19 21:19:20:485 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=ABD9836D-BF9D-40F4-BBC4-F9F05E34791C iris=261019_205419_25c92513 turn=261019_205419_25c92513_t11 final_state=complete status_code=0 error_message="" reply=""
+2026-10-19 21:19:20:498 [AIDramaIrisConversationService] [#398] [AIDrama AMD] send reply drama=ABD9836D-BF9D-40F4-BBC4-F9F05E34791C iris=261019_205419_25c92513 source=blueprint stage=beat failures=1 text=""
+2026-10-19 21:19:20:498 [AIDramaIrisConversationService] [#406] [AIDrama AMD] send failure[0] tool=prompt target=storyboard status=tool_error reason="HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/1meh17kq5xche/input.2.png?<signed query removed>"
+2026-10-19 21:19:22:545  [AMDPerf] ════ turn end · stage=storyboard → beat · card=none · ok · wall  364.112s
+2026-10-19 21:21:59:068 [AIDramaPermissionGate] [#108] [AIDrama Permission] revoke drama=ABD9836D-BF9D-40F4-BBC4-F9F05E34791C unused_tools=[RefToVideox2] unused_credit=120
+2026-10-19 21:21:59:091 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=ABD9836D-BF9D-40F4-BBC4-F9F05E34791C iris=261019_205419_25c92513 stage=beat trigger= answers=0 attachments=0
+2026-10-19 21:21:59:091  [AMDPerf] ════ turn begin · stage=beat
+
+## Sweet Rivalry preview video, fresh install (2026-10-20 10:06:00–10:12:30)
+2026-10-20 10:06:09:895 [AIDramaPermissionGate] [#93] [AIDrama Permission] authorize drama=F86E0A44-BAFA-43A4-9E3C-BECE6EDE82EC tools=[RefToVideox2] credit=120 video_model=seedance2
+2026-10-20 10:06:09:897 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=F86E0A44-BAFA-43A4-9E3C-BECE6EDE82EC iris=261020_095952_f049b35f stage=storyboard trigger= answers=2 attachments=0
+2026-10-20 10:06:09:897  [AMDPerf] ════ turn begin · stage=storyboard
+2026-10-20 10:12:18:926  [AMDPerf] ✗   +6.980s   362.049s  iris/prompt_1/video-generation-batch
+2026-10-20 10:12:18:926 [AIDramaRequestCoordinator] [#64] [AIDrama AMD] workflow step failed drama=F86E0A44-BAFA-43A4-9E3C-BECE6EDE82EC workflow=ai-mini-drama/plan/routed/asset_routed step=prompt_1 skill=video-generation-batch call=261020_095952_f049b35f_t6_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompt_1 error="HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/4dlckobfuh3z/input.1.png?<signed query removed>"
+2026-10-20 10:12:18:935 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=F86E0A44-BAFA-43A4-9E3C-BECE6EDE82EC iris=261020_095952_f049b35f turn=261020_095952_f049b35f_t6 final_state=complete status_code=0 error_message="" reply=""
+2026-10-20 10:12:18:950 [AIDramaIrisConversationService] [#398] [AIDrama AMD] send reply drama=F86E0A44-BAFA-43A4-9E3C-BECE6EDE82EC iris=261020_095952_f049b35f source=blueprint stage=beat failures=1 text=""
+2026-10-20 10:12:18:950 [AIDramaIrisConversationService] [#406] [AIDrama AMD] send failure[0] tool=prompt target=storyboard status=tool_error reason="HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/4dlckobfuh3z/input.1.png?<signed query removed>"
+2026-10-20 10:12:21:004  [AMDPerf] ════ turn end · stage=storyboard → beat · card=none · ok · wall  369.056s

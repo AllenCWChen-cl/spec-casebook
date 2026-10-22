@@ -1,0 +1,20 @@
+Filing as Creator: ETHAN_HSU
+  Creator verified — last filed DRI261897P0022 on 2026-10-21
+Format check: PDR-I 16.9.0
+
+3 bug(s) checked — 0 error(s), 0 warning(s)
+Format OK — clear to file.
+
+[AI-Mini-Drama-P4-01] created DRI261897P0023
+  DRI261897P0023  sev 2  RD  NewCreated  build 189729  by ETHAN_HSU
+[AI-Mini-Drama-P4-02] created DRI261897P0024
+[AI-Mini-Drama-P4-03] created DRI261897P0025
+
+created 3 · skipped 0 · failed 0
+
+Read-back (Status: OK is not proof — Version has been seen not to persist):
+  DRI261897P0023  sev 2  RD  NewCreated  build 189729  by ETHAN_HSU
+  DRI261897P0024  sev 2  PM  NewCreated  build 189729  by ETHAN_HSU
+  DRI261897P0025  sev 3  PM  NewCreated  build 189729  by ETHAN_HSU
+
+Attachments are NOT part of create — upload them with `ecl_if3.py upload <BugCode> <files…>` (SKILL.md → IF3 attachments over the API).

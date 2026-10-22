@@ -1,0 +1,43 @@
+
+5 of 7 entries have a possible duplicate (overlap >= 34%, or a shared quoted label / rare phrase, marked !). Judge each one yourself — wording varies, so this ranks candidates, it does not decide.
+2 candidate(s) were declined (NAB / Won't Fix / Not Reproducible). Resolve each before filing.
+
+[AI-Mini-Drama-P23-01] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Failed character and video generations keep their charged credits with no refund
+      feature='AI Mini Drama'  searched 191 candidate(s)
+    ! 38%  OPEN      DRI261896P0042  PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Failed character generation shows no error, no !
+              shares phrase "failed character"
+    ! 25%  REJECTED  DRI261894P0023  PDR-I 16.9.0 - [AIFound] AI Mini Drama: failed character image shows a raw error toast a
+              shares phrase "failed character"
+              ⚠ Propose Wont Fix — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRI261894P0023.
+
+[AI-Mini-Drama-P23-02] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: X on Finish your characters keeps the generated looks instead of discarding them
+      feature='AI Mini Drama'  searched 191 candidate(s)
+    ! 33%  OPEN      DRI261896P0058  PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Finish your characters sheet clips the botto
+              shares phrase "finish your", phrase "your characters"
+    ! 33%  closed    DRI261896P0005  PDR-I 16.9.0 - [AIFound][UI] AI Mini Drama: Finish your characters sheet thumbnails lack
+              shares phrase "finish your", phrase "your characters"
+
+[AI-Mini-Drama-P23-03] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Character filter with no matches shows a blank grid with no empty state
+      feature='AI Mini Drama'  searched 191 candidate(s)
+      38%  closed    DRI261894P0040  PDR-I 16.9.0 - [AIFound][UI] AI Mini Drama: Choose Character opens empty with no loader;
+
+[AI-Mini-Drama-P23-04] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Create my character description text runs under the expand icon
+      feature='AI Mini Drama'  searched 191 candidate(s)
+    ! 25%  REJECTED  DRI261896P0036  PDR-I 16.9.0 - [AIFound] AI Mini Drama: A minor's age in a character description always 
+              shares phrase "character description"
+              ⚠ Propose Wont Fix — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRI261896P0036.
+
+[AI-Mini-Drama-P23-05] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Feature strings stay English in Traditional Chinese and Japanese
+      feature='AI Mini Drama'  searched 191 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-P23-06] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Character filter sheet is titled 濾鏡 instead of 篩選 in Traditional Chinese
+      feature='AI Mini Drama'  searched 191 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-P23-07] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Template list link reads その他 instead of もっと見る in Japanese
+      feature='AI Mini Drama'  searched 191 candidate(s)
+    ! 50%  OPEN      DRI261896P0022  PDR-I 16.9.0 - [AIFound][UI] AI Mini Drama: Japanese template names are truncated with "
+              shares phrase "template list"
+
+Label search 2026-10-21 (ecl_query.py bugs --text, PowerDirector Mobile for iOS): その他, もっと見る, 濾鏡, 篩選, "Traditional Chinese" — no AI Mini Drama hit; "Japanese" — DRI261896P0023 / P0022 / DRI261895P0003, other defects (preset characters, name truncation, Beer Heir server busy). Verdict: no duplicate for ISS-AMD-45 or ISS-AMD-49 (new split); the rest as judged on the review page.

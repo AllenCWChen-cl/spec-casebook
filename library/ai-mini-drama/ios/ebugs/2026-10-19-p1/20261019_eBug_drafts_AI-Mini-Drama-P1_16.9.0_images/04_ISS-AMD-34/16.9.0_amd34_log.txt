@@ -1,0 +1,8 @@
+# ISS-AMD-34 first video on a fresh install, Back while generating
+# PowerDirector 16.9.0 (189729), Developer Server, iPhone 17 Air / iOS 26.2.1. Excerpt of the app's AI Mini Drama log
+# (Write Log + Pink 'Log stage timings'); only lines about turns, charges and failures in the windows below. Signed storage URLs are truncated.
+
+## Video Generate and Back (TC-083) (2026-10-20 10:06:00–10:06:40)
+2026-10-20 10:06:09:895 [AIDramaPermissionGate] [#93] [AIDrama Permission] authorize drama=F86E0A44-BAFA-43A4-9E3C-BECE6EDE82EC tools=[RefToVideox2] credit=120 video_model=seedance2
+2026-10-20 10:06:09:897 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=F86E0A44-BAFA-43A4-9E3C-BECE6EDE82EC iris=261020_095952_f049b35f stage=storyboard trigger= answers=2 attachments=0
+2026-10-20 10:06:09:897  [AMDPerf] ════ turn begin · stage=storyboard

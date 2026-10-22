@@ -1,0 +1,22 @@
+# ISS-AMD-41 X on Finish your characters after Generate all
+# PowerDirector 16.9.0 (189729), Developer Server, iPhone 17 Air / iOS 26.2.1. Excerpt of the app's AI Mini Drama log
+# (Write Log + Pink 'Log stage timings'); only lines about turns, charges and failures in the windows below. Signed storage URLs are truncated.
+
+## TC-121 Generate all ◆8, then X (Storm and Shelter) (2026-10-20 19:36:05–19:38:10)
+2026-10-20 19:36:10:889 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=98A4582D-623E-4B77-8FCB-026CBB49DFB1 iris=261020_192259_52e06ce4 stage=character trigger=leave answers=0 attachments=0
+2026-10-20 19:36:10:890  [AMDPerf] ════ turn begin · leave · stage=character
+2026-10-20 19:36:14:740 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=98A4582D-623E-4B77-8FCB-026CBB49DFB1 iris=261020_192259_52e06ce4 turn=261020_192259_52e06ce4_t2 final_state=complete status_code=0 error_message="" reply="The frames are drawn from the characters' faces, and 2 characters still have no portrait. Generating the portraits first is what keeps the storyboard consistent."
+2026-10-20 19:36:14:743 [AIDramaIrisConversationService] [#398] [AIDrama AMD] send reply drama=98A4582D-623E-4B77-8FCB-026CBB49DFB1 iris=261020_192259_52e06ce4 source=blueprint stage=storyboard failures=0 text="The frames are drawn from the characters' faces, and 2 characters still have no portrait. Generating the portraits first is what keeps the storyboard consistent."
+2026-10-20 19:36:14:743  [AMDPerf] ✓   +3.854s     0.000s  app/loadCommittedEnvelope
+2026-10-20 19:36:15:220 [AIDramaPermissionGate] [#93] [AIDrama Permission] authorize drama=98A4582D-623E-4B77-8FCB-026CBB49DFB1 tools=[TextToImagex2,TextToSpeechx2] credit=8 video_model=nil
+2026-10-20 19:36:15:226 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=98A4582D-623E-4B77-8FCB-026CBB49DFB1 iris=261020_192259_52e06ce4 stage=storyboard trigger= answers=1 attachments=0
+2026-10-20 19:36:15:227  [AMDPerf] ════ turn end · leave · stage=character → storyboard · card=outline · ok · wall    3.854s
+2026-10-20 19:36:15:227  [AMDPerf] ════ turn begin · stage=storyboard
+2026-10-20 19:36:44:727 [AIDramaPermissionGate] [#261] [AIDrama Permission] request 261020_192259_52e06ce4_t3_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_req_1 drama=98A4582D-623E-4B77-8FCB-026CBB49DFB1 -> allow (authorized, credit=3)
+2026-10-20 19:36:45:244 [AIDramaPermissionGate] [#261] [AIDrama Permission] request 261020_192259_52e06ce4_t3_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_req_3 drama=98A4582D-623E-4B77-8FCB-026CBB49DFB1 -> allow (authorized, credit=3)
+2026-10-20 19:36:45:706 [AIDramaPermissionGate] [#261] [AIDrama Permission] request 261020_192259_52e06ce4_t3_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_req_4 drama=98A4582D-623E-4B77-8FCB-026CBB49DFB1 -> allow (authorized, credit=1)
+2026-10-20 19:36:46:168 [AIDramaPermissionGate] [#261] [AIDrama Permission] request 261020_192259_52e06ce4_t3_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_req_5 drama=98A4582D-623E-4B77-8FCB-026CBB49DFB1 -> allow (authorized, credit=1)
+2026-10-20 19:37:59:630 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=98A4582D-623E-4B77-8FCB-026CBB49DFB1 iris=261020_192259_52e06ce4 turn=261020_192259_52e06ce4_t3 final_state=complete status_code=0 error_message="" reply="I have created the full 6-beat storyboard for 'Shelter in the Storm' following the approved outline and character profiles. Each beat strictly adheres to the 15-second generation structure with paired"
+2026-10-20 19:37:59:636 [AIDramaIrisConversationService] [#398] [AIDrama AMD] send reply drama=98A4582D-623E-4B77-8FCB-026CBB49DFB1 iris=261020_192259_52e06ce4 source=blueprint stage=storyboard failures=0 text="I have created the full 6-beat storyboard for 'Shelter in the Storm' following the approved outline and character profiles. Each beat strictly adheres to the 15-second generation structure with paired"
+2026-10-20 19:37:59:637  [AMDPerf] ✓ +104.410s     0.000s  app/loadCommittedEnvelope
+2026-10-20 19:38:01:719  [AMDPerf] ════ turn end · stage=storyboard · card=none · ok · wall  104.411s

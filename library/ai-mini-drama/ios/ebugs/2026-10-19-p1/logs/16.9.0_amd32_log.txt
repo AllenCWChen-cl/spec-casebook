@@ -1,0 +1,21 @@
+# ISS-AMD-32 storyboard and video Stop: authorisations revoked, nothing shown to the user
+# PowerDirector 16.9.0 (189729), Developer Server, iPhone 17 Air / iOS 26.2.1. Excerpt of the app's AI Mini Drama log
+# (Write Log + Pink 'Log stage timings'); only lines about turns, charges and failures in the windows below. Signed storage URLs are truncated.
+
+## Storyboard Generate then Stop (TC-156) (2026-10-19 21:08:40–21:09:20)
+2026-10-19 21:08:46:372 [AIDramaPermissionGate] [#93] [AIDrama Permission] authorize drama=ABD9836D-BF9D-40F4-BBC4-F9F05E34791C tools=[TextToImagex9,TextToSpeechx1] credit=28 video_model=nil
+2026-10-19 21:08:46:453 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=ABD9836D-BF9D-40F4-BBC4-F9F05E34791C iris=261019_205419_25c92513 stage=storyboard trigger= answers=1 attachments=0
+2026-10-19 21:08:46:453  [AMDPerf] ════ turn begin · stage=storyboard
+2026-10-19 21:09:15:162 [AIDramaPermissionGate] [#108] [AIDrama Permission] revoke drama=ABD9836D-BF9D-40F4-BBC4-F9F05E34791C unused_tools=[TextToImagex9,TextToSpeechx1] unused_credit=28
+2026-10-19 21:09:15:211 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=ABD9836D-BF9D-40F4-BBC4-F9F05E34791C iris=261019_205419_25c92513 turn=261019_205419_25c92513_t9 final_state=cancelled status_code=0 error_message="" reply=""
+2026-10-19 21:09:15:213 [AIDramaIrisConversationService] [#216] [AIDrama AMD] turn abandoned drama=ABD9836D-BF9D-40F4-BBC4-F9F05E34791C iris=261019_205419_25c92513: nativeFailure(operation: "pdr_iris_host_send_turn", message: "turn ended as \'cancelled\' (status 0)")
+2026-10-19 21:09:15:213  [AMDPerf] ════ turn end · stage=storyboard · card=none · failed · wall   28.760s
+
+## Video Generate then Stop (TC-157) (2026-10-19 21:22:20–21:22:45)
+2026-10-19 21:22:23:677 [AIDramaPermissionGate] [#93] [AIDrama Permission] authorize drama=ABD9836D-BF9D-40F4-BBC4-F9F05E34791C tools=[RefToVideox2] credit=120 video_model=seedance2
+2026-10-19 21:22:23:678 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=ABD9836D-BF9D-40F4-BBC4-F9F05E34791C iris=261019_205419_25c92513 stage=beat trigger= answers=1 attachments=0
+2026-10-19 21:22:23:678  [AMDPerf] ════ turn begin · stage=beat
+2026-10-19 21:22:41:279 [AIDramaPermissionGate] [#108] [AIDrama Permission] revoke drama=ABD9836D-BF9D-40F4-BBC4-F9F05E34791C unused_tools=[RefToVideox2] unused_credit=120
+2026-10-19 21:22:41:370 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=ABD9836D-BF9D-40F4-BBC4-F9F05E34791C iris=261019_205419_25c92513 turn=261019_205419_25c92513_t13 final_state=cancelled status_code=0 error_message="" reply=""
+2026-10-19 21:22:41:373 [AIDramaIrisConversationService] [#216] [AIDrama AMD] turn abandoned drama=ABD9836D-BF9D-40F4-BBC4-F9F05E34791C iris=261019_205419_25c92513: nativeFailure(operation: "pdr_iris_host_send_turn", message: "turn ended as \'cancelled\' (status 0)")
+2026-10-19 21:22:41:373  [AMDPerf] ════ turn end · stage=beat · card=none · failed · wall   17.695s

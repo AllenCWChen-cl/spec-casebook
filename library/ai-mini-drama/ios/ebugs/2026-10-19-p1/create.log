@@ -1,0 +1,31 @@
+Filing as Creator: ETHAN_HSU
+  Creator verified — last filed DRI261896P0061 on 2026-10-19
+Format check: PDR-I 16.9.0
+⚠ WARN  AI-Mini-Drama-P1-01  Severity 1 is crash / data loss / flow-blocking only — confirm it clears that bar
+
+8 bug(s) checked — 0 error(s), 1 warning(s)
+Format OK — clear to file.
+
+[AI-Mini-Drama-P1-01] created DRI261897P0006
+  DRI261897P0006  sev 1  RD  NewCreated  build 189729  by ETHAN_HSU
+[AI-Mini-Drama-P1-02] created DRI261897P0007
+[AI-Mini-Drama-P1-03] created DRI261897P0008
+[AI-Mini-Drama-P1-04] created DRI261897P0009
+[AI-Mini-Drama-P1-05] created DRI261897P0010
+[AI-Mini-Drama-P1-06] created DRI261897P0011
+[AI-Mini-Drama-P1-07] created DRI261897P0012
+[AI-Mini-Drama-P1-08] created DRI261897P0013
+
+created 8 · skipped 0 · failed 0
+
+Read-back (Status: OK is not proof — Version has been seen not to persist):
+  DRI261897P0006  sev 1  RD  NewCreated  build 189729  by ETHAN_HSU
+  DRI261897P0007  sev 2  PM  NewCreated  build 189729  by ETHAN_HSU
+  DRI261897P0008  sev 2  RD  NewCreated  build 189729  by ETHAN_HSU
+  DRI261897P0009  sev 3  RD  NewCreated  build 189729  by ETHAN_HSU
+  DRI261897P0010  sev 3  PM  NewCreated  build 189729  by ETHAN_HSU
+  DRI261897P0011  sev 3  RD  NewCreated  build 189729  by ETHAN_HSU
+  DRI261897P0012  sev 3  PM  NewCreated  build 189729  by ETHAN_HSU
+  DRI261897P0013  sev 3  PM  NewCreated  build 189729  by ETHAN_HSU
+
+Attachments are NOT part of create — upload them with `ecl_if3.py upload <BugCode> <files…>` (SKILL.md → IF3 attachments over the API).

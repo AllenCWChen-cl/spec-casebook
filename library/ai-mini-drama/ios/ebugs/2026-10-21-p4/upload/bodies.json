@@ -1,0 +1,64 @@
+{
+  "AI-Mini-Drama-P4-01": {
+    "entry": 1,
+    "iss": "ISS-AMD-46",
+    "title": "Template detail player crops the cover title on 7 of 20 templates",
+    "feature": "AI-Mini-Drama-P4",
+    "type": "UI",
+    "sev": 2,
+    "belong": "RD",
+    "out": 7,
+    "times": 7,
+    "short": "PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Template detail player cuts off the cover title on 7 templates",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Tap AI Mini Drama on the Launcher\n3. Tap More\n4. Swipe up to Family & Life\n5. Tap The Heiress and Her Protector\n6. Look at the cover frame the player shows as the page opens\n7. Check the result\n\nResult:\nThe cover title is cut off at both edges of the player, while the More card shows it in full.\n摘要：詳細頁播放器中的封面標題左右兩側被裁切（如 PROTECTOR、SIX THINGS），More 頁卡片則完整顯示。\n{16.9.0_amd46_heiress_crop.jpg} {16.9.0_amd46_six_things_crop.jpg} {16.9.0_amd46_dragon_crop.jpg} {16.9.0_amd46_art_of_falling_detail.jpg} {16.9.0_amd46_more_cards_full.jpg}\n\nExpect Result:\nThe cover title is fully visible in the detail player, as on the More card.\n摘要：詳細頁播放器應完整顯示封面標題，與 More 頁卡片一致。\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama Design spec, Template Detail board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd46_heiress_crop.jpg",
+      "16.9.0_amd46_six_things_crop.jpg",
+      "16.9.0_amd46_dragon_crop.jpg",
+      "16.9.0_amd46_art_of_falling_detail.jpg",
+      "16.9.0_amd46_more_cards_full.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-21-p4/20261021_eBug_drafts_AI-Mini-Drama-P4_16.9.0_images/01_ISS-AMD-46",
+    "qa_note": "Observations O-2 (P4-a), O-5 (P4-b), O-6 (P4-c) and O-7 (P4-d), seen on passing card rows TC-241, 247, 249, 253, 257, 263, 267. The detail page's player shows the 3:4 cover art filled into the 9:16 player, so the sides of the cover are cut and the title lettering with them: The Art of Falling (「The Art / of Falli…」), The Dragon's Chosen Bride (「…HOSEN BRID…」), Awakening the Storm (last 「G」 of AWAKENING), The Rebel and the Valedictorian (「Valedictoria…」), The Fake Engagement (「…ngagemen…」), The Heiress and Her Protector (「PROTECTOR」 both edges) and Six Things You Didn't Know (「SIX THINGS」 / 「YOU DIDN'T KNOW」 both edges, the speaker button on the 「W」). The other 13 fit. The More cards and the chat's cover bubble show the full lettering. Seen once per template on the cover frame shown when the detail page opens or is returned to from the chat. RD owns the player fit (aspect-fit, or Design supplies 9:16 covers with a safe area) — Design may prefer new assets; switch the owner if so. No log (layout only)."
+  },
+  "AI-Mini-Drama-P4-02": {
+    "entry": 2,
+    "iss": "ISS-AMD-47",
+    "title": "Proposal Across Every Lifetime cover art is titled Proposal Across Lifetimes",
+    "feature": "AI-Mini-Drama-P4",
+    "type": "UI",
+    "sev": 2,
+    "belong": "PM",
+    "out": 2,
+    "times": 2,
+    "short": "PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Proposal Across Every Lifetime cover reads Proposal Across Lifetimes",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Tap AI Mini Drama on the Launcher\n3. Tap More\n4. Swipe up to Family & Life\n5. Tap Proposal Across Every Lifetime\n6. Tap Make my version\n7. Check the result\n\nResult:\nThe cover art reads Proposal Across Lifetimes, but the template name is Proposal Across Every Lifetime.\n摘要：封面標題為 Proposal Across Lifetimes，與模板名稱不符。\n{16.9.0_amd47_more_card.jpg} {16.9.0_amd47_detail_cover.jpg} {16.9.0_amd47_chat_bubble.jpg}\n\nExpect Result:\nThe cover art title and the template name match.\n摘要：封面圖標題應與模板名稱一致。\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama Design spec, Template Detail board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\nRelated: DRI261894P0008 (same kind of mismatch on The Fake Engagement; no longer reproduces on 189729)\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd47_more_card.jpg",
+      "16.9.0_amd47_detail_cover.jpg",
+      "16.9.0_amd47_chat_bubble.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-21-p4/20261021_eBug_drafts_AI-Mini-Drama-P4_16.9.0_images/02_ISS-AMD-47",
+    "qa_note": "O-4 (P4-a roster, More card) confirmed in P4-d TC-265: the cover lettering reads 「Proposal Across Lifetimes」 on the More card, in the detail player's cover frame and in the chat's cover bubble, while the template name (card caption, detail title, cover bubble label, roster slug proposal-across-every-lifetime) is 「Proposal Across Every Lifetime」. Same on the 10/19 roster. TC-265 itself passed (the title and cover are shown); this is the mismatch between them, the same kind of defect as DRI261894P0008 (The Fake Engagement cover titled Billionaire Romance, Belong PM, S3), which no longer reproduces on 189729. PM to decide which title is right (the asset or the name)."
+  },
+  "AI-Mini-Drama-P4-03": {
+    "entry": 3,
+    "iss": "ISS-AMD-48",
+    "title": "Garbled sign text in three template sample videos",
+    "feature": "AI-Mini-Drama-P4",
+    "type": "UI",
+    "sev": 3,
+    "belong": "PM",
+    "out": 3,
+    "times": 3,
+    "short": "PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Template sample videos show garbled sign text",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Tap AI Mini Drama on the Launcher\n3. Tap More\n4. Tap Glad We Came\n5. Watch the sample video\n6. Tap Back\n7. Tap After Closing\n8. Watch the sample video\n9. Tap Back\n10. Tap The Ring He Worked For\n11. Watch the sample video\n12. Check the result\n\nResult:\nSigns read GREEN I'ECH, CFIDKAICE and MIIANNY RING in three sample videos.\n摘要：範例影片中的招牌文字為亂碼：GREEN I'ECH、CFIDKAICE、MIIANNY RING。\n{16.9.0_amd48_glad_we_came.jpg} {16.9.0_amd48_after_closing.jpg} {16.9.0_amd48_ring_he_worked_for.jpg}\n\nExpect Result:\nText shown in template sample videos is spelled correctly, or the frames show no readable text.\n摘要：模板範例影片中的文字應拼寫正確，或畫面中不出現可辨識的文字。\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama Design spec, Template Detail board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd48_glad_we_came.jpg",
+      "16.9.0_amd48_after_closing.jpg",
+      "16.9.0_amd48_ring_he_worked_for.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-21-p4/20261021_eBug_drafts_AI-Mini-Drama-P4_16.9.0_images/03_ISS-AMD-48",
+    "qa_note": "User QA rule 7 (scan all on-screen text), applied to the template sample videos on the detail pages: three of the 20 show AI-garbled lettering on signs. Glad We Came (O-3, TC-243): the phone screen held up reads 「GREEN I'ECH」 for GREEN TECH above 「BEACH CLEANUP」. After Closing (O-6, TC-255): the café sign in the opening frame reads 「CFIDKAICE」. The Ring He Worked For (O-8, TC-271): hanging sign 「MIIANNY RING」 and unreadable facade/door lettering (only the window's 「MOON RI…」 is real words). The other 17 previews either have no readable text or spell it correctly. Content of the template assets (AppCMS), so PM owns it; Spec Link: the Template Detail board (R-007, template video on the detail page), checked under rule 7. No log (video content)."
+  }
+}

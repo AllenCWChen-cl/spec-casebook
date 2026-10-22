@@ -1,0 +1,43 @@
+# AI Mini Drama — request ledger
+
+Every request that changes what this feature's tables must cover or how its runs are done, from the user, a
+colleague, a reviewer or RD. The spec analysis re-applies every **table** entry on each new or updated draft
+(skill: "Standing inputs"), and `check.ts` fails a draft whose `requirements.md` does not cite each open table entry
+for its platform. **run** entries are followed by the run rules (skill, run plan, `phases.json`); **analysis** entries
+change how the spec is read. Add new entries at the bottom with the next ID; never renumber. Mark an entry
+`superseded by REQ-…` in Status instead of deleting it.
+
+Entries REQ-001 – REQ-012 and REQ-021 – REQ-023 were imported once on 2026-10-21 from the user's requests recorded in
+the spec agent repo (`test-specs/features/pdr-mobile-ai-mini-drama/source/user-*.yaml`, TR readback); the user approved
+the import. After that, this file is the only record the casebook reads.
+
+| ID | Date | From | Request | Kind | Platform | Status |
+|---|---|---|---|---|---|---|
+| REQ-001 | 2026-10-02 | user | Test for crashes with button sequences normal users do (start a chat and stop it while it is still going on, and similar); the sequences must not crash the app. | table | both | open |
+| REQ-002 | 2026-10-05 | user | Waits with nothing to do but leave: over 5 s with no waiting animation, or over 10 s with one, is a bug. Check the state after leaving and returning at every stage. Stop during a wait must warn or explain, especially when credits are charged. | table | both | open |
+| REQ-003 | 2026-10-05 | user | A specific built-in character template cannot be selected; selecting a template makes other template thumbnails flicker. Add cases for both. | table | both | open |
+| REQ-004 | 2026-10-06 | user | Check every page's text for spelling and grammar, at least in ENU, CHT and JPN. | table | both | open |
+| REQ-005 | 2026-10-06 | user | Check generated storyboard text for empty fields, garbled characters, wrong language and duplicated content. | table | both | open |
+| REQ-006 | 2026-10-06 | user | English storyboard output must use English quote marks, not 「」. | table | both | open |
+| REQ-007 | 2026-10-06 | user | History info button: the popup bubble's arrow must line up with the button. | table | both | open |
+| REQ-008 | 2026-10-06 | user | Template category header icons were all the same; check each category shows its own icon. | table | both | open |
+| REQ-009 | 2026-10-06 | user | Scan every template name for spelling and punctuation (e.g. "Six Things You Didnt Know" needs the apostrophe). | table | both | open |
+| REQ-010 | 2026-10-15 | user | Open every template and take each one through generation to a finished video, one case per template. | table | both | open (journeys Blocked by REQ-019) |
+| REQ-011 | 2026-10-15 | colleague (relayed by user) | Custom characters: Southeast Asian and Mixed ethnicities, filter shows only ethnicities that exist; prompt text overlaps the expand icon; keyboard does not close after typing; no way to rename a character; reuse a saved character in a later story; continue a story after stopping; recover an incomplete storyboard. | table | both | open |
+| REQ-012 | 2026-10-19 | user | Add a recheck row for every open or resolved-not-closed eBug of the feature (all source tags). | table | both | open |
+| REQ-013 | 2026-10-19 | user | Source order: Design spec, then MX spec, then PM spec. Credit numbers in the spec are binding until a credit-usage source arrives. | analysis | both | open |
+| REQ-014 | 2026-10-19 | user | A case that needs a first launch or empty local data does its own fresh install as its first step. | run | both | open |
+| REQ-015 | 2026-10-19 | user | Every journey that reaches the video settings card generates the video (Seedance 2.0, then the full episode). | run | both | open; template journeys excepted by REQ-019 |
+| REQ-016 | 2026-10-19 | user | Run in phases and segments, one segment per clean context, without asking between segments. | run | both | open |
+| REQ-017 | 2026-10-20 | user | P4 this round: do not tap Generate on template journeys; check everything before it. | run | ios | superseded by REQ-019 |
+| REQ-018 | 2026-10-21 | user | Adopt the analysis passes, standing inputs, this ledger and the value check (proposal 2026-10-21). | analysis | both | open |
+| REQ-019 | 2026-10-21 | user | Template journeys (one full generation per template) stay in the table but are recorded Blocked: the user was asked not to run that many full generations. | run | both | open |
+| REQ-020 | 2026-10-21 | user | Wi-Fi may be turned off and on during a run for offline cases, once Appium is confirmed to run over USB; restore it right after the case. | run | both | open |
+| REQ-021 | 2026-10-07 | RD (TR261006-0055, build 189463) | RD Note 「驗證重點 (QA)」: chat keeps the reading position when rows above are rebuilt; caption failure no longer marks scene details or blocks playback; download spinner and failure recovery; full-cast regeneration offer; script glyph clipping; and other points already passed. | table | ios | open |
+| REQ-022 | 2026-10-19 | user | Android problem report (PowerDirector 16.8.0, Redmi Note 8 Pro): use the reported items as regression leads for the Android table. | table | android | open (Android table not started) |
+| REQ-023 | 2026-10-06 | user | Spec agent run rule: one video generation per run. | run | both | superseded by REQ-015 |
+| REQ-024 | 2026-10-21 | user | Features in the PM spec but not in the Design spec still go in as cases first (from the PM spec); modify them when the Design spec updates. Replaces holding them as PM questions (REQ-018's pass 7). | analysis | both | open |
+| REQ-025 | 2026-10-21 | user | New PM spec received: AI Mini Drama - PM Spec 20261021.pdf, the 16:04 download (spec set `specs/2026-10-21-2`; the 15:34 download in `specs/2026-10-21` is superseded). Design and MX unchanged; update the table. | table | both | open |
+| REQ-026 | 2026-10-22 | user | Decisions on the PM 10/21 update: Q-15 test the PM 10/16 three video models; Q-16 test the PM 10/16 charged character change in chat; Q-17 apply PM 10/20 §13.2 ③ (new results never update earlier cards). | table | both | open |
+| REQ-027 | 2026-10-22 | user | A dated PM change that is newer than the Design file wins until the Design is updated: the app follows the PM soon (reason given for Q-15 and Q-16). Mark such rows in Notes and update them when the Design changes. | analysis | both | open |
+| REQ-028 | 2026-10-22 | user | Q-12: where Design and PM disagree, use whichever is newer when the dates tell; when they can't, check the device behaviour first, then decide. Q-14: add the "Create video anyways" check. | table | both | open |

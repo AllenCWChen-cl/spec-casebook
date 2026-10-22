@@ -1,0 +1,29 @@
+# ISS-AMD-38 failed scene image (Pink fault injection TextToImage)
+# PowerDirector 16.9.0 (189729), Developer Server, iPhone 17 Air / iOS 26.2.1. Excerpt of the app's AI Mini Drama log
+# (Write Log + Pink 'Log stage timings'); only lines about turns, charges and failures in the windows below. Signed storage URLs are truncated.
+
+## Storyboard with an injected image failure (TC-067) (2026-10-19 19:20:00–19:31:00)
+2026-10-19 19:24:13:338 [AIDramaIrisConversationService] [#269] [AIDrama AMD] resume begin drama=3214B9EA-20D3-463C-9F7C-074844997C80 iris=261019_191157_c363f33c
+2026-10-19 19:25:06:123 [AIDramaPermissionGate] [#93] [AIDrama Permission] authorize drama=3214B9EA-20D3-463C-9F7C-074844997C80 tools=[TextToImagex1] credit=3 video_model=nil
+2026-10-19 19:25:06:133 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=3214B9EA-20D3-463C-9F7C-074844997C80 iris=261019_191157_c363f33c stage=beat trigger=generate_image answers=0 attachments=0
+2026-10-19 19:25:06:133  [AMDPerf] ════ turn begin · generate_image · stage=beat
+2026-10-19 19:25:15:162 [AIDramaPermissionGate] [#261] [AIDrama Permission] request 261019_191157_c363f33c_t5_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_req_1 drama=3214B9EA-20D3-463C-9F7C-074844997C80 -> allow (authorized, credit=3)
+2026-10-19 19:25:15:165  [AMDPerf] ✓   +2.704s     6.328s  iris/prompt_1/beat-generate
+2026-10-19 19:25:15:165 [AIDramaMediaDispatcher] [#193] [AIDrama AMD] tool failed tool=TextToImage call=261019_191157_c363f33c_t5_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_s_img_1 error="AppTweaks injected TextToImage failure #11"
+2026-10-19 19:25:15:166 [AIDramaRequestCoordinator] [#64] [AIDrama AMD] workflow step failed drama=3214B9EA-20D3-463C-9F7C-074844997C80 workflow=ai-mini-drama/plan/routed/asset_routed/prompts_done step=img_1 skill=text-to-image call=261019_191157_c363f33c_t5_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_s_img_1 error="agent_tool_dispatch('TextToImage') failed: AppTweaks injected TextToImage failure #11"
+2026-10-19 19:25:15:184 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=3214B9EA-20D3-463C-9F7C-074844997C80 iris=261019_191157_c363f33c turn=261019_191157_c363f33c_t5 final_state=complete status_code=0 error_message="" reply=""
+2026-10-19 19:25:15:190 [AIDramaIrisConversationService] [#398] [AIDrama AMD] send reply drama=3214B9EA-20D3-463C-9F7C-074844997C80 iris=261019_191157_c363f33c source=blueprint stage=beat failures=1 text=""
+2026-10-19 19:25:15:190 [AIDramaIrisConversationService] [#406] [AIDrama AMD] send failure[0] tool=EditImageGPT2 target=beat_09db9326 status=tool_error reason="agent_tool_dispatch('TextToImage') failed: AppTweaks injected TextToImage failure #11"
+2026-10-19 19:25:17:294  [AMDPerf] ════ turn end · generate_image · stage=beat · card=none · ok · wall    9.058s
+2026-10-19 19:26:09:911 [AIDramaPermissionGate] [#93] [AIDrama Permission] authorize drama=3214B9EA-20D3-463C-9F7C-074844997C80 tools=[TextToImagex1] credit=3 video_model=nil
+2026-10-19 19:26:09:920 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=3214B9EA-20D3-463C-9F7C-074844997C80 iris=261019_191157_c363f33c stage=beat trigger=generate_image answers=0 attachments=0
+2026-10-19 19:26:09:920  [AMDPerf] ════ turn begin · generate_image · stage=beat
+2026-10-19 19:26:19:926 [AIDramaPermissionGate] [#261] [AIDrama Permission] request 261019_191157_c363f33c_t6_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_req_1 drama=3214B9EA-20D3-463C-9F7C-074844997C80 -> allow (authorized, credit=3)
+2026-10-19 19:26:19:932  [AMDPerf] ✓   +2.622s     7.391s  iris/prompt_1/beat-generate
+2026-10-19 19:26:19:933 [AIDramaMediaDispatcher] [#193] [AIDrama AMD] tool failed tool=TextToImage call=261019_191157_c363f33c_t6_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_s_img_1 error="AppTweaks injected TextToImage failure #12"
+2026-10-19 19:26:19:934 [AIDramaRequestCoordinator] [#64] [AIDrama AMD] workflow step failed drama=3214B9EA-20D3-463C-9F7C-074844997C80 workflow=ai-mini-drama/plan/routed/asset_routed/prompts_done step=img_1 skill=text-to-image call=261019_191157_c363f33c_t6_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_s_img_1 error="agent_tool_dispatch('TextToImage') failed: AppTweaks injected TextToImage failure #12"
+2026-10-19 19:26:19:960 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=3214B9EA-20D3-463C-9F7C-074844997C80 iris=261019_191157_c363f33c turn=261019_191157_c363f33c_t6 final_state=complete status_code=0 error_message="" reply=""
+2026-10-19 19:26:19:969 [AIDramaIrisConversationService] [#398] [AIDrama AMD] send reply drama=3214B9EA-20D3-463C-9F7C-074844997C80 iris=261019_191157_c363f33c source=blueprint stage=beat failures=1 text=""
+2026-10-19 19:26:19:969 [AIDramaIrisConversationService] [#406] [AIDrama AMD] send failure[0] tool=EditImageGPT2 target=beat_09db9326 status=tool_error reason="agent_tool_dispatch('TextToImage') failed: AppTweaks injected TextToImage failure #12"
+2026-10-19 19:26:22:027  [AMDPerf] ════ turn end · generate_image · stage=beat · card=none · ok · wall   10.051s
+2026-10-19 19:26:41:934 [AIDramaIrisConversationService] [#269] [AIDrama AMD] resume begin drama=3214B9EA-20D3-463C-9F7C-074844997C80 iris=261019_191157_c363f33c

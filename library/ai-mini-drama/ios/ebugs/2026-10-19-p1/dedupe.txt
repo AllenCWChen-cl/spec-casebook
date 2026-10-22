@@ -1,0 +1,82 @@
+
+7 of 8 entries have a possible duplicate (overlap >= 34%, or a shared quoted label / rare phrase, marked !). Judge each one yourself — wording varies, so this ranks candidates, it does not decide.
+2 candidate(s) were declined (NAB / Won't Fix / Not Reproducible). Resolve each before filing.
+
+[AI-Mini-Drama-P1-01] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Video generation always fails after ~6 min as the storage upload times out
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 44%  REJECTED  DRI261896P0020  PDR-I 16.9.0 - [AIFound] AI Mini Drama: Final drama video generation always fails with "
+              shares phrase "always fails", phrase "generation always", phrase "video generation"
+              ⚠ NotReproducible — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRI261896P0020.
+    ! 22%  OPEN      DRA262610P0231  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Opening Full Edit of another drama makes the run
+              shares phrase "video generation"
+    ! 22%  REJECTED  DRI261896P0036  PDR-I 16.9.0 - [AIFound] AI Mini Drama: A minor's age in a character description always 
+              shares phrase "always fails"
+              ⚠ Propose Wont Fix — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRI261896P0036.
+
+[AI-Mini-Drama-P1-02] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Storyboard and video Stop cancel silently with no credit message
+      feature='AI Mini Drama'  searched 200 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-P1-03] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Character and storyboard generation block the screen for over a minute
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 29%  OPEN      DRA262610P0197  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Create storyboard message remains after stor
+              shares phrase "storyboard generation"
+    ! 29%  OPEN      DRI261896P0048  PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: No Stop and lose your credits? dialog on Bac
+              shares phrase "storyboard generation"
+
+[AI-Mini-Drama-P1-04] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: No Find your video here in History bubble after leaving the first video
+      feature='AI Mini Drama'  searched 200 candidate(s)
+      38%  OPEN      DRA262610P0226  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Pending video shows Here's your drama. over 
+
+[AI-Mini-Drama-P1-05] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: No video settings card after a successful storyboard preview Retry
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 43%  OPEN      DRA262610P0222  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Re-offered video settings card lacks model and q
+              shares phrase "settings card", phrase "video settings"
+    ! 43%  OPEN      DRA262610P0221  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Video request silently dropped after switching c
+              shares phrase "settings card"
+    ! 43%  OPEN      DRI261896P0060  PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Video settings card says quick draft instead
+              shares phrase "settings card", phrase "video settings"
+    ! 43%  OPEN      DRI261896P0055  PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Video settings card does not show You'll hav
+              shares phrase "settings card", phrase "video settings"
+    ! 29%  OPEN      DRA262610P0169  PDR-A 16.8.0 - [AIFound][UI] AI Mini Drama: Storyboard Preview captions are split in the
+              shares phrase "storyboard preview"
+    ! 29%  closed    DRI261896P0011  PDR-I 16.9.0 - [AIFound] AI Mini Drama: Video settings Buy Credits button style and bala
+              shares phrase "video settings"
+      43%  OPEN      DRI261896P0044  PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Drama jumps from characters straight to video wi
+
+[AI-Mini-Drama-P1-06] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Create storyboard card loses its price after the chat-limit dialog
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 25%  OPEN      DRA262610P0197  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Create storyboard message remains after stor
+              shares phrase "create storyboard"
+    ! 25%  OPEN      DRA262610P0187  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Empty storyboard card appears after changing a c
+              shares phrase "storyboard card"
+    ! 25%  OPEN      DRA262610P0174  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Assistant says the storyboard is created bef
+              shares phrase "create storyboard"
+    ! 25%  closed    DRA262610P0146  PDR-A 16.8.0 - [AIFound][UI] AI Mini Drama: Create storyboard shows "Cancelling…" right 
+              shares phrase "create storyboard"
+    ! 25%  closed    DRA262610P0091  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Create storyboard takes about 5.5 minutes to
+              shares phrase "create storyboard"
+
+[AI-Mini-Drama-P1-07] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Failed scene image card copy differs from the Design error frame
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 44%  closed    DRA262610P0100  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Failed scene image stays blank with no error or 
+              shares phrase "failed scene", phrase "scene image"
+    ! 22%  OPEN      DRA262610P0199  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Storyboard regeneration ignores the requested sc
+              shares phrase "scene image"
+    ! 22%  OPEN      DRI261896P0046  PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Character, scene image and chat update prices di
+              shares phrase "scene image"
+    ! 22%  OPEN      DRA262610P0150  PDR-A 16.8.0 - [AIFound][UI] AI Mini Drama: Failed-scene message says "Tap Edit" but the
+              shares phrase "failed scene"
+    ! 22%  OPEN      DRA262610P0107  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Failed scene images can only be retried one 
+              shares phrase "failed scene"
+
+[AI-Mini-Drama-P1-08] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Leaving during outline generation discards the drama instead of keeping it
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 38%  OPEN      DRA262610P0121  PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Back during outline generation does not show int
+              shares phrase "during outline", phrase "outline generation"
+    ! 38%  OPEN      DRA262610P0106  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: After Stop during outline generation there i
+              shares phrase "during outline", phrase "outline generation"
+    ! 25%  OPEN      DRI261896P0047  PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Template chat skips the Leave this chat? dia
+              shares phrase "during outline"
+    ! 25%  OPEN      DRA262610P0103  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Create Your Drama reopens the last drama ins
+              shares phrase "drama instead"

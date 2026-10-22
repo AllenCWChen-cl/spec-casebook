@@ -1,0 +1,403 @@
+{
+  "AI-Mini-Drama-02": {
+    "entry": 2,
+    "iss": "ISS-AMD-02",
+    "title": "Public-figure reference photo is not blocked",
+    "feature": "AI-Mini-Drama",
+    "type": "Functional",
+    "sev": 2,
+    "belong": "PM",
+    "out": 1,
+    "times": 1,
+    "short": "PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Public-figure reference photo is not blocked and a lookalike is generated",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open AI Mini Drama and start a custom idea to reach the cast step\n3. Tap a character slot, then Create my character\n4. Add a photo of a well-known public figure as Reference and set Gender, Ethnicity and Age\n5. Tap Generate\n6. Check the result\n\nResult:\nThe public-figure photo is accepted and a character resembling that person is generated.\n摘要：名人照片未被阻擋，並生成與本人相似的角色。\n{16.9.0_amd02_celebrity_ref.jpg} {16.9.0_amd02_lookalike.jpg}\n\nExpect Result:\nThe photo is blocked with This photo can't be used and no character is generated.\n摘要：應顯示 This photo can't be used 並阻止生成。\nSpec string: 「This photo can't be used」/「It looks like a real public figure. Please try another photo.」\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama PM spec, Main flow board - https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama?node-id=2016-2\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd02_celebrity_ref.jpg",
+      "16.9.0_amd02_lookalike.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/02_ISS-AMD-02",
+    "qa_note": "Used the existing device-library portrait of a well-known athlete (Shohei Ohtani, Dodgers). The app generated a front/side/back character that closely resembles him and offered Save to library, charging ◆4. It also ignored Gender: Female. Spec R-046 (PM main flow) requires blocking with 「This photo can't be used」. Likeness/legal risk, so S2."
+  },
+  "AI-Mini-Drama-03": {
+    "entry": 3,
+    "iss": "ISS-AMD-03",
+    "title": "Failed character generation is silent",
+    "feature": "AI-Mini-Drama",
+    "type": "Functional",
+    "sev": 2,
+    "belong": "RD",
+    "out": 2,
+    "times": 2,
+    "short": "PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Failed character generation shows no error, no ! mark and no refund notice",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open AI Mini Drama, start a custom idea with 3 characters\n3. Tap a character slot, tap ✓, then Generate all\n4. When one character fails, check the sheet\n5. Tap Generate for the failed one and check again\n6. Check the result\n\nResult:\nFailed characters silently return to the unset state; no error message, no ! mark, refund not shown.\n摘要：角色生成失敗時無任何提示，直接回到未設定狀態。\n{16.9.0_amd03_generate_all.jpg} {16.9.0_amd03_partial_silent.jpg} {16.9.0_amd03_single_silent.jpg}\n\nExpect Result:\nFailed slots show ! and Couldn't create image with the refund note, as in the Design spec.\n摘要：失敗角色應顯示 ! 及 Couldn't create image 與退點說明。\nSpec string: 「Couldn't create image」/「We couldn't create this character and your credits have been refunded. Try again later.」\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama Design spec, Characters: Flow, Create my character, Filter, Error board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\nSpec Link: AI Mini Drama PM spec, Update board 3 board - https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama?node-id=2016-2\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd03_generate_all.jpg",
+      "16.9.0_amd03_partial_silent.jpg",
+      "16.9.0_amd03_single_silent.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/03_ISS-AMD-03",
+    "qa_note": "Triggered with Pink › [z] AI Mini Drama › Trip image moderation = 1. Generate all ◆12 for 3 characters: 2 applied, 1 failed, and the sheet just went back to 「1 character isn't set yet」 (no 「!」, no 「Couldn't create some images」). Single Generate ◆4: also silent, no 「Couldn't create image」 dialog. Credits: 5908 → 5899 (−9 for 2 successes at ◆4, expected −8) and 5899 → 5898 (−1 on a failed single), so refunds look wrong too — included here rather than as a separate ticket. Specs: PM 10/2 §13.10 (partial) and PM error handling (single)."
+  },
+  "AI-Mini-Drama-04": {
+    "entry": 4,
+    "iss": "ISS-AMD-04",
+    "title": "Failed chat turns end silently",
+    "feature": "AI-Mini-Drama",
+    "type": "UX",
+    "sev": 2,
+    "belong": "RD",
+    "out": 2,
+    "times": 2,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Failed chat turn ends silently with no error message or Try again",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Turn on Pink › AI Mini Drama › Inject failure status = tool_error\n3. Open AI Mini Drama, send an idea and confirm the cast\n4. Wait for the reply and check the result\n5. Check the result\n\nResult:\nThe turn shows Continuing the drama production. and then ends with no message or retry option.\n摘要：對話回合失敗後無任何錯誤訊息或重試按鈕。\n{16.9.0_amd04_after_cast.jpg} {16.9.0_amd04_after_request.jpg}\n\nExpect Result:\nA failed turn shows the Something went wrong on my end message with Try again.\n摘要：應顯示錯誤訊息並提供 Try again。\nSpec string: 「Something went wrong on my end. Let's try that again.」\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama Design spec, Extra board board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\nSpec Link: AI Mini Drama PM spec, Error Handling board - https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama?node-id=2016-2\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd04_after_cast.jpg",
+      "16.9.0_amd04_after_request.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/04_ISS-AMD-04",
+    "qa_note": "Server failure injected with Pink 「Inject failure status = tool_error」 (scope First beat). Two turns failed: confirming the cast (should offer the storyboard) and the typed request 「Create the storyboard」. Each showed 「Continuing the drama production.」 then simply ended — no error, no Try again — leaving the user with nothing to tap. Pink 「Fail every call」 alone did not fail the outline turn. Spec: PM error handling (5xxx copy)."
+  },
+  "AI-Mini-Drama-05": {
+    "entry": 5,
+    "iss": "ISS-AMD-05",
+    "title": "Video stage reached without storyboard or settings",
+    "feature": "AI-Mini-Drama",
+    "type": "Functional",
+    "sev": 2,
+    "belong": "RD",
+    "out": 1,
+    "times": 1,
+    "short": "PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Drama jumps from characters straight to video without storyboard or settings",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open AI Mini Drama, create a custom drama and set the cast\n3. Type Create the storyboard after a failed turn\n4. Reopen the drama from History and check the result\n5. Check the result\n\nResult:\nThe chat shows Here's your drama. with a failed clip; no storyboard, video settings or price came first.\n摘要：未經分鏡與影片設定，直接進入影片結果。\n{16.9.0_amd05_cast_only.jpg} {16.9.0_amd05_jump_to_video.jpg}\n\nExpect Result:\nVideo is only created after the storyboard and the user's video settings and price confirmation.\n摘要：應先完成分鏡並由使用者選擇影片設定與價格後才生成影片。\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama Design spec, Main flow board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd05_cast_only.jpg",
+      "16.9.0_amd05_jump_to_video.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/05_ISS-AMD-05",
+    "qa_note": "Seen once on 「Passing the Spark」. Sequence: cast set while Pink tool_error injection was on (turn failed silently, ISS-AMD-04), then 「Create the storyboard」 typed, injection later turned off. On reopening, the chat jumped straight from Characters Result to 「Here's your drama.」 with one failed clip — no storyboard, no Storyboard Preview, no video settings, no price, no charge. Reproduced 1/1; it may need the injected failure to trigger. Proposed S2 because it bypasses the paid confirmation step; downgrade if RD confirms it only follows injected failures."
+  },
+  "AI-Mini-Drama-06": {
+    "entry": 6,
+    "iss": "ISS-AMD-06",
+    "title": "Chat image update fails silently",
+    "feature": "AI-Mini-Drama",
+    "type": "Functional",
+    "sev": 2,
+    "belong": "RD",
+    "out": 1,
+    "times": 1,
+    "short": "PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Updating a storyboard image from chat fails silently and the scene never changes",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open a finished AI Mini Drama storyboard\n3. Type Update the image for Scene 2 to show rain and send\n4. Tap Generate on the card Iris returns\n5. Wait about 5 minutes and open Scene 2\n6. Check the result\n\nResult:\nThe update card is Create storyboard ◆3; after Generate the progress vanishes and Scene 2 is unchanged.\n摘要：聊天更新分鏡圖失敗且無提示，場景圖未更新。\n{16.9.0_amd06_card.jpg} {16.9.0_amd06_progress.jpg} {16.9.0_amd06_vanished.jpg} {16.9.0_amd06_scene2_same.jpg}\n\nExpect Result:\nAn Update storyboard images card appears and the updated scene shows in a new storyboard card.\n摘要：應出現 Update storyboard images 卡片並完成更新。\nSpec string: 「Update storyboard images」 card, 2 credits per image\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama PM spec, Update board 3 board - https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama?node-id=2016-2\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd06_card.jpg",
+      "16.9.0_amd06_progress.jpg",
+      "16.9.0_amd06_vanished.jpg",
+      "16.9.0_amd06_scene2_same.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/06_ISS-AMD-06",
+    "qa_note": "Office Romance, storyboard done. 「Update the image for Scene 2 to show rain」 → Iris answered 「Script updated! Regenerate the storyboard to match?」 with a 「Create storyboard」 card ◆3 (spec: an 「Update storyboard images」 card at 2 credits per image). Generate → 「Continuing mini drama production.」 skeleton for ~4.5 min, then it vanished: no new storyboard card, no message, Scene 2 unchanged. The video settings card also disappeared. After reopening, credits had dropped by 4 (5928 → 5924) with nothing produced. Specs PM 10/2 board (R-061, R-062)."
+  },
+  "AI-Mini-Drama-07": {
+    "entry": 7,
+    "iss": "ISS-AMD-07",
+    "title": "Credit prices differ from the spec",
+    "feature": "AI-Mini-Drama",
+    "type": "Functional",
+    "sev": 2,
+    "belong": "PM",
+    "out": 5,
+    "times": 5,
+    "short": "PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Character, scene image and chat update prices differ from the spec",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open AI Mini Drama and create a custom drama\n3. Check the prices on Finish your characters, Create my character and a failed scene's Regenerate Image\n4. Check the result\n\nResult:\nPrices shown: character ◆4, Create my character ◆4, scene image 3 per image (◆6 for two).\n摘要：角色、自建角色與場景重生成價格與 spec 不符。\n{16.9.0_amd07_generate_all_8.jpg} {16.9.0_amd07_create_4.jpg} {16.9.0_amd07_regen_3_per_image.jpg}\n\nExpect Result:\nDesign prices: character ◆6 each, Create my character ◆6, location + scene regenerate ◆12.\n摘要：依 Design：角色每位 ◆6、自建角色 ◆6、場景與地點重生成 ◆12。\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama Design spec, Characters: Flow, Create my character, Filter, Error board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\nSpec Link: AI Mini Drama Design spec, Storyboard board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd07_generate_all_8.jpg",
+      "16.9.0_amd07_create_4.jpg",
+      "16.9.0_amd07_regen_3_per_image.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/07_ISS-AMD-07",
+    "qa_note": "Prices on this build differ from the Design spec, which is the expected result where it differs from PM: character Generate ◆4 per character (Design: Generate ◆6 / Generate all ◆18 for 3); Create my character ◆4 (Design: Generate ◆6; PM had ◆7); scene Regenerate Image 「Charge 3 credits per image」, ◆6 for location + scene (Design: Regenerate Image ◆12, 6 per image). The chat image update card was ◆3 for one scene (PM: 2 per image; Design has no frame). Owner PM per reviewer: confirm whether the server prices or the spec prices are current."
+  },
+  "AI-Mini-Drama-08": {
+    "entry": 8,
+    "iss": "ISS-AMD-08",
+    "title": "Leave dialog missing in template chat",
+    "feature": "AI-Mini-Drama",
+    "type": "UX",
+    "sev": 2,
+    "belong": "RD",
+    "out": 1,
+    "times": 1,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Template chat skips the Leave this chat? dialog on Back during outline",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open AI Mini Drama and open the Forbidden Office Romance template\n3. Tap Make my version, then Generate\n4. Tap Back while the outline is still generating\n5. Check the result\n\nResult:\nThe chat closes immediately with no dialog, and the drama still appears in History.\n摘要：範本大綱生成中按返回未出現離開確認對話框。\n{16.9.0_amd08_thinking.jpg} {16.9.0_amd08_saved_anyway.jpg}\n\nExpect Result:\nLeave this chat? appears with Leave anyway and Stay before the chat closes.\n摘要：應先顯示 Leave this chat? 確認對話框。\nSpec string: 「Leave this chat?」/「Your story outline isn't ready yet, so this chat won't be saved.」\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama PM spec, Main flow board - https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama?node-id=2016-2\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd08_thinking.jpg",
+      "16.9.0_amd08_saved_anyway.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/08_ISS-AMD-08",
+    "qa_note": "Template path (Forbidden Office Romance): Back while the outline was 「Thinking...」 left immediately with no dialog, and the outline kept generating and was saved to History as 「Workplace Romance」 (22 KB). The custom-idea path does show the dialog (TC-026 Pass), so this is template-only."
+  },
+  "AI-Mini-Drama-10": {
+    "entry": 10,
+    "iss": "ISS-AMD-10",
+    "title": "No stop dialog on Back during storyboard generation",
+    "feature": "AI-Mini-Drama",
+    "type": "UX",
+    "sev": 2,
+    "belong": "RD",
+    "out": 1,
+    "times": 2,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: No Stop and lose your credits? dialog on Back during storyboard generation",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open a custom AI Mini Drama with the cast set\n3. Tap Generate on Create storyboard\n4. Tap Back while it shows Advancing the short drama production.\n5. Check the result\n\nResult:\nThe app goes straight to History with no dialog, and the storyboard keeps generating.\n摘要：分鏡生成中按返回未出現停止確認對話框。\n{16.9.0_amd10_generating.jpg} {16.9.0_amd10_history_no_dialog.jpg}\n\nExpect Result:\nStop and lose your credits? appears with Leave anyway and Keep Generating.\n摘要：應顯示 Stop and lose your credits? 對話框。\nSpec string: 「Stop and lose your credits?」\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama PM spec, Main flow board - https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama?node-id=2016-2\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd10_generating.jpg",
+      "16.9.0_amd10_history_no_dialog.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/10_ISS-AMD-10",
+    "qa_note": "Inconsistent: on the template drama the dialog appeared (TC-061 Pass, status 「Thinking…」). On the custom drama 「Borrowed Rain」 the status was 「Advancing the short drama production.」 and Back went straight to History with no 「Stop and lose your credits?」; the storyboard kept generating and finished in the background. 1 of 2 storyboard runs."
+  },
+  "AI-Mini-Drama-12": {
+    "entry": 12,
+    "iss": "ISS-AMD-12",
+    "title": "Credit pill is stale outside the chat",
+    "feature": "AI-Mini-Drama",
+    "type": "UI",
+    "sev": 2,
+    "belong": "RD",
+    "out": 2,
+    "times": 2,
+    "short": "PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Credit pill on template and More pages shows an outdated balance",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open AI Mini Drama, spend credits in a drama chat\n3. Go back to the template detail page and the More page\n4. Compare the credit pill with the chat\n5. Check the result\n\nResult:\nThe template and More pages show 6068 while the actual balance is 5924.\n摘要：範本頁與 More 頁的點數未更新。\n{16.9.0_amd12_chat_5924.jpg} {16.9.0_amd12_template_6068.jpg} {16.9.0_amd12_more_6068.jpg}\n\nExpect Result:\nThe credit pill shows the current balance on every page.\n摘要：各頁點數應即時顯示目前餘額。\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama PM spec, Main flow board - https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama?node-id=2016-2\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd12_chat_5924.jpg",
+      "16.9.0_amd12_template_6068.jpg",
+      "16.9.0_amd12_more_6068.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/12_ISS-AMD-12",
+    "qa_note": "After spending credits inside the drama chat (chat pill 5924), the template detail page and the More page still showed 6068 until the landing was re-entered. Seen on two pages."
+  },
+  "AI-Mini-Drama-13": {
+    "entry": 13,
+    "iss": "ISS-AMD-13",
+    "title": "Back during video gives no toast; History shows no processing",
+    "feature": "AI-Mini-Drama",
+    "type": "UX",
+    "sev": 3,
+    "belong": "RD",
+    "out": 2,
+    "times": 2,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Video in progress gives no Back toast and no processing label in History",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open an AI Mini Drama with a finished storyboard\n3. Tap Generate on the video settings card\n4. Tap Back, then look at the drama card in History\n5. Check the result\n\nResult:\nNo toast appears after Back, and the History card shows no processing.. label.\n摘要：影片生成中返回無提示，History 也無 processing 標示。\n{16.9.0_amd13_generating.jpg} {16.9.0_amd13_no_toast.jpg} {16.9.0_amd13_no_processing.jpg}\n\nExpect Result:\nBack shows the keep-making toast and the History card shows processing.. while generating.\n摘要：應顯示 toast，History 卡片應標示 processing..。\nSpec string: 「We'll keep making your video. Find it in History.」\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama PM spec, Update board 5 board - https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama?node-id=2016-2\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd13_generating.jpg",
+      "16.9.0_amd13_no_toast.jpg",
+      "16.9.0_amd13_no_processing.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/13_ISS-AMD-13",
+    "qa_note": "Two missing progress cues while a video generates: (1) Back gave no 「We'll keep making your video. Find it in History.」 toast (screenshot ~1.5 s after the tap; chat was opened from History so Back went to History); (2) the History card showed no 「processing..」 label. Also no notice at all when the video then failed while the user was on another page (TC-085 observation)."
+  },
+  "AI-Mini-Drama-14": {
+    "entry": 14,
+    "iss": "ISS-AMD-14",
+    "title": "Retry after a failed video is inconsistent",
+    "feature": "AI-Mini-Drama",
+    "type": "UX",
+    "sev": 2,
+    "belong": "RD",
+    "out": 2,
+    "times": 2,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Try again on a failed video asks which beat to modify instead of retrying",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open an AI Mini Drama whose video failed\n3. Tap Try again on Try creating your video again\n4. Repeat after the next failure and check the result\n5. Check the result\n\nResult:\nTry again shows Which beat would you like to modify? with one beat, not the video settings.\n摘要：影片失敗後按 Try again 未重試，反而詢問要修改哪個段落。\n{16.9.0_amd14_first_retry.jpg} {16.9.0_amd14_beat_prompt.jpg} {16.9.0_amd14_no_model_selector.jpg}\n\nExpect Result:\nTry again restarts video creation with the full Choose your video settings card.\n摘要：Try again 應重新開始影片生成並顯示完整設定卡。\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama PM spec, Error Handling board - https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama?node-id=2016-2\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd14_first_retry.jpg",
+      "16.9.0_amd14_beat_prompt.jpg",
+      "16.9.0_amd14_no_model_selector.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/14_ISS-AMD-14",
+    "qa_note": "Off-case observations O-1 and O-2 (TC-094 itself passed: copy and Try again button are right). First Try again re-showed the video settings card. Second Try again made Iris ask 「Which beat would you like to modify?」 with a single beat (First Day) instead of retrying. Asking 「Create the video」 afterwards returned a card with only 「Video length」 and ◆60 — no model selector and no 「Choose your video settings」 title."
+  },
+  "AI-Mini-Drama-15": {
+    "entry": 15,
+    "iss": "ISS-AMD-15",
+    "title": "Failed clip message differs from the spec",
+    "feature": "AI-Mini-Drama",
+    "type": "UX",
+    "sev": 2,
+    "belong": "RD",
+    "out": 1,
+    "times": 1,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Failed clip shows 1 clip couldn't be generated with no Fix scenes path",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open an AI Mini Drama whose video has a failed clip\n3. Scroll to Here's your drama.\n4. Check the result\n\nResult:\nOnly 1 clip couldn't be generated. is shown; no refund note, Edit hint or Fix scenes button.\n摘要：失敗片段僅顯示 1 clip couldn't be generated.，無修復入口。\n{16.9.0_amd15_failed_clip.jpg}\n\nExpect Result:\nIt shows the failed-scenes refund message and Fix these issues to export your drama. with Fix scenes.\n摘要：應顯示退點說明與 Fix scenes 修復入口。\nSpec string: 「N scenes couldn't be generated. Your credits have been refunded.」 + 「Fix scenes」\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama Design spec, Video board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd15_failed_clip.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/15_ISS-AMD-15",
+    "qa_note": "「Passing the Spark」 video result: one failed-clip card and red 「ⓘ 1 clip couldn't be generated.」; no refund wording, no Edit hint and no 「Fix these issues to export your drama.」/「Fix scenes」. See ISS-AMD-05 for how this state was reached."
+  },
+  "AI-Mini-Drama-16": {
+    "entry": 16,
+    "iss": "ISS-AMD-17",
+    "title": "Policy-blocked idea gets a free-form reply",
+    "feature": "AI-Mini-Drama",
+    "type": "UX",
+    "sev": 3,
+    "belong": "RD",
+    "out": 1,
+    "times": 1,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Policy-violating idea gets a free-form refusal instead of the spec message",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open AI Mini Drama and tap Create Your Drama\n3. Send an idea with explicit gore and tap Generate on the format card\n4. Check the reply\n\nResult:\nIris replies with a free-form refusal paragraph instead of the fixed policy message.\n摘要：違規點子回覆為自由文字，而非 spec 固定文案。\n{16.9.0_amd17_free_form.jpg}\n\nExpect Result:\nThe reply is the fixed policy message from the spec, with no button.\n摘要：應顯示 spec 定義的固定違規訊息。\nSpec string: 「I couldn't write a story from this idea. It may not meet our terms of service. Try describing it a different way.」\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama Design spec, Extra board board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd17_free_form.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/16_ISS-AMD-17",
+    "qa_note": "Idea: explicit gore. After the format card Iris wrote 「I cannot generate stories depicting explicit gore, dismemberment, or graphic violence. I can, however, help create a suspenseful thriller…」. The spec defines a fixed 4xxx message with no button. The free-form answer is reasonable, but it is not the specified string and may vary per request."
+  },
+  "AI-Mini-Drama-17": {
+    "entry": 17,
+    "iss": "ISS-AMD-18",
+    "title": "Cast-change prompts don't follow the catalogue",
+    "feature": "AI-Mini-Drama",
+    "type": "UX",
+    "sev": 3,
+    "belong": "RD",
+    "out": 2,
+    "times": 2,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Cast change after a storyboard shows the wrong assistant prompt",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open a custom AI Mini Drama with a storyboard\n3. Change a character's look with the switch icon and confirm\n4. Check Iris's prompt\n\nResult:\nAfter the cast change Iris repeats the first-time prompt The characters look great\n摘要：已有分鏡時更換角色，提示文案仍為初次建立分鏡用語。\n{16.9.0_amd18_wrong_prompt.jpg} {16.9.0_amd18_no_got_it.jpg}\n\nExpect Result:\nIris says Characters updated! Regenerate the storyboard to match?\n摘要：應顯示 Characters updated! Regenerate the storyboard to match?\nSpec string: 「Characters updated! Regenerate the storyboard to match?」\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama PM spec, Chat result states (top mockup group) board - https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama?node-id=2016-2\nSpec Link: AI Mini Drama Design spec, Characters: Flow, Create my character, Filter, Error board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd18_wrong_prompt.jpg",
+      "16.9.0_amd18_no_got_it.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/17_ISS-AMD-18",
+    "qa_note": "(1) 「Make the barista a retired pilot」: the outline card was re-issued with the role changed and switch icons, but without 「Got it! I've updated the story. I can't redraw characters yet - tap the switch icon…」 or the blue 「Character looks aren't updated automatically…」 note; instead it offered 「Create characters ◆4」. (2) After a storyboard existed, changing a look made Iris say 「The characters look great! Ready to create the storyboard?」 instead of 「Characters updated! Regenerate the storyboard to match?」. Sources: PM 10/14 board (pm-update-7) and the top mockup catalogue (pm-top-mockups)."
+  },
+  "AI-Mini-Drama-18": {
+    "entry": 18,
+    "iss": "ISS-AMD-20",
+    "title": "Video settings card lacks the remaining-credit line",
+    "feature": "AI-Mini-Drama",
+    "type": "UX",
+    "sev": 3,
+    "belong": "RD",
+    "out": 1,
+    "times": 1,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Video settings card does not show You'll have N left under Generate",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open an AI Mini Drama with a finished storyboard\n3. Look at the Choose your video settings card under Generate\n4. Check the result\n\nResult:\nThe card shows only the ◆ price and Generate; there is no You'll have N left line.\n摘要：影片設定卡未顯示扣點後剩餘點數。\n{16.9.0_amd20_no_remaining_line.jpg}\n\nExpect Result:\nUnder Generate the card shows You'll have N left, as in the Design spec.\n摘要：依 Design，Generate 下方應顯示 You'll have N left。\nSpec string: 「You'll have 160 left」 (Design example)\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama Design spec, MX Spec Link board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd20_no_remaining_line.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/18_ISS-AMD-20",
+    "qa_note": "Re-framed 2026-10-19 under the Design-outranks-PM rule. PM asked for a confirmation step (Q-3); Design has none, and instead shows 「You'll have 160 left」 under Generate on the video settings card (MX-linked frames). The build charges on tap (correct per Design) but the card shows only 「◆120」 and Generate, with no remaining-balance line. Owner moved from PM to RD because Design defines it."
+  },
+  "AI-Mini-Drama-20": {
+    "entry": 20,
+    "iss": "ISS-AMD-22",
+    "title": "Chat jumps after closing Choose Character",
+    "feature": "AI-Mini-Drama",
+    "type": "UX",
+    "sev": 2,
+    "belong": "RD",
+    "out": 1,
+    "times": 1,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Chat scroll position jumps to an earlier card after closing Choose Character",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open an AI Mini Drama with a cast\n3. Tap a character's switch icon, then close Choose Character\n4. Check the chat position\n\nResult:\nThe chat scrolls back to an earlier outline card instead of staying where it was.\n摘要：關閉角色選擇後，聊天捲動位置跳到較早的卡片。\n{16.9.0_amd22_before.jpg} {16.9.0_amd22_after.jpg}\n\nExpect Result:\nThe chat stays at the same position as before Choose Character was opened.\n摘要：關閉後應維持原本的捲動位置。\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama PM spec, 1002 update board - https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama?node-id=2016-2\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd22_before.jpg",
+      "16.9.0_amd22_after.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/20_ISS-AMD-22",
+    "qa_note": "Opened Choose Character from the switch icon on the newest card (chat scrolled to the bottom), closed it: the chat came back scrolled up to the first outline card. The History round-trip keeps the position (TC-101 Pass)."
+  },
+  "AI-Mini-Drama-21": {
+    "entry": 21,
+    "iss": "ISS-AMD-23",
+    "title": "Rename does not move the drama to the top",
+    "feature": "AI-Mini-Drama",
+    "type": "UX",
+    "sev": 2,
+    "belong": "RD",
+    "out": 1,
+    "times": 1,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Renamed drama stays in place in History and keeps its old time",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open AI Mini Drama › History with 2+ dramas\n3. Rename the oldest drama with ⋮ › Rename\n4. Check the list order and time\n\nResult:\nThe renamed drama stays at the bottom and its time does not change.\n摘要：重新命名後作品未移至頂端，時間也未更新。\n{16.9.0_amd23_before.jpg} {16.9.0_amd23_after.jpg}\n\nExpect Result:\nThe renamed drama moves to the top and its time updates.\n摘要：重新命名後應移至頂端並更新時間。\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama PM spec, Update board 5 board - https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama?node-id=2016-2\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd23_before.jpg",
+      "16.9.0_amd23_after.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/21_ISS-AMD-23",
+    "qa_note": "Renamed the oldest drama 「Quiet Warmth」 → 「New Title」; it stayed last with its old time (2026/10/16 01:52 PM). Viewing without editing correctly keeps the order (TC-107 Pass)."
+  },
+  "AI-Mini-Drama-24": {
+    "entry": 24,
+    "iss": "ISS-AMD-26",
+    "title": "Character name labels are clipped",
+    "feature": "AI-Mini-Drama",
+    "type": "UI",
+    "sev": 2,
+    "belong": "RD",
+    "out": 3,
+    "times": 3,
+    "short": "PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Finish your characters sheet clips the bottom of character names",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open a custom AI Mini Drama and tap ✓ in Choose Character with characters unset\n3. Look at the names under the slots\n4. Check the result\n\nResult:\nName labels are cut at the bottom, so Maya reads Mava and Hayes reads Haves.\n摘要：角色名稱下緣被裁切，如 Maya 看起來像 Mava。\n{16.9.0_amd26_clipped.jpg} {16.9.0_amd26_sheet.jpg}\n\nExpect Result:\nCharacter names are shown in full without clipping.\n摘要：角色名稱應完整顯示。\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama Design spec, Characters: Flow, Create my character, Filter, Error board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd26_clipped.jpg",
+      "16.9.0_amd26_sheet.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/24_ISS-AMD-26",
+    "qa_note": "Off-case observation O-8. In the Finish your characters sheet the name labels under the slots lose their descenders: 「Maya Lin」 reads 「Mava Lin」, 「Julian Hayes」 reads 「Julian Haves」. Seen on every sheet opened (3 times)."
+  },
+  "AI-Mini-Drama-25": {
+    "entry": 25,
+    "iss": "ISS-AMD-27",
+    "title": "More ideas chip missing in some states",
+    "feature": "AI-Mini-Drama",
+    "type": "UX",
+    "sev": 3,
+    "belong": "RD",
+    "out": 1,
+    "times": 1,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: More ideas + chip is missing above the input once the chat has content",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open AI Mini Drama, send an idea and wait for the outline\n3. Look above the input\n4. Check the result\n\nResult:\nNo More ideas + chip is shown above the input.\n摘要：聊天已有內容時未顯示 More ideas + 晶片。\n{16.9.0_amd27_no_chip.jpg} {16.9.0_amd27_chip_elsewhere.jpg}\n\nExpect Result:\nMore ideas + is shown above the input once the chat has content.\n摘要：聊天有內容後應顯示 More ideas +。\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama Design spec, Extra board board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\nSpec Link: AI Mini Drama PM spec, Chat result states (top mockup group) board - https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama?node-id=2016-2\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd27_no_chip.jpg",
+      "16.9.0_amd27_chip_elsewhere.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/25_ISS-AMD-27",
+    "qa_note": "With the custom outline and 「Ready to create your characters?」 card on screen, no 「More ideas +」 chip; it showed in other states (after 「Which beat would you like to modify?」)."
+  },
+  "AI-Mini-Drama-27": {
+    "entry": 27,
+    "iss": "ISS-AMD-29",
+    "title": "Video settings copy differs",
+    "feature": "AI-Mini-Drama",
+    "type": "UI",
+    "sev": 3,
+    "belong": "PM",
+    "out": 2,
+    "times": 2,
+    "short": "PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Video settings card says quick draft instead of quick drafts",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open an AI Mini Drama with a finished storyboard\n3. Select Seedance 2.0 Mini on Choose your video settings\n4. Read the description\n5. Check the result\n\nResult:\nThe Mini description reads Best for speed, value, and quick draft.\n摘要：Mini 模型說明文字少了複數 s。\n{16.9.0_amd29_quick_draft.jpg}\n\nExpect Result:\nThe Mini description reads Best for speed, value, and quick drafts.\n摘要：應為 quick drafts。\nSpec string: 「Best for speed, value, and quick drafts」\n\n[AI Recommendation]\nSeedance 2.0 Mini: Best for speed, value, and quick drafts\nButton: Generate Video\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama Design spec, Video board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\nSpec Link: AI Mini Drama PM spec, Main flow board - https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama?node-id=2016-2\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd29_quick_draft.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/27_ISS-AMD-29",
+    "qa_note": "Design's video board shows the button as 「Generate Video」 (the app says 「Generate」); Design does not show the Mini description, so PM's 「Best for speed, value, and quick drafts」 applies (the app drops the s). Lengths use 「Preview - 30 sec」 with a hyphen instead of 「•」."
+  },
+  "AI-Mini-Drama-29": {
+    "entry": 29,
+    "iss": "ISS-AMD-31",
+    "title": "Keyboard cannot be dismissed in an empty chat",
+    "feature": "AI-Mini-Drama",
+    "type": "UX",
+    "sev": 3,
+    "belong": "RD",
+    "out": 2,
+    "times": 2,
+    "short": "PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Keyboard cannot be dismissed in a new empty chat",
+    "desc": "Repro Steps:\n1. Launch the APP\n2. Open AI Mini Drama and tap Create Your Drama\n3. Type some text, then tap outside the input or swipe down\n4. Check the result\n\nResult:\nThe keyboard stays open; there is no way to dismiss it without sending.\n摘要：新對話中無法收起鍵盤。\n{16.9.0_amd31_keyboard_stuck.jpg}\n\nExpect Result:\nTapping outside the input or swiping down dismisses the keyboard.\n摘要：點擊輸入框外或下滑應可收起鍵盤。\n\nNote:\nDevice: iPhone 17 Air / iOS 26.2.1\nSpec Link: AI Mini Drama Design spec, AI Mini Drama home page / Custom detail / Chat room detail board - https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=116-7873\n<Claude Reviewed>",
+    "files": [
+      "16.9.0_amd31_keyboard_stuck.jpg"
+    ],
+    "images_dir": "/Users/ethanhsu/Desktop/pdr-spec-casebook/library/ai-mini-drama/ios/ebugs/2026-10-16/20261016_eBug_drafts_AI-Mini-Drama_16.9.0_images/29_ISS-AMD-31",
+    "qa_note": "Off-case observation O-7 (TC-018 passed once the chat had content). In a brand-new chat the keyboard stayed up after tapping outside the input, swiping down and a programmatic hide; the only way out was sending or leaving. That also hides the 3-line collapse in the empty chat."
+  }
+}

@@ -1,0 +1,28 @@
+# New custom drama up to its story outline.
+# Starts: the Launcher (any scroll position). Ends: the chat with 「Possible Characters:」 (or a failure text, which
+# stops the recipe). Charges nothing.
+# Args: $1 idea text · $2 language button index (0 = English) · $3 captions button index (0 = Yes)
+# Written 2026-10-20 from the P1 command history (TC-030/TC-032 setup). First run 10/20 19:21 (P23-b): `type` took 65 s
+# and the last waitfor timed out with the outline done because 「Possible Characters」 sat below the fold → setval, and
+# wait for the result header first, then scroll to the bottom and wait for the character card.
+# Usage: node scripts/device.ts <run dir> do library/ai-mini-drama/ios/recipes/new-drama.steps "A lighthouse keeper …" 0 0
+?tapif launcher.UIButton.homeButton
+drag 210 300 210 800 300
+drag 210 300 210 800 300
+lbl AI Mini Drama
+waitfor aiMiniDramaEntry.UIButton.createDrama --timeout 20
+id aiMiniDramaEntry.UIButton.createDrama
+waitfor aiMiniDramaComposer --timeout 15
+setval aiMiniDramaComposer.UITextView.text "$1"
+id aiMiniDramaComposer.UIButton.send
+?hidekb
+waitfor aiMiniDramaFormat.UIButton.continue --timeout 60
+id aiMiniDramaFormat.UIButton.language.$2
+id aiMiniDramaFormat.UIButton.captions.$3
+id aiMiniDramaFormat.UIButton.continue
+waitfor "Story Outline & Characters Result|Something went wrong|Server is busy|Try again" --timeout 240
+expect-not "Something went wrong|Server is busy"
+?id aiMiniDramaOutline.UIButton.scrollToBottom
+waitfor "Ready to create your characters?|Something went wrong|Server is busy|Try again" --timeout 120
+?id aiMiniDramaOutline.UIButton.scrollToBottom
+expect-not "Something went wrong|Server is busy"

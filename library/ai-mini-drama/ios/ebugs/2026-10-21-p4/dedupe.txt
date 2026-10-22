@@ -1,0 +1,14 @@
+
+0 of 3 entries have a possible duplicate (overlap >= 34%, or a shared quoted label / rare phrase, marked !). Judge each one yourself — wording varies, so this ranks candidates, it does not decide.
+
+[AI-Mini-Drama-P4-01] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Template detail player cuts off the cover title on 7 templates
+      feature='AI Mini Drama'  searched 191 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-P4-02] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Proposal Across Every Lifetime cover reads Proposal Across Lifetimes
+      feature='AI Mini Drama'  searched 191 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-P4-03] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Template sample videos show garbled sign text
+      feature='AI Mini Drama'  searched 191 candidate(s)
+      no likely duplicate

@@ -1,0 +1,23 @@
+{
+  "AI-Mini-Drama-P4-01": {
+    "FormCode": "DRI261897P0023",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0023",
+    "JobID": 22649715221,
+    "short": "PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Template detail player cuts off the cover title on 7 templates",
+    "at": "2026-10-21T09:31:53"
+  },
+  "AI-Mini-Drama-P4-02": {
+    "FormCode": "DRI261897P0024",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0024",
+    "JobID": 22649715733,
+    "short": "PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Proposal Across Every Lifetime cover reads Proposal Across Lifetimes",
+    "at": "2026-10-21T09:31:55"
+  },
+  "AI-Mini-Drama-P4-03": {
+    "FormCode": "DRI261897P0025",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRI261897P0025",
+    "JobID": 22649716501,
+    "short": "PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Template sample videos show garbled sign text",
+    "at": "2026-10-21T09:31:57"
+  }
+}

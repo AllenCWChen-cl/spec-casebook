@@ -1,0 +1,136 @@
+
+17 of 31 entries have a possible duplicate (overlap >= 34%). Judge each one yourself — wording varies, so this ranks candidates, it does not decide.
+
+[AI-Mini-Drama-01] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Preview video generation always fails with Video couldn't be created
+      feature='AI Mini Drama'  searched 162 candidate(s)
+       71%  OPEN   DRI261896P0020  PDR-I 16.9.0 - [AIFound] AI Mini Drama: Final drama video generation always fails with "
+       43%  OPEN   DRI261895P0036  PDR-I 16.9.0 - [AIFound] AI Mini Drama: Create my character always fails with "Couldn't 
+       43%  OPEN   DRI261895P0035  PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Scene and Location image generation always fails
+
+[AI-Mini-Drama-02] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Public-figure reference photo is not blocked and a lookalike is generated
+      feature='AI Mini Drama'  searched 162 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-03] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Failed character generation shows no error, no ! mark and no refund notice
+      feature='AI Mini Drama'  searched 162 candidate(s)
+       50%  OPEN   DRI261894P0023  PDR-I 16.9.0 - [AIFound] AI Mini Drama: failed character image shows a raw error toast a
+
+[AI-Mini-Drama-04] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Failed chat turn ends silently with no error message or Try again
+      feature='AI Mini Drama'  searched 162 candidate(s)
+       44%  OPEN   DRI261895P0033  PDR-I 16.9.0 - [AIFound]AI Mini Drama: While waiting for AI response, "Sever is busy. Pl
+
+[AI-Mini-Drama-05] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Drama jumps from characters straight to video without storyboard or settings
+      feature='AI Mini Drama'  searched 162 candidate(s)
+       38%  OPEN   DRI261894P0019  PDR-I 16.9.0 - [AIFound][UX] AI Mini Drama: video settings offer different length option
+
+[AI-Mini-Drama-06] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Updating a storyboard image from chat fails silently and the scene never changes
+      feature='AI Mini Drama'  searched 162 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-07] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Character, scene image and chat update prices differ from the spec
+      feature='AI Mini Drama'  searched 162 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-08] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Template chat skips the Leave this chat? dialog on Back during outline
+      feature='AI Mini Drama'  searched 162 candidate(s)
+       38%  OPEN   DRI261894P0043  PDR-I 16.9.0 - [AIFound][UX] AI Mini Drama: Back from an empty chat still asks "Leave th
+
+[AI-Mini-Drama-09] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Leave anyway keeps the abandoned chat and Back returns to it stuck
+      feature='AI Mini Drama'  searched 162 candidate(s)
+       50%  OPEN   DRI261896P0008  PDR-I 16.9.0 - [AIFound][UX] AI Mini Drama: New Chat "Leave anyway" returns to the previ
+       38%  OPEN   DRI261894P0043  PDR-I 16.9.0 - [AIFound][UX] AI Mini Drama: Back from an empty chat still asks "Leave th
+
+[AI-Mini-Drama-10] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: No Stop and lose your credits? dialog on Back during storyboard generation
+      feature='AI Mini Drama'  searched 162 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-11] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: X on Create my character discards entered data without a confirmation
+      feature='AI Mini Drama'  searched 162 candidate(s)
+       71%  OPEN   DRI261894P0039  PDR-I 16.9.0 - [AIFound][UX] AI Mini Drama: closing Create my character discards all inp
+       43%  OPEN   DRI261893-0135  PDR-I 16.9.0 - AI Mini Drama: The AI repeatedly asks the same confirmation question with
+
+[AI-Mini-Drama-12] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Credit pill on template and More pages shows an outdated balance
+      feature='AI Mini Drama'  searched 162 candidate(s)
+       38%  OPEN   DRI261894-0001  PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Template preview show stale credit balance a
+
+[AI-Mini-Drama-13] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Video in progress gives no Back toast and no processing label in History
+      feature='AI Mini Drama'  searched 162 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-14] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Try again on a failed video asks which beat to modify instead of retrying
+      feature='AI Mini Drama'  searched 162 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-15] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Failed clip shows 1 clip couldn't be generated with no Fix scenes path
+      feature='AI Mini Drama'  searched 162 candidate(s)
+       38%  OPEN   DRI261896P0020  PDR-I 16.9.0 - [AIFound] AI Mini Drama: Final drama video generation always fails with "
+
+[AI-Mini-Drama-16] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Scene moderation failure shows service-busy text and old dialog copy
+      feature='AI Mini Drama'  searched 162 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-17] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Policy-violating idea gets a free-form refusal instead of the spec message
+      feature='AI Mini Drama'  searched 162 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-18] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Cast change after a storyboard shows the wrong assistant prompt
+      feature='AI Mini Drama'  searched 162 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-19] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Character picker dialogs follow Design copy that conflicts with the PM flow
+      feature='AI Mini Drama'  searched 162 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-20] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Paid actions charge immediately with no You'll have N left confirmation
+      feature='AI Mini Drama'  searched 162 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-21] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Surprise me replaces the idea text instead of appending a new inspiration
+      feature='AI Mini Drama'  searched 162 candidate(s)
+       50%  OPEN   DRI261895P0023  PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Surprise me replaces the composer instead of
+
+[AI-Mini-Drama-22] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Chat scroll position jumps to an earlier card after closing Choose Character
+      feature='AI Mini Drama'  searched 162 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-23] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Renamed drama stays in place in History and keeps its old time
+      feature='AI Mini Drama'  searched 162 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-24] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Rename dialog OK stays enabled when the name is empty or only spaces
+      feature='AI Mini Drama'  searched 162 candidate(s)
+       62%  OPEN   DRI261896P0030  PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Rename OK stays enabled for empty or whitesp
+       50%  OPEN   DRI261893-0016  PDR-I 16.9.0 - [AIFound][UX] AI Mini Drama: History Rename keeps OK enabled for an empty
+
+[AI-Mini-Drama-25] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: History info hint stays after an outside tap and covers the first card
+      feature='AI Mini Drama'  searched 162 candidate(s)
+       67%  OPEN   DRI261893-0013  PDR-I 16.9.0 - [AIFound][UX] AI Mini Drama: History tooltip won't close on outside tap a
+       44%  OPEN   DRI261896P0026  PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Outside tap does not dismiss the History hin
+
+[AI-Mini-Drama-26] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Finish your characters sheet clips the bottom of character names
+      feature='AI Mini Drama'  searched 162 candidate(s)
+       50%  OPEN   DRI261896P0005  PDR-I 16.9.0 - [AIFound][UI] AI Mini Drama: Finish your characters sheet thumbnails lack
+       38%  closed  DRI261894P0012  PDR-I 16.9.0 - [AIFound][UI] AI Mini Drama: Finish sheet still says characters aren't se
+
+[AI-Mini-Drama-27] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: More ideas + chip is missing above the input once the chat has content
+      feature='AI Mini Drama'  searched 162 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-28] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Template outline wait shows only Thinking... with no status line
+      feature='AI Mini Drama'  searched 162 candidate(s)
+       38%  OPEN   DRI261895P0003  PDR-I 16.9.0 - [AIFound] AI Mini Drama: "The Beer Heir" in Japanese only shows "Server i
+       38%  OPEN   DRI261894P0015  PDR-I 16.9.0 - [AIFound][UX] AI Mini Drama: generation shows only generic or video-langu
+
+[AI-Mini-Drama-29] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Video settings card says quick draft instead of quick drafts
+      feature='AI Mini Drama'  searched 162 candidate(s)
+       50%  OPEN   DRI261894P0051  PDR-I 16.9.0 - [AIFound][UX] AI Mini Drama: Settings card offers 75/90 s full video but 
+
+[AI-Mini-Drama-30] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Create my character prompt says what Maya Lin look like
+      feature='AI Mini Drama'  searched 162 candidate(s)
+       56%  OPEN   DRI261894P0009  PDR-I 16.9.0 - [AIFound][UI] AI Mini Drama: Create my character heading reads "what <nam
+
+[AI-Mini-Drama-31] PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Keyboard cannot be dismissed in a new empty chat
+      feature='AI Mini Drama'  searched 162 candidate(s)
+       60%  OPEN   DRI261896P0007  PDR-I 16.9.0 - [AIFound][UX] AI Mini Drama: "New Chat" button is enabled when the chat a
+       40%  OPEN   DRI261896P0008  PDR-I 16.9.0 - [AIFound][UX] AI Mini Drama: New Chat "Leave anyway" returns to the previ
+       40%  OPEN   DRI261894P0043  PDR-I 16.9.0 - [AIFound][UX] AI Mini Drama: Back from an empty chat still asks "Leave th

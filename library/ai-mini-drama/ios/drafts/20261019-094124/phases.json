@@ -1,0 +1,809 @@
+{
+ "draft": "20261019-094124",
+ "needs": {
+  "TC-085": [
+   "video"
+  ],
+  "TC-087": [
+   "video"
+  ],
+  "TC-088": [
+   "video"
+  ],
+  "TC-089": [
+   "video"
+  ],
+  "TC-090": [
+   "video"
+  ],
+  "TC-093": [
+   "video"
+  ],
+  "TC-095": [
+   "video"
+  ],
+  "TC-096": [
+   "video"
+  ],
+  "TC-097": [
+   "video"
+  ],
+  "TC-098": [
+   "video"
+  ],
+  "TC-099": [
+   "video"
+  ],
+  "TC-167": [
+   "video"
+  ],
+  "TC-168": [
+   "video"
+  ],
+  "TC-174": [
+   "video"
+  ],
+  "TC-142": [
+   "video"
+  ],
+  "TC-143": [
+   "video"
+  ],
+  "TC-144": [
+   "video"
+  ],
+  "TC-145": [
+   "video"
+  ],
+  "TC-146": [
+   "video"
+  ],
+  "TC-147": [
+   "video"
+  ],
+  "TC-148": [
+   "video"
+  ],
+  "TC-149": [
+   "video"
+  ],
+  "TC-150": [
+   "video"
+  ],
+  "TC-151": [
+   "video"
+  ],
+  "TC-190": [
+   "video"
+  ],
+  "TC-195": [
+   "video"
+  ],
+  "TC-202": [
+   "purchase"
+  ],
+  "TC-222": [
+   "purchase"
+  ],
+  "TC-228": [
+   "purchase"
+  ],
+  "TC-231": [
+   "purchase"
+  ],
+  "TC-232": [
+   "purchase"
+  ],
+  "TC-233": [
+   "purchase"
+  ],
+  "TC-116": [
+   "low-balance"
+  ],
+  "TC-136": [
+   "low-balance"
+  ],
+  "TC-152": [
+   "low-balance"
+  ],
+  "TC-225": [
+   "low-balance"
+  ],
+  "TC-226": [
+   "low-balance"
+  ],
+  "TC-227": [
+   "low-balance"
+  ],
+  "TC-114": [
+   "new-account"
+  ],
+  "TC-218": [
+   "chat-count"
+  ],
+  "TC-223": [
+   "chat-count"
+  ],
+  "TC-191": [
+   "voice"
+  ],
+  "TC-198": [
+   "appearance"
+  ],
+  "TC-275": [
+   "launch-language"
+  ],
+  "TC-276": [
+   "launch-language"
+  ],
+  "TC-277": [
+   "launch-language"
+  ]
+ },
+ "unavailable": {
+  "purchase": "no purchases in a run, sandbox included (user rule)",
+  "low-balance": "the shared test account holds ~20,000 credits and Pink has no balance override",
+  "new-account": "needs an account with no AI Mini Drama creations; the test account has many",
+  "chat-count": "the Developer Server daily chat limit is 9999 and the app shows no remaining count",
+  "voice": "speech-to-text needs spoken input, which Appium cannot give the phone"
+ },
+ "phases": [
+  {
+   "id": "P1",
+   "name": "Core",
+   "note": "Original 118 cases, interruption and waits, MX credits and limits. All run rules apply.",
+   "segments": [
+    {
+     "id": "P1-a",
+     "name": "Entry, templates, idea input, format card",
+     "cases": [
+      "TC-001",
+      "TC-002",
+      "TC-003",
+      "TC-004",
+      "TC-005",
+      "TC-006",
+      "TC-007",
+      "TC-008",
+      "TC-009",
+      "TC-010",
+      "TC-011",
+      "TC-012",
+      "TC-013",
+      "TC-014",
+      "TC-015",
+      "TC-016",
+      "TC-017",
+      "TC-018",
+      "TC-019",
+      "TC-020",
+      "TC-021",
+      "TC-022"
+     ]
+    },
+    {
+     "id": "P1-b",
+     "name": "Story outline, characters, Create my character",
+     "cases": [
+      "TC-023",
+      "TC-024",
+      "TC-025",
+      "TC-026",
+      "TC-027",
+      "TC-028",
+      "TC-029",
+      "TC-030",
+      "TC-031",
+      "TC-032",
+      "TC-033",
+      "TC-034",
+      "TC-035",
+      "TC-036",
+      "TC-037",
+      "TC-038",
+      "TC-039",
+      "TC-040",
+      "TC-041",
+      "TC-042",
+      "TC-043",
+      "TC-044",
+      "TC-045",
+      "TC-046",
+      "TC-047",
+      "TC-048",
+      "TC-049",
+      "TC-050",
+      "TC-051",
+      "TC-052",
+      "TC-053",
+      "TC-054",
+      "TC-055",
+      "TC-056",
+      "TC-057",
+      "TC-058",
+      "TC-059"
+     ]
+    },
+    {
+     "id": "P1-c",
+     "name": "Storyboard and storyboard preview",
+     "cases": [
+      "TC-060",
+      "TC-061",
+      "TC-062",
+      "TC-063",
+      "TC-064",
+      "TC-065",
+      "TC-066",
+      "TC-067",
+      "TC-068",
+      "TC-069",
+      "TC-070",
+      "TC-071",
+      "TC-072",
+      "TC-073",
+      "TC-074",
+      "TC-075",
+      "TC-076",
+      "TC-077",
+      "TC-078"
+     ]
+    },
+    {
+     "id": "P1-d",
+     "name": "Video, video errors, captions",
+     "cases": [
+      "TC-079",
+      "TC-080",
+      "TC-081",
+      "TC-082",
+      "TC-084",
+      "TC-085",
+      "TC-086",
+      "TC-087",
+      "TC-088",
+      "TC-089",
+      "TC-090",
+      "TC-091",
+      "TC-092",
+      "TC-093",
+      "TC-094",
+      "TC-095",
+      "TC-096",
+      "TC-097",
+      "TC-098",
+      "TC-099"
+     ]
+    },
+    {
+     "id": "P1-e",
+     "name": "Chat behaviour and History",
+     "cases": [
+      "TC-100",
+      "TC-101",
+      "TC-102",
+      "TC-103",
+      "TC-106",
+      "TC-107",
+      "TC-108",
+      "TC-109",
+      "TC-110",
+      "TC-111",
+      "TC-112",
+      "TC-113"
+     ]
+    },
+    {
+     "id": "P1-f",
+     "name": "Interruption and waits",
+     "cases": [
+      "TC-153",
+      "TC-154",
+      "TC-155",
+      "TC-156",
+      "TC-157",
+      "TC-158",
+      "TC-159",
+      "TC-160",
+      "TC-161",
+      "TC-162",
+      "TC-163",
+      "TC-164",
+      "TC-165",
+      "TC-166",
+      "TC-167",
+      "TC-168",
+      "TC-169",
+      "TC-170",
+      "TC-171",
+      "TC-172",
+      "TC-173",
+      "TC-174"
+     ]
+    },
+    {
+     "id": "P1-g",
+     "name": "Credits and limits (tier switching last; restore Follow account)",
+     "cases": [
+      "TC-114",
+      "TC-115",
+      "TC-116",
+      "TC-117",
+      "TC-118",
+      "TC-215",
+      "TC-216",
+      "TC-217",
+      "TC-218",
+      "TC-219",
+      "TC-220",
+      "TC-221",
+      "TC-222",
+      "TC-223",
+      "TC-225",
+      "TC-226",
+      "TC-227",
+      "TC-228",
+      "TC-229",
+      "TC-230",
+      "TC-231",
+      "TC-232",
+      "TC-233"
+     ]
+    },
+    {
+     "id": "P1-h",
+     "name": "Fresh install (each case reinstalls the app itself)",
+     "cases": [
+      "TC-083",
+      "TC-104",
+      "TC-105",
+      "TC-224"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P23",
+   "name": "Regression + flows, by journey stage",
+   "note": "P2 and P3 run together, ordered by the stage each case needs, so each drama is walked once (user, 2026-10-20). Each case keeps its own phase label (origin) for the report. Preflight: one template drama straight to a Seedance 2.0 preview, then run-log gate video pass|fail; keep that drama for P23-d and P23-e.",
+   "origin": {
+    "TC-175": "P2",
+    "TC-176": "P2",
+    "TC-177": "P2",
+    "TC-178": "P2",
+    "TC-179": "P2",
+    "TC-180": "P2",
+    "TC-181": "P2",
+    "TC-182": "P2",
+    "TC-183": "P2",
+    "TC-184": "P2",
+    "TC-185": "P2",
+    "TC-186": "P2",
+    "TC-187": "P2",
+    "TC-188": "P2",
+    "TC-189": "P2",
+    "TC-190": "P2",
+    "TC-191": "P2",
+    "TC-192": "P2",
+    "TC-193": "P2",
+    "TC-194": "P2",
+    "TC-195": "P2",
+    "TC-196": "P2",
+    "TC-197": "P2",
+    "TC-198": "P2",
+    "TC-199": "P2",
+    "TC-200": "P2",
+    "TC-201": "P2",
+    "TC-202": "P2",
+    "TC-203": "P2",
+    "TC-204": "P2",
+    "TC-205": "P2",
+    "TC-206": "P2",
+    "TC-207": "P2",
+    "TC-208": "P2",
+    "TC-209": "P2",
+    "TC-210": "P2",
+    "TC-211": "P2",
+    "TC-212": "P2",
+    "TC-213": "P2",
+    "TC-214": "P2",
+    "TC-119": "P3",
+    "TC-120": "P3",
+    "TC-121": "P3",
+    "TC-122": "P3",
+    "TC-123": "P3",
+    "TC-124": "P3",
+    "TC-125": "P3",
+    "TC-126": "P3",
+    "TC-127": "P3",
+    "TC-128": "P3",
+    "TC-129": "P3",
+    "TC-130": "P3",
+    "TC-131": "P3",
+    "TC-132": "P3",
+    "TC-133": "P3",
+    "TC-134": "P3",
+    "TC-135": "P3",
+    "TC-136": "P3",
+    "TC-137": "P3",
+    "TC-138": "P3",
+    "TC-139": "P3",
+    "TC-140": "P3",
+    "TC-141": "P3",
+    "TC-142": "P3",
+    "TC-143": "P3",
+    "TC-144": "P3",
+    "TC-145": "P3",
+    "TC-146": "P3",
+    "TC-147": "P3",
+    "TC-148": "P3",
+    "TC-149": "P3",
+    "TC-150": "P3",
+    "TC-151": "P3",
+    "TC-152": "P3",
+    "TC-275": "P3",
+    "TC-276": "P3",
+    "TC-277": "P3",
+    "TC-278": "P3",
+    "TC-279": "P3",
+    "TC-280": "P3",
+    "TC-281": "P3",
+    "TC-282": "P3",
+    "TC-283": "P3",
+    "TC-284": "P3",
+    "TC-285": "P3",
+    "TC-286": "P3",
+    "TC-287": "P3",
+    "TC-288": "P3",
+    "TC-289": "P3",
+    "TC-290": "P3",
+    "TC-291": "P3"
+   },
+   "segments": [
+    {
+     "id": "P23-a",
+     "name": "Entry, chat and outline",
+     "note": "New chats, the format card and outlines; template dramas in Japanese (TC-192/207).",
+     "cases": [
+      "TC-186",
+      "TC-199",
+      "TC-200",
+      "TC-213",
+      "TC-177",
+      "TC-286",
+      "TC-189",
+      "TC-193",
+      "TC-192",
+      "TC-207"
+     ]
+    },
+    {
+     "id": "P23-b",
+     "name": "Characters and the cast picker",
+     "note": "One custom drama at the characters stage; filters and Choose Character.",
+     "cases": [
+      "TC-212",
+      "TC-208",
+      "TC-197",
+      "TC-181",
+      "TC-194",
+      "TC-201",
+      "TC-119",
+      "TC-120",
+      "TC-121",
+      "TC-288",
+      "TC-291",
+      "TC-176",
+      "TC-206"
+     ]
+    },
+    {
+     "id": "P23-c",
+     "name": "Create my character",
+     "note": "The Make-your-character form, crop, one generation saved (TC-133) and one closed with X (TC-134); the Mine character then feeds TC-289/290. Fault case TC-137 last (Pink, then restore).",
+     "cases": [
+      "TC-126",
+      "TC-211",
+      "TC-127",
+      "TC-284",
+      "TC-285",
+      "TC-204",
+      "TC-122",
+      "TC-123",
+      "TC-124",
+      "TC-125",
+      "TC-183",
+      "TC-287",
+      "TC-128",
+      "TC-129",
+      "TC-283",
+      "TC-130",
+      "TC-131",
+      "TC-132",
+      "TC-133",
+      "TC-180",
+      "TC-134",
+      "TC-135",
+      "TC-289",
+      "TC-290",
+      "TC-137"
+     ]
+    },
+    {
+     "id": "P23-d",
+     "name": "Storyboard and generated text",
+     "note": "Reuse the preflight drama: read scenes first, then revisions, then the Pink fault cases (TC-140/141/184/182) last and restore. TC-196/179 ride along (observe throughout, read the ledger at the end).",
+     "cases": [
+      "TC-138",
+      "TC-139",
+      "TC-203",
+      "TC-175",
+      "TC-178",
+      "TC-209",
+      "TC-210",
+      "TC-278",
+      "TC-279",
+      "TC-280",
+      "TC-281",
+      "TC-282",
+      "TC-205",
+      "TC-187",
+      "TC-188",
+      "TC-214",
+      "TC-140",
+      "TC-141",
+      "TC-184",
+      "TC-182",
+      "TC-196",
+      "TC-179"
+     ]
+    },
+    {
+     "id": "P23-e",
+     "name": "Video (behind the video gate)",
+     "note": "Only if gate video passed; otherwise `run-log gate video fail` already recorded these Blocked for the retest.",
+     "cases": [
+      "TC-142",
+      "TC-143",
+      "TC-190",
+      "TC-195",
+      "TC-146",
+      "TC-147",
+      "TC-148",
+      "TC-149",
+      "TC-150",
+      "TC-144",
+      "TC-145",
+      "TC-151"
+     ]
+    },
+    {
+     "id": "P23-f",
+     "name": "Languages, accessibility labels, Light mode",
+     "note": "TC-275–277: device.ts launch --lang en | zh-Hant | ja (launch arguments, no iOS Settings change), then relaunch plainly. TC-185: no VoiceOver needed — the label VoiceOver reads is the element label in `els` (e.g. Back reads an image ID). TC-198: device.ts appearance light, then appearance dark to restore. Allowed by the user 2026-10-20.",
+     "cases": [
+      "TC-275",
+      "TC-276",
+      "TC-277",
+      "TC-185",
+      "TC-198"
+     ]
+    },
+    {
+     "id": "P23-g",
+     "name": "Needs a fixture this run cannot provide",
+     "note": "Recorded Blocked (test-data) at init: purchase, low balance, spoken input.",
+     "cases": [
+      "TC-136",
+      "TC-152",
+      "TC-202",
+      "TC-191"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P2",
+   "name": "Regression",
+   "note": "Open and resolved-not-closed tickets without a matching core case.",
+   "segments": [
+    {
+     "id": "P2-a",
+     "name": "Regression 1st half",
+     "cases": [
+      "TC-175",
+      "TC-176",
+      "TC-177",
+      "TC-178",
+      "TC-179",
+      "TC-180",
+      "TC-181",
+      "TC-182",
+      "TC-183",
+      "TC-184",
+      "TC-185",
+      "TC-186",
+      "TC-187",
+      "TC-188",
+      "TC-189",
+      "TC-190",
+      "TC-191",
+      "TC-192",
+      "TC-193",
+      "TC-194"
+     ]
+    },
+    {
+     "id": "P2-b",
+     "name": "Regression 2nd half",
+     "cases": [
+      "TC-195",
+      "TC-196",
+      "TC-197",
+      "TC-198",
+      "TC-199",
+      "TC-200",
+      "TC-201",
+      "TC-202",
+      "TC-203",
+      "TC-204",
+      "TC-205",
+      "TC-206",
+      "TC-207",
+      "TC-208",
+      "TC-209",
+      "TC-210",
+      "TC-211",
+      "TC-212",
+      "TC-213",
+      "TC-214"
+     ]
+    }
+   ],
+   "merged_into": "P23"
+  },
+  {
+   "id": "P3",
+   "name": "Flow arrows, text and colleague directions",
+   "note": "",
+   "segments": [
+    {
+     "id": "P3-a",
+     "name": "Flow arrows",
+     "cases": [
+      "TC-119",
+      "TC-120",
+      "TC-121",
+      "TC-122",
+      "TC-123",
+      "TC-124",
+      "TC-125",
+      "TC-126",
+      "TC-127",
+      "TC-128",
+      "TC-129",
+      "TC-130",
+      "TC-131",
+      "TC-132",
+      "TC-133",
+      "TC-134",
+      "TC-135",
+      "TC-136",
+      "TC-137",
+      "TC-138",
+      "TC-139",
+      "TC-140",
+      "TC-141",
+      "TC-142",
+      "TC-143",
+      "TC-144",
+      "TC-145",
+      "TC-146",
+      "TC-147",
+      "TC-148",
+      "TC-149",
+      "TC-150",
+      "TC-151",
+      "TC-152"
+     ]
+    },
+    {
+     "id": "P3-b",
+     "name": "Text, generated text, colleague directions",
+     "cases": [
+      "TC-275",
+      "TC-276",
+      "TC-277",
+      "TC-278",
+      "TC-279",
+      "TC-280",
+      "TC-281",
+      "TC-282",
+      "TC-283",
+      "TC-284",
+      "TC-285",
+      "TC-286",
+      "TC-287",
+      "TC-288",
+      "TC-289",
+      "TC-290",
+      "TC-291"
+     ]
+    }
+   ],
+   "merged_into": "P23"
+  },
+  {
+   "id": "P4",
+   "name": "Templates",
+   "note": "Round 2 (user, 2026-10-20 19:0x): card, preview, Make my version and the format card checked in detail; 「Generate」 is never tapped, journey rows recorded Not run (Generate withheld). Normal rule: Seedance 2.0 + full episode; stop when the balance is under 300 and list the rest as Not run.",
+   "segments": [
+    {
+     "id": "P4-a",
+     "name": "Roster + Workplace Romance (1-5)",
+     "cases": [
+      "TC-234",
+      "TC-235",
+      "TC-236",
+      "TC-237",
+      "TC-238",
+      "TC-239",
+      "TC-240",
+      "TC-241",
+      "TC-242",
+      "TC-243",
+      "TC-244"
+     ]
+    },
+    {
+     "id": "P4-b",
+     "name": "Fantasy & Destiny (6-10)",
+     "cases": [
+      "TC-245",
+      "TC-246",
+      "TC-247",
+      "TC-248",
+      "TC-249",
+      "TC-250",
+      "TC-251",
+      "TC-252",
+      "TC-253",
+      "TC-254"
+     ]
+    },
+    {
+     "id": "P4-c",
+     "name": "Urban Romance (11-14)",
+     "cases": [
+      "TC-255",
+      "TC-256",
+      "TC-257",
+      "TC-258",
+      "TC-259",
+      "TC-260",
+      "TC-261",
+      "TC-262"
+     ]
+    },
+    {
+     "id": "P4-d",
+     "name": "Family & Life, Animated Stories (15-20)",
+     "cases": [
+      "TC-263",
+      "TC-264",
+      "TC-265",
+      "TC-266",
+      "TC-267",
+      "TC-268",
+      "TC-269",
+      "TC-270",
+      "TC-271",
+      "TC-272",
+      "TC-273",
+      "TC-274"
+     ]
+    }
+   ]
+  }
+ ]
+}

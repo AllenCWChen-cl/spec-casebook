@@ -1,0 +1,1654 @@
+2026-10-20T21:44:26.741Z status 
+2026-10-20T21:45:09.617Z build 
+2026-10-20T21:45:09.992Z server 
+2026-10-20T21:45:25.941Z credits 
+2026-10-20T21:46:08.057Z texts setup-credits
+2026-10-20T21:46:15.046Z launch 
+2026-10-20T21:46:17.478Z wait 4
+2026-10-20T21:46:21.857Z texts setup-launcher
+2026-10-20T21:46:40.376Z pink open [z] AI Mini Drama
+2026-10-20T21:47:39.750Z pink show
+2026-10-20T21:49:20.914Z shot setup-pink-readback
+2026-10-20T21:49:21.378Z pink close
+2026-10-20T21:49:46.454Z lbl AI Mini Drama
+2026-10-20T21:49:51.958Z wait 3
+2026-10-20T21:49:55.289Z texts p4-amd-entry
+2026-10-20T21:50:05.909Z id More
+2026-10-20T21:50:06.748Z wait 3
+2026-10-20T21:50:10.105Z shot tc234-more-top
+2026-10-20T21:50:10.689Z source 
+2026-10-20T21:50:38.100Z do drag 390 260 40 260 400 ;; drag 390 260 40 260 400 ;; drag 390 500 40 500 400 ;;
+2026-10-20T21:50:38.102Z drag 390 260 40 260 400
+2026-10-20T21:50:39.682Z drag 390 260 40 260 400
+2026-10-20T21:50:41.245Z drag 390 500 40 500 400
+2026-10-20T21:50:42.772Z drag 390 500 40 500 400
+2026-10-20T21:50:44.331Z drag 390 750 40 750 400
+2026-10-20T21:50:45.867Z drag 390 750 40 750 400
+2026-10-20T21:50:47.427Z wait 1
+2026-10-20T21:50:48.621Z shot tc234-more-rows-scrolled
+2026-10-20T21:50:59.180Z do drag 210 800 210 200 600 ;; drag 210 800 210 200 600 ;; wait 1 ;; shot tc234-mor
+2026-10-20T21:50:59.182Z drag 210 800 210 200 600
+2026-10-20T21:51:00.956Z drag 210 800 210 200 600
+2026-10-20T21:51:02.735Z wait 1
+2026-10-20T21:51:03.931Z shot tc234-more-bottom
+2026-10-20T21:51:04.418Z source 
+2026-10-20T21:51:12.357Z do drag 390 510 40 510 400 ;; drag 390 510 40 510 400 ;; drag 390 760 40 760 400 ;;
+2026-10-20T21:51:12.359Z drag 390 510 40 510 400
+2026-10-20T21:51:14.048Z drag 390 510 40 510 400
+2026-10-20T21:51:15.710Z drag 390 760 40 760 400
+2026-10-20T21:51:16.878Z wait 1
+2026-10-20T21:51:18.061Z shot tc234-more-bottom-rows-scrolled
+2026-10-20T21:51:18.541Z source 
+2026-10-20T21:51:46.236Z run-log set TC-234 Pass
+2026-10-20T21:51:52.347Z do drag 210 200 210 850 500 ;; drag 210 200 210 850 500 ;; drag 40 260 390 260 400 
+2026-10-20T21:51:52.349Z drag 210 200 210 850 500
+2026-10-20T21:51:54.041Z drag 210 200 210 850 500
+2026-10-20T21:51:55.729Z drag 40 260 390 260 400
+2026-10-20T21:51:57.231Z drag 40 260 390 260 400
+2026-10-20T21:51:58.782Z wait 1
+2026-10-20T21:51:59.979Z shot tc235-roster-pos1
+2026-10-20T21:52:00.390Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_merger-season
+2026-10-20T21:52:01.211Z wait 2
+2026-10-20T21:52:03.342Z shot tc235-detail
+2026-10-20T21:52:03.911Z els 
+2026-10-20T21:52:16.001Z do shot tc235-preview-t1 ;; wait 3 ;; shot tc235-preview-t2 ;; id Mute ;; wait 1 ;;
+2026-10-20T21:52:16.003Z shot tc235-preview-t1
+2026-10-20T21:52:16.460Z wait 3
+2026-10-20T21:52:19.582Z shot tc235-preview-t2
+2026-10-20T21:52:19.977Z id Mute
+2026-10-20T21:52:20.605Z wait 1
+2026-10-20T21:52:21.723Z els Mute
+2026-10-20T21:52:22.395Z shot tc235-unmuted
+2026-10-20T21:52:40.215Z do id Unmute ;; id aiMiniDramaTemplatePreview.UIButton.makeMyVersion ;; wait 4
+2026-10-20T21:52:40.217Z id Unmute
+2026-10-20T21:52:40.926Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T21:52:41.567Z wait 4
+2026-10-20T21:52:45.873Z texts tc235-chat-open
+2026-10-20T21:52:58.924Z source 
+2026-10-20T21:53:24.278Z do id aiMiniDramaFormat.UIButton.language.1 ;; shot tc235-fmt-l1 ;; id aiMiniDramaF
+2026-10-20T21:53:24.279Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T21:53:25.032Z shot tc235-fmt-l1
+2026-10-20T21:53:25.308Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T21:53:26.007Z shot tc235-fmt-l2
+2026-10-20T21:53:26.272Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T21:53:26.970Z shot tc235-fmt-l3
+2026-10-20T21:53:27.256Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T21:53:27.951Z shot tc235-fmt-l4
+2026-10-20T21:53:28.223Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T21:53:28.910Z shot tc235-fmt-l5
+2026-10-20T21:53:29.187Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T21:53:29.883Z shot tc235-fmt-l6
+2026-10-20T21:53:30.163Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T21:53:30.856Z shot tc235-fmt-c1
+2026-10-20T21:53:31.132Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T21:53:31.819Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T21:53:32.505Z shot tc235-fmt-reset
+2026-10-20T21:53:41.488Z do id aiMiniDramaOutline.UIButton.back ;; wait 2
+2026-10-20T21:53:41.490Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T21:53:42.258Z wait 2
+2026-10-20T21:53:44.536Z texts tc235-after-back
+2026-10-20T21:53:52.736Z do lbl Stay ;; wait 1 ;; expect "What format would you like for your video?" ;; sho
+2026-10-20T21:53:52.737Z lbl Stay
+2026-10-20T21:53:55.675Z wait 1
+2026-10-20T21:53:56.827Z expect What format would you like for your video?
+2026-10-20T21:53:58.549Z shot tc235-stay
+2026-10-20T21:53:58.805Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T21:53:59.501Z wait 1
+2026-10-20T21:54:00.658Z lbl Leave anyway
+2026-10-20T21:54:03.524Z wait 2
+2026-10-20T21:54:05.758Z texts tc235-left
+2026-10-20T21:54:21.321Z do id aiMiniDramaTemplatePreview.UIButton.history ;; wait 2
+2026-10-20T21:54:21.323Z id aiMiniDramaTemplatePreview.UIButton.history
+2026-10-20T21:54:21.999Z wait 2
+2026-10-20T21:54:24.240Z texts tc235-history
+2026-10-20T21:55:01.180Z run-log set TC-235 Pass
+2026-10-20T21:55:29.212Z els 
+2026-10-20T21:55:35.384Z do id aiMiniDramaHistory.UIButton.back ;; waitfor aiMiniDramaTemplatePreview.UIButt
+2026-10-20T21:55:35.386Z id aiMiniDramaHistory.UIButton.back
+2026-10-20T21:55:36.168Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 10
+2026-10-20T21:55:37.987Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T21:55:38.559Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T21:55:42.005Z shot tc237-roster-pos2
+2026-10-20T21:55:42.571Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_forbidden-of
+2026-10-20T21:55:42.572Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_forbidden-off
+2026-10-20T21:55:43.424Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T21:55:45.629Z wait 1
+2026-10-20T21:55:46.754Z texts tc237-detail
+2026-10-20T21:55:47.855Z wait 3
+2026-10-20T21:55:50.975Z shot tc237-preview-t2
+2026-10-20T21:55:51.359Z id Mute
+2026-10-20T21:55:51.997Z els Mute
+2026-10-20T21:55:52.737Z shot tc237-muted
+2026-10-20T21:55:53.157Z id Unmute
+2026-10-20T21:56:02.508Z tap 210 430
+2026-10-20T21:56:03.031Z wait 1
+2026-10-20T21:56:04.151Z shot tc237-paused-a
+2026-10-20T21:56:04.575Z els Play
+2026-10-20T21:56:05.326Z wait 2
+2026-10-20T21:56:07.443Z shot tc237-paused-b
+2026-10-20T21:56:07.866Z tap 210 430
+2026-10-20T21:56:08.384Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T21:56:09.032Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T21:56:15.524Z wait 1
+2026-10-20T21:56:16.668Z texts tc237-chat-open
+2026-10-20T21:56:17.772Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T21:56:18.463Z shot tc237-fmt-l1
+2026-10-20T21:56:18.736Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T21:56:19.426Z shot tc237-fmt-l2
+2026-10-20T21:56:19.702Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T21:56:20.376Z shot tc237-fmt-l3
+2026-10-20T21:56:20.659Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T21:56:21.337Z shot tc237-fmt-l4
+2026-10-20T21:56:21.619Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T21:56:22.312Z shot tc237-fmt-l5
+2026-10-20T21:56:22.602Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T21:56:23.283Z shot tc237-fmt-l6
+2026-10-20T21:56:23.560Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T21:56:24.250Z shot tc237-fmt-c1
+2026-10-20T21:56:24.535Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T21:56:25.230Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T21:56:25.937Z shot tc237-fmt-reset
+2026-10-20T21:56:26.208Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T21:56:26.892Z waitfor Leave this chat? --timeout 10
+2026-10-20T21:56:29.477Z texts tc237-leave-dialog
+2026-10-20T21:56:30.615Z lbl Stay
+2026-10-20T21:56:33.441Z wait 1
+2026-10-20T21:56:34.583Z expect What format would you like for your video?
+2026-10-20T21:56:36.269Z shot tc237-stay
+2026-10-20T21:56:36.537Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T21:56:37.224Z waitfor Leave anyway --timeout 10
+2026-10-20T21:56:40.444Z lbl Leave anyway
+2026-10-20T21:56:43.197Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T21:56:48.724Z texts tc237-left
+2026-10-20T21:56:49.751Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T21:56:50.373Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T21:57:33.657Z do id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_forbidden-
+2026-10-20T21:57:33.659Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_forbidden-off
+2026-10-20T21:57:34.527Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T21:57:36.662Z wait 2
+2026-10-20T21:57:38.788Z els aiMiniDramaTemplatePreview
+2026-10-20T21:57:39.500Z shot rep-a-open
+2026-10-20T21:57:39.953Z id Mute
+2026-10-20T21:57:40.612Z wait 1
+2026-10-20T21:57:41.732Z els aiMiniDramaTemplatePreview
+2026-10-20T21:57:42.433Z shot rep-b-muted
+2026-10-20T21:57:42.876Z id Unmute
+2026-10-20T21:57:52.189Z wait 1
+2026-10-20T21:57:53.308Z els aiMiniDramaTemplatePreview
+2026-10-20T21:57:53.981Z shot rep-c-unmuted
+2026-10-20T21:58:05.272Z do id aiMiniDramaTemplatePreview.UIButton.back ;; waitfor "aiMiniDramaTemplateList.
+2026-10-20T21:58:05.274Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T21:58:05.961Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T21:58:09.452Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_forbidden-off
+2026-10-20T21:58:10.196Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T21:58:12.233Z wait 2
+2026-10-20T21:58:14.359Z tap 210 430
+2026-10-20T21:58:14.883Z wait 1
+2026-10-20T21:58:16.014Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:58:16.720Z els Play
+2026-10-20T21:58:17.318Z shot rep2-a-paused
+2026-10-20T21:58:17.774Z tap 210 430
+2026-10-20T21:58:18.427Z wait 1
+2026-10-20T21:58:19.547Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:58:20.293Z tap 345 697
+2026-10-20T21:58:20.781Z wait 1
+2026-10-20T21:58:21.892Z els Unmute
+2026-10-20T21:58:22.645Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:58:23.371Z shot rep2-b-muted
+2026-10-20T21:58:23.781Z tap 345 697
+2026-10-20T21:58:24.294Z wait 1
+2026-10-20T21:58:25.413Z els Mute
+2026-10-20T21:58:26.148Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:58:26.859Z shot rep2-c-unmuted
+2026-10-20T21:58:36.416Z do id aiMiniDramaTemplatePreview.UIButton.back ;; waitfor "aiMiniDramaTemplateList.
+2026-10-20T21:58:36.418Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T21:58:37.108Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T21:58:40.697Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_forbidden-off
+2026-10-20T21:58:41.406Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T21:58:43.621Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:58:46.523Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:58:49.356Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:58:52.257Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:58:55.194Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:58:58.067Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:59:00.921Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:59:03.877Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:59:06.805Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:59:09.653Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:59:18.797Z do tap 345 697 ;; wait 1 ;; els aiMiniDramaTemplatePreview.card ;; els Unmute ;; ta
+2026-10-20T21:59:18.800Z tap 345 697
+2026-10-20T21:59:19.365Z wait 1
+2026-10-20T21:59:20.484Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:59:21.231Z els Unmute
+2026-10-20T21:59:21.968Z tap 345 697
+2026-10-20T21:59:22.605Z wait 1
+2026-10-20T21:59:23.725Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:59:24.409Z shot rep3-after-unmute
+2026-10-20T21:59:30.789Z do id Mute ;; wait 1 ;; els aiMiniDramaTemplatePreview.card ;; id Unmute ;; wait 1 
+2026-10-20T21:59:30.793Z id Mute
+2026-10-20T21:59:31.486Z wait 1
+2026-10-20T21:59:32.605Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:59:33.337Z id Unmute
+2026-10-20T21:59:42.657Z wait 1
+2026-10-20T21:59:43.786Z els aiMiniDramaTemplatePreview.card
+2026-10-20T21:59:44.496Z shot rep4-after-id-unmute
+2026-10-20T21:59:52.471Z source 
+2026-10-20T22:00:11.524Z expect aiMiniDramaTemplatePreview.card.style_aidrama_forbidden-office-romance
+2026-10-20T22:00:12.183Z expect aiMiniDramaTemplatePreview.card.style_aidrama_merger-season
+2026-10-20T22:00:32.710Z do drag 360 430 60 430 300 ;; wait 2 ;; els aiMiniDramaTemplatePreview.card ;; text
+2026-10-20T22:00:32.711Z drag 360 430 60 430 300
+2026-10-20T22:00:33.774Z wait 2
+2026-10-20T22:00:35.896Z els aiMiniDramaTemplatePreview.card
+2026-10-20T22:00:36.621Z texts obs-pager-swipe
+2026-10-20T22:00:37.675Z drag 360 430 60 430 300
+2026-10-20T22:00:38.833Z wait 2
+2026-10-20T22:00:40.960Z els aiMiniDramaTemplatePreview.card
+2026-10-20T22:00:41.673Z drag 360 430 60 430 300
+2026-10-20T22:00:42.926Z drag 360 430 60 430 300
+2026-10-20T22:00:43.892Z drag 360 430 60 430 300
+2026-10-20T22:00:44.888Z wait 2
+2026-10-20T22:00:47.008Z els aiMiniDramaTemplatePreview.card
+2026-10-20T22:00:47.705Z shot obs-pager-end
+2026-10-20T22:00:54.694Z do id aiMiniDramaTemplatePreview.UIButton.back ;; waitfor "aiMiniDramaTemplateList.
+2026-10-20T22:00:54.695Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:00:55.378Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T22:00:58.850Z shot tc237-roster-pos2
+2026-10-20T22:00:59.388Z els AIDramaTemplateCardView.card.style_aidrama_forbidden
+2026-10-20T22:01:00.984Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_forbidden-of
+2026-10-20T22:01:00.986Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_forbidden-off
+2026-10-20T22:01:01.837Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:01:03.937Z wait 1
+2026-10-20T22:01:05.069Z expect aiMiniDramaTemplatePreview.card.style_aidrama_forbidden-office-romance
+2026-10-20T22:01:06.046Z texts tc237-detail
+2026-10-20T22:01:07.099Z wait 3
+2026-10-20T22:01:10.224Z shot tc237-preview-t2
+2026-10-20T22:01:10.681Z tap 345 697
+2026-10-20T22:01:11.210Z wait 1
+2026-10-20T22:01:12.324Z els Unmute
+2026-10-20T22:01:13.059Z shot tc237-muted
+2026-10-20T22:01:13.450Z tap 345 697
+2026-10-20T22:01:13.959Z wait 1
+2026-10-20T22:01:15.083Z els Mute
+2026-10-20T22:01:15.784Z expect aiMiniDramaTemplatePreview.card.style_aidrama_forbidden-office-romance
+2026-10-20T22:01:16.672Z tap 210 430
+2026-10-20T22:01:17.138Z wait 1
+2026-10-20T22:01:18.264Z shot tc237-paused-a
+2026-10-20T22:01:18.721Z els Play
+2026-10-20T22:01:19.473Z wait 2
+2026-10-20T22:01:21.593Z shot tc237-paused-b
+2026-10-20T22:01:22.017Z tap 210 430
+2026-10-20T22:01:22.526Z wait 1
+2026-10-20T22:01:23.633Z expect aiMiniDramaTemplatePreview.card.style_aidrama_forbidden-office-romance
+2026-10-20T22:01:24.607Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:01:25.154Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:01:31.757Z wait 1
+2026-10-20T22:01:32.904Z texts tc237-chat-open
+2026-10-20T22:01:33.997Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:01:34.696Z shot tc237-fmt-l1
+2026-10-20T22:01:34.960Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:01:35.636Z shot tc237-fmt-l2
+2026-10-20T22:01:35.911Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:01:36.588Z shot tc237-fmt-l3
+2026-10-20T22:01:36.863Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:01:37.544Z shot tc237-fmt-l4
+2026-10-20T22:01:37.819Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:01:38.502Z shot tc237-fmt-l5
+2026-10-20T22:01:38.771Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:01:39.445Z shot tc237-fmt-l6
+2026-10-20T22:01:39.708Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:01:40.387Z shot tc237-fmt-c1
+2026-10-20T22:01:40.665Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:01:41.359Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:01:42.046Z shot tc237-fmt-reset
+2026-10-20T22:01:42.313Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:01:43.006Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:01:45.801Z texts tc237-leave-dialog
+2026-10-20T22:01:47.024Z lbl Stay
+2026-10-20T22:01:49.889Z wait 1
+2026-10-20T22:01:51.031Z expect What format would you like for your video?
+2026-10-20T22:01:52.741Z shot tc237-stay
+2026-10-20T22:01:53.016Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:01:53.695Z waitfor Leave anyway --timeout 10
+2026-10-20T22:01:56.912Z lbl Leave anyway
+2026-10-20T22:01:59.683Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:02:05.282Z expect aiMiniDramaTemplatePreview.card.style_aidrama_forbidden-office-romance
+2026-10-20T22:02:06.095Z texts tc237-left
+2026-10-20T22:02:07.081Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:02:07.700Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T22:02:45.609Z run-log set TC-237 Pass
+2026-10-20T22:02:58.495Z do drag 40 260 390 260 400 ;; wait 1 ;; shot tc239-roster-pos3
+2026-10-20T22:02:58.497Z drag 40 260 390 260 400
+2026-10-20T22:03:00.124Z wait 1
+2026-10-20T22:03:01.317Z shot tc239-roster-pos3
+2026-10-20T22:03:01.881Z els AIDramaTemplateCardView.card.style_aidrama_the-new
+2026-10-20T22:03:03.489Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_the-new-guys
+2026-10-20T22:03:03.491Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-new-guys-
+2026-10-20T22:03:04.348Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:03:06.454Z wait 1
+2026-10-20T22:03:07.582Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-new-guys-secret
+2026-10-20T22:03:08.553Z texts tc239-detail
+2026-10-20T22:03:09.694Z wait 3
+2026-10-20T22:03:12.816Z shot tc239-preview-t2
+2026-10-20T22:03:13.201Z tap 345 697
+2026-10-20T22:03:13.716Z wait 1
+2026-10-20T22:03:14.831Z els Unmute
+2026-10-20T22:03:15.538Z shot tc239-muted
+2026-10-20T22:03:16.006Z tap 345 697
+2026-10-20T22:03:16.523Z wait 1
+2026-10-20T22:03:17.644Z els Mute
+2026-10-20T22:03:18.365Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-new-guys-secret
+2026-10-20T22:03:19.280Z tap 210 430
+2026-10-20T22:03:19.757Z wait 1
+2026-10-20T22:03:20.881Z shot tc239-paused-a
+2026-10-20T22:03:21.294Z els Play
+2026-10-20T22:03:22.083Z wait 2
+2026-10-20T22:03:24.196Z shot tc239-paused-b
+2026-10-20T22:03:24.608Z tap 210 430
+2026-10-20T22:03:25.128Z wait 1
+2026-10-20T22:03:26.246Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-new-guys-secret
+2026-10-20T22:03:27.206Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:03:27.773Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:03:34.353Z wait 1
+2026-10-20T22:03:35.505Z texts tc239-chat-open
+2026-10-20T22:03:36.680Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:03:37.373Z shot tc239-fmt-l1
+2026-10-20T22:03:37.656Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:03:38.344Z shot tc239-fmt-l2
+2026-10-20T22:03:38.629Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:03:39.312Z shot tc239-fmt-l3
+2026-10-20T22:03:39.580Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:03:40.266Z shot tc239-fmt-l4
+2026-10-20T22:03:40.552Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:03:41.226Z shot tc239-fmt-l5
+2026-10-20T22:03:41.496Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:03:42.176Z shot tc239-fmt-l6
+2026-10-20T22:03:42.453Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:03:43.148Z shot tc239-fmt-c1
+2026-10-20T22:03:43.425Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:03:44.106Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:03:44.874Z shot tc239-fmt-reset
+2026-10-20T22:03:45.168Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:03:45.854Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:03:48.452Z texts tc239-leave-dialog
+2026-10-20T22:03:49.590Z lbl Stay
+2026-10-20T22:03:52.424Z wait 1
+2026-10-20T22:03:53.576Z expect What format would you like for your video?
+2026-10-20T22:03:55.279Z shot tc239-stay
+2026-10-20T22:03:55.545Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:03:56.238Z waitfor Leave anyway --timeout 10
+2026-10-20T22:03:59.479Z lbl Leave anyway
+2026-10-20T22:04:02.243Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:04:07.691Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-new-guys-secret
+2026-10-20T22:04:08.482Z texts tc239-left
+2026-10-20T22:04:09.454Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:04:10.092Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T22:04:29.644Z run-log set TC-239 Pass
+2026-10-20T22:04:29.755Z do drag 390 260 140 260 600 ;; wait 1 ;; shot tc241-roster-pos4
+2026-10-20T22:04:29.756Z drag 390 260 140 260 600
+2026-10-20T22:04:31.538Z wait 1
+2026-10-20T22:04:32.733Z shot tc241-roster-pos4
+2026-10-20T22:04:33.296Z els AIDramaTemplateCardView.card.style_aidrama_the-art
+2026-10-20T22:04:41.375Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_the-art-of-f
+2026-10-20T22:04:41.378Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-art-of-fa
+2026-10-20T22:04:42.244Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:04:44.410Z wait 1
+2026-10-20T22:04:45.534Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-art-of-falling
+2026-10-20T22:04:46.485Z texts tc241-detail
+2026-10-20T22:04:47.492Z wait 3
+2026-10-20T22:04:50.615Z shot tc241-preview-t2
+2026-10-20T22:04:51.027Z tap 345 697
+2026-10-20T22:04:51.552Z wait 1
+2026-10-20T22:04:52.671Z els Unmute
+2026-10-20T22:04:53.399Z shot tc241-muted
+2026-10-20T22:04:53.823Z tap 345 697
+2026-10-20T22:04:54.342Z wait 1
+2026-10-20T22:04:55.454Z els Mute
+2026-10-20T22:04:56.174Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-art-of-falling
+2026-10-20T22:04:57.074Z tap 210 430
+2026-10-20T22:04:57.546Z wait 1
+2026-10-20T22:04:58.668Z shot tc241-paused-a
+2026-10-20T22:04:59.105Z els Play
+2026-10-20T22:04:59.844Z wait 2
+2026-10-20T22:05:01.969Z shot tc241-paused-b
+2026-10-20T22:05:02.398Z tap 210 430
+2026-10-20T22:05:02.916Z wait 1
+2026-10-20T22:05:04.037Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-art-of-falling
+2026-10-20T22:05:04.983Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:05:05.566Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:05:12.093Z wait 1
+2026-10-20T22:05:13.243Z texts tc241-chat-open
+2026-10-20T22:05:14.357Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:05:15.042Z shot tc241-fmt-l1
+2026-10-20T22:05:15.305Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:05:15.987Z shot tc241-fmt-l2
+2026-10-20T22:05:16.256Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:05:16.934Z shot tc241-fmt-l3
+2026-10-20T22:05:17.199Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:05:17.881Z shot tc241-fmt-l4
+2026-10-20T22:05:18.160Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:05:18.843Z shot tc241-fmt-l5
+2026-10-20T22:05:19.110Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:05:19.799Z shot tc241-fmt-l6
+2026-10-20T22:05:20.077Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:05:20.767Z shot tc241-fmt-c1
+2026-10-20T22:05:21.033Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:05:21.719Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:05:22.404Z shot tc241-fmt-reset
+2026-10-20T22:05:22.677Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:05:23.378Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:05:26.179Z texts tc241-leave-dialog
+2026-10-20T22:05:27.359Z lbl Stay
+2026-10-20T22:05:30.193Z wait 1
+2026-10-20T22:05:31.345Z expect What format would you like for your video?
+2026-10-20T22:05:32.940Z shot tc241-stay
+2026-10-20T22:05:33.205Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:05:33.881Z waitfor Leave anyway --timeout 10
+2026-10-20T22:05:37.073Z lbl Leave anyway
+2026-10-20T22:05:39.853Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:05:45.335Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-art-of-falling
+2026-10-20T22:05:46.129Z texts tc241-left
+2026-10-20T22:05:47.181Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:05:47.803Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T22:06:07.371Z run-log set TC-241 Pass
+2026-10-20T22:06:07.486Z els AIDramaTemplateCardView.card.style_aidrama_glad
+2026-10-20T22:06:21.638Z shot tc243-roster-pos5
+2026-10-20T22:06:22.281Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_glad-we-came
+2026-10-20T22:06:22.283Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_glad-we-came
+2026-10-20T22:06:23.128Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:06:25.107Z wait 1
+2026-10-20T22:06:26.226Z expect aiMiniDramaTemplatePreview.card.style_aidrama_glad-we-came
+2026-10-20T22:06:27.191Z texts tc243-detail
+2026-10-20T22:06:28.217Z wait 3
+2026-10-20T22:06:31.336Z shot tc243-preview-t2
+2026-10-20T22:06:31.818Z tap 345 697
+2026-10-20T22:06:32.344Z wait 1
+2026-10-20T22:06:33.462Z els Unmute
+2026-10-20T22:06:34.183Z shot tc243-muted
+2026-10-20T22:06:34.616Z tap 345 697
+2026-10-20T22:06:35.128Z wait 1
+2026-10-20T22:06:36.246Z els Mute
+2026-10-20T22:06:36.972Z expect aiMiniDramaTemplatePreview.card.style_aidrama_glad-we-came
+2026-10-20T22:06:37.869Z tap 210 430
+2026-10-20T22:06:38.361Z wait 1
+2026-10-20T22:06:39.478Z shot tc243-paused-a
+2026-10-20T22:06:39.896Z els Play
+2026-10-20T22:06:40.631Z wait 2
+2026-10-20T22:06:42.746Z shot tc243-paused-b
+2026-10-20T22:06:43.137Z tap 210 430
+2026-10-20T22:06:43.659Z wait 1
+2026-10-20T22:06:44.767Z expect aiMiniDramaTemplatePreview.card.style_aidrama_glad-we-came
+2026-10-20T22:06:45.679Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:06:46.287Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:06:52.848Z wait 1
+2026-10-20T22:06:53.992Z texts tc243-chat-open
+2026-10-20T22:06:55.097Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:06:55.784Z shot tc243-fmt-l1
+2026-10-20T22:06:56.080Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:06:56.773Z shot tc243-fmt-l2
+2026-10-20T22:06:57.054Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:06:57.739Z shot tc243-fmt-l3
+2026-10-20T22:06:58.022Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:06:58.716Z shot tc243-fmt-l4
+2026-10-20T22:06:58.987Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:06:59.675Z shot tc243-fmt-l5
+2026-10-20T22:06:59.944Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:07:00.651Z shot tc243-fmt-l6
+2026-10-20T22:07:00.931Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:07:01.744Z shot tc243-fmt-c1
+2026-10-20T22:07:02.019Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:07:02.705Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:07:03.402Z shot tc243-fmt-reset
+2026-10-20T22:07:03.664Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:07:04.348Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:07:06.949Z texts tc243-leave-dialog
+2026-10-20T22:07:08.090Z lbl Stay
+2026-10-20T22:07:10.944Z wait 1
+2026-10-20T22:07:12.091Z expect What format would you like for your video?
+2026-10-20T22:07:13.792Z shot tc243-stay
+2026-10-20T22:07:14.043Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:07:14.720Z waitfor Leave anyway --timeout 10
+2026-10-20T22:07:17.941Z lbl Leave anyway
+2026-10-20T22:07:20.862Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:07:26.285Z expect aiMiniDramaTemplatePreview.card.style_aidrama_glad-we-came
+2026-10-20T22:07:27.056Z texts tc243-left
+2026-10-20T22:07:28.076Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:07:28.709Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T22:07:48.671Z run-log set TC-243 Pass
+2026-10-20T22:07:48.775Z run-log set TC-236 Not run
+2026-10-20T22:07:48.887Z run-log set TC-238 Not run
+2026-10-20T22:07:48.992Z run-log set TC-240 Not run
+2026-10-20T22:07:49.093Z run-log set TC-242 Not run
+2026-10-20T22:07:49.195Z run-log set TC-244 Not run
+2026-10-20T22:08:21.593Z pull-logs P4-a
+2026-10-20T22:08:45.862Z logs P4-a
+2026-10-20T22:10:53.029Z status 
+2026-10-20T22:11:11.222Z shot p4b-start
+2026-10-20T22:11:23.180Z do lbl AI Mini Drama ;; wait 3 ;; texts p4b-amd-entry
+2026-10-20T22:11:23.182Z lbl AI Mini Drama
+2026-10-20T22:11:28.957Z wait 3
+2026-10-20T22:11:32.090Z texts p4b-amd-entry
+2026-10-20T22:11:36.499Z do id More ;; wait 3 ;; shot p4b-more-top ;; els AIDramaTemplateCardView.card
+2026-10-20T22:11:36.501Z id More
+2026-10-20T22:11:37.189Z wait 3
+2026-10-20T22:11:40.389Z shot p4b-more-top
+2026-10-20T22:11:40.819Z els AIDramaTemplateCardView.card
+2026-10-20T22:11:50.904Z els istory
+2026-10-20T22:11:56.476Z do id aiMiniDramaTemplateList.UIButton.history ;; wait 2 ;; texts p4b-history-befor
+2026-10-20T22:11:56.477Z id aiMiniDramaTemplateList.UIButton.history
+2026-10-20T22:11:57.337Z wait 2
+2026-10-20T22:11:59.469Z texts p4b-history-before
+2026-10-20T22:12:00.313Z id aiMiniDramaHistory.UIButton.back
+2026-10-20T22:12:00.955Z waitfor aiMiniDramaTemplateList.UIButton.history --timeout 10
+2026-10-20T22:12:08.828Z shot tc245-roster-pos1
+2026-10-20T22:12:09.426Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_love-unscrip
+2026-10-20T22:12:09.428Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_love-unscript
+2026-10-20T22:12:10.283Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:12:12.441Z wait 1
+2026-10-20T22:12:13.672Z expect aiMiniDramaTemplatePreview.card.style_aidrama_love-unscripted
+2026-10-20T22:12:14.645Z texts tc245-detail
+2026-10-20T22:12:15.715Z wait 3
+2026-10-20T22:12:18.835Z shot tc245-preview-t2
+2026-10-20T22:12:19.320Z tap 345 697
+2026-10-20T22:12:19.850Z wait 1
+2026-10-20T22:12:20.966Z els Unmute
+2026-10-20T22:12:21.681Z shot tc245-muted
+2026-10-20T22:12:22.166Z tap 345 697
+2026-10-20T22:12:22.680Z wait 1
+2026-10-20T22:12:23.797Z els Mute
+2026-10-20T22:12:24.513Z expect aiMiniDramaTemplatePreview.card.style_aidrama_love-unscripted
+2026-10-20T22:12:25.369Z tap 210 430
+2026-10-20T22:12:25.843Z wait 1
+2026-10-20T22:12:26.964Z shot tc245-paused-a
+2026-10-20T22:12:27.379Z els Play
+2026-10-20T22:12:28.128Z wait 2
+2026-10-20T22:12:30.252Z shot tc245-paused-b
+2026-10-20T22:12:30.663Z tap 210 430
+2026-10-20T22:12:31.189Z wait 1
+2026-10-20T22:12:32.311Z expect aiMiniDramaTemplatePreview.card.style_aidrama_love-unscripted
+2026-10-20T22:12:33.487Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:12:34.058Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:12:40.722Z wait 1
+2026-10-20T22:12:41.868Z texts tc245-chat-open
+2026-10-20T22:12:43.001Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:12:43.810Z shot tc245-fmt-l1
+2026-10-20T22:12:44.083Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:12:44.765Z shot tc245-fmt-l2
+2026-10-20T22:12:45.051Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:12:45.734Z shot tc245-fmt-l3
+2026-10-20T22:12:46.006Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:12:46.745Z shot tc245-fmt-l4
+2026-10-20T22:12:47.028Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:12:47.721Z shot tc245-fmt-l5
+2026-10-20T22:12:47.995Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:12:48.675Z shot tc245-fmt-l6
+2026-10-20T22:12:48.942Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:12:49.634Z shot tc245-fmt-c1
+2026-10-20T22:12:49.905Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:12:50.584Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:12:51.277Z shot tc245-fmt-reset
+2026-10-20T22:12:51.551Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:12:52.247Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:12:54.966Z texts tc245-leave-dialog
+2026-10-20T22:12:56.155Z lbl Stay
+2026-10-20T22:12:59.003Z wait 1
+2026-10-20T22:13:00.151Z expect What format would you like for your video?
+2026-10-20T22:13:01.853Z shot tc245-stay
+2026-10-20T22:13:02.142Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:13:02.826Z waitfor Leave anyway --timeout 10
+2026-10-20T22:13:06.061Z lbl Leave anyway
+2026-10-20T22:13:08.803Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:13:14.388Z expect aiMiniDramaTemplatePreview.card.style_aidrama_love-unscripted
+2026-10-20T22:13:15.206Z texts tc245-left
+2026-10-20T22:13:16.252Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:13:16.865Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T22:14:29.373Z run-log set TC-245 Pass
+2026-10-20T22:14:35.770Z shot tc247-roster-pos2
+2026-10-20T22:14:36.377Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_the-dragons-
+2026-10-20T22:14:36.379Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-dragons-c
+2026-10-20T22:14:37.266Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:14:39.475Z wait 1
+2026-10-20T22:14:40.599Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-dragons-chosen-bride
+2026-10-20T22:14:41.562Z texts tc247-detail
+2026-10-20T22:14:42.615Z wait 3
+2026-10-20T22:14:45.738Z shot tc247-preview-t2
+2026-10-20T22:14:46.181Z tap 345 697
+2026-10-20T22:14:46.701Z wait 1
+2026-10-20T22:14:47.818Z els Unmute
+2026-10-20T22:14:48.536Z shot tc247-muted
+2026-10-20T22:14:48.985Z tap 345 697
+2026-10-20T22:14:49.522Z wait 1
+2026-10-20T22:14:50.640Z els Mute
+2026-10-20T22:14:51.344Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-dragons-chosen-bride
+2026-10-20T22:14:52.204Z tap 210 430
+2026-10-20T22:14:52.678Z wait 1
+2026-10-20T22:14:53.803Z shot tc247-paused-a
+2026-10-20T22:14:54.222Z els Play
+2026-10-20T22:14:54.928Z wait 2
+2026-10-20T22:14:57.049Z shot tc247-paused-b
+2026-10-20T22:14:57.451Z tap 210 430
+2026-10-20T22:14:57.985Z wait 1
+2026-10-20T22:14:59.103Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-dragons-chosen-bride
+2026-10-20T22:15:00.043Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:15:00.609Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:15:07.172Z wait 1
+2026-10-20T22:15:08.323Z texts tc247-chat-open
+2026-10-20T22:15:09.440Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:15:10.151Z shot tc247-fmt-l1
+2026-10-20T22:15:10.450Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:15:11.142Z shot tc247-fmt-l2
+2026-10-20T22:15:11.427Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:15:12.117Z shot tc247-fmt-l3
+2026-10-20T22:15:12.421Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:15:13.113Z shot tc247-fmt-l4
+2026-10-20T22:15:13.383Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:15:14.077Z shot tc247-fmt-l5
+2026-10-20T22:15:14.354Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:15:15.052Z shot tc247-fmt-l6
+2026-10-20T22:15:15.324Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:15:16.016Z shot tc247-fmt-c1
+2026-10-20T22:15:16.289Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:15:16.999Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:15:17.702Z shot tc247-fmt-reset
+2026-10-20T22:15:17.974Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:15:18.651Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:15:21.256Z texts tc247-leave-dialog
+2026-10-20T22:15:22.355Z lbl Stay
+2026-10-20T22:15:25.205Z wait 1
+2026-10-20T22:15:26.351Z expect What format would you like for your video?
+2026-10-20T22:15:28.205Z shot tc247-stay
+2026-10-20T22:15:28.490Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:15:29.185Z waitfor Leave anyway --timeout 10
+2026-10-20T22:15:32.382Z lbl Leave anyway
+2026-10-20T22:15:35.155Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:15:40.652Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-dragons-chosen-bride
+2026-10-20T22:15:41.471Z texts tc247-left
+2026-10-20T22:15:42.504Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:15:43.131Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T22:17:00.045Z run-log set TC-247 Pass
+2026-10-20T22:17:00.157Z shot tc249-roster-pos3
+2026-10-20T22:17:00.807Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_awakening-th
+2026-10-20T22:17:00.808Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_awakening-the
+2026-10-20T22:17:01.682Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:17:03.669Z wait 1
+2026-10-20T22:17:04.807Z expect aiMiniDramaTemplatePreview.card.style_aidrama_awakening-the-storm
+2026-10-20T22:17:05.784Z texts tc249-detail
+2026-10-20T22:17:06.795Z wait 3
+2026-10-20T22:17:09.911Z shot tc249-preview-t2
+2026-10-20T22:17:10.328Z tap 345 697
+2026-10-20T22:17:10.855Z wait 1
+2026-10-20T22:17:11.972Z els Unmute
+2026-10-20T22:17:12.643Z shot tc249-muted
+2026-10-20T22:17:13.037Z tap 345 697
+2026-10-20T22:17:13.563Z wait 1
+2026-10-20T22:17:14.683Z els Mute
+2026-10-20T22:17:15.422Z expect aiMiniDramaTemplatePreview.card.style_aidrama_awakening-the-storm
+2026-10-20T22:17:16.328Z tap 210 430
+2026-10-20T22:17:16.931Z wait 1
+2026-10-20T22:17:18.045Z shot tc249-paused-a
+2026-10-20T22:17:18.477Z els Play
+2026-10-20T22:17:19.219Z wait 2
+2026-10-20T22:17:21.345Z shot tc249-paused-b
+2026-10-20T22:17:21.766Z tap 210 430
+2026-10-20T22:17:22.286Z wait 1
+2026-10-20T22:17:23.400Z expect aiMiniDramaTemplatePreview.card.style_aidrama_awakening-the-storm
+2026-10-20T22:17:24.341Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:17:24.910Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:17:31.375Z wait 1
+2026-10-20T22:17:32.514Z texts tc249-chat-open
+2026-10-20T22:17:33.650Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:17:34.345Z shot tc249-fmt-l1
+2026-10-20T22:17:34.616Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:17:35.285Z shot tc249-fmt-l2
+2026-10-20T22:17:35.571Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:17:36.260Z shot tc249-fmt-l3
+2026-10-20T22:17:36.545Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:17:37.235Z shot tc249-fmt-l4
+2026-10-20T22:17:37.509Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:17:38.199Z shot tc249-fmt-l5
+2026-10-20T22:17:38.465Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:17:39.143Z shot tc249-fmt-l6
+2026-10-20T22:17:39.422Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:17:40.100Z shot tc249-fmt-c1
+2026-10-20T22:17:40.383Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:17:41.071Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:17:41.759Z shot tc249-fmt-reset
+2026-10-20T22:17:42.025Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:17:42.704Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:17:45.353Z texts tc249-leave-dialog
+2026-10-20T22:17:46.501Z lbl Stay
+2026-10-20T22:17:49.533Z wait 1
+2026-10-20T22:17:50.684Z expect What format would you like for your video?
+2026-10-20T22:17:52.442Z shot tc249-stay
+2026-10-20T22:17:52.723Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:17:53.407Z waitfor Leave anyway --timeout 10
+2026-10-20T22:17:56.632Z lbl Leave anyway
+2026-10-20T22:17:59.399Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:18:04.919Z expect aiMiniDramaTemplatePreview.card.style_aidrama_awakening-the-storm
+2026-10-20T22:18:05.734Z texts tc249-left
+2026-10-20T22:18:06.841Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:18:07.474Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T22:18:41.453Z run-log set TC-249 Pass
+2026-10-20T22:18:41.566Z els AIDramaTemplateCardView.card.style_aidrama_the-
+2026-10-20T22:18:59.204Z do drag 390 510 140 510 600 ;; wait 1 ;; shot tc251-roster-pos4 ;; els AIDramaTempl
+2026-10-20T22:18:59.207Z drag 390 510 140 510 600
+2026-10-20T22:19:00.864Z wait 1
+2026-10-20T22:19:02.064Z shot tc251-roster-pos4
+2026-10-20T22:19:02.458Z els AIDramaTemplateCardView.card.style_aidrama_the-heros
+2026-10-20T22:19:45.691Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_the-heros-da
+2026-10-20T22:19:45.693Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-heros-dan
+2026-10-20T22:19:46.584Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:19:48.544Z wait 1
+2026-10-20T22:19:49.679Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-heros-dangerous-heart
+2026-10-20T22:19:50.644Z texts tc251-detail
+2026-10-20T22:19:51.682Z wait 3
+2026-10-20T22:19:54.808Z shot tc251-preview-t2
+2026-10-20T22:19:55.268Z tap 345 697
+2026-10-20T22:19:55.790Z wait 1
+2026-10-20T22:19:56.912Z els Unmute
+2026-10-20T22:19:57.643Z shot tc251-muted
+2026-10-20T22:19:58.107Z tap 345 697
+2026-10-20T22:19:58.739Z wait 1
+2026-10-20T22:19:59.862Z els Mute
+2026-10-20T22:20:00.604Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-heros-dangerous-heart
+2026-10-20T22:20:01.503Z tap 210 430
+2026-10-20T22:20:01.974Z wait 1
+2026-10-20T22:20:03.091Z shot tc251-paused-a
+2026-10-20T22:20:03.537Z els Play
+2026-10-20T22:20:04.300Z wait 2
+2026-10-20T22:20:06.428Z shot tc251-paused-b
+2026-10-20T22:20:06.872Z tap 210 430
+2026-10-20T22:20:07.387Z wait 1
+2026-10-20T22:20:08.510Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-heros-dangerous-heart
+2026-10-20T22:20:09.450Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:20:10.033Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:20:16.572Z wait 1
+2026-10-20T22:20:17.712Z texts tc251-chat-open
+2026-10-20T22:20:18.851Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:20:19.535Z shot tc251-fmt-l1
+2026-10-20T22:20:19.819Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:20:20.504Z shot tc251-fmt-l2
+2026-10-20T22:20:20.783Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:20:21.469Z shot tc251-fmt-l3
+2026-10-20T22:20:21.741Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:20:22.421Z shot tc251-fmt-l4
+2026-10-20T22:20:22.719Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:20:23.413Z shot tc251-fmt-l5
+2026-10-20T22:20:23.711Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:20:24.400Z shot tc251-fmt-l6
+2026-10-20T22:20:24.680Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:20:25.361Z shot tc251-fmt-c1
+2026-10-20T22:20:25.633Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:20:26.322Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:20:27.011Z shot tc251-fmt-reset
+2026-10-20T22:20:27.272Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:20:27.959Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:20:30.515Z texts tc251-leave-dialog
+2026-10-20T22:20:31.622Z lbl Stay
+2026-10-20T22:20:34.473Z wait 1
+2026-10-20T22:20:35.617Z expect What format would you like for your video?
+2026-10-20T22:20:37.360Z shot tc251-stay
+2026-10-20T22:20:37.636Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:20:38.332Z waitfor Leave anyway --timeout 10
+2026-10-20T22:20:41.662Z lbl Leave anyway
+2026-10-20T22:20:44.512Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:20:50.010Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-heros-dangerous-heart
+2026-10-20T22:20:50.806Z texts tc251-left
+2026-10-20T22:20:51.881Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:20:52.509Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T22:21:27.181Z run-log set TC-251 Pass
+2026-10-20T22:21:27.297Z do shot tc253-roster-pos5 ;; els AIDramaTemplateCardView.card.style_aidrama_the-reb
+2026-10-20T22:21:27.298Z shot tc253-roster-pos5
+2026-10-20T22:21:27.758Z els AIDramaTemplateCardView.card.style_aidrama_the-rebel
+2026-10-20T22:21:37.351Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_the-rebel-an
+2026-10-20T22:21:37.353Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-rebel-and
+2026-10-20T22:21:38.193Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:21:40.253Z wait 1
+2026-10-20T22:21:41.392Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-rebel-and-the-valedictorian
+2026-10-20T22:21:42.320Z texts tc253-detail
+2026-10-20T22:21:43.342Z wait 3
+2026-10-20T22:21:46.462Z shot tc253-preview-t2
+2026-10-20T22:21:46.885Z tap 345 697
+2026-10-20T22:21:47.408Z wait 1
+2026-10-20T22:21:48.526Z els Unmute
+2026-10-20T22:21:49.246Z shot tc253-muted
+2026-10-20T22:21:49.652Z tap 345 697
+2026-10-20T22:21:50.180Z wait 1
+2026-10-20T22:21:51.293Z els Mute
+2026-10-20T22:21:51.991Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-rebel-and-the-valedictorian
+2026-10-20T22:21:52.899Z tap 210 430
+2026-10-20T22:21:53.370Z wait 1
+2026-10-20T22:21:54.486Z shot tc253-paused-a
+2026-10-20T22:21:54.960Z els Play
+2026-10-20T22:21:55.668Z wait 2
+2026-10-20T22:21:57.789Z shot tc253-paused-b
+2026-10-20T22:21:58.294Z tap 210 430
+2026-10-20T22:21:58.804Z wait 1
+2026-10-20T22:21:59.898Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-rebel-and-the-valedictorian
+2026-10-20T22:22:00.808Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:22:01.397Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:22:07.877Z wait 1
+2026-10-20T22:22:09.025Z texts tc253-chat-open
+2026-10-20T22:22:10.192Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:22:10.881Z shot tc253-fmt-l1
+2026-10-20T22:22:11.160Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:22:11.854Z shot tc253-fmt-l2
+2026-10-20T22:22:12.134Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:22:12.824Z shot tc253-fmt-l3
+2026-10-20T22:22:13.099Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:22:13.778Z shot tc253-fmt-l4
+2026-10-20T22:22:14.040Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:22:14.722Z shot tc253-fmt-l5
+2026-10-20T22:22:14.984Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:22:15.660Z shot tc253-fmt-l6
+2026-10-20T22:22:15.933Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:22:16.609Z shot tc253-fmt-c1
+2026-10-20T22:22:16.896Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:22:17.577Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:22:18.270Z shot tc253-fmt-reset
+2026-10-20T22:22:18.536Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:22:19.219Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:22:21.814Z texts tc253-leave-dialog
+2026-10-20T22:22:22.958Z lbl Stay
+2026-10-20T22:22:25.781Z wait 1
+2026-10-20T22:22:26.927Z expect What format would you like for your video?
+2026-10-20T22:22:28.623Z shot tc253-stay
+2026-10-20T22:22:28.898Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:22:29.601Z waitfor Leave anyway --timeout 10
+2026-10-20T22:22:32.834Z lbl Leave anyway
+2026-10-20T22:22:35.624Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:22:41.059Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-rebel-and-the-valedictorian
+2026-10-20T22:22:41.830Z texts tc253-left
+2026-10-20T22:22:42.806Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:22:43.426Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T22:23:07.288Z run-log set TC-253 Pass
+2026-10-20T22:23:07.390Z run-log set TC-246 Not run
+2026-10-20T22:23:07.491Z run-log set TC-248 Not run
+2026-10-20T22:23:07.593Z run-log set TC-250 Not run
+2026-10-20T22:23:07.704Z run-log set TC-252 Not run
+2026-10-20T22:23:07.815Z run-log set TC-254 Not run
+2026-10-20T22:23:07.927Z do id aiMiniDramaTemplateList.UIButton.history ;; wait 2 ;; texts p4b-history-after
+2026-10-20T22:23:07.928Z id aiMiniDramaTemplateList.UIButton.history
+2026-10-20T22:23:08.782Z wait 2
+2026-10-20T22:23:10.920Z texts p4b-history-after
+2026-10-20T22:23:11.746Z id aiMiniDramaHistory.UIButton.back
+2026-10-20T22:23:12.382Z waitfor aiMiniDramaTemplateList.UIButton.history --timeout 10
+2026-10-20T22:23:57.054Z pull-logs P4-b
+2026-10-20T22:24:21.161Z logs P4-b
+2026-10-20T22:25:50.648Z status 
+2026-10-20T22:26:08.102Z shot p4c-start
+2026-10-20T22:26:19.081Z do lbl AI Mini Drama ;; wait 3 ;; texts p4c-amd-entry ;; id More ;; wait 3 ;; shot 
+2026-10-20T22:26:19.083Z lbl AI Mini Drama
+2026-10-20T22:26:24.732Z wait 3
+2026-10-20T22:26:27.862Z texts p4c-amd-entry
+2026-10-20T22:26:28.777Z id More
+2026-10-20T22:26:29.426Z wait 3
+2026-10-20T22:26:32.625Z shot p4c-more-top
+2026-10-20T22:26:33.008Z id aiMiniDramaTemplateList.UIButton.history
+2026-10-20T22:26:33.817Z wait 2
+2026-10-20T22:26:35.955Z texts p4c-history-before
+2026-10-20T22:26:36.783Z id aiMiniDramaHistory.UIButton.back
+2026-10-20T22:26:37.416Z waitfor aiMiniDramaTemplateList.UIButton.history --timeout 10
+2026-10-20T22:26:50.362Z els category.Urban
+2026-10-20T22:26:52.019Z els card.style_aidrama_after-closing
+2026-10-20T22:27:13.455Z shot tc255-roster-pos1
+2026-10-20T22:27:14.044Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_after-closin
+2026-10-20T22:27:14.046Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_after-closing
+2026-10-20T22:27:14.899Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:27:16.820Z wait 1
+2026-10-20T22:27:17.933Z expect aiMiniDramaTemplatePreview.card.style_aidrama_after-closing
+2026-10-20T22:27:18.815Z texts tc255-detail
+2026-10-20T22:27:19.829Z wait 3
+2026-10-20T22:27:22.937Z shot tc255-preview-t2
+2026-10-20T22:27:23.325Z tap 345 697
+2026-10-20T22:27:23.841Z wait 1
+2026-10-20T22:27:24.952Z els Unmute
+2026-10-20T22:27:25.570Z shot tc255-muted
+2026-10-20T22:27:25.976Z tap 345 697
+2026-10-20T22:27:26.597Z wait 1
+2026-10-20T22:27:27.706Z els Mute
+2026-10-20T22:27:28.285Z expect aiMiniDramaTemplatePreview.card.style_aidrama_after-closing
+2026-10-20T22:27:29.008Z tap 210 430
+2026-10-20T22:27:29.462Z wait 1
+2026-10-20T22:27:30.571Z shot tc255-paused-a
+2026-10-20T22:27:30.971Z els Play
+2026-10-20T22:27:31.589Z wait 2
+2026-10-20T22:27:33.701Z shot tc255-paused-b
+2026-10-20T22:27:34.125Z tap 210 430
+2026-10-20T22:27:34.657Z wait 1
+2026-10-20T22:27:35.768Z expect aiMiniDramaTemplatePreview.card.style_aidrama_after-closing
+2026-10-20T22:27:36.563Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:27:37.117Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:27:43.762Z wait 1
+2026-10-20T22:27:44.990Z texts tc255-chat-open
+2026-10-20T22:27:46.131Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:27:46.837Z shot tc255-fmt-l1
+2026-10-20T22:27:47.114Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:27:47.795Z shot tc255-fmt-l2
+2026-10-20T22:27:48.067Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:27:48.751Z shot tc255-fmt-l3
+2026-10-20T22:27:49.024Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:27:49.703Z shot tc255-fmt-l4
+2026-10-20T22:27:49.977Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:27:50.655Z shot tc255-fmt-l5
+2026-10-20T22:27:50.935Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:27:51.627Z shot tc255-fmt-l6
+2026-10-20T22:27:51.908Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:27:52.706Z shot tc255-fmt-c1
+2026-10-20T22:27:52.974Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:27:53.656Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:27:54.352Z shot tc255-fmt-reset
+2026-10-20T22:27:54.612Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:27:55.291Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:27:57.888Z texts tc255-leave-dialog
+2026-10-20T22:27:59.019Z lbl Stay
+2026-10-20T22:28:01.853Z wait 1
+2026-10-20T22:28:03.005Z expect What format would you like for your video?
+2026-10-20T22:28:04.720Z shot tc255-stay
+2026-10-20T22:28:04.981Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:28:05.656Z waitfor Leave anyway --timeout 10
+2026-10-20T22:28:08.864Z lbl Leave anyway
+2026-10-20T22:28:11.653Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:28:17.013Z expect aiMiniDramaTemplatePreview.card.style_aidrama_after-closing
+2026-10-20T22:28:17.714Z texts tc255-left
+2026-10-20T22:28:18.670Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:28:19.277Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T22:28:33.929Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_after-closin
+2026-10-20T22:28:33.932Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_after-closing
+2026-10-20T22:28:34.794Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:28:36.649Z wait 1
+2026-10-20T22:28:37.781Z expect aiMiniDramaTemplatePreview.card.style_aidrama_after-closing
+2026-10-20T22:28:38.657Z texts tc255-detail
+2026-10-20T22:28:39.697Z wait 3
+2026-10-20T22:28:42.814Z shot tc255-preview-t2
+2026-10-20T22:28:43.247Z tap 345 697
+2026-10-20T22:28:43.749Z wait 1
+2026-10-20T22:28:44.855Z els Unmute
+2026-10-20T22:28:45.485Z shot tc255-muted
+2026-10-20T22:28:45.911Z tap 345 697
+2026-10-20T22:28:46.412Z wait 1
+2026-10-20T22:28:47.528Z els Mute
+2026-10-20T22:28:48.138Z expect aiMiniDramaTemplatePreview.card.style_aidrama_after-closing
+2026-10-20T22:28:48.969Z tap 210 430
+2026-10-20T22:28:49.549Z wait 1
+2026-10-20T22:28:50.666Z shot tc255-paused-a
+2026-10-20T22:28:51.087Z els Play
+2026-10-20T22:28:51.768Z wait 2
+2026-10-20T22:28:53.888Z shot tc255-paused-b
+2026-10-20T22:28:54.304Z tap 210 430
+2026-10-20T22:28:54.823Z wait 1
+2026-10-20T22:28:55.929Z expect aiMiniDramaTemplatePreview.card.style_aidrama_after-closing
+2026-10-20T22:28:56.764Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:28:57.347Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:29:03.825Z wait 1
+2026-10-20T22:29:04.976Z texts tc255-chat-open
+2026-10-20T22:29:06.091Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:29:06.776Z shot tc255-fmt-l1
+2026-10-20T22:29:07.043Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:29:07.730Z shot tc255-fmt-l2
+2026-10-20T22:29:08.024Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:29:08.714Z shot tc255-fmt-l3
+2026-10-20T22:29:08.996Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:29:09.677Z shot tc255-fmt-l4
+2026-10-20T22:29:09.956Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:29:10.634Z shot tc255-fmt-l5
+2026-10-20T22:29:10.900Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:29:11.577Z shot tc255-fmt-l6
+2026-10-20T22:29:11.873Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:29:12.560Z shot tc255-fmt-c1
+2026-10-20T22:29:12.848Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:29:13.534Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:29:14.234Z shot tc255-fmt-reset
+2026-10-20T22:29:14.501Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:29:15.182Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:29:17.800Z texts tc255-leave-dialog
+2026-10-20T22:29:18.893Z lbl Stay
+2026-10-20T22:29:21.764Z wait 1
+2026-10-20T22:29:22.917Z expect What format would you like for your video?
+2026-10-20T22:29:24.604Z shot tc255-stay
+2026-10-20T22:29:24.873Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:29:25.564Z waitfor Leave anyway --timeout 10
+2026-10-20T22:29:28.789Z lbl Leave anyway
+2026-10-20T22:29:31.534Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:29:36.907Z expect aiMiniDramaTemplatePreview.card.style_aidrama_after-closing
+2026-10-20T22:29:37.597Z texts tc255-left
+2026-10-20T22:29:38.573Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:29:39.168Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T22:31:21.945Z run-log set TC-255 Pass
+2026-10-20T22:31:22.064Z run-log set TC-256 Not run
+2026-10-20T22:31:22.181Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_the-fake-eng
+2026-10-20T22:31:22.183Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-fake-enga
+2026-10-20T22:31:23.075Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:31:24.865Z wait 1
+2026-10-20T22:31:25.986Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-fake-engagement
+2026-10-20T22:31:26.847Z texts tc257-detail
+2026-10-20T22:31:27.828Z wait 3
+2026-10-20T22:31:30.942Z shot tc257-preview-t2
+2026-10-20T22:31:31.348Z tap 345 697
+2026-10-20T22:31:31.851Z wait 1
+2026-10-20T22:31:32.965Z els Unmute
+2026-10-20T22:31:33.596Z shot tc257-muted
+2026-10-20T22:31:33.973Z tap 345 697
+2026-10-20T22:31:34.482Z wait 1
+2026-10-20T22:31:35.590Z els Mute
+2026-10-20T22:31:36.209Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-fake-engagement
+2026-10-20T22:31:36.970Z tap 210 430
+2026-10-20T22:31:37.418Z wait 1
+2026-10-20T22:31:38.534Z shot tc257-paused-a
+2026-10-20T22:31:38.926Z els Play
+2026-10-20T22:31:39.563Z wait 2
+2026-10-20T22:31:41.677Z shot tc257-paused-b
+2026-10-20T22:31:42.091Z tap 210 430
+2026-10-20T22:31:42.608Z wait 1
+2026-10-20T22:31:43.719Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-fake-engagement
+2026-10-20T22:31:44.504Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:31:45.071Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:31:51.628Z wait 1
+2026-10-20T22:31:52.776Z texts tc257-chat-open
+2026-10-20T22:31:53.910Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:31:54.616Z shot tc257-fmt-l1
+2026-10-20T22:31:54.911Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:31:55.633Z shot tc257-fmt-l2
+2026-10-20T22:31:55.931Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:31:56.613Z shot tc257-fmt-l3
+2026-10-20T22:31:56.903Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:31:57.586Z shot tc257-fmt-l4
+2026-10-20T22:31:57.861Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:31:58.550Z shot tc257-fmt-l5
+2026-10-20T22:31:58.830Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:31:59.526Z shot tc257-fmt-l6
+2026-10-20T22:31:59.819Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:32:00.499Z shot tc257-fmt-c1
+2026-10-20T22:32:00.785Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:32:01.597Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:32:02.295Z shot tc257-fmt-reset
+2026-10-20T22:32:02.550Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:32:03.234Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:32:05.831Z texts tc257-leave-dialog
+2026-10-20T22:32:06.962Z lbl Stay
+2026-10-20T22:32:09.792Z wait 1
+2026-10-20T22:32:10.941Z expect What format would you like for your video?
+2026-10-20T22:32:12.624Z shot tc257-stay
+2026-10-20T22:32:12.888Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:32:13.587Z waitfor Leave anyway --timeout 10
+2026-10-20T22:32:16.999Z lbl Leave anyway
+2026-10-20T22:32:19.760Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:32:25.058Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-fake-engagement
+2026-10-20T22:32:25.751Z texts tc257-left
+2026-10-20T22:32:26.738Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:32:27.337Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T22:33:00.009Z shot tc257-roster-pos2
+2026-10-20T22:33:55.502Z run-log set TC-257 Pass
+2026-10-20T22:33:55.611Z run-log set TC-258 Not run
+2026-10-20T22:33:55.715Z shot tc259-roster-pos3
+2026-10-20T22:33:56.369Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_the-pop-star
+2026-10-20T22:33:56.371Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-pop-stars
+2026-10-20T22:33:57.253Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:33:59.034Z wait 1
+2026-10-20T22:34:00.152Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-pop-stars-secret-girlfriend
+2026-10-20T22:34:00.977Z texts tc259-detail
+2026-10-20T22:34:01.880Z wait 3
+2026-10-20T22:34:04.996Z shot tc259-preview-t2
+2026-10-20T22:34:05.420Z tap 345 697
+2026-10-20T22:34:05.939Z wait 1
+2026-10-20T22:34:07.047Z els Unmute
+2026-10-20T22:34:07.683Z shot tc259-muted
+2026-10-20T22:34:08.140Z tap 345 697
+2026-10-20T22:34:08.656Z wait 1
+2026-10-20T22:34:09.773Z els Mute
+2026-10-20T22:34:10.371Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-pop-stars-secret-girlfriend
+2026-10-20T22:34:11.119Z tap 210 430
+2026-10-20T22:34:11.583Z wait 1
+2026-10-20T22:34:12.705Z shot tc259-paused-a
+2026-10-20T22:34:13.081Z els Play
+2026-10-20T22:34:13.741Z wait 2
+2026-10-20T22:34:15.858Z shot tc259-paused-b
+2026-10-20T22:34:16.251Z tap 210 430
+2026-10-20T22:34:16.754Z wait 1
+2026-10-20T22:34:17.863Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-pop-stars-secret-girlfriend
+2026-10-20T22:34:18.647Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:34:19.210Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:34:25.846Z wait 1
+2026-10-20T22:34:26.988Z texts tc259-chat-open
+2026-10-20T22:34:28.119Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:34:28.799Z shot tc259-fmt-l1
+2026-10-20T22:34:29.076Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:34:29.763Z shot tc259-fmt-l2
+2026-10-20T22:34:30.035Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:34:30.708Z shot tc259-fmt-l3
+2026-10-20T22:34:30.999Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:34:31.694Z shot tc259-fmt-l4
+2026-10-20T22:34:31.972Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:34:32.645Z shot tc259-fmt-l5
+2026-10-20T22:34:32.935Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:34:33.628Z shot tc259-fmt-l6
+2026-10-20T22:34:33.910Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:34:34.614Z shot tc259-fmt-c1
+2026-10-20T22:34:34.898Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:34:35.591Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:34:36.289Z shot tc259-fmt-reset
+2026-10-20T22:34:36.564Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:34:37.270Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:34:40.031Z texts tc259-leave-dialog
+2026-10-20T22:34:41.234Z lbl Stay
+2026-10-20T22:34:44.309Z wait 1
+2026-10-20T22:34:45.448Z expect What format would you like for your video?
+2026-10-20T22:34:47.159Z shot tc259-stay
+2026-10-20T22:34:47.422Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:34:48.108Z waitfor Leave anyway --timeout 10
+2026-10-20T22:34:51.356Z lbl Leave anyway
+2026-10-20T22:34:54.142Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:34:59.514Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-pop-stars-secret-girlfriend
+2026-10-20T22:35:00.191Z texts tc259-left
+2026-10-20T22:35:01.141Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:35:01.742Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T22:36:30.345Z run-log set TC-259 Pass
+2026-10-20T22:36:30.458Z run-log set TC-260 Not run
+2026-10-20T22:36:30.567Z do drag 390 755 140 755 600 ;; wait 1 ;; els card.style_aidrama_the-house-we-both-w
+2026-10-20T22:36:30.568Z drag 390 755 140 755 600
+2026-10-20T22:36:32.321Z wait 1
+2026-10-20T22:36:33.524Z els card.style_aidrama_the-house-we-both-wanted
+2026-10-20T22:36:35.101Z shot tc261-roster-pos4
+2026-10-20T22:37:25.385Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_the-house-we
+2026-10-20T22:37:25.387Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-house-we-
+2026-10-20T22:37:26.255Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:37:28.097Z wait 1
+2026-10-20T22:37:29.225Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-house-we-both-wanted
+2026-10-20T22:37:30.069Z texts tc261-detail
+2026-10-20T22:37:31.016Z wait 3
+2026-10-20T22:37:34.135Z shot tc261-preview-t2
+2026-10-20T22:37:34.606Z tap 345 697
+2026-10-20T22:37:35.115Z wait 1
+2026-10-20T22:37:36.226Z els Unmute
+2026-10-20T22:37:36.827Z shot tc261-muted
+2026-10-20T22:37:37.296Z tap 345 697
+2026-10-20T22:37:37.797Z wait 1
+2026-10-20T22:37:38.910Z els Mute
+2026-10-20T22:37:39.520Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-house-we-both-wanted
+2026-10-20T22:37:40.339Z tap 210 430
+2026-10-20T22:37:40.788Z wait 1
+2026-10-20T22:37:41.901Z shot tc261-paused-a
+2026-10-20T22:37:42.307Z els Play
+2026-10-20T22:37:42.947Z wait 2
+2026-10-20T22:37:45.051Z shot tc261-paused-b
+2026-10-20T22:37:45.466Z tap 210 430
+2026-10-20T22:37:45.966Z wait 1
+2026-10-20T22:37:47.079Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-house-we-both-wanted
+2026-10-20T22:37:47.804Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:37:48.354Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:37:54.875Z wait 1
+2026-10-20T22:37:56.018Z texts tc261-chat-open
+2026-10-20T22:37:57.151Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:37:57.832Z shot tc261-fmt-l1
+2026-10-20T22:37:58.102Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:37:58.785Z shot tc261-fmt-l2
+2026-10-20T22:37:59.049Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:37:59.722Z shot tc261-fmt-l3
+2026-10-20T22:38:00.008Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:38:00.705Z shot tc261-fmt-l4
+2026-10-20T22:38:00.971Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:38:01.645Z shot tc261-fmt-l5
+2026-10-20T22:38:01.922Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:38:02.611Z shot tc261-fmt-l6
+2026-10-20T22:38:02.905Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:38:03.587Z shot tc261-fmt-c1
+2026-10-20T22:38:03.856Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:38:04.537Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:38:05.231Z shot tc261-fmt-reset
+2026-10-20T22:38:05.494Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:38:06.168Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:38:08.732Z texts tc261-leave-dialog
+2026-10-20T22:38:09.845Z lbl Stay
+2026-10-20T22:38:12.647Z wait 1
+2026-10-20T22:38:13.795Z expect What format would you like for your video?
+2026-10-20T22:38:15.445Z shot tc261-stay
+2026-10-20T22:38:15.710Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:38:16.395Z waitfor Leave anyway --timeout 10
+2026-10-20T22:38:19.578Z lbl Leave anyway
+2026-10-20T22:38:22.345Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:38:27.550Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-house-we-both-wanted
+2026-10-20T22:38:28.205Z texts tc261-left
+2026-10-20T22:38:29.152Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:38:29.757Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T22:39:06.626Z do id aiMiniDramaTemplateList.UIButton.history ;; wait 2 ;; texts p4c-history-after
+2026-10-20T22:39:06.630Z id aiMiniDramaTemplateList.UIButton.history
+2026-10-20T22:39:07.494Z wait 2
+2026-10-20T22:39:09.625Z texts p4c-history-after
+2026-10-20T22:39:10.469Z id aiMiniDramaHistory.UIButton.back
+2026-10-20T22:39:11.108Z waitfor aiMiniDramaTemplateList.UIButton.history --timeout 10
+2026-10-20T22:39:25.628Z run-log set TC-261 Pass
+2026-10-20T22:39:25.736Z run-log set TC-262 Not run
+2026-10-20T22:39:25.853Z pull-logs P4-c
+2026-10-20T22:39:49.958Z logs P4-c
+2026-10-20T22:41:09.632Z status 
+2026-10-20T22:41:13.407Z shot p4d-start
+2026-10-20T22:41:25.882Z do lbl AI Mini Drama ;; wait 3 ;; texts p4d-amd-entry ;; id More ;; wait 3 ;; shot 
+2026-10-20T22:41:25.885Z lbl AI Mini Drama
+2026-10-20T22:41:31.814Z wait 3
+2026-10-20T22:41:34.944Z texts p4d-amd-entry
+2026-10-20T22:41:35.876Z id More
+2026-10-20T22:41:36.507Z wait 3
+2026-10-20T22:41:39.703Z shot p4d-more-top
+2026-10-20T22:41:40.102Z id aiMiniDramaTemplateList.UIButton.history
+2026-10-20T22:41:40.907Z wait 2
+2026-10-20T22:41:43.028Z texts p4d-history-before
+2026-10-20T22:41:43.845Z id aiMiniDramaHistory.UIButton.back
+2026-10-20T22:41:44.480Z waitfor aiMiniDramaTemplateList.UIButton.history --timeout 10
+2026-10-20T22:41:48.216Z els category.
+2026-10-20T22:41:54.516Z drag 210 750 210 300 600
+2026-10-20T22:41:56.491Z els category.
+2026-10-20T22:41:58.021Z els card.style
+2026-10-20T22:41:59.593Z shot p4d-more-scrolled
+2026-10-20T22:42:07.278Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_the-heiress-
+2026-10-20T22:42:07.281Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-heiress-a
+2026-10-20T22:42:08.125Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:42:10.160Z wait 1
+2026-10-20T22:42:11.273Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-heiress-and-her-protector
+2026-10-20T22:42:12.188Z texts tc263-detail
+2026-10-20T22:42:13.131Z wait 3
+2026-10-20T22:42:16.236Z shot tc263-preview-t2
+2026-10-20T22:42:16.662Z tap 345 697
+2026-10-20T22:42:17.172Z wait 1
+2026-10-20T22:42:18.278Z els Unmute
+2026-10-20T22:42:18.884Z shot tc263-muted
+2026-10-20T22:42:19.301Z tap 345 697
+2026-10-20T22:42:19.806Z wait 1
+2026-10-20T22:42:20.914Z els Mute
+2026-10-20T22:42:21.538Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-heiress-and-her-protector
+2026-10-20T22:42:22.370Z tap 210 430
+2026-10-20T22:42:22.817Z wait 1
+2026-10-20T22:42:23.930Z shot tc263-paused-a
+2026-10-20T22:42:24.355Z els Play
+2026-10-20T22:42:24.995Z wait 2
+2026-10-20T22:42:27.112Z shot tc263-paused-b
+2026-10-20T22:42:27.508Z tap 210 430
+2026-10-20T22:42:28.136Z wait 1
+2026-10-20T22:42:29.230Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-heiress-and-her-protector
+2026-10-20T22:42:30.050Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:42:30.603Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:42:37.242Z wait 1
+2026-10-20T22:42:38.391Z texts tc263-chat-open
+2026-10-20T22:42:39.526Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:42:40.225Z shot tc263-fmt-l1
+2026-10-20T22:42:40.489Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:42:41.173Z shot tc263-fmt-l2
+2026-10-20T22:42:41.457Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:42:42.144Z shot tc263-fmt-l3
+2026-10-20T22:42:42.413Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:42:43.090Z shot tc263-fmt-l4
+2026-10-20T22:42:43.371Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:42:44.066Z shot tc263-fmt-l5
+2026-10-20T22:42:44.351Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:42:45.042Z shot tc263-fmt-l6
+2026-10-20T22:42:45.319Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:42:46.008Z shot tc263-fmt-c1
+2026-10-20T22:42:46.277Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:42:47.066Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:42:47.759Z shot tc263-fmt-reset
+2026-10-20T22:42:48.034Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:42:48.709Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:42:51.345Z texts tc263-leave-dialog
+2026-10-20T22:42:52.450Z lbl Stay
+2026-10-20T22:42:55.495Z wait 1
+2026-10-20T22:42:56.640Z expect What format would you like for your video?
+2026-10-20T22:42:58.374Z shot tc263-stay
+2026-10-20T22:42:58.640Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:42:59.330Z waitfor Leave anyway --timeout 10
+2026-10-20T22:43:02.513Z lbl Leave anyway
+2026-10-20T22:43:05.237Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:43:10.674Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-heiress-and-her-protector
+2026-10-20T22:43:11.351Z texts tc263-left
+2026-10-20T22:43:12.304Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:43:12.904Z waitfor aiMiniDramaTemplateList.UILabel.category.Workplace Romance --timeout 15
+2026-10-20T22:44:13.534Z run-log set TC-263 Pass
+2026-10-20T22:44:13.646Z run-log set TC-264 Not run
+2026-10-20T22:44:13.758Z els card.style_aidrama_proposal
+2026-10-20T22:44:20.725Z shot tc265-roster-pos2
+2026-10-20T22:44:21.312Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_proposal-acr
+2026-10-20T22:44:21.314Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_proposal-acro
+2026-10-20T22:44:22.183Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:44:24.039Z wait 1
+2026-10-20T22:44:25.153Z expect aiMiniDramaTemplatePreview.card.style_aidrama_proposal-across-every-lifetime
+2026-10-20T22:44:26.026Z texts tc265-detail
+2026-10-20T22:44:27.013Z wait 3
+2026-10-20T22:44:30.120Z shot tc265-preview-t2
+2026-10-20T22:44:30.606Z tap 345 697
+2026-10-20T22:44:31.121Z wait 1
+2026-10-20T22:44:32.236Z els Unmute
+2026-10-20T22:44:32.870Z shot tc265-muted
+2026-10-20T22:44:33.368Z tap 345 697
+2026-10-20T22:44:33.877Z wait 1
+2026-10-20T22:44:34.986Z els Mute
+2026-10-20T22:44:35.611Z expect aiMiniDramaTemplatePreview.card.style_aidrama_proposal-across-every-lifetime
+2026-10-20T22:44:36.361Z tap 210 430
+2026-10-20T22:44:36.802Z wait 1
+2026-10-20T22:44:37.912Z shot tc265-paused-a
+2026-10-20T22:44:38.386Z els Play
+2026-10-20T22:44:39.035Z wait 2
+2026-10-20T22:44:41.145Z shot tc265-paused-b
+2026-10-20T22:44:41.655Z tap 210 430
+2026-10-20T22:44:42.163Z wait 1
+2026-10-20T22:44:43.272Z expect aiMiniDramaTemplatePreview.card.style_aidrama_proposal-across-every-lifetime
+2026-10-20T22:44:44.064Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:44:44.606Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:44:51.169Z wait 1
+2026-10-20T22:44:52.313Z texts tc265-chat-open
+2026-10-20T22:44:53.421Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:44:54.107Z shot tc265-fmt-l1
+2026-10-20T22:44:54.398Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:44:55.091Z shot tc265-fmt-l2
+2026-10-20T22:44:55.372Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:44:56.058Z shot tc265-fmt-l3
+2026-10-20T22:44:56.345Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:44:57.040Z shot tc265-fmt-l4
+2026-10-20T22:44:57.313Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:44:58.008Z shot tc265-fmt-l5
+2026-10-20T22:44:58.297Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:44:58.984Z shot tc265-fmt-l6
+2026-10-20T22:44:59.257Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:44:59.940Z shot tc265-fmt-c1
+2026-10-20T22:45:00.227Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:45:00.914Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:45:01.597Z shot tc265-fmt-reset
+2026-10-20T22:45:01.870Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:45:02.662Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:45:05.258Z texts tc265-leave-dialog
+2026-10-20T22:45:06.356Z lbl Stay
+2026-10-20T22:45:09.172Z wait 1
+2026-10-20T22:45:10.317Z expect What format would you like for your video?
+2026-10-20T22:45:11.979Z shot tc265-stay
+2026-10-20T22:45:12.262Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:45:12.965Z waitfor Leave anyway --timeout 10
+2026-10-20T22:45:16.370Z lbl Leave anyway
+2026-10-20T22:45:19.114Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:45:24.359Z expect aiMiniDramaTemplatePreview.card.style_aidrama_proposal-across-every-lifetime
+2026-10-20T22:45:25.055Z texts tc265-left
+2026-10-20T22:45:26.024Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:45:26.624Z waitfor aiMiniDramaTemplateList.UIButton.history --timeout 15
+2026-10-20T22:45:51.388Z run-log set TC-265 Pass
+2026-10-20T22:45:51.496Z run-log set TC-266 Not run
+2026-10-20T22:45:51.602Z els card.style_aidrama_six
+2026-10-20T22:45:53.171Z shot tc267-roster-pos3
+2026-10-20T22:45:53.776Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_six-things-y
+2026-10-20T22:45:53.778Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_six-things-yo
+2026-10-20T22:45:54.620Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:45:56.492Z wait 1
+2026-10-20T22:45:57.608Z expect aiMiniDramaTemplatePreview.card.style_aidrama_six-things-you-didnt-know
+2026-10-20T22:45:58.479Z texts tc267-detail
+2026-10-20T22:45:59.321Z wait 3
+2026-10-20T22:46:02.434Z shot tc267-preview-t2
+2026-10-20T22:46:02.831Z tap 345 697
+2026-10-20T22:46:03.349Z wait 1
+2026-10-20T22:46:04.455Z els Unmute
+2026-10-20T22:46:05.088Z shot tc267-muted
+2026-10-20T22:46:05.477Z tap 345 697
+2026-10-20T22:46:05.996Z wait 1
+2026-10-20T22:46:07.102Z els Mute
+2026-10-20T22:46:07.708Z expect aiMiniDramaTemplatePreview.card.style_aidrama_six-things-you-didnt-know
+2026-10-20T22:46:08.503Z tap 210 430
+2026-10-20T22:46:08.949Z wait 1
+2026-10-20T22:46:10.061Z shot tc267-paused-a
+2026-10-20T22:46:10.398Z els Play
+2026-10-20T22:46:11.036Z wait 2
+2026-10-20T22:46:13.148Z shot tc267-paused-b
+2026-10-20T22:46:13.513Z tap 210 430
+2026-10-20T22:46:14.007Z wait 1
+2026-10-20T22:46:15.115Z expect aiMiniDramaTemplatePreview.card.style_aidrama_six-things-you-didnt-know
+2026-10-20T22:46:15.933Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:46:16.506Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:46:22.980Z wait 1
+2026-10-20T22:46:24.131Z texts tc267-chat-open
+2026-10-20T22:46:25.289Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:46:25.987Z shot tc267-fmt-l1
+2026-10-20T22:46:26.287Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:46:26.971Z shot tc267-fmt-l2
+2026-10-20T22:46:27.244Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:46:27.923Z shot tc267-fmt-l3
+2026-10-20T22:46:28.182Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:46:28.861Z shot tc267-fmt-l4
+2026-10-20T22:46:29.153Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:46:29.843Z shot tc267-fmt-l5
+2026-10-20T22:46:30.111Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:46:30.799Z shot tc267-fmt-l6
+2026-10-20T22:46:31.204Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:46:31.915Z shot tc267-fmt-c1
+2026-10-20T22:46:32.212Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:46:32.826Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:46:33.527Z shot tc267-fmt-reset
+2026-10-20T22:46:33.812Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:46:34.496Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:46:37.097Z texts tc267-leave-dialog
+2026-10-20T22:46:38.243Z lbl Stay
+2026-10-20T22:46:41.053Z wait 1
+2026-10-20T22:46:42.194Z expect What format would you like for your video?
+2026-10-20T22:46:43.850Z shot tc267-stay
+2026-10-20T22:46:44.117Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:46:44.812Z waitfor Leave anyway --timeout 10
+2026-10-20T22:46:48.010Z lbl Leave anyway
+2026-10-20T22:46:50.736Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:46:55.968Z expect aiMiniDramaTemplatePreview.card.style_aidrama_six-things-you-didnt-know
+2026-10-20T22:46:56.660Z texts tc267-left
+2026-10-20T22:46:57.605Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:46:58.222Z waitfor aiMiniDramaTemplateList.UIButton.history --timeout 15
+2026-10-20T22:47:19.548Z run-log set TC-267 Pass
+2026-10-20T22:47:19.657Z run-log set TC-268 Not run
+2026-10-20T22:47:19.774Z els card.style_aidrama_the-dog
+2026-10-20T22:47:25.134Z drag 390 520 140 520 600
+2026-10-20T22:47:26.976Z els card.style_aidrama_the-dog
+2026-10-20T22:47:28.544Z shot tc269-roster-pos4
+2026-10-20T22:47:34.214Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_the-dog-who-
+2026-10-20T22:47:34.216Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-dog-who-r
+2026-10-20T22:47:35.072Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:47:36.761Z wait 1
+2026-10-20T22:47:37.880Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-dog-who-remembered-her
+2026-10-20T22:47:38.744Z texts tc269-detail
+2026-10-20T22:47:39.707Z wait 3
+2026-10-20T22:47:42.825Z shot tc269-preview-t2
+2026-10-20T22:47:43.300Z tap 345 697
+2026-10-20T22:47:43.823Z wait 1
+2026-10-20T22:47:44.938Z els Unmute
+2026-10-20T22:47:45.511Z shot tc269-muted
+2026-10-20T22:47:45.961Z tap 345 697
+2026-10-20T22:47:46.462Z wait 1
+2026-10-20T22:47:47.577Z els Mute
+2026-10-20T22:47:48.167Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-dog-who-remembered-her
+2026-10-20T22:47:48.942Z tap 210 430
+2026-10-20T22:47:49.402Z wait 1
+2026-10-20T22:47:50.510Z shot tc269-paused-a
+2026-10-20T22:47:50.943Z els Play
+2026-10-20T22:47:51.604Z wait 2
+2026-10-20T22:47:53.719Z shot tc269-paused-b
+2026-10-20T22:47:54.145Z tap 210 430
+2026-10-20T22:47:54.768Z wait 1
+2026-10-20T22:47:55.885Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-dog-who-remembered-her
+2026-10-20T22:47:56.659Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:47:57.211Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:48:03.728Z wait 1
+2026-10-20T22:48:04.877Z texts tc269-chat-open
+2026-10-20T22:48:05.989Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:48:06.666Z shot tc269-fmt-l1
+2026-10-20T22:48:06.931Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:48:07.609Z shot tc269-fmt-l2
+2026-10-20T22:48:07.879Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:48:08.558Z shot tc269-fmt-l3
+2026-10-20T22:48:08.834Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:48:09.519Z shot tc269-fmt-l4
+2026-10-20T22:48:09.801Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:48:10.483Z shot tc269-fmt-l5
+2026-10-20T22:48:10.761Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:48:11.459Z shot tc269-fmt-l6
+2026-10-20T22:48:11.731Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:48:12.416Z shot tc269-fmt-c1
+2026-10-20T22:48:12.690Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:48:13.367Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:48:14.057Z shot tc269-fmt-reset
+2026-10-20T22:48:14.313Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:48:14.983Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:48:17.601Z texts tc269-leave-dialog
+2026-10-20T22:48:18.731Z lbl Stay
+2026-10-20T22:48:21.536Z wait 1
+2026-10-20T22:48:22.681Z expect What format would you like for your video?
+2026-10-20T22:48:24.391Z shot tc269-stay
+2026-10-20T22:48:24.642Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:48:25.336Z waitfor Leave anyway --timeout 10
+2026-10-20T22:48:28.517Z lbl Leave anyway
+2026-10-20T22:48:31.303Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:48:36.503Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-dog-who-remembered-her
+2026-10-20T22:48:37.203Z texts tc269-left
+2026-10-20T22:48:38.181Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:48:38.772Z waitfor aiMiniDramaTemplateList.UIButton.history --timeout 15
+2026-10-20T22:48:57.485Z run-log set TC-269 Pass
+2026-10-20T22:48:57.604Z run-log set TC-270 Not run
+2026-10-20T22:48:57.712Z els card.style_aidrama_the-ring
+2026-10-20T22:48:59.238Z shot tc271-roster-pos1
+2026-10-20T22:48:59.821Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_the-ring-he-
+2026-10-20T22:48:59.822Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-ring-he-w
+2026-10-20T22:49:00.702Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:49:01.936Z wait 1
+2026-10-20T22:49:03.014Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-ring-he-worked-for
+2026-10-20T22:49:03.649Z texts tc271-detail
+2026-10-20T22:49:04.552Z wait 3
+2026-10-20T22:49:07.649Z shot tc271-preview-t2
+2026-10-20T22:49:08.092Z tap 345 697
+2026-10-20T22:49:08.576Z wait 1
+2026-10-20T22:49:09.673Z els Unmute
+2026-10-20T22:49:10.104Z shot tc271-muted
+2026-10-20T22:49:10.579Z tap 345 697
+2026-10-20T22:49:11.051Z wait 1
+2026-10-20T22:49:12.139Z els Mute
+2026-10-20T22:49:12.550Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-ring-he-worked-for
+2026-10-20T22:49:13.153Z tap 210 430
+2026-10-20T22:49:13.588Z wait 1
+2026-10-20T22:49:14.685Z shot tc271-paused-a
+2026-10-20T22:49:15.144Z els Play
+2026-10-20T22:49:15.574Z wait 2
+2026-10-20T22:49:17.671Z shot tc271-paused-b
+2026-10-20T22:49:18.093Z tap 210 430
+2026-10-20T22:49:18.574Z wait 1
+2026-10-20T22:49:19.665Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-ring-he-worked-for
+2026-10-20T22:49:20.241Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:49:20.786Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:49:27.295Z wait 1
+2026-10-20T22:49:28.441Z texts tc271-chat-open
+2026-10-20T22:49:29.573Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:49:30.251Z shot tc271-fmt-l1
+2026-10-20T22:49:30.535Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:49:31.328Z shot tc271-fmt-l2
+2026-10-20T22:49:31.599Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:49:32.269Z shot tc271-fmt-l3
+2026-10-20T22:49:32.553Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:49:33.228Z shot tc271-fmt-l4
+2026-10-20T22:49:33.501Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:49:34.186Z shot tc271-fmt-l5
+2026-10-20T22:49:34.465Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:49:35.156Z shot tc271-fmt-l6
+2026-10-20T22:49:35.429Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:49:36.120Z shot tc271-fmt-c1
+2026-10-20T22:49:36.408Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:49:37.091Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:49:37.778Z shot tc271-fmt-reset
+2026-10-20T22:49:38.042Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:49:38.719Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:49:41.354Z texts tc271-leave-dialog
+2026-10-20T22:49:42.477Z lbl Stay
+2026-10-20T22:49:45.509Z wait 1
+2026-10-20T22:49:46.654Z expect What format would you like for your video?
+2026-10-20T22:49:48.343Z shot tc271-stay
+2026-10-20T22:49:48.610Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:49:49.296Z waitfor Leave anyway --timeout 10
+2026-10-20T22:49:52.647Z lbl Leave anyway
+2026-10-20T22:49:55.381Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:50:00.459Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-ring-he-worked-for
+2026-10-20T22:50:01.068Z texts tc271-left
+2026-10-20T22:50:01.877Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:50:02.437Z waitfor aiMiniDramaTemplateList.UIButton.history --timeout 15
+2026-10-20T22:50:34.588Z run-log set TC-271 Pass
+2026-10-20T22:50:34.698Z run-log set TC-272 Not run
+2026-10-20T22:50:34.806Z els card.style_aidrama_the-beer
+2026-10-20T22:50:36.366Z shot tc273-roster-pos2
+2026-10-20T22:50:36.985Z do library/ai-mini-drama/ios/recipes/template-card.steps style_aidrama_the-beer-hei
+2026-10-20T22:50:36.987Z id aiMiniDramaTemplateList.AIDramaTemplateCardView.card.style_aidrama_the-beer-heir
+2026-10-20T22:50:37.825Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 20
+2026-10-20T22:50:39.058Z wait 1
+2026-10-20T22:50:40.148Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-beer-heir
+2026-10-20T22:50:40.664Z texts tc273-detail
+2026-10-20T22:50:41.586Z wait 3
+2026-10-20T22:50:44.696Z shot tc273-preview-t2
+2026-10-20T22:50:45.198Z tap 345 697
+2026-10-20T22:50:45.679Z wait 1
+2026-10-20T22:50:46.785Z els Unmute
+2026-10-20T22:50:47.194Z shot tc273-muted
+2026-10-20T22:50:47.633Z tap 345 697
+2026-10-20T22:50:48.113Z wait 1
+2026-10-20T22:50:49.211Z els Mute
+2026-10-20T22:50:49.633Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-beer-heir
+2026-10-20T22:50:50.358Z tap 210 430
+2026-10-20T22:50:50.827Z wait 1
+2026-10-20T22:50:51.922Z shot tc273-paused-a
+2026-10-20T22:50:52.378Z els Play
+2026-10-20T22:50:52.816Z wait 2
+2026-10-20T22:50:54.915Z shot tc273-paused-b
+2026-10-20T22:50:55.359Z tap 210 430
+2026-10-20T22:50:55.837Z wait 1
+2026-10-20T22:50:56.927Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-beer-heir
+2026-10-20T22:50:57.491Z id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+2026-10-20T22:50:57.985Z waitfor What format would you like for your video? --timeout 30
+2026-10-20T22:51:04.465Z wait 1
+2026-10-20T22:51:05.618Z texts tc273-chat-open
+2026-10-20T22:51:06.746Z id aiMiniDramaFormat.UIButton.language.1
+2026-10-20T22:51:07.438Z shot tc273-fmt-l1
+2026-10-20T22:51:07.713Z id aiMiniDramaFormat.UIButton.language.2
+2026-10-20T22:51:08.400Z shot tc273-fmt-l2
+2026-10-20T22:51:08.707Z id aiMiniDramaFormat.UIButton.language.3
+2026-10-20T22:51:09.407Z shot tc273-fmt-l3
+2026-10-20T22:51:09.718Z id aiMiniDramaFormat.UIButton.language.4
+2026-10-20T22:51:10.409Z shot tc273-fmt-l4
+2026-10-20T22:51:10.719Z id aiMiniDramaFormat.UIButton.language.5
+2026-10-20T22:51:11.418Z shot tc273-fmt-l5
+2026-10-20T22:51:11.699Z id aiMiniDramaFormat.UIButton.language.6
+2026-10-20T22:51:12.378Z shot tc273-fmt-l6
+2026-10-20T22:51:12.662Z id aiMiniDramaFormat.UIButton.captions.1
+2026-10-20T22:51:13.333Z shot tc273-fmt-c1
+2026-10-20T22:51:13.613Z id aiMiniDramaFormat.UIButton.language.0
+2026-10-20T22:51:14.293Z id aiMiniDramaFormat.UIButton.captions.0
+2026-10-20T22:51:14.986Z shot tc273-fmt-reset
+2026-10-20T22:51:15.279Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:51:15.979Z waitfor Leave this chat? --timeout 10
+2026-10-20T22:51:18.810Z texts tc273-leave-dialog
+2026-10-20T22:51:20.007Z lbl Stay
+2026-10-20T22:51:22.815Z wait 1
+2026-10-20T22:51:23.961Z expect What format would you like for your video?
+2026-10-20T22:51:25.674Z shot tc273-stay
+2026-10-20T22:51:25.964Z id aiMiniDramaOutline.UIButton.back
+2026-10-20T22:51:26.655Z waitfor Leave anyway --timeout 10
+2026-10-20T22:51:29.869Z lbl Leave anyway
+2026-10-20T22:51:32.605Z waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
+2026-10-20T22:51:37.571Z expect aiMiniDramaTemplatePreview.card.style_aidrama_the-beer-heir
+2026-10-20T22:51:38.164Z texts tc273-left
+2026-10-20T22:51:39.089Z id aiMiniDramaTemplatePreview.UIButton.back
+2026-10-20T22:51:39.651Z waitfor aiMiniDramaTemplateList.UIButton.history --timeout 15
+2026-10-20T22:51:56.961Z run-log set TC-273 Pass
+2026-10-20T22:51:57.068Z run-log set TC-274 Not run
+2026-10-20T22:51:57.179Z do id aiMiniDramaTemplateList.UIButton.history ;; wait 2 ;; texts p4d-history-after
+2026-10-20T22:51:57.180Z id aiMiniDramaTemplateList.UIButton.history
+2026-10-20T22:51:58.021Z wait 2
+2026-10-20T22:52:00.164Z texts p4d-history-after
+2026-10-20T22:52:00.966Z id aiMiniDramaHistory.UIButton.back
+2026-10-20T22:52:01.589Z waitfor aiMiniDramaTemplateList.UIButton.history --timeout 10
+2026-10-20T22:52:15.468Z pull-logs P4-d
+2026-10-20T22:52:39.863Z logs P4-d
+2026-10-20T22:58:20.584Z pink open [z] AI Mini Drama
+2026-10-20T22:59:29.731Z pink set Unlimited daily chat off
+2026-10-20T23:00:51.467Z pink set Log stage timings off
+2026-10-20T23:01:56.614Z pink show
+2026-10-20T23:03:35.531Z shot end-pink-readback
+2026-10-20T23:03:44.447Z pink close
+2026-10-20T23:03:50.447Z credits 
+2026-10-20T23:03:58.845Z shot end-launcher
+2026-10-20T23:04:10.503Z tap 30 70
+2026-10-20T23:04:11.124Z tapif Home
+2026-10-20T23:04:17.266Z shot end-home
+2026-10-20T23:04:17.798Z els Developer Server
+2026-10-20T23:04:26.685Z tap 32 95
+2026-10-20T23:04:27.331Z waitfor AI Mini Drama --timeout 10
+2026-10-20T23:04:28.932Z lbl Home
+2026-10-20T23:04:31.478Z shot end-launcher
