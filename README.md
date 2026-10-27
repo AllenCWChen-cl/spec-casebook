@@ -144,6 +144,22 @@ Mac (`appium --relaxed-security`, port 4723). If the phone has never been set up
 WebDriverAgent setup guide in the exploration-test repository. The scripts reuse a live session and never stop
 Appium or WebDriverAgent.
 
+Set these in your shell before the first `device.ts start` of a run (the run folder then remembers the UDID in
+`.udid`):
+
+| Variable | What it is | Default |
+| --- | --- | --- |
+| `PDR_UDID` | Your phone's UDID (`xcrun xctrace list devices`); or pass it to `device.ts start <udid>` | none, required |
+| `PDR_WDA_TEAM` | Apple team ID that signs your WebDriverAgent | `LR55RBG94F` |
+| `PDR_WDA_BUNDLE` | Bundle ID of your WebDriverAgentRunner | `com.cyberlinkqa1-4.WebDriverAgentRunner` |
+
+The defaults are the team's QA signing account; set the two WDA values only if you signed WebDriverAgent under
+another account, or WebDriverAgent will not start.
+
+```bash
+export PDR_UDID=<your phone UDID> PDR_WDA_TEAM=<team ID> PDR_WDA_BUNDLE=<bundle ID>
+```
+
 ### 5. ECL (only for eBug filing)
 
 Store your personal ECL API token in `~/.ecl_token` (from <https://ecl.cyberlink.com/sso/mgm/tokenPage>). It is used
