@@ -140,12 +140,6 @@ details.hist > summary { cursor: pointer; font-size: 13.5px; color: var(--muted)
     <div class="legend" id="legend"></div>
   </header>
 
-  <section class="box why" id="blocked-box" aria-labelledby="blocked-h">
-    <h2 id="blocked-h"></h2>
-    <p class="why-lead" id="blocked-lead"></p>
-    <div class="why-cats" id="blocked"></div>
-  </section>
-
   <section class="box usage nosegs" aria-labelledby="usage-h">
     <h2 id="usage-h"><span data-zh="時間與方案用量 · 本次執行">Time and plan usage · this run</span></h2>
     <div class="tools"><button type="button" aria-pressed="false" onclick="toggleSegs(this)">Show segments</button></div>
@@ -154,6 +148,12 @@ details.hist > summary { cursor: pointer; font-size: 13.5px; color: var(--muted)
   </section>
 
   <div id="phases" style="display:grid;gap:18px"></div>
+
+  <section class="box why" id="blocked-box" aria-labelledby="blocked-h">
+    <h2 id="blocked-h"></h2>
+    <p class="why-lead" id="blocked-lead"></p>
+    <div class="why-cats" id="blocked"></div>
+  </section>
 
   <div class="two">
     <section class="box"><h2><span data-zh="最近的檢查點">Recent checkpoints</span></h2><div class="cp" id="cps"></div></section>
