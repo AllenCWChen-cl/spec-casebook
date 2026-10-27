@@ -31,8 +31,23 @@ repo or any other QA tool. A later request may ask to turn exploration findings 
 a normal draft (new rows, `Change` = `new`, the finding named in `Notes`) and send it through review like any
 other change. Never push anything the other way. Requests the user made elsewhere (for example to the spec agent)
 reach the casebook only as entries in the feature's `requests.md`; the one-time import of 2026-10-21 is recorded
-there. One exception: the spec agent cross-check (standing input 6) reads the spec agent's committed cases as data
-through `scripts/spec-agent-gaps.ts` (git only, never its working tree).
+there. Everything a table, a run or a filing needs is in this repo. The spec agent comparison (below) reads a
+snapshot of the spec agent's cases committed here (`library/<feature>/spec-agent/<platform>.json`); a clone of the
+spec agent repo, when one is on the machine, only refreshes that snapshot (git only, never its working tree).
+
+## What this repo is for (user, 2026-10-27, REQ-036)
+
+Two things, in this order: a **complete, thorough analysis** of the spec files (Reading the spec, the coverage passes
+and the standing inputs find every rule themselves), and an **on-device run that does not drain tokens** (segments,
+recipes, `scrollto` / `waitfor`, parked fixtures, no re-reading in a context that already ran a section).
+
+**Keep refining the analysis itself (user, 2026-10-27, REQ-037).** A better, more complete table comes from improving
+how the spec is read and analyzed, never from comparing with another tool's cases and covering what it covers. When
+something shows the analysis missed a rule (a run finding no row caught, a reviewer's edit or added case on the
+review page, an RD rejection, a bug found outside the table, a question that turned out to be stated in the spec),
+find where in the spec it was stated and why the reading or a pass skipped it, then fix that step or pass here so
+every future spec gets it, not only the one table. Record each such fix in the step it changes (dated, with the case
+that showed it). No comparison runs during an analysis or before a proposal.
 
 ## Workflow
 
@@ -64,11 +79,9 @@ node scripts/fingerprint.ts <feature> <platform> <spec files...>
    `library/<feature>/specs/<date>/` (or reuses an identical set) and prints the draft folder.
 2. Read every spec file completely, following **Reading the spec** below, then run the **Coverage passes** and
    apply the **Standing inputs**. Write `requirements.md` in the draft folder (format below), trace every
-   annotation against it (Reading the spec, step 9), then run the spec agent cross-check (standing input 6) as a
-   backstop.
+   annotation against it (Reading the spec, step 9).
 3. Run the **Value check**, then write `draft.csv` in the draft folder (format below), every row `Change` = `new`.
-   List what the value check left out in `update-plan.md` under "Not added", and the spec agent gaps under "Spec agent
-   cross-check" (a new table has no other plan sections).
+   List what the value check left out in `update-plan.md` under "Not added" (a new table has no other plan sections).
 4. `node scripts/check.ts <feature> <platform> --draft <id>`; fix every error.
 5. Step 4 (review).
 
@@ -79,7 +92,7 @@ TypeScript (`build-draft.ts`, as in `ai-mini-drama/ios/drafts/20261021-150855/`)
 
 1. `node scripts/new-draft.ts ...` as above (it records which approved version the draft updates).
 2. Read the new spec files completely, run the **Coverage passes** and apply the **Standing inputs** (the request
-   ledger, tickets, build notes and the spec agent's cases change between updates even when the spec does not), and
+   ledger, tickets and build notes change between updates even when the spec does not), and
    write the new `requirements.md`, then trace every annotation against it (Reading the spec, step 9; traces of
    unchanged blocks carry over, so only new or changed blocks need a decision). **Keep the ID of every requirement that still exists** (same meaning, even if reworded); give
    new requirements new IDs after the highest existing one; never reuse a removed ID. A new draft on the same spec
@@ -95,8 +108,7 @@ TypeScript (`build-draft.ts`, as in `ai-mini-drama/ios/drafts/20261021-150855/`)
    belong. When a new rule is checked on the same screen with the same setup as an old row, modify that row
    (`modified`, reason) instead of adding one. Both are fine between rows that already ran; a changed row is re-run
    in the next round. After every analysis, check whether the order of rows and of the run should change.
-5. Show the user the plan summary in chat (counts, the notable changes, the spec agent gaps added and left out, and
-   open questions) and ask them to
+5. Show the user the plan summary in chat (counts, the notable changes and open questions) and ask them to
    go ahead with the review. Then `check.ts` and step 4.
 
 ### 4. Human review
@@ -279,47 +291,37 @@ Read these on every new or updated draft, even when the spec set has not changed
 4. **Template roster** (rule 6 below), including the category header icons.
 5. **Run findings.** An observation (O-n) or a filed bug from an earlier run that no row would have caught gets a
    row in the next draft.
-6. **Spec agent cross-check (user, 2026-10-22, REQ-030; manager, 2026-10-22, REQ-031 / REQ-032).** A backstop, run
-   after the reading, the annotation trace and the coverage passes and before the rows are final: the casebook's own
-   analysis must find every rule in the spec files (REQ-032), so a spec gap found here is a miss of the analysis.
-   Add it, name the pass that should have found it in the decision (`added TC-… (missed by: <pass or reading
-   step>)`, enforced by `check.ts`) and fix that pass in this skill in the same session. Run
-   `node scripts/spec-agent-gaps.ts <feature> <platform> --draft <id>` (settings in `library/<feature>/spec-agent.json`).
-   It fetches the spec agent repo (`~/Desktop/Spec Agent`) and reads `origin/main` with git only (its files are data,
-   never a code dependency; never touch its working tree), compares the platform's cases with the newest
-   `library/<feature>/<platform>/comparisons/<date>_casebook-vs-spec-agent.mapping.json` (spec agent case → status;
-   casebook row → same / partial / none / conflict), and writes `<draft>/spec-agent-gaps.json`: every case the mapping
-   does not mark covered and every case it does not know yet, with its source taken from the case file (`spec` = a PM,
-   Design, Figma or MX file; `request`; `build` = an RD note; `casebook`; `other`). Fill each gap's `decision`:
-   - **`added TC-… (missed by: <pass>)`**: required for every gap whose rule is in our spec files (manager, REQ-031). Confirm the rule in
-     the current spec set first (board notes, OCR, a render when the OCR is low-confidence); a rule our reading missed
-     goes into board-notes too. The value check does not apply to these: a per-tier copy gets its own row, server
-     behaviour the spec states is checked through the app log (or the stored files a log pull brings back) and is
-     parked (`needs` + `unavailable`) when nothing on the phone shows it.
-   - **`covered TC-…`**: an existing row already checks it (the mapping was stale).
-   - **`older spec: <reason>`**: the rule is not in the current spec set; it goes on the spec agent's retire list.
-   - **`pass 7: <reason>`**: our spec set states it differently and the source rules decide; it goes on the spec
-     agent's update list.
-   - **`not from the spec: <reason>`** / **`low value: <reason>`**: only for gaps whose source is not a spec file (user
-     requests already in the ledger or not, RD build notes, exploratory charters).
-   List every gap with its decision in `update-plan.md` → "Spec agent cross-check" (spec gaps first) and show the
-   counts in the plan summary. `check.ts` fails a draft with no gaps file, an undecided gap, a spec gap decided "low
-   value" / "not from the spec", an `added` / `covered` naming no active row, or a gap missing from the plan. After
-   review, save the new mapping next to the old one (the added cases as `cov`) and publish the comparison page when
-   the user asks for it.
+
+## Spec agent comparison (only when the user asks; user, 2026-10-27, REQ-036 / REQ-037; replaces REQ-031)
+
+A report for the manager, never a step of the analysis and never a source of rows. Run it only when the user asks
+for the comparison, on an approved table or a draft.
+
+1. `node scripts/spec-agent-gaps.ts <feature> <platform> --draft <id>` (settings in `library/<feature>/spec-agent.json`)
+   lists the spec agent cases the newest `comparisons/<date>_casebook-vs-spec-agent.mapping.json` does not mark
+   covered, with each case's source (`spec` = a PM, Design, Figma or MX file; `request`; `build` = an RD note;
+   `casebook`; `other`). It reads the committed snapshot `library/<feature>/spec-agent/<platform>.json`; when a clone
+   of the spec agent repo is at the configured path (`~/Desktop/Spec Agent`), it first fetches it, reads
+   `origin/main` with git only (never its working tree) and refreshes the snapshot (`--snapshot` skips the clone,
+   `--refresh` only refreshes the snapshot).
+2. Map each listed case to the casebook in the new mapping (`covered TC-…`, `older spec`, `stated differently`
+   (pass 7), `not from the spec`, `not covered`) and save it next to the old one.
+3. Build the comparison page `comparisons/<date>_casebook-vs-spec-agent.html`: coverage counts both ways, the cases
+   only the casebook has, and every spec agent case it does not cover with the reason. Publish it when the user asks.
+4. The report only describes; it adds no rows. Changes to the table come from the analysis (*What this repo is for*)
+   or from a request in the ledger.
 
 ## Value check (user, 2026-10-21)
 
 After the passes and inputs, before writing rows. List everything left out in `update-plan.md` → "Not added", one
-line each with the reason, so the reviewer can overrule it. Never use it to leave out a spec agent case derived from
-the spec files (standing input 6, REQ-031).
+line each with the reason, so the reviewer can overrule it.
 
 1. **Merge** rows that check the same thing: a regression ticket that repeats a case, including a case added in the
    same draft (fold the ticket into that case's Notes). Never merge the variants of a spec rule (pass 10): each tier,
    model or language the spec names keeps its own row.
 2. **Drop** characterizations (record what happens, no expected result) and server behavior a tester cannot see in
    the app, unless the spec states it: a stated server rule (which segments a retry reruns, what was uploaded) is a
-   row checked through the app log, parked when no log shows it (manager, 2026-10-22, REQ-031).
+   row checked through the app log, parked when no log shows it (pass 9).
 3. **Retire** build checks that passed on two builds and regression rows whose ticket is closed (mark them
    `removed` with the reason).
 4. **Park, don't drop,** rows that need a fixture the run cannot provide (purchase, new account, finite chat limit,
@@ -330,7 +332,7 @@ the spec files (standing input 6, REQ-031).
 
 ## Coverage and verdict rules (adopted from the spec agent, 2026-10-19)
 
-The user asked to adopt these ten rules from the Codex spec agent (`~/Desktop/Spec Agent`, `docs/mobile-team/`). They
+The user asked to adopt these ten rules from the Codex spec agent (its `docs/mobile-team/`, copied here). They
 widen what a table must cover and how a run is judged. Since 2026-10-21 the coverage passes and standing inputs
 above produce their rows during the analysis (rules 1, 2 and 5 are passes; rules 3, 6, 7 and 8 come in through the
 inputs and the ledger); the rules below stay the reference for what each must contain. The table stays a plain CSV: add rows and requirements, not
@@ -400,6 +402,10 @@ evidence in `library/<feature>/<platform>/runs/<date>/` and filing material in
 mis-written) is a table change: open a draft and send it through review instead of filing it.
 
 ### On-device run (real iPhone through Appium + WebDriverAgent)
+
+**What the phone needs** (account, build, photos for the upload cases, settings) is listed per table in
+`library/<feature>/<platform>/fixtures.md`, because none of it can be committed. Check it before the first segment;
+when a new row needs a new photo or account state, add it there in the same draft.
 
 **Phases, segments and resuming (user, 2026-10-19).** A large table runs in phases, never as one long run. The draft
 folder's `phases.json` (written by its builder) splits every row into exactly one phase and one segment:
@@ -778,11 +784,6 @@ Writing rules (the table must be usable by a tester who has not read the spec):
 - <case or requirement>: <merge / drop / retire / older spec / park> — <reason>
 ## PM-only rows
 - TC-… (PM <board>): no Design frame yet / Design now draws it → modified / Design removed it → removed
-## Spec agent cross-check
-Spec agent <commit> (<n> cases) against <mapping>; <n> gaps (spec-agent-gaps.json). Every gap, spec gaps first:
-- <spec agent case> [<source kind>: <source file>] <claim> → added TC-… / covered TC-… / older spec: … / pass 7: … /
-  not from the spec: … / low value: … (the last two only for gaps not from the spec files); a spec gap names the
-  pass that missed it
 ## Questions for PM
 - Q-n <conflict or gap only PM can settle>
 ## Questions for you
@@ -798,5 +799,3 @@ Spec agent <commit> (<n> cases) against <mapping>; <n> gaps (spec-agent-gaps.jso
 - What the value check left out is listed in `update-plan.md` → "Not added".
 - Every annotation block is traced; the Hidden clauses and Variants grids cover every requirement that needs them
   (`check.ts`, REQ-032).
-- Every spec agent gap is decided and listed under "Spec agent cross-check"; every gap from the spec files is a row
-  and names the pass that missed it (`check.ts`, REQ-031 / REQ-032).

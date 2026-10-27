@@ -57,19 +57,20 @@ to a personal memory store; feature-specific run details go in the skills or the
   on the device first, then decide with the user.
 - **Figma and the spec agent (2026-10-22).** PDF exports can lag the Figma file: on every analysis list the dated
   Figma frames through Figma MCP and read any the PDF lacks (skill: Reading the spec, step 8). A Design frame older
-  than the newest PM spec file loses to that PM where they conflict (REQ-029). During each analysis, cross-check the
-  newest spec agent cases (`scripts/spec-agent-gaps.ts`, standing input 6) and keep the mapping in `comparisons/`;
-  the spec agent repo is read as data only, and changes to it go through its own worktree, commit and push.
-- **Spec agent cases from the spec are added (manager, 2026-10-22, REQ-031).** Every spec agent case the casebook
-  does not cover becomes a row whenever its rule is in the spec files, even a per-tier copy or a server rule (checked
-  through the app log, parked when nothing shows it); only cases from other sources (user requests, RD build notes,
-  exploratory charters) may stay out. Each analysis lists every uncovered spec agent case with its decision in the
-  update plan; `check.ts` enforces both.
+  than the newest PM spec file loses to that PM where they conflict (REQ-029).
+- **What the repo is for (user, 2026-10-27, REQ-036 / REQ-037 — replaces REQ-031).** A complete, thorough analysis of
+  the spec files, then an on-device run that does not drain tokens. A more complete table comes from refining how the
+  spec is read and analyzed, never from comparing with another tool's cases and covering what they cover. When a run
+  finding, a reviewer's edit, an RD rejection or an outside bug shows a missed rule, the reading step or pass that
+  skipped it is fixed in the skill, so every future spec gets it. No comparison runs during an analysis; the spec
+  agent comparison (skill: *Spec agent comparison*, from the snapshot in `library/<feature>/spec-agent/`) is a report
+  made only on request, adds no rows and is not checked by `check.ts`.
+- **Phone fixtures (2026-10-27).** What a run needs on the phone or account (build, account, photos for upload cases,
+  settings) is listed in `library/<feature>/<platform>/fixtures.md`, since none of it is committed.
 - **The analysis finds spec rules itself (user, 2026-10-22, REQ-032).** The casebook's own reading must find every
-  rule in the spec files; the spec agent comparison is only a backstop. Every annotation block is traced to its
-  requirements (`scripts/annotations.ts`), requirements with a clause the screen does not show get a row that
-  observes it (log, ledger, stored files, RD), and a rule for several tiers, models or languages gets a row per
-  variant. A spec rule the spec agent still finds names the pass that missed it, and that pass is fixed.
+  rule in the spec files. Every annotation block is traced to its requirements (`scripts/annotations.ts`),
+  requirements with a clause the screen does not show get a row that observes it (log, ledger, stored files, RD), and
+  a rule for several tiers, models or languages gets a row per variant.
 - **New rows go where they belong (user, 2026-10-22, REQ-033).** A row added by an analysis or from another source
   goes right after the row it extends (even between rows already run), an old row is modified when the new rule is
   checked on the same screen, and each analysis ends with a check of the row and run order. The next round's phase

@@ -8,11 +8,18 @@ table becomes that feature's **correct answer** for one platform (iOS or Android
 The same workspace then runs the table on the real QA iPhone through Appium, records every case, and drafts and files
 eBugs for the failures, always waiting for a person to sign off before anything reaches ECL.
 
+Two things matter most: a **complete, thorough analysis** of the spec files, which finds every rule on its own, and
+an **on-device run that doesn't drain tokens**. Completeness comes from refining how the spec is read and analyzed:
+when a run, a reviewer or RD shows a missed rule, the analysis step that skipped it is fixed for every future spec.
+The table is never built by covering another tool's cases; a comparison with the spec agent is a report made only on
+request.
+
 You drive it in plain language through an AI coding agent (Claude Code or Codex). The agent follows the skills in
 this repository; the TypeScript scripts in `scripts/` do the mechanical parts (reading the spec, checking the table,
 serving the review page, driving the phone, logging results).
 
-It is deliberately simpler than the spec-contract runner: the output is one CSV per feature and platform that a tester
+The repository is self-contained: everything a table, a run or a filing needs is in it, and it needs no other
+QA repository. It is deliberately simpler than the spec-contract runner: the output is one CSV per feature and platform that a tester
 can read without the spec, not contract catalogs and claim files.
 
 ---
@@ -143,6 +150,19 @@ scripts. The full workflow needs **macOS**; Windows covers everything except rea
 npm install
 ```
 
+The eBug scripts use Python's standard library, except the evidence sheets (`make_filing_sheets.py`), which need
+Pillow. Install it in a local venv (git-ignored):
+
+```bash
+python3 -m venv .venv
+```
+
+```bash
+.venv/bin/pip install -r requirements.txt
+```
+
+On Windows: `py -3 -m venv .venv`, then `.venv\Scripts\pip install -r requirements.txt`.
+
 If the npm cache errors, add `--cache /tmp/npm-cache` (Windows: `--cache %TEMP%\npm-cache`). PDF rendering uses
 MuPDF's WebAssembly build (`mupdf` on npm, AGPL); macOS's own renderer draws these large Figma pages blank.
 
@@ -154,8 +174,6 @@ MuPDF's WebAssembly build (`mupdf` on npm, AGPL); macOS's own renderer draws the
   `node scripts/status.ts` both work.
 - Python is usually `python` or `py -3`, not `python3`; use that wherever the skills write `python3`.
 - `~` in these docs is your user folder (`%USERPROFILE%`, e.g. `C:\Users\<you>`).
-- `spec-agent-gaps.ts` reads the spec agent repo from `library/<feature>/spec-agent.json` (`~/Desktop/Spec Agent`);
-  clone it to `%USERPROFILE%\Desktop\Spec Agent`, or change the path locally without committing it.
 
 ### 3. Check it works
 
@@ -167,10 +185,41 @@ It lists every approved table and open draft.
 
 ### 4. Phone (iPhone, only for on-device runs)
 
-macOS only. A QA build of PowerDirector from TestFlight, the QA iPhone with WebDriverAgent signed and running, and Appium on the
-Mac (`appium --relaxed-security`, port 4723). If the phone has never been set up, follow the team's iPhone Appium +
-WebDriverAgent setup guide in the exploration-test repository. The scripts reuse a live session and never stop
-Appium or WebDriverAgent.
+macOS only. The scripts drive the real QA iPhone through Appium's XCUITest driver; Appium builds and launches
+WebDriverAgent (WDA) on the phone with Xcode. The scripts reuse a live session and never stop Appium or WDA.
+
+One-time setup on the Mac:
+
+1. Install **Xcode** from the App Store, open it once to finish installing its components, and sign in under
+   Xcode › Settings › Accounts with an Apple ID in the team that signs WDA (the QA team, `LR55RBG94F`, by default).
+2. Install Appium and its iOS driver:
+
+   ```bash
+   npm install -g appium
+   ```
+
+   ```bash
+   appium driver install xcuitest
+   ```
+
+3. On the iPhone: install the QA build of PowerDirector from TestFlight; connect it by USB and tap **Trust** on the
+   phone; turn on Settings › Privacy & Security › **Developer Mode** (the phone restarts) and then Settings ›
+   Developer › **Enable UI Automation**; set Settings › Display & Brightness › Auto-Lock to **Never** for runs.
+4. Start Appium in its own terminal and leave it running (port 4723):
+
+   ```bash
+   appium --relaxed-security
+   ```
+
+5. Set the variables below and run `node scripts/device.ts <run dir> start`. The first start builds WDA (a few
+   minutes). When it fails with an untrusted-certificate BLOCKER, open Settings › General › VPN & Device Management ›
+   the Developer App certificate › **Trust** on the phone, then start again.
+
+Then set up what the phone itself needs for the table you run: the build, the shared QA account and the photos the
+upload cases pick, listed in `library/<feature>/<platform>/fixtures.md` (none of it can be committed).
+
+After that, every segment begins with `device.ts <run dir> restart`. Never uninstall WDA from the phone: the phone
+then forgets its trust in the certificate (step 5 again).
 
 Set these in your shell before the first `device.ts start` of a run (the run folder then remembers the UDID in
 `.udid`):
@@ -216,13 +265,20 @@ appium --relaxed-security
 Set an environment variable for the session in PowerShell with `$env:NAME = "value"`, in Git Bash or macOS with
 `export NAME=value`.
 
-### 5. ECL (only for eBug filing)
+### 5. Figma (for spec analyses)
+
+Each analysis lists the Figma file's dated frames, because PDF exports can lag behind it. Connect Figma to your agent
+through Figma's MCP server (Claude Code: add the Figma connector or MCP server; Codex: add it under `mcp_servers`),
+signed in with an account that can open the feature's Figma files. This is an online service, not another repository;
+the frames it reads are saved in the feature folder (`extracted/figma-frames.json`, board notes).
+
+### 6. ECL (only for eBug filing)
 
 Store your personal ECL API token in `~/.ecl_token` (from <https://ecl.cyberlink.com/sso/mgm/tokenPage>); on Windows
 that is `%USERPROFILE%\.ecl_token`. It is used for duplicate searches, IF3 filing and reading tickets back. Keep it
 out of the repository.
 
-### 6. Open the folder in your agent
+### 7. Open the folder in your agent
 
 Open this folder in **Claude Code** (skills load from `.claude/skills/`) or **Codex** (`.codex/skills/`). No global
 skill copies are needed.
@@ -251,16 +307,17 @@ Typical requests:
    so it runs in the background. Design and MX files that didn't change reuse their extracted text.
 3. **Write `board-notes.md`** for the spec set, then the requirements: the seven coverage passes, the standing inputs,
    and for an update a board-by-board comparison with the previous set.
-4. **Trace and cross-check**: `annotations.ts` lists every annotation block on the boards, and each is traced to the
-   requirements that state it; the hidden-clause and variant grids make sure server-side clauses and per-tier rules
-   get their own rows. Then `spec-agent-gaps.ts` lists the spec agent cases the table doesn't cover as a backstop:
-   one from the spec files becomes a row and names the pass that missed it; every gap goes in the update plan.
+4. **Trace**: `annotations.ts` lists every annotation block on the boards, and each is traced to the requirements
+   that state it; the hidden-clause and variant grids make sure server-side clauses and per-tier rules get their own
+   rows.
 5. **Value check**, then the draft (`draft.csv`), usually built by a `build-draft.ts` kept in the draft folder.
 6. **`check.ts`** must pass: every row traces to a requirement, every Design flow arrow has a requirement and a row
-   that walks it, every open ledger entry is cited, the job-state grid has no empty cell, and every spec agent gap
-   is decided and listed in the plan.
+   that walks it, every open ledger entry is cited, and the job-state grid has no empty cell.
 7. **Review**: `review.ts` serves `http://127.0.0.1:4387/` (or the next free port). Edit rows, Keep or Delete,
    add cases, then **Save as approved table**. The previous version moves to `history/`.
+8. **Comparison report (only on request)**: "Compare the casebook with the spec agent" builds
+   `comparisons/<date>_casebook-vs-spec-agent.html` (coverage both ways, the cases only the casebook has). It is
+   never part of an analysis and adds no rows.
 
 ### Running a table on the phone
 
@@ -308,6 +365,8 @@ Using `library/ai-mini-drama/` as the example:
 | --- | --- |
 | `README.md` | Generated index: approved tables, versions, spec sets received |
 | `requests.md` | Request ledger (`REQ-001`…), re-applied on every draft |
+| `spec-agent.json`, `spec-agent/<platform>.json` | Spec agent settings and the committed snapshot of its cases, for comparison reports on request |
+| `ios/fixtures.md` | What the phone needs for a run: build, account, photos for the upload cases, settings |
 | `specs/<date>/` | One spec set: `spec-set.json` (committed), the original files (local only), `extracted/` |
 | `specs/<date>/extracted/` | `boards.json`, `boards/<id>.md` (OCR text per board), `board-notes.md`, `arrows.json` (Design flow arrows), comparison notes |
 | `ios/cases.csv` | The approved table, the source of truth |
@@ -352,8 +411,8 @@ All scripts run from the repository root with `node scripts/<name>.ts`.
 | `render-tiles.ts <pdf> <out dir> [x y w h]` | Renders a region as a grid of readable tiles |
 | `spec-boards.ts <feature> <spec-set> [--file] [--jobs 3]` | Renders and OCRs every board in `boards.json` (uses `ocr-tiles.swift`) |
 | `annotations.ts <feature> <platform> --draft <id>` | Groups every board's annotations into blocks to trace to requirements (`annotation-trace.json`) |
-| `spec-agent-gaps.ts <feature> <platform> --draft <id>` | Lists spec agent cases the table doesn't cover, with their source (reads the spec agent with git only) |
-| `check.ts <feature> <platform> [--draft <id>]` | Validates a table or draft, incl. arrows, ledger, grids and spec agent gaps |
+| `spec-agent-gaps.ts <feature> <platform> --draft <id>` | Comparison report data (on request): spec agent cases the table doesn't cover, with their source, from the snapshot in `library/<feature>/spec-agent/` (`--refresh` updates it from a local spec agent clone, read with git only) |
+| `check.ts <feature> <platform> [--draft <id>]` | Validates a table or draft, incl. arrows, ledger, annotation trace and grids |
 | `review.ts <feature> <platform> [--draft <id>]` | Serves the review page and saves the approved table |
 | `export.ts <feature> <platform>` | Rebuilds `cases.xlsx` / `cases.html` from `cases.csv` |
 | `device.ts <run dir> <command>` | Appium client for the QA iPhone: screenshots, taps, `scrollto`, `waitfor`, `pink`, recipes, logs, ledger |

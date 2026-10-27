@@ -1,15 +1,17 @@
-// Spec agent cross-check, run during the analysis of every draft (standing input 6; manager, 2026-10-22, REQ-031).
-// Usage: node scripts/spec-agent-gaps.ts <feature> <ios|android> --draft <id> [--no-fetch]
-// Reads library/<feature>/spec-agent.json ({ repo, ref, feature, id_prefix }), fetches the spec agent repo and reads its
-// <ref> with git only (never its working tree), lists the platform's cases, and compares them with the newest
-// library/<feature>/<platform>/comparisons/*.mapping.json. Every case the mapping does not mark covered, and every case
-// it does not know yet, is a gap. Each gap gets its source from the case file (spec file, user request, RD build note,
-// other) and is written to <draft>/spec-agent-gaps.json with an empty `decision` for the analyst to fill:
-//   added TC-… · covered TC-… · older spec: <reason> · pass 7: <reason> · not from the spec: <reason> · low value: <reason>
-// A gap whose source is a spec file must be added (or shown to be covered, older or settled by pass 7): "not from the
-// spec" and "low value" are refused for it by check.ts, which also requires every gap ID in update-plan.md.
-// Decisions already in the draft's file are kept; others are carried over from the newest earlier draft for review.
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+// Spec agent comparison (user, 2026-10-27, REQ-036 / REQ-037): a report made only when the user asks for one, never a
+// step of the analysis; check.ts does not read its output.
+// Usage: node scripts/spec-agent-gaps.ts <feature> <ios|android> --draft <id> [--no-fetch] [--snapshot]
+//        node scripts/spec-agent-gaps.ts <feature> <ios|android> --refresh   (only refresh the snapshot from the clone)
+// Reads library/<feature>/spec-agent.json ({ repo, ref, feature, id_prefix }) and the platform's spec agent cases, then
+// compares them with the newest library/<feature>/<platform>/comparisons/*.mapping.json. The cases come from the
+// committed snapshot library/<feature>/spec-agent/<platform>.json, so the casebook needs no other repo. When a clone of
+// the spec agent repo is at <repo>, it is fetched and its <ref> read with git only (never its working tree) and the
+// snapshot is refreshed first; --snapshot uses the committed snapshot even then. Every case the mapping does not mark
+// covered, and every case it does not know yet, is a gap. Each gap gets its source from the case file (spec file, user
+// request, RD build note, other) and is written to <draft>/spec-agent-gaps.json with an empty `decision` for the
+// report's reason (covered TC-… · older spec · stated differently · not from the spec · not covered). Decisions already
+// in the draft's file are kept; others are carried over from the newest earlier draft.
+import { existsSync, mkdirSync, readdirSync, readFileSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -25,38 +27,21 @@ type Gap = {
 const [feature, platform] = process.argv.slice(2);
 assertIds(feature, platform);
 const draft = arg('draft');
-if (!draft) { console.error('Usage: node scripts/spec-agent-gaps.ts <feature> <ios|android> --draft <id> [--no-fetch]'); process.exit(2); }
-const draftDir = join(draftsDir(feature, platform), draft);
-if (!existsSync(draftDir)) { console.error(`No draft ${draftDir}`); process.exit(1); }
+const refreshOnly = process.argv.includes('--refresh');
+if (!draft && !refreshOnly) { console.error('Usage: node scripts/spec-agent-gaps.ts <feature> <ios|android> --draft <id> [--no-fetch] [--snapshot] | --refresh'); process.exit(2); }
+const draftDir = join(draftsDir(feature, platform), draft ?? '');
+if (draft && !existsSync(draftDir)) { console.error(`No draft ${draftDir}`); process.exit(1); }
 const cfgPath = join(featureDir(feature), 'spec-agent.json');
 if (!existsSync(cfgPath)) { console.error(`No ${cfgPath}: write { repo, ref, feature, id_prefix } for this feature first`); process.exit(1); }
 const cfg = JSON.parse(readFileSync(cfgPath, 'utf8'));
 const repo = cfg.repo.replace(/^~(?=\/)/, homedir());
 const ref = cfg.ref ?? 'origin/main';
 
-const git = (args: string[], input?: string) => {
-  const r = spawnSync('git', ['-C', repo, ...args], { input, maxBuffer: 1 << 30 });
-  if (r.status !== 0) throw new Error(`git ${args.join(' ')}: ${r.stderr.toString()}`);
-  return r.stdout;
-};
-if (!process.argv.includes('--no-fetch')) git(['fetch', '--quiet', 'origin']);
-const commit = git(['rev-parse', ref]).toString().trim();
+type Case = { id: string; file: string; title: string; claim: string; source: Gap['source'] };
+const snapDir = join(featureDir(feature), 'spec-agent');
+const snapPath = join(snapDir, `${platform}.json`);
 const dir = `test-cases/generated/${cfg.feature}/platforms/${platform}`;
-const files = git(['ls-tree', '--name-only', `${commit}:${dir}`]).toString().split('\n')
-  .filter(f => f.endsWith('.yaml') && !f.includes('suite-preflight'));
-
-// Read every case file in one `git cat-file --batch` call.
-const blobs = new Map<string, string>();
-{
-  const out = git(['cat-file', '--batch'], files.map(f => `${commit}:${dir}/${f}`).join('\n') + '\n');
-  let at = 0;
-  for (const f of files) {
-    const nl = out.indexOf(10, at);
-    const size = +out.subarray(at, nl).toString().split(' ')[2];
-    blobs.set(f, out.subarray(nl + 1, nl + 1 + size).toString('utf8'));
-    at = nl + 1 + size + 1;
-  }
-}
+const useClone = !process.argv.includes('--snapshot') && existsSync(join(repo, '.git'));
 
 const suffix = `-${platform.toUpperCase()}`;
 const caseId = (file: string) => {
@@ -93,6 +78,42 @@ const classify = (text: string): Gap['source'] => {
   return { kind: 'other', ref: p };
 };
 
+let commit: string, cases: Case[], from: 'clone' | 'snapshot';
+if (useClone) {
+  const git = (args: string[], input?: string) => {
+    const r = spawnSync('git', ['-C', repo, ...args], { input, maxBuffer: 1 << 30 });
+    if (r.status !== 0) throw new Error(`git ${args.join(' ')}: ${r.stderr.toString()}`);
+    return r.stdout;
+  };
+  if (!process.argv.includes('--no-fetch')) git(['fetch', '--quiet', 'origin']);
+  commit = git(['rev-parse', ref]).toString().trim();
+  const files = git(['ls-tree', '--name-only', `${commit}:${dir}`]).toString().split('\n')
+    .filter(f => f.endsWith('.yaml') && !f.includes('suite-preflight'));
+  // Read every case file in one `git cat-file --batch` call.
+  const out = git(['cat-file', '--batch'], files.map(f => `${commit}:${dir}/${f}`).join('\n') + '\n');
+  cases = [];
+  let at = 0;
+  for (const f of files) {
+    const nl = out.indexOf(10, at);
+    const size = +out.subarray(at, nl).toString().split(' ')[2];
+    const text = out.subarray(nl + 1, nl + 1 + size).toString('utf8');
+    at = nl + 1 + size + 1;
+    cases.push({ id: caseId(f), file: `${dir}/${f}`, title: scalar(text, 'title'),
+      claim: scalar(text, 'pass_when') || scalar(text, 'expected') || scalar(text, 'text'), source: classify(text) });
+  }
+  mkdirSync(snapDir, { recursive: true });
+  writeJson(snapPath, { repo: cfg.repo, ref, commit, feature: cfg.feature, platform, read_at: new Date().toISOString(), cases });
+  from = 'clone';
+  if (refreshOnly) { console.log(`${snapPath}: ${cases.length} cases at ${commit.slice(0, 8)}`); process.exit(0); }
+} else {
+  if (refreshOnly) { console.error(`No spec agent clone at ${repo} to refresh from`); process.exit(1); }
+  if (!existsSync(snapPath)) { console.error(`No spec agent clone at ${repo} and no snapshot ${snapPath}`); process.exit(1); }
+  const snap = JSON.parse(readFileSync(snapPath, 'utf8'));
+  ({ commit, cases } = snap);
+  from = 'snapshot';
+  console.error(`Spec agent cases from the committed snapshot (${commit.slice(0, 8)}, read ${snap.read_at.slice(0, 10)})`);
+}
+
 const cmpDir = join(tableDir(feature, platform), 'comparisons');
 const mappings = existsSync(cmpDir) ? readdirSync(cmpDir).filter(f => f.endsWith('.mapping.json')).sort() : [];
 const mappingFile = mappings.at(-1) ?? null;
@@ -107,33 +128,27 @@ const kept = new Map(own.map(g => [g.id, g]));
 const carried = new Map(prev.filter(g => !/^added\b/.test(g.decision)).map(g => [g.id, g]));
 
 const gaps: Gap[] = [];
-for (const f of files) {
-  const id = caseId(f);
-  const mapped = sa[id] ?? null;
+for (const c of cases) {
+  const mapped = sa[c.id] ?? null;
   if (mapped && COVERED.includes(mapped)) continue;
-  const text = blobs.get(f)!;
-  const g: Gap = {
-    id, file: `${dir}/${f}`, title: scalar(text, 'title'),
-    claim: scalar(text, 'pass_when') || scalar(text, 'expected') || scalar(text, 'text'),
-    source: classify(text), mapped, decision: '',
-  };
-  const k = kept.get(id), c = carried.get(id);
+  const g: Gap = { ...c, mapped, decision: '' };
+  const k = kept.get(c.id), p = carried.get(c.id);
   if (k?.decision) Object.assign(g, { decision: k.decision, carried_from: k.carried_from });
-  else if (c?.decision) Object.assign(g, { decision: c.decision, carried_from: earlier });
+  else if (p?.decision) Object.assign(g, { decision: p.decision, carried_from: earlier });
   gaps.push(g);
 }
 gaps.sort((a, b) => a.source.kind.localeCompare(b.source.kind) || a.id.localeCompare(b.id));
 
 writeJson(outPath, {
-  spec_agent: { repo: cfg.repo, ref, commit, feature: cfg.feature, platform, cases: files.length },
+  spec_agent: { repo: cfg.repo, ref, commit, feature: cfg.feature, platform, cases: cases.length, from },
   mapping: mappingFile ? `comparisons/${mappingFile}` : null,
   generated_at: new Date().toISOString(),
   gaps,
 });
 const by = (k: string) => gaps.filter(g => g.source.kind === k).length;
 console.log(JSON.stringify({
-  out: outPath, commit: commit.slice(0, 8), cases: files.length, mapping: mappingFile, gaps: gaps.length,
+  out: outPath, commit: commit.slice(0, 8), from, cases: cases.length, mapping: mappingFile, gaps: gaps.length,
   by_source: { spec: by('spec'), request: by('request'), build: by('build'), casebook: by('casebook'), other: by('other') },
   unmapped: gaps.filter(g => !g.mapped).length, undecided: gaps.filter(g => !g.decision).map(g => g.id),
-  next: 'Fill every decision; a spec-sourced gap is added as a row (REQ-031). List every gap in update-plan.md → "Spec agent cross-check".',
+  next: 'Give every gap its reason in the new mapping and build the comparison page (skill: Spec agent comparison). The report adds no rows.',
 }, null, 2));

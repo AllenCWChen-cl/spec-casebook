@@ -9,8 +9,6 @@
 // - every dated frame in specs/<set>/extracted/figma-frames.json says where it was read (REQ-030);
 // - a draft traces every annotation block (annotation-trace.json) and has the "Hidden clauses" and "Variants" grids
 //   for the requirements that need them (user, 2026-10-22, REQ-032);
-// - a draft of a feature with spec-agent.json decides every spec agent gap and lists it in update-plan.md; gaps from
-//   the spec files are added as rows and name the pass that missed them (manager, 2026-10-22, REQ-031 / REQ-032).
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { CHANGES, COLUMNS, arg, assertIds, draftsDir, featureDir, readManifest, readTable, tableDir } from './lib/library.ts';
@@ -187,33 +185,5 @@ if (draft && reqText) {
   }
 }
 
-// Spec agent cross-check (standing input 6; manager, 2026-10-22, REQ-031): for a feature with spec-agent.json every
-// draft carries spec-agent-gaps.json (scripts/spec-agent-gaps.ts). Each gap has a decision, a gap from the spec files
-// is added (never "low value" / "not from the spec"), named rows are active, and update-plan.md lists every gap.
-if (draft && existsSync(join(featureDir(feature), 'spec-agent.json'))) {
-  const gapsPath = join(dir, 'spec-agent-gaps.json');
-  if (!existsSync(gapsPath)) errors.push(`No spec-agent-gaps.json: run node scripts/spec-agent-gaps.ts ${feature} ${platform} --draft ${draft} and decide every gap (REQ-031)`);
-  else {
-    const gaps: { id: string; source: { kind: string }; decision: string }[] = JSON.parse(readFileSync(gapsPath, 'utf8')).gaps;
-    const planPath = join(dir, 'update-plan.md');
-    const plan = existsSync(planPath) ? readFileSync(planPath, 'utf8') : '';
-    const section = plan.match(/\n## Spec agent cross-check\n([\s\S]*?)(?=\n## |$)/)?.[1];
-    if (!section) errors.push('update-plan.md has no "## Spec agent cross-check" section');
-    for (const g of gaps) {
-      const d = g.decision?.trim() ?? '';
-      const kind = d.match(/^(added|covered|older spec|pass 7|not from the spec|low value)\b/)?.[1];
-      if (!d) errors.push(`Spec agent gap ${g.id}: no decision in spec-agent-gaps.json`);
-      else if (!kind) errors.push(`Spec agent gap ${g.id}: decision must start with added / covered / older spec / pass 7 / not from the spec / low value`);
-      else if (g.source.kind === 'spec' && (kind === 'not from the spec' || kind === 'low value')) errors.push(`Spec agent gap ${g.id} comes from the spec files: add it as a row (REQ-031), not "${kind}"`);
-      else if (g.source.kind === 'spec' && kind === 'added' && !/missed by:/i.test(d)) errors.push(`Spec agent gap ${g.id}: the analysis should have found it; say which pass missed it ("added TC-… (missed by: <pass>)") and fix that pass (REQ-032)`);
-      if (kind === 'added' || kind === 'covered') {
-        const by = tcRefs(d);
-        if (!by.length) errors.push(`Spec agent gap ${g.id}: "${kind}" names no case`);
-        for (const tc of by) if (!active.has(tc)) errors.push(`Spec agent gap ${g.id}: ${tc} is not an active row`);
-      }
-      if (section && !section.includes(g.id)) errors.push(`Spec agent gap ${g.id} is not listed under "Spec agent cross-check" in update-plan.md`);
-    }
-  }
-}
 console.log(JSON.stringify({ table: csv, rows: rows.length, errors, warnings }, null, 2));
 process.exit(errors.length ? 1 : 0);

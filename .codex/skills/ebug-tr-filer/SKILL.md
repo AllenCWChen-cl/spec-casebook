@@ -20,7 +20,14 @@ reads or updates them.
     `library/<feature>/<platform>/ebugs/<YYYY-MM-DD>/`
 - **Source tag:** do not use `[AIFound]` (it marks exploration-suite findings). Use the tag the user set for
   casebook findings; if none is recorded here yet, ask before drafting.
-- **Device control:** follow the user's current instructions for the session; transports named below are historical.
+- **Device control:** `scripts/device.ts` (Appium on the QA iPhone, see the casebook skill); the iPhone Mirroring /
+  `computer-use` transport named below is the exploration suite's and is not used here.
+- **Skip these sections here** (they write into exploration-suite reports, which this repo does not have): *After
+  filing — write the results back into the exploration report* (only its `export-filing` command applies: it writes
+  `filed_bugcodes.json` into the batch folder) and *Closing the loop — annotate the source report*. The batch's
+  `filed_bugcodes.json` / `.md` and the run's `report.md` are the record instead.
+- **Python packages:** the scripts use the standard library, except `make_filing_sheets.py`, which needs Pillow
+  (`pip install -r requirements.txt` in a venv, see the README).
 - Everything else (format rules, dedupe through the ECL API, severity review page, token handling, never filing
   unverified findings) applies unchanged.
 - **Reviewer rules (user, 2026-10-21, from the eBug reviewers) — every entry, every batch:**
@@ -139,13 +146,10 @@ only** (the cua driver was removed on 2026-09-16; see that skill's *Shared setup
 - Scroll with `scroll_amount: 100`, one per ~1 s; drag never scrolls a view on the mirror.
 - Text entry is `write_clipboard` → `key cmd+v`.
 - Toasts and self-ejecting pages live less than one round trip. Put the tap and several
-  `wait 0.3` + `screenshot` actions in **one** batch so the capture is already armed —
-  [[pdri-transient-ui-and-dwell-taps]].
-- Evidence files are `screencapture -x -o -l<window_id>`, never the full screen —
-  [[pdri-window-id-screenshots]].
+  `wait 0.3` + `screenshot` actions in **one** batch so the capture is already armed.
+- Evidence files are `screencapture -x -o -l<window_id>`, never the full screen.
 - Any credit claim comes from **Mine → Credits → Details**, attributed by feature name *and* minute.
-  A background workload burns credits on this device while you idle —
-  [[pdri-credit-cost-needs-ledger]].
+  A background workload burns credits on this device while you idle.
 
 **Run a positive control for every "it does nothing" finding**, in the same screen state, before
 calling it a defect — the same drag with the toggle On, the sibling menu item on the same clip.
@@ -428,7 +432,7 @@ that is wrong**, so dev sees the defect without reading the caption. Build the a
    preview). Several boxes per frame are fine. Values > 1 are read as source pixels.
 2. `[]` marks a frame deliberately unboxed: a spec/Figma frame, a healthy control, a "before" frame.
    A cited frame with no key at all prints a warning. Clear every warning before filing.
-3. Run it with a Pillow venv ([[pixel-diff-needs-a-pillow-venv]]):
+3. Run it with a Pillow venv (`pip install -r requirements.txt`, see the README):
    `<venv>/bin/python3 scripts/make_filing_sheets.py upload/ --captions captions.json`
    → `upload_filing/<ver>_<slug>_evidence.jpg` + `upload_filing/bodies.json` citing the sheet. For IF3,
    where each frame is uploaded separately over the API, add `--no-sheet`: frames are boxed but kept apart.
@@ -707,8 +711,8 @@ instead of writing `Spec Link: none`:
 ## Order of work
 
 1. **Identify the ticket system.** 4-digit TR serial = IF3 (API available); 3-digit = old ASP (web
-   form only). See *The IF3 REST API*. The TR module lives under `/TR/`, not `/Ebug/` —
-   [[ecl-tr-lookup-urls]].
+   form only). See *The IF3 REST API*. The TR module lives under `/TR/`, not `/Ebug/`
+   (URL table in *The IF3 REST API*).
 2. Read the TR: build, OS Language string, and form `FA`'s `ProductID` / `TemplateID` / `ParentTRCode`.
 3. **Re-verify every finding on the device** against that build (*Verifying on the device*).
 4. **Dedupe** with `TSR.EbugSearch`, or a fresh export if the API is unavailable
@@ -1051,7 +1055,7 @@ the same shape — determined by the BugCode alone:
 
 `build_docx_report.py` does this automatically (`EBUG_URL`, `run_codes()`) wherever a BugCode appears —
 step-header stamps, the index table, the card headers, and disposition lines such as
-「已知單，不重複開：DRI261885-0020」. Never hand-build a link from any other path ([[ecl-tr-lookup-urls]]).
+「已知單，不重複開：DRI261885-0020」. Never hand-build a link from any other path.
 
 ### 1c. AI Found / Created / Known — in the report and in the dashboard (2026-09-17)
 
@@ -1155,9 +1159,8 @@ python3 scripts/ecl_if3.py export-filing \
     --tr TR260915-0007 --version 16.8.0 --build 189063 --server Developer \
     --out <session>/filed_bugcodes.json
 
-# 2. rebuild each feature report with the BugCodes stamped and the eBug section added
-python3 ../pdri-exploration-suite/scripts/apply_ebug_filing.py \
-    <original session>/build_report.py <session>/filed_bugcodes.json --out-dir reports/
+# 2. (exploration suite only; not in this repo) rebuild each feature report with the BugCodes stamped:
+#    pdri-exploration-suite's apply_ebug_filing.py <original session>/build_report.py <session>/filed_bugcodes.json
 ```
 
 `export-filing` records **Creator as read back per ticket** (plus the token owner when it differs) —
@@ -1217,7 +1220,7 @@ BugCode*. Leaving it produces a report that contradicts itself: a finding tagged
 送單狀態 still reads 仍需處理. Append an explicit dated override to that line saying what the old
 text was and what the current verdict is; keep the history, remove the ambiguity.
 
-**Mechanics:** `python-docx` in a scratchpad venv ([[python-docx-needs-a-venv]]). Findings live in
+**Mechanics:** `python-docx` in a scratchpad venv. Findings live in
 **table cells**, so `doc.paragraphs` alone finds nothing — walk `doc.tables` recursively. Append a
 `deepcopy` of the paragraph's last run to inherit formatting, then set colour per disposition.
 Save as a `_eBug覆核` copy; never overwrite the original, and always regenerate from the original

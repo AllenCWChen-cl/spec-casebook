@@ -20,7 +20,7 @@ boxes.json — {filename: [[x0, y0, x1, y1], ...]}, one list per frame:
 
 The stroke is BOX_WIDTH px in the delivered JPEG — drawn after the frame is scaled to the sheet
 height, never before, because staged phone frames are ~500 px tall and get upscaled ~2x.
-Needs Pillow: no system python here has it, reuse a scratchpad venv ([[pixel-diff-needs-a-pillow-venv]]).
+Needs Pillow: `pip install -r requirements.txt` in a venv (see the README).
 """
 import argparse, json, os, re, shutil, sys
 from PIL import Image, ImageDraw, ImageFont

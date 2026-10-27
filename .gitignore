@@ -16,8 +16,9 @@ node_modules/
 *.mov
 *.m4v
 
-# Python caches and patch leftovers
+# Python caches, the local venv and patch leftovers
 __pycache__/
+.venv/
 *.pyc
 *.orig
 *.rej

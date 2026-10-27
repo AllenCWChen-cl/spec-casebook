@@ -20,7 +20,10 @@ reads or updates them.
     `library/<feature>/<platform>/ebugs/<YYYY-MM-DD>/`
 - **Source tag:** do not use `[AIFound]` (it marks exploration-suite findings). Use the tag the user set for
   casebook findings; if none is recorded here yet, ask before drafting.
-- **Device control:** follow the user's current instructions for the session; transports named below are historical.
+- **Device control:** `scripts/device.ts` (Appium on the QA iPhone, see the casebook skill); the iPhone Mirroring /
+  `computer-use` transport named below is the exploration suite's and is not used here.
+- **Skip these sections here:** *Inputs* (the sign-off and KB files are the exploration suite's; the inputs are the run
+  folder's `results.csv`, `observations.md` and screenshots), *When this runs* and *Related*.
 - Everything else (format rules, dedupe through the ECL API, severity review page, token handling, never filing
   unverified findings) applies unchanged.
 - **Spec Link checks:** `verify_ebug_drafts.py`'s sheet-index checks look for the exploration suite's `Figma/_index/` transcripts, which the casebook does not have; its 'unknown sheet' / 'never names that sheet' failures do not apply. Casebook `Spec Link:` lines name the source (Design or PM spec), the board title from `extracted/boards.json` and the Figma file URL from `spec-set.json`. Design outranks PM when they disagree.
