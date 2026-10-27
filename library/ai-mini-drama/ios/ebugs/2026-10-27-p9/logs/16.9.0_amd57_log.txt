@@ -1,0 +1,80 @@
+# ISS-AMD-57 Character change in chat: question turn, Generate turn, no update-message reply
+# PowerDirector 16.9.0 (189872), TR261022-0031, Developer Server, iPhone 17 Air / iOS 26.2.1. Excerpt of the app's AI Mini Drama log (Write Log + Pink 'Log stage timings').
+# Only lines about turns, charges, toasts and failures in the windows below; signed storage URLs are cut at '?'.
+
+## TC-348/TC-349 Window Notes, ask + chip + Generate (Off) (2026-10-22 20:39:30–20:47:15; logs/P9-b2-20261022-214723)
+2026-10-22 20:39:43:788 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1 stage=storyboard trigger= answers=0 attachments=0
+2026-10-22 20:40:01:599 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1 turn=261022_155847_ecf6c9e1_t5 final_state=complete status_code=0 error_message="" reply=""
+2026-10-22 20:40:01:605 [AIDramaIrisConversationService] [#399] [AIDrama AMD] send reply drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1 source=blueprint stage=character failures=0 text=""
+2026-10-22 20:40:03:738  [AMDPerf] ════ turn end · stage=storyboard → character · card=none · ok · wall   17.819s
+2026-10-22 20:40:37:147 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1 stage=character trigger= answers=1 attachments=0
+2026-10-22 20:41:37:328 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1 turn=261022_155847_ecf6c9e1_t6 final_state=block status_code=-1 error_message="HTTP request to cc team gateway failed: Failed to read connection" reply=""
+2026-10-22 20:41:37:330 [AIDramaIrisConversationService] [#220] [AIDrama AMD] turn failed drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1: nativeFailure(operation: "pdr_iris_host_send_turn", message: "turn ended as \'block\' (status -1): HTTP request to cc team gateway failed: Failed to read connection")
+2026-10-22 20:41:37:330  [AMDPerf] ════ turn end · stage=character · card=none · failed: nativeFailure(operation: "pdr_iris_host_send_turn", message: "turn ended as \'block\' (status -1): HTTP request to cc team gateway failed: Failed to read connection") · wall   60.183s
+2026-10-22 20:41:37:330 [AIDramaChatPresenter] [#1222] [AIDrama] turn failed, offering retry: Optional(PowerDirector.AIDramaChatError.unavailable)
+2026-10-22 20:42:02:607 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1 stage=character trigger= answers=1 attachments=0
+2026-10-22 20:45:38:975 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1 turn=261022_155847_ecf6c9e1_t7 final_state=complete status_code=0 error_message="" reply="Preserved all six beats, cuts, dialogue lines, and visual descriptions with Clara's revised appearance accounted for across all scenes. The narration remains calibrated within the budget and the story"
+2026-10-22 20:45:38:988 [AIDramaIrisConversationService] [#399] [AIDrama AMD] send reply drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1 source=blueprint stage=character failures=0 text="Preserved all six beats, cuts, dialogue lines, and visual descriptions with Clara's revised appearance accounted for across all scenes. The narration remains calibrated within the budget and the story"
+2026-10-22 20:45:41:071  [AMDPerf] ════ turn end · stage=character · card=characters · ok · wall  216.383s
+2026-10-22 20:46:08:732 [AIDramaPermissionGate] [#93] [AIDrama Permission] authorize drama=F46E3085-4161-44C9-BD91-1039380D755C tools=[TextToImagex1,TextToSpeechx1] credit=4 video_model=nil
+2026-10-22 20:46:08:827 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1 stage=character trigger= answers=1 attachments=0
+2026-10-22 20:46:46:556 [AIDramaPermissionGate] [#261] [AIDrama Permission] request 261022_155847_ecf6c9e1_t8_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_req_1 drama=F46E3085-4161-44C9-BD91-1039380D755C -> allow (authorized, credit=3)
+2026-10-22 20:46:47:295 [AIDramaPermissionGate] [#261] [AIDrama Permission] request 261022_155847_ecf6c9e1_t8_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_req_2 drama=F46E3085-4161-44C9-BD91-1039380D755C -> allow (authorized, credit=1)
+2026-10-22 20:47:10:881 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1 turn=261022_155847_ecf6c9e1_t8 final_state=complete status_code=0 error_message="" reply=""
+2026-10-22 20:47:10:886 [AIDramaIrisConversationService] [#399] [AIDrama AMD] send reply drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1 source=blueprint stage=character failures=0 text=""
+2026-10-22 20:47:13:010  [AMDPerf] ════ turn end · stage=character · card=outline+characters · ok · wall   62.060s
+
+## TC-352 Art of Falling, Generate on Update characters (Off) (2026-10-22 21:26:50–21:27:50; logs/P9-b2-20261022-214723)
+2026-10-22 21:26:59:453 [AIDramaPermissionGate] [#93] [AIDrama Permission] authorize drama=D8D24583-13C5-41DD-8A14-434D4F5B4634 tools=[TextToImagex1,TextToSpeechx1] credit=4 video_model=nil
+2026-10-22 21:26:59:471 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=D8D24583-13C5-41DD-8A14-434D4F5B4634 iris=261022_211248_c048424b stage=character trigger= answers=1 attachments=0
+2026-10-22 21:27:23:845 [AIDramaPermissionGate] [#261] [AIDrama Permission] request 261022_211248_c048424b_t6_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_req_1 drama=D8D24583-13C5-41DD-8A14-434D4F5B4634 -> allow (authorized, credit=3)
+2026-10-22 21:27:24:666 [AIDramaPermissionGate] [#261] [AIDrama Permission] request 261022_211248_c048424b_t6_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_req_2 drama=D8D24583-13C5-41DD-8A14-434D4F5B4634 -> allow (authorized, credit=1)
+2026-10-22 21:27:47:614 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=D8D24583-13C5-41DD-8A14-434D4F5B4634 iris=261022_211248_c048424b turn=261022_211248_c048424b_t6 final_state=complete status_code=0 error_message="" reply=""
+2026-10-22 21:27:47:620 [AIDramaIrisConversationService] [#399] [AIDrama AMD] send reply drama=D8D24583-13C5-41DD-8A14-434D4F5B4634 iris=261022_211248_c048424b source=blueprint stage=character failures=0 text=""
+2026-10-22 21:27:49:744  [AMDPerf] ════ turn end · stage=character · card=outline+characters · ok · wall   48.151s
+
+## TC-103 The Gambit, cast changed at the storyboard offer (Off) (2026-10-23 03:36:00–03:37:00; logs/P9-e-20261023-041052)
+2026-10-23 03:36:13:605 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=78FE0CCB-F5E3-4320-9387-E45F6C356A6F iris=261023_032236_f9092285 stage=storyboard trigger=leave answers=0 attachments=0
+2026-10-23 03:36:54:125 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=78FE0CCB-F5E3-4320-9387-E45F6C356A6F iris=261023_032236_f9092285 turn=261023_032236_f9092285_t6 final_state=complete status_code=0 error_message="" reply="Validated and aligned the storyboard beats with Victor Graves's updated asset appearance (distressed leather jacket, grey henley, cargo pants, and tooth pendant necklace) across the park gate beats, e"
+2026-10-23 03:36:54:131 [AIDramaIrisConversationService] [#399] [AIDrama AMD] send reply drama=78FE0CCB-F5E3-4320-9387-E45F6C356A6F iris=261023_032236_f9092285 source=blueprint stage=storyboard failures=0 text="Validated and aligned the storyboard beats with Victor Graves's updated asset appearance (distressed leather jacket, grey henley, cargo pants, and tooth pendant necklace) across the park gate beats, e"
+2026-10-23 03:36:56:205  [AMDPerf] ════ turn end · leave · stage=storyboard · card=characters · ok · wall   40.527s
+
+## TC-348/TC-349 Window Notes turns t5–t8: clarifier question, retry after gateway error, Generate (Iris engine log, no per-line time; logs/P9-b2-20261022-214723 2026-10-22_16-43-17_iris.txt lines 718–847)
+[Agent IRIS] turn start (session=261022_155847_ecf6c9e1): "Can you change one of the characters to look older?"
+[Agent IRIS] workflow 'ai-mini-drama' starting (1 step(s), call_id=261022_155847_ecf6c9e1_t5_i1_d1_ai-mini-drama)
+[Agent IRIS] workflow 'ai-mini-drama/plan' step 'route' (main-router) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed' step 'clarify' (character-clarifier) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed/clarified' step 'final' (ai-mini-drama-final) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed' step 'clarified' (ai-mini-drama) done
+[Agent IRIS] workflow 'ai-mini-drama/plan' step 'routed' (ai-mini-drama) done
+[Agent IRIS] workflow 'ai-mini-drama' step 'plan' (ai-mini-drama) done
+[Agent IRIS] turn complete with 1 committed output(s)
+[Agent IRIS] turn start (session=261022_155847_ecf6c9e1): ""
+[Agent IRIS] turn aborted (exception): HTTP request to cc team gateway failed: Failed to read connection
+[Agent IRIS] worker: turn threw: HTTP request to cc team gateway failed: Failed to read connection
+[Agent IRIS] turn start (session=261022_155847_ecf6c9e1): ""
+[Agent IRIS] workflow 'ai-mini-drama' starting (1 step(s), call_id=261022_155847_ecf6c9e1_t7_i1_d1_ai-mini-drama)
+[Agent IRIS] workflow 'ai-mini-drama/plan' step 'route' (main-router) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed' step 'execute' (character-executor) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed/executed' step 'execute_cast' (storyboard-executor) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed/executed/executed_cast' step 'review' (storyboard-reviewer) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed/executed/executed_cast/executed_review' step 'final' (ai-mini-drama-final) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed/executed/executed_cast' step 'executed_review' (ai-mini-drama) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed/executed' step 'executed_cast' (ai-mini-drama) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed' step 'executed' (ai-mini-drama) done
+[Agent IRIS] workflow 'ai-mini-drama/plan' step 'routed' (ai-mini-drama) done
+[Agent IRIS] workflow 'ai-mini-drama' step 'plan' (ai-mini-drama) done
+[Agent IRIS] turn complete with 1 committed output(s)
+[Agent IRIS] turn start (session=261022_155847_ecf6c9e1): ""
+[Agent IRIS] workflow 'ai-mini-drama' starting (1 step(s), call_id=261022_155847_ecf6c9e1_t8_i1_d1_ai-mini-drama)
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed/asset_routed' step 'prompt_2' (voice-prompt-generator) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed/asset_routed' step 'prompt_1' (character-edit) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed/asset_routed/prompts_done' step 'tts_2' (text-to-speech) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed/asset_routed/prompts_done' step 'img_1' (text-to-image) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed/asset_routed/prompts_done/media_done' step 'final' (ai-mini-drama-final) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed/asset_routed/prompts_done' step 'media_done' (ai-mini-drama) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed/asset_routed' step 'prompts_done' (ai-mini-drama) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed' step 'asset_routed' (ai-mini-drama) done
+[Agent IRIS] workflow 'ai-mini-drama/plan' step 'routed' (ai-mini-drama) done
+[Agent IRIS] workflow 'ai-mini-drama' step 'plan' (ai-mini-drama) done
+[Agent IRIS] turn complete with 1 committed output(s)

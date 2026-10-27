@@ -496,7 +496,13 @@ own phase, kept in results.csv's Phase column and split out in the report), the 
   toggle (user, 2026-10-27) switches everything the page writes itself (labels, states, result names, table headings,
   the usage notes) and is remembered per browser; run data (actions, notes, results text, log) stays as written. A new
   label or note in `plan-page.tpl` gets its Chinese too (`tx(en, zh)` in the script, `data-zh` on fixed HTML). Without `--serve` the
-  script writes the static `runs/plan.html` (data inline, no fetch or polling: for publishing as an artifact). It
+  script writes the static `runs/plan.html` (data inline, no fetch or polling: for publishing as an artifact). **Why
+  cases are Blocked (user, 2026-10-27):** a panel under the header groups the current run's Blocked cases by category
+  (defect / test-data / observability), then by reason (an unavailable need from `phases.json`, a failed gate, an
+  earlier step that failed, other), with case IDs per segment and what clears each category; each Blocked row names
+  its reason. When a reason can't be read from the result text, the segment or phase wrap-up adds the case to the run
+  folder's `blocked-reasons.json` (`{ "<case>": { "group": "need:<n>" | "gate:<n>" | "upstream", "label": "<own
+  group>", "note": "<short why>" } }`, every field optional) so no case sits in "other". It
   binds 127.0.0.1; `--lan` binds 0.0.0.0 and prints the LAN URLs (no auth: only when the user asks). It also shows
   wall / test / idle time, Claude tokens and plan usage per phase, segment, wrap-up and round (consecutive phases on
   one seat size), as % of a 1× Pro user's limits. The main figure is "est. from token rate": the row's weighted

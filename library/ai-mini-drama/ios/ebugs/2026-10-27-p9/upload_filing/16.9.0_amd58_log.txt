@@ -1,0 +1,33 @@
+# ISS-AMD-58 Typed character name routes to character-executor with no Update characters card
+# PowerDirector 16.9.0 (189872), TR261022-0031, Developer Server, iPhone 17 Air / iOS 26.2.1. Excerpt of the app's AI Mini Drama log (Write Log + Pink 'Log stage timings').
+# Only lines about turns, charges, toasts and failures in the windows below; signed storage URLs are cut at '?'.
+
+## TC-391 Window Notes, question + typed 'Julian' (Off) (2026-10-22 20:48:10–20:49:50; logs/P9-b2-20261022-214723)
+2026-10-22 20:48:17:417 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1 stage=character trigger= answers=0 attachments=0
+2026-10-22 20:49:02:601 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1 turn=261022_155847_ecf6c9e1_t9 final_state=complete status_code=0 error_message="" reply=""
+2026-10-22 20:49:02:611 [AIDramaIrisConversationService] [#399] [AIDrama AMD] send reply drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1 source=blueprint stage=character failures=0 text=""
+2026-10-22 20:49:04:727  [AMDPerf] ════ turn end · stage=character · card=none · ok · wall   45.195s
+2026-10-22 20:49:20:808 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1 stage=character trigger= answers=0 attachments=0
+2026-10-22 20:49:45:087 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1 turn=261022_155847_ecf6c9e1_t10 final_state=complete status_code=0 error_message="" reply="Preserved the cast profile for Julian and confirmed character details across the roster."
+2026-10-22 20:49:45:092 [AIDramaIrisConversationService] [#399] [AIDrama AMD] send reply drama=F46E3085-4161-44C9-BD91-1039380D755C iris=261022_155847_ecf6c9e1 source=blueprint stage=character failures=0 text="Preserved the cast profile for Julian and confirmed character details across the roster."
+2026-10-22 20:49:47:124  [AMDPerf] ════ turn end · stage=character · card=none · ok · wall   24.286s
+
+## TC-391 Window Notes turns t9 (question) and t10 (typed 'Julian') (Iris engine log, no per-line time; logs/P9-b2-20261022-214723 2026-10-22_16-43-17_iris.txt lines 848–905)
+[Agent IRIS] turn start (session=261022_155847_ecf6c9e1): "Can you change one of the characters to look older?"
+[Agent IRIS] workflow 'ai-mini-drama' starting (1 step(s), call_id=261022_155847_ecf6c9e1_t9_i1_d1_ai-mini-drama)
+[Agent IRIS] workflow 'ai-mini-drama/plan' step 'route' (main-router) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed' step 'clarify' (character-clarifier) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed/clarified' step 'final' (ai-mini-drama-final) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed' step 'clarified' (ai-mini-drama) done
+[Agent IRIS] workflow 'ai-mini-drama/plan' step 'routed' (ai-mini-drama) done
+[Agent IRIS] workflow 'ai-mini-drama' step 'plan' (ai-mini-drama) done
+[Agent IRIS] turn complete with 1 committed output(s)
+[Agent IRIS] turn start (session=261022_155847_ecf6c9e1): "Julian"
+[Agent IRIS] workflow 'ai-mini-drama' starting (1 step(s), call_id=261022_155847_ecf6c9e1_t10_i1_d1_ai-mini-drama)
+[Agent IRIS] workflow 'ai-mini-drama/plan' step 'route' (main-router) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed' step 'execute' (character-executor) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed/executed' step 'final' (ai-mini-drama-final) done
+[Agent IRIS] workflow 'ai-mini-drama/plan/routed' step 'executed' (ai-mini-drama) done
+[Agent IRIS] workflow 'ai-mini-drama/plan' step 'routed' (ai-mini-drama) done
+[Agent IRIS] workflow 'ai-mini-drama' step 'plan' (ai-mini-drama) done
+[Agent IRIS] turn complete with 1 committed output(s)

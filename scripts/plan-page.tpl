@@ -102,6 +102,20 @@ code { font: 0.85em var(--mono); background: var(--chip-bg); padding: 1px 4px; b
   .phase-head .state { grid-column: 1 / 3; justify-self: start }
   .phase-note { grid-column: 1 / 3 }
 }
+.why-lead { margin: 6px 0 0; max-width: 80ch }
+.why-cats { display: grid; gap: 18px; margin-top: 14px }
+.why-cat h3 { font-size: 1rem; font-weight: 650; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap }
+.why-cat h3 .n { font: 600 0.8rem var(--mono); color: var(--blocked) }
+.why-cat .clears { color: var(--muted); font-size: 0.86rem; margin: 2px 0 0 }
+.why-cat ul { margin: 8px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 0.9rem }
+.why-cat li { border-left: 3px solid var(--blocked); padding-left: 10px; min-width: 0 }
+.why-cat li b { font-weight: 600 }
+.why-cat .detail { color: var(--muted); font-size: 0.85rem }
+.why-cat .ids { font: 0.8rem/1.6 var(--mono); overflow-wrap: anywhere }
+.why-cat .ids a { color: inherit }
+.why-cat .case { display: block; font-size: 0.85rem }
+.why-cat .tag { font: 600 0.68rem var(--mono); text-transform: uppercase; letter-spacing: 0.05em; color: var(--hold); background: var(--chip-bg); padding: 1px 6px; border-radius: 3px }
+.why-row { display: block; font-size: 0.82rem; color: var(--blocked); font-weight: 600; margin-top: 4px }
 .run-name { font-size: 15px; color: var(--muted) }
 .how { margin-top: 4px } .how summary { cursor: pointer; font-size: 13.5px; color: var(--muted) } .how .notes { margin-top: 8px }
 .history { display: grid; gap: 14px; margin-top: 18px; padding-top: 18px; border-top: 2px solid var(--line) }
@@ -125,6 +139,12 @@ details.hist > summary { cursor: pointer; font-size: 13.5px; color: var(--muted)
     <div class="bar" id="totalbar" aria-label="Results of the current run"></div>
     <div class="legend" id="legend"></div>
   </header>
+
+  <section class="box why" id="blocked-box" aria-labelledby="blocked-h">
+    <h2 id="blocked-h"></h2>
+    <p class="why-lead" id="blocked-lead"></p>
+    <div class="why-cats" id="blocked"></div>
+  </section>
 
   <section class="box usage nosegs" aria-labelledby="usage-h">
     <h2 id="usage-h"><span data-zh="時間與方案用量 · 本次執行">Time and plan usage · this run</span></h2>
@@ -257,13 +277,77 @@ function renderUsage(tableId, subset, totalLabel, emptyText) {
       `<span>時間同 <code>run-log.ts time</code>（各執行資料夾的活動時間點；測試 = 15 分鐘以內的間隔）。Claude token = 輸入 + 快取寫入 + 快取讀取 + 輸出，取自本專案 ${U.transcripts} 份對話紀錄（工作階段與子代理）在各執行活動期間的部分；「加權」= 加權後。階段列包含它的收尾。</span>`)
   ].join('');
 }
+// Blocked reasons. Group keys come from plan-page.ts: need:<n> (Blocked up front: the run can't provide <n>),
+// gate:<n> (a failed gate), upstream (an earlier case failed), label:<text> (blocked-reasons.json), other.
+const NEED = {
+  'purchase': ['Purchase (no purchases, sandbox included)', '購買（不購買，沙盒也不行）'],
+  'low-balance': ['Low credit balance', '低點數餘額'],
+  'new-account': ['A new account with no creations', '沒有作品的新帳號'],
+  'chat-count': ['Daily chat count', '每日對話次數'],
+  'remote-config': ['Remote Config daily chat allowance', 'Remote Config 每日對話額度'],
+  'voice': ['Spoken input', '語音輸入'],
+  'full-generation': ['Full template journeys', '完整範本流程'],
+  'stt-failure': ['Speech-to-text failure', '語音轉文字失敗'],
+  'slow-generation': ['A generation that stays running long enough', '持續進行夠久的生成'],
+  'video': ['A generated video', '已生成的影片'],
+};
+const GATE = { 'video': ['Video never generated', '影片始終沒有生成'] };
+const OTHER = {
+  'defect': ['Other defects', '其他缺陷'],
+  'test-data': ['A specific fixture or setup the run couldn\'t make', '本次無法做出的特定測試資料或設定'],
+  'observability': ['A result the app doesn\'t show', 'App 沒有顯示的結果'],
+};
+const whyLabel = (g, cat) => {
+  const [k, v] = [g.split(':')[0], g.slice(g.indexOf(':') + 1)];
+  const l = k === 'need' ? NEED[v] || [`Needs ${v}`, `需要 ${v}`] : k === 'gate' ? GATE[v] || [`Gate ${v} failed`, `${v} 關卡失敗`]
+    : k === 'upstream' ? ['An earlier step failed', '前一步失敗'] : k === 'label' ? [v, v] : OTHER[cat] || ['Other', '其他'];
+  return tx(l[0], l[1]);
+};
+const CAT = {
+  'defect': ['Blocked by a defect', '因缺陷受阻', 'They come back once the defect is fixed; <code>run-log.ts retest</code> lists the ones a failed gate or an earlier step blocked.', '缺陷修好後就能再跑；<code>run-log.ts retest</code> 會列出因關卡失敗或前一步失敗而受阻的案例。'],
+  'test-data': ['Test data the run can\'t set up', '本次無法準備的測試資料', 'They need an account, balance, fixture or setup this run can\'t provide. Ones marked "your rule" stay Blocked until you lift the rule.', '需要本次無法提供的帳號、餘額、測試資料或設定。標示「你的規則」的會一直受阻，直到你解除該規則。'],
+  'observability': ['Can\'t be observed', '無法觀察', 'They need a way to see the result that the app and Pink don\'t give; RD has to add a switch or fixture.', '需要看到 App 與 Pink 都沒有提供的結果；需要 RD 加上開關或測試資料。'],
+};
+// "TC-084, TC-085, TC-086" → "TC-084–086"
+const idRuns = ids => {
+  const ns = ids.map(i => [i, Number(i.match(/(\d+)$/)?.[1])]).sort((a, b) => a[1] - b[1]), out = [];
+  for (let i = 0; i < ns.length; i++) {
+    let j = i; while (j + 1 < ns.length && ns[j + 1][1] === ns[j][1] + 1) j++;
+    out.push(j > i ? `${ns[i][0]}–${ns[j][0].match(/(\d+)$/)[1]}` : ns[i][0]); i = j;
+  }
+  return out;
+};
+function renderBlocked(phases) {
+  const bs = phases.flatMap(p => p.skip || p.hold ? [] : p.segments.flatMap(s => s.cases.filter(c => c.why).map(c => ({ ...c, phase: p.id, seg: s.id }))));
+  const box = document.getElementById('blocked-box'); box.hidden = !bs.length; if (!bs.length) return;
+  const cats = {}; for (const c of bs) ((cats[c.disp || 'other'] ??= {})[c.why.group] ??= []).push(c);
+  const order = Object.keys(cats).sort((a, b) => Object.values(cats[b]).flat().length - Object.values(cats[a]).flat().length);
+  const catName = k => CAT[k] ? tx(CAT[k][0], CAT[k][1]) : k;
+  const n = k => Object.values(cats[k]).flat().length;
+  document.getElementById('blocked-h').textContent = tx(`Why ${bs.length} cases are Blocked`, `${bs.length} 個案例為何受阻`);
+  document.getElementById('blocked-lead').textContent = order.map(k => `${catName(k)}: ${n(k)}`).join(' · ');
+  const link = c => `<a href="#${esc(c.phase)}--${esc(c.seg)}" data-open="${esc(c.phase)}--${esc(c.seg)}">${esc(c.id)}</a>`;
+  document.getElementById('blocked').innerHTML = order.map(k => {
+    const groups = Object.entries(cats[k]).sort((a, b) => b[1].length - a[1].length).map(([g, cs]) => {
+      const need = g.startsWith('need:') ? g.slice(5) : '', why = need ? DATA.unavailable[need] || '' : '';
+      const rule = /\buser\b|REQ-\d+/i.test(why) ? ` <span class="tag">${tx('your rule', '你的規則')}</span>` : '';
+      const noted = cs.filter(c => c.why.note), plain = cs.filter(c => !c.why.note);
+      const bySeg = {}; for (const c of plain) (bySeg[c.seg] ??= []).push(c);
+      const idList = Object.entries(bySeg).map(([s, xs]) => `<span class="ids">${esc(s)}: ${idRuns(xs.map(c => c.id)).map(r => { const c = xs.find(x => x.id === r.split('–')[0]); return `<a href="#${esc(c.phase)}--${esc(s)}" data-open="${esc(c.phase)}--${esc(s)}">${esc(r)}</a>`; }).join(', ')}</span>`).join('<br>');
+      return `<li><b>${esc(whyLabel(g, k))}</b> <span class="num">· ${cs.length}</span>${rule}${why ? `<div class="detail">${esc(why)}</div>` : ''}${idList ? `<div>${idList}</div>` : ''}${noted.map(c => `<span class="case">${link(c)} <span class="detail">${esc(c.why.note)}</span></span>`).join('')}</li>`;
+    }).join('');
+    return `<div class="why-cat"><h3>${esc(catName(k))} <span class="n">${n(k)}</span></h3>${CAT[k] ? `<p class="clears">${tx(CAT[k][2], CAT[k][3])}</p>` : ''}<ul>${groups}</ul></div>`;
+  }).join('');
+}
+// A case link in the Blocked panel opens its segment.
+document.addEventListener('click', e => { const a = e.target.closest('a[data-open]'); if (a) { const d = document.getElementById(a.dataset.open); if (d) d.open = true; } });
 function phaseHtml(p, history) {
   const cs = p.segments.flatMap(s => s.cases), t = tally(cs);
   const state = p.skip ? ['skip', 'Skipped this round'] : p.hold ? ['hold', 'Deferred'] : t['Not run'] === 0 ? ['done', 'Done'] : t['Not run'] < cs.length ? ['active', 'In progress'] : ['pending', 'Pending'];
   const segs = p.segments.map(s => {
     const st = tally(s.cases), left = st['Not run'];
     const ss = p.skip ? ['skip', 'Skipped'] : left === 0 ? ['done', 'Done'] : left < s.cases.length ? ['active', 'In progress'] : ['pending', 'Pending'];
-    const rows = s.cases.map(c => `<tr><td class="id">${esc(c.id)}${c.origin ? ` <span class="eyebrow">${esc(c.origin)}</span>` : ''}${c.needs ? `<div class="eyebrow">${tx('needs', '需要')} ${esc(c.needs)}</div>` : ''}</td><td>${esc(c.section)}</td><td>${esc(c.action)}</td><td><span class="r ${esc(c.result.replace(' ', ''))}">${esc(resName(c.result))}</span>${c.disp ? ` <span class="eyebrow">${esc(c.disp)}</span>` : ''}${c.actual ? `<div class="actual">${esc(c.actual)}${c.at ? ` <span class="eyebrow">${esc(c.at)}</span>` : ''}</div>` : ''}</td></tr>`).join('');
+    const rows = s.cases.map(c => `<tr><td class="id">${esc(c.id)}${c.origin ? ` <span class="eyebrow">${esc(c.origin)}</span>` : ''}${c.needs ? `<div class="eyebrow">${tx('needs', '需要')} ${esc(c.needs)}</div>` : ''}</td><td>${esc(c.section)}</td><td>${esc(c.action)}</td><td><span class="r ${esc(c.result.replace(' ', ''))}">${esc(resName(c.result))}</span>${c.disp ? ` <span class="eyebrow">${esc(c.disp)}</span>` : ''}${c.why ? `<span class="why-row">${esc(whyLabel(c.why.group, c.disp))}</span>` : ''}${c.actual ? `<div class="actual">${esc(c.actual)}${c.at ? ` <span class="eyebrow">${esc(c.at)}</span>` : ''}</div>` : ''}</td></tr>`).join('');
     return `<details class="seg" id="${esc(p.id)}--${esc(s.id)}"${openSegs.has(`${p.id}--${s.id}`) ? ' open' : ''}><summary><span class="seg-id">${esc(s.id)}</span><span class="seg-name">${esc(s.name)}${statLine(s.stats)}</span><span class="seg-count num">${s.cases.length - left}/${s.cases.length} ${tx('recorded', '已記錄')}</span><span class="bar">${bar(st)}</span><span class="state ${ss[0]}">${stateName(ss[1])}</span></summary>
       <div class="cases"><table><thead><tr><th>${tx('Case', '案例')}</th><th>${tx('Section', '分區')}</th><th>${tx('Action', '操作')}</th><th>${tx('Result', '結果')}</th></tr></thead><tbody>${rows}</tbody></table></div></details>`;
   }).join('');
@@ -292,6 +376,7 @@ document.getElementById('meta').innerHTML = [
 document.getElementById('totalbar').innerHTML = bar(T);
 document.getElementById('legend').innerHTML = RES.map(r => `<span><i style="background:${COLOR[r]}"></i>${resName(r)} <span class="num">${T[r]}</span></span>`).join('');
 document.getElementById('phases').innerHTML = cur.map(p => phaseHtml(p, false)).join('');
+renderBlocked(cur);
 document.getElementById('history').hidden = !hist.length;
 document.getElementById('hist-sum').textContent = hist.length ? `${hist.map(p => p.id).join(', ')} · ${tx(`${hist.reduce((n, p) => n + p.segments.reduce((m, s) => m + s.cases.length, 0), 0)} cases`, `${hist.reduce((n, p) => n + p.segments.reduce((m, s) => m + s.cases.length, 0), 0)} 個案例`)}` : '';
 document.getElementById('hist-phases').innerHTML = hist.map(p => phaseHtml(p, true)).join('');

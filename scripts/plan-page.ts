@@ -239,12 +239,27 @@ function buildData() {
   });
   const allTok = sumU(roundOut.map(r => r.tokens));
 
+  // Why a case is Blocked, as a group key plus a short note: "need:<n>" (recorded Blocked up front by `init`),
+  // "gate:<n>" (a failed gate such as the video preflight), "upstream" (an earlier case failed) or "other". A run
+  // folder's blocked-reasons.json ({ "<case>": { "group"?: "need:chat-count", "label"?: "<own group>", "note"?: "…" } })
+  // regroups cases the text can't place.
+  const overrides: Record<string, Record<string, { group?: string; label?: string; note?: string }>> = {};
+  const override = (run: string) => overrides[run] ??= (f => existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')) : {})(join(runsDir, run, 'blocked-reasons.json'));
+  const gist = (s: string) => { const m = s.match(/^.{20,}?(?=: | — |(?<!\d)\. |; )/); const g = m ? m[0] : s; return g.length > 160 ? g.slice(0, 159) + '…' : g; };
+  const why = (id: string, l: { actual: string; run: string }) => {
+    const o = override(l.run)[id] ?? {}, a = l.actual;
+    const need = a.match(/^Not run by policy: needs ([\w-]+)/)?.[1];
+    const gate = a.match(/\bgate (\w+) failed|\b(\w+) gate failed|^Needs a (video) in progress/i)?.slice(1).find(Boolean)?.toLowerCase();
+    const group = o.label ? `label:${o.label}` : o.group ?? (need ? `need:${need}` : gate ? `gate:${gate}` : /^Upstream|\bUpstream TC-|\(TC-\d+\)/.test(a) ? 'upstream' : 'other');
+    return { group, note: o.note ?? (group === 'upstream' || group === 'other' ? gist(a) : '') };
+  };
+
   const plan = readFileSync(planPath, 'utf8');
   const log = (plan.split(/^## Log\s*$/m)[1] ?? '').split('\n').filter(l => l.startsWith('- ')).map(l => l.slice(2).replace(/\*\*/g, ''));
   const short = (s: string, n = 120) => s.length > n ? s.slice(0, n - 1) + '…' : s;
   const data = {
     feature: manifest.title ?? feature, version: manifest.version ?? '?', totalCases: Object.keys(cases).length,
-    build: build || '?', generated: new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC',
+    build: build || '?', unavailable: phasesFile.unavailable ?? {}, generated: new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC',
     phases: phases.map((p: any) => ({
       id: p.id, name: p.name, current: currentIds.has(p.id), note: p.note ?? '', skip: p.skip ?? '', hold: p.hold ?? '', runDir: phaseRun[p.id] ?? '', stats: pub(stat[p.id]),
       wrapUp: pub(stat[`${p.id}/wrap-up`]),
@@ -252,6 +267,7 @@ function buildData() {
         const runName = (phaseRun[p.id] ?? '').replace(/^runs\/|\/$/g, '');
         const l = p.round ? byRun[runName]?.[id] : latest[id];
         return { id, origin: p.origin?.[id] ?? '', needs: (phasesFile.needs?.[id] ?? []).join(' '), section: cases[id]?.Section ?? '', action: short(cases[id]?.Action ?? ''), result: l?.result ?? 'Not run', disp: l?.disp ?? '', actual: short(l?.actual ?? '', 400),
+          why: l?.result === 'Blocked' ? why(id, l) : undefined,
           at: l?.at ? new Date(l.at).toISOString().replace('T', ' ').slice(0, 16) + ' UTC' : '' };
       }) })),
     })),
