@@ -91,6 +91,8 @@ to a personal memory store; feature-specific run details go in the skills or the
   read), since Codex does not promise a subagent starts without the parent's history. If no subagent or session
   tool is available, it stops after the section's checkpoint and asks the user to open a new chat, giving the
   one-line brief to paste (skill: "Keep going without asking").
+- **Commit and push (user, 2026-10-27).** "Commit and push" (or "push") means push to `origin` right after the
+  commit, with no second confirmation; a plain "commit" stays local.
 - **Parallel phones: investigate only.** Running segments on several iPhones at once is an open idea in
   `INVESTIGATE.md`; do not build multi-device support without asking.
 - **Plan usage (2026-10-21).** The account is shared, and other people's use on other machines is invisible to the
