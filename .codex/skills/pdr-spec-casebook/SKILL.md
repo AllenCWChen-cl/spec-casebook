@@ -442,7 +442,7 @@ own phase, kept in results.csv's Phase column and split out in the report), the 
   contexts keep usage down and thinking clear, so a segment never continues in a context that already ran another one.
   A chat cannot clear its own context, but a subagent always starts with a clean one, so the chat the user talks to is
   the orchestrator and runs every segment as a subagent, one at a time: for each segment it calls the Agent tool
-  (general-purpose; wait for it to finish, in the foreground or through its completion notice, before the next) with
+  (Codex: spawns one new native subagent per segment and closes it after its reply; general-purpose; wait for it to finish, in the foreground or through its completion notice, before the next) with
   the one-line brief "Resume casebook run
   <run dir> (or start phase <Pn>) per <RUN-PLAN>: read the plan, run-state.md and `run-log.ts <run dir> next`;
   follow the pdr-spec-casebook skill; do exactly one segment, then pull and slice the logs, checkpoint, update the
@@ -456,7 +456,10 @@ own phase, kept in results.csv's Phase column and split out in the report), the 
   boundary, or a blocker that stops every remaining case; a subagent that hits one stops and says so in its reply.
   Fallback when subagents are not available: one worker session that the orchestrator clears (`clear_session`) and
   re-briefs after each segment (a session cannot start another session from a turn that another session's event
-  began, but it can clear and message one it already started).
+  began, but it can clear and message one it already started). When neither subagents nor session tools are
+  available, never run the next segment in the same chat: after the segment's
+  checkpoint, stop and ask the user to open a new chat for the next segment, with the one-line brief above to paste
+  (user, 2026-10-27).
 - **Resuming** (after a reset, a usage-limit stop or a crash) starts with `device.ts <run dir> status` and
   `run-log.ts <run dir> next`, then a screenshot to confirm the phone matches the last checkpoint. Never redo recorded
   cases; Inconclusive ones are re-run from the recovery queue at the end of their segment.

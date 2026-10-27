@@ -83,6 +83,14 @@ to a personal memory store; feature-specific run details go in the skills or the
   with `device.ts restart` (fresh WDA, app back in front); never uninstall WDA or use `useNewWDA` (the phone then
   drops its trust in the QA certificate). `device.ts` exit 75 = BLOCKER (locked phone or untrusted certificate): the
   orchestrator pushes a notification to the user with the BLOCKER line instead of waiting silently.
+- **One section per context (user, 2026-10-27).** Every run in this repo works section by section (a run segment, a
+  phase wrap-up, a board group of a large analysis), and no section continues in a context that already ran another.
+  The chat the user talks to only orchestrates: it runs each section as a new subagent (Claude Code: Agent tool;
+  Codex: its native subagents, one new agent per section, closed when done), one at a time unless the skill says
+  parallel, else in a worker session it clears and re-briefs. Briefs are self-contained (run dir, plan, files to
+  read), since Codex does not promise a subagent starts without the parent's history. If no subagent or session
+  tool is available, it stops after the section's checkpoint and asks the user to open a new chat, giving the
+  one-line brief to paste (skill: "Keep going without asking").
 - **Parallel phones: investigate only.** Running segments on several iPhones at once is an open idea in
   `INVESTIGATE.md`; do not build multi-device support without asking.
 - **Plan usage (2026-10-21).** The account is shared, and other people's use on other machines is invisible to the
