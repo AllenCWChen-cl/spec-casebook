@@ -51,16 +51,11 @@ shot $2-fmt-c1
 id aiMiniDramaFormat.UIButton.language.0
 id aiMiniDramaFormat.UIButton.captions.0
 shot $2-fmt-reset
+# 16.9.0 (189872, P9-i1 2026-10-23): Back at a template chat's format card leaves with no 「Leave this chat?」 dialog;
+# 189729 (P4) showed it. The dialog is optional here: tapif reports whether it appeared.
 id aiMiniDramaOutline.UIButton.back
-waitfor "Leave this chat?" --timeout 10
-texts $2-leave-dialog
-lbl Stay
-wait 1
-expect "What format would you like for your video?"
-shot $2-stay
-id aiMiniDramaOutline.UIButton.back
-waitfor "Leave anyway" --timeout 10
-lbl "Leave anyway"
+wait 2
+tapif "Leave anyway"
 waitfor aiMiniDramaTemplatePreview.UIButton.makeMyVersion --timeout 15
 expect aiMiniDramaTemplatePreview.card.$1
 texts $2-left

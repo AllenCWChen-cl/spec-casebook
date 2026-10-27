@@ -1,0 +1,54 @@
+Filing as Creator: ETHAN_HSU
+  Creator verified — last filed DRI261897P0025 on 2026-10-21
+Format check: PDR-I 16.9.0
+
+20 bug(s) checked — 0 error(s), 0 warning(s)
+Format OK — clear to file.
+
+[AI-Mini-Drama-P9-01] created DRI261898P0001
+  DRI261898P0001  sev 3  RD  NewCreated  build 189872  by ETHAN_HSU
+[AI-Mini-Drama-P9-02] created DRI261898P0002
+[AI-Mini-Drama-P9-03] created DRI261898P0003
+[AI-Mini-Drama-P9-06] created DRI261898P0004
+[AI-Mini-Drama-P9-07] created DRI261898P0005
+[AI-Mini-Drama-P9-08] created DRI261898P0006
+[AI-Mini-Drama-P9-09] created DRI261898P0007
+[AI-Mini-Drama-P9-10] created DRI261898P0008
+[AI-Mini-Drama-P9-12] created DRI261898P0009
+[AI-Mini-Drama-P9-13] created DRI261898P0010
+[AI-Mini-Drama-P9-14] created DRI261898P0011
+[AI-Mini-Drama-P9-15] created DRI261898P0012
+[AI-Mini-Drama-P9-16] created DRI261898P0013
+[AI-Mini-Drama-P9-17] created DRI261898P0014
+[AI-Mini-Drama-P9-18] created DRI261898P0015
+[AI-Mini-Drama-P9-19] created DRI261898P0016
+[AI-Mini-Drama-P9-20] created DRI261898P0017
+[AI-Mini-Drama-P9-21] created DRI261898P0018
+[AI-Mini-Drama-P9-23] created DRI261898P0019
+[AI-Mini-Drama-P9-24] created DRI261898P0020
+
+created 20 · skipped 0 · failed 0
+
+Read-back (Status: OK is not proof — Version has been seen not to persist):
+  DRI261898P0001  sev 3  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0002  sev 2  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0003  sev 3  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0004  sev 2  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0005  sev 3  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0006  sev 3  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0007  sev 3  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0008  sev 3  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0009  sev 3  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0010  sev 2  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0011  sev 2  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0012  sev 3  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0013  sev 3  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0014  sev 3  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0015  sev 3  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0016  sev 3  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0017  sev 3  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0018  sev 3  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0019  sev 3  RD  NewCreated  build 189872  by ETHAN_HSU
+  DRI261898P0020  sev 3  RD  NewCreated  build 189872  by ETHAN_HSU
+
+Attachments are NOT part of create — upload them with `ecl_if3.py upload <BugCode> <files…>` (SKILL.md → IF3 attachments over the API).

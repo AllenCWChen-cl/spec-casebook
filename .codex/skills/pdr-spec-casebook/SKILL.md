@@ -31,7 +31,8 @@ repo or any other QA tool. A later request may ask to turn exploration findings 
 a normal draft (new rows, `Change` = `new`, the finding named in `Notes`) and send it through review like any
 other change. Never push anything the other way. Requests the user made elsewhere (for example to the spec agent)
 reach the casebook only as entries in the feature's `requests.md`; the one-time import of 2026-10-21 is recorded
-there.
+there. One exception: the spec agent cross-check (standing input 6) reads the spec agent's committed cases as data
+through `scripts/spec-agent-gaps.ts` (git only, never its working tree).
 
 ## Workflow
 
@@ -62,9 +63,12 @@ node scripts/fingerprint.ts <feature> <platform> <spec files...>
 1. `node scripts/new-draft.ts <feature> <platform> --title "<Feature name>" <spec files...>` → copies the spec set to
    `library/<feature>/specs/<date>/` (or reuses an identical set) and prints the draft folder.
 2. Read every spec file completely, following **Reading the spec** below, then run the **Coverage passes** and
-   apply the **Standing inputs**. Write `requirements.md` in the draft folder (format below).
+   apply the **Standing inputs**. Write `requirements.md` in the draft folder (format below), trace every
+   annotation against it (Reading the spec, step 9), then run the spec agent cross-check (standing input 6) as a
+   backstop.
 3. Run the **Value check**, then write `draft.csv` in the draft folder (format below), every row `Change` = `new`.
-   List what the value check left out in `update-plan.md` under "Not added" (a new table has no other plan sections).
+   List what the value check left out in `update-plan.md` under "Not added", and the spec agent gaps under "Spec agent
+   cross-check" (a new table has no other plan sections).
 4. `node scripts/check.ts <feature> <platform> --draft <id>`; fix every error.
 5. Step 4 (review).
 
@@ -75,8 +79,9 @@ TypeScript (`build-draft.ts`, as in `ai-mini-drama/ios/drafts/20261021-150855/`)
 
 1. `node scripts/new-draft.ts ...` as above (it records which approved version the draft updates).
 2. Read the new spec files completely, run the **Coverage passes** and apply the **Standing inputs** (the request
-   ledger, tickets and build notes change between updates even when the spec does not), and write the new
-   `requirements.md`. **Keep the ID of every requirement that still exists** (same meaning, even if reworded); give
+   ledger, tickets, build notes and the spec agent's cases change between updates even when the spec does not), and
+   write the new `requirements.md`, then trace every annotation against it (Reading the spec, step 9; traces of
+   unchanged blocks carry over, so only new or changed blocks need a decision). **Keep the ID of every requirement that still exists** (same meaning, even if reworded); give
    new requirements new IDs after the highest existing one; never reuse a removed ID. A new draft on the same spec
    set (e.g. after new requests or a new build) follows this step too: `new-draft.ts` reuses the spec folder.
 3. Compare with the approved `library/<feature>/<platform>/requirements.md` and write `update-plan.md` in the
@@ -84,8 +89,14 @@ TypeScript (`build-draft.ts`, as in `ai-mini-drama/ios/drafts/20261021-150855/`)
 4. Run the **Value check**, then write `draft.csv`: every approved row, marked `unchanged`, `modified` (row text
    updated to the new spec) or `removed` (kept in the draft so the reviewer can confirm the removal), plus `new` rows. Every non-`unchanged`
    row gets a one-line `Change Reason` naming the requirement change. Keep existing case IDs; new cases continue
-   the numbering; never renumber.
-5. Show the user the plan summary in chat (counts plus the notable changes and open questions) and ask them to
+   the numbering; never renumber. **Placement and old rows (user, 2026-10-22, REQ-033):** put a new row right after
+   the row it extends, or where its journey step falls in its Section, not at the Section's end (the review page and
+   the exports keep file order, so IDs may run out of sequence); move rows an earlier draft appended to where they
+   belong. When a new rule is checked on the same screen with the same setup as an old row, modify that row
+   (`modified`, reason) instead of adding one. Both are fine between rows that already ran; a changed row is re-run
+   in the next round. After every analysis, check whether the order of rows and of the run should change.
+5. Show the user the plan summary in chat (counts, the notable changes, the spec agent gaps added and left out, and
+   open questions) and ask them to
    go ahead with the review. Then `check.ts` and step 4.
 
 ### 4. Human review
@@ -165,6 +176,19 @@ and look at the tile images where layout, arrows or states matter.**
    `check.ts` fails a label with an empty `read`. A Figma-only frame is part of the spec like any other frame and is
    dated by its label.
 
+9. **Trace every annotation (user, 2026-10-22, REQ-032).** Reading board by board skips lines: the PM note
+   「只送 crop 後的圖」 was read by OCR (low-confidence) and never became a requirement. After `requirements.md` is
+   written, run `node scripts/annotations.ts <feature> <platform> --draft <id>` (`--skip <board prefixes>
+   --skip-reason "<why>"` for boards that are not part of the current spec, e.g. superseded MX versions). It groups the
+   annotation lines of every board (Chinese text or • bullets, OCR noise dropped) into blocks and writes
+   `<draft>/annotation-trace.json`. Trace each block: `R-…` when the requirements state **every clause** of it (a
+   condition, a number, "only", "per tier", "remote-configured" are clauses), else add the missing requirement and
+   trace to it; `label: …`, `ui: …`, `older: <newer source>` or `Q-n` otherwise. Look at the tile, or render a
+   close-up, for a low-confidence block whose meaning matters. Large sets go to parallel subagents by board group,
+   each writing its own part file, merged afterwards. Traces carry over to the next draft for blocks whose text is
+   unchanged, so an update only traces new or changed blocks. `check.ts` fails an untraced block or a trace that
+   names a missing requirement.
+
 ## Coverage passes (user, 2026-10-21)
 
 Reading board by board finds what is drawn; these passes find what the spec states but a reading skips. Run them on
@@ -220,6 +244,22 @@ and return, waits), which apply to every job.
    asks first」) applies to every exit the spec says is equivalent (Design 1016: 「任何階段都適用」). `check.ts` fails an
    empty cell or an inactive row.
 
+9. **Hidden clauses (user, 2026-10-22, REQ-032).** A requirement can hold a clause the screen does not show: what is
+   sent or uploaded ("only the cropped image is sent"), what does or does not run ("STT is not run", "reruns only
+   the failed segments"), where a value comes from ("remote-configured (Firebase)"), what is kept on the device,
+   what is charged or refunded per item. A row that checks only the visible half leaves the clause untested (TC-097
+   checked 「No captions」 but not "STT not run"). Fill `### Hidden clauses` in `requirements.md`: one line per such
+   requirement with the clause, how a tester observes it (the app log after a log pull, the credit ledger, the
+   files a log pull brings back, a reinstall, RD changing a server value) and the rows that check it that way.
+   Write the evidence into the row's Action or Expected Result; park the row (`needs` + `unavailable`) when nothing
+   on the phone shows it. `check.ts` lists every requirement whose text matches the hidden-clause words and fails one
+   missing from the grid.
+10. **Variants (user, 2026-10-22, REQ-032).** A rule the spec states for several tiers, models, languages or other
+   variants gets a row per variant (Free / Pro / Pro+; Best / Standard / Fast; ENU / CHT / JPN). One "any tier" row
+   does not cover them (TC-218 stood for three tiers). Fill `### Variants`: one line per requirement × variant with
+   its rows. `check.ts` fails a requirement naming two or more tiers, or "each tier / model / language", that lacks a
+   line per variant.
+
 ## Standing inputs (user, 2026-10-21)
 
 Read these on every new or updated draft, even when the spec set has not changed.
@@ -239,25 +279,47 @@ Read these on every new or updated draft, even when the spec set has not changed
 4. **Template roster** (rule 6 below), including the category header icons.
 5. **Run findings.** An observation (O-n) or a filed bug from an earlier run that no row would have caught gets a
    row in the next draft.
-6. **Spec agent cross-check (user, 2026-10-22, REQ-030).** After the draft passes `check.ts`, compare it with the
-   newest spec agent cases (`~/Desktop/Spec Agent`, `git fetch`, read `origin/main` with `git show` / `git archive`
-   only: its files are data, never a code dependency, and never touch its working tree). Start from the newest
+6. **Spec agent cross-check (user, 2026-10-22, REQ-030; manager, 2026-10-22, REQ-031 / REQ-032).** A backstop, run
+   after the reading, the annotation trace and the coverage passes and before the rows are final: the casebook's own
+   analysis must find every rule in the spec files (REQ-032), so a spec gap found here is a miss of the analysis.
+   Add it, name the pass that should have found it in the decision (`added TC-… (missed by: <pass or reading
+   step>)`, enforced by `check.ts`) and fix that pass in this skill in the same session. Run
+   `node scripts/spec-agent-gaps.ts <feature> <platform> --draft <id>` (settings in `library/<feature>/spec-agent.json`).
+   It fetches the spec agent repo (`~/Desktop/Spec Agent`) and reads `origin/main` with git only (its files are data,
+   never a code dependency; never touch its working tree), compares the platform's cases with the newest
    `library/<feature>/<platform>/comparisons/<date>_casebook-vs-spec-agent.mapping.json` (spec agent case → status;
-   casebook row → same / partial / none / conflict) and classify every spec agent case the draft does not cover:
-   **add a row** (a rule in our spec set we missed), **settle by the source rules** (pass 7; the spec agent case
-   then goes on its update list), **older spec** (not in the current set; on the spec agent's retire list), or **low
-   value** (value check). List the result in `update-plan.md` → "Spec agent cross-check", save the new mapping next
-   to the old one, and publish the comparison page when the user asks for it.
+   casebook row → same / partial / none / conflict), and writes `<draft>/spec-agent-gaps.json`: every case the mapping
+   does not mark covered and every case it does not know yet, with its source taken from the case file (`spec` = a PM,
+   Design, Figma or MX file; `request`; `build` = an RD note; `casebook`; `other`). Fill each gap's `decision`:
+   - **`added TC-… (missed by: <pass>)`**: required for every gap whose rule is in our spec files (manager, REQ-031). Confirm the rule in
+     the current spec set first (board notes, OCR, a render when the OCR is low-confidence); a rule our reading missed
+     goes into board-notes too. The value check does not apply to these: a per-tier copy gets its own row, server
+     behaviour the spec states is checked through the app log (or the stored files a log pull brings back) and is
+     parked (`needs` + `unavailable`) when nothing on the phone shows it.
+   - **`covered TC-…`**: an existing row already checks it (the mapping was stale).
+   - **`older spec: <reason>`**: the rule is not in the current spec set; it goes on the spec agent's retire list.
+   - **`pass 7: <reason>`**: our spec set states it differently and the source rules decide; it goes on the spec
+     agent's update list.
+   - **`not from the spec: <reason>`** / **`low value: <reason>`**: only for gaps whose source is not a spec file (user
+     requests already in the ledger or not, RD build notes, exploratory charters).
+   List every gap with its decision in `update-plan.md` → "Spec agent cross-check" (spec gaps first) and show the
+   counts in the plan summary. `check.ts` fails a draft with no gaps file, an undecided gap, a spec gap decided "low
+   value" / "not from the spec", an `added` / `covered` naming no active row, or a gap missing from the plan. After
+   review, save the new mapping next to the old one (the added cases as `cov`) and publish the comparison page when
+   the user asks for it.
 
 ## Value check (user, 2026-10-21)
 
 After the passes and inputs, before writing rows. List everything left out in `update-plan.md` → "Not added", one
-line each with the reason, so the reviewer can overrule it.
+line each with the reason, so the reviewer can overrule it. Never use it to leave out a spec agent case derived from
+the spec files (standing input 6, REQ-031).
 
-1. **Merge** rows that check the same thing: per-tier or per-variant copies, and a regression ticket that repeats a
-   case, including a case added in the same draft (fold the ticket into that case's Notes).
+1. **Merge** rows that check the same thing: a regression ticket that repeats a case, including a case added in the
+   same draft (fold the ticket into that case's Notes). Never merge the variants of a spec rule (pass 10): each tier,
+   model or language the spec names keeps its own row.
 2. **Drop** characterizations (record what happens, no expected result) and server behavior a tester cannot see in
-   the app (which segments a retry reruns, what was uploaded).
+   the app, unless the spec states it: a stated server rule (which segments a retry reruns, what was uploaded) is a
+   row checked through the app log, parked when no log shows it (manager, 2026-10-22, REQ-031).
 3. **Retire** build checks that passed on two builds and regression rows whose ticket is closed (mark them
    `removed` with the reason).
 4. **Park, don't drop,** rows that need a fixture the run cannot provide (purchase, new account, finite chat limit,
@@ -349,6 +411,14 @@ Phases whose cases need the same journey stages may be **merged** (user, 2026-10
 ordered by stage so each drama is walked once): the merged phase lists its own segments plus `origin` (each case's
 own phase, kept in results.csv's Phase column and split out in the report), the original phases carry `merged_into`
 (`run-log init` refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows/`.
+- **Rounds (user, 2026-10-22, REQ-033 / REQ-034).** Rows added or changed by a draft never run only as an appended
+  phase: the next round's phase lists them in the stage segments where they belong. A round phase carries
+  `"round": true` and `origin` (each row's earlier phase; `P9` style ID for rows new in that draft); `plan-page.ts`
+  then shows only results, time and tokens from that phase's own run folder, so a re-run row never shows its old
+  result. Phases that never ran get `merged_into` the round. A **full run** (AI Mini Drama round 3 = P9) lists every
+  row, by journey stage (regression and flow rows keep the stage their merged phase gave them, templates run after
+  everything but the fresh-install cases), in segments of at most 40; record the usage snapshots and the time and
+  token summary below at every segment, so the round reports actual execution time and tokens.
 - **Needs, policy blocks and the gate (user, 2026-10-20).** `phases.json` tags cases with `needs` (`video`,
   `purchase`, `low-balance`, `new-account`, `chat-count`, `voice`, `system-setting`, `app-language`) and lists the
   needs this run cannot meet under `unavailable` with the reason. `run-log init` records those cases Blocked
@@ -417,16 +487,25 @@ own phase, kept in results.csv's Phase column and split out in the report), the 
 - **Live run plan (user, 2026-10-20).** `node scripts/plan-page.ts <feature> <platform> <draft id> <RUN-PLAN.md> --serve`
   serves http://127.0.0.1:4390/, rebuilt from phases.json, every run folder's results.csv and run-state.md and the plan's
   Log on each request; the page polls every 10 s, so each `run-log.ts set` appears live with no extra worker step. It is
-  a local process like the review server: start it once per run, never stop it unless asked. Without `--serve` the
+  a local process like the review server: start it once per run, never stop it unless asked. **The page leads with
+  the current run (user, 2026-10-22):** header totals, next case, the phases, their time and usage table, checkpoints
+  and the Log cover only the current run (`phases.json` → `"current": [ids]` when set, else the newest `"round": true`
+  phase and every phase after it, else all phases); earlier runs follow under 「Earlier runs」, in the order they ran (first
+  segment on top), with their own time and usage table and their phases collapsed. When a new draft or plan takes over, restart the server on it
+  (`plan-page.ts <feature> <platform> <new draft> <new plan> --serve`) so its run is the one at the top. An English / 中文
+  toggle (user, 2026-10-27) switches everything the page writes itself (labels, states, result names, table headings,
+  the usage notes) and is remembered per browser; run data (actions, notes, results text, log) stays as written. A new
+  label or note in `plan-page.tpl` gets its Chinese too (`tx(en, zh)` in the script, `data-zh` on fixed HTML). Without `--serve` the
   script writes the static `runs/plan.html` (data inline, no fetch or polling: for publishing as an artifact). It
   binds 127.0.0.1; `--lan` binds 0.0.0.0 and prints the LAN URLs (no auth: only when the user asks). It also shows
   wall / test / idle time, Claude tokens and plan usage per phase, segment, wrap-up and round (consecutive phases on
   one seat size), as % of a 1× Pro user's limits. The main figure is "est. from token rate": the row's weighted
   tokens (input 1, cache write 1.25, cache read 0.1, output 5) × a rate calibrated in `runs/usage-calibration.json`
   (`{ "basis": "P1", "fiveHourPct": 300, "seat": 1, "source": "…", "weekPerFiveHour": null }`; rate = fiveHourPct
-  × seat ÷ the basis phase's weighted tokens; user, 2026-10-21: P1 ≈ three 1× Pro 5-hour windows), plus "= N% of a
-  6.25× seat" for rows on a Team seat. Weekly (rough) = that × weekPerFiveHour, or when null × the weekly ÷ 5-hour
-  ratio of the latest seat's readings. "Account total (shared)" (snapshot increments while the run was active,
+  × seat ÷ the basis phase's weighted tokens; user, 2026-10-21: P1 ≈ three 1× Pro 5-hour windows), plus "= N% of an
+  N× seat" for rows on a Team seat (6.25× in round 2, 1.25× from round 3). Weekly (rough) = that × weekPerFiveHour, or when null × the weekly ÷ 5-hour
+  ratio of the latest seat's paired readings (consecutive snapshots that both carry a 5-hour and a weekly value in the
+  same windows; 10/22: counting a new account's first reading, 95% weekly from other work, made the ratio 1.70). "Account total (shared)" (snapshot increments while the run was active,
   Pro-% = plan-% × the snapshot's seat size) stays as a muted upper bound: other users of a shared account (another
   machine, claude.ai, the apps) are invisible to the transcripts, so neither it nor a token-ratio share can isolate
   the run. The page notes the calibration source, the same-model assumption and each round's output tokens per
@@ -440,7 +519,7 @@ own phase, kept in results.csv's Phase column and split out in the report), the 
   reported as percentUsed, so at each segment start and end the orchestrator reads the app's usage card and runs
   `node scripts/usage-log.ts <runs dir> <5-hour %> <5-hour resetsAt> <weekly %> <weekly resetsAt> [note]` (`-` for an
   unknown value, `--at <ISO>` to backfill, "approximate" in the note when estimated, `--seat N` = the account's seat
-  size in Pro units, stored as `proMultiplier`: Team seat 6.25, Pro 1; default the previous snapshot's; never guess
+  size in Pro units, stored as `proMultiplier`: Team seat 6.25 (round 2) or 1.25 (round 3, from 2026-10-22), Pro 1; default the previous snapshot's; never guess
   it) → `runs/usage.jsonl`. When a run moves to another account, log an account marker (all four values `-`, the new
   `--seat`, at the switch time). The plan page sums positive increments per window (new resetsAt, a drop or a seat
   change = new window from 0; a 100% stop with no reset time = one full window) and splits each between the
@@ -450,14 +529,42 @@ own phase, kept in results.csv's Phase column and split out in the report), the 
   `logs/<case ID>-<YYYYMMDD-HHMMSS>/` (pulled app logs, git-ignored) and `ledger/<case ID>-<time>.json` (credit ledger
   reads). Nothing goes to ~/Downloads, AirDrop or a share target.
 
-1. `node scripts/device.ts <run dir> status` — reuse a live session; `start <udid>` only if none. Never stop Appium
-   or WDA. Taps are in points (screenshot pixels ÷ 3 on the 3× phones).
+1. `node scripts/device.ts <run dir> status` — reuse a live session; `start <udid>` only if none. Never stop Appium;
+   WDA is restarted only through `device.ts restart`. Taps are in points (screenshot pixels ÷ 3 on the 3× phones).
+   **Keeping WDA alive (user, 2026-10-27).** P9 lost its last segment on 10/23 09:57: the one WDA process had served
+   18.5 hours (~22,000 element searches, ~4,400 page sources), died on the phone mid-poll, the phone then auto-locked,
+   and every relaunch failed (xcodebuild code 70 「may need to be unlocked…preparation errors」) until the user came
+   back; by 10/27 the phone also no longer trusted the developer certificate (code 65). So:
+   - **Before a run** the user sets the iPhone's Auto-Lock to Never (Settings › Display & Brightness) and keeps it on
+     the USB cable (a system setting: the user does it); the run plan's setup records it.
+   - **Every segment starts with `device.ts <run dir> restart`**: it ends the session, stops this phone's xcodebuild
+     and launches a fresh WDA, then brings PowerDirector back to the front, so no WDA serves more than one segment.
+     `status` prints how long WDA has been up. Never use `useNewWDA` or uninstall WDA: removing the last app signed by
+     the QA certificate drops the phone's trust in it.
+   - `device.ts` recovers by itself once per command when WDA vanishes (socket hang up, connection refused, dead
+     session): restart, re-activate PowerDirector, retry. When WDA cannot launch it prints `BLOCKER (device): …`
+     with the fix (unlock and replug, or trust the certificate) and exits 75. A segment subagent that gets exit 75
+     stops and puts the BLOCKER line in its reply; the orchestrator then sends the user a push notification with that
+     line (they are usually away) and waits, rather than letting the run sit unnoticed.
+   - `start` launches the WDA already installed on the phone (`usePreinstalledWDA`: devicectl with
+     terminate-existing, so every new session is a fresh WDA process, no xcodebuild). Appium uninstalls WDA after a
+     failed xcodebuild launch, and with it the certificate's entry under VPN & Device Management, so the user could not
+     trust it (10/27); the preinstalled mode never uninstalls. If WDA is missing from the phone:
+     `device.ts <dir> install-wda` (the newest `WebDriverAgentRunner-Runner.app` in Xcode's DerivedData, signed by the
+     QA team LR55RBG94F), then the user trusts the certificate once. The signing caps (`xcodeOrgId` LR55RBG94F,
+     `Apple Development`, bundle `com.cyberlinkqa1-4.WebDriverAgentRunner`, as the AT_PDRi suite uses) stay set for the
+     xcodebuild mode (`PDR_WDA_PREINSTALLED=0`). Point `APPIUM_LOG` at the Appium server's log so the BLOCKER names
+     the exact cause.
+   - **Device troubleshooting is not run time (user, 2026-10-27).** Debug WDA or the phone in a separate folder
+     (`runs/_wda-debug-<date>/`, no results.csv, so the live plan page ignores it), never in a phase's run folder:
+     every `device.ts` call stamps that folder's `activity.log`, and its windows decide which tokens and time count as
+     the run's. Commands that slipped into a run folder are moved out (10/27: four debug calls moved from P9).
 2. `node scripts/run-log.ts <run dir> init <cases.csv> --phase <draft>/phases.json <phase id, e.g. P1, P23>`, then record every case as it is exercised:
    `set <ID> <Pass|Fail|Blocked|Inconclusive|Not run> "<what was seen>" [--as <disposition>] screenshots/<file>.png …`
    (rule 4). Quote on-screen strings exactly. `summary` shows the tally; the run is complete only at 0 Not run and
    an empty Inconclusive queue.
 3. Useful device commands: `shot`, `els [filter]`, `source`, `logs [ID]`, `ledger [ID]`, `tap`, `hold`, `drag`, `id`, `lbl`, `type`,
-   `setval <id> <text>` (fast long input, e.g. 1,050 characters), `clear <id>`, `hidekb`, `burst X Y [n]`
+   `pinch X Y FROM TO [ms]` (two-finger zoom, e.g. Crop), `setval <id> <text>` (fast long input, e.g. 1,050 characters), `clear <id>`, `hidekb`, `burst X Y [n]`
    (rapid taps), `scrollto "<exact name>" [X TOP BOTTOM]`. Setting the clipboard is not possible on a real device, so
    paste cases are typed instead and the result says so.
    **Scripts over hand-driving (user, 2026-10-20).** Every tool call re-reads the whole context, so round trips are
@@ -586,6 +693,8 @@ Spec: <file names>
 ### Job states            one grid, rows = jobs, columns = states; cells = TC IDs or "n/a (<reason>)"
 ### Error classes         one grid, rows = jobs, columns = 4xxx / 5xxx / 6xxx …; same cell rules
 ### Exit × stage          one grid, rows = stages, columns = exits; same cell rules
+### Hidden clauses        | Requirement | Hidden clause | Observed through | Rows |   (pass 9)
+### Variants              | Requirement | Variant | Rows |   one line per variant (pass 10)
 ### Flow arrows walked by existing rows
 - R-150 [DS: flow arrow <node> <Figma URL>] <from → to>: <expected>. Walked by: TC-033.
 ### Build checks
@@ -627,7 +736,8 @@ Writing rules (the table must be usable by a tester who has not read the spec):
 - One check per row: one action (or a short numbered sequence for one outcome) and the outcome to verify.
   Put setup in Precondition, not in Action.
 - Section = the spec's own feature area, in user-journey order (entry → main flow → edge cases → errors →
-  settings / history). Rows are sorted by Section, then ID.
+  settings / history). Rows are grouped by Section and follow the user journey inside it, so a later row can sit
+  between earlier ones (REQ-033); IDs keep their numbers and need not be in sequence.
 - ID: `TC-001`, `TC-002`, ... unique within the table, never reused.
 - Priority: `P1` main flow and anything that blocks it or costs money/credits; `P2` secondary features and
   error handling; `P3` copy, cosmetic and rare edge cases.
@@ -652,12 +762,18 @@ Writing rules (the table must be usable by a tester who has not read the spec):
 - Modified (n): TC-… what changes and why
 - Removed (n): TC-… which requirement was removed
 - Unchanged: n
+## Found by the analysis
+- Annotation trace: blocks traced (n), new requirements R-… → rows TC-…
+- Pass 9 hidden clauses / pass 10 variants / other passes: R-… → TC-… one line each
 ## Not added (value check)
 - <case or requirement>: <merge / drop / retire / older spec / park> — <reason>
 ## PM-only rows
 - TC-… (PM <board>): no Design frame yet / Design now draws it → modified / Design removed it → removed
 ## Spec agent cross-check
-- <spec agent case>: covered by TC-… / added TC-… / settled by pass 7 → spec agent update / older spec → retire / low value
+Spec agent <commit> (<n> cases) against <mapping>; <n> gaps (spec-agent-gaps.json). Every gap, spec gaps first:
+- <spec agent case> [<source kind>: <source file>] <claim> → added TC-… / covered TC-… / older spec: … / pass 7: … /
+  not from the spec: … / low value: … (the last two only for gaps not from the spec files); a spec gap names the
+  pass that missed it
 ## Questions for PM
 - Q-n <conflict or gap only PM can settle>
 ## Questions for you
@@ -671,3 +787,7 @@ Writing rules (the table must be usable by a tester who has not read the spec):
 - Every Design arrow in `arrows.json` has a requirement; every open table entry of `requests.md` is cited; the
   job-state grid has no empty cell (all three enforced by `check.ts`).
 - What the value check left out is listed in `update-plan.md` → "Not added".
+- Every annotation block is traced; the Hidden clauses and Variants grids cover every requirement that needs them
+  (`check.ts`, REQ-032).
+- Every spec agent gap is decided and listed under "Spec agent cross-check"; every gap from the spec files is a row
+  and names the pass that missed it (`check.ts`, REQ-031 / REQ-032).

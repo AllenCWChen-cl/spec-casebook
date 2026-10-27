@@ -1,0 +1,133 @@
+# Text tour of AI Mini Drama for the language passes (rule 7; TC-275–277): every reachable page, sheet and dialog
+# that costs nothing, with `texts $1-<screen>` (screenshot + visible strings) on each.
+# Starts: the Launcher (app already launched in the language, e.g. `launch --lang ja`). Ends: the Launcher.
+# Charges nothing: no Generate, no Send; template chat left before its outline (not saved); Choose Character left
+# without picks; Rename/Delete never confirmed.
+# Needs History items 「綴じられた秘密」 (storyboard + video card) and 「The Gambit」 (characters done; P9-e variant 2026-10-23).
+# Uses ids throughout (labels change with the language); coordinates only for the History item ⋯ (2nd row) and its
+# Rename row / Rename dialog Cancel, the
+# Daniel slot, the Create my character tile, the 2nd library card's Enlarge, the system Alert's first button and the
+# 3rd template card on the entry page (After Closing).
+# Args: $1 = file prefix, e.g. TC-276
+# Written 2026-10-21 (P23-f) from the TC-275 English walk.
+?tapif launcher.UIButton.homeButton
+drag 210 300 210 800 300
+id launcher.collectionViewCell.pdrm_launcher_AI_create_AI_Mini_Drama
+waitfor aiMiniDramaEntry.UIButton.createDrama --timeout 20
+texts $1-entry
+# Template list (3 screens), then the After Closing card, Make my version, format card, leave (not saved)
+id aiMiniDramaEntry.UIButton.moreTemplates
+wait 2
+texts $1-templates
+drag 210 750 210 200 400
+drag 210 750 210 200 400
+texts $1-templates-2
+drag 210 750 210 200 400
+texts $1-templates-3
+id aiMiniDramaTemplateList.UIButton.back
+wait 1
+tap 340 480
+wait 3
+texts $1-template-card
+id aiMiniDramaTemplatePreview.UIButton.makeMyVersion
+waitfor aiMiniDramaFormat.UIButton.continue --timeout 60
+texts $1-format-card
+id aiMiniDramaOutline.UIButton.back
+wait 2
+texts $1-leave-chat-dialog
+?id alertController.UIButton.button
+wait 2
+# History: list, info tip, Manage, ⋯ menu, Rename dialog (Cancel)
+id aiMiniDramaTemplatePreview.UIButton.history
+wait 3
+texts $1-history
+id aiMiniDramaHistory.UIButton.info
+wait 2
+texts $1-history-info
+tap 210 160
+wait 1
+id aiMiniDramaHistory.UIButton.manage
+wait 2
+texts $1-history-manage
+id aiMiniDramaHistory.UIButton.cancel
+wait 1
+tap 377 306
+wait 2
+texts $1-history-more
+tap 91 794
+wait 2
+texts $1-rename
+tap 142 391
+wait 1
+# Storm and Shelter chat: characters + storyboard card, credit page, Choose Character, filter, Create my character
+lbl The Gambit
+wait 4
+?lbl ic arrow down
+wait 2
+texts $1-chat-storm
+id aiMiniDramaOutline.ThemeCreditEntryView.creditEntry
+wait 3
+texts $1-credits
+id creditsHomePage.UIButton.backButton
+wait 2
+id aiMiniDramaCast.UIButton.refresh.char_9a8f66aa
+wait 3
+texts $1-choose-character
+id aiMiniDramaChangeCharacters.UIButton.filter
+wait 2
+texts $1-filter
+drag 380 715 60 715 400
+wait 1
+texts $1-filter-2
+id aiMiniDramaCharacterFilter.UIButton.apply
+wait 2
+tap 79 395
+wait 3
+texts $1-create-char
+id aiMiniDramaMakeCharacter.UIButton.info
+wait 2
+texts $1-create-char-info
+tap 210 150
+wait 1
+id aiMiniDramaMakeCharacter.UIButton.close
+wait 2
+tap 249 338
+wait 2
+id aiMiniDramaCharacterPreview.UIButton.more
+wait 2
+texts $1-enlarge-more
+id aiMiniDramaCharacterPreview.UIButton.more
+wait 1
+id aiMiniDramaCharacterPreview.UIButton.close
+wait 1
+id aiMiniDramaChangeCharacters.UIButton.close
+wait 2
+texts $1-leave-picker-dialog
+?tapif Leave
+wait 2
+# Merger Season (ライバルの共闘): storyboard and video length card; then the composer and its leave dialog
+id aiMiniDramaOutline.UIButton.history
+wait 3
+lbl 綴じられた秘密
+wait 4
+?id aiMiniDramaOutline.UIButton.scrollToBottom
+?lbl ic arrow down
+wait 2
+texts $1-merger-bottom
+drag 210 300 210 750 400
+texts $1-merger-storyboard
+id aiMiniDramaOutline.UIButton.newChat
+wait 3
+?id aiMiniDramaEntry.UIButton.createDrama
+wait 3
+texts $1-composer
+?hidekb
+id aiMiniDramaOutline.UIButton.back
+wait 2
+texts $1-leave-composer-dialog
+?id alertController.UIButton.button
+wait 2
+# Back to the Launcher
+?id aiMiniDramaEntry.UIButton.back
+wait 2
+shot $1-end

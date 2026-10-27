@@ -1,0 +1,5 @@
+Run plan (live): http://127.0.0.1:4390/  — Ctrl+C to stop
+  LAN: http://192.168.17.176:4390/
+  LAN: http://192.168.50.123:4390/
+  LAN: http://169.254.179.78:4390/
+  Warning: --lan has no auth; anyone on this network can read the page.

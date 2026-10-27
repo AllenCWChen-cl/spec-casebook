@@ -1,0 +1,169 @@
+
+17 of 24 entries have a possible duplicate (overlap >= 34%, or a shared quoted label / rare phrase, marked !). Judge each one yourself — wording varies, so this ranks candidates, it does not decide.
+11 candidate(s) were declined (NAB / Won't Fix / Not Reproducible). Resolve each before filing.
+
+[AI-Mini-Drama-P9-01] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Credit pill opens My Credits mid-generation with no leave dialog
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 25%  OPEN      DRI261896P0049  PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Credit pill on template and More pages shows
+              shares phrase "credit pill"
+    ! 25%  closed    DRI261893-0054  PDR-I 16.9.0 - [UI][MX] AI Mini Drama : Tapping the top Credit pill icon leads directly 
+              shares phrase "credit pill"
+      38%  OPEN      DRI261896P0048  PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: No Stop and lose your credits? dialog on Bac
+
+[AI-Mini-Drama-P9-02] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Iris replies show internal locale codes like ja_JP and en_US
+      feature='AI Mini Drama'  searched 200 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-P9-03] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Partial character failure shows the single-character error dialog
+      feature='AI Mini Drama'  searched 200 candidate(s)
+      43%  OPEN      DRI261896P0042  PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Failed character generation shows no error, no !
+      43%  REJECTED  DRI261894P0023  PDR-I 16.9.0 - [AIFound] AI Mini Drama: failed character image shows a raw error toast a
+              ⚠ Propose Wont Fix — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRI261894P0023.
+
+[AI-Mini-Drama-P9-04] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Failed character generations keep their charged credits with no refund
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    !100%  REJECTED  DRI261897P0016  PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Failed character and video generations keep thei
+              shares phrase "charged credits", phrase "failed character", phrase "generations keep"
+              ⚠ Propose Wont Fix — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRI261897P0016.
+    ! 43%  OPEN      DRI261896P0042  PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Failed character generation shows no error, no !
+              shares phrase "failed character"
+    ! 29%  REJECTED  DRI261894P0023  PDR-I 16.9.0 - [AIFound] AI Mini Drama: failed character image shows a raw error toast a
+              shares phrase "failed character"
+              ⚠ Propose Wont Fix — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRI261894P0023.
+
+[AI-Mini-Drama-P9-05] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Character generation shows no Cancel or time hint and cannot be stopped
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 43%  OPEN      DRI261896P0042  PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Failed character generation shows no error, no !
+              shares phrase "character generation", phrase "generation shows"
+    ! 29%  REJECTED  DRI261895P0024  PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Character generation has no usable Stop acti
+              shares phrase "character generation"
+              ⚠ QA Propose Wont Fix — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRI261895P0024.
+    ! 29%  REJECTED  DRI261894P0015  PDR-I 16.9.0 - [AIFound][UX] AI Mini Drama: generation shows only generic or video-langu
+              shares phrase "generation shows"
+              ⚠ Propose Wont Fix — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRI261894P0015.
+    ! 29%  REJECTED  DRI261893-0129  PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Animated character generation blocks useful 
+              shares phrase "character generation"
+              ⚠ Propose Won't Fix — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRI261893-0129.
+
+[AI-Mini-Drama-P9-06] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Confirming the cast charges character portraits with no offer card, then fails
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 25%  closed    DRI261894P0041  PDR-I 16.9.0 - [AIFound][UI] AI Mini Drama: offer card button reads "Create chraracters"
+              shares phrase "offer card"
+
+[AI-Mini-Drama-P9-07] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Chat shows an unsent Generate with AI message and claims an uncreated storyboard
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 25%  closed    DRI261894P0020  PDR-I 16.9.0 - [AIFound] AI Mini Drama: backgrounding during video generation kills the 
+              shares phrase "chat shows"
+    ! 12%  closed    DRI261893-0053  PDR-I 16.9.0 - [UI] AI Mini Drama (format-checking dialog): Display the "Continue" butto
+              shares label "generate"
+
+[AI-Mini-Drama-P9-08] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Character change in chat offers one chip and skips the update messages
+      feature='AI Mini Drama'  searched 200 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-P9-09] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Typed character name instead of a chip skips the Update characters card
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 44%  OPEN      DRI261897P0032  PDR-I 16.9.0 - [AIFound][UI] AI Mini Drama: Update characters card shows raw CMS keys in
+              shares phrase "characters card", phrase "update characters"
+
+[AI-Mini-Drama-P9-10] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Update characters card does not show how many characters it updates
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 43%  OPEN      DRI261897P0032  PDR-I 16.9.0 - [AIFound][UI] AI Mini Drama: Update characters card shows raw CMS keys in
+              shares phrase "characters card", phrase "update characters"
+
+[AI-Mini-Drama-P9-11] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Back early in a paid generation leaves with no Stop and lose your credits?
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 67%  OPEN      DRI261896P0048  PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: No Stop and lose your credits? dialog on Bac
+              shares phrase "lose your", phrase "your credits"
+
+[AI-Mini-Drama-P9-12] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Create my character cuts a 1,050-character description to 1,000
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 50%  OPEN      DRI261897P0019  PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Create my character description text runs un
+              shares phrase "character description"
+    ! 33%  REJECTED  DRI261896P0036  PDR-I 16.9.0 - [AIFound] AI Mini Drama: A minor's age in a character description always 
+              shares phrase "character description"
+              ⚠ Propose Wont Fix — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRI261896P0036.
+
+[AI-Mini-Drama-P9-13] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Reopening a drama from History drops messages and the character card
+      feature='AI Mini Drama'  searched 200 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-P9-14] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Failed storyboard and scene image generations keep credits with no refund
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 62%  REJECTED  DRI261897P0016  PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Failed character and video generations keep thei
+              shares phrase "generations keep"
+              ⚠ Propose Wont Fix — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRI261897P0016.
+    ! 38%  OPEN      DRI261897P0012  PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Failed scene image card copy differs from th
+              shares phrase "scene image"
+    ! 38%  OPEN      DRI261894P0031  PDR-I 16.9.0 - [AIFound][UX] AI Mini Drama: Failed scene image says "service is busy" bu
+              shares phrase "scene image"
+    ! 25%  REJECTED  DRI261896P0046  PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Character, scene image and chat update prices di
+              shares phrase "scene image"
+              ⚠ ProposeNAB — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRI261896P0046.
+      38%  OPEN      DRI261896P0045  PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Updating a storyboard image from chat fails sile
+
+[AI-Mini-Drama-P9-15] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Storyboard image update shows a generic skeleton, not on the changed scene
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 38%  OPEN      DRI261896P0045  PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Updating a storyboard image from chat fails sile
+              shares phrase "storyboard image"
+    ! 25%  OPEN      DRI261893-0163  PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Successful storyboard image routes expose no ver
+              shares phrase "storyboard image"
+      38%  REJECTED  DRI261896P0046  PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Character, scene image and chat update prices di
+              ⚠ ProposeNAB — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRI261896P0046.
+
+[AI-Mini-Drama-P9-16] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Storyboard Preview keeps the old preview after the storyboard is cut or changed
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 33%  OPEN      DRI261897P0010  PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: No video settings card after a successful st
+              shares phrase "storyboard preview"
+
+[AI-Mini-Drama-P9-17] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Chat turns fail with token_request fired outside a turn worker thread
+      feature='AI Mini Drama'  searched 200 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-P9-18] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Failed storyboard lacks the Storyboard couldn't be created line
+      feature='AI Mini Drama'  searched 200 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-P9-19] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Returning from History or Choose Character does not show the newest message
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 29%  OPEN      DRI261896P0056  PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Chat scroll position jumps to an earlier car
+              shares phrase "choose character"
+    ! 29%  closed    DRI261894P0040  PDR-I 16.9.0 - [AIFound][UI] AI Mini Drama: Choose Character opens empty with no loader;
+              shares phrase "choose character"
+
+[AI-Mini-Drama-P9-20] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Tap outside the History info bubble opens the drama under the tap
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 25%  closed    DRI261893-0159  PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: History info tooltip points away from ⓘ
+              shares phrase "history info"
+      38%  OPEN      DRI261896P0026  PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Outside tap does not dismiss the History hin
+
+[AI-Mini-Drama-P9-21] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Asking Iris to change the story title after the characters stage is declined
+      feature='AI Mini Drama'  searched 200 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-P9-22] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Video generation always fails after ~6 min: HTTP PUT to storage URL fails
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 67%  OPEN      DRI261897P0006  PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Video generation always fails after ~6 min as th
+              shares phrase "generation always"
+    ! 44%  REJECTED  DRI261896P0020  PDR-I 16.9.0 - [AIFound] AI Mini Drama: Final drama video generation always fails with "
+              shares phrase "generation always"
+              ⚠ NotReproducible — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRI261896P0020.
+    ! 33%  OPEN      DRI261895P0035  PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Scene and Location image generation always fails
+              shares phrase "generation always"
+
+[AI-Mini-Drama-P9-23] PDR-I 16.9.0 - [AIAgent] AI Mini Drama: Try again on a failed video shows a settings card with no model choice
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 44%  OPEN      DRI261896P0051  PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Try again on a failed video asks which beat 
+              shares phrase "failed video"
+    ! 33%  OPEN      DRI261897P0010  PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: No video settings card after a successful st
+              shares phrase "settings card"
+    ! 33%  OPEN      DRI261896P0060  PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Video settings card says quick draft instead
+              shares phrase "settings card"
+    ! 33%  OPEN      DRI261896P0055  PDR-I 16.9.0 - [AIAgent][UX] AI Mini Drama: Video settings card does not show You'll hav
+              shares phrase "settings card"
+    ! 33%  OPEN      DRI261894P0051  PDR-I 16.9.0 - [AIFound][UX] AI Mini Drama: Settings card offers 75/90 s full video but 
+              shares phrase "settings card"
+
+[AI-Mini-Drama-P9-24] PDR-I 16.9.0 - [AIAgent][UI] AI Mini Drama: Offline send shows No connection available instead of You're offline toast
+      feature='AI Mini Drama'  searched 200 candidate(s)
+      no likely duplicate

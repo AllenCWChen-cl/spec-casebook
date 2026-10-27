@@ -1,0 +1,20 @@
+# ISS-AMD-55 Cast confirm turns with charges and no authorize line
+# PowerDirector 16.9.0 (189872), TR261022-0031, Developer Server, iPhone 17 Air / iOS 26.2.1. Excerpt of the app's AI Mini Drama log (Write Log + Pink 'Log stage timings').
+# Only lines about turns, charges, toasts and failures in the windows below; signed storage URLs are cut at '?'.
+
+## TC-044 Done ✓ on the cast, turn t11 (Off) (2026-10-22 17:18:00–17:25:30; logs/P9-b1-mid-20261022-173817)
+2026-10-22 17:18:36:606 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=50A6E21A-B068-4EC8-8481-0957044BA240 iris=261022_154722_0fce6a61 stage=character trigger=leave answers=0 attachments=0
+2026-10-22 17:24:41:633 [AIDramaRequestCoordinator] [#64] [AIDrama AMD] workflow step failed drama=50A6E21A-B068-4EC8-8481-0957044BA240 workflow=ai-mini-drama/plan/routed step=sync_char_60e739e2 skill=character-sync call=261022_154722_0fce6a61_t11_i1_d1_ai-mini-drama_s_plan_s_routed_s_sync_char_60e739e2 error="HTTP PUT to storage URL failed: Failed to write connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/v2j5bvb1gtgg/input.2.png?…"
+
+## TC-044 Try again, turn t12 (2026-10-22 17:28:00–17:37:40; logs/P9-b1-mid-20261022-173817)
+2026-10-22 17:28:01:611 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=50A6E21A-B068-4EC8-8481-0957044BA240 iris=261022_154722_0fce6a61 stage=storyboard trigger=leave answers=0 attachments=0
+2026-10-22 17:34:06:243 [AIDramaRequestCoordinator] [#64] [AIDrama AMD] workflow step failed drama=50A6E21A-B068-4EC8-8481-0957044BA240 workflow=ai-mini-drama/plan/routed step=sync_char_60e739e2 skill=character-sync call=261022_154722_0fce6a61_t12_i1_d1_ai-mini-drama_s_plan_s_routed_s_sync_char_60e739e2 error="HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/v2j5bvb1gtgg/input.3.png?…"
+2026-10-22 17:37:32:370 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=50A6E21A-B068-4EC8-8481-0957044BA240 iris=261022_154722_0fce6a61 turn=261022_154722_0fce6a61_t12 final_state=complete status_code=0 error_message="" reply=""
+2026-10-22 17:37:32:376 [AIDramaIrisConversationService] [#399] [AIDrama AMD] send reply drama=50A6E21A-B068-4EC8-8481-0957044BA240 iris=261022_154722_0fce6a61 source=blueprint stage=storyboard failures=1 text=""
+2026-10-22 17:37:32:376 [AIDramaIrisConversationService] [#407] [AIDrama AMD] send failure[0] tool=character-sync target=char_60e739e2 status=tool_error reason="HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/v2j5bvb1gtgg/input.3.png?…"
+2026-10-22 17:37:34:416  [AMDPerf] ════ turn end · leave · stage=storyboard · card=none · ok · wall  570.768s
+
+## O-36 video card ◆131 folds character work into the price (2026-10-23 05:25:40–05:26:20; logs/gate3-20261023-053612)
+2026-10-23 05:25:52:200 [AIDramaPermissionGate] [#93] [AIDrama Permission] authorize drama=2C3426D5-44E2-4510-BB42-3930C4A1AD62 tools=[RefToVideox2,TextToImagex3,TextToSpeechx2] credit=131 video_model=seedance2
+2026-10-23 05:25:52:302 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=2C3426D5-44E2-4510-BB42-3930C4A1AD62 iris=261022_230413_66e6c6c5 stage=storyboard trigger= answers=2 attachments=0
+2026-10-23 05:25:59:564 [AIDramaPermissionGate] [#261] [AIDrama Permission] request 261022_230413_66e6c6c5_t16_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_req_1 drama=2C3426D5-44E2-4510-BB42-3930C4A1AD62 -> allow (authorized, credit=1)

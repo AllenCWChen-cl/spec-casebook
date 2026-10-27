@@ -1,0 +1,22 @@
+# ISS-AMD-66 token_request threading failures
+# PowerDirector 16.9.0 (189872), TR261022-0031, Developer Server, iPhone 17 Air / iOS 26.2.1. Excerpt of the app's AI Mini Drama log (Write Log + Pink 'Log stage timings').
+# Only lines about turns, charges, toasts and failures in the windows below; signed storage URLs are cut at '?'.
+
+## O-26 script change, The Art of Falling (Off) (2026-10-23 02:32:30–02:33:15; logs/P9-d2-20261023-031149)
+2026-10-23 02:32:32:876 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=D8D24583-13C5-41DD-8A14-434D4F5B4634 iris=261022_211248_c048424b stage=storyboard trigger= answers=0 attachments=0
+2026-10-23 02:33:08:434 [AIDramaRequestCoordinator] [#64] [AIDrama AMD] workflow step failed drama=D8D24583-13C5-41DD-8A14-434D4F5B4634 workflow=ai-mini-drama/plan/routed/executed step=review skill=storyboard-reviewer call=261022_211248_c048424b_t8_i1_d1_ai-mini-drama_s_plan_s_routed_s_executed_s_review error="token_request fired outside a turn worker thread; cc session mint must happen on the turn's main loop"
+2026-10-23 02:33:08:435 [AIDramaRequestCoordinator] [#64] [AIDrama AMD] workflow step failed drama=D8D24583-13C5-41DD-8A14-434D4F5B4634 workflow=ai-mini-drama/plan/routed/executed/executed_review step=describe_environments skill=environment-executor call=261022_211248_c048424b_t8_i1_d1_ai-mini-drama_s_plan_s_routed_s_executed_s_executed_review_s_describe_environments error="token_request fired outside a turn worker thread; cc session mint must happen on the turn's main loop"
+2026-10-23 02:33:08:438 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=D8D24583-13C5-41DD-8A14-434D4F5B4634 iris=261022_211248_c048424b turn=261022_211248_c048424b_t8 final_state=complete status_code=0 error_message="" reply=""
+2026-10-23 02:33:08:445 [AIDramaIrisConversationService] [#399] [AIDrama AMD] send reply drama=D8D24583-13C5-41DD-8A14-434D4F5B4634 iris=261022_211248_c048424b source=blueprint stage=beat failures=1 text=""
+2026-10-23 02:33:08:445 [AIDramaIrisConversationService] [#407] [AIDrama AMD] send failure[0] tool=environment-executor target=storyboard status=tool_error reason="token_request fired outside a turn worker thread; cc session mint must happen on the turn's main loop"
+2026-10-23 02:33:08:450 [AIDramaChatPresenter] [#1222] [AIDrama] turn failed, offering retry: Optional(PowerDirector.AIDramaChatError.turnFailureReported("token_request fired outside a turn worker thread; cc session mint must happen on the turn\'s main loop"))
+2026-10-23 02:33:10:506  [AMDPerf] ════ turn end · stage=storyboard → beat · card=none · ok · wall   35.571s
+
+## O-30 Try again, The Gambit (Off) (2026-10-23 03:33:20–03:33:40; logs/P9-e-20261023-041052)
+2026-10-23 03:33:22:822 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=78FE0CCB-F5E3-4320-9387-E45F6C356A6F iris=261023_032236_f9092285 stage=storyboard trigger=leave answers=0 attachments=0
+2026-10-23 03:33:33:326 [AIDramaRequestCoordinator] [#64] [AIDrama AMD] workflow step failed drama=78FE0CCB-F5E3-4320-9387-E45F6C356A6F workflow=ai-mini-drama/plan/routed/characters_synced step=execute skill=storyboard-executor call=261023_032236_f9092285_t4_i1_d1_ai-mini-drama_s_plan_s_routed_s_characters_synced_s_execute error="token_request fired outside a turn worker thread; cc session mint must happen on the turn's main loop"
+2026-10-23 03:33:33:334 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=78FE0CCB-F5E3-4320-9387-E45F6C356A6F iris=261023_032236_f9092285 turn=261023_032236_f9092285_t4 final_state=complete status_code=0 error_message="" reply=""
+2026-10-23 03:33:33:348 [AIDramaIrisConversationService] [#399] [AIDrama AMD] send reply drama=78FE0CCB-F5E3-4320-9387-E45F6C356A6F iris=261023_032236_f9092285 source=blueprint stage=storyboard failures=1 text=""
+2026-10-23 03:33:33:348 [AIDramaIrisConversationService] [#407] [AIDrama AMD] send failure[0] tool=storyboard-executor target=storyboard status=tool_error reason="token_request fired outside a turn worker thread; cc session mint must happen on the turn's main loop"
+2026-10-23 03:33:33:405 [AIDramaChatPresenter] [#1222] [AIDrama] turn failed, offering retry: Optional(PowerDirector.AIDramaChatError.turnFailureReported("token_request fired outside a turn worker thread; cc session mint must happen on the turn\'s main loop"))
+2026-10-23 03:33:35:476  [AMDPerf] ════ turn end · leave · stage=storyboard · card=characters · ok · wall   10.528s

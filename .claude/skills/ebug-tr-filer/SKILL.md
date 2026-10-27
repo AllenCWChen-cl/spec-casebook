@@ -34,7 +34,13 @@ reads or updates them.
      rule 8 checks) cite the board that shows the screen or string they are about. The format check fails an entry
      with no `Spec Link:` line, `Spec Link: none`, or a link with neither a URL nor a PDF name.
   3. **Attachments on every entry:** at least one image (red-boxed frame) per bug, cited inline as `{<ver>_<slug>.jpg}`;
-     plus the relevant log excerpt (`<ver>_<slug>_log.txt`) when the finding has a log cause — scan each excerpt for
+     plus the relevant log excerpt (`<ver>_<slug>_log.txt`) when the finding has a log cause. **Every failure-related
+     entry carries its log (user, 2026-10-27):** a failed generation, turn, upload or retry, an error card or dialog,
+     a charge or a missing refund, a step that ends with nothing — attach the excerpt of that failure's time window
+     (the failing tool line, `status=…` / `error=…`, the `authorized, credit=N` and refund lines) even when the screen
+     already shows the error, cite it inline under Result, and show it on the review page card (a 「Log」 section
+     with the excerpt text), so the reviewer sees it before deciding (F-6 of the 10/27 P9 batch had its log attached
+     but the page hid it). Scan each excerpt for
      tokens, `Bearer`/`authorization` lines and signed URL queries before staging it. Layout and content findings need
      no log. **No video unless the user explicitly asks for one** for that batch or entry (then pass
      `--videos-requested` to the format check); keep recordings in the run folder. The format check fails an entry
@@ -91,7 +97,8 @@ them, and nothing that fails them is filed:
 2. **Every bug carries its link** — a `Spec Link:` with a URL (Figma with `node-id`) or, only when no
    URL exists, a PDF name + board ID. No `Spec Link: none`; a reviewer-approved exception is passed as
    `--no-link-ok <key>` and recorded in `decisions.md`.
-3. **At least one image on every bug; the log excerpt when a log shows the cause; no video** unless
+3. **At least one image on every bug; the log excerpt when a log shows the cause, and always on a failure-related
+   entry (failed job, error card, charge or refund; user 2026-10-27); no video** unless
    the user explicitly asked for one (then `--videos-requested`).
 4. **`[UX]` only when the expectation rests on another product or on nothing** (`Basis: External — …` /
    `Basis: None — …`, owner PM). Spec-based and in-product-referenced findings are Functional or `[UI]`,
@@ -436,7 +443,8 @@ reach dev at anywhere from ~4 to ~11px. Verified 2026-09-29 on the AI Mini Drama
 ## Attaching screenshots — the part that breaks
 
 **What every bug carries (reviewer rule 3, 2026-10-21):** at least one image (the red-boxed frame, cited
-inline); the log excerpt `<ver>_<slug>_log.txt` whenever a log shows the cause, scanned for tokens,
+inline); the log excerpt `<ver>_<slug>_log.txt` whenever a log shows the cause and on every failure-related
+entry (failed job, error card, charge or refund; user 2026-10-27), shown on the review card, scanned for tokens,
 `Bearer` / `authorization` lines and signed URL queries before staging; **no video unless the user
 explicitly asked for it** for this batch or entry — keep recordings locally and name them in the QA
 note. `check_ebug_format.py` fails a bug with no image and any video attachment without

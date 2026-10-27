@@ -6,7 +6,11 @@
 // - every open "table" entry of library/<feature>/requests.md for this platform is cited in requirements.md;
 // - the "Job states", "Exit × stage" and "Error classes" grids in requirements.md have no empty cell and name only
 //   existing, active rows (the last two from 2026-10-22, REQ-030);
-// - every dated frame in specs/<set>/extracted/figma-frames.json says where it was read (REQ-030).
+// - every dated frame in specs/<set>/extracted/figma-frames.json says where it was read (REQ-030);
+// - a draft traces every annotation block (annotation-trace.json) and has the "Hidden clauses" and "Variants" grids
+//   for the requirements that need them (user, 2026-10-22, REQ-032);
+// - a draft of a feature with spec-agent.json decides every spec agent gap and lists it in update-plan.md; gaps from
+//   the spec files are added as rows and name the pass that missed them (manager, 2026-10-22, REQ-031 / REQ-032).
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { CHANGES, COLUMNS, arg, assertIds, draftsDir, featureDir, readManifest, readTable, tableDir } from './lib/library.ts';
@@ -112,6 +116,104 @@ if (reqText && reqIds) {
     const unread = frames.filter(f => !f.read?.trim()).map(f => f.label);
     if (unread.length) errors.push(`Figma dated frames not read yet: ${unread.join(', ')} (figma-frames.json)`);
   } else warnings.push(`No figma-frames.json for ${specFolder ?? 'this spec set'}: Figma dated frames not compared with the PDF (Reading the spec, step 8)`);
+}
+
+// Analysis passes that find spec rules on their own (user, 2026-10-22, REQ-032), for drafts:
+// - annotation-trace.json (scripts/annotations.ts): every annotation block on the spec boards is traced;
+// - "Hidden clauses" grid (pass 9): every requirement with a clause the screen does not show names how it is observed
+//   and the rows that check it;
+// - "Variants" grid (pass 10): a rule stated for several tiers / models / languages has a row per variant.
+const HIDDEN = /\b(not run|does not run|doesn't run|reruns?|only (?:the )?failed|submit(?:ted|s)?|upload(?:ed|s)?|is sent|are sent|only the cropped|server[- ]?(?:side|configured|set)|backend|remote[- ]?config(?:ured)?|Firebase|STT|TTS|speech-to-text|kept on the device|stored on|cached|analytics)\b/i;
+const TIERS = /\b(Free|Pro\+|Pro|Premium)(?![\w+])/g;
+const VARIANT = /\b(?:each|every|per|all) (?:tier|language|model)s?\b|\bENU, CHT\b|\bBest \/ Standard \/ Fast\b/i;
+if (draft && reqText) {
+  const specFolder = JSON.parse(readFileSync(join(dir, 'spec.json'), 'utf8')).spec_folder;
+  const reqLines = [...reqText.matchAll(/^- (R-\d{3,})\b(.*)$/gm)].map(m => ({ id: m[1], text: m[2] }))
+    .filter(r => !/NOT TESTABLE/.test(r.text) && !/flow arrow/.test(r.text));
+  const qIds = new Set(reqText.match(/\bQ-\d+\b/g) ?? []);
+
+  if (existsSync(join(featureDir(feature), specFolder, 'extracted', 'boards'))) {
+    const tracePath = join(dir, 'annotation-trace.json');
+    if (!existsSync(tracePath)) errors.push(`No annotation-trace.json: run node scripts/annotations.ts ${feature} ${platform} --draft ${draft} and trace every block (REQ-032)`);
+    else {
+      const blocks: { id: string; trace: string }[] = JSON.parse(readFileSync(tracePath, 'utf8')).blocks;
+      const untraced = blocks.filter(b => !b.trace?.trim()).map(b => b.id);
+      if (untraced.length) errors.push(`Annotation blocks not traced (${untraced.length} of ${blocks.length}): ${untraced.slice(0, 10).join(', ')}${untraced.length > 10 ? ', …' : ''}`);
+      for (const b of blocks) {
+        const t = b.trace?.trim() ?? '';
+        if (!t) continue;
+        if (/^NEW\b/.test(t)) { errors.push(`Annotation ${b.id}: still "NEW"; write the requirement and trace the block to it`); continue; }
+        if (/^(label|ui|older):\s*\S/.test(t)) continue;
+        const rs = t.match(/\bR-\d{3,}\b/g) ?? [], qs = t.match(/\bQ-\d+\b/g) ?? [];
+        if (!rs.length && !qs.length) errors.push(`Annotation ${b.id}: trace must be R-…, Q-n, label: / ui: / older: <why> (got "${t.slice(0, 40)}")`);
+        for (const r of rs) if (!reqIds?.has(r)) errors.push(`Annotation ${b.id}: ${r} is not in requirements.md`);
+        for (const q of qs) if (!qIds.has(q)) errors.push(`Annotation ${b.id}: ${q} is not in requirements.md`);
+      }
+    }
+  }
+
+  const gridRows = (name: string) => {
+    const g = reqText.match(new RegExp(`\\n#+ ${name}\\n[\\s\\S]*?\\n(\\|[^\\n]*\\n(?:\\|[^\\n]*\\n?)+)`))?.[1];
+    return g ? g.trim().split('\n').slice(2).map(l => l.split('|').slice(1, -1).map(c => c.trim())) : null;
+  };
+  const hidden = reqLines.filter(r => HIDDEN.test(r.text));
+  const hg = gridRows('Hidden clauses');
+  if (hidden.length && !hg) errors.push(`No "Hidden clauses" grid in requirements.md (pass 9); it must list ${hidden.map(r => r.id).join(', ')}`);
+  if (hg) {
+    for (const r of hidden) if (!hg.some(c => c[0] === r.id)) errors.push(`Hidden clauses: ${r.id} is missing (its text names a clause the screen may not show)`);
+    for (const [id, clause, evidence, by] of hg) {
+      if (!clause || !evidence || !by) { errors.push(`Hidden clauses: ${id} needs the clause, how it is observed and the rows`); continue; }
+      const tcs = tcRefs(by);
+      if (!tcs.length && !/^n\/a \(/.test(by)) errors.push(`Hidden clauses: ${id} names no row`);
+      for (const tc of tcs) if (!active.has(tc)) errors.push(`Hidden clauses: ${id} names ${tc}, which is not an active row`);
+    }
+  }
+  const variants = reqLines.filter(r => new Set(r.text.match(TIERS) ?? []).size >= 2 || VARIANT.test(r.text));
+  const vg = gridRows('Variants');
+  if (variants.length && !vg) errors.push(`No "Variants" grid in requirements.md (pass 10); it must list ${variants.map(r => r.id).join(', ')}`);
+  if (vg) {
+    for (const r of variants) {
+      const mine = vg.filter(c => c[0] === r.id);
+      const need = Math.max(2, new Set(r.text.match(TIERS) ?? []).size);
+      if (!mine.length) errors.push(`Variants: ${r.id} is missing (it states a rule for several tiers, models or languages)`);
+      else if (mine.length < need && !mine.some(c => /^n\/a \(/.test(c[2] ?? ''))) errors.push(`Variants: ${r.id} lists ${mine.length} variant(s), needs ${need} (one line per variant)`);
+    }
+    for (const [id, variant, by] of vg) {
+      if (!variant || !by) { errors.push(`Variants: ${id} needs the variant and its rows`); continue; }
+      const tcs = tcRefs(by);
+      if (!tcs.length && !/^n\/a \(/.test(by)) errors.push(`Variants: ${id} × ${variant} names no row`);
+      for (const tc of tcs) if (!active.has(tc)) errors.push(`Variants: ${id} × ${variant} names ${tc}, which is not an active row`);
+    }
+  }
+}
+
+// Spec agent cross-check (standing input 6; manager, 2026-10-22, REQ-031): for a feature with spec-agent.json every
+// draft carries spec-agent-gaps.json (scripts/spec-agent-gaps.ts). Each gap has a decision, a gap from the spec files
+// is added (never "low value" / "not from the spec"), named rows are active, and update-plan.md lists every gap.
+if (draft && existsSync(join(featureDir(feature), 'spec-agent.json'))) {
+  const gapsPath = join(dir, 'spec-agent-gaps.json');
+  if (!existsSync(gapsPath)) errors.push(`No spec-agent-gaps.json: run node scripts/spec-agent-gaps.ts ${feature} ${platform} --draft ${draft} and decide every gap (REQ-031)`);
+  else {
+    const gaps: { id: string; source: { kind: string }; decision: string }[] = JSON.parse(readFileSync(gapsPath, 'utf8')).gaps;
+    const planPath = join(dir, 'update-plan.md');
+    const plan = existsSync(planPath) ? readFileSync(planPath, 'utf8') : '';
+    const section = plan.match(/\n## Spec agent cross-check\n([\s\S]*?)(?=\n## |$)/)?.[1];
+    if (!section) errors.push('update-plan.md has no "## Spec agent cross-check" section');
+    for (const g of gaps) {
+      const d = g.decision?.trim() ?? '';
+      const kind = d.match(/^(added|covered|older spec|pass 7|not from the spec|low value)\b/)?.[1];
+      if (!d) errors.push(`Spec agent gap ${g.id}: no decision in spec-agent-gaps.json`);
+      else if (!kind) errors.push(`Spec agent gap ${g.id}: decision must start with added / covered / older spec / pass 7 / not from the spec / low value`);
+      else if (g.source.kind === 'spec' && (kind === 'not from the spec' || kind === 'low value')) errors.push(`Spec agent gap ${g.id} comes from the spec files: add it as a row (REQ-031), not "${kind}"`);
+      else if (g.source.kind === 'spec' && kind === 'added' && !/missed by:/i.test(d)) errors.push(`Spec agent gap ${g.id}: the analysis should have found it; say which pass missed it ("added TC-… (missed by: <pass>)") and fix that pass (REQ-032)`);
+      if (kind === 'added' || kind === 'covered') {
+        const by = tcRefs(d);
+        if (!by.length) errors.push(`Spec agent gap ${g.id}: "${kind}" names no case`);
+        for (const tc of by) if (!active.has(tc)) errors.push(`Spec agent gap ${g.id}: ${tc} is not an active row`);
+      }
+      if (section && !section.includes(g.id)) errors.push(`Spec agent gap ${g.id} is not listed under "Spec agent cross-check" in update-plan.md`);
+    }
+  }
 }
 console.log(JSON.stringify({ table: csv, rows: rows.length, errors, warnings }, null, 2));
 process.exit(errors.length ? 1 : 0);

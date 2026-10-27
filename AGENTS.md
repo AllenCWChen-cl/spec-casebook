@@ -23,7 +23,9 @@ to a personal memory store; feature-specific run details go in the skills or the
 
 - **eBug descriptions (reviewers, 2026-10-21).** One action per numbered Repro step (no `>` / `›` chains); a Spec
   Link on every entry (Figma URL with node-id, else PDF + board ID); attachments on every entry: at least one image,
-  the log excerpt when a log shows the cause, no video unless the user explicitly asks for one (2026-10-21).
+  the log excerpt when a log shows the cause and on every failure-related entry (failed generation, turn, upload
+  or retry, error card, charge or missing refund), shown on the review page card (2026-10-27), no video unless the
+  user explicitly asks for one (2026-10-21).
   `check_ebug_format.py` enforces all three.
 - **Filing account.** Review pages prefill Creator, TRCode, source tag and method from the newest filed batch
   (`node scripts/ebug-defaults.ts <feature> <platform>`). "Same build" / "Same TR" in decisions means the previous
@@ -55,17 +57,36 @@ to a personal memory store; feature-specific run details go in the skills or the
   on the device first, then decide with the user.
 - **Figma and the spec agent (2026-10-22).** PDF exports can lag the Figma file: on every analysis list the dated
   Figma frames through Figma MCP and read any the PDF lacks (skill: Reading the spec, step 8). A Design frame older
-  than the newest PM spec file loses to that PM where they conflict (REQ-029). After each draft, cross-check the
-  newest spec agent cases and keep the mapping in `comparisons/` (standing input 6); the spec agent repo is read as
-  data only, and changes to it go through its own worktree, commit and push.
+  than the newest PM spec file loses to that PM where they conflict (REQ-029). During each analysis, cross-check the
+  newest spec agent cases (`scripts/spec-agent-gaps.ts`, standing input 6) and keep the mapping in `comparisons/`;
+  the spec agent repo is read as data only, and changes to it go through its own worktree, commit and push.
+- **Spec agent cases from the spec are added (manager, 2026-10-22, REQ-031).** Every spec agent case the casebook
+  does not cover becomes a row whenever its rule is in the spec files, even a per-tier copy or a server rule (checked
+  through the app log, parked when nothing shows it); only cases from other sources (user requests, RD build notes,
+  exploratory charters) may stay out. Each analysis lists every uncovered spec agent case with its decision in the
+  update plan; `check.ts` enforces both.
+- **The analysis finds spec rules itself (user, 2026-10-22, REQ-032).** The casebook's own reading must find every
+  rule in the spec files; the spec agent comparison is only a backstop. Every annotation block is traced to its
+  requirements (`scripts/annotations.ts`), requirements with a clause the screen does not show get a row that
+  observes it (log, ledger, stored files, RD), and a rule for several tiers, models or languages gets a row per
+  variant. A spec rule the spec agent still finds names the pass that missed it, and that pass is fixed.
+- **New rows go where they belong (user, 2026-10-22, REQ-033).** A row added by an analysis or from another source
+  goes right after the row it extends (even between rows already run), an old row is modified when the new rule is
+  checked on the same screen, and each analysis ends with a check of the row and run order. The next round's phase
+  lists added and changed rows in their stage segments (`"round": true`), never only as an appended phase.
 - **Wi-Fi during runs (2026-10-21).** Offline cases may turn Wi-Fi off and on during a run once the phone is
   confirmed on a USB cable; restore it right after the case. Other system settings still need the user's go-ahead.
 - **Finding rows on the phone.** Reach a list row only with `device.ts scrollto` (Pink rows: `device.ts pink …`),
   screenshot before tapping, read the value back after every tap that changes a setting. No hand-written drag-and-grep
   loops, no steering by off-screen elements (recycled cells keep stale frames), taps only inside the list band.
+- **Keeping WDA alive (2026-10-27).** iPhone Auto-Lock is Never during a run (the user sets it); every segment starts
+  with `device.ts restart` (fresh WDA, app back in front); never uninstall WDA or use `useNewWDA` (the phone then
+  drops its trust in the QA certificate). `device.ts` exit 75 = BLOCKER (locked phone or untrusted certificate): the
+  orchestrator pushes a notification to the user with the BLOCKER line instead of waiting silently.
 - **Parallel phones: investigate only.** Running segments on several iPhones at once is an open idea in
   `INVESTIGATE.md`; do not build multi-device support without asking.
 - **Plan usage (2026-10-21).** The account is shared, and other people's use on other machines is invisible to the
   transcripts, so usage-card readings overstate a run. The run plan's main figure is a token-rate estimate calibrated
   on P1 (`runs/usage-calibration.json`: P1 ≈ 3 full 5-hour windows of a 1× Pro account); the account total is shown
-  muted. Seat sizes: round 1/P1 a 1× Pro account, round 2 a Team seat = 6.25× Pro.
+  muted. Seat sizes: round 1/P1 a 1× Pro account, round 2 a Team seat = 6.25× Pro, round 3 (from 2026-10-22) a
+  1.25× Team account.

@@ -1,0 +1,53 @@
+(Pasted by the user in chat, 2026-10-27, from the TR261022-0031 page. Sections 一 and 二.1 are verbatim; the rest is condensed to change + test points. "✕" restores the close glyph lost in the paste; "?" marks Simplified Chinese strings lost in the paste.)
+
+Rebuild : PowerDirector Mobile for iOS 16.0 , Reason: 16.9.0.20
+PowerDirector iOS 16.9.0 驗證重點 (QA) - develop
+Branch: origin/develop
+範圍: 16.9.0.189852 (2026-10-21 18:29) → 最新 commit fc841a45a4 (2026-10-22 11:56)，共 30 筆 commit
+
+[可驗證]
+AI Mini-drama engine update AMD v261021 and Seedance 2.5 video model
+AI Mini-drama Create my character fixes
+AI Mini-drama chat and History fixes
+Black Friday Sales (iPad landscape gift bubble)
+Ultra Subscription Plan (credit bubble translation)
+
+[未完成]
+Seedance 2.5 專屬點數 action ID（目前沿用 2.0 的 ID，待提供）
+
+一、AI Mini Drama 引擎升級 AMD v261021（本批最高風險）
+1. 換上 AMD v261021 引擎並加入 Seedance 2.5 影片模型
+- 改動：新引擎把 Seedance 2.5 當作第一個影片模型答案、角色年齡改以整數寫入（才能存進角色庫），主要 Iris 模型換成 Gemini 3.8 Flash。換上新的 AMDEngine.xcframework 與 engine_assets，合併 harness，拒絕 prompt 與 cc_gemini provider，ai-mini-drama.md 取自新的 Iris 提示詞並以 XPC2 重新加密；App 端加入 Seedance 2.5（有自己的參考限制），Blueprint 的年齡可讀整數或字串。
+- 測試：完整跑一次生成流程（新對話、由範本進入、分鏡、影片生成、從 History 重開、續集），確認影片模型選擇卡出現 Seedance 2.5 且可選；在對話或 Create my character 產生角色並存進 My Characters，確認年齡正確；記錄回覆速度與品質在換成 Gemini 3.8 Flash 後有無變化。此為引擎換版，整條流程都要回歸。
+- 注意：commit 標示風險 Medium，每一輪 AMD 對話都改跑在新引擎上；Seedance 2.5 目前以 2.0 的價格報價與扣款（沿用 2.0 的點數 action ID），請與計費確認是否符合預期；影片卡的 Best / Standard / Fast 標籤需要 CMS 提供 AnswerVideoVendorSeedance2_5 與 VendorDescriptionSeedance2_5，未配置前該標籤會缺字。另有一次把 develop 合進引擎分支（5 個檔案）的衝突處理，請一併回歸。
+
+二、AI Mini Drama 角色
+1. 完成的造型按 ✕ 先確認是否捨棄（DRI261896P0037）
+- 改動：依 PM 10/21 規格，在已完成的 Create my character 造型上按 ✕ 會先跳出「Discard this character?」（說明不會儲存、已花的點數不退），按鈕為 Keep / Discard。Discard 會還原先前的挑選與引擎卡並關閉，造型不進 Mine；Keep 只關閉警告並停在結果頁。表單有未存輸入時的確認與其他狀態不變。此 sheet 為全螢幕且不能下滑關閉，✕ 是唯一的關閉路徑。
+- 測試：完成一個造型後按 ✕，確認先出現確認框；Keep 後仍停在結果；Discard 後 sheet 關閉、該造型不在 Mine 且原本的挑選被還原；Save to library 仍會存進 Mine；表單有輸入時按 ✕ 仍是原本的確認文字。
+- 注意：確認訊息為新字串，翻譯前各語系顯示英文；該 commit 自述未編譯、未執行測試。
+2. Create my character 描述文字被展開圖示壓住（DRI261897P0019）
+- 改動：依 Figma 把描述與展開圖示並排（文字、8pt 間距、24pt 圖示），展開鈕貼在卡片右內距 12pt、與文字頂端對齊。
+- 測試：輸入很長的描述，確認第一行與捲動中的每一行都不會壓到圖示，捲到底也不重疊；各機型抽驗。
+- 注意：描述欄位少了 32pt，長文字與 placeholder 會比原本早換行。
+3. 角色篩選頁標題在繁中誤為「濾鏡」（DRI261897P0021）
+- 改動：新字串 AI Mini Drama Filter Title（英文 Filter、繁中「篩選」、簡中 ?）。編輯器的共用 Filter 不動。
+- 測試：繁中與簡中開啟角色篩選頁，標題為「篩選 / ?」；編輯器的濾鏡工具名稱仍是「濾鏡 / ?」；各語系抽驗，確認沒有露出字串鍵。
+
+三、AI Mini Drama 對話與 History
+1. 空白對話按返回仍問「Leave this chat?」（DRI261894P0043）— 沒有訊息、沒有進行中的回合、也沒有大綱的空白對話，返回、滑動返回與進入 History 都不再詢問。測試：全新對話什麼都不做就返回直接離開；送出過訊息或已有大綱後返回仍會詢問；三條離開路徑各測一次。
+2. 單純開啟 task 就被移到 History 最上面且大小改變（DRI261893-0015）— 開啟舊 task 不修改，History 順序與卡片大小不變；修改後排序仍會更新。
+3. 離開第一支影片後沒有「Find your video here in History」提示（DRI261897P0009）— 第一次在影片進行中離開後，下次回首頁在 History 按鈕下方顯示「Find your video here in History.」，每次安裝一次，點任何地方關閉；全新安裝後再驗。
+4. 聊天上限對話後 Create storyboard 卡失去價格（DRI261897P0011）— 被每日聊天上限擋下後，Create storyboard 卡價格仍在且可生成。
+5. 重新產生分鏡時預覽寫成「videos are being generated」（DRI261896P0014）— 分鏡重新產生時顯示「Updating storyboard. Preview unavailable.」；影片生成中仍是影片文案。
+6. 首頁「Hi, I'm your」文字上有陰影（DRI261893-0051）— 有瀏海機型問候語上沒有陰影。
+
+四、Black Friday 與訂閱
+1. iPad 橫向禮物倒數氣泡被切到螢幕右緣（DRI261897P0014）— iPad 橫/直向與 iPhone 的 Launcher 倒數氣泡位置；須 iPad 實機。
+2. IAP 頁 Ultra 分頁氣泡「9600 Credit/year」未翻譯（DRI261897P0015）— 繁中等語系 Ultra 氣泡已翻譯；Pro、Pro+ 不變。
+
+五、其他功能
+1. Text to Video Recent task 左上按鈕圖示（DRI261889-0008）— 由 Home 九宮格進入 Text to Video、第一次 Generate 後左上為「<」加 Home。
+2. Send Feedback 圖片刪除鈕的灰框（DRI261845-0093，iPad）— 刪除鈕灰框內為不透明白底。
+
+六、測試修正（不影響使用者）— 不需 QA 手動驗證。

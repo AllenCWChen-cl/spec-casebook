@@ -1,0 +1,15 @@
+# ISS-AMD-73 Offline sends: the spec toast is logged, another banner is shown
+# PowerDirector 16.9.0 (189872), TR261022-0031, Developer Server, iPhone 17 Air / iOS 26.2.1. Excerpt of the app's AI Mini Drama log (Write Log + Pink 'Log stage timings').
+# Only lines about turns, charges, toasts and failures in the windows below; signed storage URLs are cut at '?'.
+
+## TC-032 idea + Generate offline (2026-10-23 06:05:30–06:05:40; logs/P9-h-20261023-071354)
+2026-10-23 06:05:33:029 [AIDramaChatViewController] [#1841] [AIDrama] toast for networkUnavailable
+2026-10-23 06:05:33:029 [AIDramaChatViewController] [#1842] [AIDrama Toast] You’re offline. Check your connection and try again.
+
+## TC-387 chat message offline (2026-10-23 06:09:30–06:09:40; logs/P9-h-20261023-071354)
+2026-10-23 06:09:35:765 [AIDramaChatViewController] [#1841] [AIDrama] toast for networkUnavailable
+2026-10-23 06:09:35:765 [AIDramaChatViewController] [#1842] [AIDrama Toast] You’re offline. Check your connection and try again.
+
+## TC-300 Create storyboard offline (2026-10-23 06:31:50–06:32:00; logs/P9-h-20261023-071354)
+2026-10-23 06:31:57:566 [AIDramaChatViewController] [#1841] [AIDrama] toast for networkUnavailable
+2026-10-23 06:31:57:566 [AIDramaChatViewController] [#1842] [AIDrama Toast] You’re offline. Check your connection and try again.

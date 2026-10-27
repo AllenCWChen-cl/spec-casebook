@@ -348,6 +348,8 @@ switch (cmd) {
     step('app-setup.ts', 'reinstall', version, build);
     step('app-setup.ts', 'first-launch');
     step('app-setup.ts', 'devserver');
+    // The photo-access alert can arrive after devserver's relaunch (P9 setup 2026-10-22: it blocked pink open).
+    step('device.ts', 'do', 'wait 3 ;; tapif Allow Full Access');
     step('device.ts', 'do', 'pink open "[z] AI Mini Drama" ;; pink set "Log stage timings" on ;; pink close');
     if (tier) step('device.ts', 'pink', 'tier', tier);
     const now = await installed();

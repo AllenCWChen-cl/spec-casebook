@@ -47,6 +47,8 @@ SECTIONS = ["Repro Steps:", "Result:", "Expect Result:", "Note:"]
 NOTE_LINE = re.compile(r"\s*(Device:|Spec Link:|Basis:|Related:|Design:|Jira:|<Claude Reviewed>|<GPT Reviewed>)")
 BASIS_RE = re.compile(r"^\s*Basis:\s*(In-product|External|None)\b\s*[—–-]?\s*(.*)$", re.I | re.M)
 IMAGE_EXT = re.compile(r"\.(jpe?g|png|gif|heic|webp)$", re.I)
+LOG_EXT = re.compile(r"_log\.(txt|log|zip)$", re.I)
+FAILURE_WORDS = re.compile(r"\b(fail(s|ed|ure)?|went wrong|couldn.t|error|refund(ed)?|charg(e|ed|es)|kept? (its )?credits|no reply|ends? (silently|with nothing))\b", re.I)
 VIDEO_EXT = re.compile(r"\.(mp4|mov|m4v|webm|avi)$", re.I)
 CHAIN = re.compile(r"\s(?:>|›|→|->)\s|\S(?:›|→)\S")
 # text a step may legitimately carry with '>' in it: quoted labels and typed prompts
@@ -341,6 +343,11 @@ def check_desc(key, desc, version, rep, files, upload_dir, tags=None, belong=Non
     if not any(IMAGE_EXT.search(r) for r in refs):
         rep.err(key, "no image in the body — every bug cites at least one {<ver>_<slug>.jpg}",
                 "attach a red-boxed frame and cite it under Result")
+    # user rule (2026-10-27): every failure-related entry carries the log excerpt of that failure
+    result = desc.split("Expect Result:")[0]
+    if FAILURE_WORDS.search(result) and not any(LOG_EXT.search(r) for r in refs):
+        rep.err(key, "failure-related entry without a log excerpt — cite {<ver>_<slug>_log.txt} under Result",
+                "slice the failure's time window from the pulled log (log-slice.ts), scrub it, attach and cite it")
     for r in refs | files:
         if VIDEO_EXT.search(r) and not videos_requested:
             rep.err(key, f"video attachment {r!r} — videos are attached only when the user asks for them",

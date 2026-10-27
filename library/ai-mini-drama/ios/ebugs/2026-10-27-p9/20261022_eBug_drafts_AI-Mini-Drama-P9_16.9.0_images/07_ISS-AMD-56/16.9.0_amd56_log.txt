@@ -1,0 +1,8 @@
+# ISS-AMD-56 Confirm turn posts 'Generate with AI' and ends with no result
+# PowerDirector 16.9.0 (189872), TR261022-0031, Developer Server, iPhone 17 Air / iOS 26.2.1. Excerpt of the app's AI Mini Drama log (Write Log + Pink 'Log stage timings').
+# Only lines about turns, charges, toasts and failures in the windows below; signed storage URLs are cut at '?'.
+
+## O-37 Dawn Bread Confirm (Off) (2026-10-23 06:22:00–06:28:15; logs/P9-h-20261023-071354)
+2026-10-23 06:22:04:333 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=97AAC0DA-672F-4D00-8A6E-869E65883BFE iris=261023_060707_dedea1e5 stage=storyboard trigger=leave answers=0 attachments=0
+2026-10-23 06:28:08:001 [AIDramaRequestCoordinator] [#64] [AIDrama AMD] workflow step failed drama=97AAC0DA-672F-4D00-8A6E-869E65883BFE workflow=ai-mini-drama/plan/routed step=sync_char_7e89a3b5 skill=character-sync call=261023_060707_dedea1e5_t8_i1_d1_ai-mini-drama_s_plan_s_routed_s_sync_char_7e89a3b5 error="HTTP PUT to storage URL failed: Failed to write connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/2hzb19yn29lto/input.2.png?…"
+2026-10-23 06:28:08:107 [AIDramaRequestCoordinator] [#64] [AIDrama AMD] workflow step failed drama=97AAC0DA-672F-4D00-8A6E-869E65883BFE workflow=ai-mini-drama/plan/routed step=sync_char_17d44ce7 skill=character-sync call=261023_060707_dedea1e5_t8_i1_d1_ai-mini-drama_s_plan_s_routed_s_sync_char_17d44ce7 error="HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/2hzb19yn29lto/input.1.png?…"

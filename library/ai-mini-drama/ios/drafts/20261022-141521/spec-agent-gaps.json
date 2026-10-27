@@ -1,0 +1,386 @@
+{
+  "spec_agent": {
+    "repo": "~/Desktop/Spec Agent",
+    "ref": "origin/main",
+    "commit": "250ad3060d961ed79ef326d279f67640fcbdb3d9",
+    "feature": "pdr-mobile-ai-mini-drama",
+    "platform": "ios",
+    "cases": 450
+  },
+  "mapping": "comparisons/20261022c_casebook-vs-spec-agent.mapping.json",
+  "generated_at": "2026-10-22T06:18:26.095Z",
+  "gaps": [
+    {
+      "id": "TR-DETAIL-DOWNLOAD-SPINNER-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-TR-DETAIL-DOWNLOAD-SPINNER-001.yaml",
+      "title": "DETAIL DOWNLOAD SPINNER — iOS",
+      "claim": "The scene-detail download control shows a spinner until saving finishes.",
+      "source": {
+        "kind": "build",
+        "ref": "source/tr-189463-20261007/tr-qa-readback.txt"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: RD build note of TR261006-0055 (189463), passed on 189463 and 189631, so retired as a build check (standing input 3); TC-089 checks the spinner on the video download, TC-331 the failure"
+    },
+    {
+      "id": "TR-FORMAT-DIVIDER-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-TR-FORMAT-DIVIDER-001.yaml",
+      "title": "FORMAT DIVIDER — iOS",
+      "claim": "The Format card displays the divider between caption options and Continue.",
+      "source": {
+        "kind": "build",
+        "ref": "source/tr-189463-20261007/tr-qa-readback.txt"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: RD build note of TR261006-0055 (189463), passed on 189463 and 189631, so retired as a build check (standing input 3)"
+    },
+    {
+      "id": "TR-MANAGE-NO-SHIFT-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-TR-MANAGE-NO-SHIFT-001.yaml",
+      "title": "MANAGE NO SHIFT — iOS",
+      "claim": "Selecting and deselecting a Recent Task in management mode does not move its date, name or size.",
+      "source": {
+        "kind": "build",
+        "ref": "source/tr-189463-20261007/tr-qa-readback.txt"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: RD build note of TR261006-0055 (189463), passed on 189463 and 189631, so retired as a build check (standing input 3)"
+    },
+    {
+      "id": "TR-SEND-SCROLL-BOTTOM-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-TR-SEND-SCROLL-BOTTOM-001.yaml",
+      "title": "SEND SCROLL BOTTOM — iOS",
+      "claim": "After Send, the sent message moves to the top of the screen and the reply generates below it without the view following it; ↓ appears when the reply runs past the screen.",
+      "source": {
+        "kind": "build",
+        "ref": "source/tr-189463-20261007/tr-qa-readback.txt"
+      },
+      "mapped": "drop",
+      "decision": "covered TC-344 (the spec agent rewrote it to PM 10/21 §13.2; the mapping still said low value)"
+    },
+    {
+      "id": "TR-UNSET-CAST-PICKER-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-TR-UNSET-CAST-PICKER-001.yaml",
+      "title": "UNSET CAST PICKER — iOS",
+      "claim": "A regeneration request with unset character portraits retains the character-picking flow.",
+      "source": {
+        "kind": "build",
+        "ref": "source/tr-189463-20261007/tr-qa-readback.txt"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: RD build note of TR261006-0055 (189463), passed on 189463 and 189631, so retired as a build check (standing input 3); TC-033 and TC-039 check the unset-cast flow"
+    },
+    {
+      "id": "TR-VIDEO-REPEATED-PAUSE-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-TR-VIDEO-REPEATED-PAUSE-001.yaml",
+      "title": "VIDEO REPEATED PAUSE — iOS",
+      "claim": "Tapping the same playing scene video pauses it across three successive playback cycles.",
+      "source": {
+        "kind": "build",
+        "ref": "source/tr-189463-20261007/tr-qa-readback.txt"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: RD build note of TR261006-0055 (189463), passed on 189463 and 189631, so retired as a build check (standing input 3)"
+    },
+    {
+      "id": "TR-VIDEO-TAP-PAUSE-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-TR-VIDEO-TAP-PAUSE-001.yaml",
+      "title": "VIDEO TAP PAUSE — iOS",
+      "claim": "Tapping a playing scene video pauses playback.",
+      "source": {
+        "kind": "build",
+        "ref": "source/tr-189463-20261007/tr-qa-readback.txt"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: RD build note of TR261006-0055 (189463), passed on 189463 and 189631, so retired as a build check (standing input 3)"
+    },
+    {
+      "id": "EXP-001-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-001-001-IOS.yaml",
+      "title": "Idea input boundaries and preservation — iOS",
+      "claim": "Characterize idea input boundaries and preservation across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "EXP-005-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-005-001-IOS.yaml",
+      "title": "Missing character counts and exit routes — iOS",
+      "claim": "Characterize missing character counts and exit routes across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "EXP-006-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-006-001-IOS.yaml",
+      "title": "Character form validation and focus transitions — iOS",
+      "claim": "Characterize character form validation and focus transitions across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "EXP-007-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-007-001-IOS.yaml",
+      "title": "Reference photo assignment lifecycle — iOS",
+      "claim": "Characterize reference photo assignment lifecycle across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "EXP-008-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-008-001-IOS.yaml",
+      "title": "Character image/version selection — iOS",
+      "claim": "Characterize character image/version selection across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "EXP-009-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-009-001-IOS.yaml",
+      "title": "Direct Stop versus navigation warning — iOS",
+      "claim": "Characterize direct stop versus navigation warning across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "EXP-012-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-012-001-IOS.yaml",
+      "title": "Recent Task rename validation — iOS",
+      "claim": "Characterize recent task rename validation across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "EXP-013-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-013-001-IOS.yaml",
+      "title": "History metadata and restored stage — iOS",
+      "claim": "Characterize history metadata and restored stage across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "EXP-014-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-014-001-IOS.yaml",
+      "title": "Video generation shared success fixture — iOS",
+      "claim": "Characterize video generation shared success fixture across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "EXP-016-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-016-001-IOS.yaml",
+      "title": "Scene-video editor cancellation and timeline — iOS",
+      "claim": "Characterize scene-video editor cancellation and timeline across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "EXP-017-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-017-001-IOS.yaml",
+      "title": "Continue next episode and original preservation — iOS",
+      "claim": "Characterize continue next episode and original preservation across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "EXP-018-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-018-001-IOS.yaml",
+      "title": "Stage-specific interruption matrix — iOS",
+      "claim": "Characterize stage-specific interruption matrix across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "EXP-019-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-019-001-IOS.yaml",
+      "title": "Wait duration and useful actions — iOS",
+      "claim": "Characterize wait duration and useful actions across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "EXP-020-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-020-001-IOS.yaml",
+      "title": "Network failure and recovery — iOS",
+      "claim": "Characterize network failure and recovery across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "EXP-021-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-021-001-IOS.yaml",
+      "title": "Quota and tier matrix — iOS",
+      "claim": "Characterize quota and tier matrix across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "EXP-022-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-022-001-IOS.yaml",
+      "title": "First-use and insufficient-credit branches — iOS",
+      "claim": "Characterize first-use and insufficient-credit branches across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "EXP-024-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-024-001-IOS.yaml",
+      "title": "Notifications and foreground/background completion — iOS",
+      "claim": "Characterize notifications and foreground/background completion across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "EXP-025-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-EXP-025-001-IOS.yaml",
+      "title": "Photos save and task deletion boundaries — iOS",
+      "claim": "Characterize photos save and task deletion boundaries across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "drop",
+      "decision": "not from the spec: exploratory charter from the user's 2026-10-07 coverage-expansion request in the spec agent (no expected result); its branches are rows already"
+    },
+    {
+      "id": "1012-PM-CAPTION-RETRY-SEGMENTS",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-1012-PM-CAPTION-RETRY-SEGMENTS.yaml",
+      "title": "CAPTION-RETRY-SEGMENTS — iOS",
+      "claim": "Caption retry reruns only failed STT segments; UI completion alone does not prove backend segment selection.",
+      "source": {
+        "kind": "spec",
+        "ref": "source/pm-20261012/source.md"
+      },
+      "mapped": "drop",
+      "decision": "added TC-365"
+    },
+    {
+      "id": "1012-PM-CAPTIONS-NO-STT",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-1012-PM-CAPTIONS-NO-STT.yaml",
+      "title": "CAPTIONS-NO / STT — iOS",
+      "claim": "A final-video request with Captions No does not run STT.",
+      "source": {
+        "kind": "spec",
+        "ref": "source/pm-20261012/source.md"
+      },
+      "mapped": "drop",
+      "decision": "added TC-364"
+    },
+    {
+      "id": "1012-PM-CROP-UPLOAD",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-1012-PM-CROP-UPLOAD.yaml",
+      "title": "CROP-UPLOAD — iOS",
+      "claim": "Only the cropped reference is submitted for character generation; transport or diagnostic evidence is needed to establish the submitted image.",
+      "source": {
+        "kind": "spec",
+        "ref": "source/pm-20261012/source.md"
+      },
+      "mapped": "drop",
+      "decision": "added TC-366"
+    },
+    {
+      "id": "FIXTURE-0924-S002-B016",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-FIXTURE-0924-S002-B016-IOS.yaml",
+      "title": "Daily free chats — iOS",
+      "claim": "Daily free chat limits can be adjusted through Firebase Remote Config.",
+      "source": {
+        "kind": "spec",
+        "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+      },
+      "mapped": "drop",
+      "decision": "added TC-369"
+    },
+    {
+      "id": "MX-PRO-SEND-DEBIT-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-MX-PRO-SEND-DEBIT-001-IOS.yaml",
+      "title": "Daily free chats · MX-PRO-SEND-DEBIT — iOS",
+      "claim": "Each chat sent by a Pro user consumes one daily free chat use.",
+      "source": {
+        "kind": "spec",
+        "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+      },
+      "mapped": "drop",
+      "decision": "added TC-367"
+    },
+    {
+      "id": "MX-PROPLUS-SEND-DEBIT-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/ios/TC-PDRM-MINIDRAMA-MX-PROPLUS-SEND-DEBIT-001-IOS.yaml",
+      "title": "Daily free chats · MX-PROPLUS-SEND-DEBIT — iOS",
+      "claim": "Each chat sent by a Pro+ user consumes one daily free chat use.",
+      "source": {
+        "kind": "spec",
+        "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+      },
+      "mapped": "drop",
+      "decision": "added TC-368"
+    }
+  ]
+}

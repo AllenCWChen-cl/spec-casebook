@@ -1,0 +1,17 @@
+# ISS-AMD-67 Whole storyboard failures
+# PowerDirector 16.9.0 (189872), TR261022-0031, Developer Server, iPhone 17 Air / iOS 26.2.1. Excerpt of the app's AI Mini Drama log (Write Log + Pink 'Log stage timings').
+# Only lines about turns, charges, toasts and failures in the windows below; signed storage URLs are cut at '?'.
+
+## Fail turn = unavailable (2026-10-23 02:47:20–02:47:35; logs/P9-d2-20261023-031149)
+2026-10-23 02:47:24:555 [AIDramaPermissionGate] [#93] [AIDrama Permission] authorize drama=D8D24583-13C5-41DD-8A14-434D4F5B4634 tools=[TextToImagex2,TextToSpeechx1] credit=7 video_model=nil
+2026-10-23 02:47:24:575 [AIDramaIrisConversationService] [#66] [AIDrama AMD] send begin drama=D8D24583-13C5-41DD-8A14-434D4F5B4634 iris=261022_211248_c048424b stage=beat trigger= answers=1 attachments=0
+2026-10-23 02:47:24:594  [AMDPerf] ════ turn end · stage=beat · card=none · failed: unavailable · wall    0.019s
+2026-10-23 02:47:24:594 [AIDramaChatPresenter] [#1222] [AIDrama] turn failed, offering retry: Optional(PowerDirector.AIDramaChatError.unavailable)
+
+## Real failure with every switch Off (2026-10-23 02:57:20–02:58:05; logs/P9-d2-20261023-031149)
+2026-10-23 02:57:28:815 [AIDramaPermissionGate] [#261] [AIDrama Permission] request 261022_211248_c048424b_t12_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_req_1 drama=D8D24583-13C5-41DD-8A14-434D4F5B4634 -> allow (authorized, credit=3)
+2026-10-23 02:57:28:826 [AIDramaRequestCoordinator] [#64] [AIDrama AMD] workflow step failed drama=D8D24583-13C5-41DD-8A14-434D4F5B4634 workflow=ai-mini-drama/plan/routed/asset_routed step=prompt_2 skill=beat-edit call=261022_211248_c048424b_t12_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompt_2 error="HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/2epu3uu4grm9y/input.2.png?…"
+2026-10-23 02:57:57:326 [AIDramaRequestCoordinator] [#55] [AIDrama AMD] turn complete not ok drama=D8D24583-13C5-41DD-8A14-434D4F5B4634 iris=261022_211248_c048424b turn=261022_211248_c048424b_t12 final_state=complete status_code=0 error_message="" reply=""
+2026-10-23 02:57:57:333 [AIDramaIrisConversationService] [#399] [AIDrama AMD] send reply drama=D8D24583-13C5-41DD-8A14-434D4F5B4634 iris=261022_211248_c048424b source=blueprint stage=beat failures=1 text=""
+2026-10-23 02:57:57:333 [AIDramaIrisConversationService] [#407] [AIDrama AMD] send failure[0] tool=prompt target=beat_48c56e91 status=tool_error reason="HTTP PUT to storage URL failed: Failed to read connection (url=https://storage.googleapis.com/cl-aol-media-demo/source/Chat/2epu3uu4grm9y/input.2.png?…"
+2026-10-23 02:57:59:444  [AMDPerf] ════ turn end · stage=beat · card=none · ok · wall  394.554s

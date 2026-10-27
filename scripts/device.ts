@@ -1,7 +1,16 @@
 // Minimal Appium (W3C WebDriver) client for running cases on the real QA iPhone through Appium + WebDriverAgent.
 // Usage: node scripts/device.ts <run dir> <command> [args]
-//   start [udid]              create a session (noReset) and remember it in <run dir>/.session
-//   status                    Appium status and whether the stored session is alive
+//   start [udid]              create a session (noReset) and remember it in <run dir>/.session (+ .udid, .wda-started)
+//   restart [udid]            end the session, stop this phone's xcodebuild (the WDA process) and start a fresh one,
+//                             then bring PowerDirector back to the front; run it at every segment start so one WDA never
+//                             serves many hours. WDA stays installed: uninstalling it (useNewWDA) drops the phone's trust
+//                             in the developer certificate, which only the user can restore on the phone.
+//   install-wda [app path]    install the built WebDriverAgentRunner-Runner.app (newest in Xcode's DerivedData) with
+//                             devicectl and leave it installed, so the phone keeps the QA certificate it can trust
+//   status                    Appium status, whether the stored session is alive and how long WDA has been up
+// WDA recovery (2026-10-27): a command that fails because WDA is gone (socket hang up, connection refused, dead
+// session) restarts WDA once, re-activates PowerDirector and retries. When the phone is locked or Xcode holds a
+// "preparation error" the restart cannot work: the script prints BLOCKER and exits 75 (unlock the phone, replug USB).
 //   shot NAME                 save <run dir>/screenshots/NAME.png (device pixels)
 //   els [filter]              visible accessible elements: type | name | label | value | x,y,w,h (points)
 //   tap X Y | hold X Y [s]    tap / long-press at points
@@ -55,6 +64,11 @@ const [runDir, cmd, ...rest] = process.argv.slice(2);
 if (!runDir || !cmd) { console.error('Usage: node scripts/device.ts <run dir> <command> [args]'); process.exit(2); }
 mkdirSync(runDir, { recursive: true });
 const SID = join(runDir, '.session');
+const UDID_FILE = join(runDir, '.udid'), WDA_FILE = join(runDir, '.wda-started');
+const BLOCKER = 75;
+// xcodebuild code 70 behind these texts means the phone must be unlocked (or replugged) before WDA can launch.
+const LOCKED = /unlocked|preparation error|passcode|Failed to allocate RSD|device is locked|xcodebuild failed with code 70/i;
+const WDA_GONE = /socket hang up|ECONNREFUSED|Connection was refused|invalid session id|terminated or not started|WDA is not listening|Could not proxy command/i;
 // Every command leaves a time stamp; run-log.ts `time` uses them to tell test time from idle waits.
 try { appendFileSync(join(runDir, 'activity.log'), `${new Date().toISOString()} ${cmd} ${rest.join(' ').slice(0, 80)}\n`); } catch {}
 const stamp = () => { const d = new Date(), p = (n: number) => String(n).padStart(2, '0');
@@ -94,6 +108,12 @@ async function describe(id: string) {
   const [label, r] = await Promise.all([s('GET', `/element/${id}/attribute/label`).then(x => x.value).catch(() => ''), s('GET', `/element/${id}/rect`).then(x => x.value).catch(() => null)]);
   return `${String(label ?? '').slice(0, 120)}${r ? ` | ${r.x},${r.y},${r.width},${r.height}` : ''}`;
 }
+function blocker(why: string): never {
+  console.error(`BLOCKER (device): ${why}\nUnlock the iPhone and leave it on the home screen; if that is not enough, unplug and replug the USB cable. Then: node scripts/device.ts <run dir> restart`);
+  process.exit(BLOCKER);
+}
+// The last lines of the Appium server log, when APPIUM_LOG points at it (xcodebuild's own reason for code 70).
+function appiumTail() { try { const f = process.env.APPIUM_LOG; if (!f) return ''; const b = readFileSync(f); return b.subarray(Math.max(0, b.length - 200_000)).toString('utf8'); } catch { return ''; } }
 // Run another command without its own output (for composite commands).
 async function quiet(c: string, a: string[]) { const o = console.log; console.log = () => {}; try { return await run(c, a); } finally { console.log = o; } }
 
@@ -122,21 +142,79 @@ function parseEls(xml: string, filter?: string) {
   return out;
 }
 
+// One automatic WDA restart per command when WDA has gone away; start / restart / stop / status are never retried.
+async function runRecovering(c: string, a: string[]) {
+  try { return await run(c, a); }
+  catch (e: any) {
+    const msg = String(e?.message ?? e);
+    if (['start', 'restart', 'stop', 'status'].includes(c) || !WDA_GONE.test(msg) || !existsSync(UDID_FILE)) throw e;
+    console.error(`WDA gone (${msg.slice(0, 120)}); restarting it once and retrying "${c}"`);
+    try { appendFileSync(join(runDir, 'activity.log'), `${new Date().toISOString()} restart (auto, after: ${msg.slice(0, 60)})\n`); } catch {}
+    await run('restart', []);
+    return await run(c, a);
+  }
+}
 async function run(cmd: string, rest: string[]): Promise<string | void> {
 switch (cmd) {
   case 'start': {
-    const udid = rest[0] ?? process.env.PDR_UDID;
+    const udid = (rest[0] && !rest[0].startsWith('--') ? rest[0] : undefined) ?? (existsSync(UDID_FILE) ? readFileSync(UDID_FILE, 'utf8').trim() : undefined) ?? process.env.PDR_UDID;
     if (!udid) throw new Error('Pass the device UDID (xcrun xctrace list devices) or set PDR_UDID.');
     const caps = { platformName: 'iOS', 'appium:automationName': 'XCUITest', 'appium:udid': udid, 'appium:noReset': true,
-      'appium:newCommandTimeout': 7200, 'appium:wdaLaunchTimeout': 180000, 'appium:wdaConnectionTimeout': 180000 };
-    const r = await call('POST', '/session', { capabilities: { alwaysMatch: caps } }, 900_000);
-    writeFileSync(SID, r.value.sessionId);
+      'appium:newCommandTimeout': 7200, 'appium:wdaLaunchTimeout': 180000, 'appium:wdaConnectionTimeout': 180000,
+      // WDA signing (the QA team's, as the AT_PDRi suite uses it); without it a rebuild fails with "requires a development team".
+      'appium:xcodeOrgId': process.env.PDR_WDA_TEAM ?? 'LR55RBG94F', 'appium:xcodeSigningId': 'Apple Development',
+      'appium:updatedWDABundleId': process.env.PDR_WDA_BUNDLE ?? 'com.cyberlinkqa1-4.WebDriverAgentRunner',
+      'appium:showXcodeLog': true,
+      // PDR_WDA_PREINSTALLED=1 launches the WDA already on the phone through devicectl (no xcodebuild, never uninstalled),
+      // but on iOS 26.2 with this WDA build it never listened on 8100 (10/27), so xcodebuild stays the default. Appium
+      // uninstalls WDA after a failed xcodebuild launch; then `install-wda` and the user trusts the certificate again.
+      ...(process.env.PDR_WDA_PREINSTALLED === '1' ? { 'appium:usePreinstalledWDA': true } : {}) };
+    let r;
+    try { r = await call('POST', '/session', { capabilities: { alwaysMatch: caps } }, 900_000); }
+    catch (e: any) {
+      const m = String(e?.message ?? e) + appiumTail();
+      if (/not (been explicitly )?trusted/i.test(m)) blocker('WDA cannot launch: the phone does not trust the developer certificate. On the iPhone: Settings › General › VPN & Device Management › the Developer App certificate › Trust.');
+      if (LOCKED.test(m)) blocker('WDA cannot launch (xcodebuild code 70): the phone is locked, or Xcode still holds a "preparation error" from an earlier lock.');
+      if (/xcodebuild failed with code 6\d/.test(m)) blocker('WDA cannot launch (xcodebuild code 65): usually the phone no longer trusts the developer certificate (Settings › General › VPN & Device Management › Developer App › Trust), or the phone is locked. Set APPIUM_LOG to the Appium server log to see which.');
+      throw e;
+    }
+    writeFileSync(SID, r.value.sessionId); writeFileSync(UDID_FILE, udid); writeFileSync(WDA_FILE, new Date().toISOString());
     console.log('session', r.value.sessionId);
+    break;
+  }
+  case 'install-wda': {
+    const udid = existsSync(UDID_FILE) ? readFileSync(UDID_FILE, 'utf8').trim() : process.env.PDR_UDID;
+    const dd = join(process.env.HOME ?? '', 'Library/Developer/Xcode/DerivedData');
+    const app = rest[0] ?? readdirSync(dd).filter(d => d.startsWith('WebDriverAgent-'))
+      .map(d => join(dd, d, 'Build/Products/Debug-iphoneos/WebDriverAgentRunner-Runner.app')).filter(existsSync)
+      .sort((a, b) => statSync(b).mtimeMs - statSync(a).mtimeMs)[0];
+    if (!app) throw new Error('No built WebDriverAgentRunner-Runner.app in DerivedData; pass its path');
+    // devicectl wants its own device identifier; map the UDID through `devicectl list devices`.
+    let dev = udid ?? '';
+    try {
+      const out = join(runDir, '.devices.json');
+      execFileSync('xcrun', ['devicectl', 'list', 'devices', '--json-output', out], { stdio: 'ignore' });
+      const d = JSON.parse(readFileSync(out, 'utf8')).result.devices.find((x: any) => x.hardwareProperties?.udid === udid);
+      if (d) dev = d.identifier;
+    } catch {}
+    execFileSync('xcrun', ['devicectl', 'device', 'install', 'app', '--device', dev, app], { stdio: 'inherit' });
+    console.log(`installed ${app} — if the phone asks, trust the Developer App certificate (Settings › General › VPN & Device Management)`);
+    break;
+  }
+  case 'restart': {
+    // A fresh WDA process: P9 lost its run when one WDA had served 18.5 h and ~22,000 searches (2026-10-23 09:57).
+    const udid = rest[0] ?? (existsSync(UDID_FILE) ? readFileSync(UDID_FILE, 'utf8').trim() : process.env.PDR_UDID);
+    if (existsSync(SID)) await call('DELETE', `/session/${sid()}`).catch(() => {});
+    if (udid) { try { execFileSync('pkill', ['-f', `xcodebuild.*${udid}`]); } catch {} await sleep(3); }
+    await run('start', udid ? [udid] : []);
+    await mobile('activateApp', { bundleId: BUNDLE }).catch(() => {});
+    console.log('WDA restarted; PowerDirector brought to the front');
     break;
   }
   case 'status': {
     console.log(JSON.stringify((await call('GET', '/status')).value));
     if (existsSync(SID)) { try { await s('GET', '/window/rect'); console.log('session alive', sid()); } catch (e) { console.log('session not alive:', String(e).slice(0, 200)); } }
+    if (existsSync(WDA_FILE)) { const h = (Date.now() - Date.parse(readFileSync(WDA_FILE, 'utf8'))) / 3_600_000; console.log(`WDA started ${h.toFixed(1)} h ago${h > 3 ? ' — run `restart` at the next segment start' : ''}`); }
     break;
   }
   case 'shot': {
@@ -180,6 +258,15 @@ switch (cmd) {
       { type: 'pointerMove', duration: ms || 500, x: x2, y: y2 }, { type: 'pointerUp', button: 0 }]);
     console.log('dragged'); break;
   }
+  case 'pinch': {
+    // pinch X Y FROM TO [ms]: two fingers on a horizontal line through (X, Y), FROM → TO points apart (TO > FROM zooms in).
+    const [x, y, from, to, ms] = rest.map(Number);
+    const finger = (id: string, sign: number) => ({ type: 'pointer', id, parameters: { pointerType: 'touch' }, actions: [
+      { type: 'pointerMove', duration: 0, x: x + sign * from / 2, y }, { type: 'pointerDown', button: 0 }, { type: 'pause', duration: 100 },
+      { type: 'pointerMove', duration: ms || 800, x: x + sign * to / 2, y }, { type: 'pointerUp', button: 0 }] });
+    await s('POST', '/actions', { actions: [finger('f1', -1), finger('f2', 1)] });
+    console.log('pinched', from, '→', to); break;
+  }
   case 'scrollto': {
     // Read the frame from the source itself (never from a column of `els` output) and steer by where the element is.
     const [text, X, TOP, BOTTOM] = [rest[0], +(rest[1] ?? 210), +(rest[2] ?? 120), +(rest[3] ?? 780)];
@@ -189,7 +276,7 @@ switch (cmd) {
     const lo = Math.round(TOP + (BOTTOM - TOP) * 0.15), hi = Math.round(BOTTOM - (BOTTOM - TOP) * 0.15);
     const find = (xml: string) => [...xml.matchAll(/<(XCUIElementType\w+)([^>]*)>/g)]
       .map(m => ({ type: m[1].replace('XCUIElementType', ''), a: Object.fromEntries([...m[2].matchAll(/(\w+)="([^"]*)"/g)].map(x => [x[1], x[2]])) }))
-      .filter(e => e.a.name === text || e.a.label === text)
+      .filter(e => { const d = (t?: string) => (t ?? '').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&'); return d(e.a.name) === text || d(e.a.label) === text; })
       .map(e => ({ ...e, cy: +e.a.y + +e.a.height / 2 }));
     const drag = (dy: number) => pointer([{ type: 'pointerMove', duration: 0, x: X, y: dy > 0 ? lo : hi },
       { type: 'pointerDown', button: 0 }, { type: 'pause', duration: 120 },
@@ -438,7 +525,7 @@ switch (cmd) {
         await mobile('tap', { x: r.x + r.w / 2, y: r.y + r.h / 2 }); await sleep(1.5);
         let opt = await byName(want);
         if (!opt) { try { await quiet('scrollto', [want, ...band]); opt = (await visibleIds(exactPred(want)))[0]; } catch {} }
-        if (!opt) opt = (await visibleIds(`visible == 1 AND type == "XCUIElementTypeStaticText" AND (label BEGINSWITH "${esc(want)}" OR name BEGINSWITH "${esc(want)}")`))[0];
+        if (!opt) opt = (await visibleIds(`visible == 1 AND type == "XCUIElementTypeStaticText" AND (label BEGINSWITH[c] "${esc(want)}" OR name BEGINSWITH[c] "${esc(want)}")`))[0];
         if (!opt) { const p = await quiet('shot', [`pink-no-option-${stamp()}`]); throw new Error(`pink: option "${want}" not in the ${row} list (screenshot ${p})`); }
         tr('option found'); await s('POST', `/element/${opt}/click`, {}); await sleep(1.5);
         // Picking an option pops back by itself; only go back if the list is still open.
@@ -500,7 +587,7 @@ try {
       const optional = raw.startsWith('?'); const line = optional ? raw.slice(1).trim() : raw;
       const [c, ...a] = tokens(line);
       try { appendFileSync(join(runDir, 'activity.log'), `${new Date().toISOString()} ${c} ${a.join(' ').slice(0, 80)}\n`); } catch {}
-      try { await run(c, a); }
+      try { await runRecovering(c, a); }
       catch (e: any) {
         if (optional) { console.log(`  (step ${i + 1} skipped: ${String(e?.message ?? e).slice(0, 160)})`); continue; }
         console.error(`✗ step ${i + 1}/${lines.length}: ${line}\n  ${String(e?.message ?? e).slice(0, 400)}`);
@@ -510,6 +597,6 @@ try {
       }
     }
     console.log(`✓ ${lines.length} steps${file ? ` (${file})` : ''}`);
-  } else await run(cmd, rest);
+  } else await runRecovering(cmd, rest);
 } catch (e: any) { console.error(String(e?.message ?? e)); process.exit(1); }
 

@@ -16,6 +16,9 @@
 // (proMultiplier, 1 Team seat = 6.25× Pro; a row without one inherits the previous row's, else 1); Pro-% = plan-% ×
 // that value, and a seat change marks an account switch (no window spans it). Other users of a shared account are
 // invisible to these transcripts, so the account figure is only an upper bound.
+// The page leads with the current run and puts earlier runs (their phases and time / usage table) after it. Current =
+// phases.json's "current" list when set, else the newest phase marked "round": true and every phase after it, else
+// every phase (user, 2026-10-22: a new draft or plan starts at the top; earlier runs follow in the order they ran).
 // Reads drafts/<draft>/phases.json, the approved cases.csv, every runs/*/results.csv (latest record per case wins),
 // each run folder's run-state.md checkpoints, and the "## Log" list of the run plan. Default output:
 // library/<feature>/<platform>/runs/plan.html. Re-run it whenever the run moves on.
@@ -115,11 +118,20 @@ function buildData() {
   // Phases merged into another (P2 and P3 inside P23) are shown only through the phase that runs them.
   const phasesFile = JSON.parse(readFileSync(join(base, 'drafts', draft, 'phases.json'), 'utf8'));
   const phases = phasesFile.phases.filter((p: any) => !p.merged_into);
-  const cases = Object.fromEntries(readRecords(readFileSync(join(base, 'cases.csv'), 'utf8')).map(r => [r.ID, r]));
+  const lastRound = phases.map((p: any, i: number) => p.round ? i : -1).filter((i: number) => i >= 0).at(-1);
+  const currentIds = new Set<string>(phasesFile.current ?? (lastRound === undefined ? phases.map((p: any) => p.id) : phases.slice(lastRound).map((p: any) => p.id)));
+  // Case text: the approved table, then the draft for rows it does not have yet (a run plan built before approval).
+  const draftCsv = join(base, 'drafts', draft, 'draft.csv');
+  const cases = Object.fromEntries([
+    ...(existsSync(draftCsv) ? readRecords(readFileSync(draftCsv, 'utf8')).map(r => [r.ID, r] as const) : []),
+    ...readRecords(readFileSync(join(base, 'cases.csv'), 'utf8')).map(r => [r.ID, r] as const),
+  ]);
   const manifest = existsSync(join(base, 'manifest.json')) ? JSON.parse(readFileSync(join(base, 'manifest.json'), 'utf8')) : {};
   
   // Latest result per case across run folders, and which run folder a phase uses.
   const latest: Record<string, { result: string; disp: string; actual: string; at: number; run: string }> = {};
+  // A round phase ("round": true, e.g. P9) re-runs rows that ran before; it shows only results from its own run folder.
+  const byRun: Record<string, typeof latest> = {};
   const phaseRun: Record<string, string> = {};
   const checkpoints: { time: string; next: string; text: string; run: string }[] = [];
   const spans: Span[] = [], idles: { a: number; b: number; phase: string; seg: string }[] = [];
@@ -129,7 +141,7 @@ function buildData() {
     const rc = join(runsDir, d, 'results.csv'); if (!existsSync(rc)) continue;
     const state = existsSync(join(runsDir, d, 'run-state.md')) ? readFileSync(join(runsDir, d, 'run-state.md'), 'utf8') : '';
     const ph = state.match(/^# Run state — (P\d+)/m)?.[1]; if (ph) phaseRun[ph] = `runs/${d}/`;
-    const b = state.match(/PowerDirector (\d+\.\d+\.\d+ \(\d+\))/)?.[1]; if (b) build = b;
+    const b = state.match(/PowerDirector (?:iOS )?(\d+\.\d+\.\d+ \(\d+\))/)?.[1]; if (b) build = b;
     for (const m of state.matchAll(/^### (\S+)( · next (\S+) \(([^)]*)\)| · all recorded)?\n[^\n]*\n\n([\s\S]*?)(?=\n### |\s*$)/gm))
       checkpoints.push({ time: m[1].replace('T', ' ').slice(0, 16) + ' UTC', next: m[3] ? `${m[3]} (${m[4]})` : 'all recorded', text: m[5].trim().replace(/\s+/g, ' ').slice(0, 420) + (m[5].length > 420 ? '…' : ''), run: d });
     if (!ph) continue;   // older runs (before phases) don't count toward this plan
@@ -139,7 +151,9 @@ function buildData() {
     if (act.first !== undefined) Object.assign(stat[ph] ??= newStat(), { first: act.first, last: act.last });
     for (const r of rows) {
       const at = Date.parse(r['Recorded At']) || 0;
-      if (!latest[r.ID] || at >= latest[r.ID].at) latest[r.ID] = { result: r.Result || 'Not run', disp: r.Disposition || '', actual: r.Actual || '', at, run: d };
+      const rec = { result: r.Result || 'Not run', disp: r.Disposition || '', actual: r.Actual || '', at, run: d };
+      if (!latest[r.ID] || at >= latest[r.ID].at) latest[r.ID] = rec;
+      ((byRun[d] ??= {})[r.ID]) = rec;
     }
   }
   
@@ -174,18 +188,28 @@ function buildData() {
     });
   }
   // Token-rate estimate. rate = the calibrated 5-hour Pro-% ÷ the basis phase's weighted tokens. Weekly ratio: the
-  // calibration's weekPerFiveHour, else Σ weekly ÷ Σ 5-hour increments of the latest seat that has weekly readings,
-  // over the span its weekly increments cover (the seat factor cancels: both are Pro-scaled).
+  // calibration's weekPerFiveHour, else Σ Δweekly ÷ Σ Δ5-hour over consecutive readings of the latest seat that both
+  // carry a 5-hour and a weekly value in the same windows (no reset in between). Paired readings only: a reading's
+  // first value on a new account holds use from before it (10/22: 95% weekly from other work counted as a 1-second
+  // increment made the ratio 1.70 instead of 0.19). The seat factor cancels: both are plan-% of one account.
   const calFile = join(runsDir, 'usage-calibration.json');
   const cal = existsSync(calFile) ? JSON.parse(readFileSync(calFile, 'utf8')) as { basis: string; fiveHourPct: number; seat?: number; source?: string; weekPerFiveHour?: number | null } : null;
   const basisW = cal && stat[cal.basis] ? weight(stat[cal.basis].tokens) : 0;
   const rate = cal && basisW ? cal.fiveHourPct * (cal.seat ?? 1) / basisW : null;
   let weekRatio: number | null = cal?.weekPerFiveHour ?? null, weekBasis: { seat: number; weekly: number; fiveHour: number; from: string; to: string } | null = null;
-  const wSeat = incs.weekly.at(-1)?.mult;
-  if (weekRatio == null && wSeat) {
-    const ws = incs.weekly.filter(i => i.mult === wSeat), a = Math.min(...ws.map(i => i.from)), b = Math.max(...ws.map(i => i.to));
-    const wk = ws.reduce((x, i) => x + i.pct, 0), fh = incs.fiveHour.filter(i => i.mult === wSeat && i.to > a && i.to <= b).reduce((x, i) => x + i.pct, 0);
-    if (fh) { weekRatio = wk / fh; weekBasis = { seat: wSeat, weekly: wk * wSeat, fiveHour: fh * wSeat, from: new Date(a).toISOString(), to: new Date(b).toISOString() }; }
+  const paired = readings.filter(s => s.fiveHourPct != null && s.weeklyPct != null);
+  const close = (x?: string | null, y?: string | null) => !x || !y || Math.abs(Date.parse(x) - Date.parse(y)) < 120_000;
+  for (const wSeat of [...new Set(paired.map(s => s.proMultiplier))].reverse()) {
+    if (weekRatio != null) break;
+    const ps = paired.filter(s => s.proMultiplier === wSeat);
+    let wk = 0, fh = 0, a = Infinity, b = -Infinity;
+    for (let i = 1; i < ps.length; i++) {
+      const p = ps[i - 1], q = ps[i];
+      const dW = q.weeklyPct! - p.weeklyPct!, d5 = q.fiveHourPct! - p.fiveHourPct!;
+      if (dW < 0 || d5 < 0 || !close(p.fiveHourResetsAt, q.fiveHourResetsAt) || !close(p.weeklyResetsAt, q.weeklyResetsAt)) continue;
+      wk += dW; fh += d5; a = Math.min(a, Date.parse(p.at)); b = Math.max(b, Date.parse(q.at));
+    }
+    if (fh > 0) { weekRatio = wk / fh; weekBasis = { seat: wSeat, weekly: wk * wSeat, fiveHour: fh * wSeat, from: new Date(a).toISOString(), to: new Date(b).toISOString() }; }
   }
   const est = (wt: number) => ({ est5: rate != null ? wt * rate : null, estW: rate != null && weekRatio != null ? wt * rate * weekRatio : null });
   for (const s of Object.values(stat)) if (readings.some(x => { const t = Date.parse(x.at); return t >= s.first && t <= s.last; })) s.covered = true;
@@ -222,11 +246,14 @@ function buildData() {
     feature: manifest.title ?? feature, version: manifest.version ?? '?', totalCases: Object.keys(cases).length,
     build: build || '?', generated: new Date().toISOString().replace('T', ' ').slice(0, 16) + ' UTC',
     phases: phases.map((p: any) => ({
-      id: p.id, name: p.name, note: p.note ?? '', skip: p.skip ?? '', hold: p.hold ?? '', runDir: phaseRun[p.id] ?? '', stats: pub(stat[p.id]),
+      id: p.id, name: p.name, current: currentIds.has(p.id), note: p.note ?? '', skip: p.skip ?? '', hold: p.hold ?? '', runDir: phaseRun[p.id] ?? '', stats: pub(stat[p.id]),
       wrapUp: pub(stat[`${p.id}/wrap-up`]),
-      segments: p.segments.map((s: any) => ({ id: s.id, name: s.name, stats: pub(stat[`${p.id}/${s.id}`]), cases: s.cases.map((id: string) => ({
-        id, origin: p.origin?.[id] ?? '', needs: (phasesFile.needs?.[id] ?? []).join(' '), section: cases[id]?.Section ?? '', action: short(cases[id]?.Action ?? ''), result: latest[id]?.result ?? 'Not run', disp: latest[id]?.disp ?? '', actual: short(latest[id]?.actual ?? '', 400),
-        at: latest[id]?.at ? new Date(latest[id].at).toISOString().replace('T', ' ').slice(0, 16) + ' UTC' : '' })) })),
+      segments: p.segments.map((s: any) => ({ id: s.id, name: s.name, stats: pub(stat[`${p.id}/${s.id}`]), cases: s.cases.map((id: string) => {
+        const runName = (phaseRun[p.id] ?? '').replace(/^runs\/|\/$/g, '');
+        const l = p.round ? byRun[runName]?.[id] : latest[id];
+        return { id, origin: p.origin?.[id] ?? '', needs: (phasesFile.needs?.[id] ?? []).join(' '), section: cases[id]?.Section ?? '', action: short(cases[id]?.Action ?? ''), result: l?.result ?? 'Not run', disp: l?.disp ?? '', actual: short(l?.actual ?? '', 400),
+          at: l?.at ? new Date(l.at).toISOString().replace('T', ' ').slice(0, 16) + ' UTC' : '' };
+      }) })),
     })),
     usage: { snapshots: readings.length, markers: snaps.length - readings.length, seatAssumed, weights: W, approx: total.approx,
       fiveHour: total.fiveHour, weekly: total.weekly, outside5: total.outside5, outsideW: total.outsideW,
@@ -234,7 +261,8 @@ function buildData() {
       calibration: cal ? { ...cal, basisWt: basisW, rate, weekRatio, weekBasis } : null,
       transcripts: files.length,
       latest: last ? { at: last.at, seat: last.proMultiplier, fiveHourPct: last.fiveHourPct, weeklyPct: last.weeklyPct, fiveHourResetsAt: last.fiveHourResetsAt, weeklyResetsAt: last.weeklyResetsAt } : null },
-    checkpoints: checkpoints.slice(-6).reverse(),
+    // Checkpoints of the current run's folders only (a phase that has not started has none yet).
+    checkpoints: checkpoints.filter(c => [...currentIds].some(id => phaseRun[id] === `runs/${c.run}/`)).slice(-6).reverse(),
     log: log.reverse(),
   };
   return { data, checkpointCount: checkpoints.length, logCount: log.length };

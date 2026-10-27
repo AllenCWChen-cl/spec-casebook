@@ -1,0 +1,14 @@
+# Toggle Wi-Fi once through Control Center (offline cases, REQ-020: only after `xcrun devicectl device info details`
+# shows transportType wired and `device.ts status` shows a live session). Starts: any screen. Ends: the same screen
+# with Control Center closed; prints the wifi-button-round value (1 = on, 0 = off) — read it back every time.
+# Written 2026-10-23 (P9-h). Control Center opens from the top-right corner; it opens on Now Playing, so tap the Connectivity page icon (397,510) in the right-hand page strip.
+drag 380 3 380 450 400
+wait 2
+tap 397 510
+wait 1
+id wifi-button-round
+wait 3
+els wifi-button
+shot wifi-toggle
+tap 210 870
+wait 1

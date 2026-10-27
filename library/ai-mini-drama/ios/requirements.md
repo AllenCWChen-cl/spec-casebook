@@ -324,7 +324,7 @@ Every cell names the rows that check it, or n/a when the spec defines nothing fo
 |---|---|---|---|---|---|---|---|---|---|---|
 | Outline | TC-023 | TC-024 | TC-030, TC-031, TC-032 | TC-030 | n/a (spec silent) | n/a | TC-153 | TC-025–TC-029, TC-159, TC-160, TC-301 | TC-169 | n/a |
 | Characters (Generate all / with AI) | TC-041 | TC-041, TC-044 | TC-043, TC-338 | TC-042 | n/a (spec silent) | TC-042 | TC-154, TC-337 | TC-161, TC-162 | TC-170 | n/a |
-| Create my character | TC-048, TC-049, TC-332 | TC-132, TC-133 | TC-137, TC-335 | TC-137 | n/a (spec silent) | n/a | TC-154, TC-333, TC-334 | TC-055, TC-056 | TC-170, TC-332 | n/a |
+| Create my character | TC-048, TC-049, TC-332 | TC-132, TC-133 , TC-366 | TC-137, TC-335 | TC-137 | n/a (spec silent) | n/a | TC-154, TC-333, TC-334 | TC-055, TC-056 | TC-170, TC-332 | n/a |
 | Chat revision | TC-045, TC-348 | TC-045, TC-349 | TC-353 | n/a (spec silent) | n/a | TC-353 | TC-155, TC-351 | TC-163 | TC-171 | n/a |
 | Storyboard | TC-060 | TC-064 | TC-295, TC-300 | TC-295 | n/a (spec silent) | TC-077 | TC-156, TC-061, TC-062 | TC-063, TC-164, TC-165, TC-302 | TC-172 | n/a |
 | Scene image and Location | TC-071 | TC-064, TC-065 | TC-067, TC-068, TC-069 | TC-070, TC-141 | n/a (spec silent) | TC-292 | n/a (no Stop) | n/a | n/a | n/a |
@@ -333,7 +333,7 @@ Every cell names the rows that check it, or n/a when the spec defines nothing fo
 | Scene video (clip) | TC-081 | TC-086 | TC-091, TC-092, TC-095 , TC-362, TC-363 | TC-092, TC-149 | TC-092 | TC-091, TC-093 | TC-157 | TC-082, TC-144, TC-166 | TC-173 | n/a |
 | Video regeneration | TC-096 | TC-096, TC-145, TC-297 | TC-296 | n/a (spec silent) | n/a | n/a | n/a | TC-144 | n/a | TC-297 |
 | Full video | TC-081, TC-084 | TC-086, TC-087 | TC-094 | TC-094 | n/a (spec silent) | TC-091 | TC-157 | TC-082, TC-167 | TC-173 | TC-085, TC-303, TC-304, TC-305, TC-306, TC-307, TC-308 |
-| Captions | TC-098 | TC-099 | TC-098 | TC-098, TC-151 | TC-298 | n/a (never partial: TC-098) | n/a | n/a | n/a | n/a |
+| Captions | TC-098 | TC-099 | TC-098 | TC-098, TC-151 , TC-365 | TC-298 | n/a (never partial: TC-098) | n/a | n/a | n/a | n/a |
 | Download / export | TC-089 | TC-089, TC-090, TC-343 | TC-331 | TC-331 | n/a | n/a | n/a | TC-168 | TC-174 | n/a |
 
 ### Request ledger coverage
@@ -357,6 +357,7 @@ Every cell names the rows that check it, or n/a when the spec defines nothing fo
 | REQ-026 decisions Q-15 – Q-17 (2026-10-22) | R-253, R-254; rows TC-045, TC-046, TC-073, TC-079, TC-080 |
 | REQ-028 decisions Q-12, Q-14 (2026-10-22) | R-255, R-256; row TC-051 |
 | REQ-029 Figma 1016 frames; PM 10/21 governs older Design frames (2026-10-22) | R-259, R-260, R-261, R-262, R-263, R-264; row TC-114 |
+| REQ-031 Spec agent cases derived from the spec are added (manager, 2026-10-22) | R-265, R-266; rows TC-364, TC-365, TC-366, TC-367, TC-368, TC-369 |
 
 ## Added 2026-10-21 — PM Spec 20261021 (16:04)
 PM-only rows carry 「PM-only: no Design frame yet (Design 2026-10-19)」 in Notes and change when the Design spec draws them (REQ-024).
@@ -413,4 +414,11 @@ Each job's failure by class (coverage pass 2, REQ-030): card copy, ⓘ, dialog a
 | Storyboard Preview | n/a (TTS / STT failures instead: TC-078, TC-299) | n/a (TTS / STT failures instead: TC-078, TC-299) | n/a (spec silent) |
 | Scene video | TC-362 | TC-363 | TC-095 |
 | Whole video | n/a (spec silent) | TC-094 | TC-095 |
+
+## Added 2026-10-22 (2) — spec agent cases derived from the spec (REQ-031)
+The spec agent cross-check (`spec-agent-gaps.json` in this draft) found six cases from the spec files that the table
+did not have; the earlier comparison had left them out as low value. Per the manager (REQ-031) they are rows now.
+TC-364 and TC-365 check R-086 / R-087 through the app log, TC-367 and TC-368 give R-142 a row per tier.
+- R-265 [PM:pm-main-flow (Make your character, note beside the reference photo: 「只送 crop 後的圖」); Req: REQ-031] Only the cropped reference image is sent for character generation: what the Crop step cut away is not part of the image the character is generated from.
+- R-266 [MX ① Free chat times, PDRM MX.pdf version A (Firebase); Req: REQ-031] Each tier's daily chat allowance comes from Firebase Remote Config: when the configured allowance changes, the limit dialog appears on the send after the new allowance.
 

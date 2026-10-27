@@ -35,7 +35,13 @@ reads or updates them.
      rule 8 checks) cite the board that shows the screen or string they are about. The format check fails an entry
      with no `Spec Link:` line, `Spec Link: none`, or a link with neither a URL nor a PDF name.
   3. **Attachments on every entry:** at least one image (red-boxed frame) per bug, cited inline as `{<ver>_<slug>.jpg}`;
-     plus the relevant log excerpt (`<ver>_<slug>_log.txt`) when the finding has a log cause — scan each excerpt for
+     plus the relevant log excerpt (`<ver>_<slug>_log.txt`) when the finding has a log cause. **Every failure-related
+     entry carries its log (user, 2026-10-27):** a failed generation, turn, upload or retry, an error card or dialog,
+     a charge or a missing refund, a step that ends with nothing — attach the excerpt of that failure's time window
+     (the failing tool line, `status=…` / `error=…`, the `authorized, credit=N` and refund lines) even when the screen
+     already shows the error, cite it inline under Result, and show it on the review page card (a 「Log」 section
+     with the excerpt text), so the reviewer sees it before deciding (F-6 of the 10/27 P9 batch had its log attached
+     but the page hid it). Scan each excerpt for
      tokens, `Bearer`/`authorization` lines and signed URL queries before staging it. Layout and content findings need
      no log. **No video unless the user explicitly asks for one** for that batch or entry (then pass
      `--videos-requested` to the format check); keep recordings in the run folder. The format check fails an entry
@@ -133,8 +139,10 @@ Standing rules from the eBug reviewers and RD. They override any older wording f
    page asks the reviewer for one.
 3. **Attachments: at least one image on every entry** (red-boxed frame, cited inline). Add the log
    excerpt (`{<ver>_<slug>_log.txt}`, scrubbed of tokens, `Bearer` / `authorization` lines and signed
-   URL queries) whenever a log shows the cause — a crash, an error code, a server status, a timing.
-   Layout and copy findings need no log. **No video unless the user explicitly asks for one** for that
+   URL queries) whenever a log shows the cause — a crash, an error code, a server status, a timing —
+   and on **every failure-related entry** (a failed generation, turn, upload or retry, an error card, a
+   charge or a missing refund; user 2026-10-27), even when the screen already shows the error. The
+   review page shows each log excerpt on its card. Layout and copy findings need no log. **No video unless the user explicitly asks for one** for that
    batch or entry; keep recordings locally and mention them in the QA note.
 4. **UX basis rule (RD, 2026-10-21).** RD reported too many AI-filed `[UX]` tickets. A finding is
    still recorded whatever its kind, but the type tag and owner now follow **what the expected result

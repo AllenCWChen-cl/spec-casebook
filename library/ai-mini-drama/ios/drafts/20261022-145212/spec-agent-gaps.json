@@ -1,0 +1,13 @@
+{
+  "spec_agent": {
+    "repo": "~/Desktop/Spec Agent",
+    "ref": "origin/main",
+    "commit": "0c7f7e2ca03fa2095c3ddb476cb40bf81a5c8d05",
+    "feature": "pdr-mobile-ai-mini-drama",
+    "platform": "ios",
+    "cases": 426
+  },
+  "mapping": "comparisons/20261022d_casebook-vs-spec-agent.mapping.json",
+  "generated_at": "2026-10-22T07:05:39.693Z",
+  "gaps": []
+}

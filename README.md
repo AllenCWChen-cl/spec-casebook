@@ -178,10 +178,15 @@ Typical requests:
    so it runs in the background. Design and MX files that didn't change reuse their extracted text.
 3. **Write `board-notes.md`** for the spec set, then the requirements: the seven coverage passes, the standing inputs,
    and for an update a board-by-board comparison with the previous set.
-4. **Value check**, then the draft (`draft.csv`), usually built by a `build-draft.ts` kept in the draft folder.
-5. **`check.ts`** must pass: every row traces to a requirement, every Design flow arrow has a requirement and a row
-   that walks it, every open ledger entry is cited, and the job-state grid has no empty cell.
-6. **Review**: `review.ts` serves `http://127.0.0.1:4387/` (or the next free port). Edit rows, Keep or Delete,
+4. **Trace and cross-check**: `annotations.ts` lists every annotation block on the boards, and each is traced to the
+   requirements that state it; the hidden-clause and variant grids make sure server-side clauses and per-tier rules
+   get their own rows. Then `spec-agent-gaps.ts` lists the spec agent cases the table doesn't cover as a backstop:
+   one from the spec files becomes a row and names the pass that missed it; every gap goes in the update plan.
+5. **Value check**, then the draft (`draft.csv`), usually built by a `build-draft.ts` kept in the draft folder.
+6. **`check.ts`** must pass: every row traces to a requirement, every Design flow arrow has a requirement and a row
+   that walks it, every open ledger entry is cited, the job-state grid has no empty cell, and every spec agent gap
+   is decided and listed in the plan.
+7. **Review**: `review.ts` serves `http://127.0.0.1:4387/` (or the next free port). Edit rows, Keep or Delete,
    add cases, then **Save as approved table**. The previous version moves to `history/`.
 
 ### Running a table on the phone
@@ -273,7 +278,9 @@ All scripts run from the repository root with `node scripts/<name>.ts`.
 | `render-region.ts <pdf> <out.png> [x y w h]` | Renders part of a huge Figma page to look at a frame |
 | `render-tiles.ts <pdf> <out dir> [x y w h]` | Renders a region as a grid of readable tiles |
 | `spec-boards.ts <feature> <spec-set> [--file] [--jobs 3]` | Renders and OCRs every board in `boards.json` (uses `ocr-tiles.swift`) |
-| `check.ts <feature> <platform> [--draft <id>]` | Validates a table or draft, incl. arrows, ledger and job-state grid |
+| `annotations.ts <feature> <platform> --draft <id>` | Groups every board's annotations into blocks to trace to requirements (`annotation-trace.json`) |
+| `spec-agent-gaps.ts <feature> <platform> --draft <id>` | Lists spec agent cases the table doesn't cover, with their source (reads the spec agent with git only) |
+| `check.ts <feature> <platform> [--draft <id>]` | Validates a table or draft, incl. arrows, ledger, grids and spec agent gaps |
 | `review.ts <feature> <platform> [--draft <id>]` | Serves the review page and saves the approved table |
 | `export.ts <feature> <platform>` | Rebuilds `cases.xlsx` / `cases.html` from `cases.csv` |
 | `device.ts <run dir> <command>` | Appium client for the QA iPhone: screenshots, taps, `scrollto`, `waitfor`, `pink`, recipes, logs, ledger |

@@ -1,7 +1,7 @@
 // Append one plan-usage snapshot (the app's usage card) to <runs dir>/usage.jsonl for the run-plan page.
 // Usage: node scripts/usage-log.ts <runs dir> <fiveHourPct> <fiveHourResetsAt ISO> <weeklyPct> <weeklyResetsAt ISO> [note]
 //        [--at <ISO>]   time of the reading (default now; use it to backfill a known reading)
-//        [--seat N]     the account's seat size in Pro units (Team seat 6.25, Pro 1); stored as proMultiplier.
+//        [--seat N]     the account's seat size in Pro units (Team seat 6.25 or 1.25, Pro 1); stored as proMultiplier.
 //                       Default: the value of the latest earlier snapshot (1 if there is none). Never guess it.
 // Use "-" for a value the card did not show (e.g. a usage-limit stop with no reset time). The orchestrator calls this
 // at each segment start and end; when the run switches account, log a row with all four values "-" and the new --seat
