@@ -117,17 +117,45 @@ And every run on the phone:
 git clone git@github.com:ethan-hsu-cl/spec-casebook.git
 ```
 
+On Windows, clone with line-ending conversion off, so the CRLF tables and LF scripts are committed back as they are
+(otherwise every `cases.csv` you save shows up as a whole-file change):
+
+```bash
+git clone -c core.autocrlf=false git@github.com:ethan-hsu-cl/spec-casebook.git
+```
+
 ### 2. Install
 
-You need **macOS** (the OCR step uses Apple's Vision framework through `swift`), **Node 22.18 or newer** (it runs the
-TypeScript scripts directly) and **Python 3** for the eBug scripts.
+You need **Node 22.18 or newer** (it runs the TypeScript scripts directly), **Git** and **Python 3** for the eBug
+scripts. The full workflow needs **macOS**; Windows covers everything except reading new spec PDFs and iPhone runs:
+
+| Step | macOS | Windows |
+| --- | --- | --- |
+| Tables: `status`, `fingerprint`, `add-spec`, `new-draft`, `check`, `review`, `export`, `annotations`, `spec-agent-gaps` | ✓ | ✓ |
+| Rendering spec frames (`render-region.ts`, `render-tiles.ts`) | ✓ | ✓ |
+| Reading a new spec set (`spec-boards.ts`: OCR through Apple's Vision framework and `swift`) | ✓ | ✗ (run it on a Mac and pull the committed `extracted/` text) |
+| Run log, log slicing, run plan page (`run-log.ts`, `log-slice.ts`, `plan-page.ts`) | ✓ | ✓ |
+| iPhone runs (`device.ts`, `app-setup.ts`: XCUITest, `xcrun`, `ditto`) | ✓ | ✗ |
+| Android runs | see [Phone (Android)](#4b-phone-android) | see [Phone (Android)](#4b-phone-android) |
+| eBug drafts, format check, filing | ✓ | ✓ |
 
 ```bash
 npm install
 ```
 
-If the npm cache errors, add `--cache /tmp/npm-cache`. PDF rendering uses MuPDF's WebAssembly build (`mupdf` on
-npm, AGPL); macOS's own renderer draws these large Figma pages blank.
+If the npm cache errors, add `--cache /tmp/npm-cache` (Windows: `--cache %TEMP%\npm-cache`). PDF rendering uses
+MuPDF's WebAssembly build (`mupdf` on npm, AGPL); macOS's own renderer draws these large Figma pages blank.
+
+**Windows notes**
+
+- Install Node from <https://nodejs.org> (LTS, 22.18 or newer), Git for Windows (Claude Code on Windows uses its Git
+  Bash) and Python 3 from <https://python.org> or `winget install Python.Python.3.12`.
+- Run the commands from the repository root in PowerShell or Git Bash; `node scripts\status.ts` and
+  `node scripts/status.ts` both work.
+- Python is usually `python` or `py -3`, not `python3`; use that wherever the skills write `python3`.
+- `~` in these docs is your user folder (`%USERPROFILE%`, e.g. `C:\Users\<you>`).
+- `spec-agent-gaps.ts` reads the spec agent repo from `library/<feature>/spec-agent.json` (`~/Desktop/Spec Agent`);
+  clone it to `%USERPROFILE%\Desktop\Spec Agent`, or change the path locally without committing it.
 
 ### 3. Check it works
 
@@ -137,9 +165,9 @@ node scripts/status.ts
 
 It lists every approved table and open draft.
 
-### 4. Phone (only for on-device runs)
+### 4. Phone (iPhone, only for on-device runs)
 
-A QA build of PowerDirector from TestFlight, the QA iPhone with WebDriverAgent signed and running, and Appium on the
+macOS only. A QA build of PowerDirector from TestFlight, the QA iPhone with WebDriverAgent signed and running, and Appium on the
 Mac (`appium --relaxed-security`, port 4723). If the phone has never been set up, follow the team's iPhone Appium +
 WebDriverAgent setup guide in the exploration-test repository. The scripts reuse a live session and never stop
 Appium or WebDriverAgent.
@@ -160,10 +188,39 @@ another account, or WebDriverAgent will not start.
 export PDR_UDID=<your phone UDID> PDR_WDA_TEAM=<team ID> PDR_WDA_BUNDLE=<bundle ID>
 ```
 
+### 4b. Phone (Android)
+
+`device.ts` and `app-setup.ts` drive only the iPhone today (Appium's XCUITest driver); there is no Android driver
+in the scripts yet, so ask before an Android run which way it should go. Android runs work from macOS or Windows,
+and the phone side needs:
+
+- A QA build of PowerDirector on the Android phone, with Developer options › **USB debugging** on and the computer
+  allowed when the phone asks.
+- **Android SDK Platform-Tools** (`adb`): from Android Studio's SDK Manager, or `winget install Google.PlatformTools`
+  (Windows) / `brew install --cask android-platform-tools` (macOS). `adb devices` must list the phone as `device`.
+- For Appium-driven runs: **Java 17** (`JAVA_HOME` set), `ANDROID_HOME` pointing at the SDK folder, and Appium with
+  the UiAutomator2 driver:
+
+```bash
+npm install -g appium
+```
+
+```bash
+appium driver install uiautomator2
+```
+
+```bash
+appium --relaxed-security
+```
+
+Set an environment variable for the session in PowerShell with `$env:NAME = "value"`, in Git Bash or macOS with
+`export NAME=value`.
+
 ### 5. ECL (only for eBug filing)
 
-Store your personal ECL API token in `~/.ecl_token` (from <https://ecl.cyberlink.com/sso/mgm/tokenPage>). It is used
-for duplicate searches, IF3 filing and reading tickets back. Keep it out of the repository.
+Store your personal ECL API token in `~/.ecl_token` (from <https://ecl.cyberlink.com/sso/mgm/tokenPage>); on Windows
+that is `%USERPROFILE%\.ecl_token`. It is used for duplicate searches, IF3 filing and reading tickets back. Keep it
+out of the repository.
 
 ### 6. Open the folder in your agent
 
