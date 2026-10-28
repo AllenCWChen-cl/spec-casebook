@@ -18,7 +18,8 @@
     "spec-boards": "node scripts/spec-boards.ts",
     "render-tiles": "node scripts/render-tiles.ts",
     "render-region": "node scripts/render-region.ts",
-    "ebug-defaults": "node scripts/ebug-defaults.ts"
+    "ebug-defaults": "node scripts/ebug-defaults.ts",
+    "coverage": "node scripts/coverage-page.ts"
   },
   "dependencies": {
     "exceljs": "4.4.0",

@@ -34,6 +34,7 @@ can read without the spec, not contract catalogs and claim files.
   - [Building or updating a table](#building-or-updating-a-table)
   - [Running a table on the phone](#running-a-table-on-the-phone)
   - [Filing eBugs](#filing-ebugs)
+  - [Live pages](#live-pages)
 - [Repository layout](#repository-layout)
   - [Inside a feature folder](#inside-a-feature-folder)
 - [Features in this repository](#features-in-this-repository)
@@ -58,6 +59,7 @@ flowchart LR
     G -->|Save| H[Approved table<br/>cases.csv vN]
     H --> I[On-device run<br/>phases · segments · logs]
     I --> J[eBug drafts<br/>+ review page]
+    I --> P[Coverage page<br/>controls · arrows · tap proof]
     J -. after sign-off .-> K[Filed in ECL<br/>read back]
     I -. gaps and findings .-> D
 ```
@@ -65,13 +67,14 @@ flowchart LR
 | Stage | What happens | Main output |
 | --- | --- | --- |
 | **Fingerprint** | The spec files are hashed and compared with the approved table: `NEW`, `SAME` (offer to reuse it) or `CHANGED` (update plan). | JSON on screen |
-| **Read the spec** | Each spec set is copied into the feature's library. Every board of the Figma PDF is rendered to tiles and OCR'd (English, Traditional Chinese, Japanese), then read board by board. | `specs/<date>/extracted/` |
-| **Coverage passes** | Seven passes find what a board-by-board reading skips: flow arrows, states of every generation job, field rules, numbers, persistence, MX flows and PM-only features. | `requirements.md` sections |
+| **Read the spec** | Each spec set is copied into the feature's library. Every board of the Figma PDF is rendered to tiles and OCR'd (English, Traditional Chinese, Japanese), then read board by board. The Design Figma file is also read directly: every screen, dialog, tappable control and flow arrow, reviewed on sheets before use. | `specs/<date>/extracted/`, `inventory.json` |
+| **Coverage passes** | Eleven passes find what a board-by-board reading skips: flow arrows, states of every generation job, field rules, numbers, persistence, MX flows, PM-only features, exits × stages, hidden clauses, variants, and every control (each one pressed by a row, every input dismissed). | `requirements.md` sections, `control-trace.json` |
 | **Standing inputs** | Re-applied on every draft: the request ledger, open and resolved eBugs, RD build notes on the Testing Request, the template roster and earlier run findings. | `requests.md`, regression rows |
 | **Value check** | Merges duplicates, drops checks with no expected result or nothing visible in the app, retires passed one-build checks, parks rows that need an unavailable fixture. | `update-plan.md` → "Not added" |
 | **Review** | A local page shows every row with its change against the approved table. You edit, keep or delete rows and save. | `cases.csv`, `history/vN.csv` |
 | **Run** | The table runs in phases and segments on the QA iPhone; every case is recorded with evidence, app logs and credit-ledger reads. | `runs/<date>-<phase>/` |
 | **eBugs** | Failed cases become eBug drafts, deduplicated against ECL, shown on a review page, and filed only after your sign-off. | `ebugs/<date>/` |
+| **Coverage** | The Figma boards with every control and flow arrow marked pressed, blocked, planned or excluded, with the tap screenshots as proof. | `coverage.html` (live page) |
 
 ## Key concepts
 
@@ -85,6 +88,7 @@ flowchart LR
 | **Approved table** | `cases.csv`, the feature's correct answer. Changed only through the review page's Save or an explicit request. Each save is a new version. |
 | **Draft** | A proposed change: `draft.csv` with a `Change` column (`new`, `modified`, `removed`, `unchanged`), `requirements.md`, `update-plan.md` and the script that built it. |
 | **Request ledger** | `library/<feature>/requests.md`: every request from you, a colleague, a reviewer or RD, numbered `REQ-001`… and re-applied on every draft. |
+| **Control group** | A tappable element of the Design, counted once: the same button on many screens is one group, and a choice list (chips, cards) is one group that any one choice covers. `control-trace.json` names the rows that press each group, or why it is excluded. |
 | **Job-state grid** | A table in `requirements.md` listing, for every generation job, which rows check its start, success, failure, retry, Stop, leave-and-return, wait and done notice. |
 | **Phase / segment** | A run is split into phases (P1 core, P23 regression and flows, P4 templates, …) and each phase into segments of 10–40 cases, one clean agent context per segment. |
 | **Result / disposition** | Pass, Fail, Blocked, Inconclusive or Not run. Every Fail and Blocked carries a disposition: `defect`, `spec-addition`, `question`, `observability` or `test-data`. |
@@ -142,6 +146,7 @@ scripts. The full workflow needs **macOS**; Windows covers everything except rea
 | Rendering spec frames (`render-region.ts`, `render-tiles.ts`) | ✓ | ✓ |
 | Reading a new spec set (`spec-boards.ts`: OCR through Apple's Vision framework and `swift`) | ✓ | ✗ (run it on a Mac and pull the committed `extracted/` text) |
 | Run log, log slicing, run plan page (`run-log.ts`, `log-slice.ts`, `plan-page.ts`) | ✓ | ✓ |
+| Control inventory, review sheets, control trace, coverage page (`inventory.ts`, `inventory-sheets.ts`, `controls.ts`, `coverage-page.ts`) | ✓ | ✓ |
 | iPhone runs (`device.ts`, `app-setup.ts`: XCUITest, `xcrun`, `ditto`) | ✓ | ✗ |
 | Android runs | see [Phone (Android)](#4b-phone-android) | see [Phone (Android)](#4b-phone-android) |
 | eBug drafts, format check, filing | ✓ | ✓ |
@@ -267,10 +272,19 @@ Set an environment variable for the session in PowerShell with `$env:NAME = "val
 
 ### 5. Figma (for spec analyses)
 
-Each analysis lists the Figma file's dated frames, because PDF exports can lag behind it. Connect Figma to your agent
-through Figma's MCP server (Claude Code: add the Figma connector or MCP server; Codex: add it under `mcp_servers`),
-signed in with an account that can open the feature's Figma files. This is an online service, not another repository;
-the frames it reads are saved in the feature folder (`extracted/figma-frames.json`, board notes).
+Each analysis lists the Figma file's dated frames, because PDF exports can lag behind it, and reads the Design file's
+screens, controls and flow arrows for the control inventory. Connect Figma to your agent through Figma's MCP server
+(Claude Code: add the Figma connector or MCP server; Codex: add it under `mcp_servers`). This is an online service,
+not another repository; what it reads is saved in the feature folder (`extracted/figma-frames.json`,
+`figma-inventory-*.json`, board notes).
+
+| Figma file | Sign in as | Why |
+| --- | --- | --- |
+| Design spec | `qa-dm@cyberlink.com` | Dev seat: enough MCP calls for the inventory |
+| PM spec | `qa1@cyberlink.com` | `qa-dm` has only a View seat in PM Workspace, which allows very few MCP calls |
+
+The agent checks the account (`whoami`) before a read. Figma MCP calls are rationed per seat, so the inventory reads
+a whole group of boards per call, never one element at a time.
 
 ### 6. ECL (only for eBug filing)
 
@@ -297,6 +311,7 @@ Typical requests:
 | Run the table | "Run the AI Mini Drama table on the phone, phase by phase" |
 | Continue a run | "Continue the run" (it resumes from `run-log.ts next` and the last checkpoint) |
 | Draft and file eBugs | "Draft the eBugs for P23", then sign off on the review page and "file them" |
+| See what is covered | "Open the coverage page", "Serve the coverage page on the network" |
 | Compare with another tool | "Compare the casebook with the spec agent" |
 
 ### Building or updating a table
@@ -305,14 +320,20 @@ Typical requests:
 2. **Read the spec.** The files are copied into `specs/<date>/`; an overview render is used to list the boards in
    `boards.json`; `spec-boards.ts` renders and OCRs every board. Reading a 230 MB PM file takes about 45–75 minutes,
    so it runs in the background. Design and MX files that didn't change reuse their extracted text.
-3. **Write `board-notes.md`** for the spec set, then the requirements: the seven coverage passes, the standing inputs,
-   and for an update a board-by-board comparison with the previous set.
+3. **Write `board-notes.md`** for the spec set, then the requirements: the eleven coverage passes, the standing
+   inputs, and for an update a board-by-board comparison with the previous set.
+   The **control inventory** comes from the Design Figma file: `scripts/figma/inventory.js` reads screens, dialogs,
+   tappable controls and flow arrows one board group per call, `inventory.ts` merges them, `inventory-sheets.ts` cuts
+   every screen with its boxes drawn for review, and the review's fixes go in `inventory-overrides.json`
+   (`inventory-overrides.ts`). `controls.ts` then lists every control group for the draft, to be traced to the rows
+   that press it.
 4. **Trace**: `annotations.ts` lists every annotation block on the boards, and each is traced to the requirements
    that state it; the hidden-clause and variant grids make sure server-side clauses and per-tier rules get their own
    rows.
 5. **Value check**, then the draft (`draft.csv`), usually built by a `build-draft.ts` kept in the draft folder.
 6. **`check.ts`** must pass: every row traces to a requirement, every Design flow arrow has a requirement and a row
-   that walks it, every open ledger entry is cited, and the job-state grid has no empty cell.
+   that walks it, every control group has a row that presses it (inputs also one that dismisses them), every open
+   ledger entry is cited, and the job-state grid has no empty cell.
 7. **Review**: `review.ts` serves `http://127.0.0.1:4387/` (or the next free port). Edit rows, Keep or Delete,
    add cases, then **Save as approved table**. The previous version moves to `history/`.
 8. **Comparison report (only on request)**: "Compare the casebook with the spec agent" builds
@@ -331,8 +352,11 @@ Typical requests:
   spending six minutes each.
 - After every segment the app logs are pulled and sliced per case (`log-slice.ts`), and every failure's credit charge
   and refund are checked against Credit Details.
+- Every press through `device.ts` is logged to `taps.jsonl` with the element hit and a small screenshot taken just
+  before it; `device.ts <run dir> case TC-…` names the case running. The coverage page matches each tap to a Figma
+  control (label, accessibility id, icon name, position) and shows the screenshot as proof.
 - Everything for a run stays in its own folder: `results.csv`, `run-state.md`, `observations.md`, `report.md`,
-  screenshots, logs and ledger reads.
+  `taps.jsonl`, screenshots, logs and ledger reads.
 
 ### Filing eBugs
 
@@ -340,6 +364,28 @@ Failed cases that share a defect become one draft entry, with numbered one-actio
 Figma node, at least one image and the log excerpt when a log shows the cause. The batch is deduplicated against ECL,
 checked by `check_ebug_format.py`, and shown on an HTML review page. Filing waits for your decisions there (severity,
 owner, TR, account). After filing, every ticket is read back and recorded in `filed_bugcodes.json`.
+
+### Live pages
+
+Three local pages, each a small server started from the repository root. They read the files on every request (the
+coverage page at most every 30 s), so they show new results without a restart. Add `--lan` to open one from other
+computers on the same network; it prints the LAN address (for example `http://192.168.x.x:4391/`). There is no
+login: anyone on that network with the address can read the page. The first time, macOS may ask to allow incoming
+connections for `node`.
+
+| Page | Command | Address |
+| --- | --- | --- |
+| Review a draft or the approved table | `node scripts/review.ts ai-mini-drama ios [--draft <id>]` | `http://127.0.0.1:4387/` |
+| Run plan (phases, cases, time, tokens) | `node scripts/plan-page.ts ai-mini-drama ios <draft> <run plan .md> --serve [port] [--lan]` | `http://127.0.0.1:4390/` |
+| Coverage (controls, arrows, tap proof; English / 繁體中文) | `node scripts/coverage-page.ts ai-mini-drama ios [--draft <id>] --serve [port] [--lan]` | `http://127.0.0.1:4391/` |
+
+Each takes the next free port when its default is busy. Stop a server with Ctrl+C in its terminal. A review server
+should not be left running for a draft that is already saved: saving from it again overwrites that version.
+
+Without `--serve`, `coverage-page.ts` writes `library/<feature>/<platform>/coverage.html`, a single file with the
+board images embedded that opens anywhere (local only, not committed). `--render` draws the board images from the
+Design PDF first (a few minutes per board); `--runs <folders>` limits it to one run, to see whether that run pressed
+everything.
 
 ## Repository layout
 
@@ -369,6 +415,10 @@ Using `library/ai-mini-drama/` as the example:
 | `ios/fixtures.md` | What the phone needs for a run: build, account, photos for the upload cases, settings |
 | `specs/<date>/` | One spec set: `spec-set.json` (committed), the original files (local only), `extracted/` |
 | `specs/<date>/extracted/` | `boards.json`, `boards/<id>.md` (OCR text per board), `board-notes.md`, `arrows.json` (Design flow arrows), comparison notes |
+| `specs/<date>/extracted/figma-inventory-*.json` | Raw Figma inventory, one file per board group (screens, dialogs, controls, arrows) |
+| `specs/<date>/extracted/inventory.json` | The merged inventory with control groups (`inventory.ts`) |
+| `specs/<date>/extracted/inventory-overrides.json`, `inventory-review-*.json` | The review findings (missed controls, boxes that are not tappable, hidden copies) and their merged fixes |
+| `ios/control-trace.json` | Every control group and the rows that press it (inputs: and dismiss it), or why it is excluded |
 | `ios/cases.csv` | The approved table, the source of truth |
 | `ios/cases.xlsx`, `ios/cases.html` | Generated views for reading and sharing |
 | `ios/requirements.md` | Requirements with sources, open questions, job-state grid and ledger coverage |
@@ -384,7 +434,7 @@ Using `library/ai-mini-drama/` as the example:
 
 | Feature | Platform | Approved | Cases | Spec set | Runs and eBugs |
 | --- | --- | --- | --- | --- | --- |
-| `ai-mini-drama` | iOS | v4, 2026-10-22 | 354 | `specs/2026-10-21-2` (PM 10/21, Design and MX 10/19) | Runs 10/16–10/21 on 16.9.0 (189631, 189729); 39 eBugs filed in four batches |
+| `ai-mini-drama` | iOS | v8, 2026-10-28 | 399 | `specs/2026-10-21-2` (PM 10/21, Design and MX 10/19; Design Figma read 10/28) | Runs 10/16–10/22 incl. the P9 full run; 59 eBugs filed in five batches; 146 control groups traced |
 | `ai-mini-drama` | Android | not started | — | — | Android leads are in the request ledger (REQ-022) |
 
 ## Skills
@@ -412,19 +462,25 @@ All scripts run from the repository root with `node scripts/<name>.ts`.
 | `spec-boards.ts <feature> <spec-set> [--file] [--jobs 3]` | Renders and OCRs every board in `boards.json` (uses `ocr-tiles.swift`) |
 | `annotations.ts <feature> <platform> --draft <id>` | Groups every board's annotations into blocks to trace to requirements (`annotation-trace.json`) |
 | `spec-agent-gaps.ts <feature> <platform> --draft <id>` | Comparison report data (on request): spec agent cases the table doesn't cover, with their source, from the snapshot in `library/<feature>/spec-agent/` (`--refresh` updates it from a local spec agent clone, read with git only) |
-| `check.ts <feature> <platform> [--draft <id>]` | Validates a table or draft, incl. arrows, ledger, annotation trace and grids |
+| `check.ts <feature> <platform> [--draft <id>]` | Validates a table or draft, incl. arrows, controls, ledger, annotation trace and grids |
+| `figma/inventory.js` | Figma plugin script the agent runs through Figma MCP (`use_figma`), one call per board group: screens, dialogs, controls, flow arrows |
+| `inventory.ts <feature> <spec-set> [--sync-arrows]` | Merges the Figma inventory, groups the controls, applies the review overrides; `--sync-arrows` adds missed arrows to `arrows.json` |
+| `inventory-sheets.ts <feature> <spec-set> [--board …]` | Cuts every screen out of the Design PDF (or a saved Figma screenshot) with its control boxes drawn, for review |
+| `inventory-overrides.ts <feature> <spec-set>` | Merges the review findings into `inventory-overrides.json` (each review file once) |
+| `controls.ts <feature> <platform> [--draft <id>]` | Writes `control-trace.json`: every control group and the rows that press it |
+| `coverage-page.ts <feature> <platform> [--draft <id>] [--serve [port] [--lan]]` | The coverage page: boards with controls and arrows marked, tap proof, what is planned or blocked |
 | `review.ts <feature> <platform> [--draft <id>]` | Serves the review page and saves the approved table |
 | `export.ts <feature> <platform>` | Rebuilds `cases.xlsx` / `cases.html` from `cases.csv` |
-| `device.ts <run dir> <command>` | Appium client for the QA iPhone: screenshots, taps, `scrollto`, `waitfor`, `pink`, recipes, logs, ledger |
+| `device.ts <run dir> <command>` | Appium client for the QA iPhone: screenshots, taps (each logged to `taps.jsonl`), `case`, `scrollto`, `waitfor`, `pink`, recipes, logs, ledger |
 | `app-setup.ts <run dir> <command>` | Build check, reinstall from TestFlight, first launch, Developer Server, fresh install, log pulls |
 | `run-log.ts <run dir> <command>` | Records results and dispositions, phases, gate, retest queue, checkpoints, time summary |
 | `log-slice.ts <run dir> <pull dir>` | Cuts a log pull into per-case excerpts (failures, toasts, charges, stage timings) |
-| `plan-page.ts <feature> <platform> <draft> <plan.md>` | Builds or serves the live run plan |
+| `plan-page.ts <feature> <platform> <draft> <plan.md> [--serve [port] [--lan]]` | Builds or serves the live run plan |
 | `token-usage.ts`, `usage-log.ts` | Claude token use and plan-usage snapshots for run reports |
 | `ebug-defaults.ts <feature> <platform>` | Filing defaults (creator, TR, source tag) from the newest filed batch |
 
 `npm run <name>` shortcuts exist for the common ones (`status`, `check`, `review`, `export`, `fingerprint`,
-`add-spec`, `new-draft`, `spec-boards`, `render-tiles`, `render-region`, `ebug-defaults`).
+`add-spec`, `new-draft`, `spec-boards`, `render-tiles`, `render-region`, `ebug-defaults`, `coverage`).
 
 ## What is not committed
 
@@ -435,6 +491,9 @@ All scripts run from the repository root with `node scripts/<name>.ts`.
 - **All images and videos**: run screenshots (with the on-screen text dumps saved next to them), eBug attachments and
   renders. Results, reports and eBug drafts keep the file names that point at them. The eBug review pages are
   committed with their images embedded.
+- **Coverage and review images**: `coverage.html` (it embeds the board renders), the board renders in
+  `extracted/coverage/`, the review sheets in `extracted/inventory-sheets/` and the Figma screenshots in
+  `extracted/figma/`. The inventory, overrides, reviews and control traces are committed, so the page can be rebuilt.
 - **Pulled app logs, Appium session files and full eBug logs** (they can hold tokens). The checked log excerpts
   attached to eBugs are committed.
 - `node_modules/`, Python caches and patch leftovers.
