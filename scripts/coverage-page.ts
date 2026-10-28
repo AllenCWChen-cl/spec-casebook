@@ -87,8 +87,11 @@ const imgDir = join(ex, 'coverage');
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 // boards the PDF lacks (figma-frames.json: in_pdf false) get their image from Figma get_screenshot when quota allows,
 // saved as the same <board>.jpg
-const figmaOnly = new Set((existsSync(join(ex, 'figma-frames.json')) ? JSON.parse(readFileSync(join(ex, 'figma-frames.json'), 'utf8')).frames : [])
-  .filter((fr: any) => fr.in_pdf === false).flatMap((fr: any) => [fr.node, fr.frame].filter(Boolean)));
+const frames = existsSync(join(ex, 'figma-frames.json')) ? JSON.parse(readFileSync(join(ex, 'figma-frames.json'), 'utf8')) : {};
+const figmaOnly = new Set((frames.frames ?? []).filter((fr: any) => fr.in_pdf === false).flatMap((fr: any) => [fr.node, fr.frame].filter(Boolean)));
+// which spec each Figma file is (pm / design / mx): figma-frames.json names the file keys, else the PDF it lines up with
+const specOfKey = new Map(Object.entries<any>(frames.files ?? {}).map(([role, f]) => [f.fileKey, role]));
+const specOf = (key: string) => specOfKey.get(key) ?? (/\bMX\b/i.test(inv.files[key]?.pdf?.name ?? '') ? 'mx' : /\bPM\b/i.test(inv.files[key]?.pdf?.name ?? '') ? 'pm' : 'design');
 const boards: any[] = [];
 for (const [key, f] of Object.entries<any>(inv.files)) for (const [name, b] of Object.entries<any>(f.boards)) {
   const img = join(imgDir, `${slug(name)}.jpg`), pdfLacks = figmaOnly.has(b.id);
@@ -104,7 +107,7 @@ for (const [key, f] of Object.entries<any>(inv.files)) for (const [name, b] of O
     const r = spawnSync('node', [join(ROOT, 'scripts', 'render-region.ts'), join(specDir, f.pdf.name), png, String(x + dx), String(y + dy), String(w), String(h), '--max', String(Math.round(Math.max(w, h) * scale))], { stdio: 'inherit' });
     if (r.status === 0) { spawnSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '72', png, '--out', img], { stdio: 'ignore' }); try { unlinkSync(png); } catch {} }
   }
-  boards.push({ name, file: key, id: b.id, box: b.box, img: existsSync(img) ? embed(img) : '', note: existsSync(img) ? '' : pdfLacks ? `Figma-only board: save a Figma get_screenshot of node ${b.id} as ${relative(ROOT, img)}` : '' });
+  boards.push({ name, file: key, spec: specOf(key), id: b.id, box: b.box, img: existsSync(img) ? embed(img) : '', note: existsSync(img) ? '' : pdfLacks ? `Figma-only board: save a Figma get_screenshot of node ${b.id} as ${relative(ROOT, img)}` : '' });
 }
 
 // Latest result per case and the tap log of each run.
@@ -163,7 +166,7 @@ const groups = trace.map(e => {
     : res.some(r => r === 'Blocked') ? 'blocked' : 'notrun';
   const rects = members.flatMap((c: any) => c.screens.map((sid: string) => { const sc: any = scr.get(sid); return sc ? [sc.box[0] + c.box[0], sc.box[1] + c.box[1], c.box[2], c.box[3]] : null; }).filter(Boolean));
   return { group: e.group, kind: e.kind, board: e.board, boards: e.boards ?? [e.board], set: !!e.set, instances: e.instances ?? rects.length, name: e.name, label: e.label,
-    node: members[0]?.node ?? '', file: members[0]?.file ?? '', press, dismiss, app: e.app ?? [], how: e.how ?? '', na: /^n\/a:/.test(e.press) ? e.press : '',
+    node: members[0]?.node ?? '', file: members[0]?.file ?? '', spec: members[0]?.file ? specOf(members[0].file) : '', press, dismiss, app: e.app ?? [], how: e.how ?? '', na: /^n\/a:/.test(e.press) ? e.press : '',
     status, norow: hits.length > 0 && !press.length, fail: res.includes('Fail'), dismissed: e.kind === 'input' ? dismissed : null,
     proof: hits.sort((a, b) => b.m.score - a.m.score).slice(0, 6).map(({ tap, m }, k) => tapView(tap, m, k < 3)), taps: hits.length, rects };
 });

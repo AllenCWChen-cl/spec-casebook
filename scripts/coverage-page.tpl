@@ -59,9 +59,20 @@ h2 { font-size: 1.15rem; font-weight: 650; margin-bottom: 10px }
 .boards .brow .bar { width: 100% }
 .boards .brow .none { font-style: italic; font-size: 0.72rem; line-height: 6px }
 .boards button { min-width: 150px }
+.boards .n { display: flex; justify-content: space-between; align-items: baseline; gap: 6px }
+/* which spec a board comes from: outlined text tags, so they do not read as one of the coverage states */
+.spec { flex: none; font: 600 0.66rem var(--mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted);
+  border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; line-height: 1.5 }
+.side { display: grid; gap: 8px; align-content: start; min-width: 0 }
+.srcf { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 0.8rem; color: var(--muted) }
+.srcf .chip { padding: 2px 8px; font-size: 0.8rem }
+.srcf .chip[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; border-style: dashed }
 .stage { position: relative; background: var(--canvas); border-radius: 10px; overflow: hidden; height: 76vh; border: 1px solid var(--line) }
 .stage svg { width: 100%; height: 100%; display: block; cursor: grab; touch-action: none }
-.stage svg.drag { cursor: grabbing }
+.stage svg.drag { cursor: grabbing !important }
+/* what a click would select (hit-tested with a margin, so thin lines and small boxes are easy to reach) */
+.tip { position: absolute; pointer-events: none; background: #000d; color: #fff; font-size: 0.8rem; padding: 3px 8px; border-radius: 6px; max-width: 320px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transform: translate(12px, 14px) }
 .tools { position: absolute; right: 10px; top: 10px; display: flex; gap: 6px }
 .tools button { font: 600 0.85rem var(--body); border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 7px; padding: 4px 10px; cursor: pointer }
 .noimg { position: absolute; left: 12px; bottom: 10px; color: #cfd8d9; font-size: 0.85rem; background: #0009; padding: 4px 8px; border-radius: 6px }
@@ -86,7 +97,8 @@ a { color: var(--accent) }
 table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; font-size: 0.88rem }
 th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--line); vertical-align: top }
 th { color: var(--muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em }
-tbody tr { cursor: pointer } tbody tr:hover { background: var(--chip-bg) }
+/* only rows that open something look clickable (not the empty-filter row, nor an unmatched tap with no control to show) */
+tbody tr.go { cursor: pointer } tbody tr.go:hover { background: var(--chip-bg) }
 @media (max-width: 1100px) { .main { grid-template-columns: 1fr } .boards { display: flex; overflow-x: auto; max-height: none } .stage { height: 62vh } .panel { max-height: none } }
 .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap }
 .lead { margin: 6px 0 0; max-width: 80ch }
@@ -96,7 +108,9 @@ tbody tr { cursor: pointer } tbody tr:hover { background: var(--chip-bg) }
 .stat ul.d { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 2px }
 .muted { color: var(--muted) }
 .legend .hint { color: var(--muted); font-size: 0.82rem }
-.legend .chip.static { cursor: default }
+/* a key, not a toggle: plain text after a divider, so it does not look like the state chips */
+.legend .key { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--muted);
+  border-left: 1px solid var(--line); padding-left: 12px; margin-left: 4px }
 .gid { color: var(--muted); font-size: 0.78rem; margin-top: 14px }
 </style>
 </head>
@@ -113,11 +127,12 @@ tbody tr { cursor: pointer } tbody tr:hover { background: var(--chip-bg) }
 <section class="strip" id="strip"></section>
 <div class="legend" id="legend"></div>
 <div class="main">
-  <nav class="boards" id="boards" aria-label="Boards"></nav>
+  <div class="side"><div class="srcf" id="srcf"></div><nav class="boards" id="boards" aria-label="Boards"></nav></div>
   <div class="stage" id="stage">
     <svg id="svg" xmlns="http://www.w3.org/2000/svg"></svg>
     <div class="tools"><button id="zin" aria-label="Zoom in">+</button><button id="zout" aria-label="Zoom out">−</button><button id="fit" data-t="fit"></button></div>
     <div class="noimg" id="noimg" hidden></div>
+    <div class="tip" id="tip" hidden></div>
   </div>
   <aside class="panel" id="panel"></aside>
 </div>
@@ -180,6 +195,8 @@ const I18N = {
     umIntro: 'A press the matcher could not tie to a Figma control (score under 0.6). If it did press one, add the element\'s id or label to that entry\'s <span class="mono">app</span> list in control-trace.json; if it pressed something the Design does not draw, it is a spec question.',
     umNone: 'Every logged tap matched a control.', umNoLog: 'No tap log yet.', thRunCase: 'Run · case', thElement: 'Element tapped', thBest: 'Best guess', thScreen: 'Screen', screenshot: 'screenshot',
     otherPlatform: 'other platform',
+    specs: { design: 'Design', pm: 'PM', mx: 'MX' }, specLabel: 'Spec', specHint: 'Show or hide that spec\'s boards in the list',
+    specNone: s => `No ${s} boards in this inventory yet (its Figma file has not been read)`,
     reasons: {},
   },
   zh: {
@@ -221,6 +238,8 @@ const I18N = {
     umIntro: '比對程式無法對應到 Figma 控制項的點擊（分數低於 0.6）。若它確實按了某個控制項，請把元素的 id 或標籤加到 control-trace.json 中該項的 <span class="mono">app</span> 清單；若它按的是設計沒有畫出的東西，則是規格問題。',
     umNone: '每一筆點擊都對應到控制項。', umNoLog: '尚無點擊紀錄。', thRunCase: '執行 · 案例', thElement: '點擊的元素', thBest: '最可能的控制項', thScreen: '畫面', screenshot: '截圖',
     otherPlatform: '其他平台',
+    specs: { design: 'Design', pm: 'PM', mx: 'MX' }, specLabel: '規格', specHint: '在清單中顯示或隱藏該規格的畫板',
+    specNone: s => `此清單尚無 ${s} 畫板（尚未讀取其 Figma 檔案）`,
     // the blocked reasons the page builder names (coverage-page.ts blockReason)
     reasons: {
       'Video never generated on that build (video gate failed)': '該版本從未產生影片（影片前置檢查失敗）',
@@ -287,7 +306,7 @@ function strip() {
 }
 function legend() {
   $('legend').innerHTML = Object.entries(ST()).map(([s, x]) => `<span class="chip" role="button" tabindex="0" aria-pressed="${show.has(s)}" data-s="${s}"><span class="sw" style="color:${COLOR(s)}${s === 'na' ? ';border-style:dotted' : s === 'none' ? ';border-style:dashed' : ''}"></span>${x}</span>`).join('')
-    + `<span class="chip static"><span class="sw" style="color:var(--fail);border-radius:50%;background:var(--fail)"></span>${t('rowFailed')}</span><span class="hint">${t('legendHint')}</span>`;
+    + `<span class="hint">${t('legendHint')}</span><span class="key"><span class="sw" style="color:var(--fail);border-radius:50%;background:var(--fail)"></span>${t('rowFailed')}</span>`;
   for (const el of document.querySelectorAll('#legend [data-s]')) el.onclick = el.onkeydown = e => {
     if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
     const s = el.dataset.s; show.has(s) ? show.delete(s) : show.add(s); el.setAttribute('aria-pressed', show.has(s)); draw();
@@ -296,16 +315,30 @@ function legend() {
 // one bar segment per state, in the order of the legend, so a board's controls read the same way as the totals
 const segs = (items, total) => ['proof', 'ran', 'blocked', 'notrun', 'none', 'na'].map(st => { const n = items.filter(x => x.status === st).length;
   return n ? `<span title="${n} ${ST()[st]}" style="width:${n / total * 100}%;background:${COLOR(st)}"></span>` : ''; }).join('');
+const SPECS = ['design', 'pm', 'mx'], specShow = new Set(SPECS);
+const specOf = b => b.spec || 'design';
+function specFilter() {
+  const n = cnt(D.boards, specOf);
+  $('srcf').innerHTML = `<span>${t('specLabel')}</span>` + SPECS.map(s => n[s]
+    ? `<span class="chip" role="button" tabindex="0" aria-pressed="${specShow.has(s)}" data-spec="${s}" title="${esc(t('specHint'))}">${t('specs')[s]} <b>${n[s]}</b></span>`
+    : `<span class="chip" aria-disabled="true" title="${esc(t('specNone')(t('specs')[s]))}">${t('specs')[s]} <b>0</b></span>`).join('');
+  for (const el of document.querySelectorAll('#srcf [data-spec]')) el.onclick = el.onkeydown = e => {
+    if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault(); const s = el.dataset.spec; specShow.has(s) ? specShow.delete(s) : specShow.add(s); specFilter(); boardsNav();
+    document.querySelector(`#srcf [data-spec="${s}"]`)?.focus();
+  };
+}
 function boardsNav() {
-  $('boards').innerHTML = D.boards.map((b, i) => {
+  // the open board stays listed even when its spec is filtered out, so the list never loses the board on screen
+  $('boards').innerHTML = D.boards.map((b, i) => !specShow.has(specOf(b)) && b !== board ? '' : (() => {
     // a control shared by several boards counts on each of them here (the totals above count it once)
     const all = D.groups.filter(g => (g.boards || [g.board]).includes(b.name)), gs = all.filter(g => g.status !== 'na');
     const done = gs.filter(g => g.status === 'proof' || g.status === 'ran').length;
     const as = D.arrows.filter(a => a.board === b.name), aw = as.filter(a => a.status === 'proof' || a.status === 'ran').length;
-    return `<button data-i="${i}" aria-current="${board === b}"><span class="n">${esc(b.name)}</span>
+    return `<button data-i="${i}" aria-current="${board === b}"><span class="n"><span>${esc(b.name)}</span><span class="spec">${t('specs')[specOf(b)]}</span></span>
       <span class="brow"><span class="c">${t('controls')} ${done}/${gs.length}</span><span class="bar" style="margin:0">${all.length ? segs(all, all.length) : ''}</span></span>
       <span class="brow"><span class="c">${t('arrows')} ${as.length ? `${aw}/${as.length}` : '—'}</span>${as.length ? `<span class="bar" style="margin:0">${segs(as, as.length)}</span>` : `<span class="c none">${t('noArrows')}</span>`}</span></button>`;
-  }).join('');
+  })()).join('');
   for (const el of document.querySelectorAll('#boards button')) el.onclick = () => openBoard(D.boards[+el.dataset.i]);
 }
 function openBoard(b, focus) {
@@ -323,24 +356,75 @@ function draw() {
   for (const sc of D.screens.filter(sc => sc.board === board.name)) {
     s += `<rect x="${sc.box[0]}" y="${sc.box[1]}" width="${sc.box[2]}" height="${sc.box[3]}" fill="${sc.other ? '#000a' : 'none'}" stroke="#fff3" stroke-width="${k}"><title>${esc(sc.name)}${sc.other ? ` (${t('otherPlatform')})` : ''}</title></rect>`;
   }
+  // the hover outline sits under the marks, so it never covers a line or a box
+  s += '<g id="hov" pointer-events="none"></g>';
+  // marks: what the click and hover tests look at (only what is drawn: this board, states shown)
+  marks = []; let top = '';
+  const box = (g, [x, y, w, h], on) => {
+    const fill = g.status === 'proof' ? COLOR('proof') : g.status === 'ran' ? COLOR('ran') : 'none';
+    return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${2 * k}" fill="${fill}" fill-opacity="${g.status === 'proof' ? 0.3 : 0.18}" stroke="${COLOR(g.status)}" stroke-width="${(on ? 4 : 1.6) * k}" ${g.status === 'none' ? `stroke-dasharray="${4 * k} ${3 * k}"` : g.status === 'na' ? `stroke-dasharray="${1.5 * k} ${2.5 * k}" stroke-opacity="0.8"` : ''}/>`
+      + (g.fail ? `<circle cx="${x + w}" cy="${y}" r="${4 * k}" fill="var(--fail)"/>` : '');
+  };
+  const line = (a, pts, on) => `<polyline points="${pts}" fill="none" stroke="${COLOR(a.status)}" stroke-width="${(on ? 5 : 3) * k}" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-${a.status})" ${a.status === 'none' ? `stroke-dasharray="${6 * k} ${4 * k}"` : ''}/>`;
   for (const g of D.groups) {
     if (!(g.boards || [g.board]).includes(board.name) || !show.has(g.status)) continue;
-    const on = sel && sel.group === g.group, sw = (on ? 3.5 : 1.6) * k;
+    const on = sel && sel.group === g.group;
     // every copy that lies on this board (a shared control, e.g. the back button, has copies on many boards)
-    for (const [x, y, w, h] of g.rects.filter(([x, y]) => x >= bx && x <= bx + bw && y >= by && y <= by + bh)) {
-      const fill = g.status === 'proof' ? COLOR('proof') : g.status === 'ran' ? COLOR('ran') : 'none';
-      s += `<rect class="g" data-g="${g.group}" x="${x}" y="${y}" width="${w}" height="${h}" rx="${2 * k}" fill="${fill}" fill-opacity="${g.status === 'proof' ? 0.3 : 0.18}" stroke="${on ? 'var(--accent)' : COLOR(g.status)}" stroke-width="${sw}" ${g.status === 'none' ? `stroke-dasharray="${4 * k} ${3 * k}"` : g.status === 'na' ? `stroke-dasharray="${1.5 * k} ${2.5 * k}" stroke-opacity="0.8"` : ''}><title>${esc(g.label || g.name)} — ${ST()[g.status]}</title></rect>`;
-      if (g.fail) s += `<circle cx="${x + w}" cy="${y}" r="${4 * k}" fill="var(--fail)" pointer-events="none"/>`;
+    for (const r of g.rects.filter(([x, y]) => x >= bx && x <= bx + bw && y >= by && y <= by + bh)) {
+      marks.push({ t: 'g', id: g.group, r, label: g.label || g.name, status: g.status });
+      s += box(g, r, false);
+      // the selected control keeps its state colour, drawn thicker on top with a halo just outside the box
+      if (on) top += ring(r, k, true) + box(g, r, true);
     }
   }
   for (const a of D.arrows) {
     if (a.board !== board.name || !show.has(a.status)) continue;
     const on = sel && sel.arrow === a.id, p = [];
     for (let i = 0; i < a.points.length; i += 2) p.push(`${a.points[i]},${a.points[i + 1]}`);
-    s += `<polyline class="a" data-a="${a.id}" points="${p.join(' ')}" fill="none" stroke="${on ? 'var(--accent)' : COLOR(a.status)}" stroke-width="${(on ? 5 : 3) * k}" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-${a.status})" ${a.status === 'none' ? `stroke-dasharray="${6 * k} ${4 * k}"` : ''}><title>${esc(a.edge)} — ${ST()[a.status]}</title></polyline>`;
-    s += `<polyline class="a" data-a="${a.id}" points="${p.join(' ')}" fill="none" stroke="transparent" stroke-width="${14 * k}"/>`;
+    marks.push({ t: 'a', id: a.id, pts: a.points, label: a.edge, status: a.status });
+    s += line(a, p.join(' '), false);
+    if (on) top += halo(p.join(' '), k, true) + line(a, p.join(' '), true);
   }
-  svg.innerHTML = s;
+  svg.innerHTML = s + top;
+  hoverMark(hov && marks.find(m => m.t === hov.t && m.id === hov.id && (m.r ?? m.pts) === (hov.r ?? hov.pts)) || null, true);
+}
+// Selection and hover outlines: black under white, outside the box (or under the line), a pair no state colour uses,
+// so they show on any board image and never hide what the box contains. Hover is the thin white ring alone.
+const ring = ([x, y, w, h], k, strong) => { const o = (strong ? 4 : 3) * k;
+  return (strong ? `<rect x="${x - o}" y="${y - o}" width="${w + 2 * o}" height="${h + 2 * o}" rx="${4 * k}" fill="none" stroke="#000" stroke-opacity="0.85" stroke-width="${5 * k}"/>` : '')
+    + `<rect x="${x - o}" y="${y - o}" width="${w + 2 * o}" height="${h + 2 * o}" rx="${4 * k}" fill="none" stroke="#fff" stroke-width="${(strong ? 2.5 : 2) * k}" ${strong ? '' : `stroke-dasharray="${5 * k} ${3 * k}"`}/>`; };
+const halo = (pts, k, strong) => (strong ? `<polyline points="${pts}" fill="none" stroke="#000" stroke-opacity="0.85" stroke-width="${14 * k}" stroke-linecap="round" stroke-linejoin="round"/>` : '')
+  + `<polyline points="${pts}" fill="none" stroke="#fff" stroke-opacity="${strong ? 1 : 0.7}" stroke-width="${(strong ? 9 : 8) * k}" stroke-linecap="round" stroke-linejoin="round"/>`;
+let marks = [], hov = null;
+// Which mark a click at (px, py) means, in canvas units, with k canvas units per screen pixel. A box takes clicks within
+// 8 px of its edge, the smallest such box winning (so a small button inside a card stays reachable); an arrow takes
+// clicks within 10 px of its line, and wins over a box when the click is right on the line (4 px) and not inside a
+// small box (an arrow starts on the control it leaves from).
+function pick(px, py, k) {
+  const segDist = (p, x1, y1, x2, y2) => { const dx = x2 - x1, dy = y2 - y1, l = dx * dx + dy * dy, u = l ? Math.max(0, Math.min(1, ((p[0] - x1) * dx + (p[1] - y1) * dy) / l)) : 0;
+    return Math.hypot(p[0] - x1 - u * dx, p[1] - y1 - u * dy); };
+  let bestBox = null, bestArrow = null;
+  for (const m of marks) {
+    if (m.t === 'g') {
+      const [x, y, w, h] = m.r, out = Math.hypot(Math.max(x - px, 0, px - x - w), Math.max(y - py, 0, py - y - h)) / k;
+      if (out <= 8 && (!bestBox || w * h < bestBox.area)) bestBox = { m, area: w * h, out, screen: w * h / (k * k) };
+    } else {
+      let d = Infinity; for (let i = 0; i + 3 < m.pts.length; i += 2) d = Math.min(d, segDist([px, py], m.pts[i], m.pts[i + 1], m.pts[i + 2], m.pts[i + 3]));
+      d /= k; if (d <= 10 && (!bestArrow || d < bestArrow.d)) bestArrow = { m, d };
+    }
+  }
+  if (bestArrow && (!bestBox || (bestArrow.d <= 4 && (bestBox.out > 0 || bestBox.screen > 80 * 80)) || (bestBox.out > 0 && bestArrow.d < bestBox.out))) return bestArrow.m;
+  return bestBox?.m ?? bestArrow?.m ?? null;
+}
+function hoverMark(m, keep) {
+  const g = document.getElementById('hov'); if (!g) return;
+  if (!keep && hov?.t === m?.t && hov?.id === m?.id && (m?.r ?? m?.pts) === (hov?.r ?? hov?.pts)) return;
+  hov = m; const k = vb[2] / svg.clientWidth;
+  const isSel = m && (m.t === 'g' ? sel?.group === m.id : sel?.arrow === m.id);
+  g.innerHTML = !m || isSel ? '' : m.t === 'g' ? ring(m.r, k, false) : halo(m.pts.reduce((p, v, i) => p + (i % 2 ? `,${v} ` : v), ''), k, false);
+  svg.style.cursor = m ? 'pointer' : 'grab';
+  const tip = $('tip'); tip.hidden = !m;
+  if (m) tip.textContent = `${m.label} — ${ST()[m.status]}`;
 }
 const kindName = k => t('kinds')[k] ?? k;
 const rowHtml = id => { const r = D.rows[id] || { result: 'Not run' };
@@ -357,7 +441,7 @@ function renderPanel() {
     const how = g.how === 'arrow' ? t('tracedArrow') : g.how === 'label' ? t('tracedLabel') : g.how ? t('tracedManual') : '';
     p.innerHTML = `<h2>${esc(g.label || g.name)}</h2><span class="pill" style="background:${COLOR(g.status)}">${ST()[g.status]}</span>${g.fail ? ` <span class="pill" style="background:var(--fail)">${t('pillFailed')}</span>` : ''}${g.norow ? ` <span class="pill" style="background:var(--blocked)">${t('pillNoRow')}</span>` : ''}
       <dl><dt>${t('kind')}</dt><dd>${esc(kindName(g.kind))}</dd><dt>${t('countedAs')}</dt><dd>${g.set ? t('choiceList') : t('oneButton')} · ${t('copiesOn')(g.instances, g.boards.length)}</dd>
-      <dt>${g.boards.length > 1 ? t('boards') : t('board')}</dt><dd>${g.boards.map(esc).join(', ')}</dd><dt>${t('layer')}</dt><dd class="mono">${esc(g.name)}</dd>
+      <dt>${g.boards.length > 1 ? t('boards') : t('board')}</dt><dd>${g.boards.map(esc).join(', ')}</dd><dt>${t('specLabel')}</dt><dd>${t('specs')[g.spec || 'design']}</dd><dt>${t('layer')}</dt><dd class="mono">${esc(g.name)}</dd>
       ${g.app.length ? `<dt>${t('appIds')}</dt><dd class="mono">${g.app.map(esc).join(', ')}</dd>` : ''}${how ? `<dt>${t('tracedBy')}</dt><dd>${how}</dd>` : ''}
       ${g.kind === 'input' ? `<dt>${t('dismissed')}</dt><dd>${g.dismissed ? t('yes') : t('notYet')}</dd>` : ''}${g.na ? `<dt>${t('exclReason')}</dt><dd>${esc(g.na.replace(/^n\/a:\s*/, ''))}</dd>` : ''}</dl>${link}
       <h2 style="margin-top:14px">${t('tapProof')}</h2>${g.proof.length ? `<div class="proof">${g.proof.map(x => { const [ww, wh] = (x.win || '1x1').split('x').map(Number);
@@ -369,7 +453,7 @@ function renderPanel() {
   } else {
     const a = D.arrows.find(x => x.id === sel.arrow);
     p.innerHTML = `<h2>${esc(a.edge)}</h2><span class="pill" style="background:${COLOR(a.status)}">${ST()[a.status]}</span>${a.fail ? ` <span class="pill" style="background:var(--fail)">${t('pillFailed')}</span>` : ''}
-      <dl><dt>${t('kind')}</dt><dd>${t('arrowKind')(a.kind)}</dd><dt>${t('requirement')}</dt><dd>${esc(a.req || t('noneYetReq'))}</dd><dt>${t('arrow')}</dt><dd class="mono">${esc(a.id)}</dd></dl>
+      <dl><dt>${t('kind')}</dt><dd>${t('arrowKind')(a.kind)}</dd><dt>${t('requirement')}</dt><dd>${esc(a.req || t('noneYetReq'))}</dd><dt>${t('board')}</dt><dd>${esc(a.board)}</dd><dt>${t('specLabel')}</dt><dd>${t('specs')[specOf(D.boards.find(b => b.name === a.board) ?? {})]}</dd><dt>${t('arrow')}</dt><dd class="mono">${esc(a.id)}</dd></dl>
       <a href="${Object.values(D.figma)[0]}${a.id.replace(/-[A-Z]+$/, '')}" target="_blank" rel="noopener">${t('openFigma')}</a>
       ${a.src ? `<p><a href="#" id="srcl">${t('srcControl')}</a></p>` : ''}<h2 style="margin-top:14px">${t('rows')}</h2>${a.rows.length ? a.rows.map(rowHtml).join('') : `<p class="empty">${t('noArrowRows')}</p>`}`;
     if (a.src) $('srcl').onclick = e => { e.preventDefault(); select('g', a.src); };
@@ -384,12 +468,18 @@ function zoom(f, cx, cy) {
 svg.addEventListener('wheel', e => { e.preventDefault(); zoom(e.deltaY > 0 ? 1.15 : 1 / 1.15, e.clientX, e.clientY); }, { passive: false });
 let drag = null;
 svg.addEventListener('pointerdown', e => { drag = { x: e.clientX, y: e.clientY, vb: [...vb], moved: false }; svg.setPointerCapture(e.pointerId); });
+// the mark under the pointer, from the drawn geometry (not the DOM), so near-misses on thin lines still count
+const markAt = e => { const m = svg.getScreenCTM(); if (!m || !vb) return null;
+  const p = new DOMPoint(e.clientX, e.clientY).matrixTransform(m.inverse()); return pick(p.x, p.y, 1 / m.a); };
+let hoverFrame = 0;
+svg.addEventListener('pointermove', e => { if (drag?.moved || hoverFrame) return; hoverFrame = requestAnimationFrame(() => { hoverFrame = 0;
+  hoverMark(markAt(e)); const r = $('stage').getBoundingClientRect(), tip = $('tip'); tip.style.left = `${e.clientX - r.left}px`; tip.style.top = `${e.clientY - r.top}px`; }); });
+svg.addEventListener('pointerleave', () => { cancelAnimationFrame(hoverFrame); hoverFrame = 0; hoverMark(null); });
 svg.addEventListener('pointermove', e => { if (!drag) return; const r = svg.getBoundingClientRect(), k = Math.max(vb[2] / r.width, vb[3] / r.height);
   const dx = e.clientX - drag.x, dy = e.clientY - drag.y; if (Math.abs(dx) + Math.abs(dy) > 4) { drag.moved = true; svg.classList.add('drag'); }
-  if (drag.moved) { vb = [drag.vb[0] - dx * k, drag.vb[1] - dy * k, vb[2], vb[3]]; svg.setAttribute('viewBox', vb.join(' ')); } });
+  if (drag.moved) { $('tip').hidden = true; vb = [drag.vb[0] - dx * k, drag.vb[1] - dy * k, vb[2], vb[3]]; svg.setAttribute('viewBox', vb.join(' ')); } });
 svg.addEventListener('pointerup', e => { const was = drag?.moved; drag = null; svg.classList.remove('drag'); if (was) { draw(); return; }
-  const x = document.elementsFromPoint(e.clientX, e.clientY).find(el => el.dataset?.g || el.dataset?.a);
-  if (x) select(x.dataset.g ? 'g' : 'a', x.dataset.g || x.dataset.a); });
+  const m = markAt(e); if (m) select(m.t, m.id); });
 $('zin').onclick = () => zoom(1 / 1.4); $('zout').onclick = () => zoom(1.4); $('fit').onclick = () => openBoard(board);
 addEventListener('resize', () => draw());
 
@@ -414,10 +504,14 @@ function gaps() {
   const causes = cnt(all, causeOf);
   $('reasons').innerHTML = Object.entries(causes).sort((a, b) => b[1] - a[1]).map(([w, n]) =>
     `<span class="chip" role="button" tabindex="0" data-w="${esc(w)}" aria-pressed="${!reasonFilter || reasonFilter === w}"><b>${n}</b> ${esc(causeText(w))}</span>`).join('');
-  for (const el of document.querySelectorAll('#reasons [data-w]')) el.onclick = () => { reasonFilter = reasonFilter === el.dataset.w ? '' : el.dataset.w; gaps(); };
+  for (const el of document.querySelectorAll('#reasons [data-w]')) el.onclick = el.onkeydown = e => {
+    if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault(); const w = el.dataset.w; reasonFilter = reasonFilter === w ? '' : w; gaps();
+    document.querySelector(`#reasons [data-w="${CSS.escape(w)}"]`)?.focus();
+  };
   const items = all.filter(x => (!st || x.status === st) && (!bd || x.board === bd) && (!q || x.name.toLowerCase().includes(q)) && (!reasonFilter || causeOf(x) === reasonFilter));
   const label = s => s === 'undismissed' ? t('undismissed') : ST()[s];
-  $('gtb').innerHTML = items.slice(0, 600).map((x, i) => `<tr data-i="${i}"><td>${esc(kindName(x.what))}</td><td>${esc(x.board)}</td><td>${esc(x.name)}</td><td><span class="pill" style="background:${COLOR(x.status === 'undismissed' ? 'blocked' : x.status)}">${label(x.status)}</span></td><td>${esc(whyText(x))}</td><td class="mono">${x.rows.map(esc).join(', ')}</td></tr>`).join('')
+  $('gtb').innerHTML = items.slice(0, 600).map((x, i) => `<tr class="go" data-i="${i}"><td>${esc(kindName(x.what))}</td><td>${esc(x.board)}</td><td>${esc(x.name)}</td><td><span class="pill" style="background:${COLOR(x.status === 'undismissed' ? 'blocked' : x.status)}">${label(x.status)}</span></td><td>${esc(whyText(x))}</td><td class="mono">${x.rows.map(esc).join(', ')}</td></tr>`).join('')
     || `<tr><td colspan="6" style="color:var(--muted)">${t('emptyFilter')}</td></tr>`;
   for (const row of document.querySelectorAll('#gtb tr[data-i]')) row.onclick = () => goTo(items[+row.dataset.i]);
 }
@@ -426,13 +520,14 @@ function unmatchedList() {
   // nothing to list before a run logs taps: say so once instead of an empty table
   $('umtable').hidden = !D.taps;
   if (!D.taps) { $('umtb').innerHTML = ''; $('um-sec').querySelector('.intro').textContent = t('umNoLog'); return; }
-  $('umtb').innerHTML = D.unmatched.slice(0, 400).map((u, i) => `<tr data-i="${i}"><td class="mono">${esc(u.run)}<br>${esc(u.case || '?')}</td><td>${esc(u.el || `point ${u.x},${u.y}`)}</td>
+  const target = u => D.groups.find(x => x.group === u.best_group);
+  $('umtb').innerHTML = D.unmatched.slice(0, 400).map((u, i) => `<tr data-i="${i}"${target(u) ? ' class="go"' : ''}><td class="mono">${esc(u.run)}<br>${esc(u.case || '?')}</td><td>${esc(u.el || `point ${u.x},${u.y}`)}</td>
     <td>${u.best ? `${esc(u.best)} <span class="mono">(${u.best_score})</span>` : '—'}</td><td>${u.shot ? `<a href="${esc(u.shot)}" target="_blank">${t('screenshot')}</a>` : ''}</td></tr>`).join('')
     || `<tr><td colspan="4" style="color:var(--muted)">${t('umNone')}</td></tr>`;
-  for (const row of document.querySelectorAll('#umtb tr[data-i]')) row.onclick = e => { if (e.target.closest('a')) return; const u = D.unmatched[+row.dataset.i]; const g = D.groups.find(x => x.group === u.best_group);
-    if (g) goTo({ t: 'g', id: g.group, board: g.board, r: g.rects[0] }); };
+  for (const row of document.querySelectorAll('#umtb tr.go')) row.onclick = e => { if (e.target.closest('a')) return; const g = target(D.unmatched[+row.dataset.i]);
+    goTo({ t: 'g', id: g.group, board: g.board, r: g.rects[0] }); };
 }
-function render() { header(); strip(); legend(); unmatchedList(); boardsNav(); draw(); renderPanel(); gaps(); }
+function render() { header(); strip(); legend(); unmatchedList(); specFilter(); boardsNav(); draw(); renderPanel(); gaps(); }
 for (const b of document.querySelectorAll('.lang button')) b.onclick = () => { L = b.dataset.lang; try { localStorage.setItem('coverage-lang', L); } catch {} render(); };
 board = D.boards.find(b => b.img) || D.boards[0]; openBoard(board); render();
 </script>
