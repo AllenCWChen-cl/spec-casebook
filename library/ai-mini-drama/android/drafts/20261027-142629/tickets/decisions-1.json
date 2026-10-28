@@ -1,0 +1,648 @@
+[
+ {
+  "bug": "DRA262610-0015",
+  "kind": "row",
+  "after": "TC-126",
+  "section": "Make your character",
+  "precondition": "Outline shown; Create my character open for a cast character, description empty",
+  "action": "Tap 「AI Suggestion」, then tap it again",
+  "expected": "AI Suggestion generates a visual appearance description of the character, not the character's role line from the outline",
+  "priority": "P2",
+  "spec_ref": "R-111, R-268",
+  "notes": "DRA262610-0015 (NewCreated, AIFound); seen with English and Japanese outlines; the second tap returned the same text with no loading feedback",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610-0017",
+  "kind": "fold",
+  "row": "TC-371",
+  "note": "Android ticket DRA262610-0017 (Assigned, AIFound, UX): Age slider labels stay at 「0」/「100」 while dragging; the range shows only as a chip after ✓"
+ },
+ {
+  "bug": "DRA262610-0018",
+  "kind": "fold",
+  "row": "TC-120",
+  "note": "Android ticket DRA262610-0018 (NewCreated, AIFound, UX): a Gender/Age filter set for one role stays applied after switching to another role; the ticket asks for a per-slot filter, the Design resets to default (Design wins)"
+ },
+ {
+  "bug": "DRA262610-0020",
+  "kind": "row",
+  "after": "TC-036",
+  "section": "Characters",
+  "precondition": "Change Characters open",
+  "action": "Open the filter and read the Gender options; compare them with the filter's Ethnicity options and the Gender* options in Create my character",
+  "expected": "The filter Gender chip reads 「Other」, matching the other option lists",
+  "priority": "P3",
+  "spec_ref": "R-031",
+  "notes": "DRA262610-0020 (NewCreated, AIFound, UI); Design spec differs: the PM Make your character frame lists Gender 「Female / Male / Others」 — spec wins; record the label each list uses",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610-0024",
+  "kind": "row",
+  "after": "TC-132",
+  "section": "Make your character",
+  "precondition": "Create my character open",
+  "action": "Enter the description 「male lead, a quick-witted debtor on the run mistaken for a groom」, set Gender Female, Ethnicity White, Age 20, tap Generate",
+  "expected": "The generated character follows the selected character settings (female, White, about 20)",
+  "priority": "P2",
+  "spec_ref": "R-042, R-117",
+  "notes": "DRA262610-0024 (NewCreated, untagged)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610-0028",
+  "kind": "fold",
+  "row": "TC-042",
+  "note": "Android ticket DRA262610-0028 (NeedMoreInfo, AIFound): after Generate all with one failed character the dialog says refunded but Credit Details keep the full charge with no refund row — check Credit Details here"
+ },
+ {
+  "bug": "DRA262610-0032",
+  "kind": "fold",
+  "row": "TC-338",
+  "note": "Android ticket DRA262610-0032 (Assigned, AIFound): Generate all blocked the sheet 12–14 minutes with no progress or cancel (Cancel/X during generation: TC-403)"
+ },
+ {
+  "bug": "DRA262610-0033",
+  "kind": "fold",
+  "row": "TC-219",
+  "note": "Android ticket DRA262610-0033 (TRCreated, AIFound, UX): 「Daily Free Chat Limit Reached」 had no close button (RD added an X)"
+ },
+ {
+  "bug": "DRA262610-0036",
+  "kind": "row",
+  "after": "TC-132",
+  "section": "Make your character",
+  "precondition": "Valid Create my character form; Mine › Credits › Details read",
+  "action": "Generate a custom character, then open the credit pill › Details",
+  "expected": "Credit Details name AI Mini Drama (ideally the step) for each charge",
+  "priority": "P2",
+  "spec_ref": "R-050",
+  "notes": "DRA262610-0036 (NewCreated, AIFound, UX); the ◆4 charge showed as 「Text to Image −3」 and 「Text to Speech −1」; Design spec differs: the spec reading in TC-060 (R-050) books AI Mini Drama charges as Text to Image / Text to Speech rows — spec wins; record the labels",
+  "needs": [],
+  "ios_lead": "TC-179"
+ },
+ {
+  "bug": "DRA262610-0040",
+  "kind": "row",
+  "after": "TC-064",
+  "section": "Storyboard",
+  "precondition": "A character made with Create my character with a distinct outfit (e.g. 「wavy auburn hair, green eyes, bohemian purple shawl over a black dress, gold hoop earrings」) and used in the cast",
+  "action": "Generate the storyboard and open each scene",
+  "expected": "Storyboard images (and the scene text) dress the character as shown on their reference sheet",
+  "priority": "P2",
+  "spec_ref": "R-040",
+  "notes": "DRA262610-0040 (NewCreated, AIFound); seen: every scene put the character in another outfit; hair and face matched",
+  "needs": [],
+  "ios_lead": "TC-205"
+ },
+ {
+  "bug": "DRA262610-0043",
+  "kind": "fold",
+  "row": "TC-086",
+  "note": "Android ticket DRA262610-0043 (NewCreated, AIFound, UX): 「Create the full episode (30 sec)」 after a 30-sec preview produced a 60-second video; the button should state the full episode's length"
+ },
+ {
+  "bug": "DRA262610-0045",
+  "kind": "row",
+  "after": "TC-036",
+  "section": "Characters",
+  "precondition": "Change Characters › Filter open; 「My characters only」 unchecked",
+  "action": "Look at the unchecked 「My characters only」 checkbox and its label",
+  "expected": "The unchecked checkbox uses the intended active-control color (as in the Design), not a gray outline",
+  "priority": "P3",
+  "spec_ref": "R-031",
+  "notes": "DRA262610-0045 (NewCreated, AIFound, UX)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610-0046",
+  "kind": "fold",
+  "row": "TC-111",
+  "note": "Android ticket DRA262610-0046 (NewCreated, AIFound, UX): the delete dialog does not name the selected drama (the spec body names it as 「\"{title}\"」)"
+ },
+ {
+  "bug": "DRA262610-0049",
+  "kind": "fold",
+  "row": "TC-153",
+  "note": "Android ticket DRA262610-0049 (TRCreated, AIFound, UX): Stop during the outline removed the progress with no explanation (RD: the format card returns after a stopped first turn)"
+ },
+ {
+  "bug": "DRA262610-0050",
+  "kind": "fold",
+  "row": "TC-282",
+  "note": "Android ticket DRA262610-0050 (NeedCodeReview, AIFound, UI): English storyboard dialogue used 「」 and fullwidth colons"
+ },
+ {
+  "bug": "DRA262610-0051",
+  "kind": "fold",
+  "row": "TC-010",
+  "note": "Android ticket DRA262610-0051 (NewCreated, AIFound, UI): template title reads 「Six Things You Didnt Know」 without the apostrophe"
+ },
+ {
+  "bug": "DRA262610-0052",
+  "kind": "fold",
+  "row": "TC-041",
+  "note": "Android ticket DRA262610-0052 (Propose Won't Fix, AIFound): Generate all for three characters (The Heiress and Her Protector) created two and left Grace unset"
+ },
+ {
+  "bug": "DRA262610-0053",
+  "kind": "fold",
+  "row": "TC-349",
+  "note": "Android ticket DRA262610-0053 (TRCreated, AIFound): after asking to regenerate a character and answering 「Yes」, Iris repeated 「Ready to create your characters?」 without starting"
+ },
+ {
+  "bug": "DRA262610-0055",
+  "kind": "fold",
+  "row": "TC-345",
+  "note": "Android ticket DRA262610-0055 (NewCreated, AIFound, UX): Full Video offered 90 sec for a 6-scene drama and 60 sec for a 4-scene one; the spec rule (15 s × scenes) is that consistent rule"
+ },
+ {
+  "bug": "DRA262610-0056",
+  "kind": "fold",
+  "row": "TC-291",
+  "note": "Android ticket DRA262610-0056 (NewCreated, AIFound, UX): a saved Mine character's menu offers Download, Report and Delete but no Rename"
+ },
+ {
+  "bug": "DRA262610-0057",
+  "kind": "fold",
+  "row": "TC-156",
+  "note": "Android ticket DRA262610-0057 (TRCreated, AIFound, UX): Stop on a paid storyboard gave no cancellation or credit explanation (RD added a 「Stop generating?」 dialog)"
+ },
+ {
+  "bug": "DRA262610-0058",
+  "kind": "row",
+  "after": "TC-326",
+  "section": "Characters",
+  "precondition": "Change Characters open on the built-in character templates",
+  "action": "Apply a stock character, then tap a stock character the app rejects (e.g. the infant in a cream onesie) and read the error toast",
+  "expected": "Error feedback stays clearly readable against the character library background",
+  "priority": "P3",
+  "spec_ref": "R-141",
+  "notes": "DRA262610-0058 (Assigned, AIFound, UI); the toast seen was the raw text 「Character asset requires id, age 1..100, and gender」 in gray-blue over the thumbnails",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610-0059",
+  "kind": "row",
+  "after": "TC-128",
+  "section": "Make your character",
+  "precondition": "Media permission not granted to PowerDirector (reset it in Android Settings › Apps first)",
+  "action": "Tap 「Reference (optional)」 › Next › Don't allow › OK, then Back and the top-left arrow",
+  "expected": "Back or a close button dismisses the permission notice and returns to Create my character",
+  "priority": "P2",
+  "spec_ref": "R-113",
+  "notes": "DRA262610-0059 (ProposeNAB, AIFound); seen: the notice came back after OK and the only exits were granting access or force-stop",
+  "needs": [
+   "permission-reset"
+  ]
+ },
+ {
+  "bug": "DRA262610-0063",
+  "kind": "row",
+  "after": "TC-106",
+  "section": "History",
+  "precondition": "Template 「Forbidden Office Romance」 detail open",
+  "action": "Tap Make my version › Continue, open History and read the drama title; repeat with two other templates",
+  "expected": "A drama made from a template is titled with the template name, consistently",
+  "priority": "P3",
+  "spec_ref": "R-093",
+  "notes": "DRA262610-0063 (ProposeNAB, AIFound, UX); seen: titled 「Workplace Romance」 (its category); Design spec differs: R-093 titles the card with the title Iris generates, not the template name — spec wins",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0025",
+  "kind": "fold",
+  "row": "TC-023",
+  "note": "Android ticket DRA262610P0025 (NeedCodeReview, UI): the informational text above the loading box was missing on the outline loading screen of a template chat"
+ },
+ {
+  "bug": "DRA262610P0026",
+  "kind": "fold",
+  "row": "TC-085",
+  "note": "Android ticket DRA262610P0026 (NewCreated, AIFound): the video stopped while the user was in another feature (Text To Video), the progress card vanished on return and all clips failed later"
+ },
+ {
+  "bug": "DRA262610P0027",
+  "kind": "row",
+  "after": "TC-077",
+  "section": "Storyboard Preview",
+  "precondition": "Storyboard with a failed scene image; the preview card shows 「Storyboard preview unavailable. Complete the image generation above first to view the preview.」",
+  "action": "Open the failed scene › Edit › Done › 「Regenerate Image」, wait for the image, return to the chat",
+  "expected": "Once all scene images are complete, the Storyboard Preview is generated and playable",
+  "priority": "P2",
+  "spec_ref": "R-063, R-066",
+  "notes": "DRA262610P0027 (Propose Wont Fix, AIFound, UX)",
+  "needs": [
+   "fault-injection"
+  ]
+ },
+ {
+  "bug": "DRA262610P0030",
+  "kind": "fold",
+  "row": "TC-092",
+  "note": "Android ticket DRA262610P0030 (TRCreated, AIFound, UX): a failed clip said 「Try editing the description for a different result」 although the cause was an image error, with no Retry"
+ },
+ {
+  "bug": "DRA262610P0031",
+  "kind": "row",
+  "after": "TC-091",
+  "section": "Video errors",
+  "precondition": "Video with a failed clip (「1 clip couldn't be generated.」)",
+  "action": "Scroll to the 「Fix these issues to export your drama.」 card",
+  "expected": "The card lists each failed clip with its reason, so the user knows what Fix Clips will fix",
+  "priority": "P2",
+  "spec_ref": "R-080",
+  "notes": "DRA262610P0031 (ProposeNAB, AIFound, UX); seen: the card was empty; Design spec differs: the Design banner reads 「ⓘ {n} scenes couldn't be generated.」/「Fix these issues to export your drama.」 with 「Fix scenes」 (a count, no per-clip reasons) — spec wins",
+  "needs": [
+   "fault-injection",
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0038",
+  "kind": "fold",
+  "row": "TC-145",
+  "note": "Android ticket DRA262610P0038 (Assigned, AIFound): Regenerate Clip on an unedited failed clip failed again after about 10 minutes with 「Couldn't create clip」"
+ },
+ {
+  "bug": "DRA262610P0040",
+  "kind": "fold",
+  "row": "TC-277",
+  "note": "Android ticket DRA262610P0040 (Assigned, AIFound, MUI, UI): Mini Drama strings (e.g. 「Create Your Drama」) stay English in Japanese, Traditional Chinese, German and French"
+ },
+ {
+  "bug": "DRA262610P0047",
+  "kind": "fold",
+  "row": "TC-108",
+  "note": "Android ticket DRA262610P0047 (NewCreated, AIFound, UX): a renamed drama kept its position and old time"
+ },
+ {
+  "bug": "DRA262610P0054",
+  "kind": "row",
+  "after": "TC-221",
+  "section": "Credits and limits",
+  "precondition": "Tier Free (cleared data, signed in); 10 text messages sent today",
+  "action": "Send another message, close the limit dialog, return to the template list, open 「Merger Season」 and tap Make my version",
+  "expected": "Only user-sent text counts toward the chat limit; non-chat actions such as template creation stay available, and the limit dialog clearly explains the limit",
+  "priority": "P2",
+  "spec_ref": "R-142, R-143",
+  "notes": "DRA262610P0054 (TRCreated, AIAgent, UX); Design spec differs: MX version A counts opening a template as one chat and shows the limit dialog after the template chat opens (R-142, R-143, TC-221) — spec wins",
+  "needs": [
+   "chat-count"
+  ]
+ },
+ {
+  "bug": "DRA262610P0061",
+  "kind": "fold",
+  "row": "TC-055",
+  "note": "Android ticket DRA262610P0061 (TRCreated, AIFound, UX): X on Create my character with entered data closed without confirmation and the form reopened empty"
+ },
+ {
+  "bug": "DRA262610P0063",
+  "kind": "row",
+  "after": "TC-022",
+  "section": "Format card",
+  "precondition": "Template chat; format card 「What format would you like for your video?」 shown",
+  "action": "Select a language and captions, tap Continue, then scroll up",
+  "expected": "The assistant question 「What format would you like for your video?」 stays visible in the chat history after Continue",
+  "priority": "P3",
+  "spec_ref": "R-018, R-019",
+  "notes": "DRA262610P0063 (TRCreated, UI); the ticket cites the PM frame (Figma node 2182-5791) and the iOS behaviour",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0064",
+  "kind": "fold",
+  "row": "TC-003",
+  "note": "Android ticket DRA262610P0064 (NeedMoreInfo, UI, Light): in Light mode the landing text shows a shadow, against the UI guideline"
+ },
+ {
+  "bug": "DRA262610P0065",
+  "kind": "row",
+  "after": "TC-006",
+  "section": "Templates",
+  "precondition": "More page open",
+  "action": "Look at a category row with more templates than fit (e.g. Workplace Romance), then swipe it left",
+  "expected": "A visible horizontal browsing cue shows that more templates are available offscreen",
+  "priority": "P3",
+  "spec_ref": "R-006",
+  "notes": "DRA262610P0065 (NewCreated, AIAgent, UX)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0068",
+  "kind": "row",
+  "after": "TC-024",
+  "section": "Story outline",
+  "precondition": "Template chat (any template › Make my version)",
+  "action": "Choose the format, tap Continue and read the chat from the outline down to the character cards",
+  "expected": "No redundant message blocks: the character cards appear directly below the story outline, as in the Design (Figma node 2778-128850)",
+  "priority": "P3",
+  "spec_ref": "R-021",
+  "notes": "DRA262610P0068 (Fail, UI)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0069",
+  "kind": "row",
+  "after": "TC-088",
+  "section": "Video",
+  "precondition": "Finished drama video",
+  "action": "Tap the video › Full Edit, add a text, a sticker and a filter, go back; tap Full Edit again, then check Home › Projects",
+  "expected": "Full Edit reopens the drama's existing project with its earlier edits; no extra project is added on re-entry",
+  "priority": "P2",
+  "spec_ref": "R-077, R-094",
+  "notes": "DRA262610P0069 (ProposeNAB, AIFound)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0071",
+  "kind": "row",
+  "after": "TC-343",
+  "section": "Video",
+  "precondition": "Drama video edited in Full Edit (a free text, a free sticker and the free filter ST06 added)",
+  "action": "Go back, tap 「Export Full Video」 › Produce and play the file",
+  "expected": "Export Full Video includes the Full Edit changes, or says that it exports the original video",
+  "priority": "P2",
+  "spec_ref": "R-077, R-249",
+  "notes": "DRA262610P0071 (ProposeNAB, AIFound, UX)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0072",
+  "kind": "row",
+  "after": "TC-374",
+  "section": "Chat behaviour",
+  "precondition": "Chat with an outline, several screens long",
+  "action": "Scroll the chat up under the header",
+  "expected": "Chat content scrolls below the header and never overlaps the Back, credit, New Chat and History buttons",
+  "priority": "P3",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0072 (NewCreated, AIFound, UX); guideline Figma node 2778-128606",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0074",
+  "kind": "row",
+  "after": "TC-024",
+  "section": "Story outline",
+  "precondition": "Outline with more characters than fit across the screen",
+  "action": "Look at the character carousel under the outline",
+  "expected": "The list shows a partial view of the next off-screen card, indicating that more characters are available by scrolling horizontally, as in the Design (Figma node 2778-128850)",
+  "priority": "P3",
+  "spec_ref": "R-021",
+  "notes": "DRA262610P0074 (TRCreated, UX)",
+  "needs": [],
+  "ios_lead": "TC-201"
+ },
+ {
+  "bug": "DRA262610P0077",
+  "kind": "fold",
+  "row": "TC-061",
+  "note": "Android ticket DRA262610P0077 (Assigned, AIFound, UX): ← right after Generate storyboard, while 「Working on it…」 shows, left with no 「Stop and lose your credits?」 warning"
+ },
+ {
+  "bug": "DRA262610P0078",
+  "kind": "row",
+  "after": "TC-236",
+  "section": "Templates",
+  "precondition": "Chat started from 「Merger Season」 › Continue",
+  "action": "Check the pre-filled slots in Choose your characters",
+  "expected": "Pre-assigned characters match each role's gender (female lead Ayaka Takahashi gets a female character)",
+  "priority": "P2",
+  "spec_ref": "R-148",
+  "notes": "DRA262610P0078 (NewCreated, AIFound)",
+  "needs": [],
+  "ios_lead": "TC-212"
+ },
+ {
+  "bug": "DRA262610P0082",
+  "kind": "fold",
+  "row": "TC-094",
+  "note": "Android ticket DRA262610P0082 (Assigned, AIFound): a failed Generate video showed the raw red bubble 「Error: HTTP request to cc team gateway failed: Could not establish connection」 instead of the spec error copy",
+  "ios_lead": "TC-182"
+ },
+ {
+  "bug": "DRA262610P0083",
+  "kind": "row",
+  "after": "TC-089",
+  "section": "Video",
+  "precondition": "Video generated; download not tapped",
+  "action": "Open the phone's Files › Recents (or PowerDirector › New Project › Add Media) and look for the drama's clips; then tap download and look again",
+  "expected": "Videos reach the gallery only when the user taps download, named after the drama",
+  "priority": "P2",
+  "spec_ref": "R-078",
+  "notes": "DRA262610P0083 (NewCreated, AIFound, UX); seen: every 15 s clip saved to Movies/…/Mini Drama as 「reftovideo_…_vid_1_15s - <id>.mp4」",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0084",
+  "kind": "row",
+  "after": "TC-088",
+  "section": "Video",
+  "precondition": "Tier Free; full episode made with 「Yes, include captions」",
+  "action": "Open the video › Full Edit, change nothing, tap Export",
+  "expected": "Captions created by Mini Drama export from Full Edit without a Pro subscription",
+  "priority": "P2",
+  "spec_ref": "R-077",
+  "notes": "DRA262610P0084 (NewCreated, AIFound, UX); seen: 「Pro Only」 on entry and Export listing 「Auto Captions」 as a Pro feature",
+  "needs": [
+   "video",
+   "tier-free"
+  ]
+ },
+ {
+  "bug": "DRA262610P0088",
+  "kind": "row",
+  "after": "TC-349",
+  "section": "Characters",
+  "precondition": "Template chat with the cast set",
+  "action": "Type 「更改角色」, pick 「More ideas › 女主角: Lauren Hale」, tap 「Create characters」 in Iris's reply and wait",
+  "expected": "No 「Consume credits?」 card appears; the character (text-to-image) generation starts directly",
+  "priority": "P1",
+  "spec_ref": "R-254, R-100",
+  "notes": "DRA262610P0088 (TRCreated, untagged); seen: 「Working on it...」 for minutes, the card alongside it, then the toast 「Generation paused because credit information timed out」; Design spec differs: MX charging boards draw 「Consume credits?」/「Credits will be consumed for this task.」 before creating characters, while Design shows the price on the card with no separate confirmation (R-100, TC-115) — Design wins",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0092",
+  "kind": "row",
+  "after": "TC-348",
+  "section": "Characters",
+  "precondition": "Template chat with the cast set",
+  "action": "Type 「更改角色」 and read Iris's reply",
+  "expected": "Iris shows the Character result board directly instead of asking which character to modify",
+  "priority": "P2",
+  "spec_ref": "R-254",
+  "notes": "DRA262610P0092 (TRCreated, SPEC); Design spec differs: PM 10/16 (R-254, TC-348) has Iris ask 「Sure! Which character would you like to change?」 with 2–4 chips when the request is unclear — spec wins",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0093",
+  "kind": "fold",
+  "row": "TC-278",
+  "note": "Android ticket DRA262610P0093 (NewCreated, AIFound): with 「日本語」 chosen (template 「合併から始まる恋」) the outline headings, scene titles and some scene descriptions were English"
+ },
+ {
+  "bug": "DRA262610P0096",
+  "kind": "row",
+  "after": "TC-277",
+  "section": "Text",
+  "precondition": "App language set to Japanese",
+  "action": "AI Mini Drama › 「その他」; compare each cover title with the name under it",
+  "expected": "Each cover title matches the template name shown in the app",
+  "priority": "P3",
+  "spec_ref": "R-148, R-149",
+  "notes": "DRA262610P0096 (NewCreated, AIFound); covers seen differing: 「竜神に選ばれた花嫁」, 「推しの秘密の恋人」, 「何度生まれ変わっても、君に」",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0098",
+  "kind": "fold",
+  "row": "TC-040",
+  "note": "Android ticket DRA262610P0098 (Assigned, AIFound, MUI): the prompt read 「1 characters isn't set yet」, and stayed English in a Japanese UI"
+ },
+ {
+  "bug": "DRA262610P0102",
+  "kind": "fold",
+  "row": "TC-030",
+  "note": "Android ticket DRA262610P0102 (TRCreated, AIFound, UX): a format-card Continue that failed to connect showed only an error bubble, no Try again, and the chat stuck",
+  "ios_lead": "TC-184"
+ },
+ {
+  "bug": "DRA262610P0103",
+  "kind": "row",
+  "after": "TC-011",
+  "section": "Idea input",
+  "precondition": "History has a drama",
+  "action": "Open a drama from History, tap ← to the AI Mini Drama page, tap 「Create Your Drama」",
+  "expected": "Create Your Drama always opens a new empty chat",
+  "priority": "P2",
+  "spec_ref": "R-011",
+  "notes": "DRA262610P0103 (RDResolved, AIFound, UX); seen: the drama just closed opened again",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0104",
+  "kind": "fold",
+  "row": "TC-049",
+  "note": "Android ticket DRA262610P0104 (Assigned, AIFound): Generate with a reference photo spun briefly and returned to the form; no character, no message, no charge"
+ },
+ {
+  "bug": "DRA262610P0105",
+  "kind": "row",
+  "after": "TC-088",
+  "section": "Video",
+  "precondition": "Drama video open in Full Edit",
+  "action": "Select a caption, tap Aspect Ratio › 1:1, then Undo",
+  "expected": "Undo restores the captions to their size before the aspect ratio change",
+  "priority": "P3",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0105 (NeedMoreInfo, AIFound, UI)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0107",
+  "kind": "row",
+  "after": "TC-069",
+  "section": "Storyboard",
+  "precondition": "Storyboard with two or more failed scene images (fault injection; record the switch)",
+  "action": "Look for a way to retry every failed scene at once",
+  "expected": "The storyboard offers one 「Retry all」 action for the failed scenes",
+  "priority": "P3",
+  "spec_ref": "R-059",
+  "notes": "DRA262610P0107 (NewCreated, AIFound, UX); Design spec differs: the Design retries a failed scene only from its own Edit › 「Regenerate Image」 (R-059) or a chat update — no Retry all; spec wins",
+  "needs": [
+   "fault-injection"
+  ]
+ },
+ {
+  "bug": "DRA262610P0108",
+  "kind": "row",
+  "after": "TC-290",
+  "section": "Characters",
+  "precondition": "A character generated with Create my character and saved to the gallery with Download",
+  "action": "Later (or after reinstalling), open Choose Character and look for a way to import it; then try it as the Reference photo",
+  "expected": "Choose Character imports a character saved to the gallery as-is, without regenerating it",
+  "priority": "P3",
+  "spec_ref": "R-155",
+  "notes": "DRA262610P0108 (NewCreated, AIFound, UX); Design spec differs: the spec reuses characters through Mine (R-155) and has no gallery import; a Reference photo makes a new look and costs credits — spec wins",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0111",
+  "kind": "fold",
+  "row": "TC-236",
+  "note": "Android ticket DRA262610P0111 (NewCreated, AIAgent): the unchanged Merger Season template intermittently failed the Scene 5 image, so Storyboard Preview was unavailable"
+ },
+ {
+  "bug": "DRA262610P0112",
+  "kind": "row",
+  "after": "TC-141",
+  "section": "Storyboard",
+  "precondition": "A failed scene image (e.g. Scene 5 of an unchanged 「Merger Season」 drama, or fault injection); logs captured",
+  "action": "Open the scene › Edit, replace the description with new text, Done, 「Regenerate Image」; pull the logs",
+  "expected": "The replacement scene image uses the saved description: the TextToImage request carries the new text",
+  "priority": "P2",
+  "spec_ref": "R-059, R-126",
+  "notes": "DRA262610P0112 (TRCreated, AIAgent); seen: the request still sent the old (kissing) prompt",
+  "needs": [
+   "fault-injection",
+   "log"
+  ]
+ },
+ {
+  "bug": "DRA262610P0113",
+  "kind": "row",
+  "after": "TC-039",
+  "section": "Characters",
+  "precondition": "Outline with unset characters",
+  "action": "Open Change Characters, tap ✓ with none set, read the 「Finish your characters」 sheet and tap ⓘ",
+  "expected": "The sheet clearly explains that 「Generate all」 automatically generates looks for every unset character using credits",
+  "priority": "P3",
+  "spec_ref": "R-033",
+  "notes": "DRA262610P0113 (NewCreated, UX); Design spec differs: the Design draws 「{n} characters aren't set yet」/「Add a look to continue.」 with 「Generate all ◆6×n」 and the balance (TC-039) — spec wins; record the ⓘ text",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0114",
+  "kind": "fold",
+  "row": "TC-284",
+  "note": "Android ticket DRA262610P0114 (TRCreated, AIAgent, UX): with Gender, Ethnicity and Age empty, Generate stays disabled and no missing field is highlighted"
+ },
+ {
+  "bug": "DRA262610P0115",
+  "kind": "fold",
+  "row": "TC-378",
+  "note": "Android ticket DRA262610P0115 (TRCreated, AIAgent): X during Regenerate Image returned to the chat with no 「Stop and lose your credits?」"
+ },
+ {
+  "bug": "DRA262610P0116",
+  "kind": "row",
+  "after": "TC-084",
+  "section": "Video",
+  "precondition": "Storyboard generating",
+  "action": "Open History while the storyboard generates and read the drama's card",
+  "expected": "History identifies the active task as processing",
+  "priority": "P2",
+  "spec_ref": "R-073",
+  "notes": "DRA262610P0116 (Assigned, AIAgent); Design spec differs: History shows 「processing..」 only for a generating video (R-073), and opening History during a storyboard asks 「Stop and lose your credits?」 (R-262, TC-359) — spec wins",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0117",
+  "kind": "fold",
+  "row": "TC-301",
+  "note": "Android ticket DRA262610P0117 (TRCreated, AIAgent): losing the network before or during the outline showed raw HTTP connection errors with no retry action",
+  "ios_lead": "TC-182"
+ }
+]

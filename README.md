@@ -244,9 +244,36 @@ export PDR_UDID=<your phone UDID> PDR_WDA_TEAM=<team ID> PDR_WDA_BUNDLE=<bundle 
 
 ### 4b. Phone (Android)
 
-`device.ts` and `app-setup.ts` drive only the iPhone today (Appium's XCUITest driver); there is no Android driver
-in the scripts yet, so ask before an Android run which way it should go. Android runs work from macOS or Windows,
-and the phone side needs:
+Android runs use `scripts/device-android.ts` (Appium + UiAutomator2) with the same commands as `device.ts`. One-time
+setup on the Mac (no shell-profile changes needed; the script has these defaults):
+
+```bash
+brew install --cask android-platform-tools android-commandlinetools
+brew install openjdk@17                      # keg-only JDK; the temurin cask needs sudo
+export JAVA_HOME=/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home ANDROID_HOME=$HOME/Library/Android/sdk
+yes | sdkmanager --sdk_root=$ANDROID_HOME --licenses
+sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "build-tools;35.0.0"
+appium driver install uiautomator2
+```
+
+On the phone (the user does these; they are system settings): Developer options › **USB debugging** on, accept
+「Allow USB debugging?」 with *Always allow from this computer*, a screen lock of None or Swipe (a PIN lock stops the
+script with BLOCKER), and **Stay awake** on (Developer options) or Screen timeout at its longest for a run. Check with
+`adb devices -l` (state `device`, not `unauthorized`).
+
+`device-android.ts start` starts its own Appium server on port 4724 (log `~/Library/Logs/appium-android-4724.log`)
+when none answers, so the iOS servers on 4723/4725 are never restarted. UiAutomator2 installs its server apps on the
+phone and relaxes the hidden-API policy while a session is open (restored when the session ends).
+
+| Variable | What it is | Default |
+| --- | --- | --- |
+| `PDR_SERIAL` | adb serial (`adb devices -l`); or pass it to `device-android.ts start <serial>` | the only adb device |
+| `PDR_ANDROID_PACKAGE` | PowerDirector's package | `com.cyberlink.powerdirector.DRA140225_01` |
+| `APPIUM_ANDROID_URL` | Android Appium server | `http://127.0.0.1:4724` |
+| `ANDROID_HOME`, `JAVA_HOME` | SDK and JDK for that server | `~/Library/Android/sdk`, Homebrew `openjdk@17` |
+
+
+On Windows (no Homebrew), the same pieces come from these sources; the phone side needs:
 
 - A QA build of PowerDirector on the Android phone, with Developer options › **USB debugging** on and the computer
   allowed when the phone asks.
@@ -495,6 +522,7 @@ All scripts run from the repository root with `node scripts/<name>.ts`.
 | `review.ts <feature> <platform> [--draft <id>] [--lan]` | Serves the review page and saves the approved table (Save from this computer only) |
 | `export.ts <feature> <platform>` | Rebuilds `cases.xlsx` / `cases.html` from `cases.csv` |
 | `device.ts <run dir> <command>` | Appium client for the QA iPhone: screenshots, taps (each logged to `taps.jsonl`), `case`, `scrollto`, `waitfor`, `pink`, recipes, logs, ledger |
+| `device-android.ts <run dir> <command>` | The same for the QA Android phone (UiAutomator2, pixel coordinates), plus `back`, `wifi`, `build`, `logcat`, `pull-logs` |
 | `app-setup.ts <run dir> <command>` | Build check, reinstall from TestFlight, first launch, Developer Server, fresh install, log pulls |
 | `run-log.ts <run dir> <command>` | Records results and dispositions, phases, gate, retest queue, checkpoints, time summary |
 | `log-slice.ts <run dir> <pull dir>` | Cuts a log pull into per-case excerpts (failures, toasts, charges, stage timings) |

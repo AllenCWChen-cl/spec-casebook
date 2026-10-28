@@ -1,0 +1,21 @@
+# ISS-AMDA-40 Push text after a rename during generation
+# PowerDirector Mobile for Android 16.8.0 (2610212), TR261021-0082, Stage server, Sony Xperia 10 III / Android 12, account Free. Excerpt of the app's logcat (captured per run segment; the release build writes no readable app log).
+# Lines about turns, decisions, charges (receipts; balance shown only when it changes), failures, template mapping,
+# pushes and turn ends in the windows below; member tokens dropped, URL queries cut at '?'.
+
+## Rename 00:16:20; video done 00:21:37 (2026-10-28 00:16:00–00:22:00; logs/A2-g3-20261028-010735/logcat-live.txt)
+2026-10-28 00:16:08.541 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-28 00:16:10.915 CreditSystemManager: totalRemain=226
+2026-10-28 00:16:15.386 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_1 consumeTaskId=91660847 files=1
+2026-10-28 00:16:15.853 CreditSystemManager: totalRemain=223
+2026-10-28 00:16:41.271 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_1
+2026-10-28 00:16:41.362 MiniDrama Log: [DECISION] allowing 'RefToVideo' x1 (already approved)
+2026-10-28 00:16:45.378 CreditSystemManager: totalRemain=193
+2026-10-28 00:21:23.687 FcmInstanceIDService: key = Msg, value = "Corporate rivals" is done. Tap to watch it.
+2026-10-28 00:21:23.687 FcmInstanceIDService: key = Nid, value = 112
+2026-10-28 00:21:23.688 FcmInstanceIDService: key = IsSilent, value = false
+2026-10-28 00:21:23.688 FcmInstanceIDService: key = Link, value = pdr://click_mini_drama?oid=261027_210255_edaa2d9a&run=d3f95c5c-843b-43a6-9234-d73468fb770f
+2026-10-28 00:21:23.688 FcmInstanceIDService: key = Title, value = Your drama is ready
+2026-10-28 00:21:30.479 MiniDrama Log: [TURN] turn_complete: final_state=complete
+2026-10-28 00:21:37.638 MiniDramaPerf: t126 +390s                         host   turn          turn_end                       complete stage=beat→beat
+2026-10-28 00:21:37.638 MiniDramaPerf: t126 +390s                         host   ui            ui_rendered

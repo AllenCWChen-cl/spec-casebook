@@ -1,0 +1,243 @@
+{
+ "TC-030": [
+  "fault-injection"
+ ],
+ "TC-042": [
+  "fault-injection"
+ ],
+ "TC-384": [
+  "fault-injection"
+ ],
+ "TC-043": [
+  "fault-injection"
+ ],
+ "TC-390": [
+  "fault-injection"
+ ],
+ "TC-067": [
+  "fault-injection"
+ ],
+ "TC-068": [
+  "fault-injection"
+ ],
+ "TC-078": [
+  "fault-injection"
+ ],
+ "TC-376": [
+  "fault-injection"
+ ],
+ "TC-362": [
+  "fault-injection"
+ ],
+ "TC-363": [
+  "fault-injection"
+ ],
+ "TC-094": [
+  "fault-injection"
+ ],
+ "TC-095": [
+  "fault-injection"
+ ],
+ "TC-379": [
+  "fault-injection"
+ ],
+ "TC-098": [
+  "fault-injection"
+ ],
+ "TC-292": [
+  "fault-injection"
+ ],
+ "TC-295": [
+  "fault-injection"
+ ],
+ "TC-388": [
+  "fault-injection"
+ ],
+ "TC-353": [
+  "fault-injection"
+ ],
+ "TC-118": [
+  "paid-tier"
+ ],
+ "TC-217": [
+  "paid-tier"
+ ],
+ "TC-368": [
+  "paid-tier"
+ ],
+ "TC-393": [
+  "paid-tier"
+ ],
+ "TC-225": [
+  "paid-tier"
+ ],
+ "TC-229": [
+  "paid-tier"
+ ],
+ "TC-406": [
+  "app-language"
+ ],
+ "TC-412": [
+  "permission-reset"
+ ],
+ "TC-413": [
+  "fault-injection"
+ ],
+ "TC-417": [
+  "video"
+ ],
+ "TC-418": [
+  "video"
+ ],
+ "TC-422": [
+  "video"
+ ],
+ "TC-423": [
+  "video",
+  "tier-free"
+ ],
+ "TC-426": [
+  "video"
+ ],
+ "TC-427": [
+  "fault-injection",
+  "log"
+ ],
+ "TC-433": [
+  "video"
+ ],
+ "TC-434": [
+  "video"
+ ],
+ "TC-435": [
+  "video"
+ ],
+ "TC-436": [
+  "video"
+ ],
+ "TC-437": [
+  "video",
+  "fault-injection"
+ ],
+ "TC-438": [
+  "video"
+ ],
+ "TC-439": [
+  "video"
+ ],
+ "TC-442": [
+  "video"
+ ],
+ "TC-444": [
+  "video"
+ ],
+ "TC-445": [
+  "video",
+  "full-generation",
+  "app-language"
+ ],
+ "TC-446": [
+  "video",
+  "fault-injection"
+ ],
+ "TC-449": [
+  "video",
+  "full-generation"
+ ],
+ "TC-450": [
+  "video",
+  "full-generation"
+ ],
+ "TC-451": [
+  "video",
+  "full-generation"
+ ],
+ "TC-454": [
+  "video",
+  "fault-injection"
+ ],
+ "TC-455": [
+  "video",
+  "fault-injection"
+ ],
+ "TC-457": [
+  "video"
+ ],
+ "TC-464": [
+  "tablet",
+  "remote-config"
+ ],
+ "TC-465": [
+  "fault-injection"
+ ],
+ "TC-467": [
+  "video"
+ ],
+ "TC-473": [
+  "video"
+ ],
+ "TC-474": [
+  "video"
+ ],
+ "TC-475": [
+  "video"
+ ],
+ "TC-479": [
+  "video"
+ ],
+ "TC-481": [
+  "video"
+ ],
+ "TC-482": [
+  "video"
+ ],
+ "TC-483": [
+  "video"
+ ],
+ "TC-484": [
+  "video"
+ ],
+ "TC-485": [
+  "video"
+ ],
+ "TC-486": [
+  "video"
+ ],
+ "TC-490": [
+  "video"
+ ],
+ "TC-491": [
+  "fault-injection"
+ ],
+ "TC-492": [
+  "video"
+ ],
+ "TC-493": [
+  "video"
+ ],
+ "TC-496": [
+  "video"
+ ],
+ "TC-499": [
+  "video",
+  "fault-injection"
+ ],
+ "TC-500": [
+  "fault-injection"
+ ],
+ "TC-501": [
+  "video"
+ ],
+ "TC-502": [
+  "video"
+ ],
+ "TC-504": [
+  "video"
+ ],
+ "TC-506": [
+  "video"
+ ],
+ "TC-507": [
+  "video"
+ ]
+}

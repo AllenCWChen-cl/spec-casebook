@@ -1,0 +1,48 @@
+{
+  "feature": "ai-mini-drama",
+  "platform": "android",
+  "title": "AI Mini Drama",
+  "version": 2,
+  "approved_at": "2026-10-27T09:21:03.279Z",
+  "draft": "20261027-171228",
+  "spec_folder": "specs/2026-10-21-2",
+  "spec_files": [
+    {
+      "name": "PDRM MX.pdf",
+      "sha256": "29d2299bee38b86d3b6c4f49997f7a2000ae69b45ecbfb9aa6794688d959a73a",
+      "bytes": 133482642
+    },
+    {
+      "name": "AI Mini Drama - PM Spec 20261021.pdf",
+      "sha256": "51fdac8d13a16375f75559566477c5a5c3f8eeee121aec7c06e179adcdbc31ef",
+      "bytes": 241237911
+    },
+    {
+      "name": "AI Mini Drama - Design Spec.pdf",
+      "sha256": "ef20c0310dcc5d099328304488a83e78f37a52cdbbf95837391805401371dd9f",
+      "bytes": 345110906
+    }
+  ],
+  "spec_set_sha256": "2f6431b706887ce2d0ef09f2a20fff26b303e4b2b09bf5378ed4382cd68808fd",
+  "cases": 471,
+  "history": [
+    {
+      "version": 1,
+      "approved_at": "2026-10-27T06:53:42.901Z",
+      "spec_set_sha256": "2f6431b706887ce2d0ef09f2a20fff26b303e4b2b09bf5378ed4382cd68808fd",
+      "draft": "20261027-142629",
+      "cases": 462,
+      "csv": "history/v1.csv",
+      "requirements": "history/v1-requirements.md"
+    },
+    {
+      "version": 2,
+      "approved_at": "2026-10-27T09:21:03.279Z",
+      "spec_set_sha256": "2f6431b706887ce2d0ef09f2a20fff26b303e4b2b09bf5378ed4382cd68808fd",
+      "draft": "20261027-171228",
+      "cases": 471,
+      "csv": "cases.csv",
+      "requirements": "requirements.md"
+    }
+  ]
+}

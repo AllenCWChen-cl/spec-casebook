@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-10-22",
-  "how": "Figma MCP get_metadata on the Design page UI_26.10GM (116:7873); every text or frame whose name starts with a date (MMDD_) or carries a dated update note, compared with the labels in the Design PDF OCR (boards/ds-*.md, boards/mx-*.md)",
+  "checked_at": "2026-10-27",
+  "how": "Figma MCP get_metadata on the Design page UI_26.10GM (116:7873); every text or frame whose name starts with a date (MMDD_) or carries a dated update note, compared with the labels in the Design PDF OCR (boards/ds-*.md, boards/mx-*.md); 2026-10-27: Design page re-listed, PM page 🆕 Spec with jau proposal (2016:2) listed and compared with boards/pm-*.md",
   "files": {
     "design": { "fileKey": "dZk5HLzZTdcZwWwvN9aZfZ", "page": "116:7873", "url": "https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama" },
-    "pm": { "fileKey": "44RyrcOcWi2MvhGci9bO5F", "url": "https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama", "note": "not listed yet; the PM PDF of 10/21 is the newest PM file received" }
+    "pm": { "fileKey": "44RyrcOcWi2MvhGci9bO5F", "url": "https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama", "note": "listed 2026-10-27 (page 2016:2; page Spec 307:2 could not be listed, MCP response broke off); labels up to 10/21 are in the PM PDF 20261021", "page": "2016:2" }
   },
   "frames": [
     { "label": "1005_Update", "node": "3963:78064", "in_pdf": true, "read": "ds-characters (Exceed word limit)" },
@@ -17,6 +17,8 @@
     { "label": "1014_update", "node": "4618:32937", "in_pdf": true, "read": "ds-characters" },
     { "label": "1016_support free trial", "node": "4847:34137", "frame": "4847:34277", "in_pdf": false, "read": "figma: board-notes 「Design — Figma only」 (R-259, R-260)" },
     { "label": "1016_add seedance 2.5", "node": "4847:34140", "frame": "2824:130034", "in_pdf": false, "read": "figma: board-notes 「Design — Figma only」 (PM 10/21 governs the labels, REQ-029; R-253 unchanged)" },
-    { "label": "1016_Chat navigation", "node": "4858:34930", "in_pdf": false, "read": "figma: board-notes 「Design — Figma only」 (R-261 – R-264)" }
+    { "label": "1016_Chat navigation", "node": "4858:34930", "in_pdf": false, "read": "figma: board-notes 「Design — Figma only」 (R-261 – R-264)" },
+    { "label": "10/22 update — Export Full Video 匯出中狀態", "node": "4418:2", "flag": "4418:30", "file": "pm", "in_pdf": false, "read": "figma: board-notes 「PM — Figma only」 (changes R-249)" },
+    { "label": "10/22 update — Generate Video 後、影片送出前離開 (§13.24 Storyboard／Video 兩階段)", "node": "4422:2", "flag": "4422:16", "file": "pm", "in_pdf": false, "read": "figma: board-notes 「PM — Figma only」 (replaces R-051/R-158/R-262/R-307 storyboard parts; adds stage-① dialog before R-264/R-071/R-308; R-279 charge moment)" }
   ]
 }

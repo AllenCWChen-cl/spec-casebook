@@ -1,0 +1,20 @@
+# ISS-AMDA-13 Back 3 s after Generate on Update characters: the turn runs on and is charged
+# PowerDirector Mobile for Android 16.8.0 (2610212), TR261021-0082, Stage server, Sony Xperia 10 III / Android 12, account Free. Excerpt of the app's logcat (captured per run segment; the release build writes no readable app log).
+# Lines about turns, decisions, charges (receipts; balance shown only when it changes), failures, template mapping,
+# pushes and turn ends in the windows below; member tokens dropped, URL queries cut at '?'.
+
+## TC-351 Bitter Cold, Generate 18:01:11, system Back 18:01:14 (2026-10-27 18:01:05–18:01:50; logs/A2-b-20261027-183224/logcat-live.txt)
+2026-10-27 18:01:10.330 MiniDrama Log: [DECISION] pre-approved 'character': {IMAGE=1, VOICE=1}
+2026-10-27 18:01:10.336 MiniDrama Log: [USER] AnswerUpdateCharacter
+2026-10-27 18:01:22.999 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-27 18:01:23.006 MiniDrama Log: [DECISION] allowing 'TextToSpeech' x1 (already approved)
+2026-10-27 18:01:24.521 CreditSystemManager: totalRemain=1287
+2026-10-27 18:01:27.487 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_1 consumeTaskId=91659977 files=1
+2026-10-27 18:01:28.092 CreditSystemManager: totalRemain=1284
+2026-10-27 18:01:28.108 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…tts_2 consumeTaskId=91659978 files=1
+2026-10-27 18:01:28.380 CreditSystemManager: totalRemain=1283
+2026-10-27 18:01:32.665 MiniDrama Log: [TOOL] MyCreation receipt completed call=…tts_2
+2026-10-27 18:01:48.597 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_1
+2026-10-27 18:01:48.694 MiniDrama Log: [TURN] turn_complete: final_state=complete
+2026-10-27 18:01:48.774 MiniDramaPerf: t22 +38.4s                        host   turn          turn_end                       complete stage=character→character
+2026-10-27 18:01:48.774 MiniDramaPerf: t22 +38.4s                        host   ui            ui_rendered

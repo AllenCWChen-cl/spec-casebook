@@ -367,3 +367,48 @@ The Design PDF of this set stops at the 1014 updates. Figma (file dZk5HLzZTdcZwW
 - **1016_add seedance 2.5** (frame 2824:130034): 「Choose your video settings」 with 「Quality」 Best / Standard / Fast,
   「Seedance 2.5 · Sharper motion and richer detail」, 「Length」 Preview · 30 sec / Full Video · 90 sec. Older than
   PM 10/21; the casebook keeps the PM 10/16 labels (R-253, REQ-026, REQ-029).
+- **Re-checked 2026-10-27** (Figma MCP, page UI_26.10GM): no dated label newer than the three 1016 frames. Changed since
+  10/22 without a new label: the welcome block of the 1016_Chat navigation template (4895:36263 「Hi, I'm your」 /
+  「AI Drama Assistant」 + three chips, as on the home page) and a 「PM Spec Link」 text beside the 1016 labels on the MX
+  board (4895:36262). No rule change.
+
+## PM — Figma only, newer than PM Spec 20261021 (read 2026-10-27 through Figma MCP, REQ-030)
+PM file 44RyrcOcWi2MvhGci9bO5F, page 「🆕 Spec with jau proposal」 (2016:2), listed 2026-10-27: every dated label up to
+10/21 is in the PM PDF of this set; two 10/22 boards are only in Figma. Screenshots `figma/pm-1022-export.png`,
+`figma/pm-1022-two-stage.png` (local only). (The older 「Spec」 page 307:2 could not be listed: the MCP response broke
+off; the PDF of this set is page 2016:2.)
+- **10/22 update — Export Full Video 匯出中狀態** (4418:2, flag 「10/22 update：Export Full Video 匯出中各元件狀態」;
+  §8, Jane's question, comment #245 「改成中間 loading」). While exporting from the result page:
+  ① ← (Android system back too) stays enabled: leaving keeps the export running in the background and the done toast
+  shows on whatever page the user is on (「Saved to Photos.」 / 「Saved to Gallery.」). ② Full Edit disabled (40%
+  opacity). ③ Export Full Video disabled (40%), label unchanged, no re-tap until done or failed. ④ Preview: a spinner
+  (Laoding_01) in the middle, play button hidden, video paused; spinner gone and play button back when done or
+  failed. ⑤ The preview's download icon disabled (40%). ⑥ Scene thumbnails stay tappable and only switch the preview.
+  Done: everything restored + toast (10/20 board). Failed: toast 「Couldn't save your video. Try again.」, everything
+  restored, can tap again. iOS only: first export asks for Photos access; denied → restored + toast 「Allow Photos
+  access in Settings to save your video.」 (nothing stated for Android permissions). ⚠ RD to confirm background export
+  after leaving; if not possible, ← shows 「Stop exporting?」 / 「Your video won't be saved.」 → Keep exporting / Stop.
+  Changes R-249 (the loading moves from the button to the preview centre; button disabled, not a loading button).
+- **10/22 update — Generate Video 後、影片送出前離開** (4422:2, flag 「10/22 update：Storyboard／Video 分兩段，有 Generate
+  的都不提供暫停」; rules text 「§13.24（10/22 改版）Storyboard／Video 兩階段」, 4456:264):
+  1. Every generation started by a Generate button (Create storyboard, Generate Video, updating the storyboard in
+     chat, regenerating the video) has no pause / stop in chat; after Generate the input bar shows no ■ stop (the RD
+     build has one, to be removed), only the mic.
+  2. Stage ① Iris writes the prompt — not charged yet. Video: the video settings card turns in place into a skeleton
+     card 「Advancing the mini drama production.」 (after 「I'll create a video — give me a moment...」); storyboard:
+     skeleton card 「Preparing your scenes…」 (after 「I'll create a storyboard — give me a moment...」). Leaving by ←,
+     credit pill, New chat, History or system back shows 「Leave while we're preparing?」 — video body 「Your video will
+     start soon. If you leave now, we'll have to prepare it again when you come back.」, storyboard body 「Your
+     storyboard will start soon. If you leave now, we'll have to prepare it again when you come back.」 — buttons
+     「Leave anyway」 (red) / 「Stay」. After Leave anyway, a swiped-away app or backgrounding, returning to the chat
+     restarts ① by itself: no second Generate tap, no extra charge.
+  3. Stage ② sent to the third party — charged only now (mockup: pill 182 → 122 for Seedance 2.0 Mini · Preview 30
+     sec). Card 「Making your video…」 / 「Creating your storyboard…」. Leaving shows no dialog, only the §6.1 toast
+     (storyboard: 「We'll keep making your storyboard. Find it in History.」); the job finishes even if the app is swiped
+     away, and the result is there on return.
+  4. The storyboard's 「Stop and lose your credits?」 dialog is void. ⚠ RD to confirm: charging at ② start, automatic
+     restart of an interrupted ①, storyboard ② finishing in the background (Open questions #20).
+  Replaces for storyboard / chat storyboard update / video: R-051 (storyboard part), R-158, R-262 (storyboard and chat
+  image update), R-307 (storyboard part); adds a stage-① dialog before R-071 / R-264 / R-308 (video leave = toast only
+  in stage ②); moves the charge moment of R-279. Character generation (R-245, R-247, R-291) is not named and keeps its
+  dialog.

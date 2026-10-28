@@ -1,0 +1,153 @@
+2026-10-27T06:33:42.654Z status 
+2026-10-27T06:33:47.775Z start 
+2026-10-27T06:34:17.022Z build 
+2026-10-27T06:34:17.198Z appstate 
+2026-10-27T06:34:17.532Z launch 
+2026-10-27T06:34:18.076Z shot 01-after-launch
+2026-10-27T06:34:22.341Z els 
+2026-10-27T06:34:37.365Z id btnCancel
+2026-10-27T06:35:08.525Z waitfor Home|AI Mini Drama|[AID] --timeout 20
+2026-10-27T06:35:09.279Z shot 02-launcher
+2026-10-27T06:35:10.691Z texts 
+2026-10-27T06:35:17.915Z els 
+2026-10-27T06:35:23.011Z do id iv_menu ;; wait 2 ;; shot 03-menu
+2026-10-27T06:35:23.012Z id iv_menu
+2026-10-27T06:35:23.202Z wait 2
+2026-10-27T06:35:25.220Z shot 03-menu
+2026-10-27T06:35:25.857Z els 
+2026-10-27T06:35:31.085Z drag 540 2200 540 900 600
+2026-10-27T06:35:32.013Z texts 04-menu-bottom
+2026-10-27T06:35:37.164Z drag 540 2200 540 800 600
+2026-10-27T06:35:38.115Z texts menu-debug-1
+2026-10-27T06:35:39.356Z drag 540 2200 540 800 600
+2026-10-27T06:35:41.019Z texts menu-debug-2
+2026-10-27T06:35:41.857Z drag 540 2200 540 800 600
+2026-10-27T06:35:42.792Z texts menu-debug-3
+2026-10-27T06:35:43.733Z drag 540 2200 540 800 600
+2026-10-27T06:35:44.670Z texts menu-debug-4
+2026-10-27T06:35:45.620Z drag 540 2200 540 800 600
+2026-10-27T06:35:46.561Z texts menu-debug-5
+2026-10-27T06:35:47.524Z drag 540 2200 540 800 600
+2026-10-27T06:35:48.455Z texts menu-debug-6
+2026-10-27T06:35:53.429Z els 
+2026-10-27T06:35:57.641Z scrollto Preferences
+2026-10-27T06:36:01.833Z scrollto Remove watermark
+2026-10-27T06:36:02.581Z do lbl Preferences ;; wait 2
+2026-10-27T06:36:02.582Z lbl Preferences
+2026-10-27T06:36:02.777Z wait 2
+2026-10-27T06:36:04.969Z texts 06-preferences
+2026-10-27T06:36:20.159Z source 
+2026-10-27T06:36:58.729Z texts 06-preferences
+2026-10-27T06:37:10.647Z scrollto Enable Snap to Clips in Timeline
+2026-10-27T06:37:13.464Z scrollto Default Image Effect
+2026-10-27T06:37:18.373Z do back ;; waitfor "Menu" --timeout 10 ;; expect-not "Default Video Quality" ;; scr
+2026-10-27T06:37:18.374Z back 
+2026-10-27T06:37:18.471Z waitfor Menu --timeout 10
+2026-10-27T06:37:19.649Z expect-not Default Video Quality
+2026-10-27T06:37:20.167Z scrollto About
+2026-10-27T06:37:20.601Z tapif About
+2026-10-27T06:37:21.444Z wait 2
+2026-10-27T06:37:23.609Z texts 07-about
+2026-10-27T06:37:29.449Z do back ;; back ;; waitfor "AI Magic" --timeout 10 ;; tapif "AI Magic" ;; wait 3
+2026-10-27T06:37:29.450Z back 
+2026-10-27T06:37:30.072Z back 
+2026-10-27T06:37:31.026Z waitfor AI Magic --timeout 10
+2026-10-27T06:37:31.949Z tapif AI Magic
+2026-10-27T06:37:32.573Z wait 3
+2026-10-27T06:37:35.738Z texts 08-ai-magic
+2026-10-27T06:37:39.580Z scrollto AI Mini Drama 540 300 2200
+2026-10-27T06:38:01.235Z texts 
+2026-10-27T06:38:09.976Z logcat start
+2026-10-27T06:38:10.200Z do tapif Home ;; waitfor "New Project" --timeout 10 ;; terminate ;; launch ;; waitf
+2026-10-27T06:38:10.201Z tapif Home
+2026-10-27T06:38:10.536Z waitfor New Project --timeout 10
+2026-10-27T06:38:13.805Z terminate 
+2026-10-27T06:38:14.227Z launch 
+2026-10-27T06:38:14.459Z waitfor IAP_Back|New Project --timeout 30
+2026-10-27T06:38:49.237Z logcat status
+2026-10-27T06:38:49.346Z pull-logs setup-smoke
+2026-10-27T06:38:56.199Z do tapif Continue to app ;; waitfor "IAP_Back|New Project" --timeout 20 ;; ?id btnC
+2026-10-27T06:38:56.200Z tapif Continue to app
+2026-10-27T06:38:56.338Z waitfor IAP_Back|New Project --timeout 20
+2026-10-27T06:38:57.780Z id btnCancel
+2026-10-27T06:38:58.096Z waitfor New Project --timeout 15
+2026-10-27T06:38:58.550Z shot 10-launcher-after-relaunch
+2026-10-27T06:39:09.478Z do tapif Mine ;; wait 3
+2026-10-27T06:39:09.479Z tapif Mine
+2026-10-27T06:39:10.065Z wait 3
+2026-10-27T06:39:13.216Z texts 11-mine
+2026-10-27T06:39:13.827Z els 
+2026-10-27T06:39:26.640Z do tapif Template ;; wait 3
+2026-10-27T06:39:26.641Z tapif Template
+2026-10-27T06:39:26.823Z wait 3
+2026-10-27T06:39:29.984Z els 
+2026-10-27T06:39:32.797Z shot 12-template
+2026-10-27T06:39:34.129Z els 
+2026-10-27T06:39:39.381Z do tapif Home ;; waitfor "Video Edit by Chat" --timeout 10 ;; tapif Video Edit by C
+2026-10-27T06:39:39.382Z tapif Home
+2026-10-27T06:39:39.891Z waitfor Video Edit by Chat --timeout 10
+2026-10-27T06:39:40.808Z tapif Video Edit by Chat
+2026-10-27T06:39:41.378Z wait 4
+2026-10-27T06:39:45.392Z shot 13-edit-by-chat
+2026-10-27T06:39:46.448Z els 
+2026-10-27T06:39:50.744Z do burst 540 650 5 ;; hold 540 650 1 ;; pinch 540 650 200 400 500 ;; expect "Video 
+2026-10-27T06:39:50.745Z burst 540 650 5
+2026-10-27T06:39:51.536Z hold 540 650 1
+2026-10-27T06:39:52.801Z pinch 540 650 200 400 500
+2026-10-27T06:39:53.443Z expect Video Edit by Chat
+2026-10-27T06:39:53.490Z hidekb 
+2026-10-27T06:39:54.347Z back 
+2026-10-27T06:39:54.950Z waitfor New Project --timeout 10
+2026-10-27T06:39:56.119Z wait 1
+2026-10-27T06:39:57.252Z status 
+2026-10-27T06:40:02.101Z restart 
+2026-10-27T06:40:07.920Z wifi status
+2026-10-27T06:40:08.379Z els New Project
+2026-10-27T06:40:08.541Z restart (auto, after: HTTP 500: unknown error Could not proxy command to the remot)
+2026-10-27T06:40:24.049Z wifi status
+2026-10-27T06:40:24.253Z do /private/tmp/claude-501/-Users-ethanhsuqa2-Desktop-AI-Agent-pdr-spec-casebook/e1
+2026-10-27T06:40:24.254Z tapif Project
+2026-10-27T06:40:25.118Z wait 2
+2026-10-27T06:40:27.134Z expect-not Nothing here
+2026-10-27T06:40:27.285Z lbl Home
+2026-10-27T06:40:27.403Z waitfor New Project --timeout 10
+2026-10-27T06:40:34.208Z launch --lang ja
+2026-10-27T06:40:34.354Z waitfor Nothing like this --gone --timeout 5
+2026-10-27T06:40:35.024Z waitfor Nothing like this --timeout 4
+2026-10-27T06:40:48.307Z logcat stop
+2026-10-27T06:41:25.315Z expect New Project|Home
+2026-10-27T06:47:31.380Z restart 
+2026-10-27T06:47:37.078Z wait 8
+2026-10-27T06:47:45.283Z texts 20-after-168-launch
+2026-10-27T06:47:53.934Z tap 136 136
+2026-10-27T06:47:54.143Z wait 3
+2026-10-27T06:47:57.346Z texts 21-launcher-168
+2026-10-27T06:48:01.492Z lbl Close
+2026-10-27T06:48:02.291Z wait 3
+2026-10-27T06:48:05.494Z texts 22-launcher-168
+2026-10-27T06:48:15.334Z tap 92 115
+2026-10-27T06:48:15.550Z wait 2
+2026-10-27T06:48:17.747Z texts 23-menu-168-top
+2026-10-27T06:48:18.963Z drag 540 2000 540 700 600
+2026-10-27T06:48:19.881Z drag 540 2000 540 700 600
+2026-10-27T06:48:20.837Z drag 540 2000 540 700 600
+2026-10-27T06:48:21.780Z drag 540 2000 540 700 600
+2026-10-27T06:48:22.726Z drag 540 2000 540 700 600
+2026-10-27T06:48:23.669Z texts 24-menu-168-end
+2026-10-27T06:48:30.768Z drag 540 900 540 1900 600
+2026-10-27T06:48:31.715Z texts 
+2026-10-27T06:48:32.832Z drag 540 900 540 1900 600
+2026-10-27T06:48:33.783Z texts 
+2026-10-27T06:48:40.129Z lbl Preferences
+2026-10-27T06:48:40.617Z wait 2
+2026-10-27T06:48:42.830Z texts 25-preferences-168
+2026-10-27T06:48:44.012Z drag 540 2000 540 700 600
+2026-10-27T06:48:44.962Z drag 540 2000 540 700 600
+2026-10-27T06:48:45.905Z drag 540 2000 540 700 600
+2026-10-27T06:48:46.845Z drag 540 2000 540 700 600
+2026-10-27T06:48:47.786Z drag 540 2000 540 700 600
+2026-10-27T06:48:48.734Z drag 540 2000 540 700 600
+2026-10-27T06:48:49.688Z texts 26-preferences-168-end
+2026-10-27T06:49:14.781Z back 
+2026-10-27T06:49:14.998Z back 
+2026-10-27T06:49:16.025Z texts 

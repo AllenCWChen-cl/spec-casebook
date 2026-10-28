@@ -1,0 +1,10 @@
+⚠ WARN  AI-Mini-Drama-A2-13  Short Description is 122 chars (budget 120)
+⚠ WARN  AI-Mini-Drama-A2-17  Short Description is 122 chars (budget 120)
+⚠ WARN  AI-Mini-Drama-A2-26  Short Description is 121 chars (budget 120)
+⚠ WARN  AI-Mini-Drama-A2-28  Short Description is 123 chars (budget 120)
+⚠ WARN  AI-Mini-Drama-A2-29  Short Description is 122 chars (budget 120)
+⚠ WARN  AI-Mini-Drama-A2-35  Short Description is 122 chars (budget 120)
+⚠ WARN  AI-Mini-Drama-A2-39  Repro Steps do not start with '1. Launch the APP'
+
+40 bug(s) checked — 0 error(s), 7 warning(s)
+Format OK — clear to file.

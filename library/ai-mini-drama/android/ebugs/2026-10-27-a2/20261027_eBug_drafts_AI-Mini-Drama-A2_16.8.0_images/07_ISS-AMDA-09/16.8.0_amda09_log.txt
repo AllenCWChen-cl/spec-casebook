@@ -1,0 +1,67 @@
+# ISS-AMDA-09 Leave anyway during Generate all: images done and charged, turn cancelled, looks dropped
+# PowerDirector Mobile for Android 16.8.0 (2610212), TR261021-0082, Stage server, Sony Xperia 10 III / Android 12, account Free. Excerpt of the app's logcat (captured per run segment; the release build writes no readable app log).
+# Lines about turns, decisions, charges (receipts; balance shown only when it changes), failures, template mapping,
+# pushes and turn ends in the windows below; member tokens dropped, URL queries cut at '?'.
+
+## TC-337 The Final Reel, Generate all ◆12, Leave anyway at 17:41:30 (2026-10-27 17:39:50–17:41:40; logs/A2-b-20261027-183224/logcat-live.txt)
+2026-10-27 17:39:58.830 MiniDrama Log: [TURN] turn_complete: final_state=complete
+2026-10-27 17:39:58.873 MiniDrama Log: [DECISION] pre-approved 'character': {IMAGE=3, VOICE=3}
+2026-10-27 17:39:58.879 MiniDramaPerf: t11 +7.93s                        host   turn          turn_end                       superseded
+2026-10-27 17:39:58.880 MiniDrama Log: [USER] AnswerCharacterNotReady
+2026-10-27 17:40:11.919 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-27 17:40:11.927 MiniDrama Log: [DECISION] allowing 'TextToSpeech' x1 (already approved)
+2026-10-27 17:40:11.937 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-27 17:40:11.946 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-27 17:40:11.953 MiniDrama Log: [DECISION] allowing 'TextToSpeech' x1 (already approved)
+2026-10-27 17:40:11.959 MiniDrama Log: [DECISION] allowing 'TextToSpeech' x1 (already approved)
+2026-10-27 17:40:13.156 CreditSystemManager: totalRemain=1311
+2026-10-27 17:40:14.865 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…tts_2 consumeTaskId=91659887 files=1
+2026-10-27 17:40:15.149 CreditSystemManager: totalRemain=1310
+2026-10-27 17:40:16.178 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_5 consumeTaskId=91659888 files=1
+2026-10-27 17:40:16.779 CreditSystemManager: totalRemain=1306
+2026-10-27 17:40:16.790 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…tts_6 consumeTaskId=91659889 files=1
+2026-10-27 17:40:17.707 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_1 consumeTaskId=91659890 files=1
+2026-10-27 17:40:17.971 CreditSystemManager: totalRemain=1303
+2026-10-27 17:40:18.324 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_3 consumeTaskId=91659891 files=1
+2026-10-27 17:40:18.826 CreditSystemManager: totalRemain=1300
+2026-10-27 17:40:19.417 MiniDrama Log: [TOOL] MyCreation receipt completed call=…tts_2
+2026-10-27 17:40:20.805 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…tts_4 consumeTaskId=91659892 files=1
+2026-10-27 17:40:21.070 CreditSystemManager: totalRemain=1299
+2026-10-27 17:40:21.221 MiniDrama Log: [TOOL] MyCreation receipt completed call=…tts_6
+2026-10-27 17:40:25.194 MiniDrama Log: [TOOL] MyCreation receipt completed call=…tts_4
+2026-10-27 17:40:34.993 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_5
+2026-10-27 17:40:36.249 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_3
+2026-10-27 17:40:37.182 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_1
+2026-10-27 17:41:30.121 MiniDrama Log: [TOOL] MyCreation cancel session=261027_173809_80fea230 calls=0
+2026-10-27 17:41:30.122 MiniDrama Log: [TURN] cancel_turn -> 0
+2026-10-27 17:41:30.197 MiniDrama Log: [TURN] turn failed: final_state=cancelled
+2026-10-27 17:41:30.197 MiniDrama Log: [TURN] turn_complete: final_state=cancelled
+2026-10-27 17:41:30.262 MiniDramaPerf: t12 +91.4s                        host   ui            ui_rendered
+2026-10-27 17:41:30.263 MiniDramaPerf: t12 +91.4s                        host   turn          turn_end                       cancelled stage=storyboard→storyboard
+
+## TC-403 Corner Stall Rivalry, Generate all ◆8, Leave anyway at 17:36:14 (2026-10-27 17:34:30–17:36:20; logs/A2-b-20261027-183224/logcat-live.txt)
+2026-10-27 17:34:47.765 MiniDrama Log: [TURN] turn_complete: final_state=complete
+2026-10-27 17:34:47.805 MiniDrama Log: [DECISION] pre-approved 'character': {IMAGE=2, VOICE=2}
+2026-10-27 17:34:47.809 MiniDramaPerf: t7 +465s                         host   turn          turn_end                       superseded
+2026-10-27 17:34:47.810 MiniDrama Log: [USER] AnswerCharacterNotReady
+2026-10-27 17:34:57.337 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-27 17:34:57.347 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-27 17:34:57.352 MiniDrama Log: [DECISION] allowing 'TextToSpeech' x1 (already approved)
+2026-10-27 17:34:57.357 MiniDrama Log: [DECISION] allowing 'TextToSpeech' x1 (already approved)
+2026-10-27 17:34:58.105 CreditSystemManager: totalRemain=1319
+2026-10-27 17:35:00.701 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_1 consumeTaskId=91659868 files=1
+2026-10-27 17:35:01.197 CreditSystemManager: totalRemain=1316
+2026-10-27 17:35:02.861 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…tts_4 consumeTaskId=91659869 files=1
+2026-10-27 17:35:03.302 CreditSystemManager: totalRemain=1315
+2026-10-27 17:35:04.256 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…tts_2 consumeTaskId=91659870 files=1
+2026-10-27 17:35:04.683 CreditSystemManager: totalRemain=1314
+2026-10-27 17:35:05.488 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_3 consumeTaskId=91659871 files=1
+2026-10-27 17:35:05.795 CreditSystemManager: totalRemain=1311
+2026-10-27 17:35:07.333 MiniDrama Log: [TOOL] MyCreation receipt completed call=…tts_4
+2026-10-27 17:35:08.657 MiniDrama Log: [TOOL] MyCreation receipt completed call=…tts_2
+2026-10-27 17:35:15.840 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_1
+2026-10-27 17:35:24.971 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_3
+2026-10-27 17:36:13.388 MiniDrama Log: [TURN] turn_complete: final_state=complete
+2026-10-27 17:36:13.422 MiniDrama Log: [AI] Completed the storyboard script for all six beats following the approved beat plan and romance constraints. Every beat contains detailed cuts, full wardrobe continuity, dialogue budgets, and keyframe descriptions while ending on the unresolved single-contract lease dilemma.
+2026-10-27 17:36:13.470 MiniDramaPerf: t8 +85.7s                        host   turn          turn_end                       complete stage=storyboard→storyboard
+2026-10-27 17:36:13.470 MiniDramaPerf: t8 +85.7s                        host   ui            ui_rendered

@@ -1,10 +1,10 @@
 {
-  "repo": "~/Desktop/Spec Agent",
+  "repo": "~/Desktop/AI Agent/qadm-pdrm-spec-contract-runner-agent",
   "ref": "origin/main",
   "commit": "5fb039febd3e898dc40d9e7f2e96238c8d1522b6",
   "feature": "pdr-mobile-ai-mini-drama",
   "platform": "android",
-  "read_at": "2026-10-27T08:46:29.872Z",
+  "read_at": "2026-10-28T01:51:03.866Z",
   "cases": [
     {
       "id": "TC-PDRM-BASE-1014-CUSTOM-MEDIA-IDENTITY-ANDROID-001",

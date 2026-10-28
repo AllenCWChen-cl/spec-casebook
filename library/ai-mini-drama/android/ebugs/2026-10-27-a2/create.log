@@ -1,0 +1,101 @@
+Filing as Creator: ETHAN_HSU
+  Creator verified — last filed DRI261898P0020 on 2026-10-27
+Format check: PDR-A 16.8.0
+⚠ WARN  AI-Mini-Drama-A2-13  Short Description is 122 chars (budget 120)
+⚠ WARN  AI-Mini-Drama-A2-17  Short Description is 122 chars (budget 120)
+⚠ WARN  AI-Mini-Drama-A2-26  Short Description is 121 chars (budget 120)
+⚠ WARN  AI-Mini-Drama-A2-28  Short Description is 123 chars (budget 120)
+⚠ WARN  AI-Mini-Drama-A2-29  Short Description is 122 chars (budget 120)
+⚠ WARN  AI-Mini-Drama-A2-35  Short Description is 122 chars (budget 120)
+⚠ WARN  AI-Mini-Drama-A2-39  Repro Steps do not start with '1. Launch the APP'
+
+40 bug(s) checked — 0 error(s), 7 warning(s)
+Format OK — clear to file.
+
+[AI-Mini-Drama-A2-01] created DRA262610P0324
+  DRA262610P0324  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+[AI-Mini-Drama-A2-02] created DRA262610P0325
+[AI-Mini-Drama-A2-03] created DRA262610P0326
+[AI-Mini-Drama-A2-04] created DRA262610P0327
+[AI-Mini-Drama-A2-05] created DRA262610P0328
+[AI-Mini-Drama-A2-06] created DRA262610P0329
+[AI-Mini-Drama-A2-07] created DRA262610P0330
+[AI-Mini-Drama-A2-08] created DRA262610P0331
+[AI-Mini-Drama-A2-09] created DRA262610P0332
+[AI-Mini-Drama-A2-10] created DRA262610P0333
+[AI-Mini-Drama-A2-11] created DRA262610P0334
+[AI-Mini-Drama-A2-12] created DRA262610P0335
+[AI-Mini-Drama-A2-13] created DRA262610P0336
+[AI-Mini-Drama-A2-14] created DRA262610P0337
+[AI-Mini-Drama-A2-15] created DRA262610P0338
+[AI-Mini-Drama-A2-16] created DRA262610P0339
+[AI-Mini-Drama-A2-17] created DRA262610P0340
+[AI-Mini-Drama-A2-18] created DRA262610P0341
+[AI-Mini-Drama-A2-19] created DRA262610P0342
+[AI-Mini-Drama-A2-20] created DRA262610P0343
+[AI-Mini-Drama-A2-21] created DRA262610P0344
+[AI-Mini-Drama-A2-22] created DRA262610P0345
+[AI-Mini-Drama-A2-23] created DRA262610P0346
+[AI-Mini-Drama-A2-24] created DRA262610P0347
+[AI-Mini-Drama-A2-25] created DRA262610P0348
+[AI-Mini-Drama-A2-26] created DRA262610P0349
+[AI-Mini-Drama-A2-27] created DRA262610P0350
+[AI-Mini-Drama-A2-28] created DRA262610P0351
+[AI-Mini-Drama-A2-29] created DRA262610P0352
+[AI-Mini-Drama-A2-30] created DRA262610P0353
+[AI-Mini-Drama-A2-31] created DRA262610P0354
+[AI-Mini-Drama-A2-32] created DRA262610P0355
+[AI-Mini-Drama-A2-33] created DRA262610P0356
+[AI-Mini-Drama-A2-34] created DRA262610P0357
+[AI-Mini-Drama-A2-35] created DRA262610P0358
+[AI-Mini-Drama-A2-36] created DRA262610P0359
+[AI-Mini-Drama-A2-37] created DRA262610P0360
+[AI-Mini-Drama-A2-38] created DRA262610P0361
+[AI-Mini-Drama-A2-39] created DRA262610P0362
+[AI-Mini-Drama-A2-40] created DRA262610P0363
+
+created 40 · skipped 0 · failed 0
+
+Read-back (Status: OK is not proof — Version has been seen not to persist):
+  DRA262610P0324  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0325  sev 3  PM  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0326  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0327  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0328  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0329  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0330  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0331  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0332  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0333  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0334  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0335  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0336  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0337  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0338  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0339  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0340  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0341  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0342  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0343  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0344  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0345  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0346  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0347  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0348  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0349  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0350  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0351  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0352  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0353  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0354  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0355  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0356  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0357  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0358  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0359  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0360  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0361  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0362  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0363  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+
+Attachments are NOT part of create — upload them with `ecl_if3.py upload <BugCode> <files…>` (SKILL.md → IF3 attachments over the API).

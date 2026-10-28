@@ -1,0 +1,11 @@
+# ISS-AMDA-44 Create my character with Wi-Fi off
+# PowerDirector Mobile for Android 16.8.0 (2610212), TR261021-0082, Stage server, Sony Xperia 10 III / Android 12, account Free. Excerpt of the app's logcat (captured per run segment; the release build writes no readable app log).
+# Lines about turns, decisions, charges (receipts; balance shown only when it changes), failures, template mapping,
+# pushes and turn ends in the windows below; member tokens dropped, URL queries cut at '?'.
+
+## O-5 Generate offline (2026-10-27 19:12:25–19:12:45; logs/A2-c2-20261027-191933/logcat-live.txt)
+2026-10-27 19:12:36.459 MiniDrama Log: [DECISION] pre-approved character generate: {IMAGE=1, VOICE=1}
+2026-10-27 19:12:36.595 MiniDrama Log: [TURN] ERROR -1: HTTP request to cc team gateway failed: Could not establish connection
+2026-10-27 19:12:36.595 MiniDrama Log: [TURN] turn_complete: final_state=block
+2026-10-27 19:12:36.596 MiniDrama Log: [TURN] turn failed: HTTP request to cc team gateway failed: Could not establish connection
+2026-10-27 19:12:36.615 MiniDramaFail: [character] status=-1 | HTTP request to cc team gateway failed: Could not establish connection | final_state=block

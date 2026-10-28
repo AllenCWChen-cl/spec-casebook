@@ -1,0 +1,43 @@
+# ISS-AMDA-26 Scene image update runs no preview_tts step
+# PowerDirector Mobile for Android 16.8.0 (2610212), TR261021-0082, Stage server, Sony Xperia 10 III / Android 12, account Free. Excerpt of the app's logcat (captured per run segment; the release build writes no readable app log).
+# Lines about turns, decisions, charges (receipts; balance shown only when it changes), failures, template mapping,
+# pushes and turn ends in the windows below; member tokens dropped, URL queries cut at '?'.
+
+## First storyboard, Quiet Sanctuary: preview_tts runs (2026-10-27 19:25:55–19:26:30; logs/A2-d1-20261027-202045/logcat-live.txt)
+2026-10-27 19:25:55.039 CreditSystemManager: totalRemain=1181
+2026-10-27 19:25:55.604 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_5
+2026-10-27 19:25:56.909 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_2
+2026-10-27 19:25:59.080 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_3
+2026-10-27 19:26:01.670 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_4
+2026-10-27 19:26:06.968 MiniDrama Log: [TOOL] MyCreation receipt completed call=…preview_tts
+2026-10-27 19:26:06.968 MiniDramaPerf: t1 +103s–+118s            14.1s  server tool_step     pollingStatus+download  key=tool_step:261027_183437_ae41d364_t14_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_s_environments_done_s_preview_tts:pollingStatus+download
+2026-10-27 19:26:06.970 MiniDramaPerf: t1 +99.2s–+118s           18.8s  host   host_tool     TextToSpeech  key=host:261027_183437_ae41d364_t14_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_s_environments_done_s_preview_tts
+2026-10-27 19:26:07.004 MiniDrama Log: [EVENT] {"call_id":"261027_183437_ae41d364_t14_i1_d1_ai-mini-drama","ok":true,"session_id":"261027_183437_ae41d364","skill":"text-to-speech","step":"preview_tts","step_call_id":"261027_183437_ae41d364_t14_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_s_environments_done_s_preview_tts","tool_result":{"artifacts":[{"kind":"file","mime_type":"audio/mpeg","output…
+2026-10-27 19:26:07.006 MiniDramaPerf: t1 +99.2s–+118s           18.9s  iris   step          preview_tts                    ai-mini-drama/plan/routed/asset_routed/prompts_done/environ…  key=step:261027_183437_ae41d364_t14_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_s_environments_done_s_preview_tts
+2026-10-27 19:26:21.343 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_6
+2026-10-27 19:26:21.412 MiniDrama Log: [EVENT] {"args":{"blueprint_path":"/data/user/0/com.cyberlink.powerdirector.DRA140225_01/files/mini_drama/sessions/261027_183437_ae41d364/host_inputs/blueprint.json","failures":[],"media_results":[{"file":[{"mime":"image/png","path":"/data/user/0/com.cyberlink.powerdirector.DRA140225_01/files/mini_drama/sessions/261027_183437_ae41d364/media/out_261027_183437_ae41d364_t14_i1_d1_a…
+2026-10-27 19:26:21.414 MiniDrama Log: [EVENT] {"args":{"blueprint_path":"/data/user/0/com.cyberlink.powerdirector.DRA140225_01/files/mini_drama/sessions/261027_183437_ae41d364/host_inputs/blueprint.json","failures":[],"media_results":[{"file":[{"mime":"image/png","path":"/data/user/0/com.cyberlink.powerdirector.DRA140225_01/files/mini_drama/sessions/261027_183437_ae41d364/media/out_261027_183437_ae41d364_t14_i1_d1_a…
+2026-10-27 19:26:21.452 MiniDrama Log: [TURN] turn_complete: final_state=complete
+2026-10-27 19:26:21.488 MiniDrama Log: [STT] start out_261027_183437_ae41d364_t14_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_s_environments_done_s_preview_tts_0.mp3 session=261027_183437_ae41d364 lang=en_US
+2026-10-27 19:26:27.058 MiniDrama Log: [STT] done out_261027_183437_ae41d364_t14_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_s_environments_done_s_preview_tts_0.mp3 words=126 in 5570ms
+2026-10-27 19:26:27.149 MiniDramaPerf: t1 +138s                         host   ui            ui_rendered
+2026-10-27 19:26:27.150 MiniDramaPerf: t1 +132s–never            never  server project       transcribe  key=tool_step:261027_183437_ae41d364en_US/data/user/0/com.cyberlink.powerdirector.DRA140225_01/files/mini_drama/sessions/261027_183437_ae41d364/media/out_261027_183437_ae41d364_t14_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_s_environments_done_s_preview_tts_0.mp31789891793100366957:trans…
+2026-10-27 19:26:27.150 MiniDramaPerf: t1 +138s                         host   turn          turn_end                       complete stage=-→storyboard
+
+## Scene 2 image update: prompt_1, img_1, final only (2026-10-27 19:48:35–19:49:30; logs/A2-d1-20261027-202045/logcat-live.txt)
+2026-10-27 19:48:38.971 MiniDrama Log: [DECISION] pre-approved 'beat': {IMAGE=1}
+2026-10-27 19:48:38.977 MiniDrama Log: [USER] AnswerCreateStoryboardAfterDescriptionUpdate
+2026-10-27 19:48:42.237 MiniDrama Log: [EVENT] {"call_id":"261027_183437_ae41d364_t16_i1_d1_ai-mini-drama","session_id":"261027_183437_ae41d364","skill":"beat-edit","step":"prompt_1","step_call_id":"261027_183437_ae41d364_t16_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompt_1","type":"workflow_step_start","workflow":"ai-mini-drama/plan/routed/asset_routed"}
+2026-10-27 19:48:52.264 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-27 19:48:52.267 MiniDrama Log: [EVENT] {"call_id":"261027_183437_ae41d364_t16_i1_d1_ai-mini-drama","ok":true,"session_id":"261027_183437_ae41d364","skill":"beat-edit","step":"prompt_1","step_call_id":"261027_183437_ae41d364_t16_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompt_1","tool_result":{"artifacts":[{"data":{"vlm_output":{"prompt":"Image 1 = the current keyframe\nImage 2 = Maya Lin\nImage 3 …
+2026-10-27 19:48:52.273 MiniDrama Log: [EVENT] {"call_id":"261027_183437_ae41d364_t16_i1_d1_ai-mini-drama","session_id":"261027_183437_ae41d364","skill":"text-to-image","step":"img_1","step_call_id":"261027_183437_ae41d364_t16_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_s_img_1","type":"workflow_step_start","workflow":"ai-mini-drama/plan/routed/asset_routed/prompts_done"}
+2026-10-27 19:48:53.038 CreditSystemManager: totalRemain=1144
+2026-10-27 19:48:58.844 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_1 consumeTaskId=91660483 files=1
+2026-10-27 19:48:59.285 CreditSystemManager: totalRemain=1141
+2026-10-27 19:49:24.694 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_1
+2026-10-27 19:49:24.733 MiniDrama Log: [EVENT] {"call_id":"261027_183437_ae41d364_t16_i1_d1_ai-mini-drama","ok":true,"session_id":"261027_183437_ae41d364","skill":"text-to-image","step":"img_1","step_call_id":"261027_183437_ae41d364_t16_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_s_img_1","tool_result":{"artifacts":[{"kind":"file","mime_type":"image/png","output_path":"/data/user/0/com.cyberlink…
+2026-10-27 19:49:24.734 MiniDrama Log: [EVENT] {"call_id":"261027_183437_ae41d364_t16_i1_d1_ai-mini-drama","session_id":"261027_183437_ae41d364","skill":"ai-mini-drama-final","step":"final","step_call_id":"261027_183437_ae41d364_t16_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_s_media_done_s_final","type":"workflow_step_start","workflow":"ai-mini-drama/plan/routed/asset_routed/prompts_done/media_…
+2026-10-27 19:49:24.735 MiniDrama Log: [EVENT] {"call_id":"261027_183437_ae41d364_t16_i1_d1_ai-mini-drama","ok":true,"session_id":"261027_183437_ae41d364","skill":"ai-mini-drama-final","step":"final","step_call_id":"261027_183437_ae41d364_t16_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_s_media_done_s_final","tool_result":{"artifacts":[{"data":{"response_path":"/data/user/0/com.cyberlink.powerdir…
+2026-10-27 19:49:24.786 MiniDrama Log: [TURN] turn_complete: final_state=complete
+2026-10-27 19:49:24.887 MiniDramaPerf: t48 +45.9s                        host   turn          turn_end                       complete stage=beat→beat
+2026-10-27 19:49:24.887 MiniDramaPerf: t48 +45.9s                        host   ui            ui_rendered

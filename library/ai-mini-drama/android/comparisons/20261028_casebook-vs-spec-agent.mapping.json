@@ -1,0 +1,4570 @@
+{
+ "note": "2026-10-28: Android table v2 (471 rows, approved 2026-10-27, draft 20261027-171228) vs spec agent origin/main 5fb039fe (181 Android cases). sa codes: cov = covered by rows; older = older spec (newer rule named); diff = stated differently (pass 7); nonspec = not from the spec; gap = not covered. cb: full / partial / none against the spec agent. Mapped by hand in four parts, cross-checked both ways; 12 rows a spec agent case maps to were raised from none to partial.",
+ "spec_agent_commit": "5fb039febd3e898dc40d9e7f2e96238c8d1522b6",
+ "sa": {
+  "TC-PDRM-BASE-1014-CUSTOM-MEDIA-IDENTITY-ANDROID-001": "cov",
+  "1012-PM-OUTLINE-LEAVE-WARNING": "cov",
+  "1021-CHAR-DISCARD-KEEP": "cov",
+  "1021-CHAR-DISCARD-LEAVE": "cov",
+  "1021-CHAR-MULTI-PRESERVE": "cov",
+  "1021-CHAR-MULTI-READY": "cov",
+  "1021-CHAR-MULTIPLE-CANCEL-KEEP": "cov",
+  "1021-CHAR-MULTIPLE-CANCEL-LEAVE": "cov",
+  "1021-CHAR-MULTIPLE-X-KEEP": "cov",
+  "1021-CHAR-MULTIPLE-X-LEAVE": "cov",
+  "1021-CHAR-SINGLE-CANCEL-KEEP": "cov",
+  "1021-CHAR-SINGLE-CANCEL-LEAVE": "cov",
+  "1021-CHAR-SINGLE-X-KEEP": "cov",
+  "1021-CHAR-SINGLE-X-LEAVE": "cov",
+  "1021-CHAR-TIMEOUT-CLOSE": "cov",
+  "1021-CHAR-TIMEOUT-MULTIPLE-CHARACTERS": "cov",
+  "1021-CHAR-TIMEOUT-SINGLE-CHARACTER": "cov",
+  "1021-ERROR-4XX-STORYBOARD-DIALOG": "cov",
+  "1021-ERROR-4XX-VIDEO-DIALOG": "cov",
+  "1021-ERROR-5XX-NO-INFO-STORYBOARD": "cov",
+  "1021-ERROR-5XX-NO-INFO-VIDEO": "cov",
+  "1021-EXPORT-ANDROID-TOAST": "older",
+  "1021-LOOK-CLARIFY": "cov",
+  "1021-LOOK-OFFER": "cov",
+  "1021-LOOK-PARTIAL-REFUND": "cov",
+  "1021-LOOK-QUOTE-TWO-CHARACTERS": "cov",
+  "1021-LOOK-STORYBOARD-AFTER-STORYBOARD": "cov",
+  "1021-MODEL-RATE-BEST-PREVIEW": "cov",
+  "1021-NAV-OUTLINE-BACK-LEAVE": "cov",
+  "1021-NAV-OUTLINE-BACK-STAY": "cov",
+  "1021-NAV-OUTLINE-CREDIT-LEAVE": "cov",
+  "1021-NAV-OUTLINE-CREDIT-STAY": "cov",
+  "1021-NAV-OUTLINE-HISTORY-LEAVE": "cov",
+  "1021-NAV-OUTLINE-HISTORY-STAY": "cov",
+  "1021-NAV-OUTLINE-NEW-LEAVE": "cov",
+  "1021-NAV-OUTLINE-NEW-STAY": "cov",
+  "1021-NAV-OUTLINE-SYSTEM-BACK-LEAVE": "cov",
+  "1021-NAV-OUTLINE-SYSTEM-BACK-STAY": "cov",
+  "1021-NAV-SAVED-BACK-LEAVE": "cov",
+  "1021-NAV-SAVED-CREDIT-LEAVE": "cov",
+  "1021-NAV-SAVED-HISTORY-LEAVE": "cov",
+  "1021-NAV-SAVED-NEW-LEAVE": "cov",
+  "1021-NAV-SAVED-SYSTEM-BACK-LEAVE": "cov",
+  "1021-NAV-STORYBOARD-BACK-LEAVE": "older",
+  "1021-NAV-STORYBOARD-BACK-STAY": "older",
+  "1021-NAV-STORYBOARD-CREDIT-LEAVE": "older",
+  "1021-NAV-STORYBOARD-CREDIT-STAY": "older",
+  "1021-NAV-STORYBOARD-HISTORY-LEAVE": "older",
+  "1021-NAV-STORYBOARD-HISTORY-STAY": "older",
+  "1021-NAV-STORYBOARD-NEW-LEAVE": "older",
+  "1021-NAV-STORYBOARD-NEW-STAY": "older",
+  "1021-NAV-STORYBOARD-SYSTEM-BACK-LEAVE": "older",
+  "1021-NAV-STORYBOARD-SYSTEM-BACK-STAY": "older",
+  "1021-NAV-VIDEO-CREDIT-LEAVE": "cov",
+  "1021-NAV-VIDEO-HISTORY-LEAVE": "cov",
+  "1021-NAV-VIDEO-NEW-LEAVE": "cov",
+  "1021-NAV-VIDEO-SYSTEM-BACK-LEAVE": "cov",
+  "1021-STORYBOARD-ALL-FAIL": "cov",
+  "1021-TRIAL-EXHAUSTED": "cov",
+  "1021-TRIAL-REMAINING": "cov",
+  "1021-VIDEO-ALL-FAIL": "cov",
+  "1021-VIDEO-HINT-DISMISS-HISTORY-TAP": "cov",
+  "1021-VIDEO-HISTORY-HINT": "cov",
+  "DESIGN-CHARACTER-FAILURE-001": "cov",
+  "DESIGN-CHARACTER-GOT-IT-001": "cov",
+  "DESIGN-CHARACTER-LIMIT-GENERATE-001": "cov",
+  "DESIGN-CHARACTER-LIMIT-MESSAGE-001": "cov",
+  "DESIGN-MISSING-COUNT-001": "cov",
+  "DESIGN-MISSING-CREDIT-001": "cov",
+  "DESIGN-MISSING-PLURAL-001": "cov",
+  "DESIGN-MISSING-SINGULAR-001": "cov",
+  "DESIGN-OFFLINE-SEND-001": "cov",
+  "DESIGN-PICKER-EXIT-001": "cov",
+  "DESIGN-PICKER-KEEP-001": "cov",
+  "DESIGN-PICKER-LEAVE-001": "cov",
+  "DESIGN-SCENE-DOWNLOAD-001": "cov",
+  "DESIGN-SCENE-FAILURE-COUNT-001": "cov",
+  "DESIGN-SCENE-FIX-001": "cov",
+  "DESIGN-STT-FAILURE-001": "cov",
+  "DESIGN-TTS-FAILURE-001": "older",
+  "EXP-002-001": "cov",
+  "EXP-004-001": "cov",
+  "EXP-010-001": "cov",
+  "EXP-011-001": "cov",
+  "EXP-015-001": "cov",
+  "EXP-023-001": "nonspec",
+  "FIXTURE-0924-S002-B014": "cov",
+  "FIXTURE-0924-S002-B015": "cov",
+  "FIXTURE-0924-S002-B016": "cov",
+  "FIXTURE-0924-S002-B017": "cov",
+  "FIXTURE-0924-S002-B018": "cov",
+  "FIXTURE-0924-S002-B019": "cov",
+  "FIXTURE-0924-S002-B020": "cov",
+  "FIXTURE-0924-S002-B021": "cov",
+  "FIXTURE-0924-S002-B028": "cov",
+  "FIXTURE-1001-S001-B020": "cov",
+  "FIXTURE-1001-S001-B026": "cov",
+  "FIXTURE-1001-S001-B027": "cov",
+  "FIXTURE-1001-S001-B029": "cov",
+  "FIXTURE-1001-S001-B046": "cov",
+  "FIXTURE-1001-S002-B059": "cov",
+  "FIXTURE-1001-S002-B060": "cov",
+  "FIXTURE-1001-S002-B061": "cov",
+  "FIXTURE-1001-S002-B062": "cov",
+  "MX-CREDIT-CONSENT-001": "diff",
+  "MX-DRAFT-PRESERVE-001": "cov",
+  "MX-DRAFT-PRESERVE-002": "cov",
+  "MX-FREE-LIMIT-001": "cov",
+  "MX-FREE-QUOTA-001": "cov",
+  "MX-FREE-SEND-DEBIT-001": "cov",
+  "MX-MODEL-LOCK-001": "cov",
+  "MX-MODEL-LOCK-VIDEO-001": "cov",
+  "MX-PROPLUS-LIMIT-001": "cov",
+  "MX-PROPLUS-LIMIT-COPY-001": "cov",
+  "MX-PROPLUS-QUOTA-001": "cov",
+  "MX-PROPLUS-SEND-DEBIT-001": "cov",
+  "MX-REGEN-TOPUP-001": "cov",
+  "MX-REPEAT-LIMIT-001": "cov",
+  "MX-REPEAT-LIMIT-002": "cov",
+  "MX-TEMPLATE-LIMIT-001": "cov",
+  "MX-TEMPLATE-LIMIT-002": "cov",
+  "MX-TRIAL-BANNER-001": "older",
+  "PM-ASSISTANT-INTRO-001": "cov",
+  "PM-CHARACTER-CHOICE-001": "cov",
+  "PM-CHARACTER-CONFIRM-001": "cov",
+  "PM-CHARACTER-MAPPING-001": "cov",
+  "PM-CHARACTER-REFERENCE-RETAIN-001": "older",
+  "PM-CHARACTER-RENAME-001": "older",
+  "PM-CHARACTER-RESULT-001": "cov",
+  "PM-CLIP-LEAVE-PROGRESS-001": "cov",
+  "PM-CLIP-LEAVE-REPLACE-001": "cov",
+  "PM-ENTRY-001": "cov",
+  "PM-FAILED-CLIP-RECOVERY-002": "cov",
+  "PM-FORMAT-PROMPT-001": "cov",
+  "PM-GLOBAL-REVISION-001": "older",
+  "PM-IDEA-INPUT-001": "cov",
+  "PM-IMAGE-CANCEL-001": "older",
+  "PM-IMAGE-SELECTED-VERSION-001": "older",
+  "PM-INSPIRATION-TWO-001": "cov",
+  "PM-MODEL-QUOTE-SWITCH-001": "cov",
+  "PM-OUTLINE-CONTENT-001": "cov",
+  "PM-RECENT-CARD-001": "cov",
+  "PM-RECENT-CARD-002": "cov",
+  "PM-RECENT-CARD-003": "cov",
+  "PM-RECENT-CARD-004": "cov",
+  "PM-RECENT-CARD-005": "cov",
+  "PM-RECENT-DELETE-001": "cov",
+  "PM-RECENT-LATEST-001": "cov",
+  "PM-RECENT-LATEST-CAST-001": "cov",
+  "PM-RECENT-LATEST-STORYBOARD-001": "cov",
+  "PM-RECENT-LATEST-VIDEO-001": "cov",
+  "PM-RECENT-NO-OUTLINE-001": "cov",
+  "PM-RECENT-RENAME-001": "cov",
+  "PM-RECENT-THUMBNAIL-OUTLINE-001": "cov",
+  "PM-RECENT-THUMBNAIL-STORYBOARD-001": "cov",
+  "PM-REFERENCE-LIMIT-001": "cov",
+  "PM-SCENE-REGENERATE-001": "cov",
+  "PM-SCRIPT-EDIT-001": "cov",
+  "PM-SCRIPT-RESULT-001": "cov",
+  "PM-SEQUEL-ENTRY-001": "cov",
+  "PM-SEQUEL-ORIGINAL-RETAIN-001": "cov",
+  "PM-SEQUEL-START-001": "older",
+  "PM-SURPRISE-SESSION-001": "cov",
+  "PM-TEMPLATE-OUTLINE-001": "cov",
+  "PM-UPLOAD-ANALYSIS-001": "cov",
+  "PM-VIDEO-GENERATING-001": "cov",
+  "PM-VIDEO-NOTIFY-001": "cov",
+  "PM-VIDEO-NOTIFY-ROOM-001": "cov",
+  "PM-VIDEO-PLAN-001": "cov",
+  "PM-VOICE-TRANSCRIBE-001": "older",
+  "QA-ALL-PAGES-TEXT-ANDROID-CHT-001": "cov",
+  "QA-ALL-PAGES-TEXT-ANDROID-ENU-001": "cov",
+  "QA-ALL-PAGES-TEXT-ANDROID-JPN-001": "cov",
+  "QA-HISTORY-INFO-POPUP-001": "cov",
+  "QA-STORYBOARD-TEXT-DUPLICATION-001": "cov",
+  "QA-STORYBOARD-TEXT-ENGLISH-PUNCTUATION-001": "cov",
+  "QA-STORYBOARD-TEXT-LANGUAGE-001": "cov",
+  "QA-STORYBOARD-TEXT-NONEMPTY-001": "cov",
+  "QA-STORYBOARD-TEXT-READABLE-001": "cov",
+  "QA-TEMPLATE-CATEGORY-ICONS-001": "cov",
+  "QA-TEMPLATE-NAME-TEXT-SCAN-001": "cov"
+ },
+ "sa_detail": {
+  "TC-PDRM-BASE-1014-CUSTOM-MEDIA-IDENTITY-ANDROID-001": {
+   "code": "cov",
+   "rows": [
+    "TC-283",
+    "TC-131"
+   ],
+   "reason": "TC-283 checks the reference preview shows the same photo and orientation; TC-131 checks it shows the adjusted crop."
+  },
+  "1012-PM-OUTLINE-LEAVE-WARNING": {
+   "code": "cov",
+   "rows": [
+    "TC-025",
+    "TC-026",
+    "TC-357",
+    "TC-395"
+   ],
+   "reason": "Leave this chat? with Leave anyway / Stay before the outline exists, for Back, History, New chat, credit pill and system back."
+  },
+  "1021-CHAR-DISCARD-KEEP": {
+   "code": "cov",
+   "rows": [
+    "TC-402"
+   ],
+   "reason": "Keep editing closes the dialog and the form keeps every input."
+  },
+  "1021-CHAR-DISCARD-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-055",
+    "TC-402"
+   ],
+   "reason": "Discard closes Make your character and no character is saved or applied."
+  },
+  "1021-CHAR-MULTI-PRESERVE": {
+   "code": "cov",
+   "rows": [
+    "TC-337",
+    "TC-403"
+   ],
+   "reason": "Leave anyway during Finish your characters keeps the finished character and stops the unfinished one."
+  },
+  "1021-CHAR-MULTI-READY": {
+   "code": "cov",
+   "rows": [
+    "TC-041"
+   ],
+   "reason": "Generate all ends with Your characters are ready / Tap Confirm to continue. with Confirm."
+  },
+  "1021-CHAR-MULTIPLE-CANCEL-KEEP": {
+   "code": "cov",
+   "rows": [
+    "TC-403"
+   ],
+   "reason": "Cancel stays enabled, asks Stop and lose your credits?, Keep Generating keeps both generating."
+  },
+  "1021-CHAR-MULTIPLE-CANCEL-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-337",
+    "TC-403"
+   ],
+   "reason": "Cancel then Leave anyway in Finish your characters stops the unfinished character with no refund."
+  },
+  "1021-CHAR-MULTIPLE-X-KEEP": {
+   "code": "cov",
+   "rows": [
+    "TC-403"
+   ],
+   "reason": "X stays enabled during multi-character generation; Keep Generating continues."
+  },
+  "1021-CHAR-MULTIPLE-X-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-403"
+   ],
+   "reason": "X then Leave anyway stops the unfinished character and keeps the finished one."
+  },
+  "1021-CHAR-SINGLE-CANCEL-KEEP": {
+   "code": "cov",
+   "rows": [
+    "TC-332",
+    "TC-333",
+    "TC-334"
+   ],
+   "reason": "Cancel is shown and opens Stop and lose your credits?; Keep Generating lets the character finish (TC-334 runs it from X)."
+  },
+  "1021-CHAR-SINGLE-CANCEL-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-333"
+   ],
+   "reason": "Cancel then Leave anyway stops generation with no refund row."
+  },
+  "1021-CHAR-SINGLE-X-KEEP": {
+   "code": "cov",
+   "rows": [
+    "TC-334",
+    "TC-431"
+   ],
+   "reason": "X stays enabled, asks Stop and lose your credits?, Keep Generating lets the character finish."
+  },
+  "1021-CHAR-SINGLE-X-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-431",
+    "TC-333"
+   ],
+   "reason": "TC-431 checks X lets the user stop; TC-333 checks Leave anyway stops with no refund (run from Cancel)."
+  },
+  "1021-CHAR-TIMEOUT-CLOSE": {
+   "code": "cov",
+   "rows": [
+    "TC-335"
+   ],
+   "reason": "Close on the 5-minute timeout dialog returns to the form with description and settings kept."
+  },
+  "1021-CHAR-TIMEOUT-MULTIPLE-CHARACTERS": {
+   "code": "cov",
+   "rows": [
+    "TC-338"
+   ],
+   "reason": "After 5 minutes Finish your characters shows We couldn't create your characters with Close / Send Feedback."
+  },
+  "1021-CHAR-TIMEOUT-SINGLE-CHARACTER": {
+   "code": "cov",
+   "rows": [
+    "TC-335",
+    "TC-336"
+   ],
+   "reason": "Timeout dialog copy, Close / blue Send Feedback, and the prefilled feedback form."
+  },
+  "1021-ERROR-4XX-STORYBOARD-DIALOG": {
+   "code": "cov",
+   "rows": [
+    "TC-067"
+   ],
+   "reason": "4xx scene image card ⓘ opens Couldn't generate this image with the terms-of-service text and Got it."
+  },
+  "1021-ERROR-4XX-VIDEO-DIALOG": {
+   "code": "cov",
+   "rows": [
+    "TC-362"
+   ],
+   "reason": "4xxx clip ⓘ opens Couldn't generate this video with the same refund and terms text and Got it."
+  },
+  "1021-ERROR-5XX-NO-INFO-STORYBOARD": {
+   "code": "cov",
+   "rows": [
+    "TC-068"
+   ],
+   "reason": "5xx scene image card shows the service-busy copy with Edit and no ⓘ."
+  },
+  "1021-ERROR-5XX-NO-INFO-VIDEO": {
+   "code": "cov",
+   "rows": [
+    "TC-363"
+   ],
+   "reason": "5xxx clip card has no ⓘ and tapping where it would be opens no dialog."
+  },
+  "1021-EXPORT-ANDROID-TOAST": {
+   "code": "older",
+   "rows": [
+    "TC-343",
+    "TC-517"
+   ],
+   "reason": "Loading on the export button is PM 10/20 (R-249); PM 10/22 export board (Figma 4418:2, R-324) puts a spinner in the preview and disables the controls; TC-343 checks that plus Saved to Gallery."
+  },
+  "1021-LOOK-CLARIFY": {
+   "code": "cov",
+   "rows": [
+    "TC-348",
+    "TC-391"
+   ],
+   "reason": "Unclear look request gets Sure! Which character would you like to change? with 2-4 chips."
+  },
+  "1021-LOOK-OFFER": {
+   "code": "cov",
+   "rows": [
+    "TC-045"
+   ],
+   "reason": "A clear look request goes straight to Ready to update your characters? with the Update characters card, no question first."
+  },
+  "1021-LOOK-PARTIAL-REFUND": {
+   "code": "cov",
+   "rows": [
+    "TC-353"
+   ],
+   "reason": "Two-character update with one failure: failed one shows ! and is refunded as in §13.10."
+  },
+  "1021-LOOK-QUOTE-TWO-CHARACTERS": {
+   "code": "cov",
+   "rows": [
+    "TC-350"
+   ],
+   "reason": "Update characters • 2 characters priced at twice one character generation."
+  },
+  "1021-LOOK-STORYBOARD-AFTER-STORYBOARD": {
+   "code": "cov",
+   "rows": [
+    "TC-352",
+    "TC-349"
+   ],
+   "reason": "With a storyboard already generated the update still ends with a priced Create storyboard card."
+  },
+  "1021-MODEL-RATE-BEST-PREVIEW": {
+   "code": "cov",
+   "rows": [
+    "TC-079"
+   ],
+   "reason": "TC-079 reads the card with Best selected but records the default as TBD (PM mock shows Best) instead of asserting it."
+  },
+  "1021-NAV-OUTLINE-BACK-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-025",
+    "TC-028",
+    "TC-511"
+   ],
+   "reason": "Back shows Leave this chat?; Leave anyway closes and nothing goes to History."
+  },
+  "1021-NAV-OUTLINE-BACK-STAY": {
+   "code": "cov",
+   "rows": [
+    "TC-025",
+    "TC-027"
+   ],
+   "reason": "Back: dialog shown and Stay keeps the chat while the outline still arrives."
+  },
+  "1021-NAV-OUTLINE-CREDIT-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-358"
+   ],
+   "reason": "Credit pill then Leave anyway opens My Credits; no History entry."
+  },
+  "1021-NAV-OUTLINE-CREDIT-STAY": {
+   "code": "cov",
+   "rows": [
+    "TC-357"
+   ],
+   "reason": "Credit pill: dialog shown and Stay keeps the chat while the outline still arrives."
+  },
+  "1021-NAV-OUTLINE-HISTORY-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-026",
+    "TC-028"
+   ],
+   "reason": "History shows the same dialog; Leave anyway leaves no History entry."
+  },
+  "1021-NAV-OUTLINE-HISTORY-STAY": {
+   "code": "cov",
+   "rows": [
+    "TC-026",
+    "TC-027"
+   ],
+   "reason": "History: dialog shown and Stay keeps the chat while the outline still arrives."
+  },
+  "1021-NAV-OUTLINE-NEW-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-357"
+   ],
+   "reason": "New chat shows Leave this chat? with Leave anyway / Stay; the row runs Stay only, Leave anyway is run from other controls."
+  },
+  "1021-NAV-OUTLINE-NEW-STAY": {
+   "code": "cov",
+   "rows": [
+    "TC-357"
+   ],
+   "reason": "New chat: dialog shown and Stay keeps the chat while the outline still arrives."
+  },
+  "1021-NAV-OUTLINE-SYSTEM-BACK-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-395",
+    "TC-396",
+    "TC-452"
+   ],
+   "reason": "System back shows the dialog; Leave anyway opens the landing page with no History entry."
+  },
+  "1021-NAV-OUTLINE-SYSTEM-BACK-STAY": {
+   "code": "cov",
+   "rows": [
+    "TC-395"
+   ],
+   "reason": "System back: dialog shown and Stay keeps the chat while the outline still arrives."
+  },
+  "1021-NAV-SAVED-BACK-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-029"
+   ],
+   "reason": "Outline finished: Back leaves with no dialog and the drama is in History."
+  },
+  "1021-NAV-SAVED-CREDIT-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-360"
+   ],
+   "reason": "Saved chat: credit pill opens My Credits with no dialog."
+  },
+  "1021-NAV-SAVED-HISTORY-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-360"
+   ],
+   "reason": "Saved chat: History opens Recent Task with the drama listed, no dialog."
+  },
+  "1021-NAV-SAVED-NEW-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-360"
+   ],
+   "reason": "Saved chat: New chat opens a new empty chat with no dialog."
+  },
+  "1021-NAV-SAVED-SYSTEM-BACK-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-397"
+   ],
+   "reason": "Saved chat: system back leaves with no dialog; drama in History."
+  },
+  "1021-NAV-STORYBOARD-BACK-LEAVE": {
+   "code": "older",
+   "rows": [
+    "TC-061",
+    "TC-063",
+    "TC-513"
+   ],
+   "reason": "PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; Back checked in both stages."
+  },
+  "1021-NAV-STORYBOARD-BACK-STAY": {
+   "code": "older",
+   "rows": [
+    "TC-061",
+    "TC-062"
+   ],
+   "reason": "PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; Back then Stay checked in stage ①."
+  },
+  "1021-NAV-STORYBOARD-CREDIT-LEAVE": {
+   "code": "older",
+   "rows": [
+    "TC-359"
+   ],
+   "reason": "PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; credit pill then Leave anyway checked in stage ① only."
+  },
+  "1021-NAV-STORYBOARD-CREDIT-STAY": {
+   "code": "older",
+   "rows": [
+    "TC-359"
+   ],
+   "reason": "PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; credit pill shows the dialog, Stay run from History/New chat."
+  },
+  "1021-NAV-STORYBOARD-HISTORY-LEAVE": {
+   "code": "older",
+   "rows": [
+    "TC-359"
+   ],
+   "reason": "PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; History shows the dialog (Stay run), stage ② History exit has no row."
+  },
+  "1021-NAV-STORYBOARD-HISTORY-STAY": {
+   "code": "older",
+   "rows": [
+    "TC-359"
+   ],
+   "reason": "PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; History then Stay checked in stage ①."
+  },
+  "1021-NAV-STORYBOARD-NEW-LEAVE": {
+   "code": "older",
+   "rows": [
+    "TC-359"
+   ],
+   "reason": "PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; New chat shows the dialog (Stay run), stage ② New chat exit has no row."
+  },
+  "1021-NAV-STORYBOARD-NEW-STAY": {
+   "code": "older",
+   "rows": [
+    "TC-359"
+   ],
+   "reason": "PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; New chat then Stay checked in stage ①."
+  },
+  "1021-NAV-STORYBOARD-SYSTEM-BACK-LEAVE": {
+   "code": "older",
+   "rows": [
+    "TC-398",
+    "TC-399"
+   ],
+   "reason": "PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; system back then Leave anyway checked in stage ①."
+  },
+  "1021-NAV-STORYBOARD-SYSTEM-BACK-STAY": {
+   "code": "older",
+   "rows": [
+    "TC-398"
+   ],
+   "reason": "PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; system back then Stay checked in stage ①."
+  },
+  "1021-NAV-VIDEO-CREDIT-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-361"
+   ],
+   "reason": "Credit pill in video stage ② (charged): no dialog, toast We'll keep making your video, video keeps generating; stage ① preparing has a dialog in the casebook (TC-515/516, PM 10/22)."
+  },
+  "1021-NAV-VIDEO-HISTORY-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-361"
+   ],
+   "reason": "History in video stage ② (charged): no dialog, toast We'll keep making your video, video keeps generating; stage ① preparing has a dialog in the casebook (TC-515/516, PM 10/22)."
+  },
+  "1021-NAV-VIDEO-NEW-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-361"
+   ],
+   "reason": "New chat in video stage ② (charged): no dialog, toast We'll keep making your video, video keeps generating; stage ① preparing has a dialog in the casebook (TC-515/516, PM 10/22)."
+  },
+  "1021-NAV-VIDEO-SYSTEM-BACK-LEAVE": {
+   "code": "cov",
+   "rows": [
+    "TC-400"
+   ],
+   "reason": "System back in video stage ② (charged): no dialog, toast We'll keep making your video, video keeps generating; stage ① preparing has a dialog in the casebook (TC-515/516, PM 10/22); History card shows processing.."
+  },
+  "1021-STORYBOARD-ALL-FAIL": {
+   "code": "cov",
+   "rows": [
+    "TC-295"
+   ],
+   "reason": "Something went wrong on my end. plus Storyboard couldn't be created... with Try again."
+  },
+  "1021-TRIAL-EXHAUSTED": {
+   "code": "cov",
+   "rows": [
+    "TC-356"
+   ],
+   "reason": "Tries used up: only the price, no strikethrough and no Free."
+  },
+  "1021-TRIAL-REMAINING": {
+   "code": "cov",
+   "rows": [
+    "TC-114"
+   ],
+   "reason": "◆15 struck through with Free • {n} left, one fewer after a storyboard."
+  },
+  "1021-VIDEO-ALL-FAIL": {
+   "code": "cov",
+   "rows": [
+    "TC-094"
+   ],
+   "reason": "Something went wrong on my end. and Video couldn't be created. Try creating your video again. with Try again."
+  },
+  "1021-VIDEO-HINT-DISMISS-HISTORY-TAP": {
+   "code": "cov",
+   "rows": [
+    "TC-083"
+   ],
+   "reason": "Blue History hint; tapping anywhere dismisses it (History tap included by R-072)."
+  },
+  "1021-VIDEO-HISTORY-HINT": {
+   "code": "cov",
+   "rows": [
+    "TC-082",
+    "TC-361",
+    "TC-400",
+    "TC-083"
+   ],
+   "reason": "Leaving during video stage ②: no dialog, toast, task stays in History; first exit shows the History hint."
+  },
+  "DESIGN-CHARACTER-FAILURE-001": {
+   "code": "cov",
+   "rows": [
+    "TC-043",
+    "TC-500"
+   ],
+   "reason": "Couldn't create image / ...Your credits have been refunded. Try again. (current copy says Try again., not try again later) and the refund row."
+  },
+  "DESIGN-CHARACTER-GOT-IT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-043"
+   ],
+   "reason": "Got it opens Choose Character with the failed slot selected."
+  },
+  "DESIGN-CHARACTER-LIMIT-GENERATE-001": {
+   "code": "cov",
+   "rows": [
+    "TC-051",
+    "TC-354"
+   ],
+   "reason": "Over 1,000 characters Generate is disabled; back under the limit it becomes available."
+  },
+  "DESIGN-CHARACTER-LIMIT-MESSAGE-001": {
+   "code": "cov",
+   "rows": [
+    "TC-051"
+   ],
+   "reason": "Red 1050/1000 counter and You've reached the 1,000-character limit. in field and editor."
+  },
+  "DESIGN-MISSING-COUNT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-039",
+    "TC-040"
+   ],
+   "reason": "{n} characters aren't set yet with the unset slots listed; singular form for one."
+  },
+  "DESIGN-MISSING-CREDIT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-136"
+   ],
+   "reason": "Balance below the price: Generate / Generate all opens the credit panel."
+  },
+  "DESIGN-MISSING-PLURAL-001": {
+   "code": "cov",
+   "rows": [
+    "TC-039"
+   ],
+   "reason": "Two or more unset: Generate all ◆6×n."
+  },
+  "DESIGN-MISSING-SINGULAR-001": {
+   "code": "cov",
+   "rows": [
+    "TC-040"
+   ],
+   "reason": "One unset: 1 character isn't set yet with Generate ◆6."
+  },
+  "DESIGN-OFFLINE-SEND-001": {
+   "code": "cov",
+   "rows": [
+    "TC-032"
+   ],
+   "reason": "TC-032 checks the offline message and that nothing is sent or charged; it does not assert the Try again action (R-028 lists it)."
+  },
+  "DESIGN-PICKER-EXIT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-037"
+   ],
+   "reason": "X with a new pick: Leave without finishing? with Leave / Keep choosing."
+  },
+  "DESIGN-PICKER-KEEP-001": {
+   "code": "cov",
+   "rows": [
+    "TC-038"
+   ],
+   "reason": "Keep choosing keeps the picks."
+  },
+  "DESIGN-PICKER-LEAVE-001": {
+   "code": "cov",
+   "rows": [
+    "TC-038"
+   ],
+   "reason": "Leave closes without saving the picks."
+  },
+  "DESIGN-SCENE-DOWNLOAD-001": {
+   "code": "cov",
+   "rows": [
+    "TC-093",
+    "TC-091"
+   ],
+   "reason": "No download icon on the failed clip (and none on the video card with failed scenes)."
+  },
+  "DESIGN-SCENE-FAILURE-COUNT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-091",
+    "TC-499"
+   ],
+   "reason": "{n} scenes couldn't be generated. Your credits have been refunded...; singular for one scene."
+  },
+  "DESIGN-SCENE-FIX-001": {
+   "code": "cov",
+   "rows": [
+    "TC-091",
+    "TC-150"
+   ],
+   "reason": "Fix these issues to export your drama. with Fix scenes, which opens the recovery view."
+  },
+  "DESIGN-STT-FAILURE-001": {
+   "code": "cov",
+   "rows": [
+    "TC-299"
+   ],
+   "reason": "Storyboard preview unavailable. Try again to generate the preview. with Retry."
+  },
+  "DESIGN-TTS-FAILURE-001": {
+   "code": "older",
+   "rows": [
+    "TC-078"
+   ],
+   "reason": "Design copy Storyboard preview unavailable. Some credits were refunded is older; PM §13.7 / E4: Couldn't create the storyboard preview. Your credits have been refunded. Try again. with Retry."
+  },
+  "EXP-002-001": {
+   "code": "cov",
+   "rows": [
+    "TC-020",
+    "TC-021",
+    "TC-022",
+    "TC-488"
+   ],
+   "reason": "Format card options, one choice per group, the reply bubble, and the default selection on a new chat."
+  },
+  "EXP-004-001": {
+   "code": "cov",
+   "rows": [
+    "TC-385",
+    "TC-073",
+    "TC-458",
+    "TC-505",
+    "TC-045"
+   ],
+   "reason": "Revision requests change only the asked scene or character; other scenes and the outline stay."
+  },
+  "EXP-010-001": {
+   "code": "cov",
+   "rows": [
+    "TC-065",
+    "TC-138",
+    "TC-070"
+   ],
+   "reason": "Scene detail from View more or a card, ‹ › to the first and last scene, Edit only on a failed scene."
+  },
+  "EXP-011-001": {
+   "code": "cov",
+   "rows": [
+    "TC-080",
+    "TC-475",
+    "TC-113"
+   ],
+   "reason": "Model and length quotes, re-offered card price, reopening at the latest stage; no row checks the chosen model is kept after reopening."
+  },
+  "EXP-015-001": {
+   "code": "cov",
+   "rows": [
+    "TC-143",
+    "TC-375",
+    "TC-481",
+    "TC-097",
+    "TC-099"
+   ],
+   "reason": "Player opens and plays, tap pauses, seek bar, captions on / off."
+  },
+  "EXP-023-001": {
+   "code": "nonspec",
+   "rows": [],
+   "reason": "The spec only draws a mic button (TC-011 checks it is shown); it states no mic permission or transcription rule and no row checks them."
+  },
+  "FIXTURE-0924-S002-B014": {
+   "code": "cov",
+   "rows": [
+    "TC-222"
+   ],
+   "reason": "After subscribing the original chat returns with a Continue message."
+  },
+  "FIXTURE-0924-S002-B015": {
+   "code": "cov",
+   "rows": [
+    "TC-224"
+   ],
+   "reason": "Reinstall restores the daily free chats."
+  },
+  "FIXTURE-0924-S002-B016": {
+   "code": "cov",
+   "rows": [
+    "TC-369",
+    "TC-393"
+   ],
+   "reason": "RD changes the Firebase Remote Config allowance; the limit follows it (Free and Pro)."
+  },
+  "FIXTURE-0924-S002-B017": {
+   "code": "cov",
+   "rows": [
+    "TC-323"
+   ],
+   "reason": "Free-use credits granted once for a new AI Mini Drama account."
+  },
+  "FIXTURE-0924-S002-B018": {
+   "code": "cov",
+   "rows": [
+    "TC-323"
+   ],
+   "reason": "Free-use credits pay for the character, storyboard and video steps."
+  },
+  "FIXTURE-0924-S002-B019": {
+   "code": "cov",
+   "rows": [
+    "TC-323"
+   ],
+   "reason": "First-use credits pay for character, storyboard and video steps."
+  },
+  "FIXTURE-0924-S002-B020": {
+   "code": "cov",
+   "rows": [
+    "TC-323"
+   ],
+   "reason": "First-use credits pay for the video step."
+  },
+  "FIXTURE-0924-S002-B021": {
+   "code": "cov",
+   "rows": [
+    "TC-323"
+   ],
+   "reason": "Tries a credit feature outside AI Mini Drama; free-use credits not offered there."
+  },
+  "FIXTURE-0924-S002-B028": {
+   "code": "cov",
+   "rows": [
+    "TC-080",
+    "TC-115"
+   ],
+   "reason": "Quote per option and 'You'll have {n} left' from the current balance; entry is now the video settings card, not 'Ready to create video'."
+  },
+  "FIXTURE-1001-S001-B020": {
+   "code": "cov",
+   "rows": [
+    "TC-104"
+   ],
+   "reason": "Fresh install (uninstall/reinstall) shows the empty History state; notes say the reinstall empties local History."
+  },
+  "FIXTURE-1001-S001-B026": {
+   "code": "cov",
+   "rows": [
+    "TC-384",
+    "TC-039"
+   ],
+   "reason": "Failed characters listed as unset; story cannot continue until every character is set."
+  },
+  "FIXTURE-1001-S001-B027": {
+   "code": "cov",
+   "rows": [
+    "TC-355"
+   ],
+   "reason": "Create video anyways below the failed preview card and its Retry, continues without a preview."
+  },
+  "FIXTURE-1001-S001-B029": {
+   "code": "cov",
+   "rows": [
+    "TC-092"
+   ],
+   "reason": "Failed retry shows 'Retrying didn't work. Try a different description.' with Edit."
+  },
+  "FIXTURE-1001-S001-B046": {
+   "code": "cov",
+   "rows": [
+    "TC-093"
+   ],
+   "reason": "Failed clip default duration 15 s."
+  },
+  "FIXTURE-1001-S002-B059": {
+   "code": "cov",
+   "rows": [
+    "TC-218",
+    "TC-368"
+   ],
+   "reason": "Opening a template uses exactly one chat."
+  },
+  "FIXTURE-1001-S002-B060": {
+   "code": "cov",
+   "rows": [
+    "TC-218",
+    "TC-368"
+   ],
+   "reason": "Tapping a task button uses exactly one chat."
+  },
+  "FIXTURE-1001-S002-B061": {
+   "code": "cov",
+   "rows": [
+    "TC-223",
+    "TC-222"
+   ],
+   "reason": "After subscribing only the Pro allowance applies; unused Free chats are not added."
+  },
+  "FIXTURE-1001-S002-B062": {
+   "code": "cov",
+   "rows": [
+    "TC-323"
+   ],
+   "reason": "After the free-use credits run out own credits are charged."
+  },
+  "MX-CREDIT-CONSENT-001": {
+   "code": "diff",
+   "rows": [
+    "TC-115"
+   ],
+   "reason": "MX boards draw a 'Consume credits?' Confirm card; casebook follows Design: 'You'll have {n} left' under Generate, charged with no separate confirmation."
+  },
+  "MX-DRAFT-PRESERVE-001": {
+   "code": "cov",
+   "rows": [
+    "TC-219"
+   ],
+   "reason": "Closing the limit dialog keeps the chat and the unsent text."
+  },
+  "MX-DRAFT-PRESERVE-002": {
+   "code": "cov",
+   "rows": [
+    "TC-219"
+   ],
+   "reason": "Same claim as MX-DRAFT-PRESERVE-001."
+  },
+  "MX-FREE-LIMIT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-117",
+    "TC-215"
+   ],
+   "reason": "Free send after the allowance shows 'Daily Free Chat Limit Reached' with Upgrade to Premium."
+  },
+  "MX-FREE-QUOTA-001": {
+   "code": "cov",
+   "rows": [
+    "TC-215",
+    "TC-369"
+   ],
+   "reason": "Counts Free sends to the limit (spec 10, remote-configured; recorded)."
+  },
+  "MX-FREE-SEND-DEBIT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-218",
+    "TC-215"
+   ],
+   "reason": "Each typed send uses one chat; Free sends counted to the limit."
+  },
+  "MX-MODEL-LOCK-001": {
+   "code": "cov",
+   "rows": [
+    "TC-324"
+   ],
+   "reason": "Image generation model preset and not changeable during first-time free use."
+  },
+  "MX-MODEL-LOCK-VIDEO-001": {
+   "code": "cov",
+   "rows": [
+    "TC-324"
+   ],
+   "reason": "Video settings model preset and not changeable during first-time free use."
+  },
+  "MX-PROPLUS-LIMIT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-118",
+    "TC-217"
+   ],
+   "reason": "Pro send after the allowance shows the paid limit dialog."
+  },
+  "MX-PROPLUS-LIMIT-COPY-001": {
+   "code": "cov",
+   "rows": [
+    "TC-118",
+    "TC-217"
+   ],
+   "reason": "Checks the Pro limit dialog copy; casebook expects Design's 'Today's AI Chats Are Used Up' (notes the 'Server Busy' MX label)."
+  },
+  "MX-PROPLUS-QUOTA-001": {
+   "code": "cov",
+   "rows": [
+    "TC-217",
+    "TC-393"
+   ],
+   "reason": "Counts Pro sends to the limit (spec 100, remote-configured)."
+  },
+  "MX-PROPLUS-SEND-DEBIT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-368"
+   ],
+   "reason": "Each Pro send uses one of the Pro daily chats."
+  },
+  "MX-REGEN-TOPUP-001": {
+   "code": "cov",
+   "rows": [
+    "TC-152",
+    "TC-116",
+    "TC-136"
+   ],
+   "reason": "Credit action with a short balance opens the top-up panel."
+  },
+  "MX-REPEAT-LIMIT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-220"
+   ],
+   "reason": "Limit dialog appears again on every send."
+  },
+  "MX-REPEAT-LIMIT-002": {
+   "code": "cov",
+   "rows": [
+    "TC-220"
+   ],
+   "reason": "Same claim as MX-REPEAT-LIMIT-001."
+  },
+  "MX-TEMPLATE-LIMIT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-221"
+   ],
+   "reason": "Template chat opens first, then the limit dialog."
+  },
+  "MX-TEMPLATE-LIMIT-002": {
+   "code": "cov",
+   "rows": [
+    "TC-221"
+   ],
+   "reason": "Same claim as MX-TEMPLATE-LIMIT-001."
+  },
+  "MX-TRIAL-BANNER-001": {
+   "code": "older",
+   "rows": [
+    "TC-114",
+    "TC-356"
+   ],
+   "reason": "'Free trial active' input message is from superseded MX versions B/C; Design 1016_support free trial shows struck ◆15 with 'Free • {n} left' on Create storyboard."
+  },
+  "PM-ASSISTANT-INTRO-001": {
+   "code": "cov",
+   "rows": [
+    "TC-003",
+    "TC-011"
+   ],
+   "reason": "Landing intro 'Hi, I'm your' / 'AI Drama Assistant'; chat placeholder 'Enter your idea to create drama'."
+  },
+  "PM-CHARACTER-CHOICE-001": {
+   "code": "cov",
+   "rows": [
+    "TC-047",
+    "TC-048",
+    "TC-049"
+   ],
+   "reason": "Create my character offers 'Reference (optional)'; generates with or without a photo."
+  },
+  "PM-CHARACTER-CONFIRM-001": {
+   "code": "cov",
+   "rows": [
+    "TC-044"
+   ],
+   "reason": "Every character set: Create storyboard card with price and Generate."
+  },
+  "PM-CHARACTER-MAPPING-001": {
+   "code": "cov",
+   "rows": [
+    "TC-047",
+    "TC-131",
+    "TC-133"
+   ],
+   "reason": "Create my character for the named slot takes a cropped reference; result applied to that slot."
+  },
+  "PM-CHARACTER-REFERENCE-RETAIN-001": {
+   "code": "older",
+   "rows": [],
+   "reason": "Stated only in the spec agent's PM 10/01 slides; the current set (PM 20261021, Design 1016, MX) does not restate it. No row regenerates a reference-photo character and checks the photo is kept; TC-137 only checks the form keeps it after a failure."
+  },
+  "PM-CHARACTER-RENAME-001": {
+   "code": "older",
+   "rows": [
+    "TC-291"
+   ],
+   "reason": "PM 0924 rename; current PM/Design draw no character rename (roles change through chat, R-038); TC-291 only records whether a route exists."
+  },
+  "PM-CHARACTER-RESULT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-044",
+    "TC-041"
+   ],
+   "reason": "Characters Result after the cast is set (flow arrow R-198 walked by TC-044)."
+  },
+  "PM-CLIP-LEAVE-PROGRESS-001": {
+   "code": "cov",
+   "rows": [
+    "TC-144"
+   ],
+   "reason": "Old video stays with 'Updating 1 scene... Your video will refresh when it's done.'"
+  },
+  "PM-CLIP-LEAVE-REPLACE-001": {
+   "code": "cov",
+   "rows": [
+    "TC-145"
+   ],
+   "reason": "Chat replaces the old video with the refreshed one."
+  },
+  "PM-ENTRY-001": {
+   "code": "cov",
+   "rows": [
+    "TC-001"
+   ],
+   "reason": "Launcher AI Mini Drama shortcut opens the landing page."
+  },
+  "PM-FAILED-CLIP-RECOVERY-002": {
+   "code": "cov",
+   "rows": [
+    "TC-092",
+    "TC-149",
+    "TC-316"
+   ],
+   "reason": "Failed clip offers regeneration; casebook expects Design label 'Regenerate scene ◆30' (PM: 'Regenerate Video')."
+  },
+  "PM-FORMAT-PROMPT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-020"
+   ],
+   "reason": "Format question with Video language and Captions."
+  },
+  "PM-GLOBAL-REVISION-001": {
+   "code": "older",
+   "rows": [],
+   "reason": "Stated only in the spec agent's PM 10/01 slides; the current set (PM 20261021, Design 1016, MX) does not restate it. No row asks for whole-story revision directions and checks offered options; TC-348 covers only character-change chips."
+  },
+  "PM-IDEA-INPUT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-011"
+   ],
+   "reason": "Empty chat with idea input and placeholder."
+  },
+  "PM-IMAGE-CANCEL-001": {
+   "code": "older",
+   "rows": [
+    "TC-072",
+    "TC-070"
+   ],
+   "reason": "Image-version editor withdrawn (Q-7, not in current PM); images now change via chat Create storyboard or Edit on a failed scene."
+  },
+  "PM-IMAGE-SELECTED-VERSION-001": {
+   "code": "older",
+   "rows": [
+    "TC-072",
+    "TC-073"
+   ],
+   "reason": "Image-version selection withdrawn (Q-7); current rule: chat update adds a new storyboard card, earlier card unchanged."
+  },
+  "PM-INSPIRATION-TWO-001": {
+   "code": "cov",
+   "rows": [
+    "TC-012"
+   ],
+   "reason": "'Surprise me' and two inspiration chips."
+  },
+  "PM-MODEL-QUOTE-SWITCH-001": {
+   "code": "cov",
+   "rows": [
+    "TC-080",
+    "TC-347"
+   ],
+   "reason": "Fast = Seedance 2.0 Mini; price updates at once when the option changes."
+  },
+  "PM-OUTLINE-CONTENT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-024"
+   ],
+   "reason": "Story Outline with 'Possible Characters:' and a description per character."
+  },
+  "PM-RECENT-CARD-001": {
+   "code": "cov",
+   "rows": [
+    "TC-106"
+   ],
+   "reason": "History card shows date and time, title and size."
+  },
+  "PM-RECENT-CARD-002": {
+   "code": "cov",
+   "rows": [
+    "TC-106"
+   ],
+   "reason": "Same claim as PM-RECENT-CARD-001."
+  },
+  "PM-RECENT-CARD-003": {
+   "code": "cov",
+   "rows": [
+    "TC-106"
+   ],
+   "reason": "Same claim as PM-RECENT-CARD-001."
+  },
+  "PM-RECENT-CARD-004": {
+   "code": "cov",
+   "rows": [
+    "TC-106"
+   ],
+   "reason": "Same claim as PM-RECENT-CARD-001."
+  },
+  "PM-RECENT-CARD-005": {
+   "code": "cov",
+   "rows": [
+    "TC-106"
+   ],
+   "reason": "Same claim as PM-RECENT-CARD-001."
+  },
+  "PM-RECENT-DELETE-001": {
+   "code": "cov",
+   "rows": [
+    "TC-404"
+   ],
+   "reason": "Confirmed delete removes exactly those cards."
+  },
+  "PM-RECENT-LATEST-001": {
+   "code": "cov",
+   "rows": [
+    "TC-029",
+    "TC-113"
+   ],
+   "reason": "Reopens at the outline step (flow arrow R-234 walked by TC-029)."
+  },
+  "PM-RECENT-LATEST-CAST-001": {
+   "code": "cov",
+   "rows": [
+    "TC-113"
+   ],
+   "reason": "Each drama reopens at its latest stage incl. characters."
+  },
+  "PM-RECENT-LATEST-STORYBOARD-001": {
+   "code": "cov",
+   "rows": [
+    "TC-113"
+   ],
+   "reason": "Reopens at the storyboard stage."
+  },
+  "PM-RECENT-LATEST-VIDEO-001": {
+   "code": "cov",
+   "rows": [
+    "TC-113"
+   ],
+   "reason": "Reopens at the video stage."
+  },
+  "PM-RECENT-NO-OUTLINE-001": {
+   "code": "cov",
+   "rows": [
+    "TC-028",
+    "TC-381",
+    "TC-386"
+   ],
+   "reason": "Chats left before the outline have no History entry."
+  },
+  "PM-RECENT-RENAME-001": {
+   "code": "cov",
+   "rows": [
+    "TC-108",
+    "TC-110"
+   ],
+   "reason": "Rename updates the card name (trimmed) and moves it to the top."
+  },
+  "PM-RECENT-THUMBNAIL-OUTLINE-001": {
+   "code": "cov",
+   "rows": [
+    "TC-320"
+   ],
+   "reason": "Outline-stage card shows the default thumbnail."
+  },
+  "PM-RECENT-THUMBNAIL-STORYBOARD-001": {
+   "code": "cov",
+   "rows": [
+    "TC-106"
+   ],
+   "reason": "Thumbnail is the first storyboard frame once a storyboard exists."
+  },
+  "PM-REFERENCE-LIMIT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-317"
+   ],
+   "reason": "A second photo replaces the first; one reference shown."
+  },
+  "PM-SCENE-REGENERATE-001": {
+   "code": "cov",
+   "rows": [
+    "TC-149"
+   ],
+   "reason": "Submitting the regeneration starts clip generation for that scene."
+  },
+  "PM-SCRIPT-EDIT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-065"
+   ],
+   "reason": "View more opens scene detail."
+  },
+  "PM-SCRIPT-RESULT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-064"
+   ],
+   "reason": "'Here's your storyboard' with Storyboard Result scene cards."
+  },
+  "PM-SEQUEL-ENTRY-001": {
+   "code": "cov",
+   "rows": [
+    "TC-087"
+   ],
+   "reason": "Full video finished offers 'Create Next Episode'."
+  },
+  "PM-SEQUEL-ORIGINAL-RETAIN-001": {
+   "code": "cov",
+   "rows": [
+    "TC-321"
+   ],
+   "reason": "First drama stays in History unchanged after Create Next Episode."
+  },
+  "PM-SEQUEL-START-001": {
+   "code": "older",
+   "rows": [
+    "TC-321"
+   ],
+   "reason": "'Continue making next episode' is older board wording; current Create Next Episode starts the next episode (R-179), destination not drawn, so TC-321 records what opens."
+  },
+  "PM-SURPRISE-SESSION-001": {
+   "code": "cov",
+   "rows": [
+    "TC-014",
+    "TC-380"
+   ],
+   "reason": "Surprise me appends random picks that are not the two chips."
+  },
+  "PM-TEMPLATE-OUTLINE-001": {
+   "code": "cov",
+   "rows": [
+    "TC-009",
+    "TC-503"
+   ],
+   "reason": "Template format card then outline generation (flow arrow R-196 walked by TC-009)."
+  },
+  "PM-UPLOAD-ANALYSIS-001": {
+   "code": "cov",
+   "rows": [
+    "TC-041",
+    "TC-332"
+   ],
+   "reason": "'Creating {n} characters...' and the Create my character generating screen."
+  },
+  "PM-VIDEO-GENERATING-001": {
+   "code": "cov",
+   "rows": [
+    "TC-405"
+   ],
+   "reason": "Video settings card turns into the in-progress card until the result."
+  },
+  "PM-VIDEO-NOTIFY-001": {
+   "code": "cov",
+   "rows": [
+    "TC-307",
+    "TC-085"
+   ],
+   "reason": "Push in background and in-app toast on completion."
+  },
+  "PM-VIDEO-NOTIFY-ROOM-001": {
+   "code": "cov",
+   "rows": [
+    "TC-307"
+   ],
+   "reason": "Tapping the push opens that chat at the video card."
+  },
+  "PM-VIDEO-PLAN-001": {
+   "code": "cov",
+   "rows": [
+    "TC-064",
+    "TC-075"
+   ],
+   "reason": "Storyboard Preview card alongside the Storyboard Result."
+  },
+  "PM-VOICE-TRANSCRIBE-001": {
+   "code": "older",
+   "rows": [],
+   "reason": "Stated only in the spec agent's PM 10/01 slides; the current set (PM 20261021, Design 1016, MX) does not restate it. Only the mic button's presence is checked (TC-011); no row records speech and checks the transcript lands in the idea input."
+  },
+  "QA-ALL-PAGES-TEXT-ANDROID-CHT-001": {
+   "code": "cov",
+   "rows": [
+    "TC-276"
+   ],
+   "reason": "CHT all-pages text check."
+  },
+  "QA-ALL-PAGES-TEXT-ANDROID-ENU-001": {
+   "code": "cov",
+   "rows": [
+    "TC-275"
+   ],
+   "reason": "ENU all-pages text check."
+  },
+  "QA-ALL-PAGES-TEXT-ANDROID-JPN-001": {
+   "code": "cov",
+   "rows": [
+    "TC-277"
+   ],
+   "reason": "JPN all-pages text check."
+  },
+  "QA-HISTORY-INFO-POPUP-001": {
+   "code": "cov",
+   "rows": [
+    "TC-327",
+    "TC-105"
+   ],
+   "reason": "ⓘ opens the info bubble, arrow on the button, fully on screen."
+  },
+  "QA-STORYBOARD-TEXT-DUPLICATION-001": {
+   "code": "cov",
+   "rows": [
+    "TC-280"
+   ],
+   "reason": "No repeated sentence or scene."
+  },
+  "QA-STORYBOARD-TEXT-ENGLISH-PUNCTUATION-001": {
+   "code": "cov",
+   "rows": [
+    "TC-282"
+   ],
+   "reason": "English output uses English quotes, not 「」."
+  },
+  "QA-STORYBOARD-TEXT-LANGUAGE-001": {
+   "code": "cov",
+   "rows": [
+    "TC-278"
+   ],
+   "reason": "Generated text in the format-card language."
+  },
+  "QA-STORYBOARD-TEXT-NONEMPTY-001": {
+   "code": "cov",
+   "rows": [
+    "TC-279"
+   ],
+   "reason": "Every scene has a title and script, none empty."
+  },
+  "QA-STORYBOARD-TEXT-READABLE-001": {
+   "code": "cov",
+   "rows": [
+    "TC-281"
+   ],
+   "reason": "No broken encoding or replacement characters."
+  },
+  "QA-TEMPLATE-CATEGORY-ICONS-001": {
+   "code": "cov",
+   "rows": [
+    "TC-328"
+   ],
+   "reason": "Each category header shows its own Design icon."
+  },
+  "QA-TEMPLATE-NAME-TEXT-SCAN-001": {
+   "code": "cov",
+   "rows": [
+    "TC-010"
+   ],
+   "reason": "Template names spelled correctly incl. 'Six Things You Didn't Know'."
+  }
+ },
+ "cb": {
+  "TC-001": "full",
+  "TC-441": "none",
+  "TC-464": "none",
+  "TC-002": "none",
+  "TC-003": "partial",
+  "TC-004": "none",
+  "TC-005": "none",
+  "TC-006": "partial",
+  "TC-415": "none",
+  "TC-007": "none",
+  "TC-008": "none",
+  "TC-009": "partial",
+  "TC-503": "partial",
+  "TC-010": "full",
+  "TC-011": "partial",
+  "TC-425": "none",
+  "TC-012": "full",
+  "TC-013": "none",
+  "TC-014": "full",
+  "TC-380": "full",
+  "TC-015": "none",
+  "TC-016": "none",
+  "TC-017": "none",
+  "TC-018": "none",
+  "TC-372": "none",
+  "TC-373": "none",
+  "TC-019": "none",
+  "TC-020": "partial",
+  "TC-021": "partial",
+  "TC-022": "partial",
+  "TC-414": "none",
+  "TC-468": "none",
+  "TC-488": "partial",
+  "TC-381": "partial",
+  "TC-394": "partial",
+  "TC-023": "none",
+  "TC-024": "full",
+  "TC-416": "none",
+  "TC-420": "none",
+  "TC-448": "none",
+  "TC-497": "none",
+  "TC-508": "none",
+  "TC-025": "full",
+  "TC-395": "full",
+  "TC-396": "full",
+  "TC-452": "partial",
+  "TC-026": "full",
+  "TC-027": "full",
+  "TC-028": "full",
+  "TC-357": "full",
+  "TC-358": "full",
+  "TC-386": "partial",
+  "TC-029": "full",
+  "TC-397": "full",
+  "TC-360": "full",
+  "TC-030": "none",
+  "TC-031": "none",
+  "TC-511": "partial",
+  "TC-032": "full",
+  "TC-387": "partial",
+  "TC-033": "none",
+  "TC-480": "none",
+  "TC-034": "none",
+  "TC-035": "none",
+  "TC-036": "none",
+  "TC-410": "none",
+  "TC-371": "none",
+  "TC-037": "full",
+  "TC-038": "full",
+  "TC-039": "full",
+  "TC-040": "full",
+  "TC-041": "full",
+  "TC-456": "none",
+  "TC-042": "partial",
+  "TC-384": "partial",
+  "TC-043": "full",
+  "TC-500": "partial",
+  "TC-044": "partial",
+  "TC-477": "none",
+  "TC-487": "none",
+  "TC-045": "full",
+  "TC-046": "none",
+  "TC-505": "partial",
+  "TC-047": "partial",
+  "TC-478": "none",
+  "TC-048": "partial",
+  "TC-049": "partial",
+  "TC-469": "none",
+  "TC-050": "none",
+  "TC-051": "full",
+  "TC-052": "none",
+  "TC-053": "none",
+  "TC-054": "none",
+  "TC-055": "full",
+  "TC-402": "partial",
+  "TC-056": "none",
+  "TC-057": "none",
+  "TC-058": "none",
+  "TC-059": "none",
+  "TC-060": "none",
+  "TC-377": "none",
+  "TC-512": "none",
+  "TC-061": "partial",
+  "TC-398": "partial",
+  "TC-399": "partial",
+  "TC-062": "partial",
+  "TC-359": "partial",
+  "TC-513": "partial",
+  "TC-514": "partial",
+  "TC-063": "partial",
+  "TC-064": "full",
+  "TC-409": "none",
+  "TC-065": "partial",
+  "TC-066": "none",
+  "TC-389": "none",
+  "TC-390": "none",
+  "TC-067": "full",
+  "TC-068": "full",
+  "TC-465": "none",
+  "TC-069": "none",
+  "TC-070": "partial",
+  "TC-489": "none",
+  "TC-378": "none",
+  "TC-071": "none",
+  "TC-072": "partial",
+  "TC-385": "partial",
+  "TC-073": "partial",
+  "TC-458": "partial",
+  "TC-074": "none",
+  "TC-075": "partial",
+  "TC-076": "none",
+  "TC-443": "none",
+  "TC-077": "none",
+  "TC-413": "none",
+  "TC-078": "partial",
+  "TC-079": "partial",
+  "TC-509": "none",
+  "TC-080": "partial",
+  "TC-504": "none",
+  "TC-081": "none",
+  "TC-405": "partial",
+  "TC-515": "partial",
+  "TC-516": "partial",
+  "TC-082": "full",
+  "TC-400": "full",
+  "TC-361": "full",
+  "TC-474": "none",
+  "TC-475": "partial",
+  "TC-482": "none",
+  "TC-083": "full",
+  "TC-084": "none",
+  "TC-486": "none",
+  "TC-085": "partial",
+  "TC-484": "none",
+  "TC-086": "none",
+  "TC-493": "none",
+  "TC-087": "full",
+  "TC-479": "none",
+  "TC-088": "partial",
+  "TC-417": "none",
+  "TC-423": "none",
+  "TC-426": "none",
+  "TC-382": "partial",
+  "TC-457": "none",
+  "TC-506": "none",
+  "TC-510": "none",
+  "TC-089": "none",
+  "TC-422": "none",
+  "TC-090": "partial",
+  "TC-091": "full",
+  "TC-483": "none",
+  "TC-499": "partial",
+  "TC-376": "none",
+  "TC-092": "full",
+  "TC-362": "full",
+  "TC-363": "full",
+  "TC-093": "full",
+  "TC-094": "full",
+  "TC-485": "none",
+  "TC-095": "none",
+  "TC-379": "none",
+  "TC-096": "partial",
+  "TC-097": "partial",
+  "TC-364": "none",
+  "TC-098": "none",
+  "TC-365": "none",
+  "TC-099": "partial",
+  "TC-433": "none",
+  "TC-467": "none",
+  "TC-492": "none",
+  "TC-507": "none",
+  "TC-100": "none",
+  "TC-374": "none",
+  "TC-419": "none",
+  "TC-101": "none",
+  "TC-102": "none",
+  "TC-103": "partial",
+  "TC-104": "partial",
+  "TC-105": "partial",
+  "TC-106": "full",
+  "TC-107": "none",
+  "TC-108": "partial",
+  "TC-109": "none",
+  "TC-110": "partial",
+  "TC-111": "partial",
+  "TC-112": "none",
+  "TC-404": "partial",
+  "TC-113": "full",
+  "TC-114": "full",
+  "TC-356": "full",
+  "TC-115": "partial",
+  "TC-116": "partial",
+  "TC-117": "full",
+  "TC-118": "full",
+  "TC-119": "none",
+  "TC-120": "none",
+  "TC-121": "none",
+  "TC-122": "none",
+  "TC-370": "none",
+  "TC-123": "none",
+  "TC-124": "none",
+  "TC-125": "none",
+  "TC-126": "none",
+  "TC-407": "none",
+  "TC-127": "none",
+  "TC-128": "partial",
+  "TC-412": "none",
+  "TC-129": "none",
+  "TC-130": "none",
+  "TC-131": "full",
+  "TC-366": "partial",
+  "TC-132": "partial",
+  "TC-408": "none",
+  "TC-133": "partial",
+  "TC-472": "none",
+  "TC-134": "none",
+  "TC-135": "none",
+  "TC-136": "full",
+  "TC-137": "partial",
+  "TC-138": "partial",
+  "TC-139": "none",
+  "TC-140": "none",
+  "TC-141": "none",
+  "TC-427": "none",
+  "TC-428": "partial",
+  "TC-491": "none",
+  "TC-142": "partial",
+  "TC-143": "partial",
+  "TC-434": "none",
+  "TC-435": "none",
+  "TC-436": "none",
+  "TC-438": "none",
+  "TC-439": "none",
+  "TC-442": "none",
+  "TC-444": "none",
+  "TC-375": "partial",
+  "TC-481": "partial",
+  "TC-144": "full",
+  "TC-145": "full",
+  "TC-146": "partial",
+  "TC-147": "none",
+  "TC-148": "none",
+  "TC-149": "full",
+  "TC-437": "none",
+  "TC-454": "none",
+  "TC-150": "partial",
+  "TC-151": "none",
+  "TC-152": "full",
+  "TC-153": "none",
+  "TC-471": "none",
+  "TC-154": "partial",
+  "TC-155": "none",
+  "TC-156": "none",
+  "TC-470": "none",
+  "TC-157": "none",
+  "TC-158": "none",
+  "TC-159": "none",
+  "TC-160": "partial",
+  "TC-161": "none",
+  "TC-476": "none",
+  "TC-162": "partial",
+  "TC-163": "none",
+  "TC-164": "none",
+  "TC-165": "partial",
+  "TC-166": "partial",
+  "TC-502": "none",
+  "TC-167": "partial",
+  "TC-168": "none",
+  "TC-169": "none",
+  "TC-170": "none",
+  "TC-171": "none",
+  "TC-172": "none",
+  "TC-173": "none",
+  "TC-446": "none",
+  "TC-174": "none",
+  "TC-215": "full",
+  "TC-217": "partial",
+  "TC-218": "full",
+  "TC-368": "full",
+  "TC-369": "full",
+  "TC-393": "full",
+  "TC-219": "full",
+  "TC-220": "full",
+  "TC-221": "full",
+  "TC-222": "full",
+  "TC-223": "full",
+  "TC-224": "full",
+  "TC-225": "partial",
+  "TC-226": "none",
+  "TC-227": "partial",
+  "TC-228": "partial",
+  "TC-229": "none",
+  "TC-230": "none",
+  "TC-231": "none",
+  "TC-232": "none",
+  "TC-233": "none",
+  "TC-234": "none",
+  "TC-235": "partial",
+  "TC-236": "partial",
+  "TC-421": "none",
+  "TC-449": "none",
+  "TC-450": "none",
+  "TC-451": "none",
+  "TC-237": "partial",
+  "TC-238": "partial",
+  "TC-239": "partial",
+  "TC-466": "none",
+  "TC-240": "partial",
+  "TC-445": "none",
+  "TC-241": "partial",
+  "TC-440": "none",
+  "TC-242": "partial",
+  "TC-243": "partial",
+  "TC-461": "none",
+  "TC-244": "partial",
+  "TC-245": "partial",
+  "TC-246": "partial",
+  "TC-247": "partial",
+  "TC-248": "partial",
+  "TC-249": "partial",
+  "TC-250": "partial",
+  "TC-251": "partial",
+  "TC-252": "partial",
+  "TC-253": "partial",
+  "TC-254": "partial",
+  "TC-255": "partial",
+  "TC-256": "partial",
+  "TC-257": "partial",
+  "TC-258": "partial",
+  "TC-259": "partial",
+  "TC-430": "none",
+  "TC-260": "partial",
+  "TC-261": "partial",
+  "TC-262": "partial",
+  "TC-263": "partial",
+  "TC-264": "partial",
+  "TC-265": "partial",
+  "TC-447": "none",
+  "TC-266": "partial",
+  "TC-267": "partial",
+  "TC-268": "partial",
+  "TC-269": "partial",
+  "TC-459": "none",
+  "TC-462": "none",
+  "TC-270": "partial",
+  "TC-271": "partial",
+  "TC-460": "none",
+  "TC-463": "none",
+  "TC-272": "partial",
+  "TC-273": "partial",
+  "TC-432": "none",
+  "TC-274": "partial",
+  "TC-275": "full",
+  "TC-276": "full",
+  "TC-277": "full",
+  "TC-424": "none",
+  "TC-406": "none",
+  "TC-278": "full",
+  "TC-494": "none",
+  "TC-495": "none",
+  "TC-279": "full",
+  "TC-280": "full",
+  "TC-281": "full",
+  "TC-282": "full",
+  "TC-496": "none",
+  "TC-283": "full",
+  "TC-284": "none",
+  "TC-285": "none",
+  "TC-286": "none",
+  "TC-287": "none",
+  "TC-288": "none",
+  "TC-289": "none",
+  "TC-290": "none",
+  "TC-291": "full",
+  "TC-292": "none",
+  "TC-293": "none",
+  "TC-294": "partial",
+  "TC-295": "full",
+  "TC-296": "partial",
+  "TC-297": "none",
+  "TC-298": "none",
+  "TC-299": "full",
+  "TC-300": "partial",
+  "TC-301": "partial",
+  "TC-302": "none",
+  "TC-303": "none",
+  "TC-304": "none",
+  "TC-305": "none",
+  "TC-388": "none",
+  "TC-306": "none",
+  "TC-307": "full",
+  "TC-308": "none",
+  "TC-309": "none",
+  "TC-310": "none",
+  "TC-311": "none",
+  "TC-312": "none",
+  "TC-313": "none",
+  "TC-314": "none",
+  "TC-315": "none",
+  "TC-316": "partial",
+  "TC-317": "full",
+  "TC-318": "none",
+  "TC-498": "none",
+  "TC-319": "partial",
+  "TC-320": "full",
+  "TC-321": "full",
+  "TC-473": "none",
+  "TC-490": "none",
+  "TC-322": "none",
+  "TC-323": "full",
+  "TC-324": "full",
+  "TC-325": "none",
+  "TC-326": "none",
+  "TC-411": "none",
+  "TC-327": "full",
+  "TC-328": "full",
+  "TC-332": "partial",
+  "TC-333": "partial",
+  "TC-334": "partial",
+  "TC-431": "partial",
+  "TC-383": "none",
+  "TC-335": "full",
+  "TC-336": "partial",
+  "TC-337": "partial",
+  "TC-403": "partial",
+  "TC-338": "partial",
+  "TC-339": "none",
+  "TC-340": "none",
+  "TC-341": "none",
+  "TC-342": "none",
+  "TC-401": "none",
+  "TC-343": "partial",
+  "TC-517": "none",
+  "TC-518": "none",
+  "TC-418": "none",
+  "TC-344": "none",
+  "TC-501": "none",
+  "TC-345": "none",
+  "TC-346": "none",
+  "TC-347": "partial",
+  "TC-348": "full",
+  "TC-391": "partial",
+  "TC-349": "partial",
+  "TC-453": "partial",
+  "TC-350": "full",
+  "TC-429": "partial",
+  "TC-351": "none",
+  "TC-352": "full",
+  "TC-353": "full",
+  "TC-354": "partial",
+  "TC-355": "full"
+ },
+ "cb_detail": {
+  "TC-001": {
+   "match": "full",
+   "spec_agent": "PM-ENTRY-001",
+   "note": ""
+  },
+  "TC-441": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Landscape Home edit mode offers the AI Mini Drama entry (ticket DRA262610P0167)",
+   "kind": "regression"
+  },
+  "TC-464": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Tablet Launcher shortcut in portrait and landscape behind Remote Config flag (DRA262610P0205)",
+   "kind": "regression"
+  },
+  "TC-002": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Home hero banner 「AI Mini Drama with Seedance 2.0 >」 opens the landing page; SA only checks the AI feature list entry",
+   "kind": "spec"
+  },
+  "TC-003": {
+   "match": "partial",
+   "spec_agent": "PM-ASSISTANT-INTRO-001",
+   "note": "Also checks subtitle, Create Your Drama, template row with More, header back/credit pill/History and poster thumbnails"
+  },
+  "TC-004": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "「More」 shown next to 「Start from a template」 when there are 6+ templates",
+   "kind": "spec"
+  },
+  "TC-005": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Landing credit pill equals the account credit balance",
+   "kind": "mx"
+  },
+  "TC-006": {
+   "match": "partial",
+   "spec_agent": "QA-TEMPLATE-CATEGORY-ICONS-001",
+   "note": "SA checks category icons only; casebook checks More opens all categories by name with cover rows"
+  },
+  "TC-415": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Horizontal browsing cue on category rows with offscreen templates (DRA262610P0065)",
+   "kind": "regression"
+  },
+  "TC-007": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Template detail autoplays with sound and shows Make my version",
+   "kind": "spec"
+  },
+  "TC-008": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Tapping the template video pauses it (pause and volume-off state)",
+   "kind": "spec"
+  },
+  "TC-009": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-FORMAT-PROMPT-001",
+   "note": "Casebook checks Make my version asks the format question before any outline; SA checks Generate starts the outline / a format prompt exists"
+  },
+  "TC-503": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Template chat offers Create storyboard on its own once characters are ready (DRA262610P0268)",
+   "resolved": "cross-check: spec agent case maps here; casebook checks more"
+  },
+  "TC-010": {
+   "match": "full",
+   "spec_agent": "QA-TEMPLATE-NAME-TEXT-SCAN-001",
+   "note": ""
+  },
+  "TC-011": {
+   "match": "partial",
+   "spec_agent": "PM-IDEA-INPUT-001, PM-ASSISTANT-INTRO-001",
+   "note": "Also checks Create Your Drama opens an empty chat with a mic button"
+  },
+  "TC-425": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Create Your Drama always opens a new empty chat after visiting a History drama (DRA262610P0103)",
+   "kind": "regression"
+  },
+  "TC-012": {
+   "match": "full",
+   "spec_agent": "PM-INSPIRATION-TWO-001",
+   "note": ""
+  },
+  "TC-013": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Tapping an inspiration chip puts its text in the input without sending",
+   "kind": "spec"
+  },
+  "TC-014": {
+   "match": "full",
+   "spec_agent": "PM-SURPRISE-SESSION-001",
+   "note": ""
+  },
+  "TC-380": {
+   "match": "full",
+   "spec_agent": "PM-SURPRISE-SESSION-001",
+   "note": ""
+  },
+  "TC-015": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Idea input 1,000-character cap: truncation, red 1000/1000 counter and limit message (SA limit cases cover the character description only)",
+   "kind": "spec"
+  },
+  "TC-016": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Typing at 1,000 characters adds nothing and keeps the limit message",
+   "kind": "spec"
+  },
+  "TC-017": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Deleting below 1,000 clears the red counter and the limit message",
+   "kind": "spec"
+  },
+  "TC-018": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Idea input collapses to at most 3 lines when the keyboard is dismissed",
+   "kind": "spec"
+  },
+  "TC-372": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Empty-chat input grows to its maximum height then scrolls internally without covering controls",
+   "kind": "spec"
+  },
+  "TC-373": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Input growth and internal scroll in a chat with an outline",
+   "kind": "spec"
+  },
+  "TC-019": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "「More ideas +」 chip shown above the input once the chat has a message",
+   "kind": "spec"
+  },
+  "TC-020": {
+   "match": "partial",
+   "spec_agent": "PM-FORMAT-PROMPT-001, EXP-002-001",
+   "note": "Also checks the exact question, the seven language options, both caption options and no aspect-ratio question"
+  },
+  "TC-021": {
+   "match": "partial",
+   "spec_agent": "EXP-002-001",
+   "note": "SA only characterizes option combinations; casebook asserts single selection per group"
+  },
+  "TC-022": {
+   "match": "partial",
+   "spec_agent": "EXP-002-001",
+   "note": "Format card button replaces the card with the user bubble 「1. Video language / 2. Captions」",
+   "resolved": "cross-check: spec agent case maps here; casebook checks more"
+  },
+  "TC-414": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Format question stays in chat history after Continue in a template chat (DRA262610P0063)",
+   "kind": "regression"
+  },
+  "TC-468": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Typing instead of answering the format card does not generate with default English and captions (DRA262610P0209)",
+   "kind": "regression"
+  },
+  "TC-488": {
+   "match": "partial",
+   "spec_agent": "EXP-002-001",
+   "note": "SA only characterizes defaults and persistence; casebook asserts the last-used language and captions are pre-selected (DRA262610P0237)"
+  },
+  "TC-381": {
+   "match": "partial",
+   "spec_agent": "PM-RECENT-NO-OUTLINE-001",
+   "note": "Also checks Back from an empty chat and from the format card leaves with no dialog to the landing page"
+  },
+  "TC-394": {
+   "match": "partial",
+   "spec_agent": "PM-RECENT-NO-OUTLINE-001",
+   "note": "Also checks Android system back from empty chat, typed draft and format card leaves with no dialog"
+  },
+  "TC-023": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Outline loading status text 「I'll create a story outline...」 / 「Writing your story...」",
+   "kind": "spec"
+  },
+  "TC-024": {
+   "match": "full",
+   "spec_agent": "PM-OUTLINE-CONTENT-001",
+   "note": ""
+  },
+  "TC-416": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "No redundant message blocks between outline and character cards in template chats (DRA262610P0068)",
+   "kind": "regression"
+  },
+  "TC-420": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Character carousel shows a partial next card as a scroll cue (DRA262610P0074)",
+   "kind": "regression"
+  },
+  "TC-448": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Only one header introduces the character slots (DRA262610P0178)",
+   "kind": "regression"
+  },
+  "TC-497": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Quoted lines, fixed scene count and dialect requests are kept or declined explicitly (DRA262610P0254)",
+   "kind": "regression"
+  },
+  "TC-508": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Template character descriptions include the character look, not only role (DRA262610P0290)",
+   "kind": "regression"
+  },
+  "TC-025": {
+   "match": "full",
+   "spec_agent": "1021-NAV-OUTLINE-BACK-LEAVE, 1021-NAV-OUTLINE-BACK-STAY, 1012-PM-OUTLINE-LEAVE-WARNING",
+   "note": ""
+  },
+  "TC-395": {
+   "match": "full",
+   "spec_agent": "1021-NAV-OUTLINE-SYSTEM-BACK-STAY",
+   "note": ""
+  },
+  "TC-396": {
+   "match": "full",
+   "spec_agent": "1021-NAV-OUTLINE-SYSTEM-BACK-LEAVE, PM-RECENT-NO-OUTLINE-001",
+   "note": ""
+  },
+  "TC-452": {
+   "match": "partial",
+   "spec_agent": "1021-NAV-OUTLINE-SYSTEM-BACK-LEAVE",
+   "note": "Casebook checks the leave dialog and no History save in a template chat (DRA262610P0184); SA does not name the template entry"
+  },
+  "TC-026": {
+   "match": "full",
+   "spec_agent": "1021-NAV-OUTLINE-HISTORY-STAY",
+   "note": ""
+  },
+  "TC-027": {
+   "match": "full",
+   "spec_agent": "1021-NAV-OUTLINE-BACK-STAY, 1021-NAV-OUTLINE-HISTORY-STAY",
+   "note": ""
+  },
+  "TC-028": {
+   "match": "full",
+   "spec_agent": "1021-NAV-OUTLINE-BACK-LEAVE, PM-RECENT-NO-OUTLINE-001",
+   "note": ""
+  },
+  "TC-357": {
+   "match": "full",
+   "spec_agent": "1021-NAV-OUTLINE-NEW-STAY, 1021-NAV-OUTLINE-CREDIT-STAY",
+   "note": ""
+  },
+  "TC-358": {
+   "match": "full",
+   "spec_agent": "1021-NAV-OUTLINE-CREDIT-LEAVE",
+   "note": ""
+  },
+  "TC-386": {
+   "match": "partial",
+   "spec_agent": "PM-RECENT-NO-OUTLINE-001",
+   "note": "Casebook reaches the unsaved state by killing the app in Recents during outline generation"
+  },
+  "TC-029": {
+   "match": "full",
+   "spec_agent": "1021-NAV-SAVED-BACK-LEAVE, PM-RECENT-LATEST-001",
+   "note": ""
+  },
+  "TC-397": {
+   "match": "full",
+   "spec_agent": "1021-NAV-SAVED-SYSTEM-BACK-LEAVE",
+   "note": ""
+  },
+  "TC-360": {
+   "match": "full",
+   "spec_agent": "1021-NAV-SAVED-HISTORY-LEAVE, 1021-NAV-SAVED-CREDIT-LEAVE, 1021-NAV-SAVED-NEW-LEAVE",
+   "note": ""
+  },
+  "TC-030": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Outline 5xxx failure message and Try again resending the same idea and format (SA all-fail cases cover storyboard and video only)",
+   "kind": "spec"
+  },
+  "TC-031": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Outline 4xxx policy refusal message with no button, without re-showing the format card",
+   "kind": "spec"
+  },
+  "TC-511": {
+   "match": "partial",
+   "spec_agent": "1021-NAV-OUTLINE-BACK-LEAVE, 1021-NAV-OUTLINE-SYSTEM-BACK-LEAVE",
+   "note": "Casebook checks the leave dialog and no History entry after a failed outline (5xxx or 4xxx), a state SA does not reach"
+  },
+  "TC-032": {
+   "match": "full",
+   "spec_agent": "DESIGN-OFFLINE-SEND-001",
+   "note": ""
+  },
+  "TC-387": {
+   "match": "partial",
+   "spec_agent": "DESIGN-OFFLINE-SEND-001",
+   "note": "Casebook checks the offline toast for a chat message after the outline exists, with no request and no charge"
+  },
+  "TC-033": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Choose Character contents: Choose for {name}, cast tabs, Create my character tile, Mine-tagged library, filter icon, placeholders",
+   "kind": "spec"
+  },
+  "TC-480": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Add New asks the user to describe the new character first (DRA262610P0229)",
+   "kind": "regression"
+  },
+  "TC-034": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "First-use hint 「Tap to choose a look for {name}」 pointing at the next unset slot",
+   "kind": "spec"
+  },
+  "TC-035": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "First-use character hint disappears after 5 seconds",
+   "kind": "spec"
+  },
+  "TC-036": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Character filter Gender/Ethnicity lists, filtered library and removable chips",
+   "kind": "spec"
+  },
+  "TC-410": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Unchecked My characters only checkbox color (DRA262610-0045)",
+   "kind": "regression"
+  },
+  "TC-371": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Age slider shows the handle value while dragging",
+   "kind": "spec"
+  },
+  "TC-037": {
+   "match": "full",
+   "spec_agent": "DESIGN-PICKER-EXIT-001",
+   "note": ""
+  },
+  "TC-038": {
+   "match": "full",
+   "spec_agent": "DESIGN-PICKER-KEEP-001, DESIGN-PICKER-LEAVE-001",
+   "note": ""
+  },
+  "TC-039": {
+   "match": "full",
+   "spec_agent": "DESIGN-MISSING-PLURAL-001, DESIGN-MISSING-COUNT-001",
+   "note": ""
+  },
+  "TC-040": {
+   "match": "full",
+   "spec_agent": "DESIGN-MISSING-SINGULAR-001",
+   "note": ""
+  },
+  "TC-041": {
+   "match": "full",
+   "spec_agent": "1021-CHAR-MULTI-READY",
+   "note": ""
+  },
+  "TC-456": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Generate all does not produce likenesses of real public figures (DRA262610P0193)",
+   "kind": "regression"
+  },
+  "TC-042": {
+   "match": "partial",
+   "spec_agent": "DESIGN-CHARACTER-FAILURE-001",
+   "note": "Casebook checks the multi-character partial failure: successful ones applied, failed slots marked ! and refunded, count in the copy"
+  },
+  "TC-384": {
+   "match": "partial",
+   "spec_agent": "FIXTURE-1001-S001-B026",
+   "note": "Also checks failed characters listed with ! in the unset sheet and tapping one opens Character Library on it"
+  },
+  "TC-043": {
+   "match": "full",
+   "spec_agent": "DESIGN-CHARACTER-FAILURE-001, DESIGN-CHARACTER-GOT-IT-001",
+   "note": ""
+  },
+  "TC-500": {
+   "match": "partial",
+   "spec_agent": "DESIGN-CHARACTER-FAILURE-001",
+   "note": "SA checks the refund message only; casebook checks the refund row in Credit Details (DRA262610P0257)"
+  },
+  "TC-044": {
+   "match": "partial",
+   "spec_agent": "PM-CHARACTER-CONFIRM-001",
+   "note": "Also checks the exact assistant copy, card price and no premature storyboard-created message, in custom and template chats"
+  },
+  "TC-477": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Warning when a role gets a character of another gender (DRA262610P0224)",
+   "kind": "regression"
+  },
+  "TC-487": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Warning when one look is used for two roles (DRA262610P0236)",
+   "kind": "regression"
+  },
+  "TC-045": {
+   "match": "full",
+   "spec_agent": "1021-LOOK-OFFER, 1021-LOOK-QUOTE-TWO-CHARACTERS",
+   "note": ""
+  },
+  "TC-046": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Older outline card keeps its images and has no switch icons after a character change",
+   "kind": "spec"
+  },
+  "TC-505": {
+   "match": "partial",
+   "spec_agent": "EXP-004-001",
+   "note": "Accepted outline is not silently replaced after picking looks (DRA262610P0285)",
+   "resolved": "cross-check: spec agent case maps here; casebook checks more"
+  },
+  "TC-047": {
+   "match": "partial",
+   "spec_agent": "PM-CHARACTER-CHOICE-001",
+   "note": "Also checks the Create my character form layout, copy, required fields and Generate ◆6"
+  },
+  "TC-478": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Gender and Age pre-filled from the outline description (DRA262610P0225)",
+   "kind": "regression"
+  },
+  "TC-048": {
+   "match": "partial",
+   "spec_agent": "PM-UPLOAD-ANALYSIS-001",
+   "note": "Casebook checks generation starts from a description alone with no photo"
+  },
+  "TC-049": {
+   "match": "partial",
+   "spec_agent": "PM-CHARACTER-MAPPING-001, PM-CHARACTER-CHOICE-001",
+   "note": "Casebook checks generation starts from a reference photo alone with no description"
+  },
+  "TC-469": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Generated character follows the entered age, photo only for likeness (DRA262610P0210)",
+   "kind": "regression"
+  },
+  "TC-050": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Generate disabled until Gender, Ethnicity and Age are all set",
+   "kind": "spec"
+  },
+  "TC-051": {
+   "match": "full",
+   "spec_agent": "DESIGN-CHARACTER-LIMIT-MESSAGE-001, DESIGN-CHARACTER-LIMIT-GENERATE-001",
+   "note": ""
+  },
+  "TC-052": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Several-people photo warning only after Generate, with Generate anyway / Use another photo",
+   "kind": "spec"
+  },
+  "TC-053": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "No person detected warning for a photo without a person",
+   "kind": "spec"
+  },
+  "TC-054": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Public figure photo blocked with 「This photo can't be used」",
+   "kind": "spec"
+  },
+  "TC-055": {
+   "match": "full",
+   "spec_agent": "1021-CHAR-DISCARD-KEEP, 1021-CHAR-DISCARD-LEAVE",
+   "note": ""
+  },
+  "TC-402": {
+   "match": "partial",
+   "spec_agent": "1021-CHAR-DISCARD-KEEP, 1021-CHAR-DISCARD-LEAVE",
+   "note": "Also checks system back shows the same dialog and Discard saves nothing to Mine or the slot"
+  },
+  "TC-056": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "X on an empty Create my character closes with no dialog",
+   "kind": "spec"
+  },
+  "TC-057": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "X on a generated character shows the no-refund Discard dialog with Keep / Discard",
+   "kind": "spec"
+  },
+  "TC-058": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Delete a user character from the library with the permanent-delete dialog",
+   "kind": "spec"
+  },
+  "TC-059": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "CyberLink stock characters have no Delete option",
+   "kind": "spec"
+  },
+  "TC-060": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Storyboard charge equals the quoted price and Credit Details books Text to Image and Text to Speech rows",
+   "kind": "mx"
+  },
+  "TC-377": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Generate on Create storyboard: no user bubble, two-stage cards, credit pill drops only at stage ②",
+   "kind": "spec"
+  },
+  "TC-512": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "No stop or pause control while the storyboard is prepared and created (PM 10/22)",
+   "kind": "spec"
+  },
+  "TC-061": {
+   "match": "partial",
+   "spec_agent": "1021-NAV-STORYBOARD-BACK-STAY, 1021-NAV-STORYBOARD-BACK-LEAVE",
+   "note": "SA expects the older 「Stop and lose your credits?」 dialog; casebook checks the PM 10/22 stage ① 「Leave while we're preparing?」 dialog"
+  },
+  "TC-398": {
+   "match": "partial",
+   "spec_agent": "1021-NAV-STORYBOARD-SYSTEM-BACK-STAY",
+   "note": "SA expects the older 「Stop and lose your credits?」 dialog; casebook checks 「Leave while we're preparing?」 and Stay keeps preparing"
+  },
+  "TC-399": {
+   "match": "partial",
+   "spec_agent": "1021-NAV-STORYBOARD-SYSTEM-BACK-LEAVE",
+   "note": "SA expects credits lost; casebook checks reopening restarts stage ① by itself and charges once"
+  },
+  "TC-062": {
+   "match": "partial",
+   "spec_agent": "1021-NAV-STORYBOARD-BACK-STAY",
+   "note": "SA uses the older Keep Generating dialog; casebook checks Stay on the stage ① preparing dialog"
+  },
+  "TC-359": {
+   "match": "partial",
+   "spec_agent": "1021-NAV-STORYBOARD-HISTORY-STAY, 1021-NAV-STORYBOARD-NEW-STAY, 1021-NAV-STORYBOARD-CREDIT-LEAVE",
+   "note": "SA expects the older 「Stop and lose your credits?」 dialog; casebook checks the stage ① preparing dialog and Credit opening My Credits"
+  },
+  "TC-513": {
+   "match": "partial",
+   "spec_agent": "1021-NAV-STORYBOARD-BACK-LEAVE",
+   "note": "SA expects a stop dialog; casebook checks stage ② leaves with no dialog, a toast, background completion and a single charge"
+  },
+  "TC-514": {
+   "match": "partial",
+   "spec_agent": "PM-RECENT-LATEST-STORYBOARD-001",
+   "note": "Casebook checks the storyboard finishes in the background after the app is killed at stage ②, charged once"
+  },
+  "TC-063": {
+   "match": "partial",
+   "spec_agent": "1021-NAV-STORYBOARD-BACK-LEAVE",
+   "note": "SA expects credits lost on leave; casebook checks stage ① restarts on return with one charge in Credit Details"
+  },
+  "TC-064": {
+   "match": "full",
+   "spec_agent": "PM-SCRIPT-RESULT-001, PM-VIDEO-PLAN-001",
+   "note": ""
+  },
+  "TC-409": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Storyboard images dress a custom character as on its reference sheet (DRA262610-0040)",
+   "kind": "regression"
+  },
+  "TC-065": {
+   "match": "partial",
+   "spec_agent": "PM-SCRIPT-EDIT-001, EXP-010-001",
+   "note": "Also checks scene detail layout (Scene N, Location, title, full script), ‹ › navigation and no clipped glyphs"
+  },
+  "TC-066": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Location thumbnail is not tappable and sits beside the main image with no label",
+   "kind": "spec"
+  },
+  "TC-389": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Location thumbnail skeleton then image while the scene generates",
+   "kind": "spec"
+  },
+  "TC-390": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Location and main image both failed: pink Location • Failed icon and Edit regenerating 2 images",
+   "kind": "spec"
+  },
+  "TC-067": {
+   "match": "full",
+   "spec_agent": "1021-ERROR-4XX-STORYBOARD-DIALOG",
+   "note": ""
+  },
+  "TC-068": {
+   "match": "full",
+   "spec_agent": "1021-ERROR-5XX-NO-INFO-STORYBOARD",
+   "note": ""
+  },
+  "TC-465": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Failed scene image credits actually refunded in balance and Credit Details (DRA262610P0206)",
+   "kind": "regression"
+  },
+  "TC-069": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Failed storyboard thumbnail shows only the ⟳ icon, no Regenerate text",
+   "kind": "spec"
+  },
+  "TC-070": {
+   "match": "partial",
+   "spec_agent": "EXP-010-001",
+   "note": "Failed scene Edit: description editor with counter and Regenerate Image ◆6 / ◆12 for two images",
+   "resolved": "cross-check: spec agent case maps here; casebook checks more"
+  },
+  "TC-489": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Regenerate with an edited description after a moderation failure (DRA262610P0238)",
+   "kind": "regression"
+  },
+  "TC-378": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "X during scene image regeneration shows 「Stop and lose your credits?」; Leave anyway stops with no refund",
+   "kind": "spec"
+  },
+  "TC-071": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Skeleton on the image area during Regenerate Image",
+   "kind": "spec"
+  },
+  "TC-072": {
+   "match": "partial",
+   "spec_agent": "EXP-004-001",
+   "note": "SA only characterizes revision instructions; casebook checks a scene-image request in chat yields a Create storyboard card with the per-image price"
+  },
+  "TC-385": {
+   "match": "partial",
+   "spec_agent": "EXP-004-001",
+   "note": "SA only characterizes scope preservation; casebook checks only the changed scene and preview show skeletons"
+  },
+  "TC-073": {
+   "match": "partial",
+   "spec_agent": "EXP-004-001",
+   "note": "Storyboard update posts a new card at the bottom and leaves the earlier card unchanged",
+   "resolved": "cross-check: spec agent case maps here; casebook checks more"
+  },
+  "TC-458": {
+   "match": "partial",
+   "spec_agent": "EXP-004-001",
+   "note": "Regenerated Scene 3 image shows the requested change (DRA262610P0199)",
+   "resolved": "cross-check: spec agent case maps here; casebook checks more"
+  },
+  "TC-074": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Storyboard Preview regenerated after an image update, with a new TextToSpeech call in the log",
+   "kind": "spec"
+  },
+  "TC-075": {
+   "match": "partial",
+   "spec_agent": "PM-VIDEO-PLAN-001",
+   "note": "Also checks the preview card title, duration, copy and narrated slideshow playback"
+  },
+  "TC-076": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Storyboard Preview has captions even when No captions was chosen",
+   "kind": "spec"
+  },
+  "TC-443": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Preview captions break at word or punctuation boundaries in Chinese and Korean (DRA262610P0169)",
+   "kind": "regression"
+  },
+  "TC-077": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Preview card shows 「Complete the image generation above first」 with no button when a scene image is missing (SA preview-unavailable cases are STT/TTS failures with Retry)",
+   "kind": "spec"
+  },
+  "TC-413": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Preview generated and playable once the failed scene image is regenerated (DRA262610P0027)",
+   "kind": "regression"
+  },
+  "TC-078": {
+   "match": "partial",
+   "spec_agent": "DESIGN-TTS-FAILURE-001, DESIGN-STT-FAILURE-001",
+   "note": "SA uses the 1006 「Storyboard preview unavailable」 / partial-refund copy; casebook checks the current full-refund copy with Retry"
+  },
+  "TC-079": {
+   "match": "partial",
+   "spec_agent": "1021-MODEL-RATE-BEST-PREVIEW",
+   "note": "SA checks Best is selected by default; casebook also checks the card title, three tiers, subtitle, length options and Generate price"
+  },
+  "TC-509": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Tapping model tiers does not make the chat jump (DRA262610P0296)",
+   "kind": "regression"
+  },
+  "TC-080": {
+   "match": "partial",
+   "spec_agent": "PM-MODEL-QUOTE-SWITCH-001, EXP-011-001",
+   "note": "SA checks the quote changes on a model switch (older Seedance 2.0 Mini naming); casebook checks the exact prices per tier and length"
+  },
+  "TC-504": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Credit Details entries for a video add up to the deducted credits (DRA262610P0273)",
+   "kind": "regression"
+  },
+  "TC-081": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "First-video notification pre-prompt 「Get notified when your video is ready?」 with Notify me / Not now",
+   "kind": "spec"
+  },
+  "TC-405": {
+   "match": "partial",
+   "spec_agent": "PM-VIDEO-GENERATING-001",
+   "note": "Also checks the two-stage video cards in place and the credit pill dropping only at 「Making your video…」"
+  },
+  "TC-515": {
+   "match": "partial",
+   "spec_agent": "1021-VIDEO-HISTORY-HINT",
+   "note": "SA expects no dialog while the video generates; casebook checks the PM 10/22 stage ① 「Leave while we're preparing?」 dialog on Back and restart with no extra charge"
+  },
+  "TC-516": {
+   "match": "partial",
+   "spec_agent": "1021-NAV-VIDEO-SYSTEM-BACK-LEAVE, 1021-NAV-VIDEO-HISTORY-LEAVE, 1021-NAV-VIDEO-NEW-LEAVE, 1021-NAV-VIDEO-CREDIT-LEAVE",
+   "note": "SA expects no dialog during video generation; casebook checks the stage ① preparing dialog on every exit"
+  },
+  "TC-082": {
+   "match": "full",
+   "spec_agent": "1021-VIDEO-HISTORY-HINT",
+   "note": ""
+  },
+  "TC-400": {
+   "match": "full",
+   "spec_agent": "1021-NAV-VIDEO-SYSTEM-BACK-LEAVE",
+   "note": ""
+  },
+  "TC-361": {
+   "match": "full",
+   "spec_agent": "1021-NAV-VIDEO-HISTORY-LEAVE, 1021-NAV-VIDEO-CREDIT-LEAVE, 1021-NAV-VIDEO-NEW-LEAVE",
+   "note": ""
+  },
+  "TC-474": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Video request survives switching to another drama (DRA262610P0221)",
+   "kind": "regression"
+  },
+  "TC-475": {
+   "match": "partial",
+   "spec_agent": "EXP-011-001",
+   "note": "Re-offered video card keeps the model row and price equals the charge (DRA262610P0222)",
+   "resolved": "cross-check: spec agent case maps here; casebook checks more"
+  },
+  "TC-482": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Background video finishes while another drama is in Full Edit (DRA262610P0231)",
+   "kind": "regression"
+  },
+  "TC-083": {
+   "match": "full",
+   "spec_agent": "1021-VIDEO-HISTORY-HINT, 1021-VIDEO-HINT-DISMISS-HISTORY-TAP",
+   "note": ""
+  },
+  "TC-084": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "History card shows 「processing..」 without a progress bar while the video generates",
+   "kind": "spec"
+  },
+  "TC-486": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "History card drops 「processing..」 once generation ends (DRA262610P0235)",
+   "kind": "regression"
+  },
+  "TC-085": {
+   "match": "partial",
+   "spec_agent": "PM-VIDEO-NOTIFY-001, PM-VIDEO-NOTIFY-ROOM-001",
+   "note": "Casebook checks the in-app 「Good news!」 toast copy with Close / View while elsewhere in the app"
+  },
+  "TC-484": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Ready toast names the finished drama only (DRA262610P0233)",
+   "kind": "regression"
+  },
+  "TC-086": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "After the preview video: 「Looking good! Ready for the full video?」 with the 90-sec full episode offer",
+   "kind": "spec"
+  },
+  "TC-493": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Video shows the characters the user picked (DRA262610P0246)",
+   "kind": "regression"
+  },
+  "TC-087": {
+   "match": "full",
+   "spec_agent": "PM-SEQUEL-ENTRY-001",
+   "note": ""
+  },
+  "TC-479": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Result cards label Preview vs Full episode and length (DRA262610P0227)",
+   "kind": "regression"
+  },
+  "TC-088": {
+   "match": "partial",
+   "spec_agent": "1021-EXPORT-ANDROID-TOAST",
+   "note": "SA checks export loading; casebook checks Full Edit has one clip per scene and export yields one flattened video"
+  },
+  "TC-417": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Full Edit reopens the existing project with no duplicate project (DRA262610P0069)",
+   "kind": "regression"
+  },
+  "TC-423": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Mini Drama captions export from Full Edit without Pro (DRA262610P0084)",
+   "kind": "regression"
+  },
+  "TC-426": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Undo after an aspect-ratio change restores caption size (DRA262610P0105)",
+   "kind": "regression"
+  },
+  "TC-382": {
+   "match": "partial",
+   "spec_agent": "EXP-015-001",
+   "note": "SA only characterizes playback; casebook asserts tapping a scene thumbnail moves the player to it"
+  },
+  "TC-457": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Clip strip highlight stays on the chosen clip after Home or lock (DRA262610P0194)",
+   "kind": "regression"
+  },
+  "TC-506": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Player and selected clip strip item agree on reopening (DRA262610P0286)",
+   "kind": "regression"
+  },
+  "TC-510": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Clip strip scrolls with playback (DRA262610P0297)",
+   "kind": "regression"
+  },
+  "TC-089": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Download shows a spinner then 「Saved to your device.」 with no dialog",
+   "kind": "spec"
+  },
+  "TC-422": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Clips reach the gallery only on download, named after the drama (DRA262610P0083)",
+   "kind": "regression"
+  },
+  "TC-090": {
+   "match": "partial",
+   "spec_agent": "EXP-015-001",
+   "note": "SA only characterizes captions; casebook asserts captions are burned into the downloaded video"
+  },
+  "TC-091": {
+   "match": "full",
+   "spec_agent": "DESIGN-SCENE-FAILURE-COUNT-001, DESIGN-SCENE-FIX-001, DESIGN-SCENE-DOWNLOAD-001",
+   "note": ""
+  },
+  "TC-483": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Failed clips actually refunded in balance and Credit Details (DRA262610P0232)",
+   "kind": "regression"
+  },
+  "TC-499": {
+   "match": "partial",
+   "spec_agent": "DESIGN-SCENE-FAILURE-COUNT-001",
+   "note": "Casebook checks the singular 「1 scene couldn't be generated」 wording (DRA262610P0256)"
+  },
+  "TC-376": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Chat failure message Edit opens Full Edit on the first failed scene",
+   "kind": "spec"
+  },
+  "TC-092": {
+   "match": "full",
+   "spec_agent": "FIXTURE-1001-S001-B029, PM-FAILED-CLIP-RECOVERY-002",
+   "note": ""
+  },
+  "TC-362": {
+   "match": "full",
+   "spec_agent": "1021-ERROR-4XX-VIDEO-DIALOG",
+   "note": ""
+  },
+  "TC-363": {
+   "match": "full",
+   "spec_agent": "1021-ERROR-5XX-NO-INFO-VIDEO",
+   "note": ""
+  },
+  "TC-093": {
+   "match": "full",
+   "spec_agent": "FIXTURE-1001-S001-B046, DESIGN-SCENE-DOWNLOAD-001",
+   "note": ""
+  },
+  "TC-094": {
+   "match": "full",
+   "spec_agent": "1021-VIDEO-ALL-FAIL",
+   "note": ""
+  },
+  "TC-485": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Unreachable server on Generate Video ends in an error with Try again (DRA262610P0234)",
+   "kind": "regression"
+  },
+  "TC-095": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "6xxx upload failure card 「Your video didn't finish saving」 with Retry and no recharge",
+   "kind": "spec"
+  },
+  "TC-379": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "6xxx upload failure older than 3 hours turns into a refund card with Edit and a refund row",
+   "kind": "spec"
+  },
+  "TC-096": {
+   "match": "partial",
+   "spec_agent": "PM-CLIP-LEAVE-PROGRESS-001, PM-CLIP-LEAVE-REPLACE-001",
+   "note": "Also checks the still-updating download toast, Export unavailable and 「Your video has been updated.」"
+  },
+  "TC-097": {
+   "match": "partial",
+   "spec_agent": "EXP-015-001",
+   "note": "SA only characterizes captions; casebook asserts no captions with No captions"
+  },
+  "TC-364": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "No STT call in the log for a No captions video",
+   "kind": "spec"
+  },
+  "TC-098": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Caption failure: video without captions, 「Captions couldn't be added. Try again」 and 「Adding captions…」",
+   "kind": "spec"
+  },
+  "TC-365": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Caption retry reruns only failed STT segments and shows captions all at once",
+   "kind": "spec"
+  },
+  "TC-099": {
+   "match": "partial",
+   "spec_agent": "EXP-015-001",
+   "note": "SA only characterizes captions; casebook asserts captions show for dialogue"
+  },
+  "TC-433": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Each caption shows only while its line is spoken (DRA262610P0153)",
+   "kind": "regression"
+  },
+  "TC-467": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Narration caption font size in exported video (DRA262610P0208)",
+   "kind": "regression"
+  },
+  "TC-492": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Caption line and page breaks in all 7 languages (DRA262610P0244)",
+   "kind": "regression"
+  },
+  "TC-507": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Long captions shown in full and long enough to read in export (DRA262610P0288)",
+   "kind": "regression"
+  },
+  "TC-100": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Chat does not jump on new messages or rebuilt cards; ↓ button with no unread count",
+   "kind": "spec"
+  },
+  "TC-374": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "↓ button while scrolled up scrolls to the newest message",
+   "kind": "spec"
+  },
+  "TC-419": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Chat content scrolls under the header without overlapping its buttons (DRA262610P0072)",
+   "kind": "regression"
+  },
+  "TC-101": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Chat reopens at the newest message after History",
+   "kind": "spec"
+  },
+  "TC-102": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Chat reopens at the newest message after Choose Character",
+   "kind": "spec"
+  },
+  "TC-103": {
+   "match": "partial",
+   "spec_agent": "1021-LOOK-STORYBOARD-AFTER-STORYBOARD",
+   "note": "Casebook checks the catalogue wording 「Characters updated! Regenerate the storyboard to match?」"
+  },
+  "TC-104": {
+   "match": "partial",
+   "spec_agent": "FIXTURE-1001-S001-B020",
+   "note": "History empty state 「No dramas yet」 on a fresh install",
+   "resolved": "cross-check: spec agent case maps here; casebook checks more"
+  },
+  "TC-105": {
+   "match": "partial",
+   "spec_agent": "QA-HISTORY-INFO-POPUP-001",
+   "note": "SA opens the info popup via its button; casebook checks the first-visit hint copy and outside-tap dismissal"
+  },
+  "TC-106": {
+   "match": "full",
+   "spec_agent": "PM-RECENT-CARD-001, PM-RECENT-THUMBNAIL-STORYBOARD-001",
+   "note": ""
+  },
+  "TC-107": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Opening, playing or downloading a drama keeps History order, time and size",
+   "kind": "spec"
+  },
+  "TC-108": {
+   "match": "partial",
+   "spec_agent": "PM-RECENT-RENAME-001",
+   "note": "Also checks a renamed drama moves to the top with an updated time"
+  },
+  "TC-109": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Rename OK disabled for empty or spaces-only names",
+   "kind": "spec"
+  },
+  "TC-110": {
+   "match": "partial",
+   "spec_agent": "PM-RECENT-RENAME-001",
+   "note": "Also checks the new name is trimmed"
+  },
+  "TC-111": {
+   "match": "partial",
+   "spec_agent": "PM-RECENT-DELETE-001",
+   "note": "Casebook checks the delete dialog copy naming the drama, with Cancel / Delete"
+  },
+  "TC-112": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "History Manage multi-select: Select All / Deselect All and 「Delete 3 dramas?」 dialog",
+   "kind": "spec"
+  },
+  "TC-404": {
+   "match": "partial",
+   "spec_agent": "PM-RECENT-DELETE-001",
+   "note": "Also checks multi-select delete and that remaining cards keep order, time and size"
+  },
+  "TC-113": {
+   "match": "full",
+   "spec_agent": "PM-RECENT-LATEST-001, PM-RECENT-LATEST-CAST-001, PM-RECENT-LATEST-STORYBOARD-001, PM-RECENT-LATEST-VIDEO-001",
+   "note": ""
+  },
+  "TC-114": {
+   "match": "full",
+   "spec_agent": "1021-TRIAL-REMAINING",
+   "note": ""
+  },
+  "TC-356": {
+   "match": "full",
+   "spec_agent": "1021-TRIAL-EXHAUSTED",
+   "note": ""
+  },
+  "TC-115": {
+   "match": "partial",
+   "spec_agent": "FIXTURE-0924-S002-B028",
+   "note": "Casebook checks 「You'll have {n} left」 and charging with no separate confirmation; MX-CREDIT-CONSENT-001 expects a Consume credits? confirm instead"
+  },
+  "TC-116": {
+   "match": "partial",
+   "spec_agent": "MX-REGEN-TOPUP-001, DESIGN-MISSING-CREDIT-001",
+   "note": "Casebook checks the 「Not enough credits」 dialog copy before Buy Credits opens top-up"
+  },
+  "TC-117": {
+   "match": "full",
+   "spec_agent": "MX-FREE-LIMIT-001",
+   "note": ""
+  },
+  "TC-118": {
+   "match": "full",
+   "spec_agent": "MX-PROPLUS-LIMIT-001, MX-PROPLUS-LIMIT-COPY-001",
+   "note": ""
+  },
+  "TC-119": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Filter Clear resets Gender, Ethnicity, Age 1–100 and My characters only",
+   "kind": "spec"
+  },
+  "TC-120": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Switching cast slot updates the heading and resets filters",
+   "kind": "spec"
+  },
+  "TC-121": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "X on Finish your characters returns without applying generated looks",
+   "kind": "spec"
+  },
+  "TC-122": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Expand icon opens the full-screen description editor",
+   "kind": "spec"
+  },
+  "TC-370": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Tapping the description text opens the full-screen editor",
+   "kind": "spec"
+  },
+  "TC-123": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Collapse icon closes the editor keeping edits",
+   "kind": "spec"
+  },
+  "TC-124": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Done closes the editor keeping edits",
+   "kind": "spec"
+  },
+  "TC-125": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Description box scrolls internally",
+   "kind": "spec"
+  },
+  "TC-126": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "AI Suggestion fills description and required attributes for the named character",
+   "kind": "spec"
+  },
+  "TC-407": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "AI Suggestion returns a visual description, not the role line (DRA262610-0015)",
+   "kind": "regression"
+  },
+  "TC-127": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Age field opens a numeric keypad 1–100 with confirm",
+   "kind": "spec"
+  },
+  "TC-128": {
+   "match": "partial",
+   "spec_agent": "PM-CHARACTER-CHOICE-001",
+   "note": "Casebook checks Reference (optional) opens Select Media"
+  },
+  "TC-412": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Media permission notice can be dismissed with Back or close (DRA262610-0059)",
+   "kind": "regression"
+  },
+  "TC-129": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Picking a reference photo opens Crop with its hint text",
+   "kind": "spec"
+  },
+  "TC-130": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Crop drag and pinch move and scale the photo",
+   "kind": "spec"
+  },
+  "TC-131": {
+   "match": "full",
+   "spec_agent": "TC-PDRM-BASE-1014-CUSTOM-MEDIA-IDENTITY-ANDROID-001",
+   "note": ""
+  },
+  "TC-366": {
+   "match": "partial",
+   "spec_agent": "TC-PDRM-BASE-1014-CUSTOM-MEDIA-IDENTITY-ANDROID-001",
+   "note": "SA checks the preview; casebook checks the stored reference image sent for generation holds only the cropped area"
+  },
+  "TC-132": {
+   "match": "partial",
+   "spec_agent": "PM-UPLOAD-ANALYSIS-001",
+   "note": "SA checks the loading state; casebook checks it is replaced by front/side/back views with Save to library"
+  },
+  "TC-408": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Generated character follows selected gender, ethnicity and age (DRA262610-0024)",
+   "kind": "regression"
+  },
+  "TC-133": {
+   "match": "partial",
+   "spec_agent": "PM-CHARACTER-RESULT-001",
+   "note": "Casebook checks Save to library applies the character to the slot and tags it Mine in the library"
+  },
+  "TC-472": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Downloaded character file has one matching extension and MIME (DRA262610P0217)",
+   "kind": "regression"
+  },
+  "TC-134": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "X then Discard on a generated character applies and saves nothing",
+   "kind": "spec"
+  },
+  "TC-135": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Enlarge icon on a library character opens a preview",
+   "kind": "spec"
+  },
+  "TC-136": {
+   "match": "full",
+   "spec_agent": "DESIGN-MISSING-CREDIT-001"
+  },
+  "TC-137": {
+   "match": "partial",
+   "spec_agent": "DESIGN-CHARACTER-GOT-IT-001",
+   "note": "Got it returns to Create my character with photo and description still filled; SA only checks it returns to the picker"
+  },
+  "TC-138": {
+   "match": "partial",
+   "spec_agent": "PM-SCRIPT-EDIT-001",
+   "note": "Tapping the scene card itself opens scene detail; SA enters through View more"
+  },
+  "TC-139": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Long script scrolls inside scene detail",
+   "kind": "spec"
+  },
+  "TC-140": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Collapse icon in the failed scene description editor keeps the edited text",
+   "kind": "spec"
+  },
+  "TC-141": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Regenerate Image on a failed scene: skeleton, regenerates, charged once",
+   "kind": "spec"
+  },
+  "TC-427": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0112); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-428": {
+   "match": "partial",
+   "spec_agent": "DESIGN-OFFLINE-SEND-001",
+   "note": "Offline on Regenerate Image in scene detail (network message, no charge); SA checks offline only on idea send"
+  },
+  "TC-491": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0241); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-142": {
+   "match": "partial",
+   "spec_agent": "PM-VIDEO-GENERATING-001",
+   "note": "Completion: 「Here's your drama.」 with the finished video and Edit; SA checks only the in-progress state"
+  },
+  "TC-143": {
+   "match": "partial",
+   "spec_agent": "EXP-015-001",
+   "note": "Play opens the scene-video player and plays; SA only has an open-ended playback characterization"
+  },
+  "TC-434": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0154); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-435": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0155); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-436": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0156); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-438": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0161); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-439": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0162); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-442": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0168); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-444": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0170); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-375": {
+   "match": "partial",
+   "spec_agent": "EXP-015-001",
+   "note": "Tap-to-pause shows the play button (Design note); SA retired its tap-pause case and keeps only an open-ended playback characterization"
+  },
+  "TC-481": {
+   "match": "partial",
+   "spec_agent": "EXP-015-001",
+   "note": "Android ticket recheck (DRA262610P0230); no spec agent case checks it",
+   "resolved": "cross-check: spec agent case maps here; casebook checks more"
+  },
+  "TC-144": {
+   "match": "full",
+   "spec_agent": "PM-CLIP-LEAVE-PROGRESS-001"
+  },
+  "TC-145": {
+   "match": "full",
+   "spec_agent": "PM-CLIP-LEAVE-REPLACE-001"
+  },
+  "TC-146": {
+   "match": "partial",
+   "spec_agent": "FIXTURE-1001-S001-B029",
+   "note": "Edit on a failed clip opens the scene-video description editor; SA only checks that Edit is exposed"
+  },
+  "TC-147": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Collapse icon in the failed scene-video editor keeps the edited text",
+   "kind": "spec"
+  },
+  "TC-148": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Done in the failed scene-video editor returns to the offer with the edited text",
+   "kind": "spec"
+  },
+  "TC-149": {
+   "match": "full",
+   "spec_agent": "PM-SCENE-REGENERATE-001, PM-FAILED-CLIP-RECOVERY-002"
+  },
+  "TC-437": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0160); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-454": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0190); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-150": {
+   "match": "partial",
+   "spec_agent": "DESIGN-SCENE-FIX-001",
+   "note": "Tapping Fix scenes opens the recovery view; SA checks only that Fix scenes is offered"
+  },
+  "TC-151": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Caption retry success replaces the video and clears 「Captions couldn't be added」",
+   "kind": "spec"
+  },
+  "TC-152": {
+   "match": "full",
+   "spec_agent": "MX-REGEN-TOPUP-001"
+  },
+  "TC-153": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Stop during the outline explains what stops and credit loss; Credit Details keeps the charge (QA rule)",
+   "kind": "other"
+  },
+  "TC-471": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0213); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-154": {
+   "match": "partial",
+   "spec_agent": "1021-CHAR-SINGLE-CANCEL-LEAVE, 1021-CHAR-MULTIPLE-CANCEL-LEAVE",
+   "note": "Stop warning text and no refund row in Credit Details; SA claim is only that Cancel/X stays operable"
+  },
+  "TC-155": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Stop during a chat revision explains what stops and credit loss (QA rule)",
+   "kind": "other"
+  },
+  "TC-156": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Stop button during the storyboard explains credit loss (QA rule); SA covers only the navigation leave dialog, not Stop",
+   "kind": "other"
+  },
+  "TC-470": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0211); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-157": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Stop during video generation explains credit loss (QA rule)",
+   "kind": "other"
+  },
+  "TC-158": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Leave to Launcher with an unsent idea and return (QA rule)",
+   "kind": "other"
+  },
+  "TC-159": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Leave to Launcher during the outline and return (QA rule)",
+   "kind": "other"
+  },
+  "TC-160": {
+   "match": "partial",
+   "spec_agent": "PM-RECENT-LATEST-001",
+   "note": "Leave to Launcher and return, then continue the task; SA only checks reopening shows the latest outline"
+  },
+  "TC-161": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Leave to Launcher during character generation and return (QA rule)",
+   "kind": "other"
+  },
+  "TC-476": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0223); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-162": {
+   "match": "partial",
+   "spec_agent": "PM-RECENT-LATEST-CAST-001",
+   "note": "Leave to Launcher and return, then continue; SA checks reopening restores the cast"
+  },
+  "TC-163": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Leave to Launcher during a chat revision and return (QA rule)",
+   "kind": "other"
+  },
+  "TC-164": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Leave to Launcher during storyboard generation and return (QA rule)",
+   "kind": "other"
+  },
+  "TC-165": {
+   "match": "partial",
+   "spec_agent": "PM-RECENT-LATEST-STORYBOARD-001",
+   "note": "Leave to Launcher and return, then continue; SA checks reopening restores the storyboard"
+  },
+  "TC-166": {
+   "match": "partial",
+   "spec_agent": "1021-NAV-VIDEO-NEW-LEAVE, 1021-NAV-VIDEO-SYSTEM-BACK-LEAVE",
+   "note": "Leaving the app (Launcher) mid-video and returning to a usable task; SA leaves via chat navigation"
+  },
+  "TC-502": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0266); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-167": {
+   "match": "partial",
+   "spec_agent": "PM-RECENT-LATEST-VIDEO-001",
+   "note": "Leave to Launcher and return, then continue; SA checks reopening restores the video"
+  },
+  "TC-168": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Leave to Launcher while saving/exporting and return (QA rule)",
+   "kind": "other"
+  },
+  "TC-169": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Outline wait thresholds (5 s / 10 s, user wait rule)",
+   "kind": "other"
+  },
+  "TC-170": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Character wait thresholds (user wait rule)",
+   "kind": "other"
+  },
+  "TC-171": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Chat revision wait thresholds (user wait rule)",
+   "kind": "other"
+  },
+  "TC-172": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Storyboard wait thresholds (user wait rule)",
+   "kind": "other"
+  },
+  "TC-173": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Video wait thresholds (user wait rule)",
+   "kind": "other"
+  },
+  "TC-446": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0172); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-174": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Save/export wait thresholds (user wait rule)",
+   "kind": "other"
+  },
+  "TC-215": {
+   "match": "full",
+   "spec_agent": "MX-FREE-QUOTA-001, MX-FREE-LIMIT-001"
+  },
+  "TC-217": {
+   "match": "partial",
+   "spec_agent": "MX-PROPLUS-QUOTA-001, MX-PROPLUS-LIMIT-001, MX-PROPLUS-LIMIT-COPY-001",
+   "note": "Expects the Design dialog 「Today's AI Chats Are Used Up」 with Continue Tomorrow; SA only records the wording"
+  },
+  "TC-218": {
+   "match": "full",
+   "spec_agent": "FIXTURE-1001-S002-B059, MX-FREE-SEND-DEBIT-001, FIXTURE-1001-S002-B060"
+  },
+  "TC-368": {
+   "match": "full",
+   "spec_agent": "MX-PROPLUS-SEND-DEBIT-001, FIXTURE-1001-S002-B059, FIXTURE-1001-S002-B060"
+  },
+  "TC-369": {
+   "match": "full",
+   "spec_agent": "FIXTURE-0924-S002-B016"
+  },
+  "TC-393": {
+   "match": "full",
+   "spec_agent": "FIXTURE-0924-S002-B016",
+   "note": "SA case is tier-neutral; covers the Pro remote-config change too"
+  },
+  "TC-219": {
+   "match": "full",
+   "spec_agent": "MX-DRAFT-PRESERVE-001, MX-DRAFT-PRESERVE-002"
+  },
+  "TC-220": {
+   "match": "full",
+   "spec_agent": "MX-REPEAT-LIMIT-001, MX-REPEAT-LIMIT-002"
+  },
+  "TC-221": {
+   "match": "full",
+   "spec_agent": "MX-TEMPLATE-LIMIT-001, MX-TEMPLATE-LIMIT-002"
+  },
+  "TC-222": {
+   "match": "full",
+   "spec_agent": "FIXTURE-0924-S002-B014"
+  },
+  "TC-223": {
+   "match": "full",
+   "spec_agent": "FIXTURE-1001-S002-B061"
+  },
+  "TC-224": {
+   "match": "full",
+   "spec_agent": "FIXTURE-0924-S002-B015"
+  },
+  "TC-225": {
+   "match": "partial",
+   "spec_agent": "MX-REGEN-TOPUP-001",
+   "note": "Pro not-enough card offers Buy Credit and opens the panel with the 2000-credit pack selected; SA only checks the top-up panel opens"
+  },
+  "TC-226": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Free tier not-enough card offers Upgrade Now to the subscription page",
+   "kind": "mx"
+  },
+  "TC-227": {
+   "match": "partial",
+   "spec_agent": "FIXTURE-0924-S002-B028",
+   "note": "After a top-up the not-enough card switches to the enough copy and Generate; SA checks the quote reads the current balance"
+  },
+  "TC-228": {
+   "match": "partial",
+   "spec_agent": "MX-CREDIT-CONSENT-001",
+   "note": "Charge is confirmed again after buying credits from a not-enough card; SA checks the consent card in general"
+  },
+  "TC-229": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Pro tier sees full prices, no discount",
+   "kind": "mx"
+  },
+  "TC-230": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Never-subscribed Free tier sees full prices",
+   "kind": "mx"
+  },
+  "TC-231": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Subscribing in-session gives the discounted price for that session",
+   "kind": "mx"
+  },
+  "TC-232": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Discount ends with the session",
+   "kind": "mx"
+  },
+  "TC-233": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Regenerating after a discounted drama is charged at full price",
+   "kind": "mx"
+  },
+  "TC-234": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Template roster matches the frozen list (20 templates, 5 categories) (QA rule)",
+   "kind": "other"
+  },
+  "TC-235": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-236": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-421": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0078); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-449": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0180); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-450": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0181); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-451": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0182); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-237": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-238": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-239": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-466": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0207); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-240": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-445": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0171); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-241": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-440": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0163); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-242": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-243": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-461": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0202); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-244": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-245": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-246": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-247": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-248": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-249": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-250": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-251": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-252": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-253": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-254": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-255": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-256": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-257": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-258": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-259": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-430": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0142/P0173); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-260": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-261": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-262": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-263": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-264": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-265": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-447": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0174); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-266": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-267": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-268": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-269": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-459": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0200); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-462": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0203); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-270": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-271": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-460": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0201); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-463": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0204); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-272": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-273": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001",
+   "note": "Per-template detail page (cover, title, playable preview) and Make my version starting this story; SA only checks outline start from a template Format card"
+  },
+  "TC-432": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0148); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-274": {
+   "match": "partial",
+   "spec_agent": "PM-TEMPLATE-OUTLINE-001, PM-SCRIPT-RESULT-001, PM-VIDEO-GENERATING-001",
+   "note": "Per-template end-to-end journey (Seedance 2.0 preview + 90-sec full episode, charges match card prices); SA checks the stages generically, not per template"
+  },
+  "TC-275": {
+   "match": "full",
+   "spec_agent": "QA-ALL-PAGES-TEXT-ANDROID-ENU-001"
+  },
+  "TC-276": {
+   "match": "full",
+   "spec_agent": "QA-ALL-PAGES-TEXT-ANDROID-CHT-001"
+  },
+  "TC-277": {
+   "match": "full",
+   "spec_agent": "QA-ALL-PAGES-TEXT-ANDROID-JPN-001"
+  },
+  "TC-424": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0096); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-406": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "French UI fully translated (RD build note TR261021-0082); SA text scans cover ENU/CHT/JPN only",
+   "kind": "other"
+  },
+  "TC-278": {
+   "match": "full",
+   "spec_agent": "QA-STORYBOARD-TEXT-LANGUAGE-001"
+  },
+  "TC-494": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0248); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-495": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0249); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-279": {
+   "match": "full",
+   "spec_agent": "QA-STORYBOARD-TEXT-NONEMPTY-001"
+  },
+  "TC-280": {
+   "match": "full",
+   "spec_agent": "QA-STORYBOARD-TEXT-DUPLICATION-001"
+  },
+  "TC-281": {
+   "match": "full",
+   "spec_agent": "QA-STORYBOARD-TEXT-READABLE-001"
+  },
+  "TC-282": {
+   "match": "full",
+   "spec_agent": "QA-STORYBOARD-TEXT-ENGLISH-PUNCTUATION-001"
+  },
+  "TC-496": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0251); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-283": {
+   "match": "full",
+   "spec_agent": "TC-PDRM-BASE-1014-CUSTOM-MEDIA-IDENTITY-ANDROID-001"
+  },
+  "TC-284": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Generate disabled with Ethnicity empty, and what explains it",
+   "kind": "spec"
+  },
+  "TC-285": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Generate disabled with Age empty, and what explains it",
+   "kind": "spec"
+  },
+  "TC-286": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Long text never overlaps the expand/send controls (QA rule)",
+   "kind": "other"
+  },
+  "TC-287": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Every way of finishing with the keyboard open continues the task (QA rule)",
+   "kind": "other"
+  },
+  "TC-288": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Every Ethnicity filter value returns matches or a clear empty state (QA rule)",
+   "kind": "other"
+  },
+  "TC-289": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "A new Mine character is found under its own filter attributes (QA rule)",
+   "kind": "other"
+  },
+  "TC-290": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "A Mine character from an earlier drama is listed and applies in a new drama (QA rule)",
+   "kind": "other"
+  },
+  "TC-291": {
+   "match": "full",
+   "spec_agent": "PM-CHARACTER-RENAME-001",
+   "note": "Both look for a rename route; the casebook records it (spec draws none), SA expects rename to work"
+  },
+  "TC-292": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Main image fails, Location succeeded: Edit regenerates only the main image at one image price",
+   "kind": "spec"
+  },
+  "TC-293": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Chat storyboard-image update with one failure: 「!」, refund copy, Edit, refund in Credit Details",
+   "kind": "spec"
+  },
+  "TC-294": {
+   "match": "partial",
+   "spec_agent": "1021-NAV-STORYBOARD-BACK-LEAVE, 1021-NAV-STORYBOARD-BACK-STAY",
+   "note": "Stage ① (preparing, nothing charged) Back asks 「Leave while we're preparing?」 per PM 10/22; SA expects 「Stop and lose your credits?」 for the whole storyboard run"
+  },
+  "TC-295": {
+   "match": "full",
+   "spec_agent": "1021-STORYBOARD-ALL-FAIL"
+  },
+  "TC-296": {
+   "match": "partial",
+   "spec_agent": "DESIGN-SCENE-FAILURE-COUNT-001",
+   "note": "A failed scene-video regeneration keeps the old version playable; SA checks only the count and refund message"
+  },
+  "TC-297": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "「Your video has been updated.」 disappears after playback or leaving",
+   "kind": "spec"
+  },
+  "TC-298": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Caption retry that fails again restores the Try again state",
+   "kind": "spec"
+  },
+  "TC-299": {
+   "match": "full",
+   "spec_agent": "DESIGN-STT-FAILURE-001"
+  },
+  "TC-300": {
+   "match": "partial",
+   "spec_agent": "DESIGN-OFFLINE-SEND-001",
+   "note": "Offline on Create storyboard Generate: toast, nothing sent or charged, card stays; SA checks offline idea send"
+  },
+  "TC-301": {
+   "match": "partial",
+   "spec_agent": "DESIGN-OFFLINE-SEND-001",
+   "note": "Network lost mid-outline: Try again (no auto-resume, format card not repeated); SA checks offline idea send"
+  },
+  "TC-302": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Back while the storyboard price is calculated (「Thinking...」) closes with no dialog",
+   "kind": "spec"
+  },
+  "TC-303": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Notify me pre-prompt leads to the Android 13+ system permission dialog",
+   "kind": "android"
+  },
+  "TC-304": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "「Not now」 on the notification pre-prompt never shows it again",
+   "kind": "spec"
+  },
+  "TC-305": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "No 「Good news!」 toast when a scene fails",
+   "kind": "spec"
+  },
+  "TC-388": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "One done toast and push only after a 6xxx auto-retry succeeds",
+   "kind": "spec"
+  },
+  "TC-306": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "In-app 「Good news!」 toast: Close keeps the page, View opens History",
+   "kind": "spec"
+  },
+  "TC-307": {
+   "match": "full",
+   "spec_agent": "PM-VIDEO-NOTIFY-001, PM-VIDEO-NOTIFY-ROOM-001"
+  },
+  "TC-308": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Toast and push use the name the drama was renamed to in History",
+   "kind": "spec"
+  },
+  "TC-309": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "The 「Tap to choose a look」 hint disappears when another slot is tapped",
+   "kind": "spec"
+  },
+  "TC-310": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "No hint once every slot has a look",
+   "kind": "spec"
+  },
+  "TC-311": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Returning from Full Edit opens the chat at the bottom (PM 10/20)",
+   "kind": "spec"
+  },
+  "TC-312": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "1,000-character limit in the scene description editor; SA checks the limit only in the character description",
+   "kind": "spec"
+  },
+  "TC-313": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Limit state clears in the scene description editor",
+   "kind": "spec"
+  },
+  "TC-314": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "1,000-character limit in the scene-video description editor",
+   "kind": "spec"
+  },
+  "TC-315": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Limit state clears in the scene-video description editor",
+   "kind": "spec"
+  },
+  "TC-316": {
+   "match": "partial",
+   "spec_agent": "PM-FAILED-CLIP-RECOVERY-002",
+   "note": "Scene-video editor text in four headed sections with 「Regenerate scene ◆30」",
+   "resolved": "cross-check: spec agent case maps here; casebook checks more"
+  },
+  "TC-317": {
+   "match": "full",
+   "spec_agent": "PM-REFERENCE-LIMIT-001"
+  },
+  "TC-318": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Iris renaming the story updates the History card title",
+   "kind": "spec"
+  },
+  "TC-498": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0255); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-319": {
+   "match": "partial",
+   "spec_agent": "PM-RECENT-RENAME-001",
+   "note": "A user rename in History wins over a later title change by Iris; SA checks only that a rename shows"
+  },
+  "TC-320": {
+   "match": "full",
+   "spec_agent": "PM-RECENT-THUMBNAIL-OUTLINE-001"
+  },
+  "TC-321": {
+   "match": "full",
+   "spec_agent": "PM-SEQUEL-ENTRY-001, PM-SEQUEL-START-001, PM-SEQUEL-ORIGINAL-RETAIN-001"
+  },
+  "TC-473": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0220); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-490": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0240); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-322": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Asking Iris to continue after Stop resumes the story (colleague direction; spec silent)",
+   "kind": "other"
+  },
+  "TC-323": {
+   "match": "full",
+   "spec_agent": "FIXTURE-0924-S002-B017, FIXTURE-0924-S002-B018, FIXTURE-0924-S002-B019, FIXTURE-0924-S002-B020, FIXTURE-0924-S002-B021, FIXTURE-1001-S002-B062"
+  },
+  "TC-324": {
+   "match": "full",
+   "spec_agent": "MX-MODEL-LOCK-001, MX-MODEL-LOCK-VIDEO-001"
+  },
+  "TC-325": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Stop/Send/Back sequences during a reply never crash (user request REQ-001)",
+   "kind": "other"
+  },
+  "TC-326": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Character template thumbnails stay steady while selecting (user request REQ-003)",
+   "kind": "other"
+  },
+  "TC-411": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610-0058); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-327": {
+   "match": "full",
+   "spec_agent": "QA-HISTORY-INFO-POPUP-001"
+  },
+  "TC-328": {
+   "match": "full",
+   "spec_agent": "QA-TEMPLATE-CATEGORY-ICONS-001"
+  },
+  "TC-332": {
+   "match": "partial",
+   "spec_agent": "1021-CHAR-SINGLE-X-KEEP, 1021-CHAR-SINGLE-CANCEL-KEEP",
+   "note": "Generating screen copy 「This usually takes about 1 minute.」 and Cancel placement; SA checks only that Cancel/X stay operable"
+  },
+  "TC-333": {
+   "match": "partial",
+   "spec_agent": "1021-CHAR-SINGLE-CANCEL-LEAVE",
+   "note": "「Stop and lose your credits?」 copy, stop, and no refund row; SA claim is only that Cancel stays operable"
+  },
+  "TC-334": {
+   "match": "partial",
+   "spec_agent": "1021-CHAR-SINGLE-X-KEEP",
+   "note": "The same stop dialog on X and the character finishing after Keep Generating; SA claim is only that X stays operable"
+  },
+  "TC-431": {
+   "match": "partial",
+   "spec_agent": "1021-CHAR-SINGLE-X-KEEP, 1021-CHAR-MULTIPLE-X-KEEP",
+   "note": "Android system back during character generation asks the stop dialog; SA covers X only"
+  },
+  "TC-383": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Tapping outside the generating sheet asks 「Stop and lose your credits?」 like X",
+   "kind": "spec"
+  },
+  "TC-335": {
+   "match": "full",
+   "spec_agent": "1021-CHAR-TIMEOUT-SINGLE-CHARACTER, 1021-CHAR-TIMEOUT-CLOSE"
+  },
+  "TC-336": {
+   "match": "partial",
+   "spec_agent": "1021-CHAR-TIMEOUT-SINGLE-CHARACTER",
+   "note": "Send Feedback form content (AI Issues, feature name, prefilled issue, e-mail, no task ID field); SA checks only the dialog"
+  },
+  "TC-337": {
+   "match": "partial",
+   "spec_agent": "1021-CHAR-MULTIPLE-CANCEL-LEAVE, 1021-CHAR-MULTI-PRESERVE",
+   "note": "Stop dialog and no refund for the stopped character in Credit Details"
+  },
+  "TC-403": {
+   "match": "partial",
+   "spec_agent": "1021-CHAR-MULTIPLE-CANCEL-KEEP, 1021-CHAR-MULTIPLE-X-KEEP, 1021-CHAR-MULTIPLE-X-LEAVE, 1021-CHAR-MULTI-PRESERVE",
+   "note": "Dialog copy, both characters keep generating after Keep Generating, and no refund row"
+  },
+  "TC-338": {
+   "match": "partial",
+   "spec_agent": "1021-CHAR-TIMEOUT-MULTIPLE-CHARACTERS",
+   "note": "Feedback issue names the number of characters; SA checks only the dialog"
+  },
+  "TC-339": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Discard on a generated character keeps the slot's previous look and does not save to Mine (SA discard cases are the unsaved form, not the result)",
+   "kind": "spec"
+  },
+  "TC-340": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Keep on 「Discard this character?」 keeps the generated result",
+   "kind": "spec"
+  },
+  "TC-341": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "The page Discard button closes the result with no dialog and saves nothing",
+   "kind": "spec"
+  },
+  "TC-342": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Swiping the result down asks 「Discard this character?」",
+   "kind": "spec"
+  },
+  "TC-401": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android system back on the generated character asks 「Discard this character?」 (PM 10/21)",
+   "kind": "android"
+  },
+  "TC-343": {
+   "match": "partial",
+   "spec_agent": "1021-EXPORT-ANDROID-TOAST",
+   "note": "PM 10/22 export state (spinner in the preview, controls at 40%, thumbnails still switch), 「Saved to Gallery.」 and the file in Gallery; SA checks loading on the button with no dialog"
+  },
+  "TC-517": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "System back during export keeps it running in the background and the toast shows elsewhere (PM 10/22)",
+   "kind": "android"
+  },
+  "TC-518": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Failed export toast 「Couldn't save your video. Try again.」 and controls restored (PM 10/22)",
+   "kind": "spec"
+  },
+  "TC-418": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0071); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-344": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Sent message scrolls to the top; the view does not follow the reply; ↓ scrolls to the bottom",
+   "kind": "spec"
+  },
+  "TC-501": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Android ticket recheck (DRA262610P0260); no spec agent case checks it",
+   "kind": "regression"
+  },
+  "TC-345": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Full Video length is 15 s × the number of scenes",
+   "kind": "spec"
+  },
+  "TC-346": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "The look hint shows once per user, not again in a later drama",
+   "kind": "spec"
+  },
+  "TC-347": {
+   "match": "partial",
+   "spec_agent": "PM-MODEL-QUOTE-SWITCH-001",
+   "note": "Standard and Fast change the video settings subtitle text (PM 10/16)",
+   "resolved": "cross-check: spec agent case maps here; casebook checks more"
+  },
+  "TC-348": {
+   "match": "full",
+   "spec_agent": "1021-LOOK-CLARIFY"
+  },
+  "TC-391": {
+   "match": "partial",
+   "spec_agent": "1021-LOOK-CLARIFY",
+   "note": "A typed answer to 「Which character…?」 works like a chip",
+   "resolved": "cross-check: spec agent case maps here; casebook checks more"
+  },
+  "TC-349": {
+   "match": "partial",
+   "spec_agent": "1021-LOOK-OFFER, 1021-LOOK-STORYBOARD-AFTER-STORYBOARD",
+   "note": "Generate on the update card: 「Working on it...」, the new cast card with the new look and updated outline, and a single charge"
+  },
+  "TC-453": {
+   "match": "partial",
+   "spec_agent": "1021-LOOK-OFFER",
+   "note": "A template preset character is actually regenerated with the new look, or an error with a refund"
+  },
+  "TC-350": {
+   "match": "full",
+   "spec_agent": "1021-LOOK-QUOTE-TWO-CHARACTERS"
+  },
+  "TC-429": {
+   "match": "partial",
+   "spec_agent": "1021-LOOK-OFFER",
+   "note": "Asking to regenerate a fully mapped cast offers the priced 「Update characters」 card, no 「(No reply)」 or stray storyboard offer"
+  },
+  "TC-351": {
+   "match": "none",
+   "spec_agent": "",
+   "note": "Back during a chat character update asks 「Stop and lose your credits?」",
+   "kind": "spec"
+  },
+  "TC-352": {
+   "match": "full",
+   "spec_agent": "1021-LOOK-STORYBOARD-AFTER-STORYBOARD"
+  },
+  "TC-353": {
+   "match": "full",
+   "spec_agent": "1021-LOOK-PARTIAL-REFUND"
+  },
+  "TC-354": {
+   "match": "partial",
+   "spec_agent": "DESIGN-CHARACTER-LIMIT-MESSAGE-001, DESIGN-CHARACTER-LIMIT-GENERATE-001",
+   "note": "Recovery: deleting below 1,000 clears the red counter and message and re-enables Generate; SA checks only the over-limit state"
+  },
+  "TC-355": {
+   "match": "full",
+   "spec_agent": "FIXTURE-1001-S001-B027"
+  }
+ }
+}

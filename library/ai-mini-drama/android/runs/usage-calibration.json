@@ -1,0 +1,8 @@
+{
+  "basis": "iOS P1",
+  "basisWeightedTokens": 37078156.35,
+  "fiveHourPct": 300,
+  "seat": 1,
+  "source": "iOS P1 (ios/runs/usage-calibration.json, user 2026-10-21: P1 ≈ three 1× Pro 5-hour windows); weighted tokens of P1 and the weekly ratio read from ios/runs/plan.html on 2026-10-27",
+  "weekPerFiveHour": 0.16783216783216784
+}
