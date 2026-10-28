@@ -155,6 +155,7 @@ Android (2026-10-27, REQ-042): built from the iOS analysis of the same spec set 
 - Q-16 Decided 2026-10-22 (user): test the PM 10/16 charged character change in chat (Update characters card → "Here's your updated cast.").
 - Q-17 Decided 2026-10-22 (user): the PM 10/20 §13.2 ③ rule applies — new results come as a new message and earlier cards are not updated.
 - Q-18 PM main flow note 「day 1 只有 US & JP」 beside the template grid: are templates limited to the US and JP stores on day 1? Affects R-289 and the template rows (REQ-032).
+- Q-19 「More ideas +」 above the composer: no Design frame, arrow or PM note says what a tap shows (more inspiration chips, a filled input, a new suggestion message?). TC-019 records what appears (R-338, REQ-039).
 
 ## Added 2026-10-19 — spec agent coverage rules
 Rules 1–10 are in the casebook skill (section "Coverage and verdict rules"). Rows for rules 4, 9 and 10 are not needed;
@@ -355,6 +356,11 @@ Every cell names the rows that check it, or n/a when the spec defines nothing fo
 | REQ-012 regression rows | R-141 (Android tickets, eCL pull 2026-10-27) |
 | REQ-043 Android review answers (2026-10-27) | R-141 (Android tickets only; spec-contradicted tickets in Notes), R-142 (paid-tier rows Blocked until a paid account) |
 | REQ-046 Android redo after the repo update (2026-10-27) | R-315 – R-325 (PM 10/22 boards in Figma) |
+| REQ-039 Every tappable element is pressed, inputs dismissed (2026-10-28) | control-trace.json (every Android control group pressed or n/a; inputs dismissed); R-326 – R-337 (Figma inventory flow arrows); R-338 – R-351 (controls) |
+| REQ-040 Grouped control totals, robust tap matching (2026-10-28) | control-trace.json (one entry per group); R-326 – R-337 |
+| REQ-049 Update the Android table for the 10/28 upstream rules (2026-10-28) | this draft: R-326 – R-351, control-trace.json, round A3 |
+| REQ-050 The Design's iPhone frames count for Android (2026-10-28; answers Q-A4) | control-trace.json: all 146 control groups pressed by Android rows or n/a (inventory.json rebuilt by scripts/inventory.ts; no ios_only_screens) |
+| REQ-051 System Back on every Android screen (2026-10-28) | R-352 – R-356; ### System back (one line per screen: 62 with rows, 10 n/a); Q-A5, Q-A6 |
 | REQ-022 Android problem report (16.8.0) as regression leads | R-309: #1, #4, #27, #38, #39, S3 → TC-065, TC-070, TC-138; #2 → TC-067; #3, S2 → TC-091, TC-150; #5, #24, #25, #26, #42 → TC-047, TC-126; #6, S1 → TC-020, TC-021, TC-022; #7 → TC-025; #8, #20, #28, #31, #40, #43, #49, #51, S6 → TC-080, TC-117, TC-215, TC-217; #14, #22, #33 → TC-011, TC-395, TC-398, TC-399; #15, #23, #37, S7 → TC-030, TC-032, TC-300; #16, #18, #32 → TC-089, TC-090, TC-343; #17, #19, #21, #48 → TC-097, TC-143, TC-375; #29 → TC-085, TC-303, TC-307; #30 → TC-045, TC-046; #34 → TC-010; #36, #44, S5 → TC-091, TC-092, TC-093, TC-149; #41 → TC-011; #45 → TC-078; #46, #47 → TC-106, TC-318; #50 → TC-114 |
 | REQ-021 RD build notes, TR261006-0055 (iOS only) | n/a on Android: R-187, R-188, R-189 not testable; their checks stay folded into TC-065, TC-100 |
 | REQ-024 PM-only features are cases | analysis rule (skill pass 7) |
@@ -402,7 +408,7 @@ the rows, or n/a with the reason.
 | Stage | Back | System back | History | New chat | Credit pill |
 |---|---|---|---|---|---|
 | Empty chat | TC-381 | TC-394 | n/a (spec silent) | n/a (spec silent) | n/a (spec silent) |
-| Outline generating | TC-025, TC-027, TC-028 | TC-395, TC-396 | TC-026, TC-027 | TC-357 | TC-357, TC-358 |
+| Outline generating | TC-025, TC-027, TC-028, TC-519 | TC-395, TC-396 | TC-026, TC-027, TC-521 | TC-357, TC-522 | TC-357, TC-358 |
 | Outline saved, nothing generating | TC-029 | TC-397 | TC-360 | TC-360 | TC-360 |
 | Character generating (Make your character) | n/a (sheet: X and Cancel, TC-333, TC-334) | n/a (sheet; Q-A1) | n/a (sheet covers the chat) | n/a (sheet covers the chat) | n/a (sheet covers the chat) |
 | Storyboard stage ① (preparing) | TC-061, TC-062, TC-063 | TC-398, TC-399 | TC-359 | TC-359 | TC-359 |
@@ -567,4 +573,157 @@ confirm the charge moment, the automatic restart of stage ① and background com
 - Q-A3 PM 10/22 §13.24 lists the two-stage jobs (storyboard, video, storyboard update in chat, video regeneration) and
   keeps the dialog for character generation; is the character update in chat (Update characters • Generate) a
   two-stage job too? TC-351 keeps 「Stop and lose your credits?」 until PM says.
+
+## Added 2026-10-28 — Figma inventory (REQ-038 / REQ-039)
+The Figma inventory (`extracted/inventory.json`) found 12 flow arrows the 10/19 import did not hold: three on the Storyboard
+board's Error frames and nine on the Figma-only 「1016_Chat navigation」 board (4858:34930). On 1016 the four 「Leave anyway」
+arrows start at the same button; the exit that opened the dialog decides the landing page. Dialog copy and when it shows follow
+PM 10/21 (REQ-029, R-261 – R-264); Android's system back is the same exit as ← (R-306). Mirrors the iOS draft 20261028-121259
+(iOS R-306 – R-331 = Android R-326 – R-351).
+
+### Flow arrows with new rows
+- R-326 [DS: flow arrow 4299-168964 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4299-168964] Scene image regenerating (生成, skeletons) → regenerated scene detail: when the regeneration finishes, the skeletons in the scene detail are replaced by the new Location and scene images side by side; the 「Couldn't create image」 card and 「Edit」 are gone and the title and full script stay.
+- R-327 [DS: flow arrow 4877-33081 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33081] Leave dialog opened by History, 「Leave anyway」 → Recent Task: the chat closes and Recent Task (the History list) opens.
+- R-328 [DS: flow arrow 4877-33083 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33083] Leave dialog opened by New chat, 「Leave anyway」 → new empty chat: the chat closes and a new empty chat opens (「Hi, I'm your AI Drama Assistant」, 「Surprise me」, idea suggestions, empty composer).
+- R-329 [DS: flow arrow 4877-33087 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33087] Leave dialog opened by Back, 「Leave anyway」 → AI Mini Drama home page: the chat closes and the AI Mini Drama home page opens (「Hi, I'm your AI Drama Assistant」, 「Create Your Drama」, 「Start from a template」).
+
+### Flow arrows walked by existing rows
+- R-330 [DS: flow arrow 4299-132149 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4299-132149] Failed scene detail, ⓘ on the 「Couldn't create image」 card → 4xx dialog: ⓘ opens 「Couldn't generate this image」 with the refund and terms-of-service text and 「Got it」 (5xx cards have no ⓘ, R-057). Walked by: TC-067.
+- R-331 [DS: flow arrow 4299-168955 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4299-168955] Failed scene detail, 「Edit」 on the error card → description editor: the full description becomes editable with the keyboard up, a x/1000 counter, a trash icon and 「Done」. Walked by: TC-070.
+- R-332 [DS: flow arrow 4877-33073 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33073] Chat, Back → leave dialog: while the outline generates, Back opens 「Leave this chat?」 with 「Leave anyway」 / 「Stay」 (PM 10/21 stage rules, R-261 – R-264). Android's system back opens the same dialog (R-306; TC-395). Walked by: TC-025.
+- R-333 [DS: flow arrow 4877-33075 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33075] Chat, credit pill → leave dialog: while the outline generates, the credit pill opens the same 「Leave this chat?」 dialog as Back. Walked by: TC-357.
+- R-334 [DS: flow arrow 4877-33077 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33077] Chat, New chat → leave dialog: while the outline generates, New chat opens the same 「Leave this chat?」 dialog as Back. Walked by: TC-357.
+- R-335 [DS: flow arrow 4877-33079 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33079] Chat, History → leave dialog: while the outline generates, History opens the same 「Leave this chat?」 dialog as Back. Walked by: TC-026.
+- R-336 [DS: flow arrow 4877-33085 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33085] Leave dialog opened by the credit pill, 「Leave anyway」 → My Credits: the chat closes and My Credits opens. The same 「Leave anyway」 opened by system back lands on the AI Mini Drama home page (R-306, TC-396). Walked by: TC-358.
+- R-337 [DS: flow arrow 4877-33089 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33089] Leave dialog, 「Stay」 → chat: the dialog closes and the chat stays at the same stage; the outline still arrives. Walked by: TC-027, TC-357.
+
+### Controls (REQ-039)
+Controls the Design draws that no existing rule described; each is pressed by the row named in `control-trace.json`. Since
+REQ-050 the Design's iPhone frames count for Android too (`scripts/inventory.ts`), so the trace lists every control group of
+the shared screens: the same 146 groups as iOS, each pressed by the Android row that does the iOS press, or n/a.
+
+- R-338 [DS: control K-20ac46 main flow · Storyboard & Preview / Chat (any stage)] 「More ideas +」: the chip above the composer offers more story ideas when tapped (the Design draws the chip on every chat stage but no result frame; Q-19).
+- R-339 [DS: control K-55f3b5 / K-940021 / K-cf0dd5 Template Detail · AI Mini Drama] Template video ▶ and volume icon: ▶ over the paused template video resumes playback (Default_playing & volume on); the volume icon at the video's bottom right switches the sound off and on and shows the current state (ic_volume / ic_volume_off).
+- R-340 [DS: control K-71866f MX · AI Mini Drama_characters] 「Continue Tomorrow」: closes the 「Today's AI Chats Are Used Up」 dialog and returns to the chat without sending the message (the dialog's only action; MX ① version A: closing the limit dialog returns to the chat).
+- R-341 [DS: control K-938d8f / K-b32fbc / K-d1e307 1016_Chat navigation · Credit page_free] My Credits (the credit-pill exit's landing page, R-336): 「Buy More」 opens the credit purchase page; 「Claim」 claims the complimentary daily credits (「Claim once every 24 hours」) and adds them to the balance; 「Subscribe Now」 on the 「Join the Pro+」 card opens the subscription page (Android names the paid tier as MX version A does, R-103). Pages opened from My Credits are left with ← or Android system back.
+- R-342 [DS: control K-ab333a / C-8157ce Choose Character · credit; MX · storyboard / AI Mini Drama_template] 「Top up your credits」: tapping a credit pack (50 … 2000) selects it for 「Buy Credit」, one pack at a time; 「Terms of Use」 and 「Privacy Policy」 under the button open those pages.
+- R-343 [DS: control K-6b314e / K-d301d1 / K-68cdee / K-cbd30c Choose Character · Character Library (Age keypad)] The Age keypad has an input bar (placeholder 「1-100」) and a ✓ that closes the keypad and fills Age with the typed number; tapping a filled Age field (e.g. 「24」) reopens the keypad to change it. Android: when the app shows the system number keyboard instead of the Design's keypad bar, its Done key confirms (recorded on TC-127).
+- R-344 [DS: control K-3276bb / C-8cec01 Choose Character · Character Library (filtered)] With filters applied the filter icon shows a check mark (ic_filter_check) and still opens the Filter panel; each applied-filter chip (「Female ×」, 「Asian ×」, 「Age: 0-28 ×」) removes that filter when its × is tapped (R-031).
+- R-345 [DS: control K-32eae1 / K-ea3e9d / K-5554e3 / K-910afd Choose Character · Character Library (enlarged preview)] The enlarged character preview has ⓧ at its top right, which closes it back to the library, and ⋯, which opens 「Download」 (saves the character image to the phone's Gallery), 「Report」 (opens the report flow) and, for the user's own character, 「Delete」 (R-049). Android system back leaves the report flow back to the preview.
+- R-346 [DS: control K-f2a9d2 Choose Character · AI Mini Drama_template; 1005_Chat · Chat_charge failed] The ⟳ switch icon on a character in the Characters Result card opens the character picker (Design title 「Choose Character」 / 「Choose for {name}」) on that character (R-038: 「tap the switch icon on a character to change its look」).
+- R-347 [DS: control C-88ef55 / K-327b3e / K-37e272 / K-aa0c0b / C-14cbaa Choose Character · Add Media] Select Media (reference photo): 「Photo」 is the media type; 「Recents ▾」 opens the album list; the source tabs (getty images | iStock, GIPHY, …) switch to that stock source; the enlarge icon on a photo opens a full-size preview; the sliders icon beside 「Photo」 opens the picker's options; the camera icon opens the camera. The Design draws these controls with no result frame or arrow. On Android the same controls of PowerDirector's media picker are pressed; system back closes a preview opened from it.
+- R-348 [DS: control K-1ff415 / K-af4631 Storyboard · preview] The full-screen Storyboard Preview player has X, ⏸ (pauses the slideshow; ▶ resumes it), a scrubber and the time 「00:40/01:30」; dragging the scrubber jumps to that point. On Android, system back closes the player like X.
+- R-349 [DS: control K-a28dca Storyboard · AI Mini Drama_storyboard] The main scene image in the scene detail has no tap action in the Design (no arrow, no enlarged frame); like the Location thumbnail (R-055), a tap leaves the scene detail as it is.
+- R-350 [DS: control K-1ed4be Recent Task · Recent Task; 1016_Chat navigation · ④ History → Recent Task] 「New Chat」 at the bottom right of Recent Task (History) opens a new empty chat.
+- R-351 [DS: control K-30a28e main flow · composer (every chat stage)] The mic in the composer (R-011) starts voice input, a dictation into the input; stopping it without speaking adds no text; on first use Android asks for microphone access.
+
+Not in scope (control trace n/a): the Launcher's other controls on 「Launcher_2026_08」 (menu, 「Try Pro+ 7 days for free」, notifications, 「New Project」, 「Video Edit by Chat」, 「Video Enhance」, 「Image to Video」, 「Character Motion Swap」, 「Cinematic Reel Creator」, 「Text to Video」, 「Auto Edit」, 「Auto Captions」, 「Photo Enhance」 and the 「What's Trending」 covers) open other PowerDirector features; the Design draws the Launcher only as AI Mini Drama's entry, which R-001, R-002, R-190 and R-191 test.
+
+### Open questions (2026-10-28)
+- Q-A4 The Design draws Android frames only for the AI Mini Drama home page and Template Detail (Google Pixel 2), so the
+  inventory gave Android 21 control groups against 146 for iOS. Should the iOS phone frames count for Android too? —
+  Answered 2026-10-28 (REQ-050): yes. `scripts/inventory.ts` counts an iPhone frame for Android unless
+  `inventory-overrides.json` keeps the screen to iOS (`ios_only_screens`: none needed, no screen of this set is
+  Apple-only); `control-trace.json` now traces all 146 groups with Android rows.
+
+## Added 2026-10-28 (2) — Android system Back on every screen (REQ-051)
+Coverage pass 8, 「Android system Back」: system Back is an exit of every page, sheet, dialog, popup, picker, editor and
+full-screen viewer the feature opens, not only of the chat. The spec states it for the chat (R-306 – R-308, R-318, R-321;
+Exit × stage), the generated character (R-248) and the export (R-323); everywhere else system Back does what the screen's
+own way out does (R-352 – R-355), and where the spec gives none the row records what it does (R-356).
+
+- R-352 [Req: REQ-051; DS:figma 1016_Chat navigation 4858:34930; PM:figma 10/22 export 4418:2] On Android, system Back on an AI Mini Drama page or full-screen viewer does what the page's own back control (← / ‹ / X) does: the landing page returns to the Launcher; the All-categories page and Template detail return to the page they were opened from (the template video stops); the scene detail, the Storyboard Preview player, the video result page, the Fix scenes view and Full Edit close back to the chat or result page; History, My Credits and the pages opened from them go back one page; the feedback, purchase and subscription pages close without sending, buying or subscribing. The chat itself follows R-306 – R-308, R-318 and R-321 (Exit × stage).
+- R-353 [Req: REQ-051; PM:pm-update-11 §13.23 (Android back on the character result)] On Android, system Back on a sheet, picker or editor does what its X / Cancel / ‹ / collapse does: where X asks first (Choose Character with an unsaved pick, Make your character with input or generating, Finish your characters generating, the generated character, a scene image regenerating) it opens the same dialog; otherwise it closes the sheet (Choose Character, the Filter panel, Finish your characters, the empty Make your character, Select Media, Crop, the enlarged character preview, the credit panel) without applying anything, and a full-screen description editor closes like its collapse icon, keeping the text. A layer opened inside a sheet (album list, photo preview, picker options, camera, report flow, menu) closes alone.
+- R-354 [Req: REQ-051] On Android, while the keyboard or the Age keypad is open, the first system Back closes only the keyboard or keypad: the text stays and the screen stays open (chat composer, character description, full-screen editors, scene and scene-video descriptions, Rename).
+- R-355 [Req: REQ-051] On Android, system Back on a dialog, menu or popup closes it like its non-destructive answer, never the destructive one: 「Leave this chat?」 and 「Leave while we're preparing?」 → Stay; 「Stop and lose your credits?」 → Keep Generating; 「Leave without finishing?」 → Keep choosing; 「Discard this character?」 → Keep editing / Keep; delete dialogs → Cancel; failure and ⓘ dialogs → Got it; the timeout dialog → Close; the chat limit dialogs → X / Continue Tomorrow; Manage mode → Cancel; the ⋮ / ⋯ menus close without choosing. The spec states no Back rule for dialogs (Q-A5).
+- R-356 [Req: REQ-051] Where the spec draws no close control and no Back rule (the History ⓘ bubble, the Finish your characters ⓘ tip, a typed but unconfirmed Age, the notification pre-prompt, the export sheet and done page the Android build shows), the row records what system Back does; it must not lose saved work or start a charge, a purchase or a permission request (Q-A6).
+
+### System back
+One line per screen (`inventory.json` screens and panels, plus the pages the PM spec names). Rows = the rows that press
+system Back there; n/a with the reason.
+
+| Screen | Own way out (spec) | System back must | Rows |
+|---|---|---|---|
+| Launcher (PowerDirector Home) | — | — | n/a (PowerDirector's Launcher, only the entry to the feature (R-001); not an AI Mini Drama screen) |
+| AI Mini Drama landing page | header ← (R-003) | like ←: back to the Launcher | TC-001 |
+| All-categories page (More) | header back | like back: the landing page | TC-006 |
+| Template detail | header back | like back; the template video stops | TC-007 |
+| Chat, every stage (empty, format card, outline generating / failed / saved, storyboard and video stages ① / ②) | ←, History, New chat, credit pill (Design 1016) | as ← in that stage (R-306 – R-308, R-318, R-321); Exit × stage, System back column | TC-394, TC-395, TC-396, TC-452, TC-511, TC-397, TC-398, TC-399, TC-516, TC-400 |
+| Chat composer, keyboard open | tap outside | closes only the keyboard; the text and the chat stay (R-354) | TC-018 |
+| 「Leave this chat?」 | Stay / Leave anyway | like Stay | TC-395 |
+| 「Leave while we're preparing?」 (storyboard and video bodies) | Stay / Leave anyway | like Stay | TC-398, TC-516 |
+| 「Stop and lose your credits?」 (Make your character, Finish your characters, scene image regenerating) | Keep Generating / Leave anyway | like Keep Generating | TC-431, TC-403, TC-378 |
+| Choose Character (cast picker, Character Library), an unsaved pick | X → 「Leave without finishing?」 (TC-037) | the same dialog | TC-526 |
+| Choose Character, nothing changed | X | like X: back to the chat | TC-526 |
+| 「Leave without finishing?」 | Keep choosing / Leave | like Keep choosing | TC-526 |
+| Filter panel | X / ✓ | like X: choices not applied with ✓ are dropped | TC-526 |
+| Character slot hint 「Tap to choose a look for {name}」 | tap a slot, or 5 s (R-030) | — | n/a (a coach mark shown once per user, on first use (R-252); TC-034 / TC-035 spend that one showing; system Back acts on Choose Character beneath) |
+| Finish your characters (「{n} characters aren't set yet」) | X | like X: back to Choose Character | TC-039 |
+| Finish your characters ⓘ tip | none drawn | record (R-356, Q-A6); expected to close only the tip | TC-039 |
+| Finish your characters, generating | X / Cancel → 「Stop and lose your credits?」 | the same dialog | TC-403 |
+| Finish your characters, done (「Your characters are ready」) | X (R-106) / Confirm | like X: the looks are not applied | TC-527 |
+| Timeout dialog 「We couldn't create your character」 | Close / Send Feedback | like Close | TC-335 |
+| Timeout dialog 「We couldn't create your characters」 | Close / Send Feedback | like Close | n/a (the same timeout dialog as TC-335 in its plural copy; both show only after a 5-minute generation, which no Android switch forces) |
+| Send Feedback form (timeout dialogs) | its back | leave without sending | TC-336 |
+| Make your character, empty | X closes directly (R-047) | like X | TC-056 |
+| Make your character with input | X → 「Discard this character?」 (Keep editing / Discard) | the same dialog | TC-402 |
+| 「Discard this character?」 (input entered) | Keep editing / Discard | like Keep editing | TC-402 |
+| Make your character, keyboard open on the description | Done, tap outside | closes only the keyboard | TC-287 |
+| Full-screen description editor | collapse / Done | keyboard first, then like collapse (text kept) | TC-528 |
+| Age keypad | ✓ | closes only the keypad; whether the typed value stays is recorded (Q-A6) | TC-127 |
+| Make your character, generating | X / Cancel / outside tap → 「Stop and lose your credits?」 | the same dialog | TC-431 |
+| Generated character | X / swipe down → 「Discard this character?」 (R-248 names Android back) | the same dialog | TC-401 |
+| 「Discard this character?」 (generated) | Keep / Discard | like Keep | TC-401 |
+| Select Media (reference picker) | ‹ | like ‹: no reference added | TC-128 |
+| Select Media layers: album list, photo preview, picker options, camera | their own close | closes only that layer | TC-525 |
+| Media-permission notice (Android) | OK, top-left arrow | back to Create my character | TC-412 |
+| Android system permission dialogs (photos, microphone, notifications) | Allow / Don't allow | — | n/a (Android's own dialog, not drawn by the spec; its Back is the system's) |
+| Crop | X / ✓ | like X: the photo is not applied | TC-529 |
+| Enlarged character preview | ⓧ | like ⓧ | TC-135 |
+| Preview ⋯ menu | none drawn | closes only the menu | TC-135 |
+| Report flow (from the preview) | its back | back to the preview without sending | TC-135 |
+| Library character ⋮ menu | none drawn | closes only the menu | TC-059 |
+| 「Delete this character?」 | Cancel / Delete | like Cancel | TC-058 |
+| Character failure dialogs 「Couldn't create some images」 / 「Couldn't create image」 | Got it / close | like that button | TC-384 |
+| 「Top up your credits」 panel | X | like X: nothing bought | TC-225 |
+| Terms of Use / Privacy Policy pages | back | back to the panel | TC-225 |
+| My Credits, and the credit purchase and subscription pages opened from it | ← | back one page; nothing bought | TC-520 |
+| Subscription page from the limit dialog or the charge card | its close | back to the chat without subscribing | TC-215, TC-226 |
+| 「Daily Free Chat Limit Reached」 | X / Upgrade to Premium | like X | TC-220 |
+| 「Today's AI Chats Are Used Up」 | Continue Tomorrow | like Continue Tomorrow | TC-118 |
+| Scene detail | X (R-054) | like X | TC-065 |
+| ⓘ dialog 「Couldn't generate this image」 | Got it | like Got it | TC-067 |
+| Scene description editor (Edit on a failed scene) | collapse / Done | keyboard first, then like collapse (text kept) | TC-530 |
+| Scene detail while an image regenerates | X → 「Stop and lose your credits?」 (R-280) | the same dialog | TC-378 |
+| Storyboard Preview player | X | like X | TC-075 |
+| Video settings card | none (a card inside the chat) | — | n/a (part of the chat, not a screen of its own; system Back there is the chat's: Exit × stage) |
+| Notification pre-prompt | Notify me / Not now | record; must not open the permission dialog (Q-A6) | TC-304 |
+| Task-completed toast (Close / View) | Close | — | n/a (a toast over another page, not modal; system Back acts on the page beneath it) |
+| Video result page / scene-video player | ‹ (R-077, R-128) | like ‹: back to the chat | TC-506 |
+| Video result page while exporting | ← stays enabled (PM 10/22) | leaves; the export goes on | TC-517 |
+| Export sheet / done page the Android build shows | none drawn (R-324) | the sheet closes without exporting, the done page goes back; record (Q-A6) | TC-533 |
+| Fix scenes view | its back | back to where it was opened | TC-150 |
+| Scene-video description editor | collapse / Done | keyboard first, then like collapse (text kept) | TC-531 |
+| ⓘ dialog 「Couldn't generate this video」 | Got it | like Got it | TC-362 |
+| Full Edit (PowerDirector editor) | ← | leaves Full Edit | TC-088 |
+| Full Edit's own export (Produce) | PowerDirector editor | — | n/a (PowerDirector's editor export, outside AI Mini Drama; TC-423 only checks the drama's captions are not Pro-gated) |
+| History (Recent Task) | ‹ | like ‹ | TC-327 |
+| History ⓘ bubble | none drawn | record (Q-A6); expected to close only the bubble | TC-327 |
+| History first-visit hint | outside tap (R-092) | — | n/a (shown once per install; TC-105 spends that one showing on the outside tap) |
+| 「Find your video here in History.」 bubble | tap anywhere (R-072) | — | n/a (shown once per install; TC-083 spends that one showing) |
+| History ⋮ menu | none drawn | closes only the menu | TC-532 |
+| 「Delete this drama?」 | Cancel / Delete | like Cancel | TC-532 |
+| Rename dialog | Cancel / OK | keyboard first, then like Cancel (old name kept) | TC-532 |
+| Manage mode and 「Delete {n} dramas?」 | Cancel | like Cancel | TC-112 |
+| Mine › Credits › Details (opened by the refund rows) | — | — | n/a (PowerDirector's Mine pages, outside AI Mini Drama) |
+
+### Open questions (2026-10-28, system Back)
+- Q-A5 The spec states no system Back rule for dialogs, menus and keyboards. The rows expect it to act like the dialog's
+  non-destructive answer (Stay, Keep Generating, Keep choosing, Keep editing, Keep, Cancel, Got it, Close, X, Continue
+  Tomorrow) and never like the destructive one, and to close the keyboard or keypad before the screen (R-354, R-355).
+  Confirm (PM).
+- Q-A6 Screens with no drawn close control and no Back rule: the History ⓘ bubble (TC-327), the Finish your characters ⓘ
+  tip (TC-039), a typed but unconfirmed Age (TC-127: kept or dropped?), the notification pre-prompt (TC-304: does Back count
+  as 「Not now」, never shown again?) and the export sheet / done page the Android build shows although PM 10/22 draws none
+  (TC-533). The rows record what system Back does (R-356). What should it do (PM)?
 

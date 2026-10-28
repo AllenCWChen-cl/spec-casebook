@@ -223,7 +223,10 @@ and look at the tile images where layout, arrows or states matter.**
    group on every screen and board, whatever layer draws it; an icon or a numbers-only label (credit pill) groups by
    layer (+ size); a **choice set** (the same layer repeated side by side with different labels, or none: chips,
    options, template or scene cards, avatars) is one group that any one choice covers, and lists separated by a
-   heading stay apart (Gender vs Ethnicity). Every copy stays marked on the coverage page. It also adds every arrow missing from `arrows.json` (write its `expected` and requirement in pass 1);
+   heading stay apart (Gender vs Ethnicity). Every copy stays marked on the coverage page. **Platforms (user,
+   2026-10-28, REQ-050):** the Design draws the shared screens on iPhone frames only, so a control on an iPhone frame
+   counts for Android too (`inventory.ts`); an Android table traces it with Android rows or `n/a: iOS-only <why>`.
+   Overrides `ios_only_screens` keep an Apple-only screen to iOS; `android_uses_ios_frames: false` turns this off. It also adds every arrow missing from `arrows.json` (write its `expected` and requirement in pass 1);
    annotation pointers (Figma's default 「Vector N」 name, tail off-screen) are marked `not_flow`. The extractor also
    takes **panels** (dialogs, sheets, popups drawn beside the phones: dialog-sized frames or groups named like one or
    touched by an arrow; their buttons are often plain frames), buttons drawn as frames named `btn` / `back` / `cta`,
@@ -314,6 +317,13 @@ and return, waits), which apply to every job.
    must still ask before leaving and must not be saved; 2026-10-27, O-4). Sheets with their own exits (Make your character, Finish your characters) get the
    same treatment for each exit × each of their states: X and Cancel, each answer of the dialog they open (2026-10-27:
    only Cancel → Leave anyway had a row for Finish your characters).
+   **Android system Back (user, 2026-10-28, REQ-051):** on an Android table, system Back is an exit of **every** page,
+   sheet, dialog, popup, picker, editor and full-screen viewer the feature opens, not only of the chat. List them in
+   `### System back` in `requirements.md` (one line per screen, from `inventory.json` screens and panels plus the
+   pages the PM spec names): each names the row that presses system Back there and what it must do (the same as the
+   screen's own X / Cancel / Back when the spec draws one, the leave dialog where the spec asks first, closing the
+   keyboard first when an input has focus), or `n/a (<reason>)`. A screen the spec gives no way out does not stay
+   silent: its row records what system Back does and the spec gap is an Open question.
 
 9. **Hidden clauses (user, 2026-10-22, REQ-032).** A requirement can hold a clause the screen does not show: what is
    sent or uploaded ("only the cropped image is sent"), what does or does not run ("STT is not run", "reruns only

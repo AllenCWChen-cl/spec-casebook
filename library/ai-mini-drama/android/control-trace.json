@@ -1,0 +1,3816 @@
+{
+ "spec_folder": "specs/2026-10-21-2",
+ "platform": "android",
+ "inventory": "specs/2026-10-21-2/extracted/inventory.json",
+ "entries": [
+  {
+   "group": "K-acb774",
+   "kind": "item",
+   "board": "1005_Chat",
+   "boards": [
+    "1005_Chat"
+   ],
+   "name": "paycard",
+   "label": "The characters look great! Ready to crea",
+   "set": false,
+   "instances": 1,
+   "screens": [
+    "Chat_charge failed"
+   ],
+   "controls": [
+    "K-2925d4"
+   ],
+   "app": [],
+   "press": "TC-060",
+   "how": "manual"
+  },
+  {
+   "group": "K-c31c80",
+   "kind": "button",
+   "board": "1016_Chat navigation",
+   "boards": [
+    "1016_Chat navigation"
+   ],
+   "name": "btn",
+   "label": "Details",
+   "set": false,
+   "instances": 1,
+   "screens": [
+    "Credit page_free"
+   ],
+   "controls": [
+    "K-3e4544"
+   ],
+   "app": [],
+   "press": "TC-060, TC-379",
+   "how": "manual"
+  },
+  {
+   "group": "K-d1e307",
+   "kind": "button",
+   "board": "1016_Chat navigation",
+   "boards": [
+    "1016_Chat navigation"
+   ],
+   "name": "btn_main_pro+_m",
+   "label": "Subscribe Now",
+   "set": false,
+   "instances": 1,
+   "screens": [
+    "Credit page_free"
+   ],
+   "controls": [
+    "K-b7f270"
+   ],
+   "app": [],
+   "press": "TC-520",
+   "how": "manual"
+  },
+  {
+   "group": "K-938d8f",
+   "kind": "button",
+   "board": "1016_Chat navigation",
+   "boards": [
+    "1016_Chat navigation"
+   ],
+   "name": "Button/Credit/Action",
+   "label": "Buy More",
+   "set": false,
+   "instances": 1,
+   "screens": [
+    "Credit page_free"
+   ],
+   "controls": [
+    "K-e1f3f6"
+   ],
+   "app": [],
+   "press": "TC-520",
+   "how": "manual"
+  },
+  {
+   "group": "K-b32fbc",
+   "kind": "button",
+   "board": "1016_Chat navigation",
+   "boards": [
+    "1016_Chat navigation"
+   ],
+   "name": "Button/Credit/Action",
+   "label": "Claim",
+   "set": false,
+   "instances": 1,
+   "screens": [
+    "Credit page_free"
+   ],
+   "controls": [
+    "K-9d970e"
+   ],
+   "app": [],
+   "press": "TC-520",
+   "how": "manual"
+  },
+  {
+   "group": "C-9dbaad",
+   "kind": "button",
+   "board": "1016_Chat navigation",
+   "boards": [
+    "1016_Chat navigation"
+   ],
+   "name": "cta",
+   "label": "choice of 2: 「Leave anyway」 「Stay」",
+   "set": true,
+   "instances": 6,
+   "screens": [
+    "Dialog_leave_chat",
+    "Dialog_leave_1",
+    "Dialog_leave_2"
+   ],
+   "controls": [
+    "K-b2407d",
+    "K-9036df"
+   ],
+   "app": [],
+   "press": "TC-519, TC-521, TC-522, TC-358, TC-027, TC-357",
+   "how": "manual"
+  },
+  {
+   "group": "K-8435fd",
+   "kind": "button",
+   "board": "1016_Chat navigation",
+   "boards": [
+    "1016_Chat navigation",
+    "AI Mini Drama home page",
+    "main flow"
+   ],
+   "name": "manual/button",
+   "label": "More",
+   "set": false,
+   "instances": 7,
+   "screens": [
+    "② New chat → 開新房間",
+    "AI Mini Drama",
+    "Google Pixel 2 - 3",
+    "Google Pixel 2 - 4"
+   ],
+   "controls": [
+    "M-7d96e4",
+    "M-bf385c",
+    "M-b4df78",
+    "M-0b54c3"
+   ],
+   "app": [],
+   "press": "TC-006",
+   "how": "manual"
+  },
+  {
+   "group": "K-c0ac9a",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "Action Button_M",
+   "label": "Generate all",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Character Library",
+    "custom character"
+   ],
+   "controls": [
+    "K-9f0c35",
+    "K-1306db"
+   ],
+   "app": [],
+   "press": "TC-041, TC-136",
+   "how": "manual"
+  },
+  {
+   "group": "K-f327ac",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "Action Button_M",
+   "label": "Confirm",
+   "set": false,
+   "instances": 1,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-42a275"
+   ],
+   "app": [],
+   "press": "TC-041",
+   "how": "manual"
+  },
+  {
+   "group": "K-6b314e",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "btn_check",
+   "label": "",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-2fb7b8"
+   ],
+   "app": [],
+   "press": "TC-127",
+   "how": "manual"
+  },
+  {
+   "group": "K-31c320",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character",
+    "MX"
+   ],
+   "name": "btn_main_credit_m",
+   "label": "Buy Credit",
+   "set": false,
+   "instances": 5,
+   "screens": [
+    "credit",
+    "storyboard",
+    "AI Mini Drama_template"
+   ],
+   "controls": [
+    "K-d29d9a",
+    "K-fabda3"
+   ],
+   "app": [],
+   "press": "TC-225",
+   "how": "manual"
+  },
+  {
+   "group": "K-76d4e8",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character",
+    "Storyboard"
+   ],
+   "name": "btn_mani_text_icon_m",
+   "label": "Got it",
+   "set": false,
+   "instances": 5,
+   "screens": [
+    "Character Library",
+    "Dialog_text_03"
+   ],
+   "controls": [
+    "K-9eb79e",
+    "K-4c75ff",
+    "K-1657fa"
+   ],
+   "app": [],
+   "press": "TC-137, TC-067",
+   "how": "manual"
+  },
+  {
+   "group": "K-c174b4",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "btn_mani_text_icon_m",
+   "label": "Save to library",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-73d10d"
+   ],
+   "app": [],
+   "press": "TC-133",
+   "how": "manual"
+  },
+  {
+   "group": "K-1b6c85",
+   "kind": "toggle",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character",
+    "Recent Task"
+   ],
+   "name": "checkbox",
+   "label": "",
+   "set": false,
+   "instances": 17,
+   "screens": [
+    "Character Library",
+    "Recent Task"
+   ],
+   "controls": [
+    "K-432d31",
+    "K-bc8de5",
+    "K-6555d7",
+    "K-5f55ce"
+   ],
+   "app": [],
+   "press": "TC-119",
+   "how": "manual"
+  },
+  {
+   "group": "C-6b27da",
+   "kind": "item",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "chips",
+   "label": "choice of 3: 「Female」 「Male」 「Other」",
+   "set": true,
+   "instances": 36,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-e8f1ce",
+    "K-25d617",
+    "K-946a41",
+    "K-e9f1d0",
+    "K-d7e486",
+    "K-eaf1d2",
+    "K-2bd620",
+    "K-966a44"
+   ],
+   "app": [],
+   "press": "TC-048, TC-050",
+   "how": "manual"
+  },
+  {
+   "group": "C-afef34",
+   "kind": "item",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "chips",
+   "label": "choice of 4: 「Caucasian」 「Asian」 「African」 「Hispanic」",
+   "set": true,
+   "instances": 49,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-ef71f1",
+    "K-9bb6ee",
+    "K-841c4f",
+    "K-16ec87",
+    "K-373e31",
+    "K-fe9d69",
+    "K-ee71ef",
+    "K-9ab6ed",
+    "K-851c50",
+    "K-15ec86"
+   ],
+   "app": [],
+   "press": "TC-048, TC-050",
+   "how": "manual"
+  },
+  {
+   "group": "C-8cec01",
+   "kind": "item",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "chips",
+   "label": "choice of 3: 「Female」 「Asian」 「Age: 0-28」",
+   "set": true,
+   "instances": 6,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-56ea2d",
+    "K-67761e",
+    "K-05af2d"
+   ],
+   "app": [],
+   "press": "TC-036",
+   "how": "manual"
+  },
+  {
+   "group": "C-232cfe",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "cta",
+   "label": "choice of 2: 「Leave」 「Keep choosing」",
+   "set": true,
+   "instances": 2,
+   "screens": [
+    "Dialog_text_02-1"
+   ],
+   "controls": [
+    "K-c3c2c1",
+    "K-32893c"
+   ],
+   "app": [],
+   "press": "TC-038",
+   "how": "manual"
+  },
+  {
+   "group": "K-ab333a",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character",
+    "MX"
+   ],
+   "name": "Free user",
+   "label": "50",
+   "set": false,
+   "instances": 30,
+   "screens": [
+    "credit",
+    "storyboard",
+    "AI Mini Drama_template"
+   ],
+   "controls": [
+    "K-284dde",
+    "K-345f93",
+    "K-6e7710",
+    "K-a826f8",
+    "K-6e7216",
+    "K-9a3aa1",
+    "K-86abd0",
+    "K-9dcc6a",
+    "K-19735a",
+    "K-e4ec96",
+    "K-9f09ba",
+    "K-f125f9"
+   ],
+   "app": [],
+   "press": "TC-225",
+   "how": "manual"
+  },
+  {
+   "group": "K-0e6cc8",
+   "kind": "item",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "imput_character",
+   "label": "Reference (optional)",
+   "set": false,
+   "instances": 7,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-f306c5"
+   ],
+   "app": [],
+   "press": "TC-128",
+   "how": "manual"
+  },
+  {
+   "group": "K-4ff85b",
+   "kind": "item",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "imput_character",
+   "label": "",
+   "set": false,
+   "instances": 3,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-343e64"
+   ],
+   "app": [],
+   "press": "TC-317",
+   "how": "manual"
+  },
+  {
+   "group": "K-d301d1",
+   "kind": "input",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "input_contained",
+   "label": "1-100",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-ecdfca"
+   ],
+   "app": [],
+   "press": "TC-127",
+   "dismiss": "TC-127",
+   "how": "manual"
+  },
+  {
+   "group": "K-68cdee",
+   "kind": "input",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "input_contained_ages",
+   "label": "1-100",
+   "set": false,
+   "instances": 5,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-8a0e54"
+   ],
+   "app": [],
+   "press": "TC-127",
+   "dismiss": "TC-127",
+   "how": "manual"
+  },
+  {
+   "group": "K-cbd30c",
+   "kind": "input",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "input_contained_ages",
+   "label": "24",
+   "set": false,
+   "instances": 5,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-d8d9ab",
+    "K-cad995"
+   ],
+   "app": [],
+   "press": "TC-127",
+   "dismiss": "TC-127",
+   "how": "manual"
+  },
+  {
+   "group": "K-f2a9d2",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character",
+    "1005_Chat",
+    "main flow",
+    "MX"
+   ],
+   "name": "manual/button",
+   "label": "Regenerate character",
+   "set": false,
+   "instances": 29,
+   "screens": [
+    "AI Mini Drama_template",
+    "Chat_charge failed"
+   ],
+   "controls": [
+    "M-17df35",
+    "M-2972f8",
+    "M-1d60c1",
+    "M-25aaeb",
+    "M-95fa5d",
+    "M-712843",
+    "M-82acc7",
+    "M-d3abb1",
+    "M-f7550b",
+    "M-92a802",
+    "M-b3b7da"
+   ],
+   "app": [],
+   "press": "TC-310",
+   "how": "manual"
+  },
+  {
+   "group": "K-aaab73",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character",
+    "Storyboard"
+   ],
+   "name": "manual/button",
+   "label": "Done",
+   "set": false,
+   "instances": 6,
+   "screens": [
+    "Text to Video"
+   ],
+   "controls": [
+    "M-34f8ea",
+    "M-e90f19"
+   ],
+   "app": [],
+   "press": "TC-070, TC-124, TC-148, TC-287",
+   "how": "manual"
+  },
+  {
+   "group": "K-076bc2",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "manual/button",
+   "label": "Clear",
+   "set": false,
+   "instances": 4,
+   "screens": [
+    "Text to Video",
+    "Character Library"
+   ],
+   "controls": [
+    "M-3604d7",
+    "M-15f744"
+   ],
+   "app": [],
+   "press": "TC-119",
+   "how": "manual"
+  },
+  {
+   "group": "C-8157ce",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character",
+    "MX"
+   ],
+   "name": "manual/button",
+   "label": "choice of 2: 「Privacy Policy」 「Terms of Use」",
+   "set": true,
+   "instances": 10,
+   "screens": [
+    "credit",
+    "AI Mini Drama_template",
+    "storyboard"
+   ],
+   "controls": [
+    "M-11be1a",
+    "M-376af3",
+    "M-71cfeb",
+    "M-09f674"
+   ],
+   "app": [],
+   "press": "TC-225",
+   "how": "manual"
+  },
+  {
+   "group": "C-14cbaa",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "manual/button",
+   "label": "choice of 2: 「Photo」 「Adjust」",
+   "set": true,
+   "instances": 2,
+   "screens": [
+    "Add Media"
+   ],
+   "controls": [
+    "M-d26aab",
+    "M-bbd84b"
+   ],
+   "app": [],
+   "press": "TC-525",
+   "how": "manual"
+  },
+  {
+   "group": "K-b862bc",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "manual/button",
+   "label": "Replace photo",
+   "set": false,
+   "instances": 3,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "M-9732d4"
+   ],
+   "app": [],
+   "press": "TC-317",
+   "how": "manual"
+  },
+  {
+   "group": "K-a2f9e8",
+   "kind": "input",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "manual/input",
+   "label": "Character description",
+   "set": false,
+   "instances": 13,
+   "screens": [
+    "Character Library",
+    "Text to Video"
+   ],
+   "controls": [
+    "M-a2d5eb",
+    "M-6aa581",
+    "M-9cb837"
+   ],
+   "app": [],
+   "press": "TC-048, TC-370",
+   "dismiss": "TC-124, TC-287",
+   "how": "manual"
+  },
+  {
+   "group": "C-88ef55",
+   "kind": "tab",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "manual/tab",
+   "label": "choice of 2: 「Recents」 「Stock source」",
+   "set": true,
+   "instances": 2,
+   "screens": [
+    "Add Media"
+   ],
+   "controls": [
+    "M-c2ef20",
+    "M-a2d7d3"
+   ],
+   "app": [],
+   "press": "TC-525",
+   "how": "manual"
+  },
+  {
+   "group": "K-041929",
+   "kind": "toggle",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "manual/toggle",
+   "label": "Age range",
+   "set": false,
+   "instances": 3,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "M-50b9a6"
+   ],
+   "app": [],
+   "press": "TC-371",
+   "how": "manual"
+  },
+  {
+   "group": "K-37e272",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "round/ic_camera",
+   "label": "",
+   "set": false,
+   "instances": 1,
+   "screens": [
+    "Add Media"
+   ],
+   "controls": [
+    "K-7045aa"
+   ],
+   "app": [],
+   "press": "TC-525",
+   "how": "manual"
+  },
+  {
+   "group": "K-327b3e",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "round/ic_chevron_down",
+   "label": "",
+   "set": false,
+   "instances": 1,
+   "screens": [
+    "Add Media"
+   ],
+   "controls": [
+    "K-527c14"
+   ],
+   "app": [],
+   "press": "TC-525",
+   "how": "manual"
+  },
+  {
+   "group": "K-32eae1",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character",
+    "MX"
+   ],
+   "name": "round/ic_circle_xmark_filled",
+   "label": "",
+   "set": false,
+   "instances": 7,
+   "screens": [
+    "Character Library",
+    "AI Mini Drama_characters"
+   ],
+   "controls": [
+    "K-7fd204",
+    "K-24b72e"
+   ],
+   "app": [],
+   "press": "TC-135, TC-219",
+   "how": "manual"
+  },
+  {
+   "group": "K-135b9c",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character",
+    "Storyboard",
+    "video"
+   ],
+   "name": "round/ic_collapse_text",
+   "label": "",
+   "set": false,
+   "instances": 7,
+   "screens": [
+    "Text to Video"
+   ],
+   "controls": [
+    "K-ac614e",
+    "K-ee96fd",
+    "K-201ff8"
+   ],
+   "app": [],
+   "press": "TC-123, TC-140, TC-147",
+   "how": "manual"
+  },
+  {
+   "group": "K-5554e3",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "round/ic_download",
+   "label": "",
+   "set": false,
+   "instances": 3,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-acd070"
+   ],
+   "app": [],
+   "press": "TC-135",
+   "how": "manual"
+  },
+  {
+   "group": "K-6b8e28",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "round/ic_expand_text",
+   "label": "",
+   "set": false,
+   "instances": 5,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-163dd5"
+   ],
+   "app": [],
+   "press": "TC-122",
+   "how": "manual"
+  },
+  {
+   "group": "K-3276bb",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "round/ic_filter_check",
+   "label": "",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-e8e71a"
+   ],
+   "app": [],
+   "press": "TC-036",
+   "how": "manual"
+  },
+  {
+   "group": "K-aa0c0b",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character",
+    "main flow"
+   ],
+   "name": "round/ic_full screen",
+   "label": "",
+   "set": false,
+   "instances": 17,
+   "screens": [
+    "Character Library",
+    "Add Media"
+   ],
+   "controls": [
+    "M-af9d55",
+    "M-d5fffa",
+    "M-aa10cc"
+   ],
+   "app": [],
+   "press": "TC-135, TC-525",
+   "how": "manual"
+  },
+  {
+   "group": "K-39d8e0",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character",
+    "video",
+    "Recent Task",
+    "1016_Chat navigation"
+   ],
+   "name": "round/ic_info",
+   "label": "",
+   "set": false,
+   "instances": 31,
+   "screens": [
+    "Character Library",
+    "AI Mini Drama_storyboard",
+    "Recent Task",
+    "Credit page_free",
+    "④ History → Recent Task",
+    "custom character"
+   ],
+   "controls": [
+    "K-8c6094",
+    "K-0efa0f",
+    "K-79d965",
+    "K-fc8883",
+    "K-6ffe14",
+    "K-7f46e8",
+    "M-6bedb6"
+   ],
+   "app": [],
+   "press": "TC-327, TC-067",
+   "how": "manual"
+  },
+  {
+   "group": "K-977013",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character",
+    "Storyboard"
+   ],
+   "name": "round/ic_info",
+   "label": "",
+   "set": false,
+   "instances": 6,
+   "screens": [
+    "Character Library",
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "K-17cf2b",
+    "K-ddd8e5"
+   ],
+   "app": [],
+   "press": "TC-067",
+   "how": "manual"
+  },
+  {
+   "group": "K-ea3e9d",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "round/ic_more_filled",
+   "label": "",
+   "set": false,
+   "instances": 5,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-b1a757"
+   ],
+   "app": [],
+   "press": "TC-058, TC-135",
+   "how": "manual"
+  },
+  {
+   "group": "K-910afd",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "round/ic_report",
+   "label": "",
+   "set": false,
+   "instances": 3,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-72c4f3"
+   ],
+   "app": [],
+   "press": "TC-135",
+   "how": "manual"
+  },
+  {
+   "group": "K-a01368",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "round/ic_sparkle",
+   "label": "",
+   "set": false,
+   "instances": 10,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-c7a268"
+   ],
+   "app": [],
+   "press": "TC-126",
+   "how": "manual"
+  },
+  {
+   "group": "K-509611",
+   "kind": "button",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character",
+    "Storyboard",
+    "video",
+    "Recent Task"
+   ],
+   "name": "round/ic_trash",
+   "label": "",
+   "set": false,
+   "instances": 20,
+   "screens": [
+    "Character Library",
+    "Text to Video",
+    "Recent Task"
+   ],
+   "controls": [
+    "K-867a94",
+    "K-bd6bb0",
+    "K-f11797",
+    "K-c9d385",
+    "K-77f196",
+    "K-23ec00"
+   ],
+   "app": [],
+   "press": "TC-111",
+   "how": "manual"
+  },
+  {
+   "group": "C-0e27fb",
+   "kind": "item",
+   "board": "Choose Character",
+   "boards": [
+    "Choose Character"
+   ],
+   "name": "thumb_media",
+   "label": "choice of 15",
+   "set": true,
+   "instances": 15,
+   "screens": [
+    "Add Media"
+   ],
+   "controls": [
+    "K-568d09",
+    "K-2cccbe",
+    "K-ff6e25",
+    "K-538d04",
+    "K-2fccc3",
+    "K-fa6e1d",
+    "K-5f8d17",
+    "K-33ccc9",
+    "K-f66e17",
+    "K-e494a4",
+    "K-bec555",
+    "K-69667d",
+    "K-df949c",
+    "K-b3c544",
+    "K-766692"
+   ],
+   "app": [],
+   "press": "TC-129",
+   "how": "manual"
+  },
+  {
+   "group": "K-dadcbe",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "AI Mini Drama home page",
+    "1016_Chat navigation"
+   ],
+   "name": "Action Button_M",
+   "label": "Create Your Drama",
+   "set": false,
+   "instances": 7,
+   "screens": [
+    "AI Mini Drama",
+    "Google Pixel 2 - 3",
+    "Google Pixel 2 - 4",
+    "② New chat → 開新房間"
+   ],
+   "controls": [
+    "K-c90307",
+    "K-c78f56",
+    "K-c88f58",
+    "K-29c25a"
+   ],
+   "app": [],
+   "press": "TC-011, TC-425",
+   "how": "manual"
+  },
+  {
+   "group": "K-1ba96e",
+   "kind": "input",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Input text",
+    "Choose Character",
+    "Storyboard",
+    "video",
+    "MX",
+    "1005_Chat",
+    "1016_Chat navigation"
+   ],
+   "name": "ai input",
+   "label": "Enter your idea to create drama",
+   "set": false,
+   "instances": 76,
+   "screens": [
+    "storyboard",
+    "AI Mini Drama_template",
+    "Storyboard & Preview",
+    "AI Mini Drama_outline",
+    "Offline_send",
+    "Outline failed_4xxx"
+   ],
+   "controls": [
+    "K-6403ad",
+    "K-5505d4",
+    "K-d2944e",
+    "K-dd9b1c",
+    "K-2476a0",
+    "K-ad2c1f",
+    "K-4afb1e",
+    "K-f15b48",
+    "K-58d9eb",
+    "K-bf6a85"
+   ],
+   "app": [],
+   "press": "TC-015, TC-020",
+   "dismiss": "TC-018",
+   "how": "manual"
+  },
+  {
+   "group": "K-8335b0",
+   "kind": "input",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Input text"
+   ],
+   "name": "ai input",
+   "label": "Company policy strictly bans office roma",
+   "set": false,
+   "instances": 8,
+   "screens": [
+    "AI Mini Drama_outline",
+    "Storyboard & Preview"
+   ],
+   "controls": [
+    "K-2b7b48",
+    "K-9c327b",
+    "K-a03281",
+    "K-1c2f73"
+   ],
+   "app": [],
+   "press": "TC-020",
+   "dismiss": "TC-018",
+   "how": "manual"
+  },
+  {
+   "group": "K-20ac46",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Input text",
+    "Choose Character",
+    "MX",
+    "1005_Chat",
+    "1016_Chat navigation"
+   ],
+   "name": "AI option",
+   "label": "More ideas",
+   "set": false,
+   "instances": 25,
+   "screens": [
+    "Storyboard & Preview",
+    "AI Mini Drama_template",
+    "Chat_charge failed",
+    "Chat (any stage)"
+   ],
+   "controls": [
+    "K-9f9a23",
+    "K-af591d",
+    "K-b25922",
+    "K-c05b76",
+    "K-ba5b6d",
+    "K-3d7df5",
+    "K-a0c9ea",
+    "K-22543a",
+    "K-d3b00f",
+    "K-fd5b27"
+   ],
+   "app": [],
+   "press": "TC-019",
+   "how": "manual"
+  },
+  {
+   "group": "C-91f18a",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "AI Smart Tools",
+   "label": "choice of 3: 「USA Winner」 「Team ARG」 「USA Cam」",
+   "set": true,
+   "instances": 6,
+   "screens": [
+    "Launcher_2026_08"
+   ],
+   "controls": [
+    "K-8e043e",
+    "K-189add",
+    "K-50dbe1"
+   ],
+   "app": [],
+   "press": "n/a: Launcher control of another PowerDirector feature; the table tests the Launcher only as AI Mini Drama's entry (requirements.md, Controls (REQ-039), Not in scope)",
+   "how": "manual"
+  },
+  {
+   "group": "K-65b3b3",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "btn",
+   "label": "New Project",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Launcher_2026_08"
+   ],
+   "controls": [
+    "K-0d733e"
+   ],
+   "app": [],
+   "press": "n/a: Launcher control of another PowerDirector feature; the table tests the Launcher only as AI Mini Drama's entry (requirements.md, Controls (REQ-039), Not in scope)",
+   "how": "manual"
+  },
+  {
+   "group": "K-fd1f9d",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "video"
+   ],
+   "name": "btn_play",
+   "label": "",
+   "set": false,
+   "instances": 19,
+   "screens": [
+    "storyboard"
+   ],
+   "controls": [
+    "K-740831",
+    "K-9a2fa9",
+    "K-992fa7",
+    "K-70082b",
+    "K-f07136",
+    "K-f77141",
+    "K-eb712e",
+    "K-f17138"
+   ],
+   "app": [],
+   "press": "TC-143",
+   "how": "manual"
+  },
+  {
+   "group": "K-344d7d",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "video"
+   ],
+   "name": "button",
+   "label": "Create Next Episode",
+   "set": false,
+   "instances": 8,
+   "screens": [
+    "storyboard"
+   ],
+   "controls": [
+    "K-0ab751",
+    "K-ed60a8"
+   ],
+   "app": [],
+   "press": "TC-321",
+   "how": "manual"
+  },
+  {
+   "group": "K-d0ef6a",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Choose Character",
+    "video",
+    "MX",
+    "1005_Chat"
+   ],
+   "name": "button",
+   "label": "Generate",
+   "set": false,
+   "instances": 32,
+   "screens": [
+    "AI Mini Drama_template",
+    "storyboard",
+    "Storyboard & Preview",
+    "Character Library",
+    "Chat_charge failed"
+   ],
+   "controls": [
+    "K-e184e6",
+    "K-df84e2",
+    "K-e384e9",
+    "K-e584ec",
+    "K-dd9250",
+    "K-561553",
+    "K-d2d9c6",
+    "K-f99a85",
+    "K-f79a81",
+    "K-d64b84"
+   ],
+   "app": [],
+   "press": "TC-022, TC-060, TC-236",
+   "how": "manual"
+  },
+  {
+   "group": "K-6316f3",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "button",
+   "label": "Generate Video",
+   "set": false,
+   "instances": 1,
+   "screens": [
+    "Storyboard & Preview"
+   ],
+   "controls": [
+    "K-80f6b1"
+   ],
+   "app": [],
+   "press": "TC-081",
+   "how": "manual"
+  },
+  {
+   "group": "K-aca269",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Storyboard",
+    "video"
+   ],
+   "name": "button",
+   "label": "Edit",
+   "set": false,
+   "instances": 7,
+   "screens": [
+    "storyboard",
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "K-b98e54",
+    "K-d20fa8",
+    "K-a27736"
+   ],
+   "app": [],
+   "press": "TC-070",
+   "how": "manual"
+  },
+  {
+   "group": "K-87581d",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "AI Mini Drama home page",
+    "Input text",
+    "Template Detail",
+    "Choose Character",
+    "Storyboard",
+    "video",
+    "MX",
+    "1005_Chat",
+    "1016_Chat navigation"
+   ],
+   "name": "Button/Credit/Balance",
+   "label": "40",
+   "set": false,
+   "instances": 103,
+   "screens": [
+    "storyboard",
+    "AI Mini Drama",
+    "AI Mini Drama_template",
+    "Storyboard & Preview",
+    "AI Mini Drama_outline",
+    "Google Pixel 2 - 3"
+   ],
+   "controls": [
+    "K-f22f6d",
+    "K-a7b01c",
+    "K-8be471",
+    "K-1e6d95",
+    "K-e2d46b",
+    "K-5245b3",
+    "K-c77319",
+    "K-27f2e6",
+    "K-c90c00",
+    "K-e2bb66",
+    "K-bb25c1",
+    "K-bbbd5d",
+    "K-ad29d6",
+    "K-0066df",
+    "K-906328",
+    "K-960eb7",
+    "K-59d9e3",
+    "K-de2c9a",
+    "K-21299c",
+    "K-c8a100",
+    "K-12c062",
+    "K-6f9daa"
+   ],
+   "app": [],
+   "press": "TC-357, TC-358",
+   "how": "manual"
+  },
+  {
+   "group": "K-c50645",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Storyboard",
+    "Recent Task"
+   ],
+   "name": "Button/ViewMore",
+   "label": "View more",
+   "set": false,
+   "instances": 16,
+   "screens": [
+    "Launcher_2026_08",
+    "storyboard",
+    "ai"
+   ],
+   "controls": [
+    "K-684a9c",
+    "K-674cd9",
+    "K-006d78",
+    "K-2b02a9",
+    "K-2a02a8"
+   ],
+   "app": [],
+   "press": "TC-065",
+   "how": "manual"
+  },
+  {
+   "group": "C-9dc098",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "chips",
+   "label": "choice of 7: 「English」 「Spanish」 「French」 「German」 …",
+   "set": true,
+   "instances": 21,
+   "screens": [
+    "AI Mini Drama_template"
+   ],
+   "controls": [
+    "K-eb9b74",
+    "K-a4a53c",
+    "K-3f2225",
+    "K-ff2718",
+    "K-60806f",
+    "K-cb8ece",
+    "K-c28a60",
+    "K-f19b7d",
+    "K-a2a538",
+    "K-45222f",
+    "K-01271b",
+    "K-5f806d",
+    "K-cc8ed0",
+    "K-bf8a5b"
+   ],
+   "app": [],
+   "press": "TC-021",
+   "how": "manual"
+  },
+  {
+   "group": "C-8f89bd",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "chips",
+   "label": "choice of 2: 「Yes, include captions」 「No captions」",
+   "set": true,
+   "instances": 6,
+   "screens": [
+    "AI Mini Drama_template"
+   ],
+   "controls": [
+    "K-3132e7",
+    "K-6aa478",
+    "K-36352e",
+    "K-69a237"
+   ],
+   "app": [],
+   "press": "TC-021",
+   "how": "manual"
+  },
+  {
+   "group": "C-41545b",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Input text",
+    "1016_Chat navigation"
+   ],
+   "name": "chips",
+   "label": "choice of 3: 「Surprise me」 「Company policy strictly bans office roma」 「The celebrity turns admiration into forb」",
+   "set": true,
+   "instances": 27,
+   "screens": [
+    "AI Mini Drama_outline",
+    "AI Mini Drama_template"
+   ],
+   "controls": [
+    "K-d28bf1",
+    "K-006f59",
+    "K-d34963",
+    "K-c08922",
+    "K-e056d6",
+    "K-16c2ef",
+    "K-cb8933",
+    "K-e156d7",
+    "K-f7f14a",
+    "K-27aef2",
+    "K-ce174e",
+    "K-f419b8"
+   ],
+   "app": [],
+   "press": "TC-013",
+   "how": "manual"
+  },
+  {
+   "group": "K-3f63ba",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Choose Character",
+    "video"
+   ],
+   "name": "download",
+   "label": "",
+   "set": false,
+   "instances": 22,
+   "screens": [
+    "storyboard",
+    "Character Library",
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "K-ebfd99",
+    "K-e740d1",
+    "K-e940d4",
+    "K-effd9f",
+    "K-f4dd70",
+    "K-fd2e85",
+    "K-84270b",
+    "K-e83243"
+   ],
+   "app": [],
+   "press": "TC-089",
+   "how": "manual"
+  },
+  {
+   "group": "K-776847",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "ic_credit",
+   "label": "",
+   "set": false,
+   "instances": 6,
+   "screens": [
+    "Storyboard & Preview",
+    "storyboard"
+   ],
+   "controls": [
+    "K-f6e618",
+    "K-80d71c"
+   ],
+   "app": [],
+   "press": "n/a: decorative credit icon inside the price label of the action cards (no tap target of its own; the card is pressed through its Generate button)",
+   "how": "manual"
+  },
+  {
+   "group": "K-6b5f6c",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "AI Mini Drama home page",
+    "Input text",
+    "Template Detail",
+    "Choose Character",
+    "Storyboard",
+    "video",
+    "MX",
+    "1005_Chat",
+    "1016_Chat navigation"
+   ],
+   "name": "ic_history_n",
+   "label": "",
+   "set": false,
+   "instances": 99,
+   "screens": [
+    "storyboard",
+    "AI Mini Drama",
+    "AI Mini Drama_template",
+    "Storyboard & Preview",
+    "AI Mini Drama_outline",
+    "Google Pixel 2 - 3"
+   ],
+   "controls": [
+    "K-e8aaa3",
+    "K-7aca9c",
+    "K-689d48",
+    "K-c431a9",
+    "K-40b773",
+    "K-c2d05c",
+    "K-e005ec",
+    "K-7f58a1",
+    "K-d0bf5b",
+    "K-561f4e",
+    "K-d6f510",
+    "K-3775ba"
+   ],
+   "app": [],
+   "press": "TC-026, TC-521",
+   "how": "manual"
+  },
+  {
+   "group": "K-2f39a7",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "MX"
+   ],
+   "name": "imput_character",
+   "label": "",
+   "set": false,
+   "instances": 7,
+   "screens": [
+    "Storyboard & Preview",
+    "storyboard"
+   ],
+   "controls": [
+    "K-a5896a",
+    "K-900bcb"
+   ],
+   "app": [],
+   "press": "TC-138",
+   "how": "manual"
+  },
+  {
+   "group": "C-c09a5c",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "1016_Chat navigation"
+   ],
+   "name": "imput_character",
+   "label": "choice of 8",
+   "set": true,
+   "instances": 8,
+   "screens": [
+    "storyboard",
+    "Chat (any stage)"
+   ],
+   "controls": [
+    "K-886fdb",
+    "K-aa8972",
+    "K-9d895d",
+    "K-025286",
+    "K-f75275",
+    "K-2adcef",
+    "K-21dce1",
+    "K-dac858"
+   ],
+   "app": [],
+   "press": "TC-138",
+   "how": "manual"
+  },
+  {
+   "group": "C-ca9a4e",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "Launcher_icon",
+   "label": "choice of 5: 「Home」 「AI Magic」 「Template」 「Project」 …",
+   "set": true,
+   "instances": 10,
+   "screens": [
+    "Launcher_2026_08"
+   ],
+   "controls": [
+    "K-46f565",
+    "K-ceb7c2",
+    "K-cd1cc9",
+    "K-e953d9",
+    "K-1d03f5"
+   ],
+   "app": [],
+   "press": "TC-005, TC-060",
+   "how": "manual"
+  },
+  {
+   "group": "K-faa068",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "launcher_paid",
+   "label": "Try Pro+ 7 days for free",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Launcher_2026_08"
+   ],
+   "controls": [
+    "K-df48b6"
+   ],
+   "app": [],
+   "press": "n/a: Launcher control of another PowerDirector feature; the table tests the Launcher only as AI Mini Drama's entry (requirements.md, Controls (REQ-039), Not in scope)",
+   "how": "manual"
+  },
+  {
+   "group": "C-18263e",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "AI Mini Drama home page",
+    "1016_Chat navigation"
+   ],
+   "name": "Launcher_Thumbnail",
+   "label": "choice of 6: 「Forbidden Office Romance」 「The Idol's Secret Girlfriend」 「The Dragon King's Sacrificial Bride」 「Encounter After Closing」 …",
+   "set": true,
+   "instances": 36,
+   "screens": [
+    "AI Mini Drama",
+    "Google Pixel 2 - 3",
+    "Google Pixel 2 - 4",
+    "② New chat → 開新房間"
+   ],
+   "controls": [
+    "K-f49b8a",
+    "K-ac09f5",
+    "K-4fdd63",
+    "K-58da0e",
+    "K-0cf4e6",
+    "K-bf759e",
+    "K-28c762",
+    "K-446e5b",
+    "K-620a91",
+    "K-0986e1",
+    "K-dfe5fb",
+    "K-b61a7b",
+    "K-29c764",
+    "K-456e5d",
+    "K-ca14f9",
+    "K-7d2095",
+    "K-79694c",
+    "K-79ebcf",
+    "K-130e25",
+    "K-7ca333",
+    "K-5ec7bb"
+   ],
+   "app": [],
+   "press": "TC-007, TC-237",
+   "how": "manual"
+  },
+  {
+   "group": "C-dc0d8b",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Choose Character"
+   ],
+   "name": "library_select",
+   "label": "choice of 17",
+   "set": true,
+   "instances": 191,
+   "screens": [
+    "Character Library",
+    "custom character"
+   ],
+   "controls": [
+    "K-dbdb2c",
+    "K-48a7c8",
+    "K-85979c",
+    "K-f1ca2a",
+    "K-1e800b",
+    "K-ea075e",
+    "K-f56234",
+    "K-72edab",
+    "K-9f8c36",
+    "K-ebddad",
+    "K-c0941a",
+    "K-a08c37",
+    "K-ecddaf",
+    "K-bf9418",
+    "K-1f800c",
+    "K-6c2048",
+    "K-f46233"
+   ],
+   "app": [],
+   "press": "TC-120",
+   "how": "manual"
+  },
+  {
+   "group": "C-5b7483",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Choose Character"
+   ],
+   "name": "library_thumbnail",
+   "label": "choice of 2: 「Create my character」 「Mine」",
+   "set": true,
+   "instances": 150,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-9c69c2",
+    "K-20228c",
+    "K-f76030",
+    "K-8748e9",
+    "K-a90926",
+    "K-f86032",
+    "K-f0413f",
+    "K-1c1097",
+    "K-0f5e17",
+    "K-f54147",
+    "K-1b1096",
+    "K-0a5e0f",
+    "K-f44384",
+    "K-180e52",
+    "K-0b5bd2",
+    "K-1e2289",
+    "K-8893ea"
+   ],
+   "app": [],
+   "press": "TC-047",
+   "how": "manual"
+  },
+  {
+   "group": "K-0634ff",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Choose Character"
+   ],
+   "name": "library_thumbnail",
+   "label": "",
+   "set": false,
+   "instances": 82,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-8131e9",
+    "K-acb2cc",
+    "K-a9f232",
+    "K-8831f4",
+    "K-abb2cb",
+    "K-3cf9d5",
+    "K-112a7d",
+    "K-1cab2e",
+    "K-3bf9d3",
+    "K-162a85",
+    "K-19ab29",
+    "K-38f790",
+    "K-952d8b",
+    "K-20ad73",
+    "K-ac092b",
+    "K-ae092e",
+    "K-f5602d",
+    "K-7948d3",
+    "K-a3091d",
+    "K-fe603b",
+    "K-f24142",
+    "K-1e109a",
+    "K-0d5e14",
+    "K-f7414a",
+    "K-2510a5"
+   ],
+   "app": [],
+   "press": "TC-326",
+   "how": "manual"
+  },
+  {
+   "group": "K-cc18ef",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "manual/button",
+   "label": "AI Mini Drama",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Launcher_2026_08"
+   ],
+   "controls": [
+    "M-40ec0f"
+   ],
+   "app": [],
+   "press": "TC-001",
+   "how": "manual"
+  },
+  {
+   "group": "K-6a1033",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "paycard",
+   "label": "Quality",
+   "set": false,
+   "instances": 1,
+   "screens": [
+    "Storyboard & Preview"
+   ],
+   "controls": [
+    "K-424594"
+   ],
+   "app": [],
+   "press": "TC-080, TC-081",
+   "how": "manual"
+  },
+  {
+   "group": "K-50bbd0",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "paycard",
+   "label": "Looking good! Ready for the full video?",
+   "set": false,
+   "instances": 3,
+   "screens": [
+    "storyboard"
+   ],
+   "controls": [
+    "K-b69e1c"
+   ],
+   "app": [],
+   "press": "TC-236",
+   "how": "manual"
+  },
+  {
+   "group": "K-a4767d",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "paycard",
+   "label": "Model",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Storyboard & Preview"
+   ],
+   "controls": [
+    "K-329c47"
+   ],
+   "app": [],
+   "press": "TC-080, TC-081",
+   "how": "manual"
+  },
+  {
+   "group": "K-691c23",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "MX"
+   ],
+   "name": "quality_selector",
+   "label": "Best",
+   "set": false,
+   "instances": 5,
+   "screens": [
+    "Storyboard & Preview",
+    "storyboard"
+   ],
+   "controls": [
+    "K-dcc97d",
+    "K-9b746c"
+   ],
+   "app": [],
+   "press": "TC-080",
+   "how": "manual"
+  },
+  {
+   "group": "K-132905",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Input text",
+    "Choose Character",
+    "Storyboard",
+    "video",
+    "MX",
+    "1005_Chat",
+    "1016_Chat navigation"
+   ],
+   "name": "round/ic_add_chat",
+   "label": "",
+   "set": false,
+   "instances": 84,
+   "screens": [
+    "storyboard",
+    "AI Mini Drama_template",
+    "Storyboard & Preview",
+    "AI Mini Drama_outline",
+    "Offline_send",
+    "Outline failed_4xxx"
+   ],
+   "controls": [
+    "K-9c814c",
+    "K-ed0da0",
+    "K-9e77e7",
+    "K-eeac68",
+    "K-adc574",
+    "K-e0cd75",
+    "K-0f0c2e",
+    "K-fd18ce"
+   ],
+   "app": [],
+   "press": "TC-357",
+   "how": "manual"
+  },
+  {
+   "group": "K-04c77a",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "round/ic_ai_enhancement",
+   "label": "",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Launcher_2026_08"
+   ],
+   "controls": [
+    "K-8db95e"
+   ],
+   "app": [],
+   "press": "n/a: Launcher control of another PowerDirector feature; the table tests the Launcher only as AI Mini Drama's entry (requirements.md, Controls (REQ-039), Not in scope)",
+   "how": "manual"
+  },
+  {
+   "group": "K-81baa6",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "round/ic_arrow_down",
+   "label": "",
+   "set": false,
+   "instances": 1,
+   "screens": [
+    "storyboard"
+   ],
+   "controls": [
+    "K-a02509"
+   ],
+   "app": [],
+   "press": "TC-374",
+   "how": "manual"
+  },
+  {
+   "group": "K-42c3dc",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Input text"
+   ],
+   "name": "round/ic_arrow_up",
+   "label": "",
+   "set": false,
+   "instances": 12,
+   "screens": [
+    "AI Mini Drama_outline",
+    "Storyboard & Preview"
+   ],
+   "controls": [
+    "K-f2cfd1",
+    "K-edcfca",
+    "K-97f3f6",
+    "K-9ef401",
+    "K-0bf929"
+   ],
+   "app": [],
+   "press": "TC-020",
+   "how": "manual"
+  },
+  {
+   "group": "K-6c9344",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "round/ic_auto_edit",
+   "label": "",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Launcher_2026_08"
+   ],
+   "controls": [
+    "K-9e725e"
+   ],
+   "app": [],
+   "press": "n/a: Launcher control of another PowerDirector feature; the table tests the Launcher only as AI Mini Drama's entry (requirements.md, Controls (REQ-039), Not in scope)",
+   "how": "manual"
+  },
+  {
+   "group": "K-937182",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Choose Character"
+   ],
+   "name": "round/ic_check",
+   "label": "",
+   "set": false,
+   "instances": 54,
+   "screens": [
+    "Character Library",
+    "crop & range"
+   ],
+   "controls": [
+    "K-6ac4c9",
+    "K-2efe7d",
+    "K-bea6b7"
+   ],
+   "app": [],
+   "press": "TC-044, TC-131, TC-036",
+   "how": "manual"
+  },
+  {
+   "group": "K-1a478d",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "AI Mini Drama home page",
+    "Input text",
+    "Template Detail",
+    "Choose Character",
+    "Storyboard",
+    "video",
+    "Recent Task",
+    "MX",
+    "1005_Chat",
+    "1016_Chat navigation"
+   ],
+   "name": "round/ic_chevron_left",
+   "label": "",
+   "set": false,
+   "instances": 129,
+   "screens": [
+    "storyboard",
+    "AI Mini Drama",
+    "AI Mini Drama_template",
+    "Storyboard & Preview",
+    "AI Mini Drama_outline",
+    "Google Pixel 2 - 3"
+   ],
+   "controls": [
+    "K-4a4627",
+    "K-f36094",
+    "K-c3203b",
+    "K-d1c974",
+    "K-660563",
+    "K-a3f975",
+    "K-b6c0ef",
+    "K-956b2f",
+    "K-5b678c",
+    "K-cafa9f",
+    "K-653ecd"
+   ],
+   "app": [],
+   "press": "TC-025, TC-519",
+   "how": "manual"
+  },
+  {
+   "group": "K-a9408f",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "AI Mini Drama home page"
+   ],
+   "name": "round/ic_chevron_right",
+   "label": "",
+   "set": false,
+   "instances": 6,
+   "screens": [
+    "AI Mini Drama",
+    "Google Pixel 2 - 3",
+    "Google Pixel 2 - 4"
+   ],
+   "controls": [
+    "K-9a7af5",
+    "K-2612b6",
+    "K-88695c"
+   ],
+   "app": [],
+   "press": "n/a: duplicate box: the › of the 「More ›」 link (K-8435fd, pressed by TC-006)",
+   "how": "manual"
+  },
+  {
+   "group": "K-2ba92a",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Storyboard"
+   ],
+   "name": "round/ic_chevron_right",
+   "label": "",
+   "set": false,
+   "instances": 13,
+   "screens": [
+    "Launcher_2026_08",
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "K-9d7afa",
+    "K-a76fc4"
+   ],
+   "app": [],
+   "press": "TC-065",
+   "how": "manual"
+  },
+  {
+   "group": "K-007183",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "round/ic_cinematic_reel_creator",
+   "label": "",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Launcher_2026_08"
+   ],
+   "controls": [
+    "K-c409cb"
+   ],
+   "app": [],
+   "press": "n/a: Launcher control of another PowerDirector feature; the table tests the Launcher only as AI Mini Drama's entry (requirements.md, Controls (REQ-039), Not in scope)",
+   "how": "manual"
+  },
+  {
+   "group": "K-91724b",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Choose Character"
+   ],
+   "name": "round/ic_filter",
+   "label": "",
+   "set": false,
+   "instances": 14,
+   "screens": [
+    "Character Library"
+   ],
+   "controls": [
+    "K-5abf9d",
+    "K-2996a2"
+   ],
+   "app": [],
+   "press": "TC-036",
+   "how": "manual"
+  },
+  {
+   "group": "K-9a06f5",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "round/ic_image2video",
+   "label": "",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Launcher_2026_08"
+   ],
+   "controls": [
+    "K-c3fb95"
+   ],
+   "app": [],
+   "press": "n/a: Launcher control of another PowerDirector feature; the table tests the Launcher only as AI Mini Drama's entry (requirements.md, Controls (REQ-039), Not in scope)",
+   "how": "manual"
+  },
+  {
+   "group": "K-27bb0a",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "round/ic_menu",
+   "label": "",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Launcher_2026_08"
+   ],
+   "controls": [
+    "K-ad4420"
+   ],
+   "app": [],
+   "press": "n/a: Launcher control of another PowerDirector feature; the table tests the Launcher only as AI Mini Drama's entry (requirements.md, Controls (REQ-039), Not in scope)",
+   "how": "manual"
+  },
+  {
+   "group": "K-7cdb03",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "round/ic_motion_swap",
+   "label": "",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Launcher_2026_08"
+   ],
+   "controls": [
+    "K-712445"
+   ],
+   "app": [],
+   "press": "n/a: Launcher control of another PowerDirector feature; the table tests the Launcher only as AI Mini Drama's entry (requirements.md, Controls (REQ-039), Not in scope)",
+   "how": "manual"
+  },
+  {
+   "group": "K-d917ad",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "round/ic_notification_unread",
+   "label": "",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Launcher_2026_08"
+   ],
+   "controls": [
+    "K-48deea"
+   ],
+   "app": [],
+   "press": "n/a: Launcher control of another PowerDirector feature; the table tests the Launcher only as AI Mini Drama's entry (requirements.md, Controls (REQ-039), Not in scope)",
+   "how": "manual"
+  },
+  {
+   "group": "K-0348af",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "round/ic_speech_2_text",
+   "label": "",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Launcher_2026_08"
+   ],
+   "controls": [
+    "K-fa51db"
+   ],
+   "app": [],
+   "press": "n/a: Launcher control of another PowerDirector feature; the table tests the Launcher only as AI Mini Drama's entry (requirements.md, Controls (REQ-039), Not in scope)",
+   "how": "manual"
+  },
+  {
+   "group": "K-573d95",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "round/ic_text2video",
+   "label": "",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Launcher_2026_08"
+   ],
+   "controls": [
+    "K-e0d576"
+   ],
+   "app": [],
+   "press": "n/a: Launcher control of another PowerDirector feature; the table tests the Launcher only as AI Mini Drama's entry (requirements.md, Controls (REQ-039), Not in scope)",
+   "how": "manual"
+  },
+  {
+   "group": "K-dac69d",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "round/ic_video enhancer",
+   "label": "",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Launcher_2026_08"
+   ],
+   "controls": [
+    "K-093bfd"
+   ],
+   "app": [],
+   "press": "n/a: Launcher control of another PowerDirector feature; the table tests the Launcher only as AI Mini Drama's entry (requirements.md, Controls (REQ-039), Not in scope)",
+   "how": "manual"
+  },
+  {
+   "group": "K-fd68e2",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "round/ic_video_edit_by_chat",
+   "label": "",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Launcher_2026_08"
+   ],
+   "controls": [
+    "K-f9d2d4"
+   ],
+   "app": [],
+   "press": "n/a: Launcher control of another PowerDirector feature; the table tests the Launcher only as AI Mini Drama's entry (requirements.md, Controls (REQ-039), Not in scope)",
+   "how": "manual"
+  },
+  {
+   "group": "K-30a28e",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Input text",
+    "1016_Chat navigation",
+    "Choose Character",
+    "1005_Chat",
+    "MX",
+    "Storyboard"
+   ],
+   "name": "round/ic_vocal",
+   "label": "",
+   "set": false,
+   "instances": 84,
+   "screens": [
+    "AI Mini Drama_outline",
+    "Storyboard & Preview",
+    "Chat (any stage)",
+    "AI Mini Drama_template",
+    "Offline_send",
+    "Outline failed_4xxx"
+   ],
+   "controls": [
+    "K-977e6f",
+    "K-927e67",
+    "K-29fa44",
+    "K-20fa36",
+    "K-2dfec7",
+    "M-639131",
+    "M-9e217a",
+    "M-7e68e4",
+    "M-f484ac",
+    "M-4d3c9a",
+    "M-9939fe",
+    "M-c66b38"
+   ],
+   "app": [],
+   "press": "TC-524",
+   "how": "manual"
+  },
+  {
+   "group": "K-2406cd",
+   "kind": "button",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Choose Character",
+    "Storyboard",
+    "video",
+    "MX"
+   ],
+   "name": "round/ic_xmark",
+   "label": "",
+   "set": false,
+   "instances": 92,
+   "screens": [
+    "Character Library",
+    "crop & range",
+    "preview",
+    "AI Mini Drama_storyboard",
+    "storyboard",
+    "AI Mini Drama_template"
+   ],
+   "controls": [
+    "K-9902b7",
+    "K-565830",
+    "K-605840",
+    "K-dfd50e",
+    "K-535937",
+    "K-6e820b",
+    "K-8e6cfd",
+    "M-f744cf",
+    "M-fb6dad"
+   ],
+   "app": [],
+   "press": "TC-037, TC-134, TC-121",
+   "how": "manual"
+  },
+  {
+   "group": "C-220076",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Input text",
+    "Storyboard",
+    "Recent Task",
+    "MX",
+    "1016_Chat navigation"
+   ],
+   "name": "scene",
+   "label": "choice of 7: 「Scene 6 — The Price of Going ...」 「Scene 2 — Elevator Sparks」 「Scene 3 — Secret Dates」 「Scene 4 — Almost Caught」 …",
+   "set": true,
+   "instances": 92,
+   "screens": [
+    "Storyboard & Preview",
+    "storyboard",
+    "ai",
+    "Chat (any stage)"
+   ],
+   "controls": [
+    "K-981b34",
+    "K-64e5f6",
+    "K-d9dea7",
+    "K-74d83f",
+    "K-f7eff8",
+    "K-cbd368",
+    "K-8eb2f7",
+    "K-abf9a2",
+    "K-5bc078",
+    "K-9ef98d",
+    "K-4cae94",
+    "K-e0772c",
+    "K-ff7aaf",
+    "K-4c2929",
+    "K-ed6b08",
+    "K-66a4f4",
+    "K-db7a5e",
+    "K-51147c",
+    "K-2416cc",
+    "K-698504",
+    "K-09bb05",
+    "K-29e7a1",
+    "K-74e044",
+    "K-76d1ad",
+    "K-2316ca",
+    "K-668500",
+    "K-08bb04",
+    "K-28e79f",
+    "K-75e046",
+    "K-79d1b2",
+    "K-ff0084",
+    "K-a31b19",
+    "K-04446d",
+    "K-5494e4"
+   ],
+   "app": [],
+   "press": "TC-138",
+   "how": "manual"
+  },
+  {
+   "group": "K-124b99",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Input text",
+    "Storyboard",
+    "video",
+    "Recent Task",
+    "MX",
+    "1016_Chat navigation"
+   ],
+   "name": "Storyboard Preview_thumbnail",
+   "label": "",
+   "set": false,
+   "instances": 23,
+   "screens": [
+    "Storyboard & Preview",
+    "storyboard",
+    "ai",
+    "Chat (any stage)"
+   ],
+   "controls": [
+    "K-5d5c4e",
+    "K-665c5c",
+    "K-6a5e88",
+    "K-e8f5f6",
+    "K-e3f5ee",
+    "K-bf7a9b",
+    "K-bd7a98",
+    "K-ba7a93",
+    "K-b79e62",
+    "K-d9115b",
+    "K-df1164",
+    "K-b268d0",
+    "K-b168ce",
+    "K-124f76",
+    "K-3fff31"
+   ],
+   "app": [],
+   "press": "TC-075",
+   "how": "manual"
+  },
+  {
+   "group": "K-aa4593",
+   "kind": "toggle",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "video",
+    "MX"
+   ],
+   "name": "switch_model",
+   "label": "Preview · 30 sec",
+   "set": false,
+   "instances": 9,
+   "screens": [
+    "Storyboard & Preview",
+    "storyboard"
+   ],
+   "controls": [
+    "K-41d31c",
+    "K-84d4e0",
+    "K-8bbc58"
+   ],
+   "app": [],
+   "press": "TC-080",
+   "how": "manual"
+  },
+  {
+   "group": "K-ca5690",
+   "kind": "toggle",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "video"
+   ],
+   "name": "switch_model",
+   "label": "Seedance 2.0",
+   "set": false,
+   "instances": 4,
+   "screens": [
+    "Storyboard & Preview",
+    "storyboard"
+   ],
+   "controls": [
+    "K-92254f",
+    "K-08a26f"
+   ],
+   "app": [],
+   "press": "TC-080, TC-347",
+   "how": "manual"
+  },
+  {
+   "group": "C-93c518",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "Choose Character",
+    "MX",
+    "1005_Chat"
+   ],
+   "name": "thumb_character",
+   "label": "choice of 3: 「Sophie」 「The Manager」 「HR」",
+   "set": true,
+   "instances": 57,
+   "screens": [
+    "AI Mini Drama_template",
+    "Chat_charge failed"
+   ],
+   "controls": [
+    "K-5e1c5e",
+    "K-3b4b37",
+    "K-319572",
+    "K-b6e2e4",
+    "K-9e419f",
+    "K-10d99d",
+    "K-cb23c5",
+    "K-a64391",
+    "K-a69ce6",
+    "K-594f14",
+    "K-006caa",
+    "K-d3dcb8",
+    "K-e656ae",
+    "K-0b6efa",
+    "K-48d99f",
+    "K-e956b2",
+    "K-086ef5",
+    "K-4bd9a4",
+    "K-6323a9",
+    "K-3c8d60",
+    "K-547adb",
+    "K-6423aa",
+    "K-3f8d64",
+    "K-4d7ad0",
+    "K-991bc8",
+    "K-552f83",
+    "K-d338bd"
+   ],
+   "app": [],
+   "press": "TC-033",
+   "how": "manual"
+  },
+  {
+   "group": "K-cf4f2e",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "thumbnail_3v4",
+   "label": "",
+   "set": false,
+   "instances": 6,
+   "screens": [
+    "AI Mini Drama_template"
+   ],
+   "controls": [
+    "K-4119b4",
+    "K-3b19ab"
+   ],
+   "app": [],
+   "press": "n/a: the template cover inside the user's message bubble is message content; no Design frame, arrow or note gives it a tap action",
+   "how": "manual"
+  },
+  {
+   "group": "K-d9f246",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow",
+    "video"
+   ],
+   "name": "video",
+   "label": "",
+   "set": false,
+   "instances": 17,
+   "screens": [
+    "storyboard"
+   ],
+   "controls": [
+    "K-451195",
+    "K-441194",
+    "K-ab7d6d",
+    "K-35a57e",
+    "K-36a57f",
+    "K-f09be5",
+    "K-40a58f"
+   ],
+   "app": [],
+   "press": "TC-143",
+   "how": "manual"
+  },
+  {
+   "group": "C-745d7c",
+   "kind": "item",
+   "board": "main flow",
+   "boards": [
+    "main flow"
+   ],
+   "name": "video",
+   "label": "choice of 2",
+   "set": true,
+   "instances": 2,
+   "screens": [
+    "storyboard"
+   ],
+   "controls": [
+    "K-ad7d70",
+    "K-b0c299"
+   ],
+   "app": [],
+   "press": "TC-143",
+   "how": "manual"
+  },
+  {
+   "group": "K-7b9560",
+   "kind": "button",
+   "board": "MX",
+   "boards": [
+    "MX"
+   ],
+   "name": "btn_mani_text_m",
+   "label": "Upgrade to Premium",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "AI Mini Drama_characters"
+   ],
+   "controls": [
+    "K-1e1b96"
+   ],
+   "app": [],
+   "press": "TC-215, TC-222",
+   "how": "manual"
+  },
+  {
+   "group": "K-71866f",
+   "kind": "button",
+   "board": "MX",
+   "boards": [
+    "MX"
+   ],
+   "name": "btn_mani_text_m",
+   "label": "Continue Tomorrow",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "AI Mini Drama_characters"
+   ],
+   "controls": [
+    "K-58aad6"
+   ],
+   "app": [],
+   "press": "TC-118",
+   "how": "manual"
+  },
+  {
+   "group": "K-af2bec",
+   "kind": "button",
+   "board": "MX",
+   "boards": [
+    "MX"
+   ],
+   "name": "button",
+   "label": "Buy Credits",
+   "set": false,
+   "instances": 4,
+   "screens": [
+    "storyboard",
+    "AI Mini Drama_template"
+   ],
+   "controls": [
+    "K-ce3466",
+    "K-cf3ac3"
+   ],
+   "app": [],
+   "press": "TC-152, TC-116",
+   "how": "manual"
+  },
+  {
+   "group": "K-1ed4be",
+   "kind": "button",
+   "board": "Recent Task",
+   "boards": [
+    "Recent Task",
+    "1016_Chat navigation"
+   ],
+   "name": "btn",
+   "label": "New Chat",
+   "set": false,
+   "instances": 3,
+   "screens": [
+    "Recent Task",
+    "④ History → Recent Task"
+   ],
+   "controls": [
+    "K-3271f2",
+    "K-e67176"
+   ],
+   "app": [],
+   "press": "TC-106",
+   "how": "manual"
+  },
+  {
+   "group": "K-9393b9",
+   "kind": "button",
+   "board": "Recent Task",
+   "boards": [
+    "Recent Task",
+    "1016_Chat navigation"
+   ],
+   "name": "btn",
+   "label": "Manage",
+   "set": false,
+   "instances": 5,
+   "screens": [
+    "Recent Task",
+    "④ History → Recent Task"
+   ],
+   "controls": [
+    "K-8b457c",
+    "K-17f2f0"
+   ],
+   "app": [],
+   "press": "TC-112",
+   "how": "manual"
+  },
+  {
+   "group": "K-b6864a",
+   "kind": "item",
+   "board": "Recent Task",
+   "boards": [
+    "Recent Task"
+   ],
+   "name": "Launcher_icon",
+   "label": "Delete",
+   "set": false,
+   "instances": 6,
+   "screens": [
+    "Recent Task"
+   ],
+   "controls": [
+    "K-1bb862"
+   ],
+   "app": [],
+   "press": "TC-112",
+   "how": "manual"
+  },
+  {
+   "group": "C-fe9663",
+   "kind": "button",
+   "board": "Recent Task",
+   "boards": [
+    "Recent Task"
+   ],
+   "name": "manual/button",
+   "label": "choice of 2: 「Select All」 「Cancel」",
+   "set": true,
+   "instances": 12,
+   "screens": [
+    "Recent Task"
+   ],
+   "controls": [
+    "M-edfa23",
+    "M-21848f"
+   ],
+   "app": [],
+   "press": "TC-112",
+   "how": "manual"
+  },
+  {
+   "group": "C-5a0a33",
+   "kind": "button",
+   "board": "Recent Task",
+   "boards": [
+    "Recent Task"
+   ],
+   "name": "manual/button",
+   "label": "choice of 2: 「Rename」 「Delete」",
+   "set": true,
+   "instances": 4,
+   "screens": [
+    "Recent Task"
+   ],
+   "controls": [
+    "M-8defbe",
+    "M-1f168f"
+   ],
+   "app": [],
+   "press": "TC-108, TC-111",
+   "how": "manual"
+  },
+  {
+   "group": "K-6441bd",
+   "kind": "item",
+   "board": "Recent Task",
+   "boards": [
+    "Recent Task",
+    "1016_Chat navigation"
+   ],
+   "name": "Project card",
+   "label": "2026/08/19 10:51 AM",
+   "set": false,
+   "instances": 34,
+   "screens": [
+    "Recent Task",
+    "④ History → Recent Task"
+   ],
+   "controls": [
+    "K-a5dca8",
+    "K-266956",
+    "K-21694e",
+    "K-9561b6",
+    "K-9261b2",
+    "K-847f61",
+    "K-498d8b",
+    "K-468d86",
+    "K-ba94f9",
+    "K-b994f7"
+   ],
+   "app": [],
+   "press": "TC-113",
+   "how": "manual"
+  },
+  {
+   "group": "K-9659da",
+   "kind": "button",
+   "board": "Recent Task",
+   "boards": [
+    "Recent Task"
+   ],
+   "name": "round/ic_edit_square",
+   "label": "",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Recent Task"
+   ],
+   "controls": [
+    "K-d84a18"
+   ],
+   "app": [],
+   "press": "TC-108",
+   "how": "manual"
+  },
+  {
+   "group": "K-49df48",
+   "kind": "button",
+   "board": "Recent Task",
+   "boards": [
+    "Recent Task",
+    "1016_Chat navigation"
+   ],
+   "name": "round/ic_more_vertical_filled",
+   "label": "",
+   "set": false,
+   "instances": 21,
+   "screens": [
+    "Recent Task",
+    "④ History → Recent Task"
+   ],
+   "controls": [
+    "K-889593",
+    "K-4d6de3",
+    "K-476dd9",
+    "K-466b99",
+    "K-486b9c",
+    "K-702dc9",
+    "K-011e9d",
+    "K-ff1e9a",
+    "K-7016fd",
+    "K-6e16fa"
+   ],
+   "app": [],
+   "press": "TC-111",
+   "how": "manual"
+  },
+  {
+   "group": "K-2256b1",
+   "kind": "button",
+   "board": "Storyboard",
+   "boards": [
+    "Storyboard"
+   ],
+   "name": "Action Button_M",
+   "label": "Regenerate Image",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "K-4d5db8"
+   ],
+   "app": [],
+   "press": "TC-141",
+   "how": "manual"
+  },
+  {
+   "group": "K-a10885",
+   "kind": "button",
+   "board": "Storyboard",
+   "boards": [
+    "Storyboard",
+    "video"
+   ],
+   "name": "button",
+   "label": "Retry",
+   "set": false,
+   "instances": 6,
+   "screens": [
+    "storyboard",
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "K-0a5c77",
+    "K-84fac7",
+    "K-08881c"
+   ],
+   "app": [],
+   "press": "TC-092, TC-299",
+   "how": "manual"
+  },
+  {
+   "group": "K-ff1a1c",
+   "kind": "button",
+   "board": "Storyboard",
+   "boards": [
+    "Storyboard",
+    "video",
+    "1005_Chat"
+   ],
+   "name": "button",
+   "label": "Try again",
+   "set": false,
+   "instances": 6,
+   "screens": [
+    "Storyboard & Preview",
+    "storyboard",
+    "Offline_send",
+    "Outline failed_5xxx"
+   ],
+   "controls": [
+    "K-9d7106",
+    "K-12a8d6",
+    "K-8e200a",
+    "K-12739e"
+   ],
+   "app": [],
+   "press": "TC-098",
+   "how": "manual"
+  },
+  {
+   "group": "K-1e3760",
+   "kind": "button",
+   "board": "Storyboard",
+   "boards": [
+    "Storyboard"
+   ],
+   "name": "manual/button",
+   "label": "terms of service",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "Dialog_text_03"
+   ],
+   "controls": [
+    "M-2fbb39",
+    "M-87694d"
+   ],
+   "app": [],
+   "press": "TC-067",
+   "how": "manual"
+  },
+  {
+   "group": "K-404007",
+   "kind": "input",
+   "board": "Storyboard",
+   "boards": [
+    "Storyboard",
+    "video"
+   ],
+   "name": "manual/input",
+   "label": "Scene description",
+   "set": false,
+   "instances": 8,
+   "screens": [
+    "Text to Video",
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "M-bc746f",
+    "M-284624",
+    "M-46a06c"
+   ],
+   "app": [],
+   "press": "TC-070, TC-312",
+   "dismiss": "TC-070",
+   "how": "manual"
+  },
+  {
+   "group": "K-af4631",
+   "kind": "item",
+   "board": "Storyboard",
+   "boards": [
+    "Storyboard"
+   ],
+   "name": "manual/item",
+   "label": "Preview scrubber",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "preview"
+   ],
+   "controls": [
+    "M-9892cc"
+   ],
+   "app": [],
+   "press": "TC-075",
+   "how": "manual"
+  },
+  {
+   "group": "K-8b9605",
+   "kind": "button",
+   "board": "Storyboard",
+   "boards": [
+    "Storyboard"
+   ],
+   "name": "round/ic_chevron_left",
+   "label": "",
+   "set": false,
+   "instances": 11,
+   "screens": [
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "K-a9f97f"
+   ],
+   "app": [],
+   "press": "TC-065",
+   "how": "manual"
+  },
+  {
+   "group": "K-1ff415",
+   "kind": "button",
+   "board": "Storyboard",
+   "boards": [
+    "Storyboard"
+   ],
+   "name": "round/ic_pause",
+   "label": "",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "preview"
+   ],
+   "controls": [
+    "K-3d4af7"
+   ],
+   "app": [],
+   "press": "TC-075",
+   "how": "manual"
+  },
+  {
+   "group": "K-a28dca",
+   "kind": "item",
+   "board": "Storyboard",
+   "boards": [
+    "Storyboard"
+   ],
+   "name": "scene",
+   "label": "",
+   "set": false,
+   "instances": 7,
+   "screens": [
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "K-a6549d"
+   ],
+   "app": [],
+   "press": "TC-066",
+   "how": "manual"
+  },
+  {
+   "group": "K-22b2d2",
+   "kind": "item",
+   "board": "Storyboard",
+   "boards": [
+    "Storyboard"
+   ],
+   "name": "scene_error_card",
+   "label": "Couldn't create image",
+   "set": false,
+   "instances": 4,
+   "screens": [
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "K-6ec8d1"
+   ],
+   "app": [],
+   "press": "n/a: container, not a control of its own: the error card's 「Edit」 (K-aca269, TC-070) and ⓘ (K-977013, TC-067) are traced, and the Design draws no tap on the card itself",
+   "how": "manual"
+  },
+  {
+   "group": "K-a990dd",
+   "kind": "item",
+   "board": "Storyboard",
+   "boards": [
+    "Storyboard"
+   ],
+   "name": "scene_media",
+   "label": "",
+   "set": false,
+   "instances": 7,
+   "screens": [
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "K-4dbb05"
+   ],
+   "app": [],
+   "press": "TC-066",
+   "how": "manual"
+  },
+  {
+   "group": "K-9669fb",
+   "kind": "item",
+   "board": "Storyboard",
+   "boards": [
+    "Storyboard"
+   ],
+   "name": "scene_media",
+   "label": "Scene",
+   "set": false,
+   "instances": 7,
+   "screens": [
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "K-4e07cb",
+    "K-e2ab08"
+   ],
+   "app": [],
+   "press": "n/a: duplicate of the main scene image K-a28dca (the same image in its failed 「Scene」 state, in the scene_media layer), pressed by TC-066",
+   "how": "manual"
+  },
+  {
+   "group": "K-55702f",
+   "kind": "item",
+   "board": "Storyboard",
+   "boards": [
+    "Storyboard"
+   ],
+   "name": "scene_media",
+   "label": "Location",
+   "set": false,
+   "instances": 5,
+   "screens": [
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "K-55ef0a"
+   ],
+   "app": [],
+   "press": "TC-066",
+   "how": "manual"
+  },
+  {
+   "group": "C-93eb1e",
+   "kind": "item",
+   "board": "Storyboard",
+   "boards": [
+    "Storyboard"
+   ],
+   "name": "thumb_characters_v1",
+   "label": "choice of 3: 「Sophie」 「The Manager」 「HR」",
+   "set": true,
+   "instances": 6,
+   "screens": [
+    "Storyboard & Preview"
+   ],
+   "controls": [
+    "K-991aa5",
+    "K-9feeea",
+    "K-54dd38"
+   ],
+   "app": [],
+   "press": "TC-033",
+   "how": "manual"
+  },
+  {
+   "group": "K-d3aec5",
+   "kind": "button",
+   "board": "Template Detail",
+   "boards": [
+    "Template Detail"
+   ],
+   "name": "Action Button_M",
+   "label": "Make my version",
+   "set": false,
+   "instances": 6,
+   "screens": [
+    "AI Mini Drama",
+    "Google Pixel 2 - 2",
+    "Google Pixel 2 - 3"
+   ],
+   "controls": [
+    "K-df6cd0",
+    "K-dc6a8d"
+   ],
+   "app": [],
+   "press": "TC-009, TC-235, TC-237",
+   "how": "manual"
+  },
+  {
+   "group": "K-55f3b5",
+   "kind": "button",
+   "board": "Template Detail",
+   "boards": [
+    "Template Detail",
+    "video"
+   ],
+   "name": "btn_play",
+   "label": "",
+   "set": false,
+   "instances": 4,
+   "screens": [
+    "AI Mini Drama",
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "K-2621ad",
+    "K-5c0103"
+   ],
+   "app": [],
+   "press": "TC-008",
+   "how": "manual"
+  },
+  {
+   "group": "K-3ba776",
+   "kind": "item",
+   "board": "Template Detail",
+   "boards": [
+    "Template Detail"
+   ],
+   "name": "manual/item",
+   "label": "Video player",
+   "set": false,
+   "instances": 6,
+   "screens": [
+    "AI Mini Drama",
+    "Google Pixel 2 - 2",
+    "Google Pixel 2 - 3"
+   ],
+   "controls": [
+    "M-572ed9",
+    "M-9c0201"
+   ],
+   "app": [],
+   "press": "TC-008",
+   "how": "manual"
+  },
+  {
+   "group": "K-940021",
+   "kind": "button",
+   "board": "Template Detail",
+   "boards": [
+    "Template Detail"
+   ],
+   "name": "round/ic_volume",
+   "label": "",
+   "set": false,
+   "instances": 4,
+   "screens": [
+    "AI Mini Drama",
+    "Google Pixel 2 - 2",
+    "Google Pixel 2 - 3"
+   ],
+   "controls": [
+    "K-27a1e3",
+    "K-2ea1ee"
+   ],
+   "app": [],
+   "press": "TC-008",
+   "how": "manual"
+  },
+  {
+   "group": "K-cf0dd5",
+   "kind": "button",
+   "board": "Template Detail",
+   "boards": [
+    "Template Detail"
+   ],
+   "name": "round/ic_volume_off",
+   "label": "",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "AI Mini Drama"
+   ],
+   "controls": [
+    "K-25a1a5"
+   ],
+   "app": [],
+   "press": "TC-008",
+   "how": "manual"
+  },
+  {
+   "group": "C-87bf0b",
+   "kind": "item",
+   "board": "Template Detail",
+   "boards": [
+    "Template Detail"
+   ],
+   "name": "Template_Thumbnail",
+   "label": "choice of 13: 「The New Guy's Secret」 「Forbidden Office Romanc」 「The Heir of the Merging Company」 「The Villainess Rewrite」 …",
+   "set": true,
+   "instances": 26,
+   "screens": [
+    "Template"
+   ],
+   "controls": [
+    "K-1a983b",
+    "K-36186f",
+    "K-e404df",
+    "K-079d45",
+    "K-412744",
+    "K-bc553b",
+    "K-b156df",
+    "K-5a9b3b",
+    "K-b1cf92",
+    "K-d6914d",
+    "K-55ee06",
+    "K-3579f8",
+    "K-a1c673"
+   ],
+   "app": [],
+   "press": "TC-239, TC-261, TC-265, TC-269",
+   "how": "manual"
+  },
+  {
+   "group": "K-c73a98",
+   "kind": "button",
+   "board": "video",
+   "boards": [
+    "video"
+   ],
+   "name": "Action Button_M",
+   "label": "Regenerate scene",
+   "set": false,
+   "instances": 2,
+   "screens": [
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "K-48c4b3"
+   ],
+   "app": [],
+   "press": "TC-149",
+   "how": "manual"
+  },
+  {
+   "group": "K-c89bc1",
+   "kind": "button",
+   "board": "video",
+   "boards": [
+    "video"
+   ],
+   "name": "button",
+   "label": "Fix scenes",
+   "set": false,
+   "instances": 4,
+   "screens": [
+    "storyboard"
+   ],
+   "controls": [
+    "K-45e6f3"
+   ],
+   "app": [],
+   "press": "TC-150",
+   "how": "manual"
+  },
+  {
+   "group": "C-65c45d",
+   "kind": "button",
+   "board": "video",
+   "boards": [
+    "video"
+   ],
+   "name": "Nav/Top/TextButton",
+   "label": "choice of 2: 「Full Edit」 「Export Full Video」",
+   "set": true,
+   "instances": 8,
+   "screens": [
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "K-c27130",
+    "K-42916c"
+   ],
+   "app": [],
+   "press": "TC-088, TC-311, TC-343",
+   "how": "manual"
+  },
+  {
+   "group": "K-a98301",
+   "kind": "button",
+   "board": "video",
+   "boards": [
+    "video"
+   ],
+   "name": "round/ic_circle_exclamation",
+   "label": "",
+   "set": false,
+   "instances": 1,
+   "screens": [
+    "storyboard"
+   ],
+   "controls": [
+    "K-a5e24e"
+   ],
+   "app": [],
+   "press": "n/a: decorative red ! icon in front of the chat failure text (「{n} scenes couldn't be generated…」); the Design draws no tap action, the line's 「Edit」 / 「Fix scenes」 are traced",
+   "how": "manual"
+  },
+  {
+   "group": "C-216993",
+   "kind": "item",
+   "board": "video",
+   "boards": [
+    "video"
+   ],
+   "name": "thumbnail_video",
+   "label": "choice of 5",
+   "set": true,
+   "instances": 65,
+   "screens": [
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "K-0bb884",
+    "K-9e7c7a",
+    "K-44df36",
+    "K-639f87",
+    "K-4c4e98"
+   ],
+   "app": [],
+   "press": "TC-382",
+   "how": "manual"
+  },
+  {
+   "group": "K-87ffd6",
+   "kind": "item",
+   "board": "video",
+   "boards": [
+    "video"
+   ],
+   "name": "video",
+   "label": "",
+   "set": false,
+   "instances": 4,
+   "screens": [
+    "AI Mini Drama_storyboard"
+   ],
+   "controls": [
+    "K-d321cb"
+   ],
+   "app": [],
+   "press": "TC-375",
+   "how": "manual"
+  }
+ ]
+}
