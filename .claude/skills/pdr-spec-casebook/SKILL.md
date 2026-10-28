@@ -119,7 +119,10 @@ node scripts/review.ts <feature> <platform>                  # edit the approved
 ```
 
 Run it in the background (it is a local server on 127.0.0.1, port 4387 or the next free one), give the user the
-printed URL, and tell them what to do:
+printed URL, and tell them what to do. When the user wants the pages shared or together, run
+`node scripts/pages.ts <feature> <platform> [--draft <id>] [--lan]` instead: review, run plan and coverage on one
+address with tabs; each row's **Spec ↗** opens the coverage page on that case (its requirements, their spec boards and
+the controls it presses), and Save works only on this computer:
 
 - Each row: edit any text inline, change Priority, **Keep** or **Delete**. Rows marked `removed` default to Delete.
   `+ Add case` adds a row to that section. Modified rows show the previous text struck through.

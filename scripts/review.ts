@@ -1,10 +1,14 @@
 // Serve the review page for a draft (or for the approved table) and save the reviewed result.
-// Usage: node scripts/review.ts <feature> <ios|android> [--draft <id>] [--port 4387]
+// Usage: node scripts/review.ts <feature> <ios|android> [--draft <id>] [--port 4387] [--lan]
 // Without --draft the approved table itself is opened for editing; saving creates a new version.
+// --lan binds 0.0.0.0 so other computers on the network can open the page (no auth); Save is only accepted from this
+// computer, others can read, edit in their browser and Copy. Served through scripts/pages.ts, each row links to the
+// coverage page, which shows where in the spec the case comes from.
 // Save writes library/<feature>/<platform>/cases.csv (the approved table), archives the previous
 // version under history/, updates manifest.json, and regenerates cases.xlsx and cases.html.
 import { copyFileSync, existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { createServer } from 'node:http';
+import { networkInterfaces } from 'node:os';
 import { join } from 'node:path';
 import { COLUMNS, arg, assertIds, draftsDir, readManifest, readTable, stamp, tableDir, writeJson, writeTable, type Manifest } from './lib/library.ts';
 import { renderPage } from './lib/render.ts';
@@ -15,6 +19,7 @@ const [feature, platform] = process.argv.slice(2);
 assertIds(feature, platform);
 const draftArg = arg('draft');
 let port = Number(arg('port') ?? 4387);
+const lan = process.argv.includes('--lan'), host = lan ? '0.0.0.0' : '127.0.0.1';
 const table = tableDir(feature, platform);
 const manifest = readManifest(feature, platform);
 
@@ -39,8 +44,8 @@ if (draftArg) {
 const previous: Record<string, Record<string, string>> = {};
 if (manifest && existsSync(join(table, 'cases.csv'))) for (const r of readTable(join(table, 'cases.csv'))) previous[r.ID] = r;
 
-const page = () => renderPage({
-  mode: 'review', save: true, feature, platform, title: spec.title ?? feature, draft: draftId,
+const page = (local: boolean) => renderPage({
+  mode: 'review', save: local, feature, platform, title: spec.title ?? feature, draft: draftId,
   based_on_version: manifest?.version ?? null, version: manifest?.version ?? null, approved_at: manifest?.approved_at ?? null,
   spec_files: spec.spec_files, rows, previous: draftArg ? previous : {}, requirements, update_plan: plan,
 });
@@ -73,12 +78,15 @@ async function save(body: { rows: Record<string, string>[]; decisions: unknown[]
   return { version, cases: clean.length, csv: join(table, 'cases.csv'), ...out };
 }
 
+const isLocal = (a = '') => a === '127.0.0.1' || a === '::1' || a === '::ffff:127.0.0.1';
 const server = createServer(async (req, res) => {
   try {
+    const local = isLocal(req.socket.remoteAddress);
     if (req.method === 'GET' && (req.url === '/' || req.url?.startsWith('/?'))) {
-      res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' }); res.end(page()); return;
+      res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' }); res.end(page(local)); return;
     }
     if (req.method === 'POST' && req.url === '/save') {
+      if (!local) { res.writeHead(403, { 'content-type': 'application/json' }); res.end(JSON.stringify({ error: 'Save works only on the computer running scripts/review.ts.' })); return; }
       let raw = ''; for await (const c of req) raw += c;
       const result = await save(JSON.parse(raw));
       console.log(`Saved version ${result.version}: ${result.cases} cases → ${result.csv}`);
@@ -91,7 +99,12 @@ const server = createServer(async (req, res) => {
   }
 });
 server.on('error', (e: any) => {
-  if (e.code === 'EADDRINUSE' && port < 4400) { port++; server.listen(port, '127.0.0.1'); } else throw e;
+  if (e.code === 'EADDRINUSE' && port < 4400) { port++; server.listen(port, host); } else throw e;
 });
-server.listen(port, '127.0.0.1');
-server.on('listening', () => console.log(`Review ${feature} / ${platform} (${draftId}): http://127.0.0.1:${port}/  — Ctrl+C to stop`));
+server.listen(port, host);
+server.on('listening', () => {
+  console.log(`Review ${feature} / ${platform} (${draftId}): http://127.0.0.1:${port}/  — Ctrl+C to stop`);
+  if (!lan) return;
+  for (const ifs of Object.values(networkInterfaces())) for (const i of ifs ?? []) if (i.family === 'IPv4' && !i.internal) console.log(`  LAN: http://${i.address}:${port}/`);
+  console.log('  Warning: --lan has no auth; anyone on this network can read the page. Save is accepted from this computer only.');
+});

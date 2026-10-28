@@ -16,9 +16,14 @@
 // --render draws the board images from the Design PDF (no Figma call) into specs/<set>/extracted/coverage/ (local only).
 // --serve [port] [--lan] keeps the page up (default http://127.0.0.1:4391/), rebuilt from the files at most every 30 s
 // so new run results and taps show up; --lan binds 0.0.0.0 so other computers on the network can open it (no auth:
-// anyone on the LAN can read it).
+// anyone on the LAN can read it). scripts/pages.ts serves it next to the review and plan pages, with links between them.
+// Case view: #case=TC-012 (or the Case box) shows where a case comes from: its requirements with their spec boards,
+// and the controls and arrows it presses or walks, highlighted on the board.
 // Default output: library/<feature>/<platform>/coverage.html, self-contained (board images and the best three tap
-// screenshots per control embedded; local only, git-ignored like the renders). --link writes relative links instead.
+// screenshots per control embedded; local only, git-ignored like the renders). --link writes relative links instead;
+// --files (what --serve uses) links them as files/<path under the repo>, which the server sends.
+// Spec regions (boards.json) of a PDF the Figma inventory does not cover (PM, MX) are boards too, image only (rendered
+// by --render, capped at 3000 px), so a case whose requirement comes from the PM or MX spec still shows its board.
 import { spawnSync } from 'node:child_process';
 import { createServer } from 'node:http';
 import { networkInterfaces, tmpdir } from 'node:os';
@@ -34,7 +39,7 @@ if (process.argv.includes('--serve')) await serveMode();
 async function serveMode(): Promise<never> {
   const argv = process.argv.slice(2), si = argv.indexOf('--serve');
   const portArg = /^\d+$/.test(argv[si + 1] ?? '') ? Number(argv[si + 1]) : 4391, lan = argv.includes('--lan');
-  const child = argv.filter((a, i) => a !== '--serve' && a !== '--lan' && !(i === si + 1 && /^\d+$/.test(a)) && a !== '--render');
+  const child = [...argv.filter((a, i) => a !== '--serve' && a !== '--lan' && !(i === si + 1 && /^\d+$/.test(a)) && a !== '--render'), '--files'];
   const cache = join(tmpdir(), `coverage-${feature}-${platform}-${process.pid}.html`);
   let builtAt = 0, html = '';
   const build = () => {
@@ -47,6 +52,13 @@ async function serveMode(): Promise<never> {
   const server = createServer((req, res) => {
     try {
       if (req.url === '/' || req.url?.startsWith('/?')) { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' }); res.end(build()); return; }
+      // board renders and tap screenshots (--files): images under library/ only
+      const f = req.url?.match(/^\/files\/([^?#]+)/);
+      if (f) {
+        const p = join(ROOT, decodeURIComponent(f[1])), type = /\.png$/i.test(p) ? 'image/png' : /\.jpe?g$/i.test(p) ? 'image/jpeg' : '';
+        if (type && relative(join(ROOT, 'library'), p).split(/[\\/]/)[0] !== '..' && existsSync(p)) {
+          res.writeHead(200, { 'content-type': type, 'cache-control': 'max-age=300' }); res.end(readFileSync(p)); return; }
+      }
       res.writeHead(404); res.end('Not found');
     } catch (e: any) { res.writeHead(500, { 'content-type': 'text/plain' }); res.end(String(e?.message ?? e)); }
   });
@@ -76,11 +88,12 @@ const trace = JSON.parse(readFileSync(tracePath, 'utf8')).entries as any[];
 const rows = readTable(join(src, draftId ? 'draft.csv' : 'cases.csv')).filter(r => r.Change !== 'removed');
 const req = existsSync(join(src, 'requirements.md')) ? readFileSync(join(src, 'requirements.md'), 'utf8') : '';
 const out = arg('out') ?? join(table, 'coverage.html');
-const rel = (p: string) => relative(dirname(out), p).split('\\').join('/');
+const files = process.argv.includes('--files');
+const rel = (p: string) => files ? `files/${encodeURI(relative(ROOT, p).split('\\').join('/'))}` : relative(dirname(out), p).split('\\').join('/');
 // images go inside the page (data URIs) so it shows the boards wherever it is opened, including the app's file pane
 // as a snapshot; --link keeps relative links instead (smaller page, needs the files next to it)
 const link = process.argv.includes('--link');
-const embed = (p: string) => link ? rel(p) : `data:image/${p.endsWith('.png') ? 'png' : 'jpeg'};base64,${readFileSync(p).toString('base64')}`;
+const embed = (p: string) => link || files ? rel(p) : `data:image/${p.endsWith('.png') ? 'png' : 'jpeg'};base64,${readFileSync(p).toString('base64')}`;
 
 // Board images from the Design PDF (pdf point = figma point + offset), cached; a board the PDF lacks stays blank.
 const imgDir = join(ex, 'coverage');
@@ -108,6 +121,34 @@ for (const [key, f] of Object.entries<any>(inv.files)) for (const [name, b] of O
     if (r.status === 0) { spawnSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '72', png, '--out', img], { stdio: 'ignore' }); try { unlinkSync(png); } catch {} }
   }
   boards.push({ name, file: key, spec: specOf(key), id: b.id, box: b.box, img: existsSync(img) ? embed(img) : '', note: existsSync(img) ? '' : pdfLacks ? `Figma-only board: save a Figma get_screenshot of node ${b.id} as ${relative(ROOT, img)}` : '' });
+}
+// Spec regions no Figma board lies in (the PM and MX PDFs): boards of their own in PDF points, image only.
+const regionsByPdf = existsSync(join(ex, 'boards.json')) ? JSON.parse(readFileSync(join(ex, 'boards.json'), 'utf8')) as Record<string, { id: string; title: string; region: number[] }[]> : {};
+const specOfPdf = (pdf: string) => /\bMX\b/i.test(pdf) ? 'mx' : /\bPM\b/i.test(pdf) ? 'pm' : 'design';
+const SPEC_NAME: Record<string, string> = { design: 'Design', pm: 'PM', mx: 'MX' };
+const regionOf = new Map<string, { id: string; title: string; spec: string; boards: string[] }>();
+for (const [pdf, list] of Object.entries(regionsByPdf)) {
+  const f = Object.values<any>(inv.files).find(f => f.pdf?.name === pdf);
+  for (const r of list) {
+    const [rx, ry, rw, rh] = r.region;
+    // the Figma boards inside the region (pdf point = figma point + offset)
+    const inside = !f ? [] : Object.entries<any>(f.boards).filter(([, b]) => { const [x, y, w, h] = b.box, X = x + f.pdf.offset[0], Y = y + f.pdf.offset[1];
+      const ox = Math.max(0, Math.min(X + w, rx + rw) - Math.max(X, rx)), oy = Math.max(0, Math.min(Y + h, ry + rh) - Math.max(Y, ry));
+      return ox * oy >= 0.5 * w * h; }).map(([name]) => name);
+    const spec = specOfPdf(pdf);
+    if (!inside.length) {
+      const name = `${SPEC_NAME[spec]} · ${r.title}`, img = join(imgDir, `${r.id}.jpg`);
+      if (process.argv.includes('--render') && existsSync(join(specDir, pdf))) {
+        mkdirSync(imgDir, { recursive: true });
+        const png = img.replace(/\.jpg$/, '.png');
+        const rr = spawnSync('node', [join(ROOT, 'scripts', 'render-region.ts'), join(specDir, pdf), png, ...r.region.map(String), '--max', String(Math.min(3000, Math.round(Math.max(rw, rh) * Number(arg('scale') ?? 0.45))))], { stdio: 'inherit' });
+        if (rr.status === 0) { spawnSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '72', png, '--out', img], { stdio: 'ignore' }); try { unlinkSync(png); } catch {} }
+      }
+      boards.push({ name, file: '', spec, id: r.id, region: r.id, box: r.region, img: existsSync(img) ? embed(img) : '', note: existsSync(img) ? '' : `No render yet: run with --render (draws ${r.id} from ${pdf})` });
+      inside.push(name);
+    }
+    regionOf.set(r.id, { id: r.id, title: r.title, spec, boards: inside });
+  }
 }
 
 // Latest result per case and the tap log of each run.
@@ -187,7 +228,6 @@ const arrows = inv.arrows.filter((a: any) => !a.duplicate_of && a.kind !== 'poin
     edge: (edgeOf.get(a.id) as any)?.edge ?? a.name, src: src?.group ?? '' };
 });
 
-const usedRows = new Set([...groups.flatMap(g => [...g.press, ...g.dismiss]), ...arrows.flatMap((a: any) => a.rows)]);
 // why a row is Blocked, in one line the page can group by (the run's Actual text names the cause)
 const blockReason = (x: { actual: string; disp: string }) => {
   const a = x.actual;
@@ -203,13 +243,48 @@ const blockReason = (x: { actual: string; disp: string }) => {
   ];
   return known.find(([re]) => re.test(a))?.[1] ?? `${x.disp ? `${x.disp}: ` : ''}${a.replace(/\s+/g, ' ').slice(0, 90)}`;
 };
-const rowInfo = Object.fromEntries(rows.filter(r => usedRows.has(r.ID)).map(r => { const x = result.get(r.ID);
-  return [r.ID, { action: r.Action, expected: r['Expected Result'], section: r.Section, ...(x ?? { result: 'Not run' }), ...(x?.result === 'Blocked' ? { reason: blockReason(x) } : {}) }]; }));
+// Where each case comes from (case view): the requirements its Spec Ref names, each with its source tags
+// ([DS:ds-home-custom-chat], [PM:pm-main-flow §5], [MX:mx-b-mid]) resolved to the spec region and its boards (above).
+const screenByNode = new Map<string, any>(inv.screens.map((s: any) => [s.id, s]));
+// every arrow, including the annotation pointers and duplicates the counts leave out, so a requirement written for one
+// still points at its board
+const arrowById = new Map<string, any>(inv.arrows.map((a: any) => [a.id, a]));
+const counted = new Set(arrows.map((a: any) => a.id));
+const groupOfCtlId = new Map(trace.flatMap(e => e.controls.map((id: string) => [id, e.group])));
+const reqLines = new Map(req.split('\n').map(l => l.match(/^- (R-\d{3,}) (.*)/)).filter(Boolean).map(m => [m![1], m![2]]));
+const reqView = (rid: string) => {
+  const line = reqLines.get(rid) ?? '';
+  const tags = [...line.matchAll(/\[(DS|PM|MX):\s*([^\]]*)\]/g)];
+  const src = tags.flatMap(([, kind, body]) => {
+    const spec = kind === 'DS' ? 'design' : kind.toLowerCase();
+    const ids = [...body.matchAll(/\b((?:ds|pm|mx)-[a-z0-9-]+)/g)].map(m => m[1]).filter(id => regionOf.has(id));
+    if (ids.length) return ids.map(id => ({ ...regionOf.get(id)!, detail: body.replace(/;?\s*Req:.*$/, '').replace(id, '').trim() }));
+    const arrow = body.match(/flow arrow (\S+)/)?.[1];
+    if (arrow) { const a = arrowById.get(arrow), e: any = edgeOf.get(arrow);
+      return [{ id: '', title: `flow arrow ${arrow}`, spec, boards: a ? [a.board] : [], detail: e?.edge ?? a?.name ?? '' }]; }
+    const named = [...body.matchAll(/\b(\d+:\d+)\b/g)].map(m => screenByNode.get(m[1])).filter(Boolean);
+    return [{ id: '', title: '', spec, boards: [...new Set(named.map((sc: any) => sc.board as string))], detail: body.replace(/https?:\S+/g, '').replace(/;?\s*Req:.*$/, '').trim() }];
+  });
+  return {
+    text: line.replace(/^(\[[^\]]*\])+\s*/, '').slice(0, 320), src,
+    // a control or screen the tag names outright: [DS: control K-ab333a …], [DS:figma 1016_support free trial 4847:34277]
+    groups: [...new Set([...line.matchAll(/\b([KC]-[0-9a-f]{6})\b/g)].map(m => groupOfCtlId.get(m[1]) ?? (trace.some(e => e.group === m[1]) ? m[1] : '')).filter(Boolean))],
+    screens: [...new Set([...line.matchAll(/\b(\d+:\d+)\b/g)].map(m => m[1]).filter(id => screenByNode.has(id)))],
+    // other Figma nodes it names (a frame the inventory does not hold): linked to the Design file
+    nodes: [...new Set([...line.matchAll(/\b(\d+:\d+)\b/g)].map(m => m[1]).filter(id => !screenByNode.has(id)))],
+    // annotation pointers and duplicate arrows it is written for (not counted above, drawn in the case view)
+    pointers: [...line.matchAll(/flow arrow (\S+)/g)].map(m => arrowById.get(m[1])).filter((a: any) => a && !counted.has(a.id)).map((a: any) => ({ board: a.board, points: a.points })),
+  };
+};
+const refsOf = (r: Record<string, string>) => [...new Set((r['Spec Ref'] ?? '').match(/\bR-\d{3,}\b/g) ?? [])];
+const reqs = Object.fromEntries([...new Set(rows.flatMap(refsOf))].filter(rid => reqLines.has(rid)).map(rid => [rid, reqView(rid)]));
+const rowInfo = Object.fromEntries(rows.map(r => { const x = result.get(r.ID);
+  return [r.ID, { action: r.Action, expected: r['Expected Result'], section: r.Section, refs: refsOf(r), ...(x ?? { result: 'Not run' }), ...(x?.result === 'Blocked' ? { reason: blockReason(x) } : {}) }]; }));
 const data = {
-  feature, platform, title: manifest.title ?? feature, version: draftId ? `${manifest.version} + draft ${draftId}` : manifest.version, spec_folder: specFolder, built_at: new Date().toISOString(),
+  feature, platform, draft: draftId ?? null, title: manifest.title ?? feature, version: draftId ? `${manifest.version} + draft ${draftId}` : manifest.version, spec_folder: specFolder, built_at: new Date().toISOString(),
   runs: runNames, taps: taps.length, unmatched: unmatchedView, figma: Object.fromEntries(Object.entries<any>(inv.files).map(([k, f]) => [k, `https://www.figma.com/design/${k}/?node-id=`])),
   boards, screens: inv.screens.map((s: any) => ({ id: s.id, board: s.board, box: s.box, name: s.name, panel: !!s.panel, other: s.platform !== platform && s.platform !== 'any' })),
-  groups, arrows, rows: rowInfo,
+  groups, arrows, rows: rowInfo, reqs,
 };
 const tpl = readFileSync(join(import.meta.dirname, 'coverage-page.tpl'), 'utf8');
 writeFileSync(out, tpl.replaceAll('__TITLE__', `${data.title} Coverage`).replace('__DATA__', () => JSON.stringify(data).replace(/</g, '\\u003c')));

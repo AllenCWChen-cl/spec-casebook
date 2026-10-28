@@ -367,7 +367,25 @@ owner, TR, account). After filing, every ticket is read back and recorded in `fi
 
 ### Live pages
 
-Three local pages, each a small server started from the repository root. They read the files on every request (the
+One command serves all three pages on one address, with tabs to switch between them:
+
+```bash
+node scripts/pages.ts ai-mini-drama ios --lan
+```
+
+It opens `http://127.0.0.1:4386/` (`/review/`, `/plan/`, `/coverage/`) and, with `--lan`, prints the LAN address
+to share. `--draft <id>` reviews a draft (and shows it on the coverage page); the run plan defaults to the newest
+`runs/RUN-PLAN-*.md` and the newest draft with a `phases.json` (`--plan`, `--plan-draft` pick others). Save on the
+review page works only on the computer running the server; colleagues on the network can read, edit in their
+browser and Copy.
+
+The pages link to each other. Each review row has **Spec ↗**, which opens the coverage page on that case: its
+requirements, the spec boards they come from (Design boards from Figma; PM and MX spec regions as boards of their
+own), and the controls and flow arrows it presses, highlighted on the board. On the coverage page, a case ID opens
+that case's view, and **review ↗** opens the row on the review page. Type a case ID (or just `12`) in the Case box,
+or open `/coverage/#case=TC-012`.
+
+Each page can also run on its own, a small server started from the repository root. They read the files on every request (the
 coverage page at most every 30 s), so they show new results without a restart. Add `--lan` to open one from other
 computers on the same network; it prints the LAN address (for example `http://192.168.x.x:4391/`). There is no
 login: anyone on that network with the address can read the page. The first time, macOS may ask to allow incoming
@@ -375,7 +393,8 @@ connections for `node`.
 
 | Page | Command | Address |
 | --- | --- | --- |
-| Review a draft or the approved table | `node scripts/review.ts ai-mini-drama ios [--draft <id>]` | `http://127.0.0.1:4387/` |
+| All three, with tabs | `node scripts/pages.ts ai-mini-drama ios [--draft <id>] [--lan]` | `http://127.0.0.1:4386/` |
+| Review a draft or the approved table | `node scripts/review.ts ai-mini-drama ios [--draft <id>] [--lan]` | `http://127.0.0.1:4387/` |
 | Run plan (phases, cases, time, tokens) | `node scripts/plan-page.ts ai-mini-drama ios <draft> <run plan .md> --serve [port] [--lan]` | `http://127.0.0.1:4390/` |
 | Coverage (controls, arrows, tap proof; English / 繁體中文) | `node scripts/coverage-page.ts ai-mini-drama ios [--draft <id>] --serve [port] [--lan]` | `http://127.0.0.1:4391/` |
 
@@ -383,8 +402,9 @@ Each takes the next free port when its default is busy. Stop a server with Ctrl+
 should not be left running for a draft that is already saved: saving from it again overwrites that version.
 
 Without `--serve`, `coverage-page.ts` writes `library/<feature>/<platform>/coverage.html`, a single file with the
-board images embedded that opens anywhere (local only, not committed). `--render` draws the board images from the
-Design PDF first (a few minutes per board); `--runs <folders>` limits it to one run, to see whether that run pressed
+board images embedded that opens anywhere (local only, not committed); its case IDs link to `cases.html` beside it,
+and `cases.html` links back. `--render` draws the board images from the Design PDF, and the PM and MX spec regions
+from their PDFs, first (a few minutes per board); `--runs <folders>` limits it to one run, to see whether that run pressed
 everything.
 
 ## Repository layout
@@ -469,7 +489,8 @@ All scripts run from the repository root with `node scripts/<name>.ts`.
 | `inventory-overrides.ts <feature> <spec-set>` | Merges the review findings into `inventory-overrides.json` (each review file once) |
 | `controls.ts <feature> <platform> [--draft <id>]` | Writes `control-trace.json`: every control group and the rows that press it |
 | `coverage-page.ts <feature> <platform> [--draft <id>] [--serve [port] [--lan]]` | The coverage page: boards with controls and arrows marked, tap proof, what is planned or blocked |
-| `review.ts <feature> <platform> [--draft <id>]` | Serves the review page and saves the approved table |
+| `pages.ts <feature> <platform> [--draft <id>] [--plan <md>] [--plan-draft <id>] [--lan]` | Serves review, run plan and coverage on one address with tabs and links between them |
+| `review.ts <feature> <platform> [--draft <id>] [--lan]` | Serves the review page and saves the approved table (Save from this computer only) |
 | `export.ts <feature> <platform>` | Rebuilds `cases.xlsx` / `cases.html` from `cases.csv` |
 | `device.ts <run dir> <command>` | Appium client for the QA iPhone: screenshots, taps (each logged to `taps.jsonl`), `case`, `scrollto`, `waitfor`, `pink`, recipes, logs, ledger |
 | `app-setup.ts <run dir> <command>` | Build check, reinstall from TestFlight, first launch, Developer Server, fresh install, log pulls |

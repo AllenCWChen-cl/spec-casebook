@@ -12,7 +12,7 @@
 :root {
   --bg: #f4f6f6; --panel: #ffffff; --ink: #172426; --muted: #5b6b6e; --line: #d8e0e1; --accent: #0f6e73;
   --proof: #2f7d4f; --ran: #3f9a94; --fail: #b8402f; --blocked: #a86b12; --notrun: #5458c4; --none: #c2332a; --na: #b13f9c;
-  --chip-bg: #eef2f2; --canvas: #20292b;
+  --chip-bg: #eef2f2; --canvas: #20292b; --hl: #ffd60a;
   --display: "Archivo", "Noto Sans TC", "Helvetica Neue", Arial, sans-serif;
   --body: "Source Sans 3", "Noto Sans TC", "Segoe UI", system-ui, "PingFang TC", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
@@ -112,6 +112,26 @@ tbody tr.go { cursor: pointer } tbody tr.go:hover { background: var(--chip-bg) }
 .legend .key { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--muted);
   border-left: 1px solid var(--line); padding-left: 12px; margin-left: 4px }
 .gid { color: var(--muted); font-size: 0.78rem; margin-top: 14px }
+/* case view: where one case comes from (#case=TC-012) */
+.casef { display: flex; gap: 6px }
+.casef input { flex: 1; min-width: 0; font: inherit; font-size: 0.88rem; border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 7px; padding: 5px 8px }
+.casebar { position: absolute; left: 10px; top: 10px; display: flex; align-items: center; gap: 8px; background: #000c; color: #fff; font-size: 0.85rem; padding: 4px 6px 4px 10px; border-radius: 8px; max-width: calc(100% - 200px) }
+.casebar b { font-family: var(--mono); color: var(--hl) }
+.casebar button { font: 600 0.8rem var(--body); border: 0; background: #fff2; color: #fff; border-radius: 5px; padding: 2px 8px; cursor: pointer }
+.boards .cb { justify-self: start; font: 600 0.66rem var(--mono); color: #1a1a1a; background: var(--hl); border-radius: 4px; padding: 0 5px; line-height: 1.5 }
+.boards .cb.src { background: transparent; color: var(--ink); border: 1px dashed var(--muted) }
+.req { border-top: 1px solid var(--line); padding: 8px 0; font-size: 0.88rem }
+.req .rid { font-family: var(--mono); font-size: 0.8rem; font-weight: 600; margin-right: 4px }
+.srcs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 5px }
+.srcs button, .items button { all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 7px; padding: 2px 8px; font-size: 0.82rem }
+.srcs button:hover, .items button:hover { background: var(--chip-bg) }
+.srcs .off { cursor: default; opacity: 0.7; border-style: dashed }
+.items { display: grid; gap: 4px; margin: 6px 0 }
+.items button { display: flex; border-radius: 6px }
+.items .b { color: var(--muted); margin-left: auto; font-size: 0.76rem; white-space: nowrap }
+.row a.id { color: inherit; text-decoration: none; border-bottom: 1px dashed var(--muted) }
+.row a.rv { font-size: 0.76rem; margin-left: 6px }
+.back { all: unset; cursor: pointer; color: var(--accent); font-size: 0.85rem; margin-bottom: 8px; display: inline-block }
 </style>
 </head>
 <body>
@@ -127,12 +147,13 @@ tbody tr.go { cursor: pointer } tbody tr.go:hover { background: var(--chip-bg) }
 <section class="strip" id="strip"></section>
 <div class="legend" id="legend"></div>
 <div class="main">
-  <div class="side"><div class="srcf" id="srcf"></div><nav class="boards" id="boards" aria-label="Boards"></nav></div>
+  <div class="side"><form class="casef" id="casef"><input id="caseq" autocomplete="off" spellcheck="false"></form><div class="srcf" id="srcf"></div><nav class="boards" id="boards" aria-label="Boards"></nav></div>
   <div class="stage" id="stage">
     <svg id="svg" xmlns="http://www.w3.org/2000/svg"></svg>
     <div class="tools"><button id="zin" aria-label="Zoom in">+</button><button id="zout" aria-label="Zoom out">−</button><button id="fit" data-t="fit"></button></div>
     <div class="noimg" id="noimg" hidden></div>
     <div class="tip" id="tip" hidden></div>
+    <div class="casebar" id="casebar" hidden></div>
   </div>
   <aside class="panel" id="panel"></aside>
 </div>
@@ -174,7 +195,7 @@ const I18N = {
     failedNote: 'the control was pressed, but its last pressing row failed (red dot): a bug, not a coverage gap',
     controls: 'Controls', arrows: 'Arrows', noArrows: 'none drawn on this board', fit: 'Fit',
     noImg: 'No board image: run with --render (draws it from the Design PDF)',
-    panelEmpty: 'Click a box or an arrow on the board to see the rows that press it, their latest results and the tap screenshots that prove it.',
+    panelEmpty: 'Click a box or an arrow on the board to see the rows that press it, their latest results and the tap screenshots that prove it. Or type a case ID (left) to see where in the spec that case comes from.',
     layer: 'Figma layer', kind: 'Kind', board: 'Board', boards: 'Boards', countedAs: 'Counted as', choiceList: 'one choice list (any choice covers it)', oneButton: 'one button',
     copiesOn: (n, b) => `${n} cop${n === 1 ? 'y' : 'ies'} on ${b} board${b === 1 ? '' : 's'}`, appIds: 'App ids', tracedBy: 'Found through',
     tracedArrow: "its flow arrow's requirement", tracedLabel: 'rows quoting its label', tracedManual: 'the analysis', dismissed: 'Dismissed', yes: 'yes', notYet: 'not yet',
@@ -198,6 +219,14 @@ const I18N = {
     specs: { design: 'Design', pm: 'PM', mx: 'MX' }, specLabel: 'Spec', specHint: 'Show or hide that spec\'s boards in the list',
     specNone: s => `No ${s} boards in this inventory yet (its Figma file has not been read)`,
     reasons: {},
+    caseFind: 'Case ID, e.g. TC-012', caseNotFound: id => `No case ${id} in this table.`, caseEyebrow: 'Case', caseWhere: 'Where in the spec',
+    casePresses: 'Controls it presses', caseWalks: 'Flow arrows it walks', caseScreens: 'Screens it names', caseClear: 'Clear',
+    caseNoItems: 'No control or arrow on the boards is tied to this case; the boards its requirements come from are listed above.',
+    caseNoRefs: 'This case names no requirement in its Spec Ref.', caseBack: id => `← Back to ${id}`, openReview: 'Open in the review page', reviewLink: 'review ↗',
+    caseBar: (g, a, b) => `${g} controls · ${a} arrows · on ${b} board${b === 1 ? '' : 's'}`, caseSrcOnly: 'spec board',
+    action: 'Action', expected: 'Expected result', notOnBoards: 'no board for this source', regionOnly: 'Spec region (no controls traced)',
+    caseOnBoard: 'case items here', caseSrc: 'a requirement of the case comes from this board',
+    noSource: 'No spec board: a rule across the feature (tickets, roster, ledger request), not one drawing',
   },
   zh: {
     title: (t, p) => `${t} · ${p} 覆蓋率`,
@@ -217,7 +246,7 @@ const I18N = {
     failedNote: '控制項已按過，但最後一次按它的案例失敗（紅點）：這是錯誤，不是覆蓋缺口',
     controls: '控制項', arrows: '箭頭', noArrows: '此畫板沒有流程箭頭', fit: '全覽',
     noImg: '沒有畫板圖片：以 --render 從設計 PDF 繪製',
-    panelEmpty: '點選畫板上的方框或箭頭，查看按它的案例、最新結果，以及證明點擊的截圖。',
+    panelEmpty: '點選畫板上的方框或箭頭，查看按它的案例、最新結果，以及證明點擊的截圖。或在左側輸入案例 ID，查看該案例來自規格的哪裡。',
     layer: 'Figma 圖層', kind: '類型', board: '畫板', boards: '畫板', countedAs: '計算方式', choiceList: '一組選項清單（任一選項即涵蓋）', oneButton: '一個按鈕',
     copiesOn: (n, b) => `${b} 個畫板上共 ${n} 個副本`, appIds: 'App id', tracedBy: '找到方式',
     tracedArrow: '其流程箭頭的需求', tracedLabel: '引用其標籤的案例', tracedManual: '分析', dismissed: '已關閉', yes: '是', notYet: '尚未',
@@ -251,6 +280,14 @@ const I18N = {
       'Banner content is CMS-driven and did not show': '橫幅內容由 CMS 控制，未出現',
       'Daily-limit state for that tier could not be set up (test-data)': '無法為該方案設定每日上限狀態（測試資料）',
     },
+    caseFind: '案例 ID，例如 TC-012', caseNotFound: id => `此表格沒有案例 ${id}。`, caseEyebrow: '案例', caseWhere: '來自規格的哪裡',
+    casePresses: '它按的控制項', caseWalks: '它走過的流程箭頭', caseScreens: '它提到的畫面', caseClear: '清除',
+    caseNoItems: '畫板上沒有控制項或箭頭對應到此案例；其需求來自的畫板列在上方。',
+    caseNoRefs: '此案例的 Spec Ref 沒有列出需求。', caseBack: id => `← 回到 ${id}`, openReview: '在審查頁開啟', reviewLink: '審查頁 ↗',
+    caseBar: (g, a, b) => `${g} 個控制項 · ${a} 個箭頭 · 分布於 ${b} 個畫板`, caseSrcOnly: '規格畫板',
+    action: '動作', expected: '預期結果', notOnBoards: '此來源沒有畫板', regionOnly: '規格區域（未追蹤控制項）',
+    caseOnBoard: '此案例的項目', caseSrc: '此案例的某項需求來自這個畫板',
+    noSource: '沒有規格畫板：這是跨整個功能的規則（票單、範本清單、需求紀錄），不是單一畫面',
   },
 };
 let L = 'en';
@@ -263,6 +300,10 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '
 const $ = id => document.getElementById(id);
 const show = new Set(['proof', 'ran', 'blocked', 'notrun', 'none', 'na']);
 let board = null, sel = null, vb = null, reasonFilter = '';
+// the other pages: scripts/pages.ts names them (window.CASEBOOK); a static coverage.html links to cases.html beside it
+const PAGES = window.CASEBOOK?.pages ?? (location.protocol === 'file:' ? { review: 'cases.html' } : {});
+// case view (#case=TC-012): the case shown, and its requirements' boards, controls, arrows and named screens
+let kase = null, caseIt = null;
 const fmtDay = s => { const m = String(s).match(/(\d{4})-(\d{2})-(\d{2})/); return m ? `${+m[2]}/${+m[3]}` : s; };
 
 function header() {
@@ -273,7 +314,7 @@ function header() {
   $('sub').title = D.runs.join('\n');
   for (const b of document.querySelectorAll('.lang button')) b.setAttribute('aria-pressed', String(b.dataset.lang === L));
   for (const el of document.querySelectorAll('[data-t]')) el[el.hasAttribute('data-html') ? 'innerHTML' : 'textContent'] = t(el.dataset.t);
-  $('gq').placeholder = t('filter');
+  $('gq').placeholder = t('filter'); $('caseq').placeholder = t('caseFind');
   const keep = $('gstat').value, keepB = $('gboard').value;
   $('gstat').innerHTML = `<option value="">${t('all')}</option>` + ['notrun', 'blocked', 'none'].map(s => `<option value="${s}">${ST()[s]}</option>`).join('') + `<option value="undismissed">${t('undismissed')}</option>`;
   $('gboard').innerHTML = `<option value="">${t('allBoards')}</option>` + D.boards.map(b => `<option>${esc(b.name)}</option>`).join('');
@@ -335,7 +376,12 @@ function boardsNav() {
     const all = D.groups.filter(g => (g.boards || [g.board]).includes(b.name)), gs = all.filter(g => g.status !== 'na');
     const done = gs.filter(g => g.status === 'proof' || g.status === 'ran').length;
     const as = D.arrows.filter(a => a.board === b.name), aw = as.filter(a => a.status === 'proof' || a.status === 'ran').length;
-    return `<button data-i="${i}" aria-current="${board === b}"><span class="n"><span>${esc(b.name)}</span><span class="spec">${t('specs')[specOf(b)]}</span></span>
+    const here = caseIt ? caseOnBoard(b) : 0, src = caseIt?.boards.includes(b.name);
+    const badge = here ? `<span class="cb" title="${esc(t('caseOnBoard'))}">${here} · ${esc(t('caseOnBoard'))}</span>` : src ? `<span class="cb src" title="${esc(t('caseSrc'))}">${t('caseSrcOnly')}</span>` : '';
+    // the case badge sits on its own line, so it never squeezes the board name
+    const head = `<span class="n"><span>${esc(b.name)}</span><span class="spec">${t('specs')[specOf(b)]}</span></span>${badge ? `<span>${badge}</span>` : ''}`;
+    if (b.region) return `<button data-i="${i}" aria-current="${board === b}">${head}<span class="c">${t('regionOnly')}</span></button>`;
+    return `<button data-i="${i}" aria-current="${board === b}">${head}
       <span class="brow"><span class="c">${t('controls')} ${done}/${gs.length}</span><span class="bar" style="margin:0">${all.length ? segs(all, all.length) : ''}</span></span>
       <span class="brow"><span class="c">${t('arrows')} ${as.length ? `${aw}/${as.length}` : '—'}</span>${as.length ? `<span class="bar" style="margin:0">${segs(as, as.length)}</span>` : `<span class="c none">${t('noArrows')}</span>`}</span></button>`;
   })()).join('');
@@ -351,7 +397,7 @@ function draw() {
   svg.setAttribute('viewBox', vb.join(' '));
   const [bx, by, bw, bh] = board.box;
   const k = vb[2] / svg.clientWidth; // canvas units per screen pixel, so strokes stay readable at any zoom
-  let s = `<defs>${['proof', 'ran', 'blocked', 'notrun', 'none'].map(st => `<marker id="m-${st}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="${COLOR(st)}"/></marker>`).join('')}</defs>`;
+  let s = `<defs><marker id="m-hl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="var(--hl)"/></marker>${['proof', 'ran', 'blocked', 'notrun', 'none'].map(st => `<marker id="m-${st}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="${COLOR(st)}"/></marker>`).join('')}</defs>`;
   s += board.img ? `<image href="${esc(board.img)}" x="${bx}" y="${by}" width="${bw}" height="${bh}" preserveAspectRatio="none"/>` : `<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" fill="#2b3537"/>`;
   for (const sc of D.screens.filter(sc => sc.board === board.name)) {
     s += `<rect x="${sc.box[0]}" y="${sc.box[1]}" width="${sc.box[2]}" height="${sc.box[3]}" fill="${sc.other ? '#000a' : 'none'}" stroke="#fff3" stroke-width="${k}"><title>${esc(sc.name)}${sc.other ? ` (${t('otherPlatform')})` : ''}</title></rect>`;
@@ -366,23 +412,33 @@ function draw() {
       + (g.fail ? `<circle cx="${x + w}" cy="${y}" r="${4 * k}" fill="var(--fail)"/>` : '');
   };
   const line = (a, pts, on) => `<polyline points="${pts}" fill="none" stroke="${COLOR(a.status)}" stroke-width="${(on ? 5 : 3) * k}" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-${a.status})" ${a.status === 'none' ? `stroke-dasharray="${6 * k} ${4 * k}"` : ''}/>`;
+  // case view: the case's screens, controls and arrows get a highlighter mark under them; everything else is dimmed
+  const inCaseG = new Set(caseIt?.groups.map(g => g.group) ?? []), inCaseA = new Set(caseIt?.arrows.map(a => a.id) ?? []);
+  const dim = x => caseIt && !x ? ' opacity="0.28"' : '';
+  for (const sc of caseIt?.screens.filter(sc => sc.board === board.name) ?? [])
+    s += `<rect x="${sc.box[0] - 6 * k}" y="${sc.box[1] - 6 * k}" width="${sc.box[2] + 12 * k}" height="${sc.box[3] + 12 * k}" rx="${6 * k}" fill="none" stroke="var(--hl)" stroke-width="${5 * k}"/>`;
+  // annotation pointers the case's requirements are written for (not coverage items, so not clickable)
+  for (const p of caseIt?.pointers.filter(p => p.board === board.name) ?? [])
+    s += `<polyline points="${p.points.join(' ')}" fill="none" stroke="var(--hl)" stroke-width="${6 * k}" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-hl)"/>`;
   for (const g of D.groups) {
-    if (!(g.boards || [g.board]).includes(board.name) || !show.has(g.status)) continue;
+    if (!(g.boards || [g.board]).includes(board.name) || !(show.has(g.status) || inCaseG.has(g.group))) continue;
     const on = sel && sel.group === g.group;
     // every copy that lies on this board (a shared control, e.g. the back button, has copies on many boards)
     for (const r of g.rects.filter(([x, y]) => x >= bx && x <= bx + bw && y >= by && y <= by + bh)) {
       marks.push({ t: 'g', id: g.group, r, label: g.label || g.name, status: g.status });
-      s += box(g, r, false);
+      if (inCaseG.has(g.group)) s += `<rect x="${r[0] - 5 * k}" y="${r[1] - 5 * k}" width="${r[2] + 10 * k}" height="${r[3] + 10 * k}" rx="${4 * k}" fill="var(--hl)" fill-opacity="0.35" stroke="var(--hl)" stroke-width="${3 * k}"/>`;
+      s += `<g${dim(inCaseG.has(g.group))}>${box(g, r, false)}</g>`;
       // the selected control keeps its state colour, drawn thicker on top with a halo just outside the box
       if (on) top += ring(r, k, true) + box(g, r, true);
     }
   }
   for (const a of D.arrows) {
-    if (a.board !== board.name || !show.has(a.status)) continue;
+    if (a.board !== board.name || !(show.has(a.status) || inCaseA.has(a.id))) continue;
     const on = sel && sel.arrow === a.id, p = [];
     for (let i = 0; i < a.points.length; i += 2) p.push(`${a.points[i]},${a.points[i + 1]}`);
     marks.push({ t: 'a', id: a.id, pts: a.points, label: a.edge, status: a.status });
-    s += line(a, p.join(' '), false);
+    if (inCaseA.has(a.id)) s += `<polyline points="${p.join(' ')}" fill="none" stroke="var(--hl)" stroke-opacity="0.7" stroke-width="${14 * k}" stroke-linecap="round" stroke-linejoin="round"/>`;
+    s += `<g${dim(inCaseA.has(a.id))}>${line(a, p.join(' '), false)}</g>`;
     if (on) top += halo(p.join(' '), k, true) + line(a, p.join(' '), true);
   }
   svg.innerHTML = s + top;
@@ -428,18 +484,21 @@ function hoverMark(m, keep) {
 }
 const kindName = k => t('kinds')[k] ?? k;
 const rowHtml = id => { const r = D.rows[id] || { result: 'Not run' };
-  return `<div class="row"><span class="id">${esc(id)}</span><span class="res ${esc(r.result)}">${esc(r.result === 'Not run' ? t('plannedRes') : r.result)}</span>${r.reason ? ` <span style="color:var(--blocked);font-size:.8rem">${esc(tr(r.reason))}</span>` : ''}${r.run ? ` <span class="mono" style="color:var(--muted)">${esc(r.run)}</span>` : ''}<div>${esc(r.action || '')}</div>${r.actual ? `<div style="color:var(--muted);font-size:.82rem">${esc(r.actual)}</div>` : ''}</div>`; };
+  // the id opens the case view here; review ↗ opens the row on the review page
+  return `<div class="row"><a class="id" href="#case=${encodeURIComponent(id)}">${esc(id)}</a>${PAGES.review ? `<a class="rv" href="${esc(PAGES.review)}#${encodeURIComponent(id)}" target="casebook-review">${t('reviewLink')}</a>` : ''}<span class="res ${esc(r.result)}">${esc(r.result === 'Not run' ? t('plannedRes') : r.result)}</span>${r.reason ? ` <span style="color:var(--blocked);font-size:.8rem">${esc(tr(r.reason))}</span>` : ''}${r.run ? ` <span class="mono" style="color:var(--muted)">${esc(r.run)}</span>` : ''}<div>${esc(r.action || '')}</div>${r.actual ? `<div style="color:var(--muted);font-size:.82rem">${esc(r.actual)}</div>` : ''}</div>`; };
 function select(kind, id) {
   sel = kind === 'g' ? { group: id } : { arrow: id }; draw(); renderPanel();
 }
 function renderPanel() {
   const p = $('panel');
+  if (!sel && kase) { casePanel(); return; }
   if (!sel) { p.innerHTML = `<p class="empty">${t('panelEmpty')}</p>`; return; }
+  const back = kase ? `<button class="back" id="back">${esc(t('caseBack')(kase))}</button><br>` : '';
   if (sel.group) {
     const g = D.groups.find(x => x.group === sel.group);
     const link = g.node && !g.node.startsWith('I') ? `<a href="${D.figma[g.file]}${g.node.replace(':', '-')}" target="_blank" rel="noopener">${t('openFigma')}</a>` : '';
     const how = g.how === 'arrow' ? t('tracedArrow') : g.how === 'label' ? t('tracedLabel') : g.how ? t('tracedManual') : '';
-    p.innerHTML = `<h2>${esc(g.label || g.name)}</h2><span class="pill" style="background:${COLOR(g.status)}">${ST()[g.status]}</span>${g.fail ? ` <span class="pill" style="background:var(--fail)">${t('pillFailed')}</span>` : ''}${g.norow ? ` <span class="pill" style="background:var(--blocked)">${t('pillNoRow')}</span>` : ''}
+    p.innerHTML = `${back}<h2>${esc(g.label || g.name)}</h2><span class="pill" style="background:${COLOR(g.status)}">${ST()[g.status]}</span>${g.fail ? ` <span class="pill" style="background:var(--fail)">${t('pillFailed')}</span>` : ''}${g.norow ? ` <span class="pill" style="background:var(--blocked)">${t('pillNoRow')}</span>` : ''}
       <dl><dt>${t('kind')}</dt><dd>${esc(kindName(g.kind))}</dd><dt>${t('countedAs')}</dt><dd>${g.set ? t('choiceList') : t('oneButton')} · ${t('copiesOn')(g.instances, g.boards.length)}</dd>
       <dt>${g.boards.length > 1 ? t('boards') : t('board')}</dt><dd>${g.boards.map(esc).join(', ')}</dd><dt>${t('specLabel')}</dt><dd>${t('specs')[g.spec || 'design']}</dd><dt>${t('layer')}</dt><dd class="mono">${esc(g.name)}</dd>
       ${g.app.length ? `<dt>${t('appIds')}</dt><dd class="mono">${g.app.map(esc).join(', ')}</dd>` : ''}${how ? `<dt>${t('tracedBy')}</dt><dd>${how}</dd>` : ''}
@@ -452,13 +511,94 @@ function renderPanel() {
       <p class="gid">${t('groupId')} <span class="mono">${esc(g.group)}</span></p>`;
   } else {
     const a = D.arrows.find(x => x.id === sel.arrow);
-    p.innerHTML = `<h2>${esc(a.edge)}</h2><span class="pill" style="background:${COLOR(a.status)}">${ST()[a.status]}</span>${a.fail ? ` <span class="pill" style="background:var(--fail)">${t('pillFailed')}</span>` : ''}
+    p.innerHTML = `${back}<h2>${esc(a.edge)}</h2><span class="pill" style="background:${COLOR(a.status)}">${ST()[a.status]}</span>${a.fail ? ` <span class="pill" style="background:var(--fail)">${t('pillFailed')}</span>` : ''}
       <dl><dt>${t('kind')}</dt><dd>${t('arrowKind')(a.kind)}</dd><dt>${t('requirement')}</dt><dd>${esc(a.req || t('noneYetReq'))}</dd><dt>${t('board')}</dt><dd>${esc(a.board)}</dd><dt>${t('specLabel')}</dt><dd>${t('specs')[specOf(D.boards.find(b => b.name === a.board) ?? {})]}</dd><dt>${t('arrow')}</dt><dd class="mono">${esc(a.id)}</dd></dl>
       <a href="${Object.values(D.figma)[0]}${a.id.replace(/-[A-Z]+$/, '')}" target="_blank" rel="noopener">${t('openFigma')}</a>
       ${a.src ? `<p><a href="#" id="srcl">${t('srcControl')}</a></p>` : ''}<h2 style="margin-top:14px">${t('rows')}</h2>${a.rows.length ? a.rows.map(rowHtml).join('') : `<p class="empty">${t('noArrowRows')}</p>`}`;
     if (a.src) $('srcl').onclick = e => { e.preventDefault(); select('g', a.src); };
   }
+  if (kase) $('back').onclick = () => { sel = null; draw(); renderPanel(); };
 }
+// ---- Case view: where a case comes from ----
+const inBoard = (b, [x, y]) => x >= b.box[0] && x <= b.box[0] + b.box[2] && y >= b.box[1] && y <= b.box[1] + b.box[3];
+function caseItems(id) {
+  const refs = D.rows[id]?.refs ?? [], rq = refs.map(r => D.reqs[r]).filter(Boolean);
+  const named = new Set(rq.flatMap(r => r.groups));
+  return {
+    groups: D.groups.filter(g => g.press.includes(id) || g.dismiss.includes(id) || named.has(g.group)),
+    arrows: D.arrows.filter(a => a.rows.includes(id)),
+    screens: [...new Set(rq.flatMap(r => r.screens))].map(sid => D.screens.find(s => s.id === sid)).filter(Boolean),
+    pointers: rq.flatMap(r => r.pointers ?? []),
+    boards: [...new Set(rq.flatMap(r => r.src.flatMap(s => s.boards)))],
+  };
+}
+// how many of the case's items lie on a board (copies of a control, arrows, named screens)
+const caseOnBoard = b => caseIt.groups.reduce((n, g) => n + g.rects.filter(r => inBoard(b, r)).length, 0)
+  + caseIt.arrows.filter(a => a.board === b.name).length + caseIt.screens.filter(sc => sc.board === b.name).length + caseIt.pointers.filter(p => p.board === b.name).length;
+// the part of a board the case's items cover, to zoom to
+function caseBox(b) {
+  const pts = [...caseIt.groups.flatMap(g => g.rects.filter(r => inBoard(b, r)).flatMap(([x, y, w, h]) => [[x, y], [x + w, y + h]])),
+    ...[...caseIt.arrows, ...caseIt.pointers].filter(a => a.board === b.name).flatMap(a => a.points.reduce((ps, v, i) => (i % 2 ? ps[ps.length - 1].push(v) : ps.push([v]), ps), [])),
+    ...caseIt.screens.filter(sc => sc.board === b.name).flatMap(({ box: [x, y, w, h] }) => [[x, y], [x + w, y + h]])];
+  if (!pts.length) return null;
+  const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]), x = Math.min(...xs), y = Math.min(...ys);
+  return [x, y, Math.max(...xs) - x, Math.max(...ys) - y];
+}
+function focusCase(id) {
+  id = String(id || '').trim().toUpperCase(); if (/^\d+$/.test(id)) id = `TC-${id.padStart(3, '0')}`;
+  if (!D.rows[id]) { kase = caseIt = null; caseBar(); boardsNav(); draw(); $('panel').innerHTML = `<p class="empty">${esc(t('caseNotFound')(id))}</p>`; return; }
+  kase = id; caseIt = caseItems(id); sel = null; $('caseq').value = id;
+  // the board holding most of the case's items, else the first board its requirements come from
+  const best = D.boards.map(b => [b, caseOnBoard(b)]).sort((a, b) => b[1] - a[1])[0];
+  const b = best?.[1] ? best[0] : D.boards.find(x => caseIt.boards.includes(x.name));
+  if (b) openBoard(b, caseBox(b)); else { boardsNav(); draw(); }
+  caseBar(); renderPanel();
+}
+function clearCase() {
+  kase = caseIt = null; sel = null; $('caseq').value = '';
+  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+  caseBar(); boardsNav(); draw(); renderPanel();
+}
+function caseBar() {
+  const el = $('casebar'); el.hidden = !kase; if (!kase) return;
+  const nb = D.boards.filter(b => caseOnBoard(b)).length;
+  el.innerHTML = `<b>${esc(kase)}</b><span>${esc(t('caseBar')(caseIt.groups.length, caseIt.arrows.length, nb))}</span><button id="caseclr">${t('caseClear')} ✕</button>`;
+  $('caseclr').onclick = clearCase;
+}
+function casePanel() {
+  const r = D.rows[kase], it = caseIt;
+  const boardBtn = name => { const i = D.boards.findIndex(b => b.name === name); return i < 0 ? '' : `<button data-board="${i}">${esc(name)}</button>`; };
+  const reqHtml = rid => { const q = D.reqs[rid];
+    if (!q) return `<div class="req"><span class="rid">${esc(rid)}</span><span class="muted">—</span></div>`;
+    const srcs = q.src.map(s => `<span class="spec">${t('specs')[s.spec] ?? s.spec}</span> <span class="muted">${esc([s.title, s.detail].filter(Boolean).join(' · '))}</span>`
+      + (s.boards.length ? s.boards.map(boardBtn).join('') : ` <span class="srcs"><span class="off">${t('notOnBoards')}</span></span>`));
+    const design = Object.keys(D.figma).find(k => D.boards.some(b => b.file === k && b.spec === 'design'));
+    const figma = design ? (q.nodes ?? []).map(n => `<a href="${D.figma[design]}${n.replace(':', '-')}" target="_blank" rel="noopener">${t('openFigma')} ${esc(n)}</a>`) : [];
+    if (!q.src.length && !figma.length) srcs.push(`<span class="muted">${t('noSource')}</span>`);
+    return `<div class="req"><span class="rid">${esc(rid)}</span>${esc(q.text)}<div class="srcs">${[...srcs, ...figma].join('<span style="flex-basis:100%"></span>')}</div></div>`; };
+  const where = g => { const b = D.boards.find(b => g.rects.some(rc => inBoard(b, rc))); return b ? b.name : g.board; };
+  const gBtn = g => `<button data-g="${esc(g.group)}"><span class="sw" style="color:${COLOR(g.status)};width:9px;height:9px"></span>${esc(g.label || g.name)} <span class="muted">${esc(kindName(g.kind))}</span><span class="b">${esc(where(g))}</span></button>`;
+  const aBtn = a => `<button data-a="${esc(a.id)}"><span class="sw" style="color:${COLOR(a.status)};width:9px;height:9px"></span>${esc(a.edge)}<span class="b">${esc(a.board)}</span></button>`;
+  const scBtn = sc => `<button data-board="${D.boards.findIndex(b => b.name === sc.board)}">${esc(sc.name)}<span class="b">${esc(sc.board)}</span></button>`;
+  $('panel').innerHTML = `<div class="k muted" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.04em">${t('caseEyebrow')}${r.section ? ` · ${esc(r.section)}` : ''}</div>
+    <h2>${esc(kase)} <span class="res ${esc(r.result)}">${esc(r.result === 'Not run' ? t('plannedRes') : r.result)}</span></h2>
+    <dl><dt>${t('action')}</dt><dd>${esc(r.action)}</dd><dt>${t('expected')}</dt><dd>${esc(r.expected)}</dd></dl>
+    ${PAGES.review ? `<a href="${esc(PAGES.review)}#${encodeURIComponent(kase)}" target="casebook-review">${t('openReview')} ↗</a>` : ''}
+    <h2 style="margin-top:14px">${t('caseWhere')}</h2>${r.refs.length ? r.refs.map(reqHtml).join('') : `<p class="empty">${t('caseNoRefs')}</p>`}
+    ${it.groups.length ? `<h2 style="margin-top:14px">${t('casePresses')} (${it.groups.length})</h2><div class="items">${it.groups.map(gBtn).join('')}</div>` : ''}
+    ${it.arrows.length ? `<h2 style="margin-top:14px">${t('caseWalks')} (${it.arrows.length})</h2><div class="items">${it.arrows.map(aBtn).join('')}</div>` : ''}
+    ${it.screens.length ? `<h2 style="margin-top:14px">${t('caseScreens')}</h2><div class="items">${it.screens.map(scBtn).join('')}</div>` : ''}
+    ${!it.groups.length && !it.arrows.length ? `<p class="empty" style="margin-top:12px">${t('caseNoItems')}</p>` : ''}`;
+  for (const el of $('panel').querySelectorAll('[data-board]')) el.onclick = () => { const b = D.boards[+el.dataset.board]; if (b) openBoard(b, caseBox(b)); };
+  for (const el of $('panel').querySelectorAll('[data-g]')) el.onclick = () => { const g = D.groups.find(x => x.group === el.dataset.g);
+    const b = D.boards.find(b => g.rects.some(rc => inBoard(b, rc))) ?? D.boards.find(b => b.name === g.board); openBoard(b, g.rects.find(rc => inBoard(b, rc))); select('g', g.group); };
+  for (const el of $('panel').querySelectorAll('[data-a]')) el.onclick = () => { const a = D.arrows.find(x => x.id === el.dataset.a);
+    openBoard(D.boards.find(b => b.name === a.board), [a.points[0], a.points[1], 1, 1]); select('a', a.id); };
+}
+$('casef').onsubmit = e => { e.preventDefault(); const v = $('caseq').value.trim(); if (!v) { clearCase(); return; }
+  let id = v.toUpperCase(); if (/^\d+$/.test(id)) id = `TC-${id.padStart(3, '0')}`; location.hash = `case=${encodeURIComponent(id)}`; };
+const hashCase = () => { const m = location.hash.match(/^#case=(.+)$/); if (m) focusCase(decodeURIComponent(m[1])); };
+addEventListener('hashchange', hashCase);
 // zoom and pan by changing the viewBox
 const svg = $('svg');
 function zoom(f, cx, cy) {
@@ -527,9 +667,9 @@ function unmatchedList() {
   for (const row of document.querySelectorAll('#umtb tr.go')) row.onclick = e => { if (e.target.closest('a')) return; const g = target(D.unmatched[+row.dataset.i]);
     goTo({ t: 'g', id: g.group, board: g.board, r: g.rects[0] }); };
 }
-function render() { header(); strip(); legend(); unmatchedList(); specFilter(); boardsNav(); draw(); renderPanel(); gaps(); }
+function render() { header(); strip(); legend(); unmatchedList(); specFilter(); boardsNav(); draw(); renderPanel(); gaps(); caseBar(); }
 for (const b of document.querySelectorAll('.lang button')) b.onclick = () => { L = b.dataset.lang; try { localStorage.setItem('coverage-lang', L); } catch {} render(); };
-board = D.boards.find(b => b.img) || D.boards[0]; openBoard(board); render();
+board = D.boards.find(b => b.img) || D.boards[0]; openBoard(board); render(); hashCase();
 </script>
 </body>
 </html>

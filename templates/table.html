@@ -65,6 +65,9 @@ footer .counts{font-size:.84rem;color:var(--muted)} footer .counts b{color:var(-
 .btn:disabled{opacity:.5;cursor:not-allowed}
 #toast{position:fixed;right:20px;bottom:70px;background:var(--fg);color:var(--bg);padding:10px 14px;border-radius:6px;font-size:.86rem;max-width:520px;display:none;z-index:6}
 .note{font-size:.8rem;color:var(--muted)}
+a.spec{display:inline-block;margin-top:4px;font:600 .7rem var(--mono);color:var(--edit);text-decoration:none;border:1px solid var(--edit-soft);border-radius:4px;padding:1px 5px}
+a.spec:hover{background:var(--edit-soft)}
+tr.focus td{background:var(--edit-soft)} tr.focus td.id{box-shadow:inset 3px 0 0 var(--edit)}
 </style>
 </head>
 <body>
@@ -95,6 +98,8 @@ const EDIT=['Precondition','Action','Expected Result','Spec Ref','Notes'];
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const REVIEW=D.mode==='review';
+// the other pages: scripts/pages.ts names them (window.CASEBOOK); a static cases.html links to coverage.html beside it
+const PAGES=window.CASEBOOK?.pages??(location.protocol==='file:'?{coverage:'coverage.html'}:{});
 const KEY='casebook:'+D.feature+':'+D.platform+':'+D.draft;
 // state: each row keeps its original values, current values, and the decision (keep/delete)
 let rows=D.rows.map((r,i)=>({orig:{...r},cur:{...r},dec:r.Change==='removed'?'delete':'keep',added:false,i}));
@@ -159,7 +164,9 @@ function cell(r,f){
 function idCell(r){
   const st=state(r),ch=r.cur.Change;
   const badges=[ch&&ch!=='unchanged'?`<span class="badge b-${ch}">${ch}</span>`:'',REVIEW&&st!=='kept'?`<span class="badge b-${st==='deleted'?'removed':st}">${st}</span>`:''].join(' ');
-  return `${esc(r.cur.ID)}<div>${badges}</div>${r.cur['Change Reason']?`<div class="reason">${esc(r.cur['Change Reason'])}</div>`:''}`;
+  // opens the coverage page on this case: its requirements, the spec boards they come from, the controls it presses
+  const spec=PAGES.coverage&&!r.added?`<div><a class="spec" href="${esc(PAGES.coverage)}#case=${encodeURIComponent(r.cur.ID)}" target="casebook-coverage" title="Show where in the spec this case comes from">Spec ↗</a></div>`:'';
+  return `${esc(r.cur.ID)}<div>${badges}</div>${spec}${r.cur['Change Reason']?`<div class="reason">${esc(r.cur['Change Reason'])}</div>`:''}`;
 }
 function body(){
   const tb=$('#tbl tbody');let h='';
@@ -169,7 +176,7 @@ function body(){
     h+=`<tr class="section"><td colspan="8">${esc(s)} <span class="note">(${rs.length})</span>${REVIEW?`<button class="add" data-sec="${esc(s)}">+ Add case</button>`:''}</td></tr>`;
     for(const r of rs){
       const st=state(r);
-      h+=`<tr class="${st==='deleted'?'deleted':''}"><td class="id">${idCell(r)}</td>
+      h+=`<tr data-row="${esc(r.cur.ID)}" class="${st==='deleted'?'deleted':''}${r.cur.ID===focusId?' focus':''}"><td class="id">${idCell(r)}</td>
       ${cell(r,'Precondition')}${cell(r,'Action')}${cell(r,'Expected Result')}
       <td><select data-id="${esc(r.cur.ID)}" data-f="Priority" ${REVIEW?'':'disabled'}>${['','P1','P2','P3'].map(p=>`<option${(r.cur.Priority||'')===p?' selected':''}>${p}</option>`).join('')}</select></td>
       ${cell(r,'Spec Ref')}${cell(r,'Notes')}
@@ -216,13 +223,21 @@ $('#save').onclick=async()=>{
   const empty=finalRows().filter(r=>!r.Action||!r['Expected Result']);
   if(empty.length){toast(`Fill in Action and Expected Result for ${empty.map(r=>r.ID).join(', ')} before saving.`);return}
   $('#save').disabled=true;
-  try{const res=await fetch('/save',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({rows:finalRows(),decisions:decisions(),summary:decisionText()})});
+  try{const res=await fetch('save',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({rows:finalRows(),decisions:decisions(),summary:decisionText()})});
     const j=await res.json();if(!res.ok)throw new Error(j.error||res.statusText);
     try{localStorage.removeItem(KEY)}catch(e){}
     toast(`Saved as approved version ${j.version}: ${j.cases} cases. ${j.csv}`);
   }catch(e){toast('Save failed: '+e.message)}finally{$('#save').disabled=false}
 };
-header();filters();body();counts();
+// #TC-012 (a link from the coverage page): show that row, clearing filters that hide it
+let focusId='';
+function focusRow(){
+  const id=decodeURIComponent(location.hash.slice(1));const r=rows.find(x=>x.cur.ID===id);if(!r)return;
+  focusId=id;if(!visible(r)){F.q='';F.section='';F.change='';F.state='';filters()}body();
+  document.querySelector(`tr[data-row="${CSS.escape(id)}"]`)?.scrollIntoView({block:'center'});
+}
+addEventListener('hashchange',focusRow);
+header();filters();body();counts();focusRow();
 </script>
 </body>
 </html>

@@ -13,7 +13,8 @@ both files are identical — update them together). The repo also carries its ow
 - Each feature lives in `library/<feature>/` (see its generated `README.md`): `specs/<date>/` holds every spec set
   received (original files git-ignored; `spec-set.json` and `extracted/` text kept), and `ios/` / `android/` hold
   the platform tables. Never put spec files anywhere else.
-- The review server (`scripts/review.ts`) is a local process the user may be using; do not stop it unless asked.
+- The review server (`scripts/review.ts`) and the page server (`scripts/pages.ts`: review, plan and coverage on one
+  address) are local processes the user may be using; do not stop them unless asked.
 
 ## Team preferences
 
