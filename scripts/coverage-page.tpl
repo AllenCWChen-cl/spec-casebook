@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>__TITLE__</title>
+<!-- tab icon (coverage: a target), different on each page so the browser tabs are easy to tell apart -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230f6e73'/><circle cx='16' cy='16' r='9' fill='none' stroke='%23fff' stroke-width='2.6'/><circle cx='16' cy='16' r='3.4' fill='%23fff'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;650;750&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;600;700&display=swap">
 <style>
@@ -222,7 +224,7 @@ const I18N = {
     caseFind: 'Case ID, e.g. TC-012', caseNotFound: id => `No case ${id} in this table.`, caseEyebrow: 'Case', caseWhere: 'Where in the spec',
     casePresses: 'Controls it presses', caseWalks: 'Flow arrows it walks', caseScreens: 'Screens it names', caseClear: 'Clear',
     caseNoItems: 'No control or arrow on the boards is tied to this case; the boards its requirements come from are listed above.',
-    caseNoRefs: 'This case names no requirement in its Spec Ref.', caseBack: id => `← Back to ${id}`, openReview: 'Open in the review page', reviewLink: 'review ↗',
+    caseNoRefs: 'This case names no requirement in its Spec Ref.', caseBack: id => `← Back to ${id}`, openReview: 'Open in the review page', reviewLink: 'review →', openPlan: 'Open in the run plan', planLink: 'plan →',
     caseBar: (g, a, b) => `${g} controls · ${a} arrows · on ${b} board${b === 1 ? '' : 's'}`, caseSrcOnly: 'spec board',
     action: 'Action', expected: 'Expected result', notOnBoards: 'no board for this source', regionOnly: 'Spec region (no controls traced)',
     caseOnBoard: 'case items here', caseSrc: 'a requirement of the case comes from this board',
@@ -283,7 +285,7 @@ const I18N = {
     caseFind: '案例 ID，例如 TC-012', caseNotFound: id => `此表格沒有案例 ${id}。`, caseEyebrow: '案例', caseWhere: '來自規格的哪裡',
     casePresses: '它按的控制項', caseWalks: '它走過的流程箭頭', caseScreens: '它提到的畫面', caseClear: '清除',
     caseNoItems: '畫板上沒有控制項或箭頭對應到此案例；其需求來自的畫板列在上方。',
-    caseNoRefs: '此案例的 Spec Ref 沒有列出需求。', caseBack: id => `← 回到 ${id}`, openReview: '在審查頁開啟', reviewLink: '審查頁 ↗',
+    caseNoRefs: '此案例的 Spec Ref 沒有列出需求。', caseBack: id => `← 回到 ${id}`, openReview: '在審查頁開啟', reviewLink: '審查頁 →', openPlan: '在執行計畫開啟', planLink: '執行計畫 →',
     caseBar: (g, a, b) => `${g} 個控制項 · ${a} 個箭頭 · 分布於 ${b} 個畫板`, caseSrcOnly: '規格畫板',
     action: '動作', expected: '預期結果', notOnBoards: '此來源沒有畫板', regionOnly: '規格區域（未追蹤控制項）',
     caseOnBoard: '此案例的項目', caseSrc: '此案例的某項需求來自這個畫板',
@@ -484,8 +486,8 @@ function hoverMark(m, keep) {
 }
 const kindName = k => t('kinds')[k] ?? k;
 const rowHtml = id => { const r = D.rows[id] || { result: 'Not run' };
-  // the id opens the case view here; review ↗ opens the row on the review page
-  return `<div class="row"><a class="id" href="#case=${encodeURIComponent(id)}">${esc(id)}</a>${PAGES.review ? `<a class="rv" href="${esc(PAGES.review)}#${encodeURIComponent(id)}" target="casebook-review">${t('reviewLink')}</a>` : ''}<span class="res ${esc(r.result)}">${esc(r.result === 'Not run' ? t('plannedRes') : r.result)}</span>${r.reason ? ` <span style="color:var(--blocked);font-size:.8rem">${esc(tr(r.reason))}</span>` : ''}${r.run ? ` <span class="mono" style="color:var(--muted)">${esc(r.run)}</span>` : ''}<div>${esc(r.action || '')}</div>${r.actual ? `<div style="color:var(--muted);font-size:.82rem">${esc(r.actual)}</div>` : ''}</div>`; };
+  // the id opens the case view here; review → opens the row on the review page
+  return `<div class="row"><a class="id" href="#case=${encodeURIComponent(id)}">${esc(id)}</a>${PAGES.review ? `<a class="rv" href="${esc(PAGES.review)}#${encodeURIComponent(id)}">${t('reviewLink')}</a>` : ''}${PAGES.plan ? `<a class="rv" href="${esc(PAGES.plan)}#case=${encodeURIComponent(id)}">${t('planLink')}</a>` : ''}<span class="res ${esc(r.result)}">${esc(r.result === 'Not run' ? t('plannedRes') : r.result)}</span>${r.reason ? ` <span style="color:var(--blocked);font-size:.8rem">${esc(tr(r.reason))}</span>` : ''}${r.run ? ` <span class="mono" style="color:var(--muted)">${esc(r.run)}</span>` : ''}<div>${esc(r.action || '')}</div>${r.actual ? `<div style="color:var(--muted);font-size:.82rem">${esc(r.actual)}</div>` : ''}</div>`; };
 function select(kind, id) {
   sel = kind === 'g' ? { group: id } : { arrow: id }; draw(); renderPanel();
 }
@@ -583,7 +585,7 @@ function casePanel() {
   $('panel').innerHTML = `<div class="k muted" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.04em">${t('caseEyebrow')}${r.section ? ` · ${esc(r.section)}` : ''}</div>
     <h2>${esc(kase)} <span class="res ${esc(r.result)}">${esc(r.result === 'Not run' ? t('plannedRes') : r.result)}</span></h2>
     <dl><dt>${t('action')}</dt><dd>${esc(r.action)}</dd><dt>${t('expected')}</dt><dd>${esc(r.expected)}</dd></dl>
-    ${PAGES.review ? `<a href="${esc(PAGES.review)}#${encodeURIComponent(kase)}" target="casebook-review">${t('openReview')} ↗</a>` : ''}
+    <p style="display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 0">${PAGES.review ? `<a href="${esc(PAGES.review)}#${encodeURIComponent(kase)}">${t('openReview')} →</a>` : ''}${PAGES.plan ? `<a href="${esc(PAGES.plan)}#case=${encodeURIComponent(kase)}">${t('openPlan')} →</a>` : ''}</p>
     <h2 style="margin-top:14px">${t('caseWhere')}</h2>${r.refs.length ? r.refs.map(reqHtml).join('') : `<p class="empty">${t('caseNoRefs')}</p>`}
     ${it.groups.length ? `<h2 style="margin-top:14px">${t('casePresses')} (${it.groups.length})</h2><div class="items">${it.groups.map(gBtn).join('')}</div>` : ''}
     ${it.arrows.length ? `<h2 style="margin-top:14px">${t('caseWalks')} (${it.arrows.length})</h2><div class="items">${it.arrows.map(aBtn).join('')}</div>` : ''}

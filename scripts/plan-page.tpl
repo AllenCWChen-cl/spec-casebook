@@ -1,4 +1,6 @@
 <title>__TITLE__</title>
+<!-- tab icon (run plan: phase bars), different on each page so the browser tabs are easy to tell apart -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23d9822b'/><path d='M7 9h11M11 16h14M7 23h8' stroke='%23fff' stroke-width='3.6' stroke-linecap='round'/></svg>">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;650;750&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;600;700&display=swap">
@@ -58,6 +60,10 @@ table { border-collapse: collapse; width: 100%; font-size: 0.88rem }
 th { text-align: left; font: 600 0.7rem var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); padding: 6px 8px; border-bottom: 1px solid var(--line) }
 td { padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top }
 td.id { font-family: var(--mono); white-space: nowrap }
+/* links to the same case on the other pages (scripts/pages.ts), and the case a link opened (#case=TC-012) */
+td.id .xl { display: flex; gap: 8px; font: 600 0.68rem var(--mono); margin-top: 2px }
+td.id .xl a { color: var(--accent); text-decoration: none } td.id .xl a:hover { text-decoration: underline }
+tr.focus td { background: var(--chip-bg) } tr.focus td.id { box-shadow: inset 3px 0 0 var(--accent) }
 .r { font: 600 0.72rem var(--mono); padding: 2px 6px; border-radius: 3px; white-space: nowrap; color: var(--panel) }
 .r.Pass { background: var(--pass) } .r.Fail { background: var(--fail) } .r.Blocked { background: var(--blocked) }
 .r.Inconclusive { background: var(--inc) } .r.Notrun { background: var(--notrun) }
@@ -197,6 +203,10 @@ const STATE_ZH = { 'Skipped this round': '本輪略過', 'Deferred': '延後', '
 const stateName = s => tx(s, STATE_ZH[s] ?? s);
 const COLOR = { 'Pass': 'var(--pass)', 'Fail': 'var(--fail)', 'Blocked': 'var(--blocked)', 'Inconclusive': 'var(--inc)', 'Not run': 'var(--notrun)' };
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+// the other pages, when scripts/pages.ts serves this one (window.CASEBOOK); none for the static plan.html
+const PAGES = window.CASEBOOK?.pages ?? {};
+const xlinks = id => (PAGES.review || PAGES.coverage) ? `<div class="xl">${PAGES.review ? `<a href="${esc(PAGES.review)}#${encodeURIComponent(id)}">${tx('review', '審查')} →</a>` : ''}${PAGES.coverage ? `<a href="${esc(PAGES.coverage)}#case=${encodeURIComponent(id)}">${tx('spec', '規格')} →</a>` : ''}</div>` : '';
+let focusCase = '';
 const tally = cs => { const t = Object.fromEntries(RES.map(r => [r, 0])); cs.forEach(c => t[c.result in t ? c.result : 'Not run']++); return t; };
 const bar = t => { const n = Object.values(t).reduce((a, b) => a + b, 0) || 1; return RES.map(r => t[r] ? `<span style="width:${t[r] / n * 100}%;background:${COLOR[r]}" title="${resName(r)} ${t[r]}"></span>` : '').join(''); };
 const hm = ms => `${Math.floor(ms / 3600000)}h ${String(Math.round(ms / 60000) % 60).padStart(2, '0')}m`;
@@ -347,7 +357,7 @@ function phaseHtml(p, history) {
   const segs = p.segments.map(s => {
     const st = tally(s.cases), left = st['Not run'];
     const ss = p.skip ? ['skip', 'Skipped'] : left === 0 ? ['done', 'Done'] : left < s.cases.length ? ['active', 'In progress'] : ['pending', 'Pending'];
-    const rows = s.cases.map(c => `<tr><td class="id">${esc(c.id)}${c.origin ? ` <span class="eyebrow">${esc(c.origin)}</span>` : ''}${c.needs ? `<div class="eyebrow">${tx('needs', '需要')} ${esc(c.needs)}</div>` : ''}</td><td>${esc(c.section)}</td><td>${esc(c.action)}</td><td><span class="r ${esc(c.result.replace(' ', ''))}">${esc(resName(c.result))}</span>${c.disp ? ` <span class="eyebrow">${esc(c.disp)}</span>` : ''}${c.why ? `<span class="why-row">${esc(whyLabel(c.why.group, c.disp))}</span>` : ''}${c.actual ? `<div class="actual">${esc(c.actual)}${c.at ? ` <span class="eyebrow">${esc(c.at)}</span>` : ''}</div>` : ''}</td></tr>`).join('');
+    const rows = s.cases.map(c => `<tr data-case="${esc(c.id)}"${c.id === focusCase ? ' class="focus"' : ''}><td class="id">${esc(c.id)}${c.origin ? ` <span class="eyebrow">${esc(c.origin)}</span>` : ''}${c.needs ? `<div class="eyebrow">${tx('needs', '需要')} ${esc(c.needs)}</div>` : ''}${xlinks(c.id)}</td><td>${esc(c.section)}</td><td>${esc(c.action)}</td><td><span class="r ${esc(c.result.replace(' ', ''))}">${esc(resName(c.result))}</span>${c.disp ? ` <span class="eyebrow">${esc(c.disp)}</span>` : ''}${c.why ? `<span class="why-row">${esc(whyLabel(c.why.group, c.disp))}</span>` : ''}${c.actual ? `<div class="actual">${esc(c.actual)}${c.at ? ` <span class="eyebrow">${esc(c.at)}</span>` : ''}</div>` : ''}</td></tr>`).join('');
     return `<details class="seg" id="${esc(p.id)}--${esc(s.id)}"${openSegs.has(`${p.id}--${s.id}`) ? ' open' : ''}><summary><span class="seg-id">${esc(s.id)}</span><span class="seg-name">${esc(s.name)}${statLine(s.stats)}</span><span class="seg-count num">${s.cases.length - left}/${s.cases.length} ${tx('recorded', '已記錄')}</span><span class="bar">${bar(st)}</span><span class="state ${ss[0]}">${stateName(ss[1])}</span></summary>
       <div class="cases"><table><thead><tr><th>${tx('Case', '案例')}</th><th>${tx('Section', '分區')}</th><th>${tx('Action', '操作')}</th><th>${tx('Result', '結果')}</th></tr></thead><tbody>${rows}</tbody></table></div></details>`;
   }).join('');
@@ -392,8 +402,23 @@ function applyStatic() {
 }
 function setLang(l) { LANG = l; try { localStorage.setItem('plan-lang', l); } catch (e) {} applyStatic(); render(); }
 document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.l)));
+// #case=TC-012 (a link from the review or coverage page): open the segment that runs it, in the current run when it
+// is there, else the latest earlier run, and scroll to its row
+function showCase() {
+  const m = location.hash.match(/^#case=(.+)$/); if (!m) return;
+  focusCase = decodeURIComponent(m[1]);
+  const order = [...DATA.phases.filter(p => p.current), ...DATA.phases.filter(p => !p.current).reverse()];
+  const p = order.find(p => p.segments.some(s => s.cases.some(c => c.id === focusCase))); if (!p) return;
+  const s = p.segments.find(s => s.cases.some(c => c.id === focusCase));
+  render();
+  // render() keeps whatever segments are open, so the live refresh leaves this one open too
+  for (const id of [`hist--${p.id}`, `${p.id}--${s.id}`]) { const d = document.getElementById(id); if (d) d.open = true; }
+  document.getElementById(`${p.id}--${s.id}`)?.querySelector(`tr[data-case="${CSS.escape(focusCase)}"]`)?.scrollIntoView({ block: 'center' });
+}
+addEventListener('hashchange', showCase);
 applyStatic();
 render();
+showCase();
 /*LIVE*/
 // Served by `plan-page.ts --serve`: pick up each recorded case without a reload.
 if (LIVE) setInterval(async () => {

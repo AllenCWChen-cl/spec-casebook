@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>__TITLE__</title>
+<!-- tab icon (review: a checklist), different on each page so the browser tabs are easy to tell apart -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%233d5bd9'/><path d='M7 10.5l2.5 2.5L14 8.5M7 20.5l2.5 2.5 4.5-4.5' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/><path d='M17.5 11h8M17.5 21h8' stroke='%23fff' stroke-width='2.6' stroke-linecap='round'/></svg>">
 <style>
 /* Layout: a spreadsheet-like review sheet — header facts, filter bar, rows grouped by section, sticky action bar. */
 :root{
@@ -67,6 +69,7 @@ footer .counts{font-size:.84rem;color:var(--muted)} footer .counts b{color:var(-
 .note{font-size:.8rem;color:var(--muted)}
 a.spec{display:inline-block;margin-top:4px;font:600 .7rem var(--mono);color:var(--edit);text-decoration:none;border:1px solid var(--edit-soft);border-radius:4px;padding:1px 5px}
 a.spec:hover{background:var(--edit-soft)}
+.xl{display:flex;flex-wrap:wrap;gap:4px}
 tr.focus td{background:var(--edit-soft)} tr.focus td.id{box-shadow:inset 3px 0 0 var(--edit)}
 </style>
 </head>
@@ -165,7 +168,10 @@ function idCell(r){
   const st=state(r),ch=r.cur.Change;
   const badges=[ch&&ch!=='unchanged'?`<span class="badge b-${ch}">${ch}</span>`:'',REVIEW&&st!=='kept'?`<span class="badge b-${st==='deleted'?'removed':st}">${st}</span>`:''].join(' ');
   // opens the coverage page on this case: its requirements, the spec boards they come from, the controls it presses
-  const spec=PAGES.coverage&&!r.added?`<div><a class="spec" href="${esc(PAGES.coverage)}#case=${encodeURIComponent(r.cur.ID)}" target="casebook-coverage" title="Show where in the spec this case comes from">Spec ↗</a></div>`:'';
+  // and the run plan on it: the segment that runs it and its latest result
+  const links=r.added?[]:[PAGES.coverage&&`<a class="spec" href="${esc(PAGES.coverage)}#case=${encodeURIComponent(r.cur.ID)}" title="Show where in the spec this case comes from">Spec →</a>`,
+    PAGES.plan&&`<a class="spec" href="${esc(PAGES.plan)}#case=${encodeURIComponent(r.cur.ID)}" title="Show this case in the run plan">Plan →</a>`].filter(Boolean);
+  const spec=links.length?`<div class="xl">${links.join('')}</div>`:'';
   return `${esc(r.cur.ID)}<div>${badges}</div>${spec}${r.cur['Change Reason']?`<div class="reason">${esc(r.cur['Change Reason'])}</div>`:''}`;
 }
 function body(){

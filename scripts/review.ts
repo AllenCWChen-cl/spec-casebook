@@ -18,7 +18,8 @@ import { writeFeatureIndex } from './lib/feature-index.ts';
 const [feature, platform] = process.argv.slice(2);
 assertIds(feature, platform);
 const draftArg = arg('draft');
-let port = Number(arg('port') ?? 4387);
+const firstPort = Number(arg('port') ?? 4387);
+let port = firstPort;
 const lan = process.argv.includes('--lan'), host = lan ? '0.0.0.0' : '127.0.0.1';
 const table = tableDir(feature, platform);
 const manifest = readManifest(feature, platform);
@@ -99,7 +100,8 @@ const server = createServer(async (req, res) => {
   }
 });
 server.on('error', (e: any) => {
-  if (e.code === 'EADDRINUSE' && port < 4400) { port++; server.listen(port, host); } else throw e;
+  // the next free port, up to 10 above the one asked for (pages.ts asks for 4487)
+  if (e.code === 'EADDRINUSE' && port < firstPort + 10) { port++; server.listen(port, host); } else throw e;
 });
 server.listen(port, host);
 server.on('listening', () => {

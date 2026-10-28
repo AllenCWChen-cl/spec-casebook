@@ -379,10 +379,12 @@ to share. `--draft <id>` reviews a draft (and shows it on the coverage page); th
 review page works only on the computer running the server; colleagues on the network can read, edit in their
 browser and Copy.
 
-The pages link to each other. Each review row has **Spec ↗**, which opens the coverage page on that case: its
+The pages link to each other. Each review row has **Spec →**, which opens the coverage page on that case: its
 requirements, the spec boards they come from (Design boards from Figma; PM and MX spec regions as boards of their
-own), and the controls and flow arrows it presses, highlighted on the board. On the coverage page, a case ID opens
-that case's view, and **review ↗** opens the row on the review page. Type a case ID (or just `12`) in the Case box,
+own), and the controls and flow arrows it presses, highlighted on the board. **Plan →** opens the run plan on the
+segment that runs the case, with its latest result. On the coverage page, a case ID opens that case's view, and
+**review →** / **plan →** open it on the other pages; each case on the run plan links to **review →** and
+**spec →**. Type a case ID (or just `12`) in the Case box,
 or open `/coverage/#case=TC-012`.
 
 Each page can also run on its own, a small server started from the repository root. They read the files on every request (the

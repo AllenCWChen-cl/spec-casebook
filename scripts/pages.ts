@@ -64,11 +64,13 @@ const tabBar = (current: string) => {
 .cb-tabs span.off{opacity:.45;cursor:not-allowed}
 .cb-tabs .cb-note{margin-left:auto;font-size:12px;opacity:.7}
 @media print{.cb-tabs{display:none}}
-${current === 'coverage' ? '/* the coverage page pads its body: the bar spans the full width above that padding */\nbody{padding-top:0!important}.cb-tabs{margin:0 calc(-1 * max(16px, 2vw)) 18px}' : ''}
 </style><nav class="cb-tabs" aria-label="Casebook pages"><b>${esc(feature)} · ${platform === 'ios' ? 'iOS' : 'Android'}</b>${pages.map(p => p.port
     ? `<a href="/${p.id}/"${p.id === current ? ' aria-current="page"' : ''}>${esc(p.label)}</a>`
     : `<span class="off" title="${esc(p.error ?? '')}">${esc(p.label)}</span>`).join('')}<span class="cb-note">${lan ? 'Shared on the network' : 'This computer only'}</span></nav>
-<script>window.CASEBOOK=${JSON.stringify({ pages: links, current })};</script>`;
+<script>window.CASEBOOK=${JSON.stringify({ pages: links, current })};
+// the pages pad their bodies differently: pull the bar over that padding so it spans the window the same way on each
+(()=>{const n=document.currentScript.previousElementSibling,b=getComputedStyle(document.body),t=parseFloat(b.paddingTop)||0;
+n.style.margin=\`\${-t}px -\${b.paddingRight} \${t?18:0}px -\${b.paddingLeft}\`;})();</script>`;
 };
 const notAvailable = (p: Page) => `<!doctype html><meta charset="utf-8"><title>${esc(p.label)}</title><body style="margin:0;font:15px system-ui;background:#f4f5f7">${tabBar(p.id)}<p style="padding:24px;max-width:80ch">${esc(p.error ?? 'Not available.')}</p></body>`;
 const isLocal = (a = '') => a === '127.0.0.1' || a === '::1' || a === '::ffff:127.0.0.1';
