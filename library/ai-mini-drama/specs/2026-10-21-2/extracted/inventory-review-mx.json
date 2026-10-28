@@ -1,0 +1,40 @@
+{
+  "boards": [
+    "MX"
+  ],
+  "missing": [
+    {"screen":"2824:129842","screens":["2824:132753","2831:134158","2831:134270"],"label":"Regenerate badge on Sophie card","box":[101,303,24,24],"kind":"button","why":"Circular regenerate icon at the top-right corner of the character card has no box; separate tap from opening the card"},
+    {"screen":"2824:129842","screens":["2824:132753","2831:134158","2831:134270"],"label":"Regenerate badge on The Manager card","box":[201,303,24,24],"kind":"button","why":"Circular regenerate icon at the top-right corner of the character card has no box; separate tap from opening the card"},
+    {"screen":"2824:129842","screens":["2824:132753","2831:134158","2831:134270"],"label":"Regenerate badge on HR card","box":[302,303,24,24],"kind":"button","why":"Circular regenerate icon at the top-right corner of the character card has no box; separate tap from opening the card"},
+    {"screen":"2824:133153","screens":["4847:34277","2831:134214"],"label":"Regenerate badge on Sophie card","box":[101,321,24,24],"kind":"button","why":"Circular regenerate icon at the top-right corner of the character card has no box; separate tap from opening the card"},
+    {"screen":"2824:133153","screens":["4847:34277","2831:134214"],"label":"Regenerate badge on The Manager card","box":[201,321,24,24],"kind":"button","why":"Circular regenerate icon at the top-right corner of the character card has no box; separate tap from opening the card"},
+    {"screen":"2824:133153","screens":["4847:34277","2831:134214"],"label":"Regenerate badge on HR card","box":[302,321,24,24],"kind":"button","why":"Circular regenerate icon at the top-right corner of the character card has no box; separate tap from opening the card"},
+    {"screen":"2824:129842","screens":["2824:133153","2824:132753","4847:34277","2831:134158","2831:134214","2831:134270","2824:130034","2824:133474","2831:134384","2831:134026"],"label":"Mic in chat input bar","box":[319,722,24,24],"kind":"button","why":"Voice-input mic icon inside the text input is a separate tap target from the field"},
+    {"screen":"2824:132944","screens":["2824:133718","2831:134326","2831:134091"],"label":"Privacy Policy link (top-up sheet footer)","box":[107,758,65,14],"kind":"button","why":"Text link under the expiry note in the Top up your credits sheet, no box"},
+    {"screen":"2824:132944","screens":["2824:133718","2831:134326","2831:134091"],"label":"Terms of Use link (top-up sheet footer)","box":[206,758,61,14],"kind":"button","why":"Text link next to Privacy Policy in the Top up your credits sheet, no box"}
+  ],
+  "not_tappable": [
+    {"control":"K-c821f8","label":"credit icon beside price (Generate/Buy Credits card, sheet tier)","why":"12px decorative credit glyph inside price text"},
+    {"control":"K-8646f1","label":"credit icon beside 360 price","why":"decorative glyph"},
+    {"control":"K-8746f2","label":"credit icon beside 360 / 480 price","why":"decorative glyph"},
+    {"control":"K-c958cb","label":"Create storyboard card container","why":"card around the Generate / Buy Credits button; the button has its own box"},
+    {"control":"K-c85b08","label":"Create storyboard card container (15-credit variant)","why":"card around Generate / Buy Credits button"},
+    {"control":"K-9137cf","label":"Quality settings card container","why":"container around Quality and Length controls and Generate"},
+    {"control":"K-ff0084","label":"Scene 6 card under status bar","why":"scene scrolled under the status bar/header"},
+    {"control":"K-900bcb","label":"scene image under status bar","why":"scene thumbnail scrolled under the status bar"},
+    {"control":"K-f15b48","screen":"2824:132944","ids":["K-5b678c","K-e0cd75","K-561f4e","K-de2c9a","K-6323a9","K-3c8d60","K-547adb","K-c958cb","K-22543a","K-c821f8","K-cf3ac3","K-f15b48"],"label":"controls of the chat screen behind the top-up sheet","why":"covered by the dimmed bottom sheet (header, character cards, storyboard card, More ideas, input bar)"},
+    {"control":"K-f15b48","screen":"2831:134326","ids":["K-5b678c","K-e0cd75","K-561f4e","K-de2c9a","K-6323a9","K-3c8d60","K-547adb","K-c958cb","K-22543a","K-c821f8","K-cf3ac3","K-f15b48"],"label":"controls of the chat screen behind the top-up sheet","why":"covered by the dimmed bottom sheet (header, character cards, storyboard card, More ideas, input bar)"},
+    {"control":"K-2642dd","screen":"2824:133718","ids":["K-5b678c","K-59d9e3","K-e0cd75","K-561f4e","K-124f76","K-8bbc58","K-8746f2","K-ce3466","K-f15b48","K-2642dd","K-e27134","K-ff0084","K-900bcb"],"label":"video-settings controls behind the top-up sheet","why":"covered by the dimmed bottom sheet (header, thumbnail, Model/Length switches, Buy Credits, input bar)"},
+    {"control":"K-2642dd","screen":"2831:134091","ids":["K-5b678c","K-59d9e3","K-e0cd75","K-561f4e","K-124f76","K-8bbc58","K-8746f2","K-ce3466","K-f15b48","K-2642dd","K-e27134","K-ff0084","K-900bcb"],"label":"video-settings controls behind the top-up sheet","why":"covered by the dimmed bottom sheet (header, thumbnail, Model/Length switches, Buy Credits, input bar)"},
+    {"control":"K-aebc6d","screen":"2820:125630","ids":["K-5b678c","K-561f4e","K-13142b","K-d428c4","K-aebc6d","K-7bc695","K-00d94a","K-998b77","K-fbf905","K-8746f2"],"label":"controls behind the Daily Free Chat Limit dialog","why":"covered by the modal dialog and scrim (header, character thumbs, edit icon, Confirm, input bar)"},
+    {"control":"K-aebc6d","screen":"4141:31729","ids":["K-5b678c","K-561f4e","K-13142b","K-d428c4","K-aebc6d","K-7bc695","K-00d94a","K-998b77","K-fbf905","K-8746f2"],"label":"controls behind the Daily Free Chat Limit dialog","why":"covered by the modal dialog and scrim (header, character thumbs, edit icon, Confirm, input bar)"},
+    {"control":"K-aebc6d","screen":"2820:125677","ids":["K-5b678c","K-561f4e","K-13142b","K-d428c4","K-aebc6d","K-7bc695","K-00d94a","K-998b77","K-fbf905","K-8746f2","K-24b72e"],"label":"controls behind the AI Chats Used Up dialog","why":"covered by the modal dialog and scrim; the circle at top-right here is a scroll-down chevron of the chat behind, not a dialog close"},
+    {"control":"K-aebc6d","screen":"4141:31901","ids":["K-5b678c","K-561f4e","K-13142b","K-d428c4","K-aebc6d","K-7bc695","K-00d94a","K-998b77","K-fbf905","K-8746f2","K-24b72e"],"label":"controls behind the AI Chats Used Up dialog","why":"covered by the modal dialog and scrim; the circle at top-right here is a scroll-down chevron of the chat behind, not a dialog close"}
+  ],
+  "drop_screens": [],
+  "unsure": [
+    {"screen":"2824:129842","what":"4th character card (orange-haired) peeking at the right edge","why":"horizontally scrolled list; card is partly visible and probably tappable after a swipe, not boxed"},
+    {"screen":"2824:132944","what":"scrim area above the top-up sheet","why":"tap-outside to dismiss is not shown in the design; only the X is drawn"},
+    {"screen":"2824:130034","what":"Storyboard thumbnail with play button (K-124f76)","why":"boxed as one item; play overlay probably opens the preview, kept as is"}
+  ]
+}

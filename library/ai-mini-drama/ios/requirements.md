@@ -62,7 +62,7 @@ Source tags: [PM:<board>] / [DS:<board>] / [MX:<board>] = board id in specs/2026
 - R-045 [PM:pm-main-flow] A reference photo with no person warns "No person detected / Results may not turn out well. Want to try anyway?".
 - R-046 [PM:pm-main-flow] A celebrity photo is blocked: "This photo can't be used / It looks like a real public figure. Please try another photo."
 - R-047 [PM:pm-main-flow] 10/13: X with any input asks "Discard this character? / What you've entered won't be saved." Discard / Keep editing; X with nothing entered closes directly.
-- R-048 [PM:pm-main-flow] A generated character is saved to the library ("My character") whether the user confirms or closes with X.
+- R-048 [PM:pm-main-flow] A generated character is saved to the library ("My character") whether the user confirms or closes with X. — Replaced 2026-10-22 (REQ-032): PM 10/21 §13.23 (R-248, R-293), only Save to library saves; the annotation trace found the old text still here. NOT TESTABLE: replaced
 - R-049 [PM:pm-main-flow] A user character card's menu offers Delete ("Delete this character? / This character will be permanently deleted and can't be recovered." Cancel / Delete) and Report; CyberLink stock characters have no Delete.
 
 ## Storyboard
@@ -115,7 +115,7 @@ Source tags: [PM:<board>] / [DS:<board>] / [MX:<board>] = board id in specs/2026
 
 ## Chat behaviour
 - R-088 [PM:pm-1002-update] The chat does not auto-scroll; a ↓ button (no unread count) appears when new content is below the view, and tapping it scrolls to the bottom and hides it.
-- R-089 [PM:pm-1002-update] Returning from Character Library, Full Edit or History keeps the chat at the position the user left.
+- R-089 [PM:pm-1002-update] Returning from Character Library, Full Edit or History keeps the chat at the position the user left. — Changed 2026-10-22 (REQ-032): PM 10/20 §13.2 ① — the chat always opens at the bottom (newest message) after Character Library, Full Edit or History.
 - R-090 [PM:pm-top-mockups] Generation prompts and status lines use the assistant wording in the spec (e.g. "Characters updated! Regenerate the storyboard to match?").
 
 ## History
@@ -133,7 +133,7 @@ Source tags: [PM:<board>] / [DS:<board>] / [MX:<board>] = board id in specs/2026
 - R-100 [DS:ds-mx-link] With enough credits, spending shows a confirmation "You'll have {n} left" with Confirm before charging. (PM 10/6 frames show direct Generate — Q-3.)
 - R-101 [DS:ds-mx-link] Without enough credits the card shows "Not enough credits / {X} credits needed. You have {Y} credits left." with Buy Credits → "Top up your credits".
 - R-102 [DS:ds-mx-link] Free users who reach the daily chat limit see "Daily Free Chat Limit Reached / You have used up your AI Mini Drama free chats. To keep chatting, please upgrade to Premium." with Upgrade to Premium.
-- R-103 [DS:ds-mx-link] Paid users at the limit see "Today's AI Chats Are Used Up / They'll refresh tomorrow, and we'll be ready to chat again." with Continue Tomorrow.
+- R-103 [DS:ds-mx-link] Paid users at the limit see "Today's AI Chats Are Used Up / They'll refresh tomorrow, and we'll be ready to chat again." with Continue Tomorrow. — Changed 2026-10-22 (REQ-032): MX version A gives this dialog to Pro+ only; Pro gets the Free dialog (R-277).
 
 ## Open questions
 - Q-1 Design labels the template "Six Things You Didnt Know" (no apostrophe); the cover art reads "DIDN'T". Which is intended? (R-010)
@@ -153,6 +153,8 @@ Source tags: [PM:<board>] / [DS:<board>] / [MX:<board>] = board id in specs/2026
 - Q-15 Decided 2026-10-22 (user): test the PM 10/16 three video models (Best / Standard / Fast = Seedance 2.5 / 2.0 / 2.0 Mini, 6 / 4 / 2 credits per second); the app will follow the PM. Default model still TBD.
 - Q-16 Decided 2026-10-22 (user): test the PM 10/16 charged character change in chat (Update characters card → "Here's your updated cast.").
 - Q-17 Decided 2026-10-22 (user): the PM 10/20 §13.2 ③ rule applies — new results come as a new message and earlier cards are not updated.
+- Q-18 PM main flow note 「day 1 只有 US & JP」 beside the template grid: are templates limited to the US and JP stores on day 1? Affects R-289 and the template rows (REQ-032).
+- Q-19 「More ideas +」 above the composer: no Design frame, arrow or PM note says what a tap shows (more inspiration chips, a filled input, a new suggestion message?). TC-019 records what appears (R-318, REQ-039).
 
 ## Added 2026-10-19 — spec agent coverage rules
 Rules 1–10 are in the casebook skill (section "Coverage and verdict rules"). Rows for rules 4, 9 and 10 are not needed;
@@ -223,7 +225,7 @@ Skill sections "Coverage passes", "Standing inputs" and "Value check" (user appr
 - R-162 [PM:pm-update-5 §13.13] If the caption retry fails again, the error and Try again return; the video still has no captions.
 - R-163 [PM:pm-error-handling] A storyboard STT failure shows 「ⓘ Storyboard preview unavailable. Try again to generate the preview.」 with Retry.
 - R-164 [PM:pm-update-5 §5 (10/6)] Tapping an action card button with no network shows the toast 「You're offline. Check your connection and try again.」; nothing is sent or charged and the card stays.
-- R-165 [PM:pm-0930-updates §5] If the network drops while a generation runs, it resumes by itself after the network returns; the format card is not shown again.
+- R-165 [PM:pm-0930-updates §5] If the network drops while a generation runs, it resumes by itself after the network returns; the format card is not shown again. — Changed 2026-10-22 (REQ-032): PM 10/6 (pm-update-5) is newer than §5 of 09/30: the chat shows Try again instead of resuming by itself.
 - R-166 [PM:pm-0930-updates §3.2] Leaving while the storyboard price is calculated (「Thinking…」) shows no dialog.
 - R-167 [PM:pm-0930-updates] On the first 「Yes, create video」 the pre-prompt offers Notify me (then the iOS permission dialog) and Not now (never shown again).
 - R-168 [PM:pm-update-5 #4 (10/8)] The in-app toast and the push come once, only when the whole video is done; a partial or total failure, or a 6xxx auto-retry in progress, sends none.
@@ -233,7 +235,7 @@ Skill sections "Coverage passes", "Standing inputs" and "Value check" (user appr
 - R-172 [PM:pm-1002-update §13.1] The 「Tap to choose a look for {name}」 hint disappears when any slot is tapped and is not shown once every character is set.
 
 ### Persistence
-- R-173 [PM:pm-1002-update §13.2] Returning from Full Edit keeps the chat position the user left.
+- R-173 [PM:pm-1002-update §13.2] Returning from Full Edit keeps the chat position the user left. — Changed 2026-10-22 (REQ-032): PM 10/20 §13.2 ① — the chat opens at the bottom (newest message).
 - R-177 [PM:pm-update-4 Bug 0014] The History name is the drama title and follows title changes; a user Rename wins over later title changes.
 - R-178 [DS:ds-recent-task] The History thumbnail is the first storyboard frame once a storyboard exists; before that, the default thumbnail.
 - R-179 [DS:ds-video] After the full video, 「Ready for the next episode?」 offers 「Create Next Episode」, which starts the next episode of this drama.
@@ -327,7 +329,7 @@ Every cell names the rows that check it, or n/a when the spec defines nothing fo
 | Create my character | TC-048, TC-049, TC-332 | TC-132, TC-133 , TC-366 | TC-137, TC-335 | TC-137 | n/a (spec silent) | n/a | TC-154, TC-333, TC-334 | TC-055, TC-056 | TC-170, TC-332 | n/a |
 | Chat revision | TC-045, TC-348 | TC-045, TC-349 | TC-353 | n/a (spec silent) | n/a | TC-353 | TC-155, TC-351 | TC-163 | TC-171 | n/a |
 | Storyboard | TC-060 | TC-064 | TC-295, TC-300 | TC-295 | n/a (spec silent) | TC-077 | TC-156, TC-061, TC-062 | TC-063, TC-164, TC-165, TC-302 | TC-172 | n/a |
-| Scene image and Location | TC-071 | TC-064, TC-065 | TC-067, TC-068, TC-069 | TC-070, TC-141 | n/a (spec silent) | TC-292 | n/a (no Stop) | n/a | n/a | n/a |
+| Scene image and Location | TC-071 | TC-064, TC-065 | TC-067, TC-068, TC-069 | TC-070, TC-141 | n/a (spec silent) | TC-292 | TC-378 | n/a | n/a | n/a |
 | Chat image update | TC-072, TC-073 | TC-073, TC-074 | TC-293 | TC-293 | n/a (spec silent) | TC-293 | TC-294 | TC-294 | n/a | n/a |
 | Storyboard Preview | TC-075 | TC-075, TC-076 | TC-077, TC-078, TC-299 , TC-355 | TC-078, TC-299 | n/a (spec silent) | n/a | n/a | n/a | n/a | n/a |
 | Scene video (clip) | TC-081 | TC-086 | TC-091, TC-092, TC-095 , TC-362, TC-363 | TC-092, TC-149 | TC-092 | TC-091, TC-093 | TC-157 | TC-082, TC-144, TC-166 | TC-173 | n/a |
@@ -358,6 +360,9 @@ Every cell names the rows that check it, or n/a when the spec defines nothing fo
 | REQ-028 decisions Q-12, Q-14 (2026-10-22) | R-255, R-256; row TC-051 |
 | REQ-029 Figma 1016 frames; PM 10/21 governs older Design frames (2026-10-22) | R-259, R-260, R-261, R-262, R-263, R-264; row TC-114 |
 | REQ-031 Spec agent cases derived from the spec are added (manager, 2026-10-22) | R-265, R-266; rows TC-364, TC-365, TC-366, TC-367, TC-368, TC-369 |
+| REQ-032 The analysis finds spec rules itself (2026-10-22) | R-267 – R-305 (annotation trace, passes 9 and 10) |
+| REQ-039 Every tappable element is pressed, inputs dismissed (2026-10-28) | control-trace.json (every control pressed; inputs dismissed); R-306 – R-317 (Figma inventory flow arrows); R-318 – R-331 (controls) |
+| REQ-040 Grouped control totals, robust tap matching (2026-10-28) | control-trace.json (every control pressed; inputs dismissed); R-306 – R-317 |
 
 ## Added 2026-10-21 — PM Spec 20261021 (16:04)
 PM-only rows carry 「PM-only: no Design frame yet (Design 2026-10-19)」 in Notes and change when the Design spec draws them (REQ-024).
@@ -394,7 +399,7 @@ Every top exit in every stage (coverage pass 8, REQ-030). iOS has no system back
 | Stage | Back | History | New chat | Credit pill |
 |---|---|---|---|---|
 | Empty chat | TC-186 | n/a (spec silent) | TC-199 | n/a (spec silent) |
-| Outline generating | TC-025, TC-027, TC-028 | TC-026, TC-027 | TC-200, TC-357 | TC-357, TC-358 |
+| Outline generating | TC-025, TC-027, TC-028, TC-394 | TC-026, TC-027, TC-395 | TC-200, TC-357, TC-396 | TC-357, TC-358 |
 | Outline saved, nothing generating | TC-029 | TC-360 | TC-360 | TC-360 |
 | Character generating (Make your character) | n/a (sheet: X and Cancel, TC-333, TC-334) | n/a (sheet covers the chat) | n/a (sheet covers the chat) | n/a (sheet covers the chat) |
 | Storyboard generating | TC-061, TC-063 | TC-359 | TC-359 | TC-359 |
@@ -422,3 +427,141 @@ TC-364 and TC-365 check R-086 / R-087 through the app log, TC-367 and TC-368 giv
 - R-265 [PM:pm-main-flow (Make your character, note beside the reference photo: 「只送 crop 後的圖」); Req: REQ-031] Only the cropped reference image is sent for character generation: what the Crop step cut away is not part of the image the character is generated from.
 - R-266 [MX ① Free chat times, PDRM MX.pdf version A (Firebase); Req: REQ-031] Each tier's daily chat allowance comes from Firebase Remote Config: when the configured allowance changes, the limit dialog appears on the send after the new allowance.
 
+## Added 2026-10-22 (3) — annotation trace and passes 9 and 10 (REQ-032)
+The casebook's own analysis must find every rule in the spec files (REQ-032). Every annotation block of the current
+boards is traced (`annotation-trace.json`, 475 blocks); the blocks no requirement fully stated gave R-267 – R-305.
+R-048, R-089, R-103, R-165 and R-173 still held replaced rules and are changed above.
+- R-267 [DS:ds-characters; Req: REQ-032] In Choose Character a cast slot with no look yet shows the default placeholder image.
+- R-268 [DS:ds-characters; Req: REQ-032] 「AI Suggestion」 fills the description and settings for the cast character being created (the {name} in 「Tell us what {name} looks like」), not a generic character.
+- R-269 [DS:ds-characters; Req: REQ-032] After 「Save to library」 the character is applied to the slot at once, and its library thumbnail carries a 「Mine」 tag at the lower left (the PM mockups show 「My character」; Design wins).
+- R-270 [DS:ds-characters; Req: REQ-032] Tapping the description text itself, not only the expand icon, opens the full-screen description editor.
+- R-271 [DS:ds-characters; Req: REQ-032] After 「Got it」 on a character failure, Choose Character opens with the failed character's slot selected; characters that succeeded are applied.
+- R-272 [DS:ds-characters; Req: REQ-032] Dragging an Age slider handle in the Filter panel shows its current value above the handle.
+- R-273 [DS:ds-home-custom-chat; Req: REQ-032] With the keyboard open, the input box of a new chat and of a chat with content grows with the text up to its maximum height; longer text scrolls inside the box.
+- R-274 [DS:ds-main-flow; Req: REQ-032] Scrolling up to earlier messages shows the ↓ button at the bottom right of the chat.
+- R-275 [DS:ds-video 「點擊 Preview 暫停」; Req: REQ-032] In the scene-video player, tapping the playing video pauses it and shows the play button over the frame.
+- R-276 [DS:ds-video; Req: REQ-032] When the drama has failed scenes, the chat's 「Here's your drama.」 video card hides its download icon.
+- R-277 [MX:mx-a-left ① version A; Req: REQ-032] A Pro user's 31st send of the day shows the 「Daily Free Chat Limit Reached」 dialog (the Pro mockup titles it 「Free Chat Limit Reached」), whose 「Upgrade to Premium」 opens the subscription page; 「Today's AI Chats Are Used Up」 is for Pro+ only (R-103).
+- R-278 [PM:pm-1002-update; Req: REQ-032] When some scenes fail, the chat's failure message is red text with an 「Edit」 button that opens Full Edit on the first failed scene.
+- R-279 [PM:pm-1002-update; Req: REQ-032] Tapping 「Generate」 on an action card removes the card without adding a user bubble; the reply appears with a skeleton and the credit pill updates once the credits are charged.
+- R-280 [PM:pm-1002-update (frame marked 新增); Req: REQ-032] While a scene image regenerates in scene detail, X asks 「Stop and lose your credits?」/「This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded.」 with Leave anyway / Keep Generating.
+- R-281 [PM:pm-1002-update; Req: REQ-032] While the video regenerates, tapping its download icon shows the toast 「Your video is still updating. Try again when it's done.」
+- R-282 [PM:pm-1002-update; Req: REQ-032] The Storyboard Preview arrives together with the storyboard; it has no generating state of its own.
+- R-283 [PM:pm-1002-update; Req: REQ-032] While a video regenerates, the preview stays and the line under its card reads 「Updating 1 scene... Your video will refresh when it's done.」 (the number of scenes being updated).
+- R-284 [PM:pm-error-handling; Req: REQ-032] 5xxx scene-image and scene-video failure cards show the refund text and an 「Edit」 button.
+- R-285 [PM:pm-error-handling, pm-1002-update; Req: REQ-032] 3 hours after a 6xxx upload failure the card reads 「We couldn't finish this video. Your credits have been refunded. Edit the description and try again.」 with 「Edit」, and Credit Details shows the credits returned.
+- R-286 [PM:pm-update-5, pm-error-handling; Req: REQ-032] A failure shown in a 9:16 preview (a scene image in scene detail, a scene video in Full Edit) stays inside the frame: icon, title, description and button stacked and centred, text wrapped to the frame width with 12 px side margins.
+- R-287 [PM:pm-main-flow; Req: REQ-032] The two inspiration chips are the first two strings of the 10-string pool; 「Surprise me」 picks only from the other strings.
+- R-288 [PM:pm-main-flow; Req: REQ-032] Back before an outline starts (empty input, an idea typed but not sent, or the format card shown) returns to the AI Mini Drama landing page and saves nothing to History.
+- R-289 [PM:pm-main-flow 「img: poster 劇照」; Req: REQ-032] Each landing-page template thumbnail is the template's poster still.
+- R-290 [PM:pm-main-flow; Req: REQ-032] On the video result page, tapping a scene thumbnail moves the player to that scene.
+- R-291 [PM:pm-main-flow; Req: REQ-032] While Make your character is generating, tapping the dark area outside the sheet asks 「Stop and lose your credits?」, as X does.
+- R-292 [PM:pm-main-flow; Req: REQ-032] The reference-photo checks (no person, several people, public figure) run when Generate is tapped, not when the photo is added.
+- R-293 [PM:pm-update-11 §13.23 (10/21); Req: REQ-032] 「Discard this character?」 reads 「It won't be saved, and the credits you spent won't be refunded.」 with 「Keep」 and a red 「Discard」.
+- R-294 [PM:pm-update-3; Req: REQ-032] After 「Couldn't create some images」 is closed, 「{n} characters aren't set yet」 lists the failed characters marked 「!」; tapping one opens Character Library on it to regenerate or pick a look, and the story cannot continue until every character is set.
+- R-295 [PM:pm-update-3; Req: REQ-032] While a chat storyboard-image update runs, only the changed scenes and the Storyboard Preview show skeletons; the other scenes show normally.
+- R-296 [PM:pm-update-4; Req: REQ-032] Swiping the app away while the outline is still generating saves nothing: no History entry for that chat.
+- R-297 [PM:pm-update-5 (10/6); Req: REQ-032] Sending a chat message with no network shows the toast 「You're offline. Check your connection and try again.」 instead of an AI message; the message does not go out and nothing is charged.
+- R-298 [PM:pm-update-5 #4 (10/8); Req: REQ-032] When a 6xxx auto-retry succeeds and every scene is done, the done toast and push come once at that point.
+- R-299 [PM:pm-update-6 (10/14); Req: REQ-032] In scene detail the Location thumbnail shows a skeleton while generating, the location image on success (before the main image finishes) and a pink icon with 「Location • Failed」 on failure; the main image keeps its width.
+- R-300 [PM:pm-update-6 (10/14); Req: REQ-032] When the location and the main image both fail, the main image shows its error card and the Location thumbnail its failure icon; Edit regenerates both and charges 2 images.
+- R-301 [PM:pm-update-7 (10/16); Req: REQ-032] When Iris asks which character to change, the user can type the answer instead of tapping a chip; the new Story Outline & Characters card updates the outline text as well as the images.
+- R-302 [PM:pm-update-8 (10/16); Req: REQ-032] The video model control is titled 「Model • Seedance」 and Best carries no 「NEW」 tag.
+- R-303 [PM:pm-update-9 (10/16); Req: REQ-032] Send Feedback fills the e-mail only for a signed-in user, and the task ID is sent with the report without showing on the form.
+- R-304 [PM:pm-update-9 (10/16); Req: REQ-032] 「Send Feedback」 is the blue primary button beside 「Close」 in the timeout dialog.
+- R-305 [PM:pm-update-9 (10/16); Req: REQ-032] When Finish your characters completes it shows 「Your characters are ready」/「Tap Confirm to continue.」 instead of 「0 characters still need a look」.
+
+### Hidden clauses
+Coverage pass 9: a clause the screen does not show, how a tester observes it, and the rows that do.
+
+| Requirement | Hidden clause | Observed through | Rows |
+|---|---|---|---|
+| R-018 | after the first idea is sent (visible) | screen | TC-020 |
+| R-028 | nothing is sent and nothing is charged while offline | log (no request); Credit Details (no charge) | TC-032, TC-387 |
+| R-040 | 「Upload 1 reference photo」 (a visible control) | screen | TC-047 |
+| R-050 | the price is images (2 credits each) plus TTS | Credit Details rows: Text to Image, Text to Speech | TC-060 |
+| R-063 | regenerating images also regenerates the TTS | log: a new TextToSpeech call | TC-074 |
+| R-067 | a TTS failure and its refund | screen; Credit Details refund row | TC-078 |
+| R-084 | after 3 h the credits are refunded | the card 3 hours later; Credit Details refund row | TC-095, TC-379 |
+| R-086 | STT is not run with 「No captions」 | log: no speech-to-text call | TC-364 |
+| R-087 | the retry reruns only the failed segments | log: STT calls before and after the retry | TC-365 |
+| R-142 | the allowance is remote-configured | RD changes Firebase Remote Config | TC-369, TC-392, TC-393 |
+| R-145 | the chat count is kept on the device | reinstall | TC-224 |
+| R-163 | an STT failure (copy) | screen | TC-299 |
+| R-164 | nothing is sent or charged while offline | log (no request); Credit Details (no charge) | TC-300 |
+| R-265 | only the cropped image is sent | the reference image a log pull brings back | TC-366 |
+| R-266 | the allowance comes from Firebase Remote Config | RD changes Remote Config | TC-369, TC-392, TC-393 |
+| R-285 | the 6xxx upload failure is refunded after 3 h | the card 3 hours later; Credit Details refund row | TC-379 |
+| R-303 | the task ID is sent with the report | the form shows no task ID (not submitted); the sent report needs RD | TC-336 |
+
+### Variants
+Coverage pass 10: one line per variant the spec names.
+
+| Requirement | Variant | Rows |
+|---|---|---|
+| R-068 | Best | TC-079 |
+| R-068 | Standard | TC-347 |
+| R-068 | Fast | TC-347 |
+| R-102 | Free | TC-117 |
+| R-102 | Pro (same dialog, R-277) | TC-216 |
+| R-103 | Pro+ | TC-118 |
+| R-103 | Pro (gets the Free dialog, R-277) | TC-216 |
+| R-103 | Free (R-102 dialog) | TC-117 |
+| R-142 | Free | TC-215, TC-218 |
+| R-142 | Pro | TC-216, TC-367 |
+| R-142 | Pro+ | TC-217, TC-368 |
+| R-149 | ENU | TC-275 |
+| R-149 | CHT | TC-276 |
+| R-149 | JPN | TC-277 |
+| R-253 | Best | TC-079 |
+| R-253 | Standard | TC-347 |
+| R-253 | Fast | TC-347 |
+| R-266 | Free | TC-369 |
+| R-266 | Pro | TC-392 |
+| R-266 | Pro+ | TC-393 |
+| R-277 | Pro | TC-216 |
+| R-277 | Pro+ (R-103 dialog instead) | TC-118 |
+| R-277 | Free (same dialog) | TC-117 |
+| R-277 | Upgrade to Premium (subscription page) | TC-216 |
+
+
+## Added 2026-10-28 — Figma inventory (REQ-038 / REQ-039)
+The Figma inventory (`extracted/inventory.json`) found 12 flow arrows the 10/19 import did not hold: three on the Storyboard
+board's Error frames and nine on the Figma-only 「1016_Chat navigation」 board (4858:34930). On 1016 the four 「Leave anyway」
+arrows start at the same button; the exit that opened the dialog decides the landing page. Dialog copy and when it shows follow
+PM 10/21 (REQ-029, R-261 – R-264).
+
+### Flow arrows with new rows
+- R-306 [DS: flow arrow 4299-168964 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4299-168964] Scene image regenerating (生成, skeletons) → regenerated scene detail: when the regeneration finishes, the skeletons in the scene detail are replaced by the new Location and scene images side by side; the 「Couldn't create image」 card and 「Edit」 are gone and the title and full script stay.
+- R-307 [DS: flow arrow 4877-33081 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33081] Leave dialog opened by History, 「Leave anyway」 → Recent Task: the chat closes and Recent Task (the History list) opens.
+- R-308 [DS: flow arrow 4877-33083 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33083] Leave dialog opened by New chat, 「Leave anyway」 → new empty chat: the chat closes and a new empty chat opens (「Hi, I'm your AI Drama Assistant」, 「Surprise me」, idea suggestions, empty composer).
+- R-309 [DS: flow arrow 4877-33087 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33087] Leave dialog opened by Back, 「Leave anyway」 → AI Mini Drama home page: the chat closes and the AI Mini Drama home page opens (「Hi, I'm your AI Drama Assistant」, 「Create Your Drama」, 「Start from a template」).
+
+### Flow arrows walked by existing rows
+- R-310 [DS: flow arrow 4299-132149 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4299-132149] Failed scene detail, ⓘ on the 「Couldn't create image」 card → 4xx dialog: ⓘ opens 「Couldn't generate this image」 with the refund and terms-of-service text and 「Got it」 (5xx cards have no ⓘ, R-057). Walked by: TC-067.
+- R-311 [DS: flow arrow 4299-168955 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4299-168955] Failed scene detail, 「Edit」 on the error card → description editor: the full description becomes editable with the keyboard up, a x/1000 counter, a trash icon and 「Done」. Walked by: TC-070.
+- R-312 [DS: flow arrow 4877-33073 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33073] Chat, Back → leave dialog: while the outline generates, Back opens 「Leave this chat?」 with 「Leave anyway」 / 「Stay」 (PM 10/21 stage rules, R-261 – R-264). Walked by: TC-025.
+- R-313 [DS: flow arrow 4877-33075 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33075] Chat, credit pill → leave dialog: while the outline generates, the credit pill opens the same 「Leave this chat?」 dialog as Back. Walked by: TC-357.
+- R-314 [DS: flow arrow 4877-33077 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33077] Chat, New chat → leave dialog: while the outline generates, New chat opens the same 「Leave this chat?」 dialog as Back. Walked by: TC-357.
+- R-315 [DS: flow arrow 4877-33079 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33079] Chat, History → leave dialog: while the outline generates, History opens the same 「Leave this chat?」 dialog as Back. Walked by: TC-026.
+- R-316 [DS: flow arrow 4877-33085 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33085] Leave dialog opened by the credit pill, 「Leave anyway」 → My Credits: the chat closes and My Credits opens. Walked by: TC-358.
+- R-317 [DS: flow arrow 4877-33089 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=4877-33089] Leave dialog, 「Stay」 → chat: the dialog closes and the chat stays at the same stage; the outline still arrives. Walked by: TC-027, TC-357.
+
+### Controls (REQ-039)
+Controls of the Figma inventory that no existing rule described; each is pressed by the row named in `control-trace.json`.
+- R-318 [DS: control K-20ac46 main flow · Storyboard & Preview / Chat (any stage)] 「More ideas +」: the chip above the composer offers more story ideas when tapped (the Design draws the chip on every chat stage but no result frame; Q-19).
+- R-319 [DS: control K-55f3b5 / K-940021 / K-cf0dd5 Template Detail · AI Mini Drama] Template video ▶ and volume icon: ▶ over the paused template video resumes playback (Default_playing & volume on); the volume icon at the video's bottom right switches the sound off and on and shows the current state (ic_volume / ic_volume_off).
+- R-320 [DS: control K-71866f MX · AI Mini Drama_characters] 「Continue Tomorrow」: closes the 「Today's AI Chats Are Used Up」 dialog and returns to the chat without sending the message (the dialog's only action; MX ① version A: closing the limit dialog returns to the chat).
+- R-321 [DS: control K-938d8f / K-b32fbc / K-d1e307 1016_Chat navigation · Credit page_free] My Credits (the credit-pill exit's landing page, R-316): 「Buy More」 opens the credit purchase page; 「Claim」 claims the complimentary daily credits (「Claim once every 24 hours」) and adds them to the balance; 「Subscribe Now」 on the 「Join the Pro+」 card opens the Pro+ subscription page.
+- R-322 [DS: control K-ab333a / C-8157ce Choose Character · credit; MX · storyboard / AI Mini Drama_template] 「Top up your credits」: tapping a credit pack (50 … 2000) selects it for 「Buy Credit」, one pack at a time; 「Terms of Use」 and 「Privacy Policy」 under the button open those pages.
+- R-323 [DS: control K-6b314e / K-d301d1 / K-68cdee / K-cbd30c Choose Character · Character Library (Age keypad)] The Age keypad has an input bar (placeholder 「1-100」) and a ✓ that closes the keypad and fills Age with the typed number; tapping a filled Age field (e.g. 「24」) reopens the keypad to change it.
+- R-324 [DS: control K-3276bb / C-8cec01 Choose Character · Character Library (filtered)] With filters applied the filter icon shows a check mark (ic_filter_check) and still opens the Filter panel; each applied-filter chip (「Female ×」, 「Asian ×」, 「Age: 0-28 ×」) removes that filter when its × is tapped (R-031).
+- R-325 [DS: control K-32eae1 / K-ea3e9d / K-5554e3 / K-910afd Choose Character · Character Library (enlarged preview)] The enlarged character preview has ⓧ at its top right, which closes it back to the library, and ⋯, which opens 「Download」 (saves the character image to the device), 「Report」 (opens the report flow) and, for the user's own character, 「Delete」 (R-049).
+- R-326 [DS: control K-f2a9d2 Choose Character · AI Mini Drama_template; 1005_Chat · Chat_charge failed] The ⟳ switch icon on a character in the Characters Result card opens Change Characters on that character (R-038: 「tap the switch icon on a character to change its look」).
+- R-327 [DS: control C-88ef55 / K-327b3e / K-37e272 / K-aa0c0b / C-14cbaa Choose Character · Add Media] Select Media (reference photo): 「Photo」 is the media type; 「Recents ▾」 opens the album list; the source tabs (getty images | iStock, GIPHY, …) switch to that stock source; the enlarge icon on a photo opens a full-size preview; the sliders icon beside 「Photo」 opens the picker's options; the camera icon opens the camera. The Design draws these controls with no result frame or arrow.
+- R-328 [DS: control K-1ff415 / K-af4631 Storyboard · preview] The full-screen Storyboard Preview player has X, ⏸ (pauses the slideshow; ▶ resumes it), a scrubber and the time 「00:40/01:30」; dragging the scrubber jumps to that point.
+- R-329 [DS: control K-a28dca Storyboard · AI Mini Drama_storyboard] The main scene image in the scene detail has no tap action in the Design (no arrow, no enlarged frame); like the Location thumbnail (R-055), a tap leaves the scene detail as it is.
+- R-330 [DS: control K-1ed4be Recent Task · Recent Task; 1016_Chat navigation · ④ History → Recent Task] 「New Chat」 at the bottom right of Recent Task (History) opens a new empty chat.
+- R-331 [DS: control K-30a28e main flow · composer (every chat stage)] The mic in the composer (R-011) starts voice input, a dictation into the input (DRI261895P0002); stopping it without speaking adds no text.
+
+Not in scope (control trace n/a): the Launcher's other controls on 「Launcher_2026_08」 (menu, 「Try Pro+ 7 days for free」, notifications, 「New Project」, 「Video Edit by Chat」, 「Video Enhance」, 「Image to Video」, 「Character Motion Swap」, 「Cinematic Reel Creator」, 「Text to Video」, 「Auto Edit」, 「Auto Captions」, 「Photo Enhance」 and the 「What's Trending」 covers) open other PowerDirector features; the Design draws the Launcher only as AI Mini Drama's entry, which R-001, R-002, R-190 and R-191 test.

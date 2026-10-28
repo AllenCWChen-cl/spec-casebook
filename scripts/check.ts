@@ -74,8 +74,8 @@ if (reqText && reqIds) {
     : readManifest(feature, platform)?.spec_folder;
   const arrowsPath = specFolder ? join(featureDir(feature), specFolder, 'extracted', 'arrows.json') : '';
   if (arrowsPath && existsSync(arrowsPath)) {
-    const arrows: { arrow: string }[] = JSON.parse(readFileSync(arrowsPath, 'utf8')).arrows;
-    const missing = arrows.filter(a => !reqText.includes(`flow arrow ${a.arrow} `)).map(a => a.arrow);
+    const arrows: { arrow: string; not_flow?: string }[] = JSON.parse(readFileSync(arrowsPath, 'utf8')).arrows;
+    const missing = arrows.filter(a => !a.not_flow && !reqText.includes(`flow arrow ${a.arrow} `)).map(a => a.arrow);
     if (missing.length) errors.push(`Flow arrows with no requirement (${missing.length}): ${missing.join(', ')}`);
   } else warnings.push(`No arrows.json for ${specFolder ?? 'this spec set'}: flow-arrow coverage not checked (coverage pass 1 writes it)`);
 
@@ -114,6 +114,27 @@ if (reqText && reqIds) {
     const unread = frames.filter(f => !f.read?.trim()).map(f => f.label);
     if (unread.length) errors.push(`Figma dated frames not read yet: ${unread.join(', ')} (figma-frames.json)`);
   } else warnings.push(`No figma-frames.json for ${specFolder ?? 'this spec set'}: Figma dated frames not compared with the PDF (Reading the spec, step 8)`);
+
+  // Control trace (REQ-038): every tappable control of the Figma inventory is pressed by a row; inputs are also dismissed.
+  const invPath = specFolder ? join(featureDir(feature), specFolder, 'extracted', 'inventory.json') : '';
+  const tracePath = join(dir, 'control-trace.json');
+  if (invPath && existsSync(invPath)) {
+    if (!existsSync(tracePath)) (draft ? errors : warnings).push(`No control-trace.json: run node scripts/controls.ts ${feature} ${platform}${draft ? ` --draft ${draft}` : ''} and trace every control (REQ-038)`);
+    else {
+      const entries: { group: string; kind: string; name: string; label: string; press: string; dismiss?: string }[] = JSON.parse(readFileSync(tracePath, 'utf8')).entries;
+      const untraced = entries.filter(e => !e.press?.trim());
+      if (untraced.length) (draft ? errors : warnings).push(`Controls with no pressing row (${untraced.length} of ${entries.length}): ${untraced.slice(0, 8).map(e => `${e.group} ${e.name}${e.label ? ` 「${e.label.slice(0, 20)}」` : ''}`).join(', ')}${untraced.length > 8 ? ', …' : ''}`);
+      const noDismiss = entries.filter(e => e.kind === 'input' && e.press?.trim() && !/^n\/a:/.test(e.press) && !e.dismiss?.trim());
+      if (noDismiss.length) (draft ? errors : warnings).push(`Inputs with no dismissing row (${noDismiss.length}): ${noDismiss.slice(0, 8).map(e => e.group).join(', ')}`);
+      for (const e of entries) for (const f of ['press', 'dismiss'] as const) {
+        const v = e[f]?.trim() ?? '';
+        if (!v || /^n\/a:\s*\S/.test(v)) continue;
+        const tcs = tcRefs(v);
+        if (!tcs.length) errors.push(`Control ${e.group}: ${f} must be TC-… or n/a: <why> (got "${v.slice(0, 40)}")`);
+        for (const tc of tcs) if (!active.has(tc)) errors.push(`Control ${e.group}: ${f} names ${tc}, which is not an active row`);
+      }
+    }
+  }
 }
 
 // Analysis passes that find spec rules on their own (user, 2026-10-22, REQ-032), for drafts:

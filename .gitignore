@@ -43,5 +43,10 @@ library/*/*/runs/*/screenshots/
 # Pulled app logs (may hold tokens) stay local
 library/*/*/runs/*/logs/
 library/*/*/runs/*/.session
+library/*/*/runs/*/.case
+library/*/*/runs/*/.window
 # Full pulled app logs attached to eBugs (may hold tokens) stay local; excerpts in ebugs/*/logs are checked first
 library/*/*/ebugs/*/full_logs/
+
+# Coverage pages embed spec renders and run screenshots (local only, like the images themselves)
+library/*/*/coverage.html

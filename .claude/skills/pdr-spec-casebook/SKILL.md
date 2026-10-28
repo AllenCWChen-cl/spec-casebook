@@ -200,6 +200,44 @@ and look at the tile images where layout, arrows or states matter.**
    each writing its own part file, merged afterwards. Traces carry over to the next draft for blocks whose text is
    unchanged, so an update only traces new or changed blocks. `check.ts` fails an untraced block or a trace that
    names a missing requirement.
+10. **Inventory every screen, control and arrow from Figma (user, 2026-10-28, REQ-038).** The run must press every
+   tappable element the Design draws and walk every arrow, and the coverage page proves it. When the spec set has the
+   Design Figma file, read it with `scripts/figma/inventory.js` (read-only `use_figma`; the file's header says how):
+   one call with `__BOARDS__ = []` lists the boards, then **one call per board group** (about 4 boards or 40 KB of
+   output each) returns every phone frame, every tappable instance (deduplicated by board + layer + label + position)
+   and every flow arrow with its tail control and head screen from the vector geometry (arrow layer names are stale
+   copies; the geometry is not). **Figma MCP has a small quota** (a View seat on the Professional plan hit its limit
+   after about 13 calls on 2026-10-28): never read elements one by one, run the groups as parallel subagents that each save their
+   return verbatim to `extracted/figma-inventory-<group>.json` and check its `size`, and do not re-read an unchanged
+   file. Then `node scripts/inventory.ts <feature> <set> --sync-arrows` merges the groups into `extracted/inventory.json`
+   (screens by platform; controls with kind button / input / toggle / tab / item; arrows as flow / auto / pointer).
+   The totals count **groups**, not copies (user, 2026-10-28, REQ-040): a button with the same worded label is one
+   group on every screen and board, whatever layer draws it; an icon or a numbers-only label (credit pill) groups by
+   layer (+ size); a **choice set** (the same layer repeated side by side with different labels, or none: chips,
+   options, template or scene cards, avatars) is one group that any one choice covers, and lists separated by a
+   heading stay apart (Gender vs Ethnicity). Every copy stays marked on the coverage page. It also adds every arrow missing from `arrows.json` (write its `expected` and requirement in pass 1);
+   annotation pointers (Figma's default 「Vector N」 name, tail off-screen) are marked `not_flow`. The extractor also
+   takes **panels** (dialogs, sheets, popups drawn beside the phones: dialog-sized frames or groups named like one or
+   touched by an arrow; their buttons are often plain frames), buttons drawn as frames named `btn` / `back` / `cta`,
+   and long scrolling pages, and it skips what Figma does not draw (hidden, opacity 0, layer blur, clipped by a
+   board or mask). **Review before tracing (user, 2026-10-28):** `node scripts/inventory-sheets.ts <feature> <set>
+   --scale 1.25 [--board …]` cuts every screen and panel out of the Design PDF (a Figma-only board from its saved
+   `extracted/figma/<board>.png`) with the boxes drawn, plus the OCR texts no box covers and an edge score (near 0 =
+   the PDF draws nothing there). Review the sheets by board group in parallel subagents (each writes its own
+   `extracted/inventory-review-<group>.json`): every tappable element without a box (inputs included), every box on
+   something that is not tappable, every screen the PDF does not draw. Merge the findings into
+   `extracted/inventory-overrides.json` with `node scripts/inventory-overrides.ts <feature> <set>` (`drop_screens`,
+   `drop`, `hide` = covered on one screen only, e.g. behind a dimmed sheet, and `add` with screen-point boxes);
+   `inventory.ts` applies them on every rebuild, so a re-extraction keeps them. Then curate the adds: the `label` is
+   the app's visible text or one short icon name (「Mic」, 「Regenerate character」, 「Privacy Policy」), so the same
+   element found by several reviewers is one group; an add that copies a known icon names its `layer`
+   (`round/ic_vocal`) to join that group; a clipped card is already in its card set and a segment of a selector in
+   its selector (drop those adds); 「behind a sheet」 is a per-screen `hide`, never a `drop`. A board whose Figma is
+   newer than the PDF (`figma-frames.json`, e.g. MX and 1016 on 2026-10-28) is cut from a saved Figma screenshot
+   (`get_screenshot` of the board → `extracted/figma/<board>.png`), never from the stale PDF. Figma access: the Design file through the qa-dm
+   account's Dev seat; the PM file needs the qa1 account (qa-dm only has a View seat there). The PM Figma file gets
+   the same read when that account is connected. Board images for the coverage page come from the Design PDF
+   (`coverage-page.ts --render`, no Figma call; pdf point = figma point + `files.<key>.pdf.offset`).
 
 ## Coverage passes (user, 2026-10-21)
 
@@ -271,6 +309,19 @@ and return, waits), which apply to every job.
    does not cover them (TC-218 stood for three tiers). Fill `### Variants`: one line per requirement × variant with
    its rows. `check.ts` fails a requirement naming two or more tiers, or "each tier / model / language", that lacks a
    line per variant.
+
+11. **Every control (user, 2026-10-28, REQ-038).** After the rows are written, run `node scripts/controls.ts <feature>
+   <platform> --draft <id>`: it lists every control group of `inventory.json` for the platform in
+   `<draft>/control-trace.json` and fills what the table already shows (`how: arrow` = the control starts an arrow
+   whose requirement has rows; `how: label` = a row's Action quotes its label). Trace every other entry: `press` =
+   the rows that tap it (one press per group: one copy of a repeated button, one choice of a set), else add a row (or a step to the row that
+   reaches that screen) and name it, or `n/a: <why>` (not tappable in the app, decorative, other platform's frame).
+   An **input** also needs `dismiss`: the row that closes its keyboard (Done, return, tap outside, `device.ts
+   hidekb`), so no run leaves a keyboard over the next step. Check the auto traces too: a label match can name a row
+   that only mentions the text. `check.ts` fails a draft with an untraced control, an input without a dismiss row,
+   or a trace naming a row that is not active; Save copies the trace to the table. `app` lists the app's
+   accessibility ids or labels for an entry whose Figma label differs (e.g. `creditsHomePage.UIButton.detail`), so a
+   tap on it matches first; fill it from the page's "Taps that matched no control".
 
 ## Standing inputs (user, 2026-10-21)
 
@@ -406,6 +457,24 @@ mis-written) is a table change: open a draft and send it through review instead 
 **What the phone needs** (account, build, photos for the upload cases, settings) is listed per table in
 `library/<feature>/<platform>/fixtures.md`, because none of it can be committed. Check it before the first segment;
 when a new row needs a new photo or account state, add it there in the same draft.
+
+**Tap log and coverage proof (user, 2026-10-28, REQ-038).** Every press through `device.ts` (`tap`, `hold`, `burst`,
+`id`, `lbl`, `tapif`, `clear`, `setval`) is logged to `<run dir>/taps.jsonl` with the element hit, a small screenshot
+taken just before the press (`screenshots/taps/`, local only) and the window size; `hidekb` and `type` are logged as
+input events. Start each case with `device.ts <run dir> case <ID>` (one cheap call, or the first line of its recipe)
+so the log names it; without it `coverage-page.ts` assigns a tap to the next case recorded in results.csv. A tap is
+matched to a control group by score (`lib/coverage.ts`, REQ-040): `app` id, label (normalised; truncated labels
+count), icon/id words (`round/ic_xmark` ↔ close, `ic_history_n` ↔ history), position mapped from the 375-pt frame to
+the phone scaled or anchored to each edge, element type, and whether the case running presses it; 0.60 assigns it,
+a near tie is flagged, and a tie on position alone is left unmatched for review. A control tapped with no row naming
+it still counts as pressed and is flagged so the analysis adds the row. Each run
+aims to press every control of `control-trace.json`, not only the ones a failing area needs. At every phase wrap-up
+(and on request) build `node scripts/coverage-page.ts <feature> <platform> [--draft <id>] --runs <this run's folders>`
+(self-contained: board images and the best tap screenshots are embedded, so it opens anywhere; local only; `--serve
+[port] --lan` keeps it live on the local network, default port 4391, rebuilt at most every 30 s; no auth): counts of
+controls pressed / inputs dismissed / arrows walked, the Figma boards with each control and arrow coloured by status,
+the tap screenshots with the tap point as proof, and the list of what is still not covered. Report the counts in the
+phase report.
 
 **Phases, segments and resuming (user, 2026-10-19).** A large table runs in phases, never as one long run. The draft
 folder's `phases.json` (written by its builder) splits every row into exactly one phase and one segment:
@@ -799,3 +868,5 @@ Writing rules (the table must be usable by a tester who has not read the spec):
 - What the value check left out is listed in `update-plan.md` → "Not added".
 - Every annotation block is traced; the Hidden clauses and Variants grids cover every requirement that needs them
   (`check.ts`, REQ-032).
+- When the spec set has `inventory.json`: every control group is pressed by a row or marked n/a, every input has a
+  dismissing row (`control-trace.json`, `check.ts`, REQ-038).

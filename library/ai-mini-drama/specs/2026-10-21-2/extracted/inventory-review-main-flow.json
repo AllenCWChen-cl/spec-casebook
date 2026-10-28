@@ -1,0 +1,32 @@
+{
+  "boards": [
+    "main flow"
+  ],
+  "missing": [
+    {"screen":"2778:128368","screens":["2778:139072"],"label":"AI Mini Drama icon (with NEW badge) in the 4x2 tool grid; the feature entry point","box":[306,384,28,28],"kind":"button","why":"Grid icons have boxes for the other 7 tools but not this one; it opens the AI Mini Drama home"},
+    {"screen":"2778:127414","screens":["2778:127450","2778:127475","2778:128850","2778:128662","2778:128718","2778:127612","2778:127674","2778:127742","2778:127811","3131:65428","2778:127378","2778:127500","2778:127525","2778:128606","2778:128784","2778:127550","2778:128300","2778:127956","2778:128025","2778:128097","2824:130900","3142:68240","3142:68271","3142:68296","2778:139432","2778:144364","2778:144420","2778:138663","2778:138725","2778:138793","2778:138862","3153:103325"],"label":"Microphone (voice input) icon inside the bottom chat input bar","box":[318,721,24,24],"kind":"button","why":"Input bar is boxed (green) but its mic icon has no box; the outline screens boxes the same mic, so it is tappable here too"},
+    {"screen":"2778:127350","screens":["2778:138549"],"label":"More > text link next to Start from a template","box":[306,354,53,20],"kind":"button","why":"Only the > glyph is boxed (16x16); the word More is the tap target too"},
+    {"screen":"2778:128662","screens":["2778:128606","2778:144364"],"label":"Regenerate (circular arrows) icon at top-right of each Characters Result card (Sophie, The Manager, HR, and Coworker)","box":[102,321,24,24],"kind":"button","why":"Small round icon on every result card, no box; Manager at x~202, HR at x~302"},
+    {"screen":"2778:128850","screens":["2778:139432"],"label":"Fourth character card (dashed empty slot, partly visible at right edge; Coworker) in the Tap each Character row","box":[332,502,88,108],"kind":"item","why":"Row scrolls horizontally; the 4th card is cut off with no box, only 3 cards have boxes"},
+    {"screen":"2778:128662","screens":["2778:128718","2778:128606","2778:128784","2778:144364","2778:144420"],"label":"Fourth Characters Result card (Coworker, partly visible at right edge)","box":[332,326,88,108],"kind":"item","why":"Result row scrolls horizontally; 4th card is cut off and has no box (y=152 on the post-confirm screens)"},
+    {"screen":"2778:129028","screens":["2778:129078","2778:139610","2778:139660"],"label":"Expand / enlarge icon at top-right corner of every character thumbnail in the library grid","box":[218,264,20,20],"kind":"button","why":"Small round arrows icon on each card (not on Create my character); likely opens a larger preview, no box"},
+    {"screen":"2778:127612","screens":["2778:127550","2778:138663"],"label":"Seedance 2.0 Mini segment of the Model selector","box":[184,408,156,32],"kind":"tab","why":"One box covers the whole 2-segment Model control; the second segment needs its own tap target"},
+    {"screen":"2778:127612","screens":["2778:127550","2778:138663"],"label":"Full Video - 90 sec segment of the Length selector","box":[184,502,156,32],"kind":"tab","why":"One toggle box covers both Length segments; Full Video needs its own tap target (changes cost 120 -> 240 credits)"}
+  ],
+  "not_tappable": [
+    {"control":"K-7fd71b","label":"credit icon + 15 inside Create storyboard card (also 80d71c, f6e618, same on all paycard screens)","why":"Tiny 12x12 cost label inside the Generate button area; decorative, not a button"},
+    {"control":"K-8d6afa","label":"paycard: The characters look great! Ready to create the storyboard? (also b69e1c Looking good!, 424594 Quality, 329c47 Model)","why":"Whole-card container box; only the Generate button and selectors inside are tappable"},
+    {"control":"K-aac290","label":"video placeholder (loading skeleton, 180x320)","why":"Shimmer placeholder while the video is generating; nothing to tap until the video appears"}
+  ],
+  "drop_screens": [],
+  "unsure": [
+    {"screen":"2778:128368","what":"Banner AI Mini Drama with Seedance 2.0 > : only the > chevron is boxed","why":"Whole banner title may be tappable"},
+    {"screen":"2778:128368","what":"Video Edit by Chat and Video Enhance cards and the label text under round tool icons: boxes cover only the icon","why":"Cards/labels may be part of the tap target, centre-of-icon tap probably enough"},
+    {"screen":"2778:128368","what":"Second View more (674cd9 at y=776) lies below the tab bar, off-screen","why":"Belongs to a next section scrolled out of view; not tappable on this screen"},
+    {"screen":"2778:128904","what":"Add new chat icon (9c814c at 277,56) has no visible red box in the image although it is listed","why":"Other outline/template screens show the box; may be a drawing glitch"},
+    {"screen":"2778:127612","what":"Scene cards (Scene 6 - ...) and character thumbnails inside them (imput_character)","why":"Cards could expand/edit on tap; thumbnails likely decorative"},
+    {"screen":"2778:127378","what":"Selected template poster (thumbnail_3v4) in the user chat bubble","why":"Probably a sent attachment; may open a preview, unknown"},
+    {"screen":"2778:129078","what":"Selected checkmark badge on a library thumbnail and the check at top-right (disabled until a pick)","why":"Check box is drawn on the screen with a selection; enabled/disabled state is not clear"},
+    {"screen":"2778:128904","what":"Send arrow (f2cfd1) is greyed out while the input is empty","why":"Box present; tapping disabled button is a negative case"}
+  ]
+}

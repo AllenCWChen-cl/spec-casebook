@@ -58,6 +58,8 @@ async function save(body: { rows: Record<string, string>[]; decisions: unknown[]
   const clean = body.rows.map(r => Object.fromEntries(COLUMNS.map(c => [c, String(r[c] ?? '').trim()])));
   writeTable(join(table, 'cases.csv'), COLUMNS, clean);
   if (draftDir && existsSync(join(draftDir, 'requirements.md'))) copyFileSync(join(draftDir, 'requirements.md'), join(table, 'requirements.md'));
+  // the control trace (REQ-038) goes with the table, so coverage-page.ts reads the approved one
+  if (draftDir && existsSync(join(draftDir, 'control-trace.json'))) copyFileSync(join(draftDir, 'control-trace.json'), join(table, 'control-trace.json'));
   const now = new Date().toISOString();
   const entry = { version, approved_at: now, spec_set_sha256: spec.spec_set_sha256, draft: draftId, cases: clean.length, csv: 'cases.csv', requirements: 'requirements.md' };
   const hist = history.filter(h => h.version !== version).map(h => ({ ...h, csv: `history/v${h.version}.csv`, requirements: `history/v${h.version}-requirements.md` }));

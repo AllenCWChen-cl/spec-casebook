@@ -26,3 +26,38 @@ Questions to answer before building:
 2. Do two phones on the same account interfere in the app (History sync, chat quota, credit pill)?
 3. Does the Developer Server tolerate two concurrent video generations from one account?
 4. Is a second test account available, so each phone has its own credits and quota?
+
+## Button and arrow coverage from Figma (REQ-038, spike 2026-10-28)
+
+Goal: prove every Figma button that should be pressed was pressed and every flow arrow walked (counts + an HTML map).
+Spike on the AI Mini Drama Design file (`dZk5HLzZTdcZwWwvN9aZfZ`, page UI_26.10GM, section 10.GM), read-only through
+Figma MCP `use_figma`. Status: **built 2026-10-28** (skill: Reading the spec step 10, coverage pass 11, tap log;
+AGENTS.md). Open: the PM Figma file (`44RyrcOcWi2MvhGci9bO5F`, section 2016:2) is not inventoried yet — the Figma MCP
+limit of the View seat stopped it; its main board 2419:20605 holds 6,119 instances and may need splitting.
+
+Arrows:
+- Flow arrows are `VECTOR` nodes named `<layer> --> <frame>` (a flow plugin), arrowhead = the vertex with
+  `strokeCap: ARROW_LINES`. There are no `CONNECTOR` nodes and no prototype `reactions`.
+- The layer names are stale copies (`Action Button_M --> …` starts on `chips`), so use geometry: tail vertex
+  (degree 1, no arrowhead) and head vertex in absolute coordinates, hit-tested against the phone screens
+  (frames 300–450 × 600–1000) and the smallest instance under the tail. 237 screens; most arrows resolve to
+  source control + from-screen + to-screen. Arrows whose tail is not on a control are automatic transitions.
+- 88 named arrows, the same count as `arrows.json` but not the same set. Missing from `arrows.json` and from
+  `requirements.md`: `4299:168955` (scene error card 「Edit」 → description editor), `4299:132149` (error card ⓘ →
+  popover), `4299:168964` (edited scene → regenerated scene); `2811:105837` is a duplicate stacked on `2811:97718`.
+  `arrows.json` instead lists two annotation pointers (`2811:90468`, `2820:113559`, both 「Vector 2758」).
+- 9 more arrowheads named 「flow line」 in 「1016_Chat navigation」 (`4877:33073`–`4877:33089`) point at smaller
+  cards, not phone screens; they are covered as one frame (R-261 – R-264), not arrow by arrow.
+
+Buttons:
+- Buttons are component instances with usable names (`round/ic_*`, `Button/*`, `btn_*`, `Action Button_M`, `chips`,
+  `library_select`, `scene` …); labels come from the first visible text inside.
+- Outermost tappable-looking instances (status bar, keyboard, backgrounds skipped): 3,508 across 237 screens.
+  Deduplicated: 862 by board + name + label + position, 386 by board + name + label, 187 file-wide by name + label.
+  List items (template cards, thumbnails, scenes) inflate the counts and should count once per list.
+- So a feature's button inventory is a few hundred entries, each traced like an annotation block
+  (`R-…` / `n/a: <why>`); the agent's first pass needs review.
+
+Next steps if built: `figma-inventory` read (agent, Figma MCP) → `screens.json` / `controls.json` / rebuilt
+`arrows.json` with from/to screen and source control; trace files + `check.ts`; `device.ts` tap log with the element
+hit; coverage page.

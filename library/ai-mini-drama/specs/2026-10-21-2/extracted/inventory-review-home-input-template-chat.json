@@ -1,0 +1,54 @@
+{
+  "boards": [
+    "AI Mini Drama home page",
+    "Input text",
+    "Template Detail",
+    "1005_Chat",
+    "1016_Chat navigation"
+  ],
+  "missing": [
+    {"screen":"2566:114675","screens":["2566:114732"],"label":"\"More 〉\" text link (iOS home)","box":[308,352,51,20],"kind":"button","why":"Only the 16pt chevron is boxed; the word \"More\" next to it is the tap target of the link to the template list and has no box."},
+    {"screen":"2566:114704","screens":["2566:114761"],"label":"\"More >\" text link (Android home)","box":[342,374,53,20],"kind":"button","why":"Only the chevron is boxed; the \"More\" text of the link has no box."},
+    {"screen":"2566:114704","screens":["2566:114761"],"label":"4th template card \"Encounter After Closing\" clipped at the right edge","box":[364,406,48,171],"kind":"item","why":"Horizontal template row scrolls; the peeking 4th card is tappable (opens Template Detail) but has no box."},
+    {"screen":"2824:131340","screens":[],"label":"mic icon inside the idle bottom input (Enter your idea to create drama)","box":[318,722,24,24],"kind":"button","why":"The mic in the collapsed input at the bottom is a tappable icon button; only the mic in the expanded 3-line input is boxed."},
+    {"screen":"2566:113168","screens":["2566:113252","2566:113181","2566:113265"],"label":"video / player area of Template Detail (iOS): tap to play or pause","box":[39,108,298,530],"kind":"item","why":"The whole poster/video is a tap target; only the volume icon and (paused state) the play button are boxed. On 2566:113181 and 2566:113265 the play button is boxed but not the video area itself."},
+    {"screen":"2566:113192","screens":["2566:113276"],"label":"video / player area of Template Detail (Android): tap to play or pause","box":[74,104,264,466],"kind":"item","why":"Player area has no box, only volume icon is boxed."},
+    {"screen":"2566:113117","screens":["3655:101814"],"label":"4th template card in \"Office Romance\" row (clipped at right edge, \"Boss Para...\")","box":[352,140,23,165],"kind":"item","why":"Horizontal row scrolls; the peeking 4th thumbnail is tappable but has no box."},
+    {"screen":"2566:113117","screens":["3655:101814"],"label":"4th template card in \"Fantasy World\" row (clipped at right edge, \"The ... King\")","box":[352,357,23,165],"kind":"item","why":"Horizontal row scrolls; the peeking 4th thumbnail has no box."},
+    {"screen":"3946:72100","screens":["3949:74761","3949:74854","3963:76438"],"label":"mic icon inside the idle bottom input","box":[318,722,24,24],"kind":"button","why":"Voice input mic at the right of the collapsed input is not boxed on any chat screen; the input itself is boxed."},
+    {"screen":"3963:76438","screens":[],"label":"regenerate (circular arrow) icon on character card \"Sophie\"","box":[101,291,22,22],"kind":"button","why":"Small icon at the top-right of each character thumbnail is a tappable regenerate/refresh control and has no box."},
+    {"screen":"3963:76438","screens":[],"label":"regenerate (circular arrow) icon on character card \"The Manager\"","box":[201,291,22,22],"kind":"button","why":"Same regenerate icon on the second character card."},
+    {"screen":"3963:76438","screens":[],"label":"regenerate (circular arrow) icon on character card \"HR\"","box":[301,291,22,22],"kind":"button","why":"Same regenerate icon on the third character card."},
+    {"screen":"3963:76438","screens":[],"label":"4th character card clipped at right edge (Characters Result row)","box":[332,298,28,108],"kind":"item","why":"The row scrolls horizontally; the partly visible 4th character card has no box."}
+  ],
+  "not_tappable": [
+    {"control":"K-a2b2f9","label":"ic_briefcase","why":"Template Detail category heading icon (Office Romance, Fantasy World, Urban Romance, Family & Life, Animated Stories); decorative, next to a section title. Same on 2566:113117 and 3655:101814."},
+    {"control":"K-7e0229","label":"ic_magic_wand","why":"Template Detail category heading icon (Office Romance, Fantasy World, Urban Romance, Family & Life, Animated Stories); decorative, next to a section title. Same on 2566:113117 and 3655:101814."},
+    {"control":"K-fa0ee4","label":"ic_urban","why":"Template Detail category heading icon (Office Romance, Fantasy World, Urban Romance, Family & Life, Animated Stories); decorative, next to a section title. Same on 2566:113117 and 3655:101814."},
+    {"control":"K-c6857e","label":"ic_family","why":"Template Detail category heading icon (Office Romance, Fantasy World, Urban Romance, Family & Life, Animated Stories); decorative, next to a section title. Same on 2566:113117 and 3655:101814."},
+    {"control":"K-63bd20","label":"ic_apple","why":"Template Detail category heading icon (Office Romance, Fantasy World, Urban Romance, Family & Life, Animated Stories); decorative, next to a section title. Same on 2566:113117 and 3655:101814."},
+    {"control":"K-2beb0c","label":"ic_credit","why":"Credit icon inside the Create storyboard card next to the cost \"15\"; decorative, Generate has its own box."},
+    {"control":"K-794f19","label":"ic_circle_exclamation","why":"Warning icon in front of the red offline error line; decorative text prefix."},
+    {"control":"K-dd9b1c","label":"ai input (bottom, behind keyboard)","why":"On 2824:131522, 2824:131842 and 2824:132173 the collapsed bottom input box sits behind the iOS keyboard (y 706); the live input is the expanded one above the keyboard. Valid on 2824:131340.","screen":"2824:131522"},
+    {"control":"K-dd9b1c","label":"ai input (bottom, behind keyboard)","why":"On 2824:131522, 2824:131842 and 2824:132173 the collapsed bottom input box sits behind the iOS keyboard (y 706); the live input is the expanded one above the keyboard. Valid on 2824:131340.","screen":"2824:131842"},
+    {"control":"K-dd9b1c","label":"ai input (bottom, behind keyboard)","why":"On 2824:131522, 2824:131842 and 2824:132173 the collapsed bottom input box sits behind the iOS keyboard (y 706); the live input is the expanded one above the keyboard. Valid on 2824:131340.","screen":"2824:132173"},
+    {"control":"K-07f3ad","label":"imput_character (scene thumbnail)","why":"Thumbnail inside a Scene card that already has its own box; part of the card, not a separate control."},
+    {"control":"K-c66b6f","label":"imput_character (scene thumbnail)","why":"Thumbnail inside a Scene card that already has its own box; part of the card, not a separate control."},
+    {"control":"K-c16b67","label":"imput_character (scene thumbnail)","why":"Thumbnail inside a Scene card that already has its own box; part of the card, not a separate control."},
+    {"control":"K-1e256d","label":"imput_character (scene thumbnail)","why":"Thumbnail inside a Scene card that already has its own box; part of the card, not a separate control."},
+    {"control":"K-c96b74","label":"imput_character (scene thumbnail)","why":"Thumbnail inside a Scene card that already has its own box; part of the card, not a separate control."},
+    {"control":"K-cc6b78","label":"imput_character (scene thumbnail)","why":"Thumbnail inside a Scene card that already has its own box; part of the card, not a separate control."},
+    {"control":"K-1f256e","label":"imput_character (scene thumbnail)","why":"Thumbnail inside a Scene card that already has its own box; part of the card, not a separate control."},
+    {"control":"K-bd5bfc","label":"scene \"Scene 3 — Secret Dates\" (scrolled out)","why":"Box at y -38 lies under the header/status bar on 2824:131340; not reachable.","screen":"2824:131340"},
+    {"control":"K-54a257","label":"scene \"Scene 6\" (scrolled under header)","why":"Box at y -16 is under the header on 2824:131522; not reachable.","screen":"2824:131522"},
+    {"control":"K-8db2f5","label":"scene \"Scene 4\" (scrolled under header)","why":"Box at y 0..96 is mostly faded under the header on 2824:132503; the visible part is the header.","screen":"2824:132503"}
+  ],
+  "drop_screens": [],
+  "unsure": [
+    {"screen":"2566:113181","what":"Video area besides the play button (also 2566:113265)","why":"Paused state shows a boxed play button; unclear whether the rest of the video is a separate tap target."},
+    {"screen":"3963:76438","what":"K-2925d4 paycard [16,442,343,156] (\"The characters look great! Ready to create the storyboard?\")","why":"Container card around the Generate button; likely not tappable itself, but may be."},
+    {"screen":"2824:132173","what":"K-ba7a93 Storyboard Preview thumbnail at y 12..154","why":"Partly under the header; only the lower part is reachable."},
+    {"screen":"2824:131340","what":"Scene cards (Scene 4-6) and Storyboard Preview card","why":"Boxed as items; unclear from the design whether tapping a scene card does anything or only the Storyboard Preview play does."},
+    {"screen":"3946:72100","what":"Chat bubbles (user idea, format answer) have no box","why":"Not obviously tappable (long-press copy at most); left out."}
+  ]
+}

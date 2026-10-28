@@ -1,0 +1,27 @@
+{
+  "boards": [
+    "1016_Chat navigation"
+  ],
+  "missing": [
+    {"screen":"4863:32482","screens":["4858:36084"],"label":"Mic (voice input) in the idea input bar","box":[319,722,24,24],"kind":"button","why":"Microphone icon at the right end of the 'Enter your idea to create drama' bar has no box of its own (only the input field is boxed); it is a separate tap target."},
+    {"screen":"4858:35987","screens":[],"label":"More ›","box":[309,356,51,18],"kind":"button","why":"The 'More' text link next to 'Start from a template' is tappable; the existing box K-7f3258 covers only the small chevron, not the 'More' text."}
+  ],
+  "not_tappable": [
+    {"control":"K-fe07d7","screen":"4863:32482","label":"Scene 3 — Secret Dates","why":"Card is scrolled up under the header (box starts at y=-38); not reachable on this screen."},
+    {"control":"K-d08324","screen":"4863:32482","label":"Scene 3 character thumbnail","why":"Inside the Scene 3 card that is scrolled under the header; unreachable on this screen."},
+    {"control":"K-76565a","screen":"4858:35398","label":"ic_credit coin icon","why":"Decorative credit coin beside the big '400' balance; not a button."},
+    {"control":"K-ac7174","screen":"4863:32539","label":"Project card thumbnail","why":"Thumbnail inside a project card that has its own box; the card row is the tap target."},
+    {"control":"K-1b9012","screen":"4863:32539","label":"Project card thumbnail","why":"Thumbnail inside a project card that has its own box."},
+    {"control":"K-21901b","screen":"4863:32539","label":"Project card thumbnail","why":"Thumbnail inside a project card that has its own box."},
+    {"control":"K-aa88a4","screen":"4863:32539","label":"Project card thumbnail","why":"Thumbnail inside a project card that has its own box."},
+    {"control":"K-b088ae","screen":"4863:32539","label":"Project card thumbnail","why":"Thumbnail inside a project card that has its own box."},
+    {"control":"K-7f3258","screen":"4858:35987","label":"round/ic_chevron_right","why":"Only the chevron of the 'More ›' link; replaced by the full 'More ›' link box listed under missing."}
+  ],
+  "drop_screens": [],
+  "unsure": [
+    {"screen":"4863:32482","what":"Character thumbnails (imput_character) inside Scene 4, 5, 6 cards (K-2adcef, K-21dce1, K-dac858)","why":"Look like character avatars inside the scene card; may or may not open a character detail; probably part of the card tap."},
+    {"screen":"4863:32482","what":"Storyboard Preview card (box K-3fff31 covers only the thumbnail with the play button)","why":"The whole card or only the play thumbnail may be tappable; the card text 'Forbidden Office Romance 1:30' is unboxed."},
+    {"screen":"4863:32539","what":"6th project card partly visible at the bottom, under the New Chat button, with its ⋮ button, has no box","why":"Only the top ~20pt shows and the ⋮ is half hidden behind the home indicator; likely reachable only after scrolling."},
+    {"screen":"4858:35398","what":"Pro+ promo card (Join the Pro+) as a whole, and the 'Expiring within 7 days: 50 credits' line","why":"Only the Subscribe Now button is boxed; the card or the expiry line might also open something."}
+  ]
+}

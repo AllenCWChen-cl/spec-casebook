@@ -13,7 +13,8 @@
 // "preparation error" the restart cannot work: the script prints BLOCKER and exits 75 (unlock the phone, replug USB).
 //   shot NAME                 save <run dir>/screenshots/NAME.png (device pixels)
 //   els [filter]              visible accessible elements: type | name | label | value | x,y,w,h (points)
-//   tap X Y | hold X Y [s]    tap / long-press at points
+//   tap X Y | hold X Y [s]    tap / long-press at points (every press is logged to taps.jsonl, see logTap)
+//   case ID | case -          name the case now running for the tap log (taps.jsonl), or clear it
 //   burst X Y [n]             n rapid taps (default 10) in one touch action, e.g. to reveal the in-app debug overlay
 //   id NAME | lbl TEXT        tap element by accessibility id / first visible element whose name or label contains TEXT
 //   drag X1 Y1 X2 Y2 [ms]     finger drag
@@ -54,7 +55,7 @@
 //                             「Generation failed, credits returned +60」) into <run dir>/ledger/<ID>-<time>.json and print them
 // The Appium server and WebDriverAgent are shared services: this script never stops them, and `stop` only
 // deletes the session this run created.
-import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
+import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 
@@ -127,6 +128,57 @@ function subtree(xml: string, name: string) {
     if (depth === 0) return xml.slice(start, start + m.index! + m[0].length);
   }
   return xml.slice(start);
+}
+
+// Tap log (REQ-038): every press on the app goes to <run dir>/taps.jsonl with the element hit, the case running (from
+// <run dir>/.case, set by `case <ID>`; else coverage-page.ts attributes it by time) and a small screenshot taken just
+// before the press, with the tap point, as the proof that the Figma control was pressed. TAP_LOG=0 turns it off.
+type El = { type: string; name: string; label: string; value: string; x: number; y: number; w: number; h: number };
+function elsAt(xml: string, x: number, y: number): El | undefined {
+  const hits: El[] = [];
+  for (const m of xml.matchAll(/<XCUIElementType(\w+)([^>]*)>/g)) {
+    const a = Object.fromEntries([...m[2].matchAll(/(\w+)="([^"]*)"/g)].map(v => [v[1], v[2]]));
+    if (a.visible !== 'true' || /^(Application|Window|Keyboard)$/.test(m[1])) continue;
+    const e = { type: m[1], name: a.name ?? '', label: a.label ?? '', value: (a.value ?? '').slice(0, 60), x: +a.x, y: +a.y, w: +a.width, h: +a.height };
+    if (x >= e.x && x <= e.x + e.w && y >= e.y && y <= e.y + e.h && (e.name || e.label)) hits.push(e);
+  }
+  const TAPPABLE = /^(Button|Cell|TextField|SecureTextField|TextView|Switch|Slider|Link|Image|SegmentedControl|Tab|Key|SearchField)$/;
+  hits.sort((a, b) => Number(TAPPABLE.test(b.type)) - Number(TAPPABLE.test(a.type)) || a.w * a.h - b.w * b.h);
+  return hits[0];
+}
+let tapSeq = 0;
+async function logTap(cmd: string, at: { x: number; y: number } | null, el?: El, shotXml?: { png?: string }) {
+  if (process.env.TAP_LOG === '0') return;
+  try {
+    const t = new Date().toISOString(), n = `${stamp()}-${String(++tapSeq).padStart(2, '0')}`;
+    let shot = '';
+    if (shotXml?.png) {
+      const dir = join(runDir, 'screenshots', 'taps'); mkdirSync(dir, { recursive: true });
+      const png = join(dir, `${n}.png`), jpg = join(dir, `${n}.jpg`);
+      writeFileSync(png, Buffer.from(shotXml.png, 'base64'));
+      try { execFileSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '60', '-Z', '640', png, '--out', jpg], { stdio: 'ignore' }); unlinkSync(png); shot = `screenshots/taps/${n}.jpg`; }
+      catch { shot = `screenshots/taps/${n}.png`; }
+    }
+    const kase = existsSync(join(runDir, '.case')) ? readFileSync(join(runDir, '.case'), 'utf8').trim() : '';
+    // window size in points, once per run folder, to scale tap points onto the Figma frame (375 pt wide)
+    const wf = join(runDir, '.window');
+    if (!existsSync(wf)) { const r = (await s('GET', '/window/rect')).value; writeFileSync(wf, `${r.width}x${r.height}`); }
+    const win = readFileSync(wf, 'utf8').trim();
+    appendFileSync(join(runDir, 'taps.jsonl'), JSON.stringify({ t, cmd, case: kase, x: at?.x, y: at?.y, win, el, shot }) + '\n');
+  } catch {}
+}
+// Element and screenshot before a coordinate press (one source + one screenshot request, in parallel).
+async function beforePress(x: number, y: number) {
+  if (process.env.TAP_LOG === '0') return { el: undefined, png: undefined };
+  const [xml, png] = await Promise.all([s('GET', '/source').then(r => r.value as string).catch(() => ''), s('GET', '/screenshot').then(r => r.value as string).catch(() => undefined)]);
+  return { el: xml ? elsAt(xml, x, y) : undefined, png };
+}
+async function beforeElement(id: string) {
+  if (process.env.TAP_LOG === '0') return { el: undefined, png: undefined, at: null };
+  const [type, name, label, r, png] = await Promise.all(['type', 'name', 'label'].map(k => s('GET', `/element/${id}/attribute/${k}`).then(v => String(v.value ?? '')).catch(() => ''))
+    .concat([s('GET', `/element/${id}/rect`).then(v => v.value).catch(() => null), s('GET', '/screenshot').then(v => v.value).catch(() => undefined)] as any[]));
+  const el: El | undefined = r ? { type: String(type).replace('XCUIElementType', ''), name, label, value: '', x: r.x, y: r.y, w: r.width, h: r.height } : undefined;
+  return { el, png, at: r ? { x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height / 2) } : null };
 }
 
 function parseEls(xml: string, filter?: string) {
@@ -245,13 +297,21 @@ switch (cmd) {
       console.log(`→ screenshots/${rest[0]}.png/.txt`); }
     break;
   }
-  case 'tap': await mobile('tap', { x: +rest[0], y: +rest[1] }); console.log('tapped', rest[0], rest[1]); break;
+  case 'tap': { const [x, y] = [+rest[0], +rest[1]]; const b = await beforePress(x, y);
+    await mobile('tap', { x, y }); await logTap('tap', { x, y }, b.el, b); console.log('tapped', x, y, b.el ? `(${b.el.type} ${b.el.label || b.el.name})` : ''); break; }
   case 'burst': {
     const [x, y] = rest.map(Number); const n = +(rest[2] ?? 10); const acts: unknown[] = [{ type: 'pointerMove', duration: 0, x, y }];
     for (let i = 0; i < n; i++) acts.push({ type: 'pointerDown', button: 0 }, { type: 'pause', duration: 40 }, { type: 'pointerUp', button: 0 }, { type: 'pause', duration: 90 });
-    await pointer(acts); console.log('burst', n, x, y); break;
+    const b = await beforePress(x, y); await pointer(acts); await logTap('burst', { x, y }, b.el, b); console.log('burst', n, x, y); break;
   }
-  case 'hold': await mobile('touchAndHold', { x: +rest[0], y: +rest[1], duration: +(rest[2] ?? 1.5) }); console.log('held'); break;
+  case 'hold': { const [x, y] = [+rest[0], +rest[1]]; const b = await beforePress(x, y);
+    await mobile('touchAndHold', { x, y, duration: +(rest[2] ?? 1.5) }); await logTap('hold', { x, y }, b.el, b); console.log('held'); break; }
+  case 'case': {
+    // case <ID>: the case now running, so the tap log names it; `case -` clears it
+    if (!rest[0] || rest[0] === '-') { try { unlinkSync(join(runDir, '.case')); } catch {} console.log('case cleared'); }
+    else { writeFileSync(join(runDir, '.case'), rest[0]); console.log('case', rest[0]); }
+    break;
+  }
   case 'drag': {
     const [x1, y1, x2, y2, ms] = rest.map(Number);
     await pointer([{ type: 'pointerMove', duration: 0, x: x1, y: y1 }, { type: 'pointerDown', button: 0 }, { type: 'pause', duration: 120 },
@@ -303,22 +363,26 @@ switch (cmd) {
     throw new Error(`scrollto: "${text}" not found between y ${TOP}-${BOTTOM} after sweeping both ends`);
   }
   case 'id': {
-    const e = await s('POST', '/element', { using: 'accessibility id', value: rest.join(' ') });
-    await s('POST', `/element/${Object.values(e.value)[0]}/click`, {}); console.log('clicked id', rest.join(' ')); break;
+    const e = await s('POST', '/element', { using: 'accessibility id', value: rest.join(' ') }); const id = Object.values(e.value)[0] as string;
+    const b = await beforeElement(id);
+    await s('POST', `/element/${id}/click`, {}); await logTap('id', b.at, b.el, b); console.log('clicked id', rest.join(' ')); break;
   }
   case 'lbl': {
     const t = rest.join(' ').replace(/"/g, '\\"');
     const e = await s('POST', '/element', { using: '-ios predicate string', value: `visible == 1 AND (name CONTAINS "${t}" OR label CONTAINS "${t}")` });
-    await s('POST', `/element/${Object.values(e.value)[0]}/click`, {}); console.log('clicked', rest.join(' ')); break;
+    const id = Object.values(e.value)[0] as string; const b = await beforeElement(id);
+    await s('POST', `/element/${id}/click`, {}); await logTap('lbl', b.at, b.el, b); console.log('clicked', rest.join(' ')); break;
   }
   case 'clear': case 'setval': {
-    const e = await s('POST', '/element', { using: 'accessibility id', value: rest[0] }); const id = Object.values(e.value)[0];
+    const e = await s('POST', '/element', { using: 'accessibility id', value: rest[0] }); const id = Object.values(e.value)[0] as string;
+    const b = await beforeElement(id);
     await s('POST', `/element/${id}/clear`, {});
     if (cmd === 'setval') await s('POST', `/element/${id}/value`, { text: rest.slice(1).join(' ') });
-    console.log(cmd, rest[0]); break;
+    await logTap(cmd, b.at, b.el, b); console.log(cmd, rest[0]); break;
   }
-  case 'hidekb': await s('POST', '/appium/device/hide_keyboard', {}); console.log('keyboard hidden'); break;
-  case 'type': await mobile('keys', { keys: [...rest.join(' ')] }); console.log('typed'); break;
+  // dismissing the keyboard closes the input it served (inputs need a dismiss step, REQ-038)
+  case 'hidekb': await s('POST', '/appium/device/hide_keyboard', {}); await logTap('hidekb', null); console.log('keyboard hidden'); break;
+  case 'type': await mobile('keys', { keys: [...rest.join(' ')] }); await logTap('type', null); console.log('typed'); break;
   case 'launch': {
     // launch [--lang en|zh-Hant|ja …]: with --lang, relaunch PowerDirector with -AppleLanguages/-AppleLocale launch
     // arguments, so the app runs in that language without touching iOS Settings (lasts until the next plain launch).
@@ -424,7 +488,8 @@ switch (cmd) {
     const t = rest.join(' ');
     const e = (await visibleIds(exactPred(t)))[0] ?? await visibleContaining(t);
     if (!e) { console.log(`not present: ${t}`); return; }
-    await s('POST', `/element/${e}/click`, {}); console.log(`tapped ${t}`); return;
+    const b = await beforeElement(e);
+    await s('POST', `/element/${e}/click`, {}); await logTap('tapif', b.at, b.el, b); console.log(`tapped ${t}`); return;
   }
   case 'pink': {
     // Pink debug tweaks in one call each (from the Launcher; the panel's list band is X 210, TOP 110, BOTTOM 300):

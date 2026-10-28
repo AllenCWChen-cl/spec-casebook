@@ -1,0 +1,43 @@
+{
+  "boards": [
+    "Recent Task"
+  ],
+  "missing": [
+    {"screen":"2820:123272","screens":[],"label":"Project card (whole row, opens the drama)","box":[16,104,343,120],"kind":"item","why":"Only the clapperboard placeholder and the more button are boxed; the card itself has no box (other screens box it)."},
+    {"screen":"2820:123365","screens":["2820:123377","2820:123389","2820:123445","2820:123457","2820:123469"],"label":"Select All / Deselect All (header text button, label toggles)","box":[212,50,70,20],"kind":"button","why":"Text button in Manage mode, no box. Deselect All label is wider (about [198,50,80,20])."},
+    {"screen":"2820:123365","screens":["2820:123377","2820:123389","2820:123445","2820:123457","2820:123469"],"label":"Cancel (header text button, leaves Manage mode)","box":[304,50,52,20],"kind":"button","why":"Text button in Manage mode, no box."},
+    {"screen":"2820:123350","screens":["2820:123430"],"label":"Rename row (whole row of the more sheet)","box":[0,684,375,44],"kind":"button","why":"Only the small icon is boxed; the label and row are tappable."},
+    {"screen":"2820:123350","screens":["2820:123430"],"label":"Delete row (whole row of the more sheet)","box":[0,732,375,44],"kind":"button","why":"Only the small icon is boxed; the label and row are tappable."}
+  ],
+  "not_tappable": [
+    {"control":"K-fc6197","label":"thumbnail inside project card","why":"Cover thumbnail of a project card that has its own card box; it is not a separate tap target."},
+    {"control":"K-9f983b","label":"thumbnail inside project card","why":"Cover thumbnail of a project card that has its own card box; it is not a separate tap target."},
+    {"control":"K-999832","label":"thumbnail inside project card","why":"Cover thumbnail of a project card that has its own card box; it is not a separate tap target."},
+    {"control":"K-9895f2","label":"thumbnail inside project card","why":"Cover thumbnail of a project card that has its own card box; it is not a separate tap target."},
+    {"control":"K-9a95f5","label":"thumbnail inside project card","why":"Cover thumbnail of a project card that has its own card box; it is not a separate tap target."},
+    {"control":"K-14bebe","label":"clapperboard placeholder icon","why":"Placeholder illustration in the thumbnail of a project card, not a button."},
+    {"control":"K-3d9ae7","label":"character image inside a scene row","why":"Illustration inside a scene row that already has its own box."},
+    {"control":"K-449af2","label":"character image inside a scene row","why":"Illustration inside a scene row that already has its own box."},
+    {"control":"K-73d5e6","label":"character image inside a scene row","why":"Illustration inside a scene row that already has its own box."},
+    {"control":"K-6fd5e0","label":"character image inside a scene row","why":"Illustration inside a scene row that already has its own box."},
+    {"control":"K-e4dd53","label":"character image inside a scene row","why":"Illustration inside a scene row that already has its own box."},
+    {"control":"K-dfdd4c","label":"character image inside a scene row","why":"Illustration inside a scene row that already has its own box."},
+    {"control":"K-3e9ae9","label":"character image inside a scene row","why":"Illustration inside a scene row that already has its own box."},
+    {"control":"K-399ae1","label":"character image inside a scene row","why":"Illustration inside a scene row that already has its own box."},
+    {"control":"K-72d5e4","label":"character image inside a scene row","why":"Illustration inside a scene row that already has its own box."},
+    {"control":"K-6ed5de","label":"character image inside a scene row","why":"Illustration inside a scene row that already has its own box."},
+    {"control":"K-e1dd4f","label":"character image inside a scene row","why":"Illustration inside a scene row that already has its own box."},
+    {"control":"K-e0dd4d","label":"character image inside a scene row","why":"Illustration inside a scene row that already has its own box."},
+    {"control":"K-a5dca8","screen":"2820:123350","ids":["K-a5dca8","K-fc6197","K-889593","K-266956","K-9f983b","K-4d6de3","K-21694e","K-999832","K-476dd9","K-956b2f","K-fc8883","K-8b457c"],"label":"header and project rows behind the Rename/Delete sheet","why":"Dimmed behind the bottom sheet, cannot be tapped while it is open."},
+    {"control":"K-a5dca8","screen":"2820:123430","ids":["K-a5dca8","K-fc6197","K-889593","K-266956","K-9f983b","K-4d6de3","K-21694e","K-999832","K-476dd9","K-956b2f","K-fc8883","K-8b457c"],"label":"header and project rows behind the Rename/Delete sheet","why":"Dimmed behind the bottom sheet, cannot be tapped while it is open."}
+  ],
+  "drop_screens": [
+    {"screen":"2824:128883","why":"Story Outline text panel; no control drawn and nothing tappable in it."}
+  ],
+  "unsure": [
+    {"screen":"2820:123240","what":"First card more button (K-889593) and tooltip","why":"The info bubble 'To keep the file lightweight...' sits over the first card's more button; unclear whether the bubble is dismissed by tapping it or elsewhere, and the button is hidden while it shows. Same on 2820:123256."},
+    {"screen":"2820:123240","what":"Sixth project card at the bottom edge","why":"A sixth card with its own more button is partly visible below New Chat and has no boxes; it is list content reached by scrolling. Same on 2820:123256."},
+    {"screen":"2820:123377","what":"More buttons on unselected rows in Manage mode","why":"Visible on 123377 and 123457 (one row selected) but absent on 123365 and 123445 (none selected); design inconsistency, ask which is intended."},
+    {"screen":"2824:129247","what":"Scene rows and Storyboard Preview thumbnail","why":"Boxed as items; whether tapping a scene row opens anything is not visible in the design (also 2824:129068)."}
+  ]
+}

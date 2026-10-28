@@ -1,7 +1,7 @@
 {
   "source": "Design flow arrows of the 2026-10-19 Design spec (Figma file dZk5HLzZTdcZwWwvN9aZfZ). One-time import 2026-10-21 of the arrow inventory the spec agent recorded with node IDs (user approved); later spec sets build this list in the analysis (Coverage pass 1).",
   "figma": "https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=",
-  "count": 88,
+  "count": 98,
   "arrows": [
     {
       "arrow": "2778-129128",
@@ -235,7 +235,8 @@
       "arrow": "2811-90468",
       "node": "2811-90468",
       "edge": "Annotation identifying long-press character description scrolling range",
-      "expected": "Long custom-character description text can be scrolled within its annotated text area."
+      "expected": "Long custom-character description text can be scrolled within its annotated text area.",
+      "not_flow": "annotation pointer (starts off-screen; figma-inventory)"
     },
     {
       "arrow": "2811-90583",
@@ -337,7 +338,8 @@
       "arrow": "2820-113559",
       "node": "2820-113559",
       "edge": "Annotation identifying long-press scene description scrolling range",
-      "expected": "Long scene-description text can be scrolled within its annotated text area."
+      "expected": "Long scene-description text can be scrolled within its annotated text area.",
+      "not_flow": "annotation pointer (starts off-screen; figma-inventory)"
     },
     {
       "arrow": "2820-113560",
@@ -530,6 +532,90 @@
       "node": "4078-177645",
       "edge": "Adding captions → completed captioned video with download and next-episode offer",
       "expected": "Successful caption retry replaces Adding captions with the captioned video and removes the failure message."
+    },
+    {
+      "arrow": "4299-168955",
+      "node": "4299-168955",
+      "edge": "Storyboard Error: failed scene detail (Location and scene failed) · 「Edit」 on the error card → description editor (編輯)",
+      "expected": "「Edit」 on the failed scene's 「Couldn't create image」 card opens the description editor: the full description is editable with the keyboard up, a x/1000 counter, a trash icon and 「Done」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "4299-132149",
+      "node": "4299-132149",
+      "edge": "Storyboard Error: failed scene detail · ⓘ on the 「Couldn't create image」 card → 4xx dialog 「Couldn't generate this image」",
+      "expected": "ⓘ on a 4xx 「Couldn't create image」 card opens the dialog 「Couldn't generate this image」 / 「Your credits have been refunded. This description may not meet our terms of service, … Edit it below and try again.」 with a terms-of-service link and 「Got it」; 5xx cards have no ⓘ.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "4299-168964",
+      "node": "4299-168964",
+      "edge": "Storyboard Error: scene image regenerating (生成, skeletons in scene detail) → regenerated scene detail",
+      "expected": "When the regeneration finishes, the skeletons in the scene detail are replaced by the new Location and scene images side by side; the 「Couldn't create image」 card and 「Edit」 are gone and the title and full script stay.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "4877-33073",
+      "node": "4877-33073",
+      "edge": "1016_Chat navigation: Chat (any stage) · Back (←, top left) → leave dialog",
+      "expected": "Back in the chat opens the leave dialog (Leave anyway / Stay) when leaving would lose something; per PM 10/21 (REQ-029) that is 「Leave this chat?」/「Your story outline isn't ready yet, so this chat won't be saved.」 while the outline generates and 「Stop and lose your credits?」 during a short job; a saved chat or a generating video leaves with no dialog.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "4877-33075",
+      "node": "4877-33075",
+      "edge": "1016_Chat navigation: Chat (any stage) · credit pill (◆400) → leave dialog",
+      "expected": "The credit pill in the chat opens the same leave dialog as Back (Leave anyway / Stay), with the PM 10/21 stage rules (REQ-029).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "4877-33077",
+      "node": "4877-33077",
+      "edge": "1016_Chat navigation: Chat (any stage) · New chat (top right) → leave dialog",
+      "expected": "New chat in the chat opens the same leave dialog as Back (Leave anyway / Stay), with the PM 10/21 stage rules (REQ-029).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "4877-33079",
+      "node": "4877-33079",
+      "edge": "1016_Chat navigation: Chat (any stage) · History (top right) → leave dialog",
+      "expected": "History in the chat opens the same leave dialog as Back (Leave anyway / Stay), with the PM 10/21 stage rules (REQ-029).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "4877-33081",
+      "node": "4877-33081",
+      "edge": "1016_Chat navigation: leave dialog 「Leave anyway」 (opened by History) → ④ Recent Task",
+      "expected": "「Leave anyway」 in a dialog opened by History leaves the chat and opens Recent Task (History list).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "4877-33083",
+      "node": "4877-33083",
+      "edge": "1016_Chat navigation: leave dialog 「Leave anyway」 (opened by New chat) → ② new empty chat",
+      "expected": "「Leave anyway」 in a dialog opened by New chat leaves the chat and opens a new empty chat (「Hi, I'm your AI Drama Assistant」, 「Surprise me」, idea suggestions, empty composer).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "4877-33085",
+      "node": "4877-33085",
+      "edge": "1016_Chat navigation: leave dialog 「Leave anyway」 (opened by the credit pill) → ③ My Credits",
+      "expected": "「Leave anyway」 in a dialog opened by the credit pill leaves the chat and opens My Credits.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "4877-33087",
+      "node": "4877-33087",
+      "edge": "1016_Chat navigation: leave dialog 「Leave anyway」 (opened by Back) → ① AI Mini Drama home page",
+      "expected": "「Leave anyway」 in a dialog opened by Back leaves the chat and opens the AI Mini Drama home page (「Hi, I'm your AI Drama Assistant」, 「Create Your Drama」, 「Start from a template」).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "4877-33089",
+      "node": "4877-33089",
+      "edge": "1016_Chat navigation: leave dialog 「Stay」 → Chat (same stage)",
+      "expected": "「Stay」 closes the leave dialog and keeps the user in the chat at the same stage; whatever was generating keeps going (Figma note: 「Stay → 關閉 dialog，留在原畫面」).",
+      "source": "figma-inventory"
     }
   ]
 }
