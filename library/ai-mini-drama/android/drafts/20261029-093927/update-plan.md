@@ -304,3 +304,10 @@ Answered by the user on 2026-10-29 (REQ-053):
 - Run order: phases.json round A4 lists every new and changed row in its stage segment (`"round": true`, REQ-033), A3 merged
   into it; every A4 case is an active row of draft.csv.
 - Final counts: 496 rows (495 active): unchanged 463, modified 22, new 10, removed 1.
+
+## Round renamed A5 (user, 2026-10-29, REQ-056)
+- The round planned above as A4 is now **A5**: while this draft was made, the full A4 run of table v3 (REQ-054, draft
+  20261028-164930, `runs/2026-10-28-a4-full`, 486 rows) ran every round-3 row. A5 (`build-a5.ts`) keeps only the 32 rows
+  this draft adds (10) or changes (22): A5-a 1, A5-b 1, A5-c 6, A5-d 5, A5-e 1, A5-f 5, A5-g 11, A5-h 1, A5-j 1. The 60
+  round-3 rows this draft leaves unchanged are not repeated. A3 stays `merged_into` A4; A4 (the full run) is copied into
+  this draft's phases.json as an earlier run; the planned 92-row round is kept as `planned_round`.
