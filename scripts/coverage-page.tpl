@@ -322,7 +322,7 @@ function header() {
   $('gq').placeholder = t('filter'); $('caseq').placeholder = t('caseFind');
   const keep = $('gstat').value, keepB = $('gboard').value;
   $('gstat').innerHTML = `<option value="">${t('all')}</option>` + ['notrun', 'blocked', 'none'].map(s => `<option value="${s}">${ST()[s]}</option>`).join('') + `<option value="undismissed">${t('undismissed')}</option>`;
-  $('gboard').innerHTML = `<option value="">${t('allBoards')}</option>` + D.boards.map(b => `<option>${esc(b.name)}</option>`).join('');
+  $('gboard').innerHTML = `<option value="">${t('allBoards')}</option>` + D.boards.map(b => `<option value="${esc(b.name)}">${esc(BN(b.name))}</option>`).join('');
   $('gstat').value = keep; $('gboard').value = keepB;
 }
 
@@ -365,6 +365,8 @@ const segs = (items, total) => ['proof', 'ran', 'blocked', 'notrun', 'none', 'na
   return n ? `<span title="${n} ${ST()[st]}" style="width:${n / total * 100}%;background:${COLOR(st)}"></span>` : ''; }).join('');
 const SPECS = ['design', 'pm', 'mx'], specShow = new Set(SPECS);
 const specOf = b => b.spec || 'design';
+// a board's shown name: PM and MX boards carry the spec region's title (their Figma frames have no names of their own)
+const BN = n => D.boards.find(b => b.name === n)?.title || n;
 function specFilter() {
   const n = cnt(D.boards, specOf);
   $('srcf').innerHTML = `<span>${t('specLabel')}</span>` + SPECS.map(s => n[s]
@@ -386,7 +388,7 @@ function boardsNav() {
     const here = caseIt ? caseOnBoard(b) : 0, src = caseIt?.boards.includes(b.name);
     const badge = here ? `<span class="cb" title="${esc(t('caseOnBoard'))}">${here} · ${esc(t('caseOnBoard'))}</span>` : src ? `<span class="cb src" title="${esc(t('caseSrc'))}">${t('caseSrcOnly')}</span>` : '';
     // the case badge sits on its own line, so it never squeezes the board name
-    const head = `<span class="n"><span>${esc(b.name)}</span><span class="spec">${t('specs')[specOf(b)]}</span></span>${badge ? `<span>${badge}</span>` : ''}`;
+    const head = `<span class="n"><span>${esc(BN(b.name))}</span><span class="spec">${t('specs')[specOf(b)]}</span></span>${badge ? `<span>${badge}</span>` : ''}`;
     const ns = D.notes.filter(n => n.board === b.name), nd = ns.filter(n => n.status === 'ran' || n.status === 'proof').length, nk = ns.filter(n => n.status !== 'na').length;
     const noteRow = `<span class="brow"><span class="c">${t('notes')} ${ns.length ? `${nd}/${nk}` : '—'}</span>${ns.length ? `<span class="bar" style="margin:0">${segs(ns, ns.length)}</span>` : ''}</span>`;
     if (b.region) return `<button data-i="${i}" aria-current="${board === b}">${head}<span class="c">${t('regionOnly')}</span>${noteRow}</button>`;
@@ -558,7 +560,7 @@ function renderPanel() {
     const how = g.how === 'arrow' ? t('tracedArrow') : g.how === 'label' ? t('tracedLabel') : g.how ? t('tracedManual') : '';
     p.innerHTML = `${back}<h2>${esc(g.label || g.name)}</h2><span class="pill" style="background:${COLOR(g.status)}">${ST()[g.status]}</span>${g.fail ? ` <span class="pill" style="background:var(--fail)">${t('pillFailed')}</span>` : ''}${g.norow ? ` <span class="pill" style="background:var(--blocked)">${t('pillNoRow')}</span>` : ''}
       <dl><dt>${t('kind')}</dt><dd>${esc(kindName(g.kind))}</dd><dt>${t('countedAs')}</dt><dd>${g.set ? t('choiceList') : t('oneButton')} · ${t('copiesOn')(g.instances, g.boards.length)}</dd>
-      <dt>${g.boards.length > 1 ? t('boards') : t('board')}</dt><dd>${g.boards.map(esc).join(', ')}</dd><dt>${t('specLabel')}</dt><dd>${t('specs')[g.spec || 'design']}</dd><dt>${t('layer')}</dt><dd class="mono">${esc(g.name)}</dd>
+      <dt>${g.boards.length > 1 ? t('boards') : t('board')}</dt><dd>${g.boards.map(n => esc(BN(n))).join(', ')}</dd><dt>${t('specLabel')}</dt><dd>${t('specs')[g.spec || 'design']}</dd><dt>${t('layer')}</dt><dd class="mono">${esc(g.name)}</dd>
       ${g.app.length ? `<dt>${t('appIds')}</dt><dd class="mono">${g.app.map(esc).join(', ')}</dd>` : ''}${how ? `<dt>${t('tracedBy')}</dt><dd>${how}</dd>` : ''}
       ${g.kind === 'input' ? `<dt>${t('dismissed')}</dt><dd>${g.dismissed ? t('yes') : t('notYet')}</dd>` : ''}${g.na ? `<dt>${t('exclReason')}</dt><dd>${esc(g.na.replace(/^n\/a:\s*/, ''))}</dd>` : ''}</dl>${link}
       <h2 style="margin-top:14px">${t('tapProof')}</h2>${g.proof.length ? `<div class="proof">${g.proof.map(x => { const [ww, wh] = (x.win || '1x1').split('x').map(Number);
@@ -571,12 +573,12 @@ function renderPanel() {
     const n = D.notes.find(x => x.id === sel.note);
     p.innerHTML = `${back}<h2>${esc(t('noteTitle'))}</h2><span class="pill" style="background:${COLOR(n.status)}">${ST()[n.status]}</span>${n.fail ? ` <span class="pill" style="background:var(--fail)">${t('pillFailed')}</span>` : ''}
       <p style="white-space:pre-wrap">${esc(n.text.replaceAll(' / ', '\n'))}</p>
-      <dl><dt>${t('trace')}</dt><dd>${esc(n.trace || t('untraced'))}</dd><dt>${t('board')}</dt><dd>${esc(n.board)}</dd><dt>${t('specLabel')}</dt><dd>${t('specs')[specOf(D.boards.find(b => b.name === n.board) ?? {})]}</dd></dl>
+      <dl><dt>${t('trace')}</dt><dd>${esc(n.trace || t('untraced'))}</dd><dt>${t('board')}</dt><dd>${esc(BN(n.board))}</dd><dt>${t('specLabel')}</dt><dd>${t('specs')[specOf(D.boards.find(b => b.name === n.board) ?? {})]}</dd></dl>
       ${n.reqs.length ? `<h2 style="margin-top:14px">${t('noteRows')}</h2>${n.rows.length ? n.rows.map(rowHtml).join('') : `<p class="empty">${t('noNoteRows')}</p>`}` : ''}`;
   } else {
     const a = D.arrows.find(x => x.id === sel.arrow);
     p.innerHTML = `${back}<h2>${esc(a.edge)}</h2><span class="pill" style="background:${COLOR(a.status)}">${ST()[a.status]}</span>${a.fail ? ` <span class="pill" style="background:var(--fail)">${t('pillFailed')}</span>` : ''}
-      <dl><dt>${t('kind')}</dt><dd>${t('arrowKind')(a.kind)}</dd><dt>${t('requirement')}</dt><dd>${esc(a.req || t('noneYetReq'))}</dd><dt>${t('board')}</dt><dd>${esc(a.board)}</dd><dt>${t('specLabel')}</dt><dd>${t('specs')[specOf(D.boards.find(b => b.name === a.board) ?? {})]}</dd><dt>${t('arrow')}</dt><dd class="mono">${esc(a.id)}</dd>${a.na ? `<dt>${t('exclReason')}</dt><dd>${esc(a.na)}</dd>` : ''}</dl>
+      <dl><dt>${t('kind')}</dt><dd>${t('arrowKind')(a.kind)}</dd><dt>${t('requirement')}</dt><dd>${esc(a.req || t('noneYetReq'))}</dd><dt>${t('board')}</dt><dd>${esc(BN(a.board))}</dd><dt>${t('specLabel')}</dt><dd>${t('specs')[specOf(D.boards.find(b => b.name === a.board) ?? {})]}</dd><dt>${t('arrow')}</dt><dd class="mono">${esc(a.id)}</dd>${a.na ? `<dt>${t('exclReason')}</dt><dd>${esc(a.na)}</dd>` : ''}</dl>
       <a href="${Object.values(D.figma)[0]}${a.id.replace(/-[A-Z]+$/, '')}" target="_blank" rel="noopener">${t('openFigma')}</a>
       ${a.src ? `<p><a href="#" id="srcl">${t('srcControl')}</a></p>` : ''}<h2 style="margin-top:14px">${t('rows')}</h2>${a.rows.length ? a.rows.map(rowHtml).join('') : `<p class="empty">${t('noArrowRows')}</p>`}`;
     if (a.src) $('srcl').onclick = e => { e.preventDefault(); select('g', a.src); };
@@ -637,7 +639,7 @@ function caseBar() {
 }
 function casePanel() {
   const r = D.rows[kase], it = caseIt;
-  const boardBtn = name => { const i = D.boards.findIndex(b => b.name === name); return i < 0 ? '' : `<button data-board="${i}">${esc(name)}</button>`; };
+  const boardBtn = name => { const i = D.boards.findIndex(b => b.name === name); return i < 0 ? '' : `<button data-board="${i}">${esc(BN(name))}</button>`; };
   const reqHtml = rid => { const q = D.reqs[rid];
     if (!q) return `<div class="req"><span class="rid">${esc(rid)}</span><span class="muted">—</span></div>`;
     const srcs = q.src.map(s => `<span class="spec">${t('specs')[s.spec] ?? s.spec}</span> <span class="muted">${esc([s.title, s.detail].filter(Boolean).join(' · '))}</span>`
@@ -647,9 +649,9 @@ function casePanel() {
     if (!q.src.length && !figma.length) srcs.push(`<span class="muted">${t('noSource')}</span>`);
     return `<div class="req"><span class="rid">${esc(rid)}</span>${esc(q.text)}<div class="srcs">${[...srcs, ...figma].join('<span style="flex-basis:100%"></span>')}</div></div>`; };
   const where = g => { const b = D.boards.find(b => g.rects.some(rc => inBoard(b, rc))); return b ? b.name : g.board; };
-  const gBtn = g => `<button data-g="${esc(g.group)}"><span class="sw" style="color:${COLOR(g.status)};width:9px;height:9px"></span>${esc(g.label || g.name)} <span class="muted">${esc(kindName(g.kind))}</span><span class="b">${esc(where(g))}</span></button>`;
-  const aBtn = a => `<button data-a="${esc(a.id)}"><span class="sw" style="color:${COLOR(a.status)};width:9px;height:9px"></span>${esc(a.edge)}<span class="b">${esc(a.board)}</span></button>`;
-  const scBtn = sc => `<button data-board="${D.boards.findIndex(b => b.name === sc.board)}">${esc(sc.name)}<span class="b">${esc(sc.board)}</span></button>`;
+  const gBtn = g => `<button data-g="${esc(g.group)}"><span class="sw" style="color:${COLOR(g.status)};width:9px;height:9px"></span>${esc(g.label || g.name)} <span class="muted">${esc(kindName(g.kind))}</span><span class="b">${esc(BN(where(g)))}</span></button>`;
+  const aBtn = a => `<button data-a="${esc(a.id)}"><span class="sw" style="color:${COLOR(a.status)};width:9px;height:9px"></span>${esc(a.edge)}<span class="b">${esc(BN(a.board))}</span></button>`;
+  const scBtn = sc => `<button data-board="${D.boards.findIndex(b => b.name === sc.board)}">${esc(sc.name)}<span class="b">${esc(BN(sc.board))}</span></button>`;
   $('panel').innerHTML = `<div class="k muted" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.04em">${t('caseEyebrow')}${r.section ? ` · ${esc(r.section)}` : ''}</div>
     <h2>${esc(kase)} <span class="res ${esc(r.result)}">${esc(r.result === 'Not run' ? t('plannedRes') : r.result)}</span></h2>
     <dl><dt>${t('action')}</dt><dd>${esc(r.action)}</dd><dt>${t('expected')}</dt><dd>${esc(r.expected)}</dd></dl>
@@ -721,7 +723,7 @@ function gaps() {
   };
   const items = all.filter(x => (!st || x.status === st) && (!bd || x.board === bd) && (!q || x.name.toLowerCase().includes(q)) && (!reasonFilter || causeOf(x) === reasonFilter));
   const label = s => s === 'undismissed' ? t('undismissed') : ST()[s];
-  $('gtb').innerHTML = items.slice(0, 600).map((x, i) => `<tr class="go" data-i="${i}"><td>${esc(kindName(x.what))}</td><td>${esc(x.board)}</td><td>${esc(x.name)}</td><td><span class="pill" style="background:${COLOR(x.status === 'undismissed' ? 'blocked' : x.status)}">${label(x.status)}</span></td><td>${esc(whyText(x))}</td><td class="mono">${x.rows.map(esc).join(', ')}</td></tr>`).join('')
+  $('gtb').innerHTML = items.slice(0, 600).map((x, i) => `<tr class="go" data-i="${i}"><td>${esc(kindName(x.what))}</td><td>${esc(BN(x.board))}</td><td>${esc(x.name)}</td><td><span class="pill" style="background:${COLOR(x.status === 'undismissed' ? 'blocked' : x.status)}">${label(x.status)}</span></td><td>${esc(whyText(x))}</td><td class="mono">${x.rows.map(esc).join(', ')}</td></tr>`).join('')
     || `<tr><td colspan="6" style="color:var(--muted)">${t('emptyFilter')}</td></tr>`;
   for (const row of document.querySelectorAll('#gtb tr[data-i]')) row.onclick = () => goTo(items[+row.dataset.i]);
 }

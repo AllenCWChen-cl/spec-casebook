@@ -38,15 +38,17 @@ import { arrowRequirement, matchTaps, requirementRows, tcList, type MatchGroup, 
 const [feature, platform] = process.argv.slice(2);
 assertIds(feature, platform);
 if (process.argv.includes('--serve')) await serveMode();
-// Serve mode: build the static page in a child process (this script without --serve) when the copy is over 30 s old.
+// Serve mode: build the static page in a child process (this script without --serve) when the copy is over 30 s old,
+// or at once when scripts/pages.ts says files changed (a new x-casebook-stamp header).
 async function serveMode(): Promise<never> {
   const argv = process.argv.slice(2), si = argv.indexOf('--serve');
   const portArg = /^\d+$/.test(argv[si + 1] ?? '') ? Number(argv[si + 1]) : 4391, lan = argv.includes('--lan');
   const child = [...argv.filter((a, i) => a !== '--serve' && a !== '--lan' && !(i === si + 1 && /^\d+$/.test(a)) && a !== '--render'), '--files'];
   const cache = join(tmpdir(), `coverage-${feature}-${platform}-${process.pid}.html`);
-  let builtAt = 0, html = '';
-  const build = () => {
-    if (Date.now() - builtAt < 30_000 && html) return html;
+  let builtAt = 0, html = '', builtFor = '';
+  const build = (stamp = builtFor) => {
+    if (Date.now() - builtAt < 30_000 && html && stamp === builtFor) return html;
+    builtFor = stamp;
     const r = spawnSync(process.execPath, [join(ROOT, 'scripts', 'coverage-page.ts'), ...child, '--out', cache], { encoding: 'utf8' });
     if (r.status !== 0) throw new Error(r.stderr || r.stdout);
     builtAt = Date.now(); html = readFileSync(cache, 'utf8'); return html;
@@ -54,7 +56,7 @@ async function serveMode(): Promise<never> {
   build();
   const server = createServer((req, res) => {
     try {
-      if (req.url === '/' || req.url?.startsWith('/?')) { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' }); res.end(build()); return; }
+      if (req.url === '/' || req.url?.startsWith('/?')) { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' }); res.end(build(String(req.headers['x-casebook-stamp'] ?? builtFor))); return; }
       // board renders and tap screenshots (--files): images under library/ only
       const f = req.url?.match(/^\/files\/([^?#]+)/);
       if (f) {
@@ -195,6 +197,13 @@ for (const [pdf, list] of jobs) {
   unlinkSync(jobsFile);
   for (const j of list) if (existsSync(j.out)) { spawnSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '72', j.out, '--out', j.img], { stdio: 'ignore' }); unlinkSync(j.out); saveImgBox(j.img, j.box); }
 }
+// PM and MX boards are named by the read (pm-update-11, mx-b-left: their Figma frames are unnamed "Frame 1430…"), so
+// the page shows the spec region's title from boards.json instead; the name stays the key. Two boards in one region
+// keep their name after the title.
+const regionTitle = (b: any) => b.spec === 'design' || b.region ? '' : (r => r ? `${SPEC_NAME[b.spec]} · ${r.title}` : '')(
+  regionOf.get(b.name) ?? [...regionOf.values()].find(r => r.boards.includes(b.name)));
+const titled = boards.map(regionTitle);
+for (const [i, b] of boards.entries()) if (titled[i]) b.title = titled.filter(x => x === titled[i]).length > 1 ? `${titled[i]} (${b.name})` : titled[i];
 for (const b of boards) {
   const has = existsSync(b.imgPath);
   Object.assign(b, { img: has ? embed(b.imgPath) : '', img_box: has ? imgBoxOf(b.imgPath, b.box) : null, note: has ? '' : b.note });

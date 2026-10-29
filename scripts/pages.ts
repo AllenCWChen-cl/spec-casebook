@@ -6,11 +6,14 @@
 //   --draft       the draft to review (and to show on the coverage page); without it, the approved table
 //   --plan        the run plan; default the newest runs/RUN-PLAN-*.md
 //   --plan-draft  the draft whose phases.json the plan uses; default the newest draft that has one
+// No restart needed after changes: a change under scripts/ restarts the four pages (a new run plan or draft is picked
+// up then too), and a change under library/<feature>/ tells open pages to reload (Cases only offers a Reload button,
+// so unsaved review edits are never lost). Only a change to this file itself needs Ctrl+C and a new start.
 // Each page runs as its own server (review.ts, plan-page.ts --serve, results-page.ts --serve, coverage-page.ts --serve) on a loopback port,
 // and this one forwards to it, adding the tab bar. --lan binds this server to 0.0.0.0 (no auth: anyone on the network
 // can read the pages); the children stay on 127.0.0.1. Review Save is only accepted from this computer.
 import { spawn, type ChildProcess } from 'node:child_process';
-import { existsSync, readdirSync } from 'node:fs';
+import { existsSync, readdirSync, watch } from 'node:fs';
 import { createServer, request } from 'node:http';
 import { networkInterfaces } from 'node:os';
 import { join } from 'node:path';
@@ -21,24 +24,30 @@ assertIds(feature, platform);
 const draft = arg('draft'), lan = process.argv.includes('--lan');
 const table = tableDir(feature, platform);
 const newest = (dir: string, test: (name: string) => boolean) => existsSync(dir) ? readdirSync(dir).filter(test).sort().at(-1) : undefined;
-const planMd = arg('plan') ?? (n => n && join(table, 'runs', n))(newest(join(table, 'runs'), n => /^RUN-PLAN-.*\.md$/.test(n)));
-const planDraft = arg('plan-draft') ?? newest(draftsDir(feature, platform), n => existsSync(join(draftsDir(feature, platform), n, 'phases.json')));
+// the plan and its draft are looked up again whenever the pages restart, so a new RUN-PLAN or draft shows up
+const planOf = () => ({ md: arg('plan') ?? (n => n && join(table, 'runs', n))(newest(join(table, 'runs'), n => /^RUN-PLAN-.*\.md$/.test(n))),
+  draft: arg('plan-draft') ?? newest(draftsDir(feature, platform), n => existsSync(join(draftsDir(feature, platform), n, 'phases.json'))) });
+let plan = planOf();
 const script = (name: string) => join(import.meta.dirname, name);
 const withDraft = draft ? ['--draft', draft] : [];
 
-type Page = { id: string; path: string; label: string; zh: string; argv: string[] | null; why?: string; port?: number; proc?: ChildProcess; error?: string };
+type Page = { id: string; path: string; label: string; zh: string; argv: string[] | null; why?: string; port?: number; proc?: ChildProcess; error?: string; restarting?: boolean };
 const reviewOf = draft ? ` · draft ${draft}` : ` · v${readManifest(feature, platform)?.version ?? '?'}`;
 const pages: Page[] = [
   { id: 'review', path: 'cases', label: `Cases${reviewOf}`, zh: `案例${reviewOf.replace('draft', '草稿')}`,
     argv: [script('review.ts'), feature, platform, ...withDraft, '--port', '4487'] },
-  { id: 'plan', path: 'progress', label: 'Progress', zh: '進度', argv: planMd && planDraft ? [script('plan-page.ts'), feature, platform, planDraft, planMd, '--serve', '4490'] : null,
+  { id: 'plan', path: 'progress', label: 'Progress', zh: '進度', argv: null,
     why: `No run plan: needs a runs/RUN-PLAN-*.md and a draft with phases.json (or --plan and --plan-draft).` },
   { id: 'results', path: 'results', label: 'Results', zh: '結果', argv: [script('results-page.ts'), feature, platform, '--serve', '4492'] },
   { id: 'coverage', path: 'coverage', label: 'Coverage', zh: '覆蓋率', argv: [script('coverage-page.ts'), feature, platform, ...withDraft, '--serve', '4491'] },
 ];
 
+const planArgv = () => plan.md && plan.draft ? [script('plan-page.ts'), feature, platform, plan.draft, plan.md, '--serve', '4490'] : null;
+
 // start each child and read its address from the line it prints (it takes the next free port when one is busy)
 function start(p: Page) {
+  p.error = undefined; p.restarting = false;
+  if (p.id === 'plan') p.argv = planArgv();
   if (!p.argv) { p.error = p.why; return Promise.resolve(); }
   return new Promise<void>(done => {
     const proc = spawn(process.execPath, p.argv!, { stdio: ['ignore', 'pipe', 'pipe'] });
@@ -46,11 +55,38 @@ function start(p: Page) {
     let err = '';
     proc.stdout!.on('data', b => { const m = String(b).match(/http:\/\/127\.0\.0\.1:(\d+)\//); if (m && !p.port) { p.port = +m[1]; done(); } });
     proc.stderr!.on('data', b => { err += b; process.stderr.write(`[${p.id}] ${b}`); });
-    proc.on('exit', code => { if (!p.port) { p.error = `${p.label} did not start (exit ${code}): ${err.trim().split('\n').slice(-3).join(' ')}`; done(); } else { p.port = undefined; p.error = `${p.label} stopped (exit ${code}).`; } });
+    proc.on('exit', code => { if (p.restarting) return; if (!p.port) { p.error = `${p.label} did not start (exit ${code}): ${err.trim().split('\n').slice(-3).join(' ')}`; done(); } else { p.port = undefined; p.error = `${p.label} stopped (exit ${code}).`; } });
   });
 }
 await Promise.all(pages.map(start));
 const stop = () => { for (const p of pages) p.proc?.kill(); };
+// stop a page and start it again (its script, or the plan it shows, changed); the old one is gone before the new one
+// binds, so it usually keeps its port
+const restart = async (p: Page) => {
+  const proc = p.proc;
+  p.restarting = true; p.port = undefined; p.proc = undefined;
+  if (proc && proc.exitCode === null) await new Promise(r => { proc.once('exit', r); proc.kill(); });
+  await start(p);
+};
+
+// Live updates (user, 2026-10-29). `stamp` changes whenever what a page shows may have changed; the tab bar polls
+// /__stamp and reloads the page (Cases: shows a Reload button instead).
+let stamp = Date.now();
+const debounce = (ms: number, f: (names: string[]) => void) => { let t: NodeJS.Timeout | undefined, names: string[] = [];
+  return (_: string, name: string | null) => { if (name) names.push(name); clearTimeout(t); t = setTimeout(() => { const n = names; names = []; f(n); }, ms); }; };
+watch(import.meta.dirname, { recursive: true }, debounce(400, async names => {
+  if (names.every(n => n === 'pages.ts')) { console.log('scripts/pages.ts changed: Ctrl+C and start it again to use the new version.'); return; }
+  console.log(`scripts changed (${[...new Set(names)].slice(0, 3).join(', ')}): restarting the pages`);
+  plan = planOf();
+  await Promise.all(pages.map(restart));
+  stamp = Date.now();
+}));
+const featureDir = join(import.meta.dirname, '..', 'library', feature);
+if (existsSync(featureDir)) watch(featureDir, { recursive: true }, debounce(1500, async () => {
+  const next = planOf(), plg = pages.find(p => p.id === 'plan')!;
+  if (next.md !== plan.md || next.draft !== plan.draft) { plan = next; console.log(`run plan now ${plan.md ?? 'none'} (draft ${plan.draft ?? 'none'})`); await restart(plg); }
+  stamp = Date.now();
+}));
 process.on('exit', stop);
 for (const s of ['SIGINT', 'SIGTERM', 'SIGHUP'] as const) process.once(s, () => process.exit(0));
 
@@ -73,10 +109,12 @@ const tabBar = (current: string) => {
 .cb-tabs .cb-lang{display:inline-flex;border:1px solid #3a4a5c;border-radius:6px;overflow:hidden;margin-left:8px}
 .cb-tabs .cb-lang button{font-family:inherit;font-size:12px;font-weight:600;line-height:1;border:0;background:transparent;color:#c9d3dd;padding:5px 10px;cursor:pointer}
 .cb-tabs .cb-lang button[aria-pressed="true"]{background:#3d6fd9;color:#fff}
+.cb-tabs .cb-upd{font:inherit;font-size:12px;font-weight:600;border:0;border-radius:6px;background:#e0a526;color:#1d2733;padding:4px 10px;cursor:pointer;margin-left:8px}
+.cb-tabs .cb-upd[hidden]{display:none}
 @media print{.cb-tabs{display:none}}
 </style><nav class="cb-tabs" aria-label="Casebook pages"><b>${esc(feature)} · ${platform === 'ios' ? 'iOS' : 'Android'}</b>${pages.map(p => p.port
     ? `<a href="/${p.path}/"${p.id === current ? ' aria-current="page"' : ''}>${tx(p.label, p.zh)}</a>`
-    : `<span class="off" title="${esc(p.error ?? '')}">${tx(p.label, p.zh)}</span>`).join('')}<span class="cb-note">${lan ? tx('Shared on the network', '已在區域網路分享') : tx('This computer only', '僅限本機')}</span><span class="cb-lang" role="group" aria-label="Language"><button type="button" data-l="en">English</button><button type="button" data-l="zh">中文</button></span></nav>
+    : `<span class="off" title="${esc(p.error ?? '')}">${tx(p.label, p.zh)}</span>`).join('')}<button type="button" class="cb-upd" hidden>${current === 'review' ? tx('Files changed · Reload (unsaved edits are lost)', '檔案已更新 · 重新載入（未儲存的修改會遺失）') : tx('Updated · Reload', '已更新 · 重新載入')}</button><span class="cb-note">${lan ? tx('Shared on the network', '已在區域網路分享') : tx('This computer only', '僅限本機')}</span><span class="cb-lang" role="group" aria-label="Language"><button type="button" data-l="en">English</button><button type="button" data-l="zh">中文</button></span></nav>
 <script>(()=>{let l='en';try{if(localStorage.getItem('casebook-lang')==='zh')l='zh'}catch(e){}
 window.CASEBOOK=Object.assign(${JSON.stringify({ pages: links, current })},{lang:l});
 const n=document.currentScript.previousElementSibling,b=getComputedStyle(document.body),t=parseFloat(b.paddingTop)||0;
@@ -84,6 +122,12 @@ const n=document.currentScript.previousElementSibling,b=getComputedStyle(documen
 n.style.margin=\`\${-t}px -\${b.paddingRight} \${t?18:0}px -\${b.paddingLeft}\`;
 const show=v=>{n.querySelectorAll('[data-zh]').forEach(e=>e.textContent=e.dataset[v]);n.querySelectorAll('.cb-lang button').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.l===v)))};
 show(l);
+// live updates: a newer /__stamp reloads Results and Progress once the user has been idle 15 s, and any page while
+// its tab is hidden; Cases (unsaved edits) and Coverage (the open board) show the Reload button instead
+const s0=${stamp},u=n.querySelector('.cb-upd');let idle=Date.now();u.onclick=()=>location.reload();
+['pointerdown','keydown','wheel','input'].forEach(e=>addEventListener(e,()=>idle=Date.now(),{passive:true,capture:true}));
+setInterval(async()=>{let v=0;try{v=+(await(await fetch('/__stamp',{cache:'no-store'})).text())}catch(e){return}if(!(v>s0))return;
+if(document.hidden||(${JSON.stringify(current)}==='plan'||${JSON.stringify(current)}==='results')&&Date.now()-idle>15000)return location.reload();u.hidden=false},3000);
 n.querySelectorAll('.cb-lang button').forEach(x=>x.onclick=()=>{const v=x.dataset.l;if(v===CASEBOOK.lang)return;CASEBOOK.lang=v;try{localStorage.setItem('casebook-lang',v)}catch(e){}show(v);dispatchEvent(new CustomEvent('casebook-lang',{detail:v}))});})();</script>`;
 };
 const notAvailable = (p: Page) => `<!doctype html><meta charset="utf-8"><title>${esc(p.label)}</title><body style="margin:0;font:15px system-ui;background:#f4f5f7">${tabBar(p.id)}<p style="padding:24px;max-width:80ch">${esc(p.error ?? 'Not available.')}</p></body>`;
@@ -94,6 +138,7 @@ const server = createServer((req, res) => {
   // the pages are Cases, Progress, Results and Coverage (user, 2026-10-28); /review/ and /plan/ links still work
   const old = url.match(/^\/(review|plan)(\/.*)?$/);
   if (old) { res.writeHead(301, { location: `/${old[1] === 'review' ? 'cases' : 'progress'}${old[2] ?? '/'}` }); res.end(); return; }
+  if (url === '/__stamp') { res.writeHead(200, { 'content-type': 'text/plain', 'cache-control': 'no-store' }); res.end(String(stamp)); return; }
   const m = url.match(/^\/(cases|progress|results|coverage)(\/.*)?$/);
   if (!m) { res.writeHead(302, { location: '/cases/' }); res.end(); return; }
   const p = pages.find(x => x.path === m[1])!;
@@ -103,7 +148,7 @@ const server = createServer((req, res) => {
   if (req.method !== 'GET' && !isLocal(req.socket.remoteAddress)) {
     res.writeHead(403, { 'content-type': 'application/json' }); res.end(JSON.stringify({ error: 'Save works only on the computer running scripts/pages.ts.' })); return;
   }
-  const fwd = request({ host: '127.0.0.1', port: p.port, path: m[2], method: req.method, headers: { ...req.headers, host: `127.0.0.1:${p.port}` } }, up => {
+  const fwd = request({ host: '127.0.0.1', port: p.port, path: m[2], method: req.method, headers: { ...req.headers, host: `127.0.0.1:${p.port}`, 'x-casebook-stamp': String(stamp) } }, up => {
     const html = /text\/html/.test(String(up.headers['content-type']));
     if (!html) { res.writeHead(up.statusCode ?? 502, up.headers); up.pipe(res); return; }
     const chunks: Buffer[] = [];

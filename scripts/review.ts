@@ -25,28 +25,34 @@ const firstPort = Number(arg('port') ?? 4387);
 let port = firstPort;
 const lan = process.argv.includes('--lan'), host = lan ? '0.0.0.0' : '127.0.0.1';
 const table = tableDir(feature, platform);
-const manifest = readManifest(feature, platform);
+let manifest = readManifest(feature, platform);
 
 let draftId: string, draftDir: string | null, rows: Record<string, string>[], spec: any, requirements = '', plan = '';
-if (draftArg) {
-  draftId = draftArg;
-  draftDir = join(draftsDir(feature, platform), draftArg);
-  if (!existsSync(join(draftDir, 'draft.csv'))) throw new Error(`No draft.csv in ${draftDir}`);
-  rows = readTable(join(draftDir, 'draft.csv'));
-  spec = JSON.parse(readFileSync(join(draftDir, 'spec.json'), 'utf8'));
-  if (existsSync(join(draftDir, 'requirements.md'))) requirements = readFileSync(join(draftDir, 'requirements.md'), 'utf8');
-  if (existsSync(join(draftDir, 'update-plan.md'))) plan = readFileSync(join(draftDir, 'update-plan.md'), 'utf8');
-} else {
-  if (!manifest) throw new Error(`No approved table for ${feature} / ${platform}; pass --draft <id>.`);
-  draftId = `edit-${stamp()}`;
-  draftDir = null;
-  rows = readTable(join(table, 'cases.csv'));
-  spec = { title: manifest.title, spec_folder: manifest.spec_folder, spec_files: manifest.spec_files, spec_set_sha256: manifest.spec_set_sha256 };
-  if (existsSync(join(table, 'requirements.md'))) requirements = readFileSync(join(table, 'requirements.md'), 'utf8');
+let previous: Record<string, Record<string, string>> = {};
+// read on every page load, so a draft or table changed on disk shows without restarting the server
+function load() {
+  manifest = readManifest(feature, platform);
+  requirements = ''; plan = '';
+  if (draftArg) {
+    draftId = draftArg;
+    draftDir = join(draftsDir(feature, platform), draftArg);
+    if (!existsSync(join(draftDir, 'draft.csv'))) throw new Error(`No draft.csv in ${draftDir}`);
+    rows = readTable(join(draftDir, 'draft.csv'));
+    spec = JSON.parse(readFileSync(join(draftDir, 'spec.json'), 'utf8'));
+    if (existsSync(join(draftDir, 'requirements.md'))) requirements = readFileSync(join(draftDir, 'requirements.md'), 'utf8');
+    if (existsSync(join(draftDir, 'update-plan.md'))) plan = readFileSync(join(draftDir, 'update-plan.md'), 'utf8');
+  } else {
+    if (!manifest) throw new Error(`No approved table for ${feature} / ${platform}; pass --draft <id>.`);
+    draftId ??= `edit-${stamp()}`;
+    draftDir = null;
+    rows = readTable(join(table, 'cases.csv'));
+    spec = { title: manifest.title, spec_folder: manifest.spec_folder, spec_files: manifest.spec_files, spec_set_sha256: manifest.spec_set_sha256 };
+    if (existsSync(join(table, 'requirements.md'))) requirements = readFileSync(join(table, 'requirements.md'), 'utf8');
+  }
+  previous = {};
+  if (manifest && existsSync(join(table, 'cases.csv'))) for (const r of readTable(join(table, 'cases.csv'))) previous[r.ID] = r;
 }
-
-const previous: Record<string, Record<string, string>> = {};
-if (manifest && existsSync(join(table, 'cases.csv'))) for (const r of readTable(join(table, 'cases.csv'))) previous[r.ID] = r;
+load();
 
 const page = (local: boolean) => renderPage({
   mode: 'review', save: local, feature, platform, title: spec.title ?? feature, draft: draftId,
@@ -95,7 +101,7 @@ const server = createServer(async (req, res) => {
   try {
     const local = isLocal(req.socket.remoteAddress);
     if (req.method === 'GET' && (req.url === '/' || req.url?.startsWith('/?'))) {
-      res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' }); res.end(page(local)); return;
+      load(); res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' }); res.end(page(local)); return;
     }
     if (req.method === 'POST' && req.url === '/save') {
       if (!local) { res.writeHead(403, { 'content-type': 'application/json' }); res.end(JSON.stringify({ error: 'Save works only on the computer running scripts/review.ts.' })); return; }
