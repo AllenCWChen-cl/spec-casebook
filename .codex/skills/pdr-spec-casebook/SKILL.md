@@ -242,8 +242,13 @@ and look at the tile images where layout, arrows or states matter.**
    `extracted/inventory-review-<group>.json`): every tappable element without a box (inputs included), every box on
    something that is not tappable, every screen the PDF does not draw. Merge the findings into
    `extracted/inventory-overrides.json` with `node scripts/inventory-overrides.ts <feature> <set>` (`drop_screens`,
-   `drop`, `hide` = covered on one screen only, e.g. behind a dimmed sheet, and `add` with screen-point boxes);
-   `inventory.ts` applies them on every rebuild, so a re-extraction keeps them. Then curate the adds: the `label` is
+   `drop`, `hide` = covered on one screen only, e.g. behind a dimmed sheet, and `add` with screen-point boxes;
+   `drop` and `hide` take control ids, so map a group through `inventory.json` `controls[].group`). Two more kinds
+   are written by hand (REQ-053): `kind` (`{ control | group, kind, why }`: a slider drawn as an input, a field drawn as
+   chips; set after grouping, so group ids do not move) and `merge` (`{ groups, into, set?, why }`: one element the
+   grouping split, such as a selected state drawn at another size or hand-added copies of a layer's icon; the controls
+   take the `into` id, so pick the group the control trace already uses). `inventory.ts` applies them on every
+   rebuild, so a re-extraction keeps them. Then curate the adds: the `label` is
    the app's visible text or one short icon name (「Mic」, 「Regenerate character」, 「Privacy Policy」), so the same
    element found by several reviewers is one group; an add that copies a known icon names its `layer`
    (`round/ic_vocal`) to join that group; a clipped card is already in its card set and a segment of a selector in

@@ -526,7 +526,22 @@
     {"control":"K-c65f14","why":"「scene thumbnail inside the scene card」 Illustration inside a scene card that already has its own box. (review pm-updates-b)"},
     {"control":"K-c95f19","why":"「scene thumbnail inside the scene card」 Illustration inside a scene card that already has its own box. (review pm-updates-b)"},
     {"control":"K-b0a665","why":"「scene thumbnail inside the scene card」 Illustration inside a scene card that already has its own box. (review pm-updates-b)"},
-    {"control":"K-514fba","why":"「video placeholder 'Making your video...'」 Loading tile of the video that is still being made; no play or other control yet, not tappable. (review pm-updates-b)"}
+    {"control":"K-514fba","why":"「video placeholder 'Making your video...'」 Loading tile of the video that is still being made; no play or other control yet, not tappable. (review pm-updates-b)"},
+    {"control":"K-c097f4","why":"The ✦ icon inside the chat's 「Edit」 button, not a control of its own: part of a button already in the inventory (group K-b417af) (REQ-053, 2026-10-29)"},
+    {"control":"K-c9926b","why":"The ↻ icon inside 「Retry」, not a control of its own: part of a button already in the inventory (group K-b2c3ec) (REQ-053, 2026-10-29)"},
+    {"control":"K-afb628","why":"The ↻ icon inside 「Retry」, not a control of its own: part of a button already in the inventory (group K-b2c3ec) (REQ-053, 2026-10-29)"},
+    {"control":"K-9758b6","why":"The ↻ icon inside 「Retry」, not a control of its own: part of a button already in the inventory (group K-b2c3ec) (REQ-053, 2026-10-29)"},
+    {"control":"K-00c45b","why":"The → icons inside the character chips, not controls of their own: part of the chip already in the inventory (group K-30e8d7) (REQ-053, 2026-10-29)"},
+    {"control":"K-01c45d","why":"The → icons inside the character chips, not controls of their own: part of the chip already in the inventory (group K-30e8d7) (REQ-053, 2026-10-29)"},
+    {"control":"K-2f6eab","why":"The › of 「View more ›」 / 「More ›」, not a control of its own: part of the link already in the inventory (group K-cd81a2) (REQ-053, 2026-10-29)"},
+    {"control":"K-1c4156","why":"The › of 「View more ›」 / 「More ›」, not a control of its own: part of the link already in the inventory (group K-cd81a2) (REQ-053, 2026-10-29)"},
+    {"control":"K-df62a6","why":"The › of 「View more ›」 / 「More ›」, not a control of its own: part of the link already in the inventory (group K-cd81a2) (REQ-053, 2026-10-29)"},
+    {"control":"K-4f5b08","why":"The › of 「View more ›」 / 「More ›」, not a control of its own: part of the link already in the inventory (group K-cd81a2) (REQ-053, 2026-10-29)"},
+    {"control":"K-3aa6ce","why":"The › of 「View more ›」 / 「More ›」, not a control of its own: part of the link already in the inventory (group K-cd81a2) (REQ-053, 2026-10-29)"},
+    {"control":"K-cc534c","why":"The › of 「View more ›」 / 「More ›」, not a control of its own: part of the link already in the inventory (group K-cd81a2) (REQ-053, 2026-10-29)"},
+    {"control":"K-be9bfb","why":"The › of 「View more ›」 / 「More ›」, not a control of its own: part of the link already in the inventory (group K-cd81a2) (REQ-053, 2026-10-29)"},
+    {"control":"K-242b84","why":"The › of 「View more ›」 / 「More ›」, not a control of its own: part of the link already in the inventory (group K-cd81a2) (REQ-053, 2026-10-29)"},
+    {"control":"K-65b911","why":"The › of 「View more ›」 / 「More ›」, not a control of its own: part of the link already in the inventory (group K-cd81a2) (REQ-053, 2026-10-29)"}
   ],
   "drop_screens": [
     {"screen":"2824:128883","why":"Story Outline text panel; no control drawn and nothing tappable in it. (review recent)"},
@@ -1152,5 +1167,14 @@
     "inventory-review-pm-main-b.json",
     "inventory-review-pm-updates-a.json",
     "inventory-review-pm-updates-b.json"
+  ],
+  "kind": [
+    {"group":"K-94a3ff","kind":"toggle","why":"「Age range」 on Character Library filters is a two-handle slider, not a text input: it opens no keyboard (REQ-053, 2026-10-29)"},
+    {"group":"K-89330d","kind":"input","why":"「0-100」 is the Age field (layer chips), a numeric input with a keypad, not a choice chip (REQ-053, 2026-10-29)"}
+  ],
+  "merge": [
+    {"groups":["K-2509de","K-c9e4c6"],"into":"K-951b92","why":"One cast-tab row: the selected tab (65 pt with a ring, K-2509de) and the tabs drawn as imput_characters_v1 (K-951b92) or thumb_media (K-c9e4c6) are the same control; K-951b92 carries the trace (TC-120) (REQ-053, 2026-10-29)"},
+    {"groups":["C-c23065"],"into":"K-8618a7","set":false,"why":"The composer mic: the hand-added copies (round/ic_vocal, read as a 「choice of 12」 because each add lists the same 12 screens) are the mic K-8618a7, a single button, not a choice set (REQ-053, 2026-10-29)"},
+    {"groups":["K-5138c4"],"into":"K-87581d","why":"The PM credit pill (Button/Credit/Balance 「182」 on the scene detail) is the credit pill K-87581d of the Design (a numbers-only label groups by file and layer, so the PM copy stood apart) (REQ-053, 2026-10-29)"}
   ]
 }

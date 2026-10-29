@@ -2,9 +2,9 @@
   "feature": "ai-mini-drama",
   "platform": "android",
   "title": "AI Mini Drama",
-  "version": 3,
-  "approved_at": "2026-10-28T09:34:01.967Z",
-  "draft": "20261028-164930",
+  "version": 4,
+  "approved_at": "2026-10-29T03:14:34.064Z",
+  "draft": "20261029-093927",
   "spec_folder": "specs/2026-10-21-2",
   "spec_files": [
     {
@@ -24,7 +24,7 @@
     }
   ],
   "spec_set_sha256": "2f6431b706887ce2d0ef09f2a20fff26b303e4b2b09bf5378ed4382cd68808fd",
-  "cases": 486,
+  "cases": 495,
   "history": [
     {
       "version": 1,
@@ -50,6 +50,15 @@
       "spec_set_sha256": "2f6431b706887ce2d0ef09f2a20fff26b303e4b2b09bf5378ed4382cd68808fd",
       "draft": "20261028-164930",
       "cases": 486,
+      "csv": "history/v3.csv",
+      "requirements": "history/v3-requirements.md"
+    },
+    {
+      "version": 4,
+      "approved_at": "2026-10-29T03:14:34.064Z",
+      "spec_set_sha256": "2f6431b706887ce2d0ef09f2a20fff26b303e4b2b09bf5378ed4382cd68808fd",
+      "draft": "20261029-093927",
+      "cases": 495,
       "csv": "cases.csv",
       "requirements": "requirements.md"
     }
