@@ -99,6 +99,20 @@ to a personal memory store; feature-specific run details go in the skills or the
   when a server is missing, pending approval or signed out, the agent opens a Terminal panel tab running the
   `claude` CLI in this folder and walks the user through README Setup 5, then checks both accounts with the headless
   `claude -p … whoami` command there (a session opened before the approval cannot see the servers).
+- **Figma reads are shared, changes found by fingerprint (user, 2026-10-29).** Everything a Figma read produces is
+  committed (group files, `figma-hashes.json`, `inventory.json`, and board screenshots in `extracted/figma/`, one file
+  per board, listed in `shots.json`), so another machine never spends quota on an unchanged board. A new run checks
+  each Figma file with one call (`scripts/figma-check.ts`) and re-reads only the groups whose boards changed. A
+  re-captured screenshot overwrites its file and `figma-check.ts --prune` deletes unlisted or superseded ones; other
+  images stay local. Started with no arguments, the skill asks for the feature, asks for spec files and links if none
+  are recorded, else runs the check itself and goes on to analysis, case changes, review and the on-device run
+  (skill: step 0).
+- **Everything on the coverage page is marked (user, 2026-10-29).** Every board the coverage page shows has every
+  screen, control, arrow and annotation note marked with a state; superseded spec versions are inventoried too and
+  marked Excluded, and a board holding only a note (or a link) gets that note marked; a link is followed and every item
+  of the linked page (each price, id or rule) becomes a note of its own (`extracted/links.json`, REQ-058, 2026-10-29).
+  A blank board, or one listed as a spec region with nothing tracked, is a gap to fix, not a display choice (skill:
+  Reading the spec, steps 9–10).
 - **Live pages (user, 2026-10-28).** `scripts/pages.ts` serves four tabs, Cases (review), Progress (run plan), Results and Coverage, with one
   shared tab bar that holds the only language switch; a page served there never shows its own. Results
   (`scripts/results-page.ts`) shows each case's reason and screenshots. On the review page `+ Add case` takes free

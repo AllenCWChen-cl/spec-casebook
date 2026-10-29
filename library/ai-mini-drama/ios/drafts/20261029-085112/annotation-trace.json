@@ -1821,6 +1821,1320 @@
       "carried_from": "20261022-145212"
     },
     {
+      "id": "mx-a-right@10647,2824",
+      "board": "mx-a-right",
+      "x": 10647,
+      "y": 2824,
+      "low": false,
+      "text": "③ Credit Charging Table / 1. Action ID & Charging Table Link",
+      "trace": ""
+    },
+    {
+      "id": "mx-b-left@400,17344",
+      "board": "mx-b-left",
+      "x": 400,
+      "y": 17344,
+      "low": false,
+      "text": "【Free user）第11次起對話送出時，跳 Premium Dialog",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@1736,17356",
+      "board": "mx-b-left",
+      "x": 1736,
+      "y": 17356,
+      "low": false,
+      "text": "成功訂閱後，要回到原本的聊天室",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@3006,17498",
+      "board": "mx-b-left",
+      "x": 3006,
+      "y": 17498,
+      "low": true,
+      "text": "t（對話）定義：包含打開Template、手動打字傳訊息、按按鈕執行任務 / Chat（對話）元 (?) / 需要做透過 Fi / 做透過 Firebase remote config 來雲控調整以下 daily free chat 次數（次數TBD） / laily 10 free chats 只要送出對話就會扣1次 (?) / 处第11次起，用戶按下\"Send” 就會跳 upgrade to premium dialog， / 2. 從第11次 (?) / 沾 dialog 右上角叉叉回到聊天室，要記住用戶輸入的文字內容 / 點 dialog i (?) / 第11 次時若用戶打開template，要先進到聊天室，同時跳 Dialog / 3. 第11次時 (?) / 4. 已達上限的 / 已達上限的情況下，用戶若持續送出對話，則每次都跳 dlialog / 10 free chats 用戶沒用完就去訂閱，那沒用完的次數會消失， / 5. 如果 10 fre / 用戶僅會獲得 premium user 額外會獲得的 free chats 次數（看是訂閱 pro / pro+，次數會不同） / 6. 次數會記在 / 欠數會記在 app 端。因為記在 app 端，所以刪掉 app 重載，就會再獲得 free chats",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@447,17553",
+      "board": "mx-b-left",
+      "x": 447,
+      "y": 17553,
+      "low": false,
+      "text": "• Jordan - Old friend, doubts Ethan's / • Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@1773,17554",
+      "board": "mx-b-left",
+      "x": 1773,
+      "y": 17554,
+      "low": false,
+      "text": "• Jordan - Ola friend, doubts Ethan's / • Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@885,17589",
+      "board": "mx-b-left",
+      "x": 885,
+      "y": 17589,
+      "low": false,
+      "text": "• Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@2160,17847",
+      "board": "mx-b-left",
+      "x": 2160,
+      "y": 17847,
+      "low": false,
+      "text": "要能記住用戶打好但 / 還沒送出的訊息",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@3007,18231",
+      "board": "mx-b-left",
+      "x": 3007,
+      "y": 18231,
+      "low": true,
+      "text": "laily 30 free chats — 只要送出對話就會扣1次 / 2. 從第31次 (?) / 第31次起，用戶按下\"Send” 就會跳 upgrade to premium dialog， (?) / 沾 dialog 右上角叉叉回到聊天室，要記住用戶輸入的文字內容 / 點 dialogi (?) / 3. 已達上限的 / 已達上限的情況下，用戶若持續送出對話，則每次都跳 dlialog / 4. 第31次時 / 第31次時若用戶打開 template，要先進到聊天室，同時跳 Dialog",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@407,18344",
+      "board": "mx-b-left",
+      "x": 407,
+      "y": 18344,
+      "low": false,
+      "text": "已達對話上限時，若用戶打開template，",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@866,18351",
+      "board": "mx-b-left",
+      "x": 866,
+      "y": 18351,
+      "low": false,
+      "text": "i template，要先進到聊天至同時跳 Dialog",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@1734,18351",
+      "board": "mx-b-left",
+      "x": 1734,
+      "y": 18351,
+      "low": false,
+      "text": "成功訂閱後，要回到原本的聊天室，出現 Continue 訊息",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@3007,18611",
+      "board": "mx-b-left",
+      "x": 3007,
+      "y": 18611,
+      "low": true,
+      "text": "Jaily 100 free chats ＞只要送出對話就會扣1次 (?) / 第101次起，用戶就會按下\"Send” 會跳 server 忙碌中的 dialog， (?) / 2. 從第101》 (?) / 沾 dialog 右上角叉叉回到聊天室，要記住用戶輸入的文字內容 / 點 dialogi (?) / 3. 已達上限的 / 已達上限的情況下，用戶若持續送出對話，則每次都跳 dlialog / 4. 第101次時 (?) / 第101次時若用戶打開 template，要先進到聊天室，再跳 Dialog",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@408,19424",
+      "board": "mx-b-left",
+      "x": 408,
+      "y": 19424,
+      "low": false,
+      "text": "【Pro user】第31次對話送出，跳 Premium Dialog",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@1748,19435",
+      "board": "mx-b-left",
+      "x": 1748,
+      "y": 19435,
+      "low": false,
+      "text": "成功訂閱後，要回到原本的聊天室",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@1785,19619",
+      "board": "mx-b-left",
+      "x": 1785,
+      "y": 19619,
+      "low": false,
+      "text": "• Jordan - Old friend, doubts Ethan's / • Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@447,19626",
+      "board": "mx-b-left",
+      "x": 447,
+      "y": 19626,
+      "low": false,
+      "text": "• Jordan - Old friend, doubts Ethan's / • Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@885,19628",
+      "board": "mx-b-left",
+      "x": 885,
+      "y": 19628,
+      "low": true,
+      "text": "• Jordan - Old friend, doubts Ethan's (?) / • Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@445,19835",
+      "board": "mx-b-left",
+      "x": 445,
+      "y": 19835,
+      "low": true,
+      "text": "• Don't ask again. (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@2171,19912",
+      "board": "mx-b-left",
+      "x": 2171,
+      "y": 19912,
+      "low": true,
+      "text": "更能記住用戶打好但 (?) / 要能記住用戶打好但 / 還沒送出的訊息",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@438,20603",
+      "board": "mx-b-left",
+      "x": 438,
+      "y": 20603,
+      "low": false,
+      "text": "【Pro+ user）第101次對話送出，跳 Server Busy Dialog",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@480,20784",
+      "board": "mx-b-left",
+      "x": 480,
+      "y": 20784,
+      "low": false,
+      "text": "• Jordan - Old friend, doubts Ethan's / • Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-left@920,20784",
+      "board": "mx-b-left",
+      "x": 920,
+      "y": 20784,
+      "low": false,
+      "text": "• Jordan - Old friend, doubts Ethan's / • Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@5010,17407",
+      "board": "mx-b-mid",
+      "x": 5010,
+      "y": 17407,
+      "low": false,
+      "text": "【曾訂閱且成功付費但現在是 Free user】 / 提供 1000 點 Free Use Credits （TBD）",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@9014,17632",
+      "board": "mx-b-mid",
+      "x": 9014,
+      "y": 17632,
+      "low": false,
+      "text": "專用：此派點只能用在 AI Mini Drama 內，含生成角色圖片/storyboard/影片， / 王其他功能使用。 / 冬身只會收到一次此派點，在用戶第一次使用 AI Mini Drama 時派點，",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@8880,17633",
+      "board": "mx-b-mid",
+      "x": 8880,
+      "y": 17633,
+      "low": true,
+      "text": "1. 專款專用：此派 (?) / 無法在其他功能 / 2.用戶終身只會收 / 且 transparent / 3. 如果project / 4. 派點邏輯 / a. 曾訂閱且成］ (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@5654,17639",
+      "board": "mx-b-mid",
+      "x": 5654,
+      "y": 17639,
+      "low": false,
+      "text": "開始使用 Free Use Credit / Free Use Credit 足夠執行任務",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@6534,17884",
+      "board": "mx-b-mid",
+      "x": 6534,
+      "y": 17884,
+      "low": false,
+      "text": "• Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@6114,18026",
+      "board": "mx-b-mid",
+      "x": 6114,
+      "y": 18026,
+      "low": true,
+      "text": "• Ethan - Homeless drean / • Margaret - Retired entre / • Sam - Diner owner, give / • Maya - Young reporter， / • Victor - Investor, cold al / • Jordan - Old friend, dou (?) / • Noah - Street kid, remin (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@9014,18053",
+      "board": "mx-b-mid",
+      "x": 9014,
+      "y": 18053,
+      "low": true,
+      "text": "訂閱且成功付費但現在是 Free user：提供20張 TTI +20張 ref to image + 10 支影片 （sce (?) / a. 曾訂閱且成7 (?) / ndroid uninstall 的 case 不 handle） / aid User：提供300點 （TBD） (?) / 300點不夠 / 00 點不夠執行生成影片，就直接扣用戶自己的點數 / ee User： 提供300點 （TBD） (?) / 300 點不夠 / 00 點不夠執行生成影片，就直接扣用戶自己的點數 / Use 該次圖片生成預設選擇 ChatGPT-2、 / 主成預設選擇 Seedance2.0 1080p（TBD），用戶不得選擇Model",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@6527,18363",
+      "board": "mx-b-mid",
+      "x": 6527,
+      "y": 18363,
+      "low": false,
+      "text": "• Regenerate characters",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@6952,18386",
+      "board": "mx-b-mid",
+      "x": 6952,
+      "y": 18386,
+      "low": false,
+      "text": "• Regenerate characters",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@7520,18424",
+      "board": "mx-b-mid",
+      "x": 7520,
+      "y": 18424,
+      "low": true,
+      "text": "• Edit Scene (?) / 昏 Auto Caption",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@8880,18472",
+      "board": "mx-b-mid",
+      "x": 8880,
+      "y": 18472,
+      "low": true,
+      "text": "5. Free Use 該次！ (?) / 影片生成預設選",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@5661,18675",
+      "board": "mx-b-mid",
+      "x": 5661,
+      "y": 18675,
+      "low": false,
+      "text": "當Free Use Credit 不足以執行任務，需 / 用戶自己的",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@6133,18675",
+      "board": "mx-b-mid",
+      "x": 6133,
+      "y": 18675,
+      "low": false,
+      "text": "宁任務，需要收用戶自己的點數 / 用戶自己的 Credit 不夠執行任務",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@5828,18767",
+      "board": "mx-b-mid",
+      "x": 5828,
+      "y": 18767,
+      "low": false,
+      "text": "Credit 足夠執行任務",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@8899,19342",
+      "board": "mx-b-mid",
+      "x": 8899,
+      "y": 19342,
+      "low": false,
+      "text": "可用（即您目前可以立刻執行的方案）。 / 如果您現在想嘗試 seedance2_fast，系 / seedance2_fast，系統會因 / 權限未達 Pro 而跳出升級建議； / 為您的餘額不足或權限未達 Pro 而跳出升組 / 的18點餘額體驗「動起來」的 / 如果您想先用現有的18 點餘額體驗「動起 / 感覺，seedance_1.0_fast 是唯一的選 / _1.0_fast 是唯一的選擇。 / 哪一個模型的估價試試看呢？ / 您希望我為您發起哪一個模型的估價試試看 / 發起 Seedance 1.0 Fast 的估價 / 剩餘的點數不足 / 套用此功能將消耗68點。購買的點數有效期限 / 3點。購買的點數有效期限為2年。",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@9315,19342",
+      "board": "mx-b-mid",
+      "x": 9315,
+      "y": 19342,
+      "low": false,
+      "text": "可用（即您目前可以立刻執行的方案）。 / 如果您現在想嘗試 seedance2_fast，系統會因 / 為您的餘額不足或權限未達 Pro 而跳出升級建議； / 如果您想先用現有的18 點餘額體驗「動起來」的 / 感覺：seedance_1.0_fast 是唯一的選擇。 / 您希望我為您發起哪一個模型的估價試試",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@5268,19344",
+      "board": "mx-b-mid",
+      "x": 5268,
+      "y": 19344,
+      "low": false,
+      "text": "用戶若在任務前把 Free Use / Credit 點數用完，則仍要跳 / 收費卡片收費",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@9533,19533",
+      "board": "mx-b-mid",
+      "x": 9533,
+      "y": 19533,
+      "low": false,
+      "text": "按兩下來付款 / Fast 的估價 / 效期限為2年。",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@9305,19675",
+      "board": "mx-b-mid",
+      "x": 9305,
+      "y": 19675,
+      "low": true,
+      "text": "套用此功能將消 / CapCut：照片與影片編輯器（sz） (?) / App 內購買 / 單次收費 / 號：lina heueh@cvherlink com (?) / 帳號：ling_hsueh@cyberlink.com",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@4982,19870",
+      "board": "mx-b-mid",
+      "x": 4982,
+      "y": 19870,
+      "low": false,
+      "text": "【Paid User &一般 Free user】 / 提供 300點 Free Use Credits （TBD）",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@9020,19893",
+      "board": "mx-b-mid",
+      "x": 9020,
+      "y": 19893,
+      "low": true,
+      "text": "剩餘點數 18〉 (?) / 購買點數 / 隱私權政策| 服務條款|有任何問題嗎？ (?) / 發|服務條款|有任何問題嗎？ (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@9427,20008",
+      "board": "mx-b-mid",
+      "x": 9427,
+      "y": 20008,
+      "low": false,
+      "text": "用側邊按鈕確認",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@5567,20124",
+      "board": "mx-b-mid",
+      "x": 5567,
+      "y": 20124,
+      "low": false,
+      "text": "開始使用 Free Use Credit / Free Use Credit 足夠執行任務",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@7573,20137",
+      "board": "mx-b-mid",
+      "x": 7573,
+      "y": 20137,
+      "low": false,
+      "text": "戶自己的點數",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@6840,20138",
+      "board": "mx-b-mid",
+      "x": 6840,
+      "y": 20138,
+      "low": false,
+      "text": "當Free Use Credit 不足以執行任務，需要收用戶自己的 / 用戶自己的 Credit 足夠執行任務",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@9556,20355",
+      "board": "mx-b-mid",
+      "x": 9556,
+      "y": 20355,
+      "low": true,
+      "text": "双I日血。 (?) / •模型：Seedance 1.5（支持圖片轉影片） / •素材：以剛剛生成的「溫馨團聚」圖片作為首影 / 格（first_frame_image）。 / •時長：1.2秒。 / • 預計收費：6點（剛好符合您剩餘的6 點餘",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@6447,20365",
+      "board": "mx-b-mid",
+      "x": 6447,
+      "y": 20365,
+      "low": false,
+      "text": "• Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@9015,20381",
+      "board": "mx-b-mid",
+      "x": 9015,
+      "y": 20381,
+      "low": true,
+      "text": "製作一部基於圖片的動畫視步 / 製作一部基於圖片的動畫視頻 / 由於製作完整54秒的影片（需270點）或多張 / 少的影片（需270點）或多張圖 / 片轉影片（每秒5點）的成本仍會超出您剩餘的 / 點）的成本仍會超出您剩餘的6 / 點餘額，我建議為您製作一段1.2秒的精華轉場 / 您製作一段1.2秒的精華轉場動 / 這段動畫將選取故事最動人的結局鏡頭——「家 / 事最動人的結局鏡頭一—「家族 / 溫馨團聚」，使用 seedance1.5 模型將靜態區 / seedance1.5 模型將靜態圖賦 / 予動態效果，讓瓶子角色們展現生動的表情與溫 / 子角色們展現生動的表情與溫暖 / 的氛圍。 / 製作計畫： / • 模型：Seedance 1.5（支持圖片轉影片） / ：1.5（支持圖片轉影片） (?) / •素材：以剛剛生成的「溫馨團聚」圖片作為首） / 成的「溫馨團聚」圖片作為首影 / 格（first_frame_image）。 / 怕 TsuTame_mage/ (?) / •時長：1.2秒。 / • 預計收費：6點（剛好符合您剩餘的6點餘 / 確認要以剩餘的6點將m一張圖轉化為精華動 (?) / 點將灬必一張圖轉化為精華動畫 (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@9232,20382",
+      "board": "mx-b-mid",
+      "x": 9232,
+      "y": 20382,
+      "low": true,
+      "text": "• 模型：Seedance 1.5（支持圖片轉影片） / •素材：以剛剛生成的「溫馨團聚」圖片作為首影 / 格（first_frame_image）。 (?) / •時長：1.2秒。 (?) / • 預計收費：6點（剛好符合您剩餘的6 點餘 / 確認要以剩餘的6點將最後一張圖轉化為精華動畫 / 由於這是一個簡單的動畫轉化，系統已為您開啟快 / 速預估提醒。我將立即為您把最後一張「家族團 / 聚」的溫馨瞬間轉化為動態影片。 / 這段1.2 秒的動畫將展現飲料家族擁抱時的微小動 / 作與光影流動，為這個故事畫下圓滿句點。",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@6028,20505",
+      "board": "mx-b-mid",
+      "x": 6028,
+      "y": 20505,
+      "low": false,
+      "text": "• Ethan - Homeless dreamer, smart an / • Margaret - Retired entrepreneur, stri / • Sam - Diner owner, gives Ethan his fi / • Maya - Young reporter, follows Ethan / • Victor - Investor, cold and hard to / • Jordan - Old friend, doubts Ethan's / • Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@9556,20729",
+      "board": "mx-b-mid",
+      "x": 9556,
+      "y": 20729,
+      "low": false,
+      "text": "這段1.2 秒的動畫將展現飲料家族擁抱時的微小動 / 作與光影流動，為這個故事畫下圓滿句點。",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@6440,20842",
+      "board": "mx-b-mid",
+      "x": 6440,
+      "y": 20842,
+      "low": false,
+      "text": "• Regenerate characters",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@6019,20865",
+      "board": "mx-b-mid",
+      "x": 6019,
+      "y": 20865,
+      "low": false,
+      "text": "• Regenerate story",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@5574,21111",
+      "board": "mx-b-mid",
+      "x": 5574,
+      "y": 21111,
+      "low": false,
+      "text": "Free Use Credit 不夠執行任務",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@6843,21114",
+      "board": "mx-b-mid",
+      "x": 6843,
+      "y": 21114,
+      "low": false,
+      "text": "用戶自己的 Credit 不夠執行任務",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-mid@5159,21670",
+      "board": "mx-b-mid",
+      "x": 5159,
+      "y": 21670,
+      "low": false,
+      "text": "用戶若在Storyboard前就把 / Free Use Credit 點數用完， / 則仍要跳收費卡片收費",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-right@11420,17357",
+      "board": "mx-b-right",
+      "x": 11420,
+      "y": 17357,
+      "low": false,
+      "text": "此時執行讀取用戶餘額及計算報價",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-right@12365,17507",
+      "board": "mx-b-right",
+      "x": 12365,
+      "y": 17507,
+      "low": true,
+      "text": "1. 用戶確認要生成 AI Mini Drama 照片/影片時，根據用戶剩餘點數即時報價，trans / 用戶按“Ready to create video”時，讀取用戶當下剩餘點數 / 計算用戶剩餘餘額對應的該方案收費收取的點數＞向用戶報價 / （eg. 讀取用戶剩餘582點 對應到要使用 Seedance2.0 影片方案 —計算點數費 (?) / 3. \"用戶剩餘點數“對應使用模型&解析度（TBD，MX會再提供對應表） / • >500:Seedance 2.0, 1080p (?) / • 300-500: Kling 03, 1080p / • 100-300: Seedance 1.5, 720p / • <100:Seedance 1.5, 480p",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-right@13547,17508",
+      "board": "mx-b-right",
+      "x": 13547,
+      "y": 17508,
+      "low": false,
+      "text": "價，transparent to user",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-right@13546,17784",
+      "board": "mx-b-right",
+      "x": 13546,
+      "y": 17784,
+      "low": true,
+      "text": "計算點數費用-報價） (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-right@11032,18035",
+      "board": "mx-b-right",
+      "x": 11032,
+      "y": 18035,
+      "low": false,
+      "text": "• Regenerate characters",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-right@11860,18058",
+      "board": "mx-b-right",
+      "x": 11860,
+      "y": 18058,
+      "low": true,
+      "text": "• Don't ask again. (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-b-right@10936,18765",
+      "board": "mx-b-right",
+      "x": 10936,
+      "y": 18765,
+      "low": true,
+      "text": "生成圖片/影片會比在其他房間貴，將對話成本納入圖片/影片收費 / 另外開 ai drama 的 action id / 1. 圖片收費（TBD，MX會再提供對應表） / a. Gemini3:8 credit/ 張（原本6 credit +額外2 credit） (?) / b. ChatGPT-2:8 credit/張（原本6 credit+額外2 credit） (?) / 2. 影片收費（TBD，MX會再提供對應表） / a. Kling 03 Pro+Audio: 8 credit/ 秒（原本6 credit +額外2 credit） (?) / b. Seedance 2.0 1080p: 20 credit/秒（原本 18 credit +額外2 credit） (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@371,28094",
+      "board": "mx-c-left",
+      "x": 371,
+      "y": 28094,
+      "low": false,
+      "text": "【Free user） 第11次起對話送出時，跳 Premium Dialog",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@2988,28211",
+      "board": "mx-c-left",
+      "x": 2988,
+      "y": 28211,
+      "low": false,
+      "text": "按鈕執行任務 / free chat 次數（次數TBD）",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@2037,28213",
+      "board": "mx-c-left",
+      "x": 2037,
+      "y": 28213,
+      "low": true,
+      "text": "Chat（對話）定義：包含打開Template、手動打字傳訊息、按按鈕執行 / 需要做透過 Firebase remote config 來雲控調整以下 daily free chat / 1. daily 10 free chats - 只要送出對話就會扣1次 (?) / 2. 從第11次起，用戶按下\"Send” 就會跳 upgrade to premium diald / 點 dialog 右上角叉叉回到聊天室；用戶若持續送出對話，則每次都 / 3. 第11次時若用戶打開template，要先進到聊天室，再跳 Dialog / 4. 如果 10 free chats 用戶沒用完就去訂閱，那沒用完的次數會消失， / 用戶僅會獲得 premium user 額外會獲得的 free chats 次數（看是 / 5. 次數會記在app 端。因為記在 app 端，所以刪掉 app 重載，就會 (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@413,28275",
+      "board": "mx-c-left",
+      "x": 413,
+      "y": 28275,
+      "low": false,
+      "text": "• Jordan - Old friend, doubts Ethan's / •Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@850,28310",
+      "board": "mx-c-left",
+      "x": 850,
+      "y": 28310,
+      "low": false,
+      "text": "• Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@2989,28502",
+      "board": "mx-c-left",
+      "x": 2989,
+      "y": 28502,
+      "low": false,
+      "text": "則每次都跳 dialog",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@3005,28667",
+      "board": "mx-c-left",
+      "x": 3005,
+      "y": 28667,
+      "low": true,
+      "text": "數（看是訂閱 pro / pro+，次數會不同） (?) / 載，就會再獲得 free chats",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@2048,28885",
+      "board": "mx-c-left",
+      "x": 2048,
+      "y": 28885,
+      "low": false,
+      "text": "1. daily 30 free chats - 只要送出對話就會扣1次 / 2. 從第31次起，用戶按下\"Send”就會跳 upgrade to premium dial / 點 dialog 右上角叉叉回到聊天室；用戶若持續送出對話，則每次都 / 3. 第31次時若用戶打開template，要先進到聊天室，再跳 Dialog",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@2994,28995",
+      "board": "mx-c-left",
+      "x": 2994,
+      "y": 28995,
+      "low": false,
+      "text": "則每次都跳 dialog",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@357,29101",
+      "board": "mx-c-left",
+      "x": 357,
+      "y": 29101,
+      "low": false,
+      "text": "已達對話上限時，若用戶打開template，要先進到空的聊天室，再跳 Dialog",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@2049,29215",
+      "board": "mx-c-left",
+      "x": 2049,
+      "y": 29215,
+      "low": true,
+      "text": "1. daily 100 free chats -只要送出對話就會扣1次 (?) / 2. 從第101次起，用戶就會按下\"Send” 會跳 server 忙碌中的 dialog / 3. 第101次時若用戶打開 template，要先進到聊天室，再跳 Dialog",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@2989,29330",
+      "board": "mx-c-left",
+      "x": 2989,
+      "y": 29330,
+      "low": false,
+      "text": "兆 Dialog",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@2058,30194",
+      "board": "mx-c-left",
+      "x": 2058,
+      "y": 30194,
+      "low": false,
+      "text": "【Pro+ user】第101次對話送出，跳 Server Busy Dialog",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@368,30195",
+      "board": "mx-c-left",
+      "x": 368,
+      "y": 30195,
+      "low": false,
+      "text": "【Pro user）第31次對話送出，跳 Premium Dialog",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@413,30375",
+      "board": "mx-c-left",
+      "x": 413,
+      "y": 30375,
+      "low": false,
+      "text": "• Jordan - Old friend, doubts Ethan's / • Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@2097,30375",
+      "board": "mx-c-left",
+      "x": 2097,
+      "y": 30375,
+      "low": false,
+      "text": "• Jordan - Old friend, doubts Ethan's / • Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@850,30410",
+      "board": "mx-c-left",
+      "x": 850,
+      "y": 30410,
+      "low": false,
+      "text": "• Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@2535,30410",
+      "board": "mx-c-left",
+      "x": 2535,
+      "y": 30410,
+      "low": true,
+      "text": "•Noah (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@411,30585",
+      "board": "mx-c-left",
+      "x": 411,
+      "y": 30585,
+      "low": false,
+      "text": "• Don't ask again.",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-left@2095,30585",
+      "board": "mx-c-left",
+      "x": 2095,
+      "y": 30585,
+      "low": false,
+      "text": "• Don't ask again.",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@4055,28182",
+      "board": "mx-c-mid",
+      "x": 4055,
+      "y": 28182,
+      "low": false,
+      "text": "【曾訂閱且成功付費但現在是 Free user】 / 提供1000點 Free Use Credits （TBD）",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@4985,28370",
+      "board": "mx-c-mid",
+      "x": 4985,
+      "y": 28370,
+      "low": false,
+      "text": "開始使用 Free Use Cre / Free Use Credit 足夠執行",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@7930,28382",
+      "board": "mx-c-mid",
+      "x": 7930,
+      "y": 28382,
+      "low": false,
+      "text": "1. 專款專用：此派黑 / 2. 用戶終身只會收 / 3. 派點邏輯",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@8071,28382",
+      "board": "mx-c-mid",
+      "x": 8071,
+      "y": 28382,
+      "low": true,
+      "text": "享用：此派點只能用在 Al Mini Drama 內，含生成角色圖片/storyboard/影片， / 無法在其他功能 / 王其他功能使用。 / 冬身只會收到一次此派點，在用戶第一次使用 AI Mini Drama 時派點， / 且 transparent / 訂閱且成功付費但現在是 Free user：提供1000點（TBD） / a. 曾訂閱且成工 (?) / ndroid uninstall 的 case 不 handle） / iid Ucom 提件 200聖 （Tpn） (?) / id User：提供300點 （TBD） (?) / 300點不夠 / 00 點不夠執行生成影片，就直接扣用戶自己的點數 / ee User：提供300點 （TBD） (?) / 300 點不夠 / 00 點不夠執行生成影片，就直接扣用戶自己的點數 / Use 該次圖片生成預設選擇 ChatGPT-2、影片生成預設選擇 Kling 031080p （TBD） / 得選擇Model",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@4539,28435",
+      "board": "mx-c-mid",
+      "x": 4539,
+      "y": 28435,
+      "low": false,
+      "text": "寶藏箱動畫",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@5191,28440",
+      "board": "mx-c-mid",
+      "x": 5191,
+      "y": 28440,
+      "low": false,
+      "text": "it 足夠執行任務",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@6435,28575",
+      "board": "mx-c-mid",
+      "x": 6435,
+      "y": 28575,
+      "low": true,
+      "text": "一 One (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@5865,28612",
+      "board": "mx-c-mid",
+      "x": 5865,
+      "y": 28612,
+      "low": false,
+      "text": "• Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@5446,28770",
+      "board": "mx-c-mid",
+      "x": 5446,
+      "y": 28770,
+      "low": false,
+      "text": "• Ethan - Homeless dreamer, smart and / • Margaret — Retired entrepreneur, strict but / • Margaret - Retired entrepreneur, strict but / • Sam - Diner owner, gives Ethan his first / • Maya - Young reporter, follows Ethan's / • Victor - Investor, cold and hard to impress / • Jordan - Old friend, doubts Ethan's / • Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@5858,29092",
+      "board": "mx-c-mid",
+      "x": 5858,
+      "y": 29092,
+      "low": false,
+      "text": "• Regenerate characters / • Free trial active: Create the script for O Credits",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@5437,29112",
+      "board": "mx-c-mid",
+      "x": 5437,
+      "y": 29112,
+      "low": false,
+      "text": "• Regenerate story / • Free trial active",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@6284,29115",
+      "board": "mx-c-mid",
+      "x": 6284,
+      "y": 29115,
+      "low": false,
+      "text": "• Regenerate characters / • Free trial active: Create the script for O Credits",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@7930,29152",
+      "board": "mx-c-mid",
+      "x": 7930,
+      "y": 29152,
+      "low": true,
+      "text": "4. Free Use 該次E (?) / 用戶不得選擇M",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@6851,29154",
+      "board": "mx-c-mid",
+      "x": 6851,
+      "y": 29154,
+      "low": true,
+      "text": "• EditScene (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@5039,29175",
+      "board": "mx-c-mid",
+      "x": 5039,
+      "y": 29175,
+      "low": false,
+      "text": "• Free trial active: Create the script for O Credits",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@4655,29228",
+      "board": "mx-c-mid",
+      "x": 4655,
+      "y": 29228,
+      "low": true,
+      "text": "• Start Creating (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@5190,29403",
+      "board": "mx-c-mid",
+      "x": 5190,
+      "y": 29403,
+      "low": true,
+      "text": "Credit 不足以執行任務，需要收用戶自己的點數 / edit 足夠執行任務 (?) / • boat (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@4992,29405",
+      "board": "mx-c-mid",
+      "x": 4992,
+      "y": 29405,
+      "low": false,
+      "text": "當Free Use Credit不 / 用戶自己的 Credit 足夠執",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@8071,29430",
+      "board": "mx-c-mid",
+      "x": 8071,
+      "y": 29430,
+      "low": false,
+      "text": "time free use 當次的打字框上方顯示：",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@5465,29499",
+      "board": "mx-c-mid",
+      "x": 5465,
+      "y": 29499,
+      "low": false,
+      "text": "用戶自己的 Credit 不夠執行任務",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@8071,29571",
+      "board": "mx-c-mid",
+      "x": 8071,
+      "y": 29571,
+      "low": false,
+      "text": "se Use Credit 不足以執行任務時，Free trial message 消失",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@7930,29573",
+      "board": "mx-c-mid",
+      "x": 7930,
+      "y": 29573,
+      "low": true,
+      "text": "2. 當 Free Use Cr (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@4599,30033",
+      "board": "mx-c-mid",
+      "x": 4599,
+      "y": 30033,
+      "low": false,
+      "text": "用戶若在任務前把 Free Use / Credit 點數用完，則仍要跳 / 收費卡片收費",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@5191,30103",
+      "board": "mx-c-mid",
+      "x": 5191,
+      "y": 30103,
+      "low": false,
+      "text": "• this task.",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@4597,30245",
+      "board": "mx-c-mid",
+      "x": 4597,
+      "y": 30245,
+      "low": false,
+      "text": "此時打字框上的“Free trial / active” 訊息同步消失",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@8026,30340",
+      "board": "mx-c-mid",
+      "x": 8026,
+      "y": 30340,
+      "low": true,
+      "text": "寶藏箱動畫\\ (?) / ◎箱動畫 (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@4023,30628",
+      "board": "mx-c-mid",
+      "x": 4023,
+      "y": 30628,
+      "low": true,
+      "text": "【Paid User &一般 Free user】 / 【Paid User & 一般 Free user） (?) / 提供300點 Free Use Credits （TBD）",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@4955,30819",
+      "board": "mx-c-mid",
+      "x": 4955,
+      "y": 30819,
+      "low": false,
+      "text": "開始使用 Free Use Cred / Free Use Credit 足夠執行任",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@6224,30832",
+      "board": "mx-c-mid",
+      "x": 6224,
+      "y": 30832,
+      "low": false,
+      "text": "當Free Use Credit 不足以執行任務 / 用戶自己的 Credit 足夠執行任務",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@6631,30836",
+      "board": "mx-c-mid",
+      "x": 6631,
+      "y": 30836,
+      "low": false,
+      "text": "人執行任務，需要收用戶自己的點數",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@5190,30885",
+      "board": "mx-c-mid",
+      "x": 5190,
+      "y": 30885,
+      "low": false,
+      "text": "足夠執行任務",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@4509,30887",
+      "board": "mx-c-mid",
+      "x": 4509,
+      "y": 30887,
+      "low": false,
+      "text": "寶藏箱動畫",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@5835,31061",
+      "board": "mx-c-mid",
+      "x": 5835,
+      "y": 31061,
+      "low": false,
+      "text": "• Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@5416,31222",
+      "board": "mx-c-mid",
+      "x": 5416,
+      "y": 31222,
+      "low": false,
+      "text": "• Ethan - Homeless dreamer, smart and / • Margaret - Retired entrepreneur, strict but / • Sam - Diner owner, gives Ethan his first / • Maya - Young reporter, follows Ethan's / • Victor - Investor, cold and hard to impress / • Jordan - Old friend, doubts Ethan's / • Noah - Street kid, reminds Ethan why",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@5828,31540",
+      "board": "mx-c-mid",
+      "x": 5828,
+      "y": 31540,
+      "low": false,
+      "text": "• Regenerate characters / • Free trial active: Create the script for O Credits",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@5409,31561",
+      "board": "mx-c-mid",
+      "x": 5409,
+      "y": 31561,
+      "low": false,
+      "text": "• Regenerate story / • Free trial active: Create the script for O Credits",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@8054,31561",
+      "board": "mx-c-mid",
+      "x": 8054,
+      "y": 31561,
+      "low": true,
+      "text": "可用（即您目前可以立刻幸 / 用（即您目前可以立刻執行的方案）。 / 如果您現在想嘗試 seedant / 您現在想嘗試 seedance2_fast，系統會因 / 為您的餘額不足或權限未達 / 的餘額不足或權限未達 Pro 而跳出升級建議； / 如果您想先用現有的18點飯 / 您想先用現有的18 點餘額體驗「動起來」的 / ：，seedance_1.0_fast 是唯一的選擇。 / 感覺，seedance_1.0_fa / 您希望我為您發起哪一個模！ / 望我為您發起哪一個模型的估價試試看呢？ / 發起 Seedance 1.0 Fast 的估價 / 剩餘的點！ (?) / 剩餘的點數不足 / 套用此功能將消耗68點。購「 (?) / 此功能將消耗68點。購買的點數有效期限為2年。",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@8468,31562",
+      "board": "mx-c-mid",
+      "x": 8468,
+      "y": 31562,
+      "low": false,
+      "text": "可用（即您目前可以立刻執行的方案）。 / 如果您現在想嘗試 seedance2_fast，系統會因 / 為您的餘額不足或權限未達 Pro 而跳出升級建議； / 如果您想先用現有的18 點餘額體驗「動起來」的 / 感覺：seedance_1.0_fast 是唯一的選擇。 / 您希望我為您發起哪一個模型的估",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@5009,31624",
+      "board": "mx-c-mid",
+      "x": 5009,
+      "y": 31624,
+      "low": false,
+      "text": "• Free trial active: Create the script for O Credits",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@4623,31678",
+      "board": "mx-c-mid",
+      "x": 4623,
+      "y": 31678,
+      "low": false,
+      "text": "• Start Creating",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@8686,31755",
+      "board": "mx-c-mid",
+      "x": 8686,
+      "y": 31755,
+      "low": true,
+      "text": "按兩下來付款 / Fast 的估價 / 支付中⋯. (?) / 效期限為2年。",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@4964,31810",
+      "board": "mx-c-mid",
+      "x": 4964,
+      "y": 31810,
+      "low": false,
+      "text": "Free Use Credit 不夠執行任",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@5191,31810",
+      "board": "mx-c-mid",
+      "x": 5191,
+      "y": 31810,
+      "low": false,
+      "text": "不夠執行任務",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@6228,31812",
+      "board": "mx-c-mid",
+      "x": 6228,
+      "y": 31812,
+      "low": false,
+      "text": "用戶自己的 Credit 不夠執行任務",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@8462,31898",
+      "board": "mx-c-mid",
+      "x": 8462,
+      "y": 31898,
+      "low": true,
+      "text": "套用此功能將消 / CapCut：照片與影片編輯器 13 (?) / App 內購買 / 單次收費 / 帳號：ling_hsueh@cyberlink.com / 用側邊按鈕確認",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@6835,31945",
+      "board": "mx-c-mid",
+      "x": 6835,
+      "y": 31945,
+      "low": true,
+      "text": "一one (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@8175,32114",
+      "board": "mx-c-mid",
+      "x": 8175,
+      "y": 32114,
+      "low": true,
+      "text": "剩餘點數 18〉 (?) / 購買點數 / 隱私權政策|服務條款|有任何問題嗎？ (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@4544,32368",
+      "board": "mx-c-mid",
+      "x": 4544,
+      "y": 32368,
+      "low": false,
+      "text": "用戶若在Storyboard前就把 / Free Use Credit 點數用完， / 則仍要跳收費卡片收費",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@8709,32578",
+      "board": "mx-c-mid",
+      "x": 8709,
+      "y": 32578,
+      "low": true,
+      "text": "双三二自。 (?) / •模型：Seedance 1.5（支持圖片轉影片） / •素材：以剛剛生成的「溫醫團聚」圖片作為首影 / 格 （first_frame_image） / •時長：1.2秒。 / •預計收費：6點（剛好符合您剩餘的6點餘",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@4544,32584",
+      "board": "mx-c-mid",
+      "x": 4544,
+      "y": 32584,
+      "low": false,
+      "text": "此時打字框上的“Free trial / active” 訊息同步消失",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@8171,32605",
+      "board": "mx-c-mid",
+      "x": 8171,
+      "y": 32605,
+      "low": true,
+      "text": "製作一部基於圖片的動畫視頻 / 由於製作完整54秒的影片（亮 (?) / 由於製作完整54秒的影片（需270點）或多張圖 / 片轉影片（每秒5點）的成本仍會超出您剩餘的6 / 點餘額，我建議為您製作一段 / 貼餘額，我建議為您製作一段1.2秒的精華轉場動 / 這段動畫將選取故事最動人的結局鏡頭——「家族 / 溫馨團聚」，使用 seedance1.5 模型將靜態圖賦 / 予動態效果，讓瓶子角色們展； / 予動態效果，讓瓶子角色們展現生動的表情與溫暖 / 的氛圍。 / 製作計畫： / 模型：Seedance 1.5（支持圖片轉影片） / • 模型：Seedance 1.5（支持［ / •素材：以剛剛生成的「溫馨 (?) / ，素材：以剛剛生成的「溫馨團聚」圖片作為首影 / 格 （first_frame_jmage）。 (?) / 格 （first_frame_image）。 / •時長：1.2秒。 / • 預計收費：6點（剛好符合您 (?) / ，預計收費：6點（剛好符合您剩餘的6點餘 / 確認要以剩餘的6點將1及一 (?) / 認要以剩餘的6點將沒一張圖轉化為精華動畫 (?)",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@8386,32605",
+      "board": "mx-c-mid",
+      "x": 8386,
+      "y": 32605,
+      "low": false,
+      "text": "• 模型：Seedance 1.5（支持圖片轉影片） / • 素材：以剛剛生成的「溫馨團聚」圖片作為首影 / 格（first_frame_jmage）。 / • 時長：1.2秒。 / • 預計收費：6點（剛好符合您剩餘的6點餘 / 確認要以剩餘的6點將最後一張圖轉化為精華動畫 / 由於這是一個簡單的動畫轉化，系統已為您開啟快 / 速預估提醒。我將立即為您把最後一張「家族團 / 聚」的溫馨瞬間轉化為動態影片。 / 這段1.2 秒的動畫將展現飲料家族擁抱時的微小動 / 作與光影流動，為這個故事畫下圓滿句點。",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-mid@8709,32917",
+      "board": "mx-c-mid",
+      "x": 8709,
+      "y": 32917,
+      "low": true,
+      "text": "聚」的加。 (?) / 這段1.2 秒的動畫將展現飲料家族擁抱時的微小動 / 作與光影流動，為這個故事畫下圓滿句點。",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-right@10465,28133",
+      "board": "mx-c-right",
+      "x": 10465,
+      "y": 28133,
+      "low": false,
+      "text": "此時執行讀取用戶餘額及計算報價",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-right@11410,28278",
+      "board": "mx-c-right",
+      "x": 11410,
+      "y": 28278,
+      "low": true,
+      "text": "1. 用戶確認要生成 Al Mini Drama 照片/影片時，根據用戶剩餘點數即時報價，tran / 用戶按“Ready to create video”時，讀取用戶當下剩餘點數 / 計算用戶剩餘餘額對應的該方案收費收取的點數＞向用戶報價 / （eg. 讀取用戶剩餘582點 對應到要使用 Seedance2.0 影片方案 -計算點數 (?) / 3.“用戶剩餘點數“對應使用模型＆解析度（TBD，MX會再提供對應表） / • >500:Seedance 2.0,1080p / • 300-500: Kling 03, 1080p / • 100-300:Seedance 1.5,720p / • <100:Seedance 1.5, 480p",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-right@12585,28279",
+      "board": "mx-c-right",
+      "x": 12585,
+      "y": 28279,
+      "low": false,
+      "text": "價，transparent to user",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-right@12585,28558",
+      "board": "mx-c-right",
+      "x": 12585,
+      "y": 28558,
+      "low": false,
+      "text": "計算點數費用 報價）",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-right@10081,28808",
+      "board": "mx-c-right",
+      "x": 10081,
+      "y": 28808,
+      "low": false,
+      "text": "• Regenerate characters",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-right@10907,28831",
+      "board": "mx-c-right",
+      "x": 10907,
+      "y": 28831,
+      "low": false,
+      "text": "• Don't ask again.",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
+      "id": "mx-c-right@9981,29536",
+      "board": "mx-c-right",
+      "x": 9981,
+      "y": 29536,
+      "low": true,
+      "text": "生成圖片/影片會比在其他房間貴，將對話成本納入圖片/影片收費 / 收費 = action id 費用＋額外費用（hardcode） (?) / 1. 圖片收費 （TBD） / a. Gemini3: 8 credit/張（原本6 credit +額外2 credit） (?) / b. ChatGPT-2: 8 credit/張（原本6 credit +額外2 credit） (?) / 2. 影片收費（TBD）",
+      "trace": "older: MX versions B and C are superseded by version A (board-notes, MX spec section)"
+    },
+    {
       "id": "pm-0930-updates@12643,14994",
       "board": "pm-0930-updates",
       "x": 12643,

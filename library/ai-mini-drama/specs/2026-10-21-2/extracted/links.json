@@ -1,0 +1,67 @@
+{
+ "links": [
+  {
+   "board": "mx-a-right",
+   "at": [
+    10649,
+    2896
+   ],
+   "node": "1057:24035",
+   "text": "1. Action ID & Charging Table Link",
+   "target": "Sheet 「AI Mini Drama CMS」 › 「Action ID (not on CMS)」",
+   "file": "mx-charging-table.md",
+   "read": "2026-10-29",
+   "items": [
+    {
+     "label": "Character · original · 6/image",
+     "text": "Generate character (per image): original price 6 (first generate and regenerate)"
+    },
+    {
+     "label": "Character · discount · 2/image",
+     "text": "Generate character (per image): discount price 2 (first generate only)"
+    },
+    {
+     "label": "Storyboard · original · 6/scene",
+     "text": "Generate storyboard (per scene): original price 6 (first generate and regenerate)"
+    },
+    {
+     "label": "Storyboard · discount · 2/scene",
+     "text": "Generate storyboard (per scene): discount price 2 (first generate only)"
+    },
+    {
+     "label": "Video 2.0 1080p · original · 13/s",
+     "text": "Generate video Seedance 2.0 1080p (per second): original price 13 (first generate and regenerate)"
+    },
+    {
+     "label": "Video 2.0 1080p · discount · 2/s",
+     "text": "Generate video Seedance 2.0 1080p (per second): discount price 2 (first generate only)"
+    },
+    {
+     "label": "Video 2.0 Mini 720p · original · 4/s",
+     "text": "Generate video Seedance 2.0 Mini 720p (per second): original price 4 (first generate and regenerate)"
+    },
+    {
+     "label": "Video 2.0 Mini 720p · discount · 2/s",
+     "text": "Generate video Seedance 2.0 Mini 720p (per second): discount price 2 (first generate only)"
+    },
+    {
+     "label": "Regenerate · no discount (–)",
+     "text": "Regenerate (character, storyboard scene, video): no discount price (「-」)"
+    },
+    {
+     "label": "Action ids · image · normal (discount held)",
+     "text": "TextToImage GPT-Image-2 1K action ids: genimage_1_img_openai_gptimage2_<none|enable>_1K_aiminidrama_<normal|discount>"
+    },
+    {
+     "label": "Action ids · video · normal (discount held)",
+     "text": "ReferenceToVideo action ids: genvideo_1_sec_bytedance_seedance2.0std_enable_1080p_aiminidrama_<normal|discount>, genvideo_1_sec_bytedance_seedance2.0mini_enable_720p_aiminidrama_<normal|discount>"
+    },
+    {
+     "label": "Seedance 2.5 · no row",
+     "text": "No Seedance 2.5 row and no TextToSpeech row (no price or action id)"
+    }
+   ],
+   "label": "Linked sheet 「AI Mini Drama CMS」 › 「Action ID (not on CMS)」"
+  }
+ ]
+}

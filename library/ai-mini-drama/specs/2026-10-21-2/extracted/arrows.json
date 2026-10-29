@@ -1,7 +1,7 @@
 {
   "source": "Design flow arrows of the 2026-10-19 Design spec (Figma file dZk5HLzZTdcZwWwvN9aZfZ). One-time import 2026-10-21 of the arrow inventory the spec agent recorded with node IDs (user approved); later spec sets build this list in the analysis (Coverage pass 1).",
   "figma": "https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=",
-  "count": 219,
+  "count": 213,
   "arrows": [
     {
       "arrow": "2778-129128",
@@ -1471,6 +1471,294 @@
       "edge": "pm-update-9-b: Create my character_timeout (5 min) → Se · 「Send Feedback」 → Send Feedback_AI Issues (pre-filled)",
       "expected": "「Send Feedback」 opens Feedback on 「AI Issues」 with the AI Feature Name and issue text pre-filled.",
       "source": "figma-inventory"
+    },
+    {
+      "arrow": "1560-11493",
+      "node": "1560-11493",
+      "edge": "mx-b-left: AI Mini Drama · 「Make my version」 → AI Mini Drama",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-11585",
+      "node": "1560-11585",
+      "edge": "mx-b-left: AI Mini Drama (automatic) → AI Mini Drama",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-11938",
+      "node": "1560-11938",
+      "edge": "mx-b-left: AI Mini Drama_outline · round/ic_arrow_up → AI Mini Drama_outline",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-11939",
+      "node": "1560-11939",
+      "edge": "mx-b-left: AI Mini Drama_outline · 「Upgrade to Premium」 → IAP_Pro+_free user",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-12148",
+      "node": "1560-12148",
+      "edge": "mx-b-left: AI Mini Drama_outline · round/ic_arrow_up → AI Mini Drama_outline",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-12348",
+      "node": "1560-12348",
+      "edge": "mx-b-left: AI Mini Drama_outline · round/ic_circle_xmark_filled → 1560:11805 story 「Story Outline」",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-12349",
+      "node": "1560-12349",
+      "edge": "mx-b-left: AI Mini Drama_outline · round/ic_arrow_up → AI Mini Drama_outline",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-12528",
+      "node": "1560-12528",
+      "edge": "mx-b-left: AI Mini Drama_outline · 「Upgrade to Premium」 → IAP_Pro+_pro user",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-12718",
+      "node": "1560-12718",
+      "edge": "mx-b-left: Premium dialog · 「Upgrade to Premium」 → IAP_Pro+_free user",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-12719",
+      "node": "1560-12719",
+      "edge": "mx-b-left: IAP_Pro+_free user · round/ic_chevron_left → AI Mini Drama_outline",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-12720",
+      "node": "1560-12720",
+      "edge": "mx-b-left: AI Mini Drama_outline · round/ic_circle_xmark_filled → 1560:12015 story 「Story Outline」",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-12721",
+      "node": "1560-12721",
+      "edge": "mx-b-left: IAP_Pro+_pro user · round/ic_chevron_left → AI Mini Drama_outline",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-11214",
+      "node": "1560-11214",
+      "edge": "mx-b-mid: AI Mini Drama_storyboard · 「Buy Credits」 → Credit Panel",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-11293",
+      "node": "1560-11293",
+      "edge": "mx-b-mid: AI Mini Drama_characters · 「Confirm」 → AI Mini Drama_storyboard",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-11294",
+      "node": "1560-11294",
+      "edge": "mx-b-mid: AI Mini Drama_characters · 「Ready to create」 → AI Mini Drama_storyboard",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-11295",
+      "node": "1560-11295",
+      "edge": "mx-b-mid: AI Mini Drama_storyboard · 「Buy Credits」 → Credit Panel",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-11321",
+      "node": "1560-11321",
+      "edge": "mx-b-mid: AI Mini Drama_storyboard · 「Confirm」 → AI Mini Drama_storyboard",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-11322",
+      "node": "1560-11322",
+      "edge": "mx-b-mid: AI Mini Drama_storyboard · 「Ready to create」 → AI Mini Drama_storyboard",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1560-11476",
+      "node": "1560-11476",
+      "edge": "mx-b-right: AI Mini Drama_storyboard · 「Ready to create」 → AI Mini Drama_storyboard",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v2, section Old 2); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1169-6849",
+      "node": "1169-6849",
+      "edge": "mx-c-left: AI Mini Drama · 「Make my version」 → AI Mini Drama",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v3, section Old); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1169-7067",
+      "node": "1169-7067",
+      "edge": "mx-c-left: AI Mini Drama_outline · round/ic_arrow_up → AI Mini Drama_outline",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v3, section Old); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1169-7068",
+      "node": "1169-7068",
+      "edge": "mx-c-left: AI Mini Drama_outline · 「Upgrade to Premium」 → IAP_Pro+_free user",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v3, section Old); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1169-7277",
+      "node": "1169-7277",
+      "edge": "mx-c-left: AI Mini Drama_outline · round/ic_arrow_up → AI Mini Drama_outline",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v3, section Old); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1169-7477",
+      "node": "1169-7477",
+      "edge": "mx-c-left: AI Mini Drama_outline · round/ic_arrow_up → AI Mini Drama_outline",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v3, section Old); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1169-7656",
+      "node": "1169-7656",
+      "edge": "mx-c-left: AI Mini Drama_outline · 「Upgrade to Premium」 → IAP_Pro+_pro user",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v3, section Old); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1169-6011",
+      "node": "1169-6011",
+      "edge": "mx-c-mid: AI Mini Drama · 「Make my version」 → Generating",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v3, section Old); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1169-6012",
+      "node": "1169-6012",
+      "edge": "mx-c-mid: Generating · 「Start Creating」 → AI Mini Drama",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v3, section Old); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1169-6426",
+      "node": "1169-6426",
+      "edge": "mx-c-mid: AI Mini Drama · 「Make my version」 → Generating",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v3, section Old); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1169-6427",
+      "node": "1169-6427",
+      "edge": "mx-c-mid: Generating · 「Start Creating」 → AI Mini Drama",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v3, section Old); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1169-6744",
+      "node": "1169-6744",
+      "edge": "mx-c-mid: AI Mini Drama_storyboard · 「Buy Credits」 → Credit Panel",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v3, section Old); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1169-7845",
+      "node": "1169-7845",
+      "edge": "mx-c-mid: AI Mini Drama_characters · 「Confirm」 → AI Mini Drama_storyboard",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v3, section Old); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1169-7846",
+      "node": "1169-7846",
+      "edge": "mx-c-mid: AI Mini Drama_characters · 「Ready to create」 → AI Mini Drama_storyboard",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v3, section Old); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1169-7847",
+      "node": "1169-7847",
+      "edge": "mx-c-mid: AI Mini Drama_storyboard · 「Buy Credits」 → AI Mini Drama_storyboard",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v3, section Old); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1169-7874",
+      "node": "1169-7874",
+      "edge": "mx-c-mid: AI Mini Drama_storyboard · 「Confirm」 → AI Mini Drama_storyboard",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v3, section Old); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1169-7875",
+      "node": "1169-7875",
+      "edge": "mx-c-mid: AI Mini Drama_storyboard · 「Ready to create」 → AI Mini Drama_storyboard",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v3, section Old); version A (mx-a-*) is current"
+    },
+    {
+      "arrow": "1169-8029",
+      "node": "1169-8029",
+      "edge": "mx-c-right: AI Mini Drama_storyboard · 「Ready to create」 → AI Mini Drama_storyboard",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded MX version (v3, section Old); version A (mx-a-*) is current"
     }
   ]
 }

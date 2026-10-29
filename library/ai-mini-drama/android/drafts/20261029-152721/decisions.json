@@ -1,0 +1,13 @@
+{
+  "saved_at": "2026-10-29T07:32:49.836Z",
+  "version": 6,
+  "decisions": [
+    {
+      "type": "delete",
+      "id": "TC-231",
+      "was_change": "removed"
+    }
+  ],
+  "summary": "Review: ai-mini-drama / android · draft 20261029-152721\nFinal table: 501 cases · kept 501 · edited 0 · added 0 · deleted 1\n\nDELETE TC-231",
+  "notes": []
+}

@@ -13,7 +13,9 @@
 // An input is also dismissed when the keyboard was hidden (hidekb, Done, return) in the same case after the press, or
 // one of its dismissing rows ran. A flow arrow is walked when a row of its requirement ran (proof: its source control
 // was pressed in that row).
-// --render draws the board images from the Design PDF (no Figma call) into specs/<set>/extracted/coverage/ (local only).
+// --render draws the board images from the Design, PM and MX PDFs (no Figma call) into specs/<set>/extracted/coverage/
+// (local only), each board grown to hold the screens that hang over its edge; <board>.json keeps the box drawn.
+// --render-spec pm,mx limits --render to those specs (the PM page is large: ~20 s a board).
 // --serve [port] [--lan] keeps the page up (default http://127.0.0.1:4391/), rebuilt from the files at most every 30 s
 // so new run results and taps show up; --lan binds 0.0.0.0 so other computers on the network can open it (no auth:
 // anyone on the LAN can read it). scripts/pages.ts serves it next to the review and plan pages, with links between them.
@@ -30,6 +32,7 @@ import { networkInterfaces, tmpdir } from 'node:os';
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { ROOT, arg, assertIds, draftsDir, featureDir, readManifest, readTable, tableDir } from './lib/library.ts';
+import { LINK_STEP, linkBlocks } from './lib/links.ts';
 import { arrowRequirement, matchTaps, requirementRows, tcList, type MatchGroup, type TapMatch } from './lib/coverage.ts';
 
 const [feature, platform] = process.argv.slice(2);
@@ -95,7 +98,7 @@ const rel = (p: string) => files ? `files/${encodeURI(relative(ROOT, p).split('\
 const link = process.argv.includes('--link');
 const embed = (p: string) => link || files ? rel(p) : `data:image/${p.endsWith('.png') ? 'png' : 'jpeg'};base64,${readFileSync(p).toString('base64')}`;
 
-// Board images from the Design PDF (pdf point = figma point + offset), cached; a board the PDF lacks stays blank.
+// Board images from the spec PDFs (pdf point = figma point + offset), cached; a board the PDF lacks stays blank.
 const imgDir = join(ex, 'coverage');
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 // boards the PDF lacks (figma-frames.json: in_pdf false) get their image from Figma get_screenshot when quota allows,
@@ -106,24 +109,61 @@ const figmaOnly = new Set((frames.frames ?? []).filter((fr: any) => fr.in_pdf ==
 const specOfKey = new Map(Object.entries<any>(frames.files ?? {}).map(([role, f]) => [f.fileKey, role]));
 const specOf = (key: string) => specOfKey.get(key) ?? (/\bMX\b/i.test(inv.files[key]?.pdf?.name ?? '') ? 'mx' : /\bPM\b/i.test(inv.files[key]?.pdf?.name ?? '') ? 'pm' : 'design');
 const boards: any[] = [];
+const union = (box: number[], more: number[][]) => {
+  const x0 = Math.min(box[0], ...more.map(r => r[0])), y0 = Math.min(box[1], ...more.map(r => r[1]));
+  return [x0, y0, Math.max(box[0] + box[2], ...more.map(r => r[0] + r[2])) - x0, Math.max(box[1] + box[3], ...more.map(r => r[1] + r[3])) - y0];
+};
+const regionsByPdf = existsSync(join(ex, 'boards.json')) ? JSON.parse(readFileSync(join(ex, 'boards.json'), 'utf8')) as Record<string, { id: string; title: string; region: number[] }[]> : {};
+// The PM and MX Figma reads cut a large section into tiles (board id "<node>/<tile>", e.g. pm-main-flow-11 … -34) to
+// stay in the Figma quota. The page joins them back: every tile inside one spec region (boards.json) becomes that
+// region's board, so a section shows whole, with its title and notes, instead of a slice cut through text.
+const boardOf = new Map<string, string>();
+for (const f of Object.values<any>(inv.files)) {
+  if (!f.pdf) continue;
+  const [dx, dy] = f.pdf.offset;
+  for (const r of regionsByPdf[f.pdf.name] ?? []) {
+    const [rx, ry, rw, rh] = r.region;
+    const tiles = Object.entries<any>(f.boards).filter(([name, b]) => b.id.includes('/') && !boardOf.has(name) && (() => { const [x, y, w, h] = b.box;
+      const ox = Math.max(0, Math.min(x + dx + w, rx + rw) - Math.max(x + dx, rx)), oy = Math.max(0, Math.min(y + dy + h, ry + rh) - Math.max(y + dy, ry));
+      return ox * oy >= 0.5 * w * h; })());
+    if (tiles.length < 2) continue;
+    for (const [name] of tiles) { boardOf.set(name, r.id); delete f.boards[name]; }
+    const boxes = [[rx - dx, ry - dy, rw, rh], ...tiles.map(([, b]) => b.box)];
+    f.boards[r.id] = { id: `${tiles[0][1].id.split('/')[0]}/${r.id}`, box: boxes.slice(1).reduce((u, b) => union(u, [b]), boxes[0]) };
+  }
+}
+const sectionOf = (name: string) => boardOf.get(name) ?? name;
+for (const s of inv.screens) s.board = sectionOf(s.board);
+for (const a of inv.arrows) a.board = sectionOf(a.board);
+for (const e of trace) { e.board = sectionOf(e.board); if (e.boards) e.boards = [...new Set(e.boards.map(sectionOf))]; }
+// A board is shown with every screen it holds: the PM and MX boards are tiles of a large section (id "<node>/<tile>")
+// and a screen can hang over the tile's edge, so the board box grows to hold them and the render follows it.
+const screensOf = new Map<string, number[][]>();
+for (const s of inv.screens) screensOf.set(s.board, [...screensOf.get(s.board) ?? [], s.box]);
+// the box an image was drawn for sits next to it (<board>.json), so a render never gets stretched onto another box;
+// an older render without one is taken as drawn for the board box
+const imgBoxOf = (img: string, box: number[]) => { try { return JSON.parse(readFileSync(img.replace(/\.jpg$/, '.json'), 'utf8')).box; } catch { return box; } };
+const saveImgBox = (img: string, box: number[]) => writeFileSync(img.replace(/\.jpg$/, '.json'), JSON.stringify({ box }));
+// --render: PDF crops are queued per PDF and drawn after the loops, one PDF load each (render-region.ts --jobs)
+const render = process.argv.includes('--render'), scale = Number(arg('scale') ?? 0.45), renderSpecs = arg('render-spec')?.split(',');
+const jobs = new Map<string, { out: string; img: string; region: number[]; max: number; box: number[] }[]>();
+const queue = (pdf: string, img: string, region: number[], box: number[]) => jobs.set(pdf, [...jobs.get(pdf) ?? [],
+  { out: img.replace(/\.jpg$/, '.png'), img, region, box, max: Math.min(6000, Math.round(Math.max(region[2], region[3]) * scale)) }]);
 for (const [key, f] of Object.entries<any>(inv.files)) for (const [name, b] of Object.entries<any>(f.boards)) {
-  const img = join(imgDir, `${slug(name)}.jpg`), pdfLacks = figmaOnly.has(b.id);
+  // Design boards keep their file names; PM and MX boards get the spec in front, apart from the region renders below
+  const spec = specOf(key), img = join(imgDir, `${spec === 'design' ? '' : `${spec}-board-`}${slug(name)}.jpg`), pdfLacks = figmaOnly.has(b.id);
+  const box = union(b.box, screensOf.get(name) ?? []);
   // a saved Figma screenshot (extracted/figma/<board>.png) is current; the PDF can lag the Figma file
   const shotPng = join(ex, 'figma', `${slug(name)}.png`);
-  if (process.argv.includes('--render') && existsSync(shotPng)) {
+  if (render && existsSync(shotPng)) {
     mkdirSync(imgDir, { recursive: true });
-    spawnSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '75', '-Z', String(Math.round(Math.max(...b.box.slice(2)) * Number(arg('scale') ?? 0.45))), shotPng, '--out', img], { stdio: 'ignore' });
-  } else if (process.argv.includes('--render') && f.pdf && !pdfLacks) {
-    mkdirSync(imgDir, { recursive: true });
-    const [x, y, w, h] = b.box, [dx, dy] = f.pdf.offset, scale = Number(arg('scale') ?? 0.45);
-    const png = img.replace(/\.jpg$/, '.png');
-    const r = spawnSync('node', [join(ROOT, 'scripts', 'render-region.ts'), join(specDir, f.pdf.name), png, String(x + dx), String(y + dy), String(w), String(h), '--max', String(Math.round(Math.max(w, h) * scale))], { stdio: 'inherit' });
-    if (r.status === 0) { spawnSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '72', png, '--out', img], { stdio: 'ignore' }); try { unlinkSync(png); } catch {} }
-  }
-  boards.push({ name, file: key, spec: specOf(key), id: b.id, box: b.box, img: existsSync(img) ? embed(img) : '', note: existsSync(img) ? '' : pdfLacks ? `Figma-only board: save a Figma get_screenshot of node ${b.id} as ${relative(ROOT, img)}` : '' });
+    spawnSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '75', '-Z', String(Math.round(Math.max(...b.box.slice(2)) * scale)), shotPng, '--out', img], { stdio: 'ignore' });
+    saveImgBox(img, b.box);
+  } else if (render && f.pdf && !pdfLacks && (!renderSpecs || renderSpecs.includes(spec))) queue(join(specDir, f.pdf.name), img, [box[0] + f.pdf.offset[0], box[1] + f.pdf.offset[1], box[2], box[3]], box);
+  boards.push({ name, file: key, spec, id: b.id, box, imgPath: img,
+    note: pdfLacks ? `Figma-only board: save a Figma get_screenshot of node ${b.id} as ${relative(ROOT, img)}` : 'No render yet: run with --render' });
 }
 // Spec regions no Figma board lies in (the PM and MX PDFs): boards of their own in PDF points, image only.
-const regionsByPdf = existsSync(join(ex, 'boards.json')) ? JSON.parse(readFileSync(join(ex, 'boards.json'), 'utf8')) as Record<string, { id: string; title: string; region: number[] }[]> : {};
 const specOfPdf = (pdf: string) => /\bMX\b/i.test(pdf) ? 'mx' : /\bPM\b/i.test(pdf) ? 'pm' : 'design';
 const SPEC_NAME: Record<string, string> = { design: 'Design', pm: 'PM', mx: 'MX' };
 const regionOf = new Map<string, { id: string; title: string; spec: string; boards: string[] }>();
@@ -131,24 +171,34 @@ for (const [pdf, list] of Object.entries(regionsByPdf)) {
   const f = Object.values<any>(inv.files).find(f => f.pdf?.name === pdf);
   for (const r of list) {
     const [rx, ry, rw, rh] = r.region;
-    // the Figma boards inside the region (pdf point = figma point + offset)
+    // the Figma boards inside the region (pdf point = figma point + offset), or holding most of it (an MX board is
+    // taller than the region drawn around its screens)
     const inside = !f ? [] : Object.entries<any>(f.boards).filter(([, b]) => { const [x, y, w, h] = b.box, X = x + f.pdf.offset[0], Y = y + f.pdf.offset[1];
       const ox = Math.max(0, Math.min(X + w, rx + rw) - Math.max(X, rx)), oy = Math.max(0, Math.min(Y + h, ry + rh) - Math.max(Y, ry));
-      return ox * oy >= 0.5 * w * h; }).map(([name]) => name);
+      return ox * oy >= 0.5 * Math.min(w * h, rw * rh); }).map(([name]) => name);
     const spec = specOfPdf(pdf);
     if (!inside.length) {
-      const name = `${SPEC_NAME[spec]} · ${r.title}`, img = join(imgDir, `${r.id}.jpg`);
-      if (process.argv.includes('--render') && existsSync(join(specDir, pdf))) {
-        mkdirSync(imgDir, { recursive: true });
-        const png = img.replace(/\.jpg$/, '.png');
-        const rr = spawnSync('node', [join(ROOT, 'scripts', 'render-region.ts'), join(specDir, pdf), png, ...r.region.map(String), '--max', String(Math.min(3000, Math.round(Math.max(rw, rh) * Number(arg('scale') ?? 0.45))))], { stdio: 'inherit' });
-        if (rr.status === 0) { spawnSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '72', png, '--out', img], { stdio: 'ignore' }); try { unlinkSync(png); } catch {} }
-      }
-      boards.push({ name, file: '', spec, id: r.id, region: r.id, box: r.region, img: existsSync(img) ? embed(img) : '', note: existsSync(img) ? '' : `No render yet: run with --render (draws ${r.id} from ${pdf})` });
+      // region- in front: a PM or MX Figma board can carry the same name as a region
+      const name = `${SPEC_NAME[spec]} · ${r.title}`, img = join(imgDir, `region-${r.id}.jpg`);
+      if (render && existsSync(join(specDir, pdf)) && (!renderSpecs || renderSpecs.includes(spec))) queue(join(specDir, pdf), img, r.region, r.region);
+      boards.push({ name, file: '', spec, id: r.id, region: r.id, box: r.region, imgPath: img, note: `No render yet: run with --render (draws ${r.id} from ${pdf})` });
       inside.push(name);
     }
     regionOf.set(r.id, { id: r.id, title: r.title, spec, boards: inside });
   }
+}
+for (const [pdf, list] of jobs) {
+  mkdirSync(imgDir, { recursive: true });
+  const jobsFile = join(tmpdir(), `coverage-jobs-${process.pid}.json`);
+  writeFileSync(jobsFile, JSON.stringify(list.map(({ out, region, max }) => ({ out, region, max }))));
+  spawnSync('node', [join(ROOT, 'scripts', 'render-region.ts'), pdf, '--jobs', jobsFile], { stdio: 'inherit' });
+  unlinkSync(jobsFile);
+  for (const j of list) if (existsSync(j.out)) { spawnSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '72', j.out, '--out', j.img], { stdio: 'ignore' }); unlinkSync(j.out); saveImgBox(j.img, j.box); }
+}
+for (const b of boards) {
+  const has = existsSync(b.imgPath);
+  Object.assign(b, { img: has ? embed(b.imgPath) : '', img_box: has ? imgBoxOf(b.imgPath, b.box) : null, note: has ? '' : b.note });
+  delete b.imgPath;
 }
 
 // Latest result per case and the tap log of each run.
@@ -178,6 +228,8 @@ for (const run of runNames) {
     } catch {}
   }
 }
+// a draft's new and modified rows are re-run in the next round: their earlier results describe the old row
+if (draftId) for (const r of rows) if (r.Change === 'modified' || r.Change === 'new') result.delete(r.ID);
 const ran = (id: string) => ['Pass', 'Fail', 'Inconclusive'].includes(result.get(id)?.result ?? '');
 
 // Control groups: status from the pressing rows, proof from the taps (scored match, lib/coverage.ts).
@@ -222,10 +274,39 @@ const groupOfCtl = new Map(groups.flatMap(g => trace.find(e => e.group === g.gro
 const arrows = inv.arrows.filter((a: any) => !a.duplicate_of && a.kind !== 'pointer').map((a: any) => {
   const rid = arrowRequirement(req, a.id), rs = rid ? reqRows(rid) : [];
   const src: any = a.src ? groupOfCtl.get(a.src) : null;
-  const status = !rid ? 'none' : (assigned.get(src?.group) ?? []).some(h => rs.includes(h.tap.case)) ? 'proof' : rs.some(ran) ? 'ran'
+  // an arrow arrows.json marks not_flow (a superseded version's arrow, an annotation pointer) is drawn as excluded
+  const na = (edgeOf.get(a.id) as any)?.not_flow;
+  const status = na && !rid ? 'na' : !rid ? 'none' : (assigned.get(src?.group) ?? []).some(h => rs.includes(h.tap.case)) ? 'proof' : rs.some(ran) ? 'ran'
     : rs.some(id => result.get(id)?.result === 'Blocked') ? 'blocked' : 'notrun';
   return { id: a.id, board: a.board, points: a.points, kind: a.kind, req: rid ?? '', rows: rs, status, fail: rs.some(id => result.get(id)?.result === 'Fail'),
-    edge: (edgeOf.get(a.id) as any)?.edge ?? a.name, src: src?.group ?? '' };
+    edge: (edgeOf.get(a.id) as any)?.edge ?? a.name, src: src?.group ?? '', na: na ?? '' };
+});
+
+// Spec notes (user, 2026-10-29): every annotation block of the draft's annotation-trace.json is marked on its board,
+// so no board is left blank. A block traced to requirements takes the state of their rows; label / ui / older / Q-n
+// blocks are excluded with their reason; an untraced block is missing. Block positions are PDF points of its board's
+// PDF (boards.json), placed on the Figma board holding them (pdf point = figma point + offset) or on the region board.
+const tracePathA = join(draftId ? src : join(draftsDir(feature, platform), manifest.draft ?? ''), 'annotation-trace.json');
+const blocks: any[] = existsSync(tracePathA) ? JSON.parse(readFileSync(tracePathA, 'utf8')).blocks : [];
+// a linked table's items (extracted/links.json) the draft has not traced yet are shown missing, never left off
+// and every linked item carries its short label and place in the list (link_i), which the page draws as a table
+const linkInfo = new Map(linkBlocks(ex).map(lb => [lb.id, lb]));
+for (const lb of linkInfo.values()) if (!blocks.some(b => b.id === lb.id)) blocks.push(lb);
+const pdfOfRegion = new Map(Object.entries(regionsByPdf).flatMap(([pdf, list]) => list.map(r => [r.id, pdf] as [string, string])));
+const notes = blocks.flatMap(bk => {
+  const pdf = pdfOfRegion.get(bk.board), key = Object.keys(inv.files).find(k => inv.files[k].pdf?.name === pdf);
+  const off = key ? inv.files[key].pdf.offset : [0, 0], fx = bk.x - off[0], fy = bk.y - off[1];
+  const at = (b: any, x: number, y: number) => x >= b.box[0] && x <= b.box[0] + b.box[2] && y >= b.box[1] && y <= b.box[1] + b.box[3];
+  const b = boards.find(b => b.file === key && at(b, fx, fy)) ?? boards.find(b => b.region === bk.board);
+  if (!b) return [];
+  const [x, y] = b.region ? [bk.x, bk.y] : [fx, fy];
+  const reqIds: string[] = /^R-/.test(bk.trace) ? bk.trace.match(/R-\d+/g) : [];
+  // a linked-table variant names its own row ("R-463 (TC-231)"); other blocks take every row of their requirements
+  const own = /^R-/.test(bk.trace) ? bk.trace.match(/\bTC-\d+\b/g) ?? [] : [];
+  const rs = own.length ? [...new Set<string>(own)] : [...new Set(reqIds.flatMap(rid => reqRows(rid)))];
+  const status = !bk.trace ? 'none' : !reqIds.length ? 'na' : rs.some(ran) ? 'ran' : rs.some(id => result.get(id)?.result === 'Blocked') ? 'blocked' : rs.length ? 'notrun' : 'none';
+  return [{ id: bk.id, board: b.name, x, y, text: bk.text, trace: bk.trace, link: bk.link ?? '',
+    ...(linkInfo.has(bk.id) ? (({ label, link_i, link_label }) => ({ label, link_i, link_label, link_at: [x, y - LINK_STEP * (link_i + 1)] }))(linkInfo.get(bk.id)!) : {}), reqs: reqIds, rows: rs, status, fail: rs.some(id => result.get(id)?.result === 'Fail') }];
 });
 
 // why a row is Blocked, in one line the page can group by (the run's Actual text names the cause)
@@ -284,10 +365,10 @@ const data = {
   feature, platform, draft: draftId ?? null, title: manifest.title ?? feature, version: draftId ? `${manifest.version} + draft ${draftId}` : manifest.version, spec_folder: specFolder, built_at: new Date().toISOString(),
   runs: runNames, taps: taps.length, unmatched: unmatchedView, figma: Object.fromEntries(Object.entries<any>(inv.files).map(([k, f]) => [k, `https://www.figma.com/design/${k}/?node-id=`])),
   boards, screens: inv.screens.map((s: any) => ({ id: s.id, board: s.board, box: s.box, name: s.name, panel: !!s.panel, other: s.platform !== platform && s.platform !== 'any' })),
-  groups, arrows, rows: rowInfo, reqs,
+  groups, arrows, notes, rows: rowInfo, reqs,
 };
 const tpl = readFileSync(join(import.meta.dirname, 'coverage-page.tpl'), 'utf8');
 writeFileSync(out, tpl.replaceAll('__TITLE__', `${data.title} Coverage`).replace('__DATA__', () => JSON.stringify(data).replace(/</g, '\\u003c')));
 const count = (xs: any[]) => xs.reduce((m, x) => (m[x.status] = (m[x.status] ?? 0) + 1, m), {} as Record<string, number>);
 console.log(JSON.stringify({ out, kb: Math.round(statSync(out).size / 1024), runs: runNames.length, taps: taps.length, images: boards.filter(b => b.img).length + '/' + boards.length,
-  controls: count(groups), arrows: count(arrows) }, null, 1));
+  controls: count(groups), arrows: count(arrows), notes: `${notes.length}/${blocks.length}`, notes_by: count(notes) }, null, 1));

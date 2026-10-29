@@ -1,7 +1,7 @@
 // Figma inventory of one board group (REQ-038): phone screens, tappable controls and flow arrows, read in ONE use_figma
 // call per group so a large file costs a handful of Figma MCP calls, not one per element (Figma MCP has a daily quota).
 // Run by the agent: read this file, replace the two placeholders, pass it as `code` to use_figma (read-only), and save
-// the returned JSON as specs/<set>/extracted/figma-inventory/<group>.json; then run scripts/inventory.ts.
+// the returned JSON as specs/<set>/extracted/figma-inventory-<group>.json; then run scripts/inventory.ts.
 //   __PAGE__    the page id, e.g. '116:7873' (Design), '2016:2' (PM), '989:8' (MX)
 //   __BOARDS__  JSON array of board (top-level frame) ids in the page's section, e.g. ['2778:127318','2566:113114'];
 //               [] lists the boards only (ids, names, boxes, a rough size) so the groups can be chosen.
@@ -22,6 +22,10 @@
 //   arrows:  [[id, name, [x,y,…], from, src, to, toNode, toName]]  vector points (absolute, tail first, head last);
 //            from/to = screen index or -1, src = control under the tail or -1, toNode/toName = the smallest node under
 //            the head when it is not a screen (popover, card)
+//   entries, hash, hashed_at: the __BOARDS__ given, one fingerprint per board id and when it was taken (figma-check.ts)
+// Check mode (scripts/figma-check.ts writes the call): __BOARDS__ = { hash: [entries] } returns only
+//   { mode: 'hash', hashed_at, boards: [[id, hash | null]], others: [[id, name]] }: the fingerprint of every board
+//   (null = gone) and the boards on the page that no entry covers, so a whole file is checked in one small call.
 const PAGE = __PAGE__, BOARDS = __BOARDS__;
 const page = await figma.getNodeByIdAsync(PAGE);
 await figma.setCurrentPageAsync(page);
@@ -35,7 +39,7 @@ const sec = first ? (typeof BOARDS[0] === 'object' && BOARDS[0].box ? first : fi
 const secBox = n => box(n) || (() => { const bs = n.children.filter(c => c.visible !== false && c.absoluteBoundingBox).map(c => c.absoluteBoundingBox);
   const x0 = Math.min(...bs.map(b => b.x)), y0 = Math.min(...bs.map(b => b.y));
   return [R(x0), R(y0), R(Math.max(...bs.map(b => b.x + b.width)) - x0), R(Math.max(...bs.map(b => b.y + b.height)) - y0)]; })();
-if (!BOARDS.length) {
+if (Array.isArray(BOARDS) && !BOARDS.length) {
   return { section: [sec.id, sec.name, ...secBox(sec)], boards: sec.children.filter(b => 'children' in b).map(b => [b.id, b.name.trim(), ...box(b), b.findAllWithCriteria({ types: ['INSTANCE'] }).length]) };
 }
 const SKIP = /^(Key|Keys|Keyboard|HomeIndicator|Home Indicator|iPhone X|Time|Status ?Bar|Background|bg)\b/i;
@@ -54,14 +58,15 @@ const shown = n => {
     if ('effects' in q && q.effects.some(e => e.visible !== false && e.type === 'LAYER_BLUR' && e.radius >= 4)) return 0;
     if (q !== n && q.clipsContent) cut(q.absoluteBoundingBox);
     const p = q.parent;
-    if (p && 'children' in p) { const i = p.children.indexOf(q); for (let k = 0; k < i; k++) if (p.children[k].isMask && p.children[k].visible !== false) cut(p.children[k].absoluteBoundingBox); }
+    if (p && 'children' in p) { const i = p.children.indexOf(q); for (let k = 0; k < i; k++) if ('isMask' in p.children[k] && p.children[k].isMask && p.children[k].visible !== false) cut(p.children[k].absoluteBoundingBox); }
   }
   return Math.max(0, x1 - x0) * Math.max(0, y1 - y0) / (b.width * b.height);
 };
 // buttons drawn as plain frames rather than component instances
 const TAPFRAME = /^(button|btn|cta|chip|tab|toggle|link|close|back)\b|button$/i;
 const inside = (b, x, y, pad) => b && x >= b.x - pad && x <= b.x + b.width + pad && y >= b.y - pad && y <= b.y + b.height + pad;
-const out = { section: [sec.id, sec.name, ...secBox(sec)], boards: [], names: [], screens: [], controls: [], arrows: [], hidden: { screens: 0, controls: 0 } };
+const out = { section: [sec.id, sec.name, ...secBox(sec)], boards: [], names: [], screens: [], controls: [], arrows: [], hidden: { screens: 0, controls: 0 },
+  entries: BOARDS, hash: {}, hashed_at: new Date().toISOString() };
 const nameIdx = new Map(), ctlIdx = new Map(), inst = [];
 const nameOf = s => { if (!nameIdx.has(s)) { nameIdx.set(s, out.names.length); out.names.push(s); } return nameIdx.get(s); };
 const boardNodes = [];
@@ -76,9 +81,48 @@ const region = async e => {
     findAll: f => nodes.flatMap(n => all(n, f)),
     findAllWithCriteria: o => nodes.flatMap(n => [...(o.types.includes(n.type) ? [n] : []), ...('findAllWithCriteria' in n ? n.findAllWithCriteria(o) : [])]) };
 };
+const boardOf = async e => typeof e === 'object' && e.box ? await region(e) : await figma.getNodeByIdAsync(idOf(e));
+// a board's fingerprint: FNV-1a over everything it draws (type, name, box relative to the board, text, fills, opacity);
+// group and check mode share it, so a board re-read after a check carries the hash the check saw
+const fingerprint = b => {
+  const o = b.absoluteBoundingBox; let h = 0x811c9dc5;
+  const feed = s => { for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; } };
+  const paint = n => 'fills' in n && Array.isArray(n.fills) ? n.fills.filter(f => f.visible !== false).map(f =>
+    f.type === 'SOLID' ? `${R(f.color.r * 255)},${R(f.color.g * 255)},${R(f.color.b * 255)},${f.opacity ?? 1}` : f.type === 'IMAGE' ? f.imageHash : f.type).join(';') : '';
+  const walk = n => {
+    if (n.visible === false) return;
+    const a = n.absoluteBoundingBox;
+    feed(`${n.type}|${n.name}|${a ? [R(a.x - o.x), R(a.y - o.y), R(a.width), R(a.height)] : ''}|${n.type === 'TEXT' ? n.characters : ''}|${paint(n)}|${'opacity' in n ? n.opacity : 1}\n`);
+    if ('children' in n) for (const c of n.children) walk(c);
+  };
+  for (const c of b.children) walk(c);
+  return h.toString(16).padStart(8, '0');
+};
+if (BOARDS.hash) {
+  const res = { mode: 'hash', hashed_at: new Date().toISOString(), boards: [], others: [] }, boxes = [], parents = new Set();
+  for (const e of BOARDS.hash) {
+    const id = typeof e === 'object' && e.box ? `${[e.parent].flat()[0]}/${e.name}` : idOf(e);
+    const b = await boardOf(e);
+    res.boards.push([id, b ? fingerprint(b) : null]);
+    if (b) { boxes.push(b.absoluteBoundingBox); if (b.type !== 'REGION') parents.add(b.parent.id); }
+    if (typeof e === 'object' && e.box) for (const p of [e.parent].flat()) parents.add(p);
+  }
+  // boards no entry covers: board-sized children of the page, its sections and the regions' parents
+  const listed = new Set(res.boards.map(([id]) => id)), seen = new Set();
+  const holders = [page, ...page.children.filter(n => n.type === 'SECTION')];
+  for (const p of parents) { const n = await figma.getNodeByIdAsync(p); if (n && 'children' in n) holders.push(n); }
+  for (const p of holders) for (const n of p.children) {
+    const b = n.absoluteBoundingBox;
+    if (seen.has(n.id) || listed.has(n.id) || parents.has(n.id) || n.visible === false || !b || b.width < 300 || b.height < 300) continue;
+    seen.add(n.id);
+    const cx = b.x + b.width / 2, cy = b.y + b.height / 2;
+    if (!boxes.some(x => inside(x, cx, cy, 0)) && res.others.length < 400) res.others.push([n.id, n.name.trim().slice(0, 40)]);
+  }
+  return res;
+}
 for (const e of BOARDS) {
-  const b = typeof e === 'object' && e.box ? await region(e) : await figma.getNodeByIdAsync(idOf(e));
-  if (b) { boardNodes.push(b); out.boards.push([b.id, (typeof e === 'object' && e.name) || b.name.trim(), ...box(b)]); }
+  const b = await boardOf(e);
+  if (b) { boardNodes.push(b); out.boards.push([b.id, (typeof e === 'object' && e.name) || b.name.trim(), ...box(b)]); out.hash[b.id] = fingerprint(b); }
 }
 const isHead = c => c === 'ARROW_LINES' || c === 'ARROW_EQUILATERAL' || c === 'TRIANGLE_FILLED';
 const abs = (v, p) => { const t = v.absoluteTransform; return [R(t[0][0] * p.x + t[0][1] * p.y + t[0][2]), R(t[1][0] * p.x + t[1][1] * p.y + t[1][2])]; };

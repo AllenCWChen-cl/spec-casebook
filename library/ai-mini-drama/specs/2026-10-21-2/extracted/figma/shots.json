@@ -1,0 +1,26 @@
+{
+  "1016-chat-navigation.png": {
+    "board": "4858:34930",
+    "group": "d3",
+    "hash": "c9c829e4",
+    "captured_at": "2026-10-29T07:34:49.225Z"
+  },
+  "mx.png": {
+    "board": "2820:125545",
+    "group": "d3",
+    "hash": "0728f9b4",
+    "captured_at": "2026-10-29T07:34:50.056Z"
+  },
+  "pm-1022-export.png": {
+    "board": "4418:2",
+    "group": "q1",
+    "hash": "178e9a9f",
+    "captured_at": "2026-10-29T07:34:50.302Z"
+  },
+  "pm-1022-leave.png": {
+    "board": "4422:2",
+    "group": "q3",
+    "hash": "7b09fb3b",
+    "captured_at": "2026-10-29T07:34:50.664Z"
+  }
+}

@@ -35,6 +35,12 @@ library/*/specs/*/extracted/*
 !library/*/specs/*/extracted/*.json
 !library/*/specs/*/extracted/boards/
 library/*/specs/*/extracted/boards/*/
+# Board screenshots from Figma get_screenshot (boards newer than the PDF) are shared so no one spends Figma quota on
+# them again (user, 2026-10-29): one file per board, overwritten when re-captured; figma-check.ts --prune deletes the rest
+!library/*/specs/*/extracted/figma/
+library/*/specs/*/extracted/figma/*
+!library/*/specs/*/extracted/figma/*.png
+!library/*/specs/*/extracted/figma/shots.json
 library/*/*/drafts/*/server.log
 
 # Run screenshot folders stay local, including the on-screen text dumps saved next to each screenshot

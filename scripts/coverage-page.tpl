@@ -208,6 +208,7 @@ const I18N = {
     outside: 'outside its rows', closeTo: 'close to', groupId: 'Group id', pillFailed: 'row failed', pillNoRow: 'pressed, but no row names it',
     arrow: 'Arrow', arrowKind: k => k === 'auto' ? 'automatic transition' : 'tap', requirement: 'Requirement', noneYetReq: 'none yet', srcControl: 'Source control →',
     rows: 'Rows', noArrowRows: 'No requirement or row walks this arrow yet.', plannedRes: 'Planned, not run yet',
+    notes: 'Notes', cNotes: 'Spec notes checked', noteTitle: 'Spec note', trace: 'Traced to', noteRows: 'Rows of its requirements', noNoteRows: 'No row checks this note yet.', untraced: 'not traced yet', selNote: 'selected note', notesNote: 'every annotation block on the boards; excluded = a heading, UI copy or an older version',
     kinds: { button: 'button', item: 'list item', input: 'text input', toggle: 'toggle', tab: 'tab', arrow: 'flow arrow' },
     gapsTitle: 'Not pressed on the device yet',
     gapsIntro: 'Each item here has its rows in the table. <b>Planned, not run yet</b>: no device run has used those rows (new rows run in the next round). <b>Blocked on device</b>: the rows ran but could not reach the control; the reason comes from the run. <b>No row (missing)</b> would be a real gap: a control or arrow no row covers. Click a reason to filter, a row to see it on the board.',
@@ -259,6 +260,7 @@ const I18N = {
     outside: '不在其案例內', closeTo: '接近', groupId: '群組 id', pillFailed: '案例失敗', pillNoRow: '已按，但沒有案例列出它',
     arrow: '箭頭', arrowKind: k => k === 'auto' ? '自動轉場' : '點擊', requirement: '需求', noneYetReq: '尚無', srcControl: '起點控制項 →',
     rows: '案例', noArrowRows: '尚無需求或案例走過此箭頭。', plannedRes: '已規劃，尚未執行',
+    notes: '註記', cNotes: '已檢查的規格註記', noteTitle: '規格註記', trace: '對應', noteRows: '其需求的案例', noNoteRows: '尚無案例檢查此註記。', untraced: '尚未追蹤', selNote: '已選註記', notesNote: '畫板上的每個註解區塊；排除＝標題、介面文字或舊版',
     kinds: { button: '按鈕', item: '清單項目', input: '文字輸入框', toggle: '開關', tab: '分頁', arrow: '流程箭頭' },
     gapsTitle: '尚未在裝置上按過',
     gapsIntro: '這裡每一項在表格中都有案例。<b>已規劃，尚未執行</b>：還沒有裝置執行用過這些案例（新案例在下一輪執行）。<b>裝置上受阻</b>：案例已執行但無法到達該控制項，原因取自執行紀錄。<b>無案例（缺漏）</b>才是真正的缺口：沒有任何案例涵蓋的控制項或箭頭。點選原因可篩選，點選一列可在畫板上查看。',
@@ -334,7 +336,7 @@ const split = c => ['proof', 'ran', 'blocked', 'notrun', 'none'].filter(s => c[s
 function strip() {
   const req = D.groups.filter(g => g.status !== 'na'), c = cnt(req, g => g.status);
   const inputs = D.groups.filter(g => g.kind === 'input' && g.status !== 'na'), dis = inputs.filter(g => g.dismissed).length;
-  const a = cnt(D.arrows, x => x.status), order = ['proof', 'ran', 'blocked', 'notrun', 'none'];
+  const arr = D.arrows.filter(x => x.status !== 'na'), a = cnt(arr, x => x.status), order = ['proof', 'ran', 'blocked', 'notrun', 'none'];
   const left = (c.blocked || 0) + (c.notrun || 0) + (a.blocked || 0) + (a.notrun || 0), missing = (c.none || 0) + (a.none || 0);
   $('verdict').innerHTML = missing ? t('verdictMissing')(missing, c.none || 0, a.none || 0)
     : t('verdictOk') + (left ? t('verdictLeft')((c.notrun || 0) + (a.notrun || 0), (c.blocked || 0) + (a.blocked || 0)) : '');
@@ -342,7 +344,9 @@ function strip() {
   $('strip').innerHTML =
     stat(t('cControls'), (c.proof || 0) + (c.ran || 0), req.length, order.map(s => [s, c[s] || 0]),
       [...split(c), ...(c.none ? [] : [`${dot('none')} ${t('missing0')}`]), `${dot('na')} ${t('excluded')(D.groups.length - req.length)}`, `<span class="muted">${t('copies')(D.groups.reduce((n, g) => n + g.instances, 0))}</span>`]) +
-    stat(t('cArrows'), (a.proof || 0) + (a.ran || 0), D.arrows.length, order.map(s => [s, a[s] || 0]), [...split(a), ...(a.none ? [] : [`${dot('none')} ${t('missing0')}`])]) +
+    stat(t('cArrows'), (a.proof || 0) + (a.ran || 0), arr.length, order.map(s => [s, a[s] || 0]), [...split(a), ...(a.none ? [] : [`${dot('none')} ${t('missing0')}`]), ...(arr.length < D.arrows.length ? [`${dot('na')} ${t('excluded')(D.arrows.length - arr.length)}`] : [])]) +
+    (() => { const nr = D.notes.filter(n => n.status !== 'na'), cn = cnt(nr, n => n.status);
+      return stat(t('cNotes'), cn.ran || 0, nr.length, order.map(s => [s, cn[s] || 0]), [...split(cn), `${dot('na')} ${t('excluded')(D.notes.length - nr.length)}`, `<span class="muted">${t('notesNote')}</span>`]); })() +
     stat(t('cInputs'), dis, inputs.length, [['ran', dis]], [D.taps ? t('inputsByTap') : t('inputsByRow')]) +
     (D.taps ? stat(t('cTaps'), D.taps - D.unmatched.length, D.taps, [['proof', D.taps - D.unmatched.length], ['none', D.unmatched.length]], [t('tapsNote')(D.unmatched.length, D.groups.reduce((n, g) => n + g.proof.filter(p => p.ambiguous).length, 0))])
       : `<div class="stat"><div class="k">${t('cTaps')}</div><div class="v muted">—</div><ul class="d"><li>${t('tapsNone')}</li></ul></div>`) +
@@ -378,15 +382,17 @@ function boardsNav() {
     // a control shared by several boards counts on each of them here (the totals above count it once)
     const all = D.groups.filter(g => (g.boards || [g.board]).includes(b.name)), gs = all.filter(g => g.status !== 'na');
     const done = gs.filter(g => g.status === 'proof' || g.status === 'ran').length;
-    const as = D.arrows.filter(a => a.board === b.name), aw = as.filter(a => a.status === 'proof' || a.status === 'ran').length;
+    const asAll = D.arrows.filter(a => a.board === b.name), as = asAll.filter(a => a.status !== 'na'), aw = as.filter(a => a.status === 'proof' || a.status === 'ran').length;
     const here = caseIt ? caseOnBoard(b) : 0, src = caseIt?.boards.includes(b.name);
     const badge = here ? `<span class="cb" title="${esc(t('caseOnBoard'))}">${here} · ${esc(t('caseOnBoard'))}</span>` : src ? `<span class="cb src" title="${esc(t('caseSrc'))}">${t('caseSrcOnly')}</span>` : '';
     // the case badge sits on its own line, so it never squeezes the board name
     const head = `<span class="n"><span>${esc(b.name)}</span><span class="spec">${t('specs')[specOf(b)]}</span></span>${badge ? `<span>${badge}</span>` : ''}`;
-    if (b.region) return `<button data-i="${i}" aria-current="${board === b}">${head}<span class="c">${t('regionOnly')}</span></button>`;
+    const ns = D.notes.filter(n => n.board === b.name), nd = ns.filter(n => n.status === 'ran' || n.status === 'proof').length, nk = ns.filter(n => n.status !== 'na').length;
+    const noteRow = `<span class="brow"><span class="c">${t('notes')} ${ns.length ? `${nd}/${nk}` : '—'}</span>${ns.length ? `<span class="bar" style="margin:0">${segs(ns, ns.length)}</span>` : ''}</span>`;
+    if (b.region) return `<button data-i="${i}" aria-current="${board === b}">${head}<span class="c">${t('regionOnly')}</span>${noteRow}</button>`;
     return `<button data-i="${i}" aria-current="${board === b}">${head}
       <span class="brow"><span class="c">${t('controls')} ${done}/${gs.length}</span><span class="bar" style="margin:0">${all.length ? segs(all, all.length) : ''}</span></span>
-      <span class="brow"><span class="c">${t('arrows')} ${as.length ? `${aw}/${as.length}` : '—'}</span>${as.length ? `<span class="bar" style="margin:0">${segs(as, as.length)}</span>` : `<span class="c none">${t('noArrows')}</span>`}</span></button>`;
+      <span class="brow"><span class="c">${t('arrows')} ${asAll.length ? `${aw}/${as.length}` : '—'}</span>${asAll.length ? `<span class="bar" style="margin:0">${segs(asAll, asAll.length)}</span>` : `<span class="c none">${t('noArrows')}</span>`}</span>${noteRow}</button>`;
   })()).join('');
   for (const el of document.querySelectorAll('#boards button')) el.onclick = () => openBoard(D.boards[+el.dataset.i]);
 }
@@ -400,8 +406,11 @@ function draw() {
   svg.setAttribute('viewBox', vb.join(' '));
   const [bx, by, bw, bh] = board.box;
   const k = vb[2] / svg.clientWidth; // canvas units per screen pixel, so strokes stay readable at any zoom
-  let s = `<defs><marker id="m-hl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="var(--hl)"/></marker>${['proof', 'ran', 'blocked', 'notrun', 'none'].map(st => `<marker id="m-${st}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="${COLOR(st)}"/></marker>`).join('')}</defs>`;
-  s += board.img ? `<image href="${esc(board.img)}" x="${bx}" y="${by}" width="${bw}" height="${bh}" preserveAspectRatio="none"/>` : `<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" fill="#2b3537"/>`;
+  let s = `<defs><marker id="m-hl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="var(--hl)"/></marker>${['proof', 'ran', 'blocked', 'notrun', 'none', 'na'].map(st => `<marker id="m-${st}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="${COLOR(st)}"/></marker>`).join('')}</defs>`;
+  // the image sits on the box it was rendered for (img_box), which can be smaller than a board grown to hold its screens
+  const [ix, iy, iw, ih] = board.img_box || board.box;
+  s += `<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" fill="#2b3537"/>`
+    + (board.img ? `<image id="bgimg" href="${esc(board.img)}" x="${ix}" y="${iy}" width="${iw}" height="${ih}" preserveAspectRatio="none"/>` : '');
   for (const sc of D.screens.filter(sc => sc.board === board.name)) {
     s += `<rect x="${sc.box[0]}" y="${sc.box[1]}" width="${sc.box[2]}" height="${sc.box[3]}" fill="${sc.other ? '#000a' : 'none'}" stroke="#fff3" stroke-width="${k}"><title>${esc(sc.name)}${sc.other ? ` (${t('otherPlatform')})` : ''}</title></rect>`;
   }
@@ -414,7 +423,7 @@ function draw() {
     return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${2 * k}" fill="${fill}" fill-opacity="${g.status === 'proof' ? 0.3 : 0.18}" stroke="${COLOR(g.status)}" stroke-width="${(on ? 4 : 1.6) * k}" ${g.status === 'none' ? `stroke-dasharray="${4 * k} ${3 * k}"` : g.status === 'na' ? `stroke-dasharray="${1.5 * k} ${2.5 * k}" stroke-opacity="0.8"` : ''}/>`
       + (g.fail ? `<circle cx="${x + w}" cy="${y}" r="${4 * k}" fill="var(--fail)"/>` : '');
   };
-  const line = (a, pts, on) => `<polyline points="${pts}" fill="none" stroke="${COLOR(a.status)}" stroke-width="${(on ? 5 : 3) * k}" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-${a.status})" ${a.status === 'none' ? `stroke-dasharray="${6 * k} ${4 * k}"` : ''}/>`;
+  const line = (a, pts, on) => `<polyline points="${pts}" fill="none" stroke="${COLOR(a.status)}" stroke-width="${(on ? 5 : 3) * k}" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#m-${a.status})" ${a.status === 'none' ? `stroke-dasharray="${6 * k} ${4 * k}"` : a.status === 'na' ? `stroke-dasharray="${1.5 * k} ${3 * k}" stroke-opacity="0.8"` : ''}/>`;
   // case view: the case's screens, controls and arrows get a highlighter mark under them; everything else is dimmed
   const inCaseG = new Set(caseIt?.groups.map(g => g.group) ?? []), inCaseA = new Set(caseIt?.arrows.map(a => a.id) ?? []);
   const dim = x => caseIt && !x ? ' opacity="0.28"' : '';
@@ -444,7 +453,47 @@ function draw() {
     s += `<g${dim(inCaseA.has(a.id))}>${line(a, p.join(' '), false)}</g>`;
     if (on) top += halo(p.join(' '), k, true) + line(a, p.join(' '), true);
   }
+  // spec notes: a tag at the block's first line, in its state colour (excluded ones dotted)
+  // a linked table's items (links.json) are drawn as the table they point to: one labelled line each under the link
+  // line, in screen-sized rows so they stay readable and apart at any zoom (their canvas spots are 60 units apart)
+  // (the board keeps its aspect, so a tall board is fitted by height: q is the true canvas units per screen pixel)
+  // rows start a little under the link line (50 canvas units at least) so they never cover its drawn text
+  const q = Math.max(k, vb[3] / svg.clientHeight), RH = 22 * q, FS = 12 * q, lks = [], top0 = y => y + Math.max(RH, 50);
+  // the heading (what the link opens) breaks at each 「›」 so it stays as narrow as the rows
+  const heads = n => n.link_label.split(/ (?=› )/);
+  for (const n of D.notes) if (n.board === board.name && n.link_at && n.link_i === 0) heads(n).forEach((h, i) =>
+    s += `<text class="lk" x="${n.link_at[0]}" y="${top0(n.link_at[1]) + RH * i + 4 * q}" font-size="${FS}" fill="#cfd8da" font-style="italic" pointer-events="none">${esc(h)}</text>`);
+  for (const n of D.notes) {
+    if (n.board !== board.name || !show.has(n.status)) continue;
+    const at = n.link_at ? [n.link_at[0] + 10 * q, top0(n.link_at[1]) + RH * (n.link_i + heads(n).length)] : [n.x, n.y];
+    const u = n.link_at ? q : k, r = [at[0] - 10 * u, at[1] - 10 * u, 20 * u, 20 * u], on = sel && sel.note === n.id;
+    if (n.link_at) {
+      // the label sits on a dark band in the line's state colour, and the band is part of the note's hit box
+      const w = (n.label.length * 6.8 + 16) * q, band = [r[0], r[1] - 1 * q, r[2] + 6 * q + w, r[3] + 2 * q];
+      lks.push({ band, x0: band[0], pad: r[2] + 12 * q });
+      s += `<rect class="lkb" x="${band[0]}" y="${band[1]}" width="${band[2]}" height="${band[3]}" rx="${4 * q}" fill="#0b1112" fill-opacity="0.85" stroke="${COLOR(n.status)}" stroke-opacity="0.7" stroke-width="${1 * q}"/>`
+        + `<text class="lk lki" x="${r[0] + r[2] + 6 * q}" y="${at[1] + 4.2 * q}" font-size="${FS}" fill="${COLOR(n.status)}" pointer-events="none">${esc(n.label)}${/^held:/.test(n.trace) ? ' · held' : ''}</text>`;
+      marks.push({ t: 'n', id: n.id, r: band, label: n.label + (/^held:/.test(n.trace) ? ' · held' : ''), status: n.status });
+    } else marks.push({ t: 'n', id: n.id, r, label: n.text.slice(0, 80), status: n.status });
+    const tag = (o) => `<rect x="${r[0]}" y="${r[1]}" width="${r[2]}" height="${r[3]}" rx="${4 * u}" fill="${COLOR(n.status)}" fill-opacity="${n.status === 'na' ? 0.25 : 0.85}" stroke="${COLOR(n.status)}" stroke-width="${(o ? 3 : 1.5) * u}" ${n.status === 'na' ? `stroke-dasharray="${1.5 * u} ${2 * u}"` : n.status === 'none' ? `stroke-dasharray="${3 * u} ${2 * u}"` : ''}/><text x="${at[0]}" y="${at[1] + 4.5 * u}" font-size="${13 * u}" text-anchor="middle" fill="#fff" font-weight="700" pointer-events="none">≡</text>`
+      + (n.fail ? `<circle cx="${r[0] + r[2]}" cy="${r[1]}" r="${4 * u}" fill="var(--fail)"/>` : '');
+    s += tag(false); if (on) top += ring(r, u, true) + tag(true);
+  }
+  // the board image node is kept across redraws (zoom, hover, select), so a large render is not decoded again each time
+  const keep = svg.querySelector('#bgimg');
   svg.innerHTML = s + top;
+  const fresh = svg.querySelector('#bgimg');
+  if (keep && fresh && keep.getAttribute('href') === fresh.getAttribute('href')) fresh.replaceWith(keep);
+  // linked-table labels: measured once drawn, shrunk (not below 9 px) so the longest one ends inside the board, and
+  // each band (the note's hit box too) cut to its text
+  const lt = [...svg.querySelectorAll('text.lk')], lb = [...svg.querySelectorAll('rect.lkb')];
+  if (lt.length) {
+    const room = bx + bw - 8 * q;
+    const f = Math.max(9 / 12, Math.min(1, ...lt.map(t => (room - t.getAttribute('x')) / t.getComputedTextLength())));
+    lt.forEach(t => t.setAttribute('font-size', FS * f));
+    lt.filter(t => t.classList.contains('lki')).forEach((t, i) => { const w = lks[i].pad + t.getComputedTextLength();
+      lb[i].setAttribute('width', w); lks[i].band[2] = w; });
+  }
   hoverMark(hov && marks.find(m => m.t === hov.t && m.id === hov.id && (m.r ?? m.pts) === (hov.r ?? hov.pts)) || null, true);
 }
 // Selection and hover outlines: black under white, outside the box (or under the line), a pair no state colour uses,
@@ -464,7 +513,7 @@ function pick(px, py, k) {
     return Math.hypot(p[0] - x1 - u * dx, p[1] - y1 - u * dy); };
   let bestBox = null, bestArrow = null;
   for (const m of marks) {
-    if (m.t === 'g') {
+    if (m.t === 'g' || m.t === 'n') {
       const [x, y, w, h] = m.r, out = Math.hypot(Math.max(x - px, 0, px - x - w), Math.max(y - py, 0, py - y - h)) / k;
       if (out <= 8 && (!bestBox || w * h < bestBox.area)) bestBox = { m, area: w * h, out, screen: w * h / (k * k) };
     } else {
@@ -479,8 +528,8 @@ function hoverMark(m, keep) {
   const g = document.getElementById('hov'); if (!g) return;
   if (!keep && hov?.t === m?.t && hov?.id === m?.id && (m?.r ?? m?.pts) === (hov?.r ?? hov?.pts)) return;
   hov = m; const k = vb[2] / svg.clientWidth;
-  const isSel = m && (m.t === 'g' ? sel?.group === m.id : sel?.arrow === m.id);
-  g.innerHTML = !m || isSel ? '' : m.t === 'g' ? ring(m.r, k, false) : halo(m.pts.reduce((p, v, i) => p + (i % 2 ? `,${v} ` : v), ''), k, false);
+  const isSel = m && (m.t === 'g' ? sel?.group === m.id : m.t === 'n' ? sel?.note === m.id : sel?.arrow === m.id);
+  g.innerHTML = !m || isSel ? '' : m.t !== 'a' ? ring(m.r, k, false) : halo(m.pts.reduce((p, v, i) => p + (i % 2 ? `,${v} ` : v), ''), k, false);
   svg.style.cursor = m ? 'pointer' : 'grab';
   const tip = $('tip'); tip.hidden = !m;
   if (m) tip.textContent = `${m.label} — ${ST()[m.status]}`;
@@ -490,7 +539,7 @@ const rowHtml = id => { const r = D.rows[id] || { result: 'Not run' };
   // the id opens the case view here; review → opens the row on the review page
   return `<div class="row"><a class="id" href="#case=${encodeURIComponent(id)}">${esc(id)}</a>${PAGES.review ? `<a class="rv" href="${esc(PAGES.review)}#${encodeURIComponent(id)}">${t('reviewLink')}</a>` : ''}${PAGES.plan ? `<a class="rv" href="${esc(PAGES.plan)}#case=${encodeURIComponent(id)}">${t('planLink')}</a>` : ''}${PAGES.results ? `<a class="rv" href="${esc(PAGES.results)}#case=${encodeURIComponent(id)}">${t('resultsLink')}</a>` : ''}<span class="res ${esc(r.result)}">${esc(r.result === 'Not run' ? t('plannedRes') : r.result)}</span>${r.reason ? ` <span style="color:var(--blocked);font-size:.8rem">${esc(tr(r.reason))}</span>` : ''}${r.run ? ` <span class="mono" style="color:var(--muted)">${esc(r.run)}</span>` : ''}<div>${esc(r.action || '')}</div>${r.actual ? `<div style="color:var(--muted);font-size:.82rem">${esc(r.actual)}</div>` : ''}</div>`; };
 function select(kind, id) {
-  sel = kind === 'g' ? { group: id } : { arrow: id }; draw(); renderPanel(); caseBar();
+  sel = kind === 'g' ? { group: id } : kind === 'n' ? { note: id } : { arrow: id }; draw(); renderPanel(); caseBar();
 }
 // Clear ✕ or Esc: drop the selected control or arrow (back to the case when one is open); a second Esc clears the case
 function clearSel() { sel = null; draw(); renderPanel(); caseBar(); }
@@ -518,10 +567,16 @@ function renderPanel() {
       <h2 style="margin-top:14px">${t('pressingRows')}</h2>${g.press.length ? g.press.map(rowHtml).join('') : `<p class="empty">${t('noRows')}</p>`}
       ${g.kind === 'input' ? `<h2 style="margin-top:14px">${t('dismissingRows')}</h2>${g.dismiss.length ? g.dismiss.map(rowHtml).join('') : `<p class="empty">${t('noneYet')}</p>`}` : ''}
       <p class="gid">${t('groupId')} <span class="mono">${esc(g.group)}</span></p>`;
+  } else if (sel.note) {
+    const n = D.notes.find(x => x.id === sel.note);
+    p.innerHTML = `${back}<h2>${esc(t('noteTitle'))}</h2><span class="pill" style="background:${COLOR(n.status)}">${ST()[n.status]}</span>${n.fail ? ` <span class="pill" style="background:var(--fail)">${t('pillFailed')}</span>` : ''}
+      <p style="white-space:pre-wrap">${esc(n.text.replaceAll(' / ', '\n'))}</p>
+      <dl><dt>${t('trace')}</dt><dd>${esc(n.trace || t('untraced'))}</dd><dt>${t('board')}</dt><dd>${esc(n.board)}</dd><dt>${t('specLabel')}</dt><dd>${t('specs')[specOf(D.boards.find(b => b.name === n.board) ?? {})]}</dd></dl>
+      ${n.reqs.length ? `<h2 style="margin-top:14px">${t('noteRows')}</h2>${n.rows.length ? n.rows.map(rowHtml).join('') : `<p class="empty">${t('noNoteRows')}</p>`}` : ''}`;
   } else {
     const a = D.arrows.find(x => x.id === sel.arrow);
     p.innerHTML = `${back}<h2>${esc(a.edge)}</h2><span class="pill" style="background:${COLOR(a.status)}">${ST()[a.status]}</span>${a.fail ? ` <span class="pill" style="background:var(--fail)">${t('pillFailed')}</span>` : ''}
-      <dl><dt>${t('kind')}</dt><dd>${t('arrowKind')(a.kind)}</dd><dt>${t('requirement')}</dt><dd>${esc(a.req || t('noneYetReq'))}</dd><dt>${t('board')}</dt><dd>${esc(a.board)}</dd><dt>${t('specLabel')}</dt><dd>${t('specs')[specOf(D.boards.find(b => b.name === a.board) ?? {})]}</dd><dt>${t('arrow')}</dt><dd class="mono">${esc(a.id)}</dd></dl>
+      <dl><dt>${t('kind')}</dt><dd>${t('arrowKind')(a.kind)}</dd><dt>${t('requirement')}</dt><dd>${esc(a.req || t('noneYetReq'))}</dd><dt>${t('board')}</dt><dd>${esc(a.board)}</dd><dt>${t('specLabel')}</dt><dd>${t('specs')[specOf(D.boards.find(b => b.name === a.board) ?? {})]}</dd><dt>${t('arrow')}</dt><dd class="mono">${esc(a.id)}</dd>${a.na ? `<dt>${t('exclReason')}</dt><dd>${esc(a.na)}</dd>` : ''}</dl>
       <a href="${Object.values(D.figma)[0]}${a.id.replace(/-[A-Z]+$/, '')}" target="_blank" rel="noopener">${t('openFigma')}</a>
       ${a.src ? `<p><a href="#" id="srcl">${t('srcControl')}</a></p>` : ''}<h2 style="margin-top:14px">${t('rows')}</h2>${a.rows.length ? a.rows.map(rowHtml).join('') : `<p class="empty">${t('noArrowRows')}</p>`}`;
     if (a.src) $('srcl').onclick = e => { e.preventDefault(); select('g', a.src); };
@@ -576,8 +631,8 @@ function caseBar() {
     el.innerHTML = `<b>${esc(kase)}</b><span>${esc(t('caseBar')(caseIt.groups.length, caseIt.arrows.length, nb))}</span><button id="caseclr">${t('caseClear')} ✕</button>`;
     $('caseclr').onclick = clearCase; return;
   }
-  const g = sel.group && D.groups.find(x => x.group === sel.group), a = sel.arrow && D.arrows.find(x => x.id === sel.arrow);
-  el.innerHTML = `<b>${esc(g ? g.label || g.name : a?.edge ?? '')}</b><span>${t(g ? 'selControl' : 'selArrow')}</span><button id="caseclr">${t('caseClear')} ✕</button>`;
+  const g = sel.group && D.groups.find(x => x.group === sel.group), a = sel.arrow && D.arrows.find(x => x.id === sel.arrow), n = sel.note && D.notes.find(x => x.id === sel.note);
+  el.innerHTML = `<b>${esc(g ? g.label || g.name : n ? n.text.slice(0, 60) : a?.edge ?? '')}</b><span>${t(g ? 'selControl' : n ? 'selNote' : 'selArrow')}</span><button id="caseclr">${t('caseClear')} ✕</button>`;
   $('caseclr').onclick = clearSel;
 }
 function casePanel() {

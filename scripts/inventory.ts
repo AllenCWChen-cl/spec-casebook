@@ -203,10 +203,32 @@ for (const c of controls) {
   const r = [...setLabels].find(([root, ls]) => ls.has(normLabel(c.label)) && sets.some(s => find(s.key) === root && s.name === c.name && s.file === c.file));
   if (r) union(`c:${c.id}`, r[0]);
 }
+// A set's id must not depend on read order (2026-10-29: two new MX files sorted between the old ones shifted the
+// S<n> keys and renamed 29 sets that traces and rows cite). Its key is order-free (file, layer, labels, first member);
+// group-ids.json pins the published id of each key, seeded from the previous inventory.json, so an id never changes.
+const firstOf = new Map<string, string>();
+for (const c of controls) if (parentOf.has(`c:${c.id}`)) { const r = find(`c:${c.id}`), f = firstOf.get(r); if (!f || c.id < f) firstOf.set(r, c.id); }
+const idsPath = join(ex, 'group-ids.json');
+const pinned: Record<string, string> = existsSync(idsPath) ? JSON.parse(readFileSync(idsPath, 'utf8')) : {};
+const prevGroup = existsSync(join(ex, 'inventory.json'))
+  ? new Map<string, string>(JSON.parse(readFileSync(join(ex, 'inventory.json'), 'utf8')).controls.map((c: any) => [c.id, c.group])) : new Map<string, string>();
+const setKey = (c: Control) => { const r = find(`c:${c.id}`); return `${c.file}|${c.name}|${firstOf.get(r)}|${[...setLabels.get(r) ?? []].sort().join(',')}`; };
+// A set without a pinned id (new, or grown: its key changed when copies on new boards joined it) takes the id its
+// members had in the previous inventory.json, the most common one; a set an override merged into another group was
+// recorded under that group, so its id comes from the merge. Only a set none of whose members existed gets a new id.
+const mergedFrom = new Map<string, string[]>((ov.merge ?? []).map((m: any) => [m.into, m.groups.filter((g: string) => g.startsWith('C-'))]));
+const was = new Map<string, Map<string, number>>();
+for (const c of [...controls].sort((x, y) => x.id.localeCompare(y.id))) if (parentOf.has(`c:${c.id}`)) {
+  const g = prevGroup.get(c.id), from = g ? mergedFrom.get(g) ?? [] : [];
+  const id = g?.startsWith('C-') ? g : from.length === 1 ? from[0] : '';
+  if (id) { const m = was.get(setKey(c)) ?? new Map(); m.set(id, (m.get(id) ?? 0) + 1); was.set(setKey(c), m); }
+}
+const taken = new Set(Object.values(pinned));
+for (const [k, m] of was) if (!pinned[k]) { const id = [...m].sort((x, y) => y[1] - x[1])[0][0]; if (!taken.has(id)) { pinned[k] = id; taken.add(id); } }
 for (const c of controls) {
   const inSet = parentOf.has(`c:${c.id}`);
   c.set = inSet;
-  c.group = inSet ? `C-${hash(`${c.file}|${c.name}|${find(`c:${c.id}`)}|${[...setLabels.get(find(`c:${c.id}`)) ?? []].sort().join(',')}`)}`
+  c.group = inSet ? (pinned[setKey(c)] ??= `C-${hash(setKey(c))}`)
     // a worded label is the button whatever layer draws it (「Generate」 as Action Button_M, button or Button/Action;
     // the idea input as 「ai input」 or 「imput」); a label of only numbers (credit pill, prices) keeps its layer
     : /[a-z\p{L}]/u.test(normLabel(c.label).replace(/#/g, '')) ? `K-${hash(`${c.file}|${c.kind}|${normLabel(c.label)}`)}`
@@ -242,6 +264,7 @@ if (pdfPath && existsSync(pdfPath)) {
 const framesPath = join(ex, 'figma-frames.json');
 for (const fr of Object.values<any>(existsSync(framesPath) ? JSON.parse(readFileSync(framesPath, 'utf8')).files ?? {} : {}))
   if (files[fr.fileKey] && !files[fr.fileKey].pdf && fr.pdf && fr.pdf_offset) files[fr.fileKey].pdf = { name: fr.pdf, offset: fr.pdf_offset };
+writeJson(idsPath, Object.fromEntries(Object.entries(pinned).sort()));
 writeJsonRows(join(ex, 'inventory.json'), { built_at: new Date().toISOString(), groups, files, screens, controls, arrows });
 
 if (process.argv.includes('--sync-arrows')) {

@@ -53,6 +53,27 @@ that showed it). No comparison runs during an analysis or before a proposal.
 
 ### 0. Identify the feature, platform and spec files
 
+**Started with no arguments (user, 2026-10-29).** Ask which feature to work on (offer the features
+`node scripts/status.ts` lists, plus "a new feature"), then which platform when the feature has both. Then:
+1. **No spec files or Figma links yet** (a new feature, or no spec set with a `figma-frames.json` `files` entry):
+   ask for the spec files (PM / Design / MX PDFs) and the Figma links before anything else, and continue with
+   step 1 once they arrive.
+2. **Links already there:** check Figma for changes without asking, at the cost of one small call per Figma file
+   (never a re-read of every group): `whoami` on `figma-design` and `figma-pm` (stop for the user on a wrong or
+   signed-out account, Reading the spec, step 10), then `node scripts/figma-check.ts <feature>`. It writes one check
+   call per file (`extracted/figma-check/<role>.js`). Pass each as `code` to `use_figma` on the server it names and
+   save the reply verbatim as `figma-check/<role>.json`. Then run `node scripts/figma-check.ts <feature> --compare`.
+   Also ask whether new PDF exports arrived since the newest spec set (a PDF cannot be checked from here).
+   - `FIGMA: CHANGED`: run the printed `reread-<group>.js` calls (one per changed group, saved over
+     `figma-inventory-<group>.json`), add each new board to a group (or `--ack` it when it is not spec), re-capture the
+     listed screenshots, then `inventory.ts --sync-arrows` and `figma-check.ts` again (it takes the new hashes from
+     the re-read groups). Go on to step 3 (changed spec → update plan, draft, `check.ts`) and step 4 (review).
+   - `FIGMA: UNCHANGED` and no new PDFs: the approved table stands; skip to the run.
+   After the review is saved (or with nothing changed), continue to the **on-device run** of the approved table:
+   the next round in `phases.json` (rows a draft added or changed first, REQ-033), orchestrated segment by segment
+   (Running cases, "Keep going without asking"). Check the phone and `fixtures.md` first; a missing phone or fixture
+   stops for the user.
+
 - Feature ID: kebab-case product feature name, e.g. `ai-mini-drama`. Reuse an existing ID from
   `node scripts/status.ts` when the feature is already in the library.
 - Platform: `ios` or `android`. Each platform has its own table, reviewed and approved separately. If the user
@@ -211,7 +232,8 @@ and look at the tile images where layout, arrows or states matter.**
    set has Figma links (`spec-set.json` → `figma`, or the links on the boards), list the file's pages with Figma MCP
    (`figma-design` for the Design file, `figma-pm` for PM and MX) `get_metadata` (no node ID), then `get_metadata` on the design page and collect every frame or text whose name
    starts with a date (`1016_…`, `1005_Update`) or is a dated update note. Compare them with the labels in the PDF OCR
-   (`boards/*.md`). Read each label the PDF lacks with `get_screenshot` (save to `extracted/figma/`, local only) and
+   (`boards/*.md`). Read each label the PDF lacks with `get_screenshot` (save to `extracted/figma/<board>.png` and record it with
+   `figma-check.ts --shot`, step 10) and
    `get_metadata` for its text, and add it to board-notes under 「Design — Figma only」. Record every dated label in
    `extracted/figma-frames.json` (`label`, `node`, `in_pdf`, `read` = the board or note where it was read);
    `check.ts` fails a label with an empty `read`. A Figma-only frame is part of the spec like any other frame and is
@@ -220,8 +242,10 @@ and look at the tile images where layout, arrows or states matter.**
 9. **Trace every annotation (user, 2026-10-22, REQ-032).** Reading board by board skips lines: the PM note
    「只送 crop 後的圖」 was read by OCR (low-confidence) and never became a requirement. After `requirements.md` is
    written, run `node scripts/annotations.ts <feature> <platform> --draft <id>` (`--skip <board prefixes>
-   --skip-reason "<why>"` for boards that are not part of the current spec, e.g. superseded MX versions). It groups the
-   annotation lines of every board (Chinese text or • bullets, OCR noise dropped) into blocks and writes
+   --skip-reason "<why>"` for boards that are not part of the current spec, e.g. superseded MX versions; their blocks
+   stay in the file, traced `older: <why>`, so they are marked too). It groups the
+   annotation lines of every board (Chinese text or • bullets, OCR noise dropped; a board with no such line, e.g. the
+   English-only MX 「③ Credit Charging Table」, becomes one block of all its text, 2026-10-29) into blocks and writes
    `<draft>/annotation-trace.json`. Trace each block: `R-…` when the requirements state **every clause** of it (a
    condition, a number, "only", "per tier", "remote-configured" are clauses), else add the missing requirement and
    trace to it; `label: …`, `ui: …`, `older: <newer source>` or `Q-n` otherwise. Look at the tile, or render a
@@ -229,6 +253,16 @@ and look at the tile images where layout, arrows or states matter.**
    each writing its own part file, merged afterwards. Traces carry over to the next draft for blocks whose text is
    unchanged, so an update only traces new or changed blocks. `check.ts` fails an untraced block or a trace that
    names a missing requirement.
+   **Follow every link (user, 2026-10-29, REQ-058).** A board note that is a link (「Action ID & Charging Table
+   Link」, a Google Sheet, a doc, another Figma file) is not traced as its title: the analysis opens the link (Google
+   Sheets / Drive connector, Figma MCP on the right server), saves what it says under `extracted/` (e.g.
+   `mx-charging-table.md`) and lists it in `extracted/links.json` (`scripts/lib/links.ts`: board, the link line's
+   OCR position, node, target, read date and one `items` entry per rule, price or id — every price of every item is
+   a variant of its own). `annotations.ts` turns each item into a block under the link line; trace each one like any
+   block, with the row that checks that variant (`R-463 (TC-231)`), or a `Q-n` when the linked page disagrees with
+   PM, Design or the app (list the conflict as a question, never pick a side alone). `check.ts` fails a draft whose
+   trace lacks an item of `links.json`, and the coverage page shows any untraced item as missing. A link that cannot
+   be opened (no access) is a `Q-n` asking for access, never skipped.
 10. **Inventory every screen, control and arrow from Figma (user, 2026-10-28, REQ-038).** The run must press every
    tappable element the Design draws and walk every arrow, and the coverage page proves it. When the spec set has the
    Design Figma file, read it with `scripts/figma/inventory.js` (read-only `use_figma`; the file's header says how):
@@ -238,7 +272,11 @@ and look at the tile images where layout, arrows or states matter.**
    copies; the geometry is not). **Figma MCP has a small quota** (a View seat on the Professional plan hit its limit
    after about 13 calls on 2026-10-28): never read elements one by one, run the groups as parallel subagents that each save their
    return verbatim to `extracted/figma-inventory-<group>.json` and check its `size`, and do not re-read an unchanged
-   file. Then `node scripts/inventory.ts <feature> <set> --sync-arrows` merges the groups into `extracted/inventory.json`
+   file. **What changed is known from fingerprints (user, 2026-10-29):** each group read records one hash per board
+   (`hash`, `hashed_at`, `entries`). `scripts/figma-check.ts` checks a whole file in one call against the committed
+   baseline `extracted/figma-hashes.json` and names the groups to re-read (step 0). Everything a read produces
+   (group files, hashes, `inventory.json`, `figma-frames.json`, board screenshots) is committed, so another machine
+   starts from it and never reads an unchanged board again. Then `node scripts/inventory.ts <feature> <set> --sync-arrows` merges the groups into `extracted/inventory.json`
    (screens by platform; controls with kind button / input / toggle / tab / item; arrows as flow / auto / pointer).
    The totals count **groups**, not copies (user, 2026-10-28, REQ-040): a button with the same worded label is one
    group on every screen and board, whatever layer draws it; an icon or a numbers-only label (credit pill) groups by
@@ -275,7 +313,16 @@ and look at the tile images where layout, arrows or states matter.**
    (`round/ic_vocal`) to join that group; a clipped card is already in its card set and a segment of a selector in
    its selector (drop those adds); 「behind a sheet」 is a per-screen `hide`, never a `drop`. A board whose Figma is
    newer than the PDF (`figma-frames.json`, e.g. MX and 1016 on 2026-10-28) is cut from a saved Figma screenshot
-   (`get_screenshot` of the board → `extracted/figma/<board>.png`), never from the stale PDF. Figma access: the Design file through the
+   (`get_screenshot` of the board → `extracted/figma/<board>.png`), never from the stale PDF. **Board screenshots are
+   committed, one file per board (user, 2026-10-29):** the name is the board name's slug (the scripts look it up that
+   way). After saving one, `node scripts/figma-check.ts <feature> --shot <png> <board id>` records it in
+   `extracted/figma/shots.json` with the board's hash and shrinks it to 256 colours (about a fifth of the size; needs
+   Python 3 with Pillow). Re-capture only when `--compare` lists it (the board changed),
+   overwriting the same file, never a copy beside it (`-v2`, a dated name). `figma-check.ts --prune` deletes every
+   image `shots.json` does not list, and when a spec set is superseded (`SUPERSEDED.md`) it deletes that set's
+   screenshots too; commit the deletion. Git history keeps old versions, so this keeps the checkout lean but the
+   history only grows when a board really changes. Never commit other images (renders, tiles, run screenshots stay
+   local). Figma access: the Design file through the
    `figma-design` server (qa-dm account, Dev seat); the PM and MX files through the `figma-pm` server (qa1 account;
    qa-dm only has a View seat on PM). Both are in the repo's `.mcp.json` (Codex: same names under `mcp_servers`);
    `whoami` on the server before its first read, and stop for the user if it names the wrong account. If a server
@@ -287,7 +334,8 @@ and look at the tile images where layout, arrows or states matter.**
    same inventory (user, 2026-10-28, REQ-052)**: every Figma file of the spec set is read, not only Design. Their
    phones and arrows lie loose in one page or frame, so their boards are **regions** (`__BOARDS__` entry `{ name,
    parent, box }`, named after the PDF board id: `pm-main-flow`, `mx-a-left`) or dated update frames named the same
-   way (`{ id, name }`); only the current MX section is read (superseded versions stay out). Their PDF offset is
+   way (`{ id, name }`). Superseded MX versions are read too (user, 2026-10-29: everything is marked) and every
+   control and arrow on them is traced `n/a: superseded MX version …`. Their PDF offset is
    the page bounds' top-left, negated (the PDF page is the page's bounds; OCR line positions read about 22 pt low, so
    check one sheet's boxes against the drawing) and kept in `figma-frames.json` `files.<role>`
    (`pdf`, `pdf_offset`); `inventory.ts` and `inventory-sheets.ts` use each file's own PDF and OCR. The PM file is
@@ -297,6 +345,13 @@ and look at the tile images where layout, arrows or states matter.**
    Cut the PM / MX sheets from the OCR tiles (`inventory-sheets.ts --tiles --tag <name>`: seconds instead of a page
    replay of minutes per row). On every analysis
    list the PM and MX Figma pages too: a dated frame past the PDF (PM 10/22 on 2026-10-28) is spec content to read.
+   **Everything is marked (user, 2026-10-29).** Every board the coverage page shows must have all it draws marked:
+   its screens, controls and arrows from the inventory, and every annotation block as a note (state from the rows of
+   the requirements it is traced to; label / ui / older / Q-n traces show as Excluded). A board listed as a bare spec
+   region, or one with nothing marked, is a gap of the analysis: inventory it, trace its notes, or give its content a
+   requirement. A note with no row shows as missing until a row covers it.
+   A linked document on a board (a Google Sheet, another Figma file) is spec content: its items are notes of that
+   board (step 9, *Follow every link*), so a board holding only a link shows every item of the linked page marked.
    Board images for the coverage page come from each file's PDF
    (`coverage-page.ts --render`, no Figma call; pdf point = figma point + `files.<key>.pdf.offset`).
 

@@ -2,6 +2,7 @@
 // to the requirements that state it, so no written rule is skipped (the 10/22 miss: PM 「只送 crop 後的圖」, read by OCR
 // as low-confidence and never turned into a requirement).
 // Usage: node scripts/annotations.ts <feature> <ios|android> --draft <id> [--skip <board prefix,…> --skip-reason "<why>"]
+// (a skipped board's blocks stay in the file, traced `older: <why>`, so every board is marked on the coverage page)
 // Reads specs/<set>/extracted/boards/*.md of the draft's spec set, keeps annotation lines (Chinese text or a • bullet,
 // dropping OCR noise of 3 characters or fewer), groups lines that sit together on the canvas into blocks, and writes
 // <draft>/annotation-trace.json. Fill each block's `trace`:
@@ -10,14 +11,18 @@
 //   ui: <frame>       UI copy of a mockup, checked through the frame's requirements
 //   older: <newer>    replaced by a newer board or frame
 //   Q-n               an open question
+//   held: <why>       a rule the user put on hold (e.g. a promotion price not in use yet, REQ-059): shown Excluded
+//   R-… (TC-…)       a price or variant of a linked table: the row that checks this one variant
+// Items of a linked table (extracted/links.json, lib/links.ts) are blocks too, stacked under their link line.
 // Traces already in this draft's file are kept; others are carried from the newest earlier draft (same board and text).
 // check.ts fails a draft with an untraced block or a trace naming a requirement or question that does not exist.
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { arg, assertIds, draftsDir, featureDir, writeJson } from './lib/library.ts';
+import { linkBlocks } from './lib/links.ts';
 
 const X_TOL = 120, Y_GAP = 140;
-type Block = { id: string; board: string; x: number; y: number; low: boolean; text: string; trace: string; carried_from?: string };
+type Block = { id: string; board: string; x: number; y: number; low: boolean; text: string; trace: string; carried_from?: string; link?: string };
 
 const [feature, platform] = process.argv.slice(2);
 assertIds(feature, platform);
@@ -46,16 +51,22 @@ const isAnnotation = (t: string) => {
 };
 const norm = (s: string) => s.replace(/\(\?\)/g, '').replace(/\s+/g, ' ').trim();
 const key = (b: { board: string; text: string }) => `${b.board}\n${norm(b.text)}`;
-const kept = new Map<string, Block>((own?.blocks ?? []).map((b: Block) => [key(b), b]));
-const carried = new Map<string, Block>((prev?.blocks ?? []).map((b: Block) => [key(b), b]));
+// a trace is found by the block's id (board + position) first: several blocks of a board can share their text
+// (each mockup's 「Edit」), and matching on text alone gave them all one trace (2026-10-29)
+const byKey = (bs: Block[]) => new Map<string, Block>([...bs.map(b => [key(b), b] as [string, Block]), ...bs.map(b => [b.id, b] as [string, Block])]);
+const kept = byKey(own?.blocks ?? []), carried = byKey(prev?.blocks ?? []);
 
 const blocks: Block[] = [];
 for (const file of readdirSync(boardsDir).filter(f => f.endsWith('.md')).sort()) {
   const board = file.slice(0, -3);
-  if (skip.some(p => board.startsWith(p))) continue;
-  const lines = readFileSync(join(boardsDir, file), 'utf8').split('\n')
-    .map(l => l.match(/^\s*(\d+)\s+(\d+)\s+(.*)$/)).filter((m): m is RegExpMatchArray => !!m && isAnnotation(m[3]))
-    .map(m => ({ y: +m[1], x: +m[2], t: m[3].trim() })).sort((a, b) => a.y - b.y || a.x - b.x);
+  // a skipped board (a superseded version) keeps its blocks, traced as older, so the coverage page marks them too
+  const skipped = skip.some(p => board.startsWith(p));
+  const all = readFileSync(join(boardsDir, file), 'utf8').split('\n')
+    .map(l => l.match(/^\s*(\d+)\s+(\d+)\s+(.*)$/)).filter((m): m is RegExpMatchArray => !!m && m[3].replace('(?)', '').trim().length > 3);
+  // a board with no annotation line (English only, e.g. MX 「③ Credit Charging Table / Action ID & Charging Table
+  // Link」, 2026-10-29) is one block of all its text, so no board goes untraced
+  const own = all.filter(m => isAnnotation(m[3]));
+  const lines = (own.length ? own : all).map(m => ({ y: +m[1], x: +m[2], t: m[3].trim() })).sort((a, b) => a.y - b.y || a.x - b.x);
   const groups: { x: number; y: number; last: number; lines: string[] }[] = [];
   for (const l of lines) {
     const g = [...groups].reverse().find(g => Math.abs(g.x - l.x) <= X_TOL && l.y - g.last >= 0 && l.y - g.last <= Y_GAP);
@@ -63,11 +74,20 @@ for (const file of readdirSync(boardsDir).filter(f => f.endsWith('.md')).sort())
   }
   for (const g of groups) {
     const b: Block = { id: `${board}@${g.x},${g.y}`, board, x: g.x, y: g.y, low: g.lines.some(t => t.includes('(?)')), text: g.lines.join(' / '), trace: '' };
-    const k = kept.get(key(b)), c = carried.get(key(b));
-    if (k?.trace) Object.assign(b, { trace: k.trace, carried_from: k.carried_from });
+    const k = kept.get(b.id) ?? kept.get(key(b)), c = carried.get(b.id) ?? carried.get(key(b));
+    if (skipped) b.trace = `older: ${skipReason}`;
+    else if (k?.trace) Object.assign(b, { trace: k.trace, carried_from: k.carried_from });
     else if (c?.trace) Object.assign(b, { trace: c.trace, carried_from: earlier });
     blocks.push(b);
   }
+}
+// a link's content is read into links.json, one block per item, so a board holding only a link is traced in full
+for (const { label, link_i, link_label, ...b } of linkBlocks(join(boardsDir, '..')) as (Block & { label: string; link_i: number; link_label: string })[]) {
+  const k = kept.get(b.id) ?? kept.get(key(b)), c = carried.get(b.id) ?? carried.get(key(b));
+  if (skip.some(p => b.board.startsWith(p))) b.trace = `older: ${skipReason}`;
+  else if (k?.trace) Object.assign(b, { trace: k.trace, carried_from: k.carried_from });
+  else if (c?.trace) Object.assign(b, { trace: c.trace, carried_from: earlier });
+  blocks.push(b);
 }
 writeJson(outPath, { spec_folder: specFolder, skip, skip_reason: skipReason, grouping: { x_tolerance: X_TOL, y_gap: Y_GAP }, blocks });
 const byBoard: Record<string, string> = {};

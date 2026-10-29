@@ -13,6 +13,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { CHANGES, COLUMNS, arg, assertIds, draftsDir, featureDir, readManifest, readTable, tableDir } from './lib/library.ts';
 import { parseCsv } from './lib/csv.ts';
+import { linkBlocks } from './lib/links.ts';
 
 const [feature, platform] = process.argv.slice(2);
 assertIds(feature, platform);
@@ -149,22 +150,25 @@ if (draft && reqText) {
   const specFolder = JSON.parse(readFileSync(join(dir, 'spec.json'), 'utf8')).spec_folder;
   const reqLines = [...reqText.matchAll(/^- (R-\d{3,})\b(.*)$/gm)].map(m => ({ id: m[1], text: m[2] }))
     .filter(r => !/NOT TESTABLE/.test(r.text) && !/flow arrow/.test(r.text));
-  const qIds = new Set(reqText.match(/\bQ-\d+\b/g) ?? []);
+  const qIds = new Set(reqText.match(/\bQ-A?\d+\b/g) ?? []);
 
   if (existsSync(join(featureDir(feature), specFolder, 'extracted', 'boards'))) {
     const tracePath = join(dir, 'annotation-trace.json');
     if (!existsSync(tracePath)) errors.push(`No annotation-trace.json: run node scripts/annotations.ts ${feature} ${platform} --draft ${draft} and trace every block (REQ-032)`);
     else {
       const blocks: { id: string; trace: string }[] = JSON.parse(readFileSync(tracePath, 'utf8')).blocks;
+      // every item of a linked table (extracted/links.json) is a block of its own (REQ-058)
+      const lost = linkBlocks(join(featureDir(feature), specFolder, 'extracted')).filter(lb => !blocks.some(b => b.id === lb.id)).map(lb => lb.id);
+      if (lost.length) errors.push(`Linked-table items missing from annotation-trace.json (${lost.length}): ${lost.slice(0, 5).join(', ')}; rerun node scripts/annotations.ts ${feature} ${platform} --draft ${draft}`);
       const untraced = blocks.filter(b => !b.trace?.trim()).map(b => b.id);
       if (untraced.length) errors.push(`Annotation blocks not traced (${untraced.length} of ${blocks.length}): ${untraced.slice(0, 10).join(', ')}${untraced.length > 10 ? ', …' : ''}`);
       for (const b of blocks) {
         const t = b.trace?.trim() ?? '';
         if (!t) continue;
         if (/^NEW\b/.test(t)) { errors.push(`Annotation ${b.id}: still "NEW"; write the requirement and trace the block to it`); continue; }
-        if (/^(label|ui|older):\s*\S/.test(t)) continue;
-        const rs = t.match(/\bR-\d{3,}\b/g) ?? [], qs = t.match(/\bQ-\d+\b/g) ?? [];
-        if (!rs.length && !qs.length) errors.push(`Annotation ${b.id}: trace must be R-…, Q-n, label: / ui: / older: <why> (got "${t.slice(0, 40)}")`);
+        if (/^(label|ui|older|held):\s*\S/.test(t)) continue;
+        const rs = t.match(/\bR-\d{3,}\b/g) ?? [], qs = t.match(/\bQ-A?\d+\b/g) ?? [];
+        if (!rs.length && !qs.length) errors.push(`Annotation ${b.id}: trace must be R-…, Q-n, label: / ui: / older: / held: <why> (got "${t.slice(0, 40)}")`);
         for (const r of rs) if (!reqIds?.has(r)) errors.push(`Annotation ${b.id}: ${r} is not in requirements.md`);
         for (const q of qs) if (!qIds.has(q)) errors.push(`Annotation ${b.id}: ${q} is not in requirements.md`);
       }

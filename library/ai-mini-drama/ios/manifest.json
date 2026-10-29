@@ -2,9 +2,9 @@
   "feature": "ai-mini-drama",
   "platform": "ios",
   "title": "AI Mini Drama",
-  "version": 9,
-  "approved_at": "2026-10-29T01:32:46.315Z",
-  "draft": "20261029-085112",
+  "version": 11,
+  "approved_at": "2026-10-29T07:32:43.681Z",
+  "draft": "20261029-152720",
   "spec_folder": "specs/2026-10-21-2",
   "spec_files": [
     {
@@ -24,7 +24,7 @@
     }
   ],
   "spec_set_sha256": "2f6431b706887ce2d0ef09f2a20fff26b303e4b2b09bf5378ed4382cd68808fd",
-  "cases": 419,
+  "cases": 425,
   "history": [
     {
       "version": 1,
@@ -104,6 +104,24 @@
       "spec_set_sha256": "2f6431b706887ce2d0ef09f2a20fff26b303e4b2b09bf5378ed4382cd68808fd",
       "draft": "20261029-085112",
       "cases": 419,
+      "csv": "history/v9.csv",
+      "requirements": "history/v9-requirements.md"
+    },
+    {
+      "version": 10,
+      "approved_at": "2026-10-29T06:54:55.205Z",
+      "spec_set_sha256": "2f6431b706887ce2d0ef09f2a20fff26b303e4b2b09bf5378ed4382cd68808fd",
+      "draft": "20261029-143013",
+      "cases": 426,
+      "csv": "history/v10.csv",
+      "requirements": "history/v10-requirements.md"
+    },
+    {
+      "version": 11,
+      "approved_at": "2026-10-29T07:32:43.681Z",
+      "spec_set_sha256": "2f6431b706887ce2d0ef09f2a20fff26b303e4b2b09bf5378ed4382cd68808fd",
+      "draft": "20261029-152720",
+      "cases": 425,
       "csv": "cases.csv",
       "requirements": "requirements.md"
     }
