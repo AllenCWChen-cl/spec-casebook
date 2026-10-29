@@ -122,7 +122,7 @@ const sa: Record<string, string> = mappingFile ? JSON.parse(readFileSync(join(cm
 // Decisions to keep: this draft's own file first, then the newest earlier draft that has one.
 const outPath = join(draftDir, 'spec-agent-gaps.json');
 const own = existsSync(outPath) ? JSON.parse(readFileSync(outPath, 'utf8')).gaps as Gap[] : [];
-const earlier = readdirSync(draftsDir(feature, platform)).filter(d => d < draft && existsSync(join(draftsDir(feature, platform), d, 'spec-agent-gaps.json'))).sort().at(-1);
+const earlier = readdirSync(draftsDir(feature, platform)).filter(d => d < (draft ?? '') && existsSync(join(draftsDir(feature, platform), d, 'spec-agent-gaps.json'))).sort().at(-1);
 const prev = earlier ? JSON.parse(readFileSync(join(draftsDir(feature, platform), earlier, 'spec-agent-gaps.json'), 'utf8')).gaps as Gap[] : [];
 const kept = new Map(own.map(g => [g.id, g]));
 const carried = new Map(prev.filter(g => !/^added\b/.test(g.decision)).map(g => [g.id, g]));

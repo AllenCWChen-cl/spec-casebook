@@ -94,7 +94,7 @@ takes `[UX]`). Tag and owner follow what the expected result rests on:
 | Another feature of **this** app | `[UI]` or none | UI or Functional · RD | `Basis: In-product — <feature>: <behaviour> (<document>)` |
 | Another product, or nothing | `[UX]` | UX · **PM** | `Basis: External — <product>: <behaviour> - <url>` / `Basis: None — PM decision requested` |
 
-`[UX]` entries are filed only after the reviewer confirms them on the review page (`ebug-tr-filer`, *UX entries*).
+`[UX]` entries are filed only after the reviewer confirms them on the review page (`ebug-tr-filer/references/review-page.md`, *UX entries*).
 
 ## Output format
 

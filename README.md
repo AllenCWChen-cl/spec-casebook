@@ -522,6 +522,7 @@ Using `library/ai-mini-drama/` as the example:
 | --- | --- |
 | `README.md` | Generated index: approved tables, versions, spec sets received |
 | `requests.md` | Request ledger (`REQ-001`…), re-applied on every draft |
+| `feature.json` | What the run scripts need to know about the feature: its app log files and tags (failures, toasts, credits, stage timings) and its Pink menu and fresh-install switches; without it the scripts use generic defaults |
 | `spec-agent.json`, `spec-agent/<platform>.json` | Spec agent settings and the committed snapshot of its cases, for comparison reports on request |
 | `ios/fixtures.md` | What the phone needs for a run: build, account, photos for the upload cases, settings |
 | `specs/<date>/` | One spec set: `spec-set.json` (committed), the original files (local only), `extracted/` |
@@ -621,6 +622,7 @@ All scripts run from the repository root with `node scripts/<name>.ts`.
 
 - Write new scripts in TypeScript (`node` runs them directly).
 - Change a skill under `.claude/skills/`, then run `node scripts/sync-skills.ts` to update `.codex/skills/`.
+- After changing a script, run `npm run typecheck` (Node strips the types without checking them).
 - Add standing preferences to [`AGENTS.md`](AGENTS.md) › Team preferences (dated) and feature requests to the
   feature's `requests.md`, not to a personal agent memory.
 - Never edit an approved `cases.csv` by hand without a request; go through a draft and the review page.

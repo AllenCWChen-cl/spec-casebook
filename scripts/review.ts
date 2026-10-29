@@ -93,7 +93,7 @@ async function save(body: { rows: Record<string, string>[]; decisions: unknown[]
   }
   const out = await exportTable(feature, platform);
   writeFeatureIndex(feature);
-  return { version, cases: clean.length, csv: join(table, 'cases.csv'), notes: notes.length, notes_file: notes.length ? notesFile : '', ...out };
+  return { ...out, version, cases: clean.length, csv: join(table, 'cases.csv'), notes: notes.length, notes_file: notes.length ? notesFile : '' };
 }
 
 const isLocal = (a = '') => a === '127.0.0.1' || a === '::1' || a === '::ffff:127.0.0.1';

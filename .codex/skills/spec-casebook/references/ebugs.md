@@ -28,7 +28,7 @@ Part of the spec-casebook skill. The eBug skills carry the full rules (their cas
    the other OS is not a duplicate (new entry; its BugCode may go in the Note); a match on the same OS's TRs, open or
    resolved, is left off the drafts and the review page entirely and recorded only in `dedupe.txt`; a **closed**
    same-OS ticket whose bug is back stays a new entry naming the closed ticket as related.
-4. Build the self-contained review page (ebug-tr-filer layout), publish it, give the link, and stop. Log excerpts on
+4. Build the self-contained review page (`ebug-tr-filer/references/review-page.md` layout), publish it, give the link, and stop. Log excerpts on
    the cards start collapsed (`<details>`) and wrap (`pre-wrap`); nothing on the page may run past the right edge in a
    half-width window (user, 2026-10-28): check at 600 px with every section open before handing it over. Filing
    waits for the reviewer's Copy decisions, the account, the TRCode and the source tag. The page prefills Creator,

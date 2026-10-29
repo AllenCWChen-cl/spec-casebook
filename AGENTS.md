@@ -11,7 +11,8 @@ two differ).
   for that feature; change it only through the review page's Save or an explicit user request.
 - Keep this repo independent from the exploration-test folder, the spec agent repo and other QA tools.
 - Table rows are written in English.
-- Scripts are TypeScript run directly with Node ≥ 22.18. Keep new scripts in TypeScript.
+- Scripts are TypeScript run directly with Node ≥ 22.18 (types are stripped, not checked). Keep new scripts in
+  TypeScript and run `npm run typecheck` after changing any script.
 - Each feature lives in `library/<feature>/` (see its generated `README.md`): `specs/<date>/` holds every spec set
   received (original files git-ignored; `spec-set.json` and `extracted/` text kept), and `ios/` / `android/` hold
   the platform tables. Never put spec files anywhere else.
@@ -66,7 +67,8 @@ lines; put the full rule in the skill or reference file that applies it and poin
   and marks everything on every board, superseded versions as Excluded (`reading-the-spec.md` step 10, `analysis.md`
   pass 11, `run.md`).
 - **Figma access (user, 2026-10-28/29).** Design only through the `figma-design` MCP server (qa-dm@cyberlink.com), PM
-  and MX only through `figma-pm` (qa1@cyberlink.com); never swap accounts by hand or use a claude.ai Figma connector;
+  and MX only through `figma-pm` (qa1@cyberlink.com); never swap accounts by hand or use a claude.ai Figma connector (`.claude/settings.json` blocks it for terminal and IDE
+  sessions; desktop app users disconnect it at claude.ai › Settings › Connectors);
   `whoami` before a read. Sign-ins are the user's: the agent opens a Terminal tab with `claude` and walks them through
   README Setup 5. Quota is small: bulk reads per board group, changes found by fingerprint (`figma-check.ts`), every
   read committed (`reading-the-spec.md` step 10).

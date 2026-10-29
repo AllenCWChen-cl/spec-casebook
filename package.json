@@ -20,10 +20,15 @@
     "render-region": "node scripts/render-region.ts",
     "ebug-defaults": "node scripts/ebug-defaults.ts",
     "coverage": "node scripts/coverage-page.ts",
-    "sync-skills": "node scripts/sync-skills.ts"
+    "sync-skills": "node scripts/sync-skills.ts",
+    "typecheck": "tsc -p ."
   },
   "dependencies": {
     "exceljs": "4.4.0",
     "mupdf": "1.28.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "typescript": "5.9.3"
   }
 }

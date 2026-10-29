@@ -1,0 +1,13 @@
+{
+  "logs": {
+    "files": "_(aidrama|iris|cl_credit)\\.txt$",
+    "failure": "workflow step failed|tool failed|send failure|turn abandoned|error=|nativeFailure|recovery failed",
+    "toast": "\\[AIDrama Toast\\]|toast for",
+    "credit": "\\[AIDrama Permission\\].*(authorized|authorize|credit=)|refund|returned",
+    "timing": "\\[AMDPerf\\]"
+  },
+  "pink": {
+    "menu": "[z] AI Mini Drama",
+    "fresh_install_on": ["Log stage timings"]
+  }
+}

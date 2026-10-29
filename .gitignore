@@ -58,7 +58,7 @@ library/*/*/ebugs/*/full_logs/
 library/*/*/coverage.html
 
 # eBug review pages embed every screenshot as base64 (several MB each) and the run plan servers' logs are local noise;
-# both stay local (user, 2026-10-28: keep the repo lean). Pages committed before this rule stay tracked.
+# both stay local (user, 2026-10-28: keep the repo lean; the pages committed earlier were untracked 2026-10-29).
 library/*/*/ebugs/*/*_eBug_review_*.html
 library/*/*/runs/plan-server*.log
 # eBug filing staging folders are regenerated copies of the drafts' bodies and attachments (drafts_to_bodies.py)

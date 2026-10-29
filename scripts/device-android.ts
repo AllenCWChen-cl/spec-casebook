@@ -71,13 +71,12 @@ import { appendFileSync, closeSync, existsSync, mkdirSync, openSync, readdirSync
 import { execFileSync, spawn } from 'node:child_process';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
+import { BLOCKER, env, logActivity, runRecipe, sleep, stamp, webdriver } from './lib/device-common.ts';
 
 const HOME = homedir();
 const ANDROID_HOME = process.env.ANDROID_HOME ?? process.env.ANDROID_SDK_ROOT ?? join(HOME, 'Library/Android/sdk');
 const JAVA_HOME = process.env.JAVA_HOME ?? '/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home';
 const ADB = existsSync(join(ANDROID_HOME, 'platform-tools/adb')) ? join(ANDROID_HOME, 'platform-tools/adb') : 'adb';
-// Settings come from CASEBOOK_<name>; the older PDR_<name> spellings still work.
-const env = (k: string, old = k) => process.env[`CASEBOOK_${k}`] ?? process.env[`PDR_${old}`];
 const BASE = process.env.APPIUM_ANDROID_URL ?? 'http://127.0.0.1:4724';
 const PKG = env('ANDROID_PACKAGE') ?? 'com.cyberlink.powerdirector.DRA140225_01';
 const [runDir, cmd, ...rest] = process.argv.slice(2);
@@ -85,31 +84,16 @@ if (!runDir || !cmd) { console.error('Usage: node scripts/device-android.ts <run
 mkdirSync(runDir, { recursive: true });
 const SID = join(runDir, '.session'), SERIAL_FILE = join(runDir, '.serial'), UIA_FILE = join(runDir, '.uia2-started');
 const LIVE = join(runDir, 'logs', '.live'), LOGCAT_PID = join(LIVE, 'logcat.pid');
-const BLOCKER = 75;
 const UIA_GONE = /socket hang up|ECONNREFUSED|ECONNRESET|instrumentation process is not running|invalid session id|terminated or not started|Could not proxy command|UiAutomator2 server.*(not running|crashed)|A session is either terminated/i;
-// Every command leaves a time stamp; run-log.ts `time` uses them to tell test time from idle waits.
-try { appendFileSync(join(runDir, 'activity.log'), `${new Date().toISOString()} ${cmd} ${rest.join(' ').slice(0, 80)}\n`); } catch {}
-const stamp = () => { const d = new Date(), p = (n: number) => String(n).padStart(2, '0');
-  return `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}`; };
-const sleep = (sec: number) => new Promise(r => setTimeout(r, sec * 1000));
+logActivity(runDir, cmd, rest);
 
-async function call(method: string, path: string, body?: unknown, timeout = 300_000) {
-  const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), timeout);
-  const r = await fetch(BASE + path, { method, headers: { 'content-type': 'application/json' }, body: body === undefined ? undefined : JSON.stringify(body), signal: ctl.signal });
-  clearTimeout(t);
-  const j: any = await r.json().catch(() => ({}));
-  if (!r.ok) throw new Error(`HTTP ${r.status}: ${j?.value?.error ?? ''} ${String(j?.value?.message ?? '').slice(0, 400)}`);
-  return j;
-}
-const sid = () => readFileSync(SID, 'utf8').trim();
-const s = (method: string, path: string, body?: unknown) => call(method, `/session/${sid()}${path}`, body);
-const mobile = (script: string, args: unknown = {}) => s('POST', '/execute/sync', { script: `mobile: ${script}`, args: [args] });
-const pointer = (actions: unknown[]) => s('POST', '/actions', { actions: [{ type: 'pointer', id: 'f', parameters: { pointerType: 'touch' }, actions }] });
+const { call, sid, s, mobile, pointer } = webdriver(BASE, SID);
 
 // adb on the run's phone. `serial()` is the stored one, else CASEBOOK_SERIAL, else the only device adb lists.
 function serial(): string {
   if (existsSync(SERIAL_FILE)) return readFileSync(SERIAL_FILE, 'utf8').trim();
-  if (env('SERIAL')) return env('SERIAL');
+  const fromEnv = env('SERIAL');
+  if (fromEnv) return fromEnv;
   const devs = adbDevices();
   if (devs.length === 1) return devs[0].serial;
   if (!devs.length) blocker('adb lists no Android device.');
@@ -239,7 +223,7 @@ async function runRecovering(c: string, a: string[]) {
     if (['start', 'restart', 'stop', 'status', 'wifi', 'build', 'logcat'].includes(c) || !UIA_GONE.test(msg) || !existsSync(SERIAL_FILE)) throw e;
     ensurePhone();
     console.error(`UiAutomator2 gone (${msg.slice(0, 120)}); restarting it once and retrying "${c}"`);
-    try { appendFileSync(join(runDir, 'activity.log'), `${new Date().toISOString()} restart (auto, after: ${msg.slice(0, 60)})\n`); } catch {}
+    logActivity(runDir, 'restart', [`(auto, after: ${msg.slice(0, 60)})`]);
     await run('restart', []);
     return await run(c, a);
   }
@@ -498,27 +482,9 @@ const APP_LOG_DIRS = [`/sdcard/Android/data/${PKG}/files/Log`, `/sdcard/Android/
 // `do`: run a recipe (a .steps file, one command per line, "$1".."$9" filled from the extra arguments) or an inline
 // list ("tap 1 2 ;; waitfor X ;; shot Y") as ONE call. A line starting with "?" may fail without stopping the recipe.
 // On the first real failure it prints the step, saves a screenshot and the visible elements, and exits 1.
-const tokens = (l: string) => [...l.matchAll(/"([^"]*)"|'([^']*)'|(\S+)/g)].map(m => m[1] ?? m[2] ?? m[3]);
 try {
-  if (cmd === 'do') {
-    const file = rest[0] && existsSync(rest[0]) ? rest[0] : '';
-    const vars = file ? rest.slice(1) : [];
-    const text = file ? readFileSync(file, 'utf8') : rest.join(' ').split(';;').join('\n');
-    const lines = text.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'))
-      .map(l => l.replace(/\$(\d)/g, (_, n) => vars[Number(n) - 1] ?? ''));
-    for (const [i, raw] of lines.entries()) {
-      const optional = raw.startsWith('?'); const ln = optional ? raw.slice(1).trim() : raw;
-      const [c, ...a] = tokens(ln);
-      try { appendFileSync(join(runDir, 'activity.log'), `${new Date().toISOString()} ${c} ${a.join(' ').slice(0, 80)}\n`); } catch {}
-      try { await runRecovering(c, a); }
-      catch (e: any) {
-        if (optional) { console.log(`  (step ${i + 1} skipped: ${String(e?.message ?? e).slice(0, 160)})`); continue; }
-        console.error(`✗ step ${i + 1}/${lines.length}: ${ln}\n  ${String(e?.message ?? e).slice(0, 400)}`);
-        console.error(`  screenshot ${await quiet('shot', [`do-fail-${stamp()}`]).catch(() => '?')}`);
-        console.error(parseEls(await source().catch(() => '')).slice(0, 40).join('\n'));
-        process.exit(1);
-      }
-    }
-    console.log(`✓ ${lines.length} steps${file ? ` (${file})` : ''}`);
-  } else await runRecovering(cmd, rest);
+  if (cmd === 'do') await runRecipe(runDir, rest, runRecovering, async () => [
+    `  screenshot ${await quiet('shot', [`do-fail-${stamp()}`]).catch(() => '?')}`,
+    ...parseEls(await source().catch(() => '')).slice(0, 40)]);
+  else await runRecovering(cmd, rest);
 } catch (e: any) { console.error(String(e?.message ?? e)); process.exit(1); }

@@ -15,7 +15,7 @@
 //   topup                         sandbox credit pack (2000) up to Apple's sheet; taps Purchase only when the sheet
 //                                 says "You will not be charged". Stops at a password prompt: never types one.
 //                                 Needs --confirm and the user's go-ahead for this run.
-//   pink-switch "<name>" on|off   with a Pink › Tweaks list open (e.g. [z] AI Mini Drama), scroll the small panel to
+//   pink-switch "<name>" on|off   with a Pink › Tweaks list open (the feature's menu in feature.json `pink.menu`), scroll the small panel to
 //                                 the named switch, set it, and read its value back
 //   devserver                     ⋯ debug page: Write Log ON and 「Use developer server:」 ON (alert › OK), relaunch,
 //                                 clear the intro pages, check the Launcher says 「Developer Server」
@@ -29,6 +29,7 @@
 // Every command prints what it saw; screenshots go to <run dir>/screenshots/setup-*.png.
 import { appendFileSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { configForRunDir } from './lib/feature-config.ts';
 
 // Settings come from CASEBOOK_<name>; the older PDR_<name> spellings still work.
 const env = (k: string, old = k) => process.env[`CASEBOOK_${k}`] ?? process.env[`PDR_${old}`];
@@ -342,7 +343,8 @@ switch (cmd) {
   }
   case 'fresh': {
     // One fresh-install case setup: reinstall <version> <build> › first-launch › devserver (Write Log, Developer
-    // Server, relaunch) › Pink [z] AI Mini Drama › Log stage timings ON › optional tier › Launcher screenshot.
+    // Server, relaunch) › the feature's Pink menu switches (feature.json `pink`, e.g. Log stage timings) ON › optional
+    // tier › Launcher screenshot.
     // Pull the logs BEFORE this (a reinstall wipes them) and note what the reinstall removed in the checkpoint.
     const [version, build] = rest; const ti = rest.indexOf('--tier'); const tier = ti >= 0 ? rest[ti + 1] : '';
     if (!version || !build) throw new Error('fresh <version> <build> [--tier Free|Pro|Pro+|System]');
@@ -353,7 +355,9 @@ switch (cmd) {
     step('app-setup.ts', 'devserver');
     // The photo-access alert can arrive after devserver's relaunch (P9 setup 2026-10-22: it blocked pink open).
     step('device.ts', 'do', 'wait 3 ;; tapif Allow Full Access');
-    step('device.ts', 'do', 'pink open "[z] AI Mini Drama" ;; pink set "Log stage timings" on ;; pink close');
+    const { pink } = configForRunDir(runDir);
+    if (pink?.freshInstallOn.length) step('device.ts', 'do', [`pink open "${pink.menu}"`, ...pink.freshInstallOn.map(n => `pink set "${n}" on`), 'pink close'].join(' ;; '));
+    else console.log('— no Pink switches for this feature (feature.json `pink`)');
     if (tier) step('device.ts', 'pink', 'tier', tier);
     const now = await installed();
     if (now?.version !== version || now?.build !== build) throw new Error(`Installed ${now?.version} (${now?.build}), expected ${version} (${build})`);

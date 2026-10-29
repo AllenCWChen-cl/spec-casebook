@@ -1,0 +1,5 @@
+{
+  "deniedMcpServers": [
+    { "serverName": "claude.ai Figma" }
+  ]
+}

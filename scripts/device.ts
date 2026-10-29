@@ -50,7 +50,7 @@
 //                             screenshot and the visible elements
 //   logs [ID]                 pull the app's tmp/ folder (holds Logs.zip after ⋯ › Send logs via...) to
 //                             <run dir>/logs/<ID>-<YYYYMMDD-HHMMSS>/ (just the time stamp without ID), unzip it and print the
-//                             *_aidrama.txt summary (failures, toasts, stage timings, credit lines). Logs stay in the run folder.
+//                             summary of the feature's log files (feature.json: failures, toasts, stage timings, credit lines). Logs stay in the run folder.
 //   ledger [ID]               on Mine › Credits › Details: read the visible ledger rows (feature, time, ±credits, e.g.
 //                             「Generation failed, credits returned +60」) into <run dir>/ledger/<ID>-<time>.json and print them
 // The Appium server and WebDriverAgent are shared services: this script never stops them, and `stop` only
@@ -58,9 +58,9 @@
 import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
+import { configForRunDir } from './lib/feature-config.ts';
+import { BLOCKER, env, logActivity, runRecipe, sleep, stamp, webdriver } from './lib/device-common.ts';
 
-// Settings come from CASEBOOK_<name>; the older PDR_<name> spellings still work.
-const env = (k: string, old = k) => process.env[`CASEBOOK_${k}`] ?? process.env[`PDR_${old}`];
 const BASE = process.env.APPIUM_URL ?? 'http://127.0.0.1:4723';
 const BUNDLE = env('APP_BUNDLE', 'BUNDLE') ?? 'com.cyberlink.ios.powerdirector';
 const [runDir, cmd, ...rest] = process.argv.slice(2);
@@ -68,28 +68,12 @@ if (!runDir || !cmd) { console.error('Usage: node scripts/device.ts <run dir> <c
 mkdirSync(runDir, { recursive: true });
 const SID = join(runDir, '.session');
 const UDID_FILE = join(runDir, '.udid'), WDA_FILE = join(runDir, '.wda-started');
-const BLOCKER = 75;
 // xcodebuild code 70 behind these texts means the phone must be unlocked (or replugged) before WDA can launch.
 const LOCKED = /unlocked|preparation error|passcode|Failed to allocate RSD|device is locked|xcodebuild failed with code 70/i;
 const WDA_GONE = /socket hang up|ECONNREFUSED|Connection was refused|invalid session id|terminated or not started|WDA is not listening|Could not proxy command/i;
-// Every command leaves a time stamp; run-log.ts `time` uses them to tell test time from idle waits.
-try { appendFileSync(join(runDir, 'activity.log'), `${new Date().toISOString()} ${cmd} ${rest.join(' ').slice(0, 80)}\n`); } catch {}
-const stamp = () => { const d = new Date(), p = (n: number) => String(n).padStart(2, '0');
-  return `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}`; };
+logActivity(runDir, cmd, rest);
 
-async function call(method: string, path: string, body?: unknown, timeout = 300_000) {
-  const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), timeout);
-  const r = await fetch(BASE + path, { method, headers: { 'content-type': 'application/json' }, body: body === undefined ? undefined : JSON.stringify(body), signal: ctl.signal });
-  clearTimeout(t);
-  const j: any = await r.json().catch(() => ({}));
-  if (!r.ok) throw new Error(`HTTP ${r.status}: ${j?.value?.error ?? ''} ${String(j?.value?.message ?? '').slice(0, 400)}`);
-  return j;
-}
-const sid = () => readFileSync(SID, 'utf8').trim();
-const s = (method: string, path: string, body?: unknown) => call(method, `/session/${sid()}${path}`, body);
-const mobile = (script: string, args: unknown = {}) => s('POST', '/execute/sync', { script: `mobile: ${script}`, args: [args] });
-const pointer = (actions: unknown[]) => s('POST', '/actions', { actions: [{ type: 'pointer', id: 'f', parameters: { pointerType: 'touch' }, actions }] });
-const sleep = (sec: number) => new Promise(r => setTimeout(r, sec * 1000));
+const { call, sid, s, mobile, pointer } = webdriver(BASE, SID);
 const esc = (t: string) => t.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
 const exactPred = (t: string) => `visible == 1 AND (name == "${esc(t)}" OR label == "${esc(t)}")`;
 const visibleIds = async (pred: string): Promise<string[]> =>
@@ -179,8 +163,9 @@ async function beforeElement(id: string) {
   if (process.env.TAP_LOG === '0') return { el: undefined, png: undefined, at: null };
   const [type, name, label, r, png] = await Promise.all(['type', 'name', 'label'].map(k => s('GET', `/element/${id}/attribute/${k}`).then(v => String(v.value ?? '')).catch(() => ''))
     .concat([s('GET', `/element/${id}/rect`).then(v => v.value).catch(() => null), s('GET', '/screenshot').then(v => v.value).catch(() => undefined)] as any[]));
-  const el: El | undefined = r ? { type: String(type).replace('XCUIElementType', ''), name, label, value: '', x: r.x, y: r.y, w: r.width, h: r.height } : undefined;
-  return { el, png, at: r ? { x: Math.round(r.x + r.width / 2), y: Math.round(r.y + r.height / 2) } : null };
+  const rect = r as unknown as { x: number; y: number; width: number; height: number } | null;
+  const el: El | undefined = rect ? { type: String(type).replace('XCUIElementType', ''), name, label, value: '', x: rect.x, y: rect.y, w: rect.width, h: rect.height } : undefined;
+  return { el, png, at: rect ? { x: Math.round(rect.x + rect.width / 2), y: Math.round(rect.y + rect.height / 2) } : null };
 }
 
 function parseEls(xml: string, filter?: string) {
@@ -203,7 +188,7 @@ async function runRecovering(c: string, a: string[]) {
     const msg = String(e?.message ?? e);
     if (['start', 'restart', 'stop', 'status'].includes(c) || !WDA_GONE.test(msg) || !existsSync(UDID_FILE)) throw e;
     console.error(`WDA gone (${msg.slice(0, 120)}); restarting it once and retrying "${c}"`);
-    try { appendFileSync(join(runDir, 'activity.log'), `${new Date().toISOString()} restart (auto, after: ${msg.slice(0, 60)})\n`); } catch {}
+    logActivity(runDir, 'restart', [`(auto, after: ${msg.slice(0, 60)})`]);
     await run('restart', []);
     return await run(c, a);
   }
@@ -419,12 +404,13 @@ switch (cmd) {
     execFileSync('ditto', ['-x', '-k', zip, dir]);
     const walk = (d: string): string[] => readdirSync(d).flatMap(f => { const p = join(d, f); return statSync(p).isDirectory() ? walk(p) : [p]; });
     for (const z of walk(dir).filter(f => /Logs\d*\.zip$/.test(f))) execFileSync('ditto', ['-x', '-k', z, join(dir, 'unzipped')]);
-    const txt = walk(dir).filter(f => f.endsWith('_aidrama.txt'));
-    console.log(`pulled → ${dir}; ${txt.length} *_aidrama.txt`);
+    const { logs } = configForRunDir(runDir);
+    const txt = walk(dir).filter(f => logs.files.test(f));
+    console.log(`pulled → ${dir}; ${txt.length} log files matching ${logs.files}`);
     for (const f of txt) {
       const lines = readFileSync(f, 'utf8').split('\n');
-      const pick = (re: RegExp) => lines.filter(l => re.test(l));
-      const fails = pick(/workflow step failed|error=|\bfailed\b/i), toasts = pick(/\[AIDrama Toast\]/), perf = pick(/\[AMDPerf\]/), credit = pick(/credit|refund|charge/i);
+      const pick = (re: RegExp | null) => re ? lines.filter(l => re.test(l)) : [];
+      const fails = pick(logs.failure), toasts = pick(logs.toast), perf = pick(logs.timing), credit = pick(logs.credit);
       console.log(`\n${f}\n  ${lines.length} lines · ${fails.length} failure · ${toasts.length} toast · ${perf.length} timing · ${credit.length} credit lines`);
       for (const l of [...fails.slice(-15), ...toasts.slice(-10), ...credit.slice(-15)]) console.log('  ' + l.slice(0, 300));
     }
@@ -642,28 +628,10 @@ switch (cmd) {
 // inline list ("tap 1 2 ;; waitfor X ;; shot Y") as ONE call. A line starting with "?" may fail without stopping the
 // recipe. On the first real failure it prints the step, saves a screenshot and the visible elements, and exits 1.
 // Recipes for a feature live in library/<feature>/<platform>/recipes/.
-const tokens = (l: string) => [...l.matchAll(/"([^"]*)"|'([^']*)'|(\S+)/g)].map(m => m[1] ?? m[2] ?? m[3]);
 try {
-  if (cmd === 'do') {
-    const file = rest[0] && existsSync(rest[0]) ? rest[0] : '';
-    const vars = file ? rest.slice(1) : [];
-    const text = file ? readFileSync(file, 'utf8') : rest.join(' ').split(';;').join('\n');
-    const lines = text.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'))
-      .map(l => l.replace(/\$(\d)/g, (_, n) => vars[Number(n) - 1] ?? ''));
-    for (const [i, raw] of lines.entries()) {
-      const optional = raw.startsWith('?'); const line = optional ? raw.slice(1).trim() : raw;
-      const [c, ...a] = tokens(line);
-      try { appendFileSync(join(runDir, 'activity.log'), `${new Date().toISOString()} ${c} ${a.join(' ').slice(0, 80)}\n`); } catch {}
-      try { await runRecovering(c, a); }
-      catch (e: any) {
-        if (optional) { console.log(`  (step ${i + 1} skipped: ${String(e?.message ?? e).slice(0, 160)})`); continue; }
-        console.error(`✗ step ${i + 1}/${lines.length}: ${line}\n  ${String(e?.message ?? e).slice(0, 400)}`);
-        console.error(`  screenshot ${await quiet('shot', [`do-fail-${stamp()}`]).catch(() => '?')}`);
-        console.error(parseEls((await s('GET', '/source')).value).slice(0, 40).join('\n'));
-        process.exit(1);
-      }
-    }
-    console.log(`✓ ${lines.length} steps${file ? ` (${file})` : ''}`);
-  } else await runRecovering(cmd, rest);
+  if (cmd === 'do') await runRecipe(runDir, rest, runRecovering, async () => [
+    `  screenshot ${await quiet('shot', [`do-fail-${stamp()}`]).catch(() => '?')}`,
+    ...parseEls(await (async () => (await s('GET', '/source')).value as string)().catch(() => '')).slice(0, 40)]);
+  else await runRecovering(cmd, rest);
 } catch (e: any) { console.error(String(e?.message ?? e)); process.exit(1); }
 
