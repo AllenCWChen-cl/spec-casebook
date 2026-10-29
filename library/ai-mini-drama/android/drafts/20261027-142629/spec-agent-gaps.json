@@ -1,0 +1,2186 @@
+{
+ "spec_agent": {
+  "repo": "~/Desktop/AI Agent/qadm-pdrm-spec-contract-runner-agent",
+  "ref": "origin/main",
+  "commit": "5fb039febd3e898dc40d9e7f2e96238c8d1522b6",
+  "feature": "pdr-mobile-ai-mini-drama",
+  "platform": "android",
+  "cases": 181
+ },
+ "mapping": null,
+ "generated_at": "2026-10-27T06:26:41.816Z",
+ "gaps": [
+  {
+   "id": "1021-CHAR-DISCARD-KEEP",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-CHAR-DISCARD-KEEP-ANDROID.yaml",
+   "title": "Unsaved character form — char discard keep",
+   "claim": "Keep editing returns to the unsaved character form with its entered values retained.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "added TC-402 (missed by: coverage pass 3, discard on close — only the dialog was checked, not its buttons)"
+  },
+  {
+   "id": "1021-CHAR-DISCARD-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-CHAR-DISCARD-LEAVE-ANDROID.yaml",
+   "title": "Unsaved character form — char discard leave",
+   "claim": "Discard exits the unsaved character form without saving that character.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "added TC-402 (missed by: coverage pass 3, discard on close — only the dialog was checked, not its buttons)"
+  },
+  {
+   "id": "1021-CHAR-MULTI-PRESERVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-CHAR-MULTI-PRESERVE-ANDROID.yaml",
+   "title": "Partial character cancellation — char multi preserve",
+   "claim": "Stopping missing-character generation retains already completed characters.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-337"
+  },
+  {
+   "id": "1021-CHAR-MULTI-READY",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-CHAR-MULTI-READY-ANDROID.yaml",
+   "title": "Missing-character completion — char multi ready",
+   "claim": "Successful Finish your characters displays Your characters are ready and Tap Confirm to continue.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-041"
+  },
+  {
+   "id": "1021-CHAR-MULTIPLE-CANCEL-KEEP",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-CHAR-MULTIPLE-CANCEL-KEEP-ANDROID.yaml",
+   "title": "multiple character generation: Cancel, Keep Generating",
+   "claim": "The selected Cancel or X control remains operable during character generation.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "added TC-403 (missed by: coverage pass 8, the sheet's X and Cancel × Finish your characters generating)"
+  },
+  {
+   "id": "1021-CHAR-MULTIPLE-CANCEL-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-CHAR-MULTIPLE-CANCEL-LEAVE-ANDROID.yaml",
+   "title": "multiple character generation: Cancel, Leave anyway",
+   "claim": "The selected Cancel or X control remains operable during character generation.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-337"
+  },
+  {
+   "id": "1021-CHAR-MULTIPLE-X-KEEP",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-CHAR-MULTIPLE-X-KEEP-ANDROID.yaml",
+   "title": "multiple character generation: X, Keep Generating",
+   "claim": "The selected Cancel or X control remains operable during character generation.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "added TC-403 (missed by: coverage pass 8, the sheet's X and Cancel × Finish your characters generating)"
+  },
+  {
+   "id": "1021-CHAR-MULTIPLE-X-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-CHAR-MULTIPLE-X-LEAVE-ANDROID.yaml",
+   "title": "multiple character generation: X, Leave anyway",
+   "claim": "The selected Cancel or X control remains operable during character generation.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "added TC-403 (missed by: coverage pass 8, the sheet's X and Cancel × Finish your characters generating)"
+  },
+  {
+   "id": "1021-CHAR-SINGLE-CANCEL-KEEP",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-CHAR-SINGLE-CANCEL-KEEP-ANDROID.yaml",
+   "title": "single character generation: Cancel, Keep Generating",
+   "claim": "The selected Cancel or X control remains operable during character generation.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-332, TC-333, TC-334 (Cancel stays operable and opens the dialog; Keep Generating behaviour)"
+  },
+  {
+   "id": "1021-CHAR-SINGLE-CANCEL-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-CHAR-SINGLE-CANCEL-LEAVE-ANDROID.yaml",
+   "title": "single character generation: Cancel, Leave anyway",
+   "claim": "The selected Cancel or X control remains operable during character generation.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-332, TC-333"
+  },
+  {
+   "id": "1021-CHAR-SINGLE-X-KEEP",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-CHAR-SINGLE-X-KEEP-ANDROID.yaml",
+   "title": "single character generation: X, Keep Generating",
+   "claim": "The selected Cancel or X control remains operable during character generation.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-332, TC-334"
+  },
+  {
+   "id": "1021-CHAR-SINGLE-X-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-CHAR-SINGLE-X-LEAVE-ANDROID.yaml",
+   "title": "single character generation: X, Leave anyway",
+   "claim": "The selected Cancel or X control remains operable during character generation.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-332, TC-334, TC-333 (X stays enabled and opens the same dialog; Leave anyway stops it)"
+  },
+  {
+   "id": "1021-CHAR-TIMEOUT-CLOSE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-CHAR-TIMEOUT-CLOSE-ANDROID.yaml",
+   "title": "Character timeout recovery — char timeout close",
+   "claim": "Close on the character timeout dialog returns to the character form with its entered values retained.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-335"
+  },
+  {
+   "id": "1021-CHAR-TIMEOUT-MULTIPLE-CHARACTERS",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-CHAR-TIMEOUT-MULTIPLE-CHARACTERS-ANDROID.yaml",
+   "title": "Character timeout and pre-filled feedback — multiple",
+   "claim": "A character request still unfinished at five minutes presents We couldn't create your character (We couldn't create your characters for several) with This is taking longer than expected. Send us feedback and our support team will check your credits. and the buttons Close and Send Feedback (blue).",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-338"
+  },
+  {
+   "id": "1021-CHAR-TIMEOUT-SINGLE-CHARACTER",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-CHAR-TIMEOUT-SINGLE-CHARACTER-ANDROID.yaml",
+   "title": "Character timeout and pre-filled feedback — single",
+   "claim": "A character request still unfinished at five minutes presents We couldn't create your character (We couldn't create your characters for several) with This is taking longer than expected. Send us feedback and our support team will check your credits. and the buttons Close and Send Feedback (blue).",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-335"
+  },
+  {
+   "id": "1021-ERROR-4XX-STORYBOARD-DIALOG",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-ERROR-4XX-STORYBOARD-DIALOG-ANDROID.yaml",
+   "title": "4xx image failure explanation",
+   "claim": "A 4xx storyboard-image failure explains Couldn't generate this image. Your credits have been refunded. The description may not meet our terms of service, such as violence, NSFW content, or content involving minors. Edit the description to try again. with Got it.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-067"
+  },
+  {
+   "id": "1021-ERROR-4XX-VIDEO-DIALOG",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-ERROR-4XX-VIDEO-DIALOG-ANDROID.yaml",
+   "title": "4xx video failure explanation",
+   "claim": "A 4xx scene-video failure explains Couldn't generate this video. Your credits have been refunded. The description may not meet our terms of service, such as violence, NSFW content, or content involving minors. Edit the description to try again. with Got it.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-362"
+  },
+  {
+   "id": "1021-ERROR-5XX-NO-INFO-STORYBOARD",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-ERROR-5XX-NO-INFO-STORYBOARD-ANDROID.yaml",
+   "title": "Service failure presentation — error 5xx no info",
+   "claim": "A 5xxx failure card omits the information icon and does not open an automatic information dialog.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-068"
+  },
+  {
+   "id": "1021-ERROR-5XX-NO-INFO-VIDEO",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-ERROR-5XX-NO-INFO-VIDEO-ANDROID.yaml",
+   "title": "Service failure presentation — error 5xx no info",
+   "claim": "A 5xxx failure card omits the information icon and does not open an automatic information dialog.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-363"
+  },
+  {
+   "id": "1021-EXPORT-ANDROID-TOAST",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-EXPORT-ANDROID-TOAST-ANDROID.yaml",
+   "title": "Export Full Video: loading, completion toast and saved output",
+   "claim": "During Export Full Video, the export button shows loading without an export-progress dialog.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-343 (Android adaptation: toast 「Saved to Gallery.」 and the video in Gallery, PM pm-update-10)"
+  },
+  {
+   "id": "1021-LOOK-CLARIFY",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-LOOK-CLARIFY-ANDROID.yaml",
+   "title": "PM appearance update — look clarify",
+   "claim": "An ambiguous request to change a character's appearance gets a reply asking which character or what to change (PM: Which character would you like to change?) with two to four tappable suggestion chips.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-348"
+  },
+  {
+   "id": "1021-LOOK-OFFER",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-LOOK-OFFER-ANDROID.yaml",
+   "title": "Change one character in chat — offer, update and follow-up",
+   "claim": "A clear character appearance request proceeds directly to its update offer without a clarification question.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-045"
+  },
+  {
+   "id": "1021-LOOK-PARTIAL-REFUND",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-LOOK-PARTIAL-REFUND-ANDROID.yaml",
+   "title": "PM appearance update — look partial refund",
+   "claim": "When a character appearance update partially fails, the failed characters are refunded under the existing partial-character failure rules.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-353"
+  },
+  {
+   "id": "1021-LOOK-QUOTE-TWO-CHARACTERS",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-LOOK-QUOTE-TWO-CHARACTERS-ANDROID.yaml",
+   "title": "PM appearance update — look quote",
+   "claim": "The appearance-update quote equals the per-character generation price multiplied by the number of affected characters.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-350"
+  },
+  {
+   "id": "1021-LOOK-STORYBOARD-AFTER-STORYBOARD",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-LOOK-STORYBOARD-AFTER-STORYBOARD-ANDROID.yaml",
+   "title": "PM appearance update — look storyboard",
+   "claim": "After updating character appearances, the chat offers Create storyboard again, including when a storyboard already existed.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-352, TC-349"
+  },
+  {
+   "id": "1021-MODEL-RATE-BEST-PREVIEW",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-MODEL-RATE-BEST-PREVIEW-ANDROID.yaml",
+   "title": "Video settings — Model • Seedance and Video length labels, default, options and quotes",
+   "claim": "On first opening the video settings, the Model • Seedance card shows Best selected.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "not from the spec: PM 10/16 (pm-update-8) leaves the default model TBD (the mock merely shows Best); TC-079 reads the card with Best selected without asserting a default"
+  },
+  {
+   "id": "1021-NAV-OUTLINE-BACK-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-OUTLINE-BACK-LEAVE-ANDROID.yaml",
+   "title": "Back: leave chat during outline",
+   "claim": "Before the story outline is ready, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Leave this chat? with Leave anyway and Stay.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-025, TC-028"
+  },
+  {
+   "id": "1021-NAV-OUTLINE-BACK-STAY",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-OUTLINE-BACK-STAY-ANDROID.yaml",
+   "title": "Back: stay in chat during outline",
+   "claim": "Before the story outline is ready, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Leave this chat? with Leave anyway and Stay.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-025, TC-027"
+  },
+  {
+   "id": "1021-NAV-OUTLINE-CREDIT-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-OUTLINE-CREDIT-LEAVE-ANDROID.yaml",
+   "title": "Credit: leave chat during outline",
+   "claim": "Before the story outline is ready, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Leave this chat? with Leave anyway and Stay.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-358"
+  },
+  {
+   "id": "1021-NAV-OUTLINE-CREDIT-STAY",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-OUTLINE-CREDIT-STAY-ANDROID.yaml",
+   "title": "Credit: stay in chat during outline",
+   "claim": "Before the story outline is ready, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Leave this chat? with Leave anyway and Stay.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-357"
+  },
+  {
+   "id": "1021-NAV-OUTLINE-HISTORY-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-OUTLINE-HISTORY-LEAVE-ANDROID.yaml",
+   "title": "History: leave chat during outline",
+   "claim": "Before the story outline is ready, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Leave this chat? with Leave anyway and Stay.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-026, TC-028"
+  },
+  {
+   "id": "1021-NAV-OUTLINE-HISTORY-STAY",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-OUTLINE-HISTORY-STAY-ANDROID.yaml",
+   "title": "History: stay in chat during outline",
+   "claim": "Before the story outline is ready, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Leave this chat? with Leave anyway and Stay.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-026, TC-027"
+  },
+  {
+   "id": "1021-NAV-OUTLINE-NEW-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-OUTLINE-NEW-LEAVE-ANDROID.yaml",
+   "title": "New chat: leave chat during outline",
+   "claim": "Before the story outline is ready, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Leave this chat? with Leave anyway and Stay.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-357"
+  },
+  {
+   "id": "1021-NAV-OUTLINE-NEW-STAY",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-OUTLINE-NEW-STAY-ANDROID.yaml",
+   "title": "New chat: stay in chat during outline",
+   "claim": "Before the story outline is ready, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Leave this chat? with Leave anyway and Stay.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-357"
+  },
+  {
+   "id": "1021-NAV-OUTLINE-SYSTEM-BACK-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-OUTLINE-SYSTEM-BACK-LEAVE-ANDROID.yaml",
+   "title": "Android system Back during outline",
+   "claim": "Before the story outline is ready, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Leave this chat? with Leave anyway and Stay.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "added TC-395, TC-396 (missed by: coverage pass 8, exits × stages — system back was n/a on iOS)"
+  },
+  {
+   "id": "1021-NAV-OUTLINE-SYSTEM-BACK-STAY",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-OUTLINE-SYSTEM-BACK-STAY-ANDROID.yaml",
+   "title": "Android system Back during outline",
+   "claim": "Before the story outline is ready, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Leave this chat? with Leave anyway and Stay.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "added TC-395, TC-396 (missed by: coverage pass 8, exits × stages — system back was n/a on iOS)"
+  },
+  {
+   "id": "1021-NAV-SAVED-BACK-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-SAVED-BACK-LEAVE-ANDROID.yaml",
+   "title": "Back: leave a saved chat (no dialog)",
+   "claim": "Once the story outline exists and nothing is generating, or while a video is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back shows no leave dialog: the chat closes directly and its task stays in History.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-029"
+  },
+  {
+   "id": "1021-NAV-SAVED-CREDIT-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-SAVED-CREDIT-LEAVE-ANDROID.yaml",
+   "title": "Credit: leave a saved chat (no dialog)",
+   "claim": "Once the story outline exists and nothing is generating, or while a video is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back shows no leave dialog: the chat closes directly and its task stays in History.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-360"
+  },
+  {
+   "id": "1021-NAV-SAVED-HISTORY-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-SAVED-HISTORY-LEAVE-ANDROID.yaml",
+   "title": "History: leave a saved chat (no dialog)",
+   "claim": "Once the story outline exists and nothing is generating, or while a video is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back shows no leave dialog: the chat closes directly and its task stays in History.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-360"
+  },
+  {
+   "id": "1021-NAV-SAVED-NEW-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-SAVED-NEW-LEAVE-ANDROID.yaml",
+   "title": "New chat: leave a saved chat (no dialog)",
+   "claim": "Once the story outline exists and nothing is generating, or while a video is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back shows no leave dialog: the chat closes directly and its task stays in History.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-360"
+  },
+  {
+   "id": "1021-NAV-SAVED-SYSTEM-BACK-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-SAVED-SYSTEM-BACK-LEAVE-ANDROID.yaml",
+   "title": "Android system Back: leave a saved chat (no dialog)",
+   "claim": "Once the story outline exists and nothing is generating, or while a video is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back shows no leave dialog: the chat closes directly and its task stays in History.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "added TC-397 (missed by: coverage pass 8, exits × stages — system back was n/a on iOS)"
+  },
+  {
+   "id": "1021-NAV-STORYBOARD-BACK-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-BACK-LEAVE-ANDROID.yaml",
+   "title": "Back: Leave anyway while the storyboard generates",
+   "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-061, TC-063"
+  },
+  {
+   "id": "1021-NAV-STORYBOARD-BACK-STAY",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-BACK-STAY-ANDROID.yaml",
+   "title": "Back: Keep Generating while the storyboard generates",
+   "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-061, TC-062"
+  },
+  {
+   "id": "1021-NAV-STORYBOARD-CREDIT-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-CREDIT-LEAVE-ANDROID.yaml",
+   "title": "Credit: Leave anyway while the storyboard generates",
+   "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-359"
+  },
+  {
+   "id": "1021-NAV-STORYBOARD-CREDIT-STAY",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-CREDIT-STAY-ANDROID.yaml",
+   "title": "Credit: Keep Generating while the storyboard generates",
+   "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-359"
+  },
+  {
+   "id": "1021-NAV-STORYBOARD-HISTORY-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-HISTORY-LEAVE-ANDROID.yaml",
+   "title": "History: Leave anyway while the storyboard generates",
+   "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-359"
+  },
+  {
+   "id": "1021-NAV-STORYBOARD-HISTORY-STAY",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-HISTORY-STAY-ANDROID.yaml",
+   "title": "History: Keep Generating while the storyboard generates",
+   "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-359"
+  },
+  {
+   "id": "1021-NAV-STORYBOARD-NEW-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-NEW-LEAVE-ANDROID.yaml",
+   "title": "New chat: Leave anyway while the storyboard generates",
+   "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-359"
+  },
+  {
+   "id": "1021-NAV-STORYBOARD-NEW-STAY",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-NEW-STAY-ANDROID.yaml",
+   "title": "New chat: Keep Generating while the storyboard generates",
+   "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-359"
+  },
+  {
+   "id": "1021-NAV-STORYBOARD-SYSTEM-BACK-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-SYSTEM-BACK-LEAVE-ANDROID.yaml",
+   "title": "Android system Back: Leave anyway while the storyboard generates",
+   "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "added TC-398, TC-399 (missed by: coverage pass 8, exits × stages — system back was n/a on iOS)"
+  },
+  {
+   "id": "1021-NAV-STORYBOARD-SYSTEM-BACK-STAY",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-SYSTEM-BACK-STAY-ANDROID.yaml",
+   "title": "Android system Back: Keep Generating while the storyboard generates",
+   "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "added TC-398, TC-399 (missed by: coverage pass 8, exits × stages — system back was n/a on iOS)"
+  },
+  {
+   "id": "1021-NAV-VIDEO-CREDIT-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-VIDEO-CREDIT-LEAVE-ANDROID.yaml",
+   "title": "Credit: leave while the video generates (no dialog, toast)",
+   "claim": "Once the story outline exists and nothing is generating, or while a video is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back shows no leave dialog: the chat closes directly and its task stays in History.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-361"
+  },
+  {
+   "id": "1021-NAV-VIDEO-HISTORY-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-VIDEO-HISTORY-LEAVE-ANDROID.yaml",
+   "title": "History: leave while the video generates (no dialog, toast)",
+   "claim": "Once the story outline exists and nothing is generating, or while a video is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back shows no leave dialog: the chat closes directly and its task stays in History.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-361"
+  },
+  {
+   "id": "1021-NAV-VIDEO-NEW-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-VIDEO-NEW-LEAVE-ANDROID.yaml",
+   "title": "New chat: leave while the video generates (no dialog, toast)",
+   "claim": "Once the story outline exists and nothing is generating, or while a video is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back shows no leave dialog: the chat closes directly and its task stays in History.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-361"
+  },
+  {
+   "id": "1021-NAV-VIDEO-SYSTEM-BACK-LEAVE",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-VIDEO-SYSTEM-BACK-LEAVE-ANDROID.yaml",
+   "title": "Android system Back: leave while the video generates (no dialog, toast)",
+   "claim": "Once the story outline exists and nothing is generating, or while a video is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back shows no leave dialog: the chat closes directly and its task stays in History.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "added TC-400 (missed by: coverage pass 8, exits × stages — system back was n/a on iOS)"
+  },
+  {
+   "id": "1021-STORYBOARD-ALL-FAIL",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-STORYBOARD-ALL-FAIL-ANDROID.yaml",
+   "title": "Storyboard failure — storyboard all fail",
+   "claim": "A complete storyboard failure shows the AI message Something went wrong on my end. and a card reading Storyboard couldn’t be created. Try creating your storyboard again. with Try again.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-295"
+  },
+  {
+   "id": "1021-TRIAL-EXHAUSTED",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-TRIAL-EXHAUSTED-ANDROID.yaml",
+   "title": "MX — storyboard free attempts — trial exhausted",
+   "claim": "After free storyboard attempts are exhausted, the creation offer shows only its original price (Design example 15), with no strikethrough and no Free • {n} left.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-356"
+  },
+  {
+   "id": "1021-TRIAL-REMAINING",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-TRIAL-REMAINING-ANDROID.yaml",
+   "title": "MX — storyboard free attempts — trial remaining",
+   "claim": "When free storyboard attempts remain, the creation offer displays Free • {n} left using the remaining count.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-114"
+  },
+  {
+   "id": "1021-VIDEO-ALL-FAIL",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-VIDEO-ALL-FAIL-ANDROID.yaml",
+   "title": "Video failure — video all fail",
+   "claim": "A complete video-generation failure shows the AI message Something went wrong on my end. and a card reading Video couldn’t be created. Try creating your video again. with Try again.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-094"
+  },
+  {
+   "id": "1021-VIDEO-HINT-DISMISS-HISTORY-TAP",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-VIDEO-HINT-DISMISS-HISTORY-TAP-ANDROID.yaml",
+   "title": "Video background feedback — video hint dismiss",
+   "claim": "Tapping elsewhere or tapping History dismisses the video History hint.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-083 (「tapping anywhere dismisses it」, History included; the hint shows once per install)"
+  },
+  {
+   "id": "1021-VIDEO-HISTORY-HINT",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-VIDEO-HISTORY-HINT-ANDROID.yaml",
+   "title": "Leave chat during video generation — no dialog, toast and first-exit History hint",
+   "claim": "Once the story outline exists and nothing is generating, or while a video is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back shows no leave dialog: the chat closes directly and its task stays in History.",
+   "source": {
+    "kind": "other",
+    "ref": "(no source in the case file)"
+   },
+   "mapped": null,
+   "decision": "covered TC-082, TC-083, TC-361"
+  },
+  {
+   "id": "TC-PDRM-BASE-1014-CUSTOM-MEDIA-IDENTITY-ANDROID-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-BASE-1014-CUSTOM-MEDIA-IDENTITY-ANDROID-001.yaml",
+   "title": "Selected custom photo matches its preview — Android",
+   "claim": "The custom-character reference preview shows the selected original photo, accounting for an explicitly chosen crop or orientation.",
+   "source": {
+    "kind": "other",
+    "ref": "docs/mobile-team/knowledge/pdr-colleagues-20261014/source/general.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-283, TC-131"
+  },
+  {
+   "id": "EXP-002-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-EXP-002-001-ANDROID.yaml",
+   "title": "Format defaults and option combinations — Android",
+   "claim": "Characterize format defaults and option combinations across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+   "source": {
+    "kind": "request",
+    "ref": "source/user-coverage-expansion-20261007.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-020, TC-021, TC-022"
+  },
+  {
+   "id": "EXP-004-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-EXP-004-001-ANDROID.yaml",
+   "title": "Revision instructions and scope preservation — Android",
+   "claim": "Characterize revision instructions and scope preservation across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+   "source": {
+    "kind": "request",
+    "ref": "source/user-coverage-expansion-20261007.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-045, TC-046, TC-385"
+  },
+  {
+   "id": "EXP-010-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-EXP-010-001-ANDROID.yaml",
+   "title": "Storyboard detail endpoints and edit discovery — Android",
+   "claim": "Characterize storyboard detail endpoints and edit discovery across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+   "source": {
+    "kind": "request",
+    "ref": "source/user-coverage-expansion-20261007.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-065, TC-138, TC-070"
+  },
+  {
+   "id": "EXP-011-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-EXP-011-001-ANDROID.yaml",
+   "title": "Model quotes and history persistence — Android",
+   "claim": "Characterize model quotes and history persistence across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+   "source": {
+    "kind": "request",
+    "ref": "source/user-coverage-expansion-20261007.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-080, TC-347, TC-113"
+  },
+  {
+   "id": "EXP-015-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-EXP-015-001-ANDROID.yaml",
+   "title": "Video playback and captions — Android",
+   "claim": "Characterize video playback and captions across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+   "source": {
+    "kind": "request",
+    "ref": "source/user-coverage-expansion-20261007.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-143, TC-375, TC-382, TC-097, TC-099"
+  },
+  {
+   "id": "EXP-023-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-EXP-023-001-ANDROID.yaml",
+   "title": "Voice permission and transcription — Android",
+   "claim": "Characterize voice permission and transcription across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+   "source": {
+    "kind": "request",
+    "ref": "source/user-coverage-expansion-20261007.md"
+   },
+   "mapped": null,
+   "decision": "not from the spec: microphone permission and speech-to-text transcription come from an exploratory charter; the current spec draws only the mic button (TC-011), and the iOS ticket row for speech-to-text is not in the Android table (REQ-043)"
+  },
+  {
+   "id": "QA-ALL-PAGES-TEXT-ANDROID-CHT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-QA-ALL-PAGES-TEXT-ANDROID-CHT-001.yaml",
+   "title": "All-pages spelling and grammar — Android / CHT — Android",
+   "claim": "Every product-authored UI text item on every AI Mini Drama page and state must be free of spelling or orthographic errors when reviewed in ENU, CHT and JPN, at minimum.",
+   "source": {
+    "kind": "request",
+    "ref": "source/user-all-pages-text-20261006.yaml"
+   },
+   "mapped": null,
+   "decision": "covered TC-276 (language set through Android Settings)"
+  },
+  {
+   "id": "QA-ALL-PAGES-TEXT-ANDROID-ENU-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-QA-ALL-PAGES-TEXT-ANDROID-ENU-001.yaml",
+   "title": "All-pages spelling and grammar — Android / ENU — Android",
+   "claim": "Every product-authored UI text item on every AI Mini Drama page and state must be free of spelling or orthographic errors when reviewed in ENU, CHT and JPN, at minimum.",
+   "source": {
+    "kind": "request",
+    "ref": "source/user-all-pages-text-20261006.yaml"
+   },
+   "mapped": null,
+   "decision": "covered TC-275 (language set through Android Settings)"
+  },
+  {
+   "id": "QA-ALL-PAGES-TEXT-ANDROID-JPN-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-QA-ALL-PAGES-TEXT-ANDROID-JPN-001.yaml",
+   "title": "All-pages spelling and grammar — Android / JPN — Android",
+   "claim": "Every product-authored UI text item on every AI Mini Drama page and state must be free of spelling or orthographic errors when reviewed in ENU, CHT and JPN, at minimum.",
+   "source": {
+    "kind": "request",
+    "ref": "source/user-all-pages-text-20261006.yaml"
+   },
+   "mapped": null,
+   "decision": "covered TC-277 (language set through Android Settings)"
+  },
+  {
+   "id": "QA-HISTORY-INFO-POPUP-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-QA-HISTORY-INFO-POPUP-001-ANDROID.yaml",
+   "title": "History info popup opening, arrow alignment and screen containment — Android",
+   "claim": "Tapping the AI Mini Drama History page info button opens its information popup bubble.",
+   "source": {
+    "kind": "request",
+    "ref": "source/user-history-info-popup-20261006.yaml"
+   },
+   "mapped": null,
+   "decision": "covered TC-327"
+  },
+  {
+   "id": "QA-STORYBOARD-TEXT-DUPLICATION-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-QA-STORYBOARD-TEXT-DUPLICATION-001-ANDROID.yaml",
+   "title": "Storyboard 文字：重複內容 — Android",
+   "claim": "Storyboard 生成完成後，生成文字不得出現非劇情所需的重複句段或重複場景內容。",
+   "source": {
+    "kind": "request",
+    "ref": "source/user-storyboard-text-20261006.yaml"
+   },
+   "mapped": null,
+   "decision": "covered TC-280"
+  },
+  {
+   "id": "QA-STORYBOARD-TEXT-ENGLISH-PUNCTUATION-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-QA-STORYBOARD-TEXT-ENGLISH-PUNCTUATION-001-ANDROID.yaml",
+   "title": "English storyboard quotation style — Android",
+   "claim": "When storyboard output is English, generated dialogue quotation marks must follow English conventions (straight or curly English quotes), not Chinese-style corner quotes 「 」 or 『 』, unless explicitly requested before generation.",
+   "source": {
+    "kind": "request",
+    "ref": "source/user-storyboard-english-punctuation-20261006.yaml"
+   },
+   "mapped": null,
+   "decision": "covered TC-282"
+  },
+  {
+   "id": "QA-STORYBOARD-TEXT-LANGUAGE-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-QA-STORYBOARD-TEXT-LANGUAGE-001-ANDROID.yaml",
+   "title": "Storyboard 文字：錯誤語言 — Android",
+   "claim": "Storyboard 生成完成後，生成文字應符合生成前明確指定的輸出語言及書寫變體。",
+   "source": {
+    "kind": "request",
+    "ref": "source/user-storyboard-text-20261006.yaml"
+   },
+   "mapped": null,
+   "decision": "covered TC-278"
+  },
+  {
+   "id": "QA-STORYBOARD-TEXT-NONEMPTY-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-QA-STORYBOARD-TEXT-NONEMPTY-001-ANDROID.yaml",
+   "title": "Storyboard 文字：空白 — Android",
+   "claim": "Storyboard 生成完成後，每個場景的必要生成文字不得缺漏、為空字串或僅含空白。",
+   "source": {
+    "kind": "request",
+    "ref": "source/user-storyboard-text-20261006.yaml"
+   },
+   "mapped": null,
+   "decision": "covered TC-279"
+  },
+  {
+   "id": "QA-STORYBOARD-TEXT-READABLE-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-QA-STORYBOARD-TEXT-READABLE-001-ANDROID.yaml",
+   "title": "Storyboard 文字：亂碼 — Android",
+   "claim": "Storyboard 生成完成後，所有生成文字應可正常閱讀，不得含編碼或字元顯示損壞造成的亂碼。",
+   "source": {
+    "kind": "request",
+    "ref": "source/user-storyboard-text-20261006.yaml"
+   },
+   "mapped": null,
+   "decision": "covered TC-281"
+  },
+  {
+   "id": "QA-TEMPLATE-CATEGORY-ICONS-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-QA-TEMPLATE-CATEGORY-ICONS-001-ANDROID.yaml",
+   "title": "Template category header icon fidelity — Android",
+   "claim": "Every AI Mini Drama template category header displays the icon assigned to that category by the applicable approved design; a repeated default or another category’s icon must not replace the assigned icon. Categories may share an icon only when the approved design assigns the same icon.",
+   "source": {
+    "kind": "request",
+    "ref": "source/user-template-category-icons-20261006.yaml"
+   },
+   "mapped": null,
+   "decision": "covered TC-328"
+  },
+  {
+   "id": "QA-TEMPLATE-NAME-TEXT-SCAN-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-QA-TEMPLATE-NAME-TEXT-SCAN-001-ANDROID.yaml",
+   "title": "Template name spelling, grammar and punctuation scan — Android",
+   "claim": "Every displayed AI Mini Drama story-template name must use correct spelling, grammar and punctuation for its text language, allowing documented intentional names or stylization. The English title “Six Things You Didnt Know” must be “Six Things You Didn’t Know” (a straight apostrophe in Didn't is also acceptable).",
+   "source": {
+    "kind": "request",
+    "ref": "source/user-template-name-text-scan-20261006.yaml"
+   },
+   "mapped": null,
+   "decision": "covered TC-010"
+  },
+  {
+   "id": "1012-PM-OUTLINE-LEAVE-WARNING",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1012-PM-OUTLINE-LEAVE-WARNING-ANDROID.yaml",
+   "title": "OUTLINE-LEAVE-WARNING — Android",
+   "claim": "Before an outline exists, leaving presents Leave this chat? with Leave anyway and Stay.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/pm-20261012/source.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-025, TC-026"
+  },
+  {
+   "id": "DESIGN-CHARACTER-FAILURE-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-CHARACTER-FAILURE-001-ANDROID.yaml",
+   "title": "10.GM: CHARACTER-FAILURE — Android",
+   "claim": "A character-image generation failure presents a failure message stating that credits were refunded and asks the user to try again later.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-043"
+  },
+  {
+   "id": "DESIGN-CHARACTER-GOT-IT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-CHARACTER-GOT-IT-001-ANDROID.yaml",
+   "title": "10.GM: CHARACTER-GOT-IT — Android",
+   "claim": "Got it dismisses the character-image failure message and returns to the character picker.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-043"
+  },
+  {
+   "id": "DESIGN-CHARACTER-LIMIT-GENERATE-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-CHARACTER-LIMIT-GENERATE-001-ANDROID.yaml",
+   "title": "10.GM: CHARACTER-LIMIT-GENERATE — Android",
+   "claim": "Generate is disabled while the character description exceeds the 1,000-character limit.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-051"
+  },
+  {
+   "id": "DESIGN-CHARACTER-LIMIT-MESSAGE-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-CHARACTER-LIMIT-MESSAGE-001-ANDROID.yaml",
+   "title": "10.GM: CHARACTER-LIMIT-MESSAGE — Android",
+   "claim": "A character description exceeding 1,000 characters displays the 1,000-character-limit warning.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-051"
+  },
+  {
+   "id": "DESIGN-MISSING-COUNT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-MISSING-COUNT-001-ANDROID.yaml",
+   "title": "10.GM: MISSING-COUNT — Android",
+   "claim": "The incomplete-character prompt identifies the characters that remain unset and reports their count accurately.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-039, TC-040"
+  },
+  {
+   "id": "DESIGN-MISSING-CREDIT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-MISSING-CREDIT-001-ANDROID.yaml",
+   "title": "10.GM: MISSING-CREDIT — Android",
+   "claim": "Attempting missing-character generation with insufficient credits opens the credit panel.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-136"
+  },
+  {
+   "id": "DESIGN-MISSING-PLURAL-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-MISSING-PLURAL-001-ANDROID.yaml",
+   "title": "10.GM: MISSING-PLURAL — Android",
+   "claim": "With multiple unset characters, the incomplete-character prompt offers Generate all.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-039"
+  },
+  {
+   "id": "DESIGN-MISSING-SINGULAR-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-MISSING-SINGULAR-001-ANDROID.yaml",
+   "title": "10.GM: MISSING-SINGULAR — Android",
+   "claim": "With one unset character, the incomplete-character prompt offers Generate for that character.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-040"
+  },
+  {
+   "id": "DESIGN-OFFLINE-SEND-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-OFFLINE-SEND-001-ANDROID.yaml",
+   "title": "10.GM: OFFLINE-SEND — Android",
+   "claim": "Sending an idea while offline shows the offline connection message and a Try again action.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+   },
+   "mapped": null,
+   "decision": "pass 7: PM 10/6 §5 (pm-update-5) replaces the inline offline message + Try again (Design 1005 / PM 0930) with the toast 「You're offline. Check your connection and try again.」, nothing sent or charged; TC-032 and TC-387 check that"
+  },
+  {
+   "id": "DESIGN-PICKER-EXIT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-PICKER-EXIT-001-ANDROID.yaml",
+   "title": "10.GM: PICKER-EXIT — Android",
+   "claim": "Closing the unfinished character picker presents a warning that leaving will lose the current picks, with Leave and Keep choosing actions.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-037"
+  },
+  {
+   "id": "DESIGN-PICKER-KEEP-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-PICKER-KEEP-001-ANDROID.yaml",
+   "title": "10.GM: PICKER-KEEP — Android",
+   "claim": "Keep choosing dismisses the unfinished-picker warning and retains the current unsaved picks.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-038"
+  },
+  {
+   "id": "DESIGN-PICKER-LEAVE-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-PICKER-LEAVE-001-ANDROID.yaml",
+   "title": "10.GM: PICKER-LEAVE — Android",
+   "claim": "Leave exits the unfinished character picker without saving its unsaved picks.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-038"
+  },
+  {
+   "id": "DESIGN-SCENE-DOWNLOAD-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-SCENE-DOWNLOAD-001-ANDROID.yaml",
+   "title": "10.GM: SCENE-DOWNLOAD — Android",
+   "claim": "The failed scene-video placeholder does not display the bottom-right download icon.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-093, TC-091"
+  },
+  {
+   "id": "DESIGN-SCENE-FAILURE-COUNT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-SCENE-FAILURE-COUNT-001-ANDROID.yaml",
+   "title": "10.GM: SCENE-FAILURE-COUNT — Android",
+   "claim": "The failed-scene message reports how many scenes could not be generated and states that credits were refunded.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-091"
+  },
+  {
+   "id": "DESIGN-SCENE-FIX-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-SCENE-FIX-001-ANDROID.yaml",
+   "title": "10.GM: SCENE-FIX — Android",
+   "claim": "A result with scene-generation failures offers Fix scenes before export.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-091, TC-150"
+  },
+  {
+   "id": "DESIGN-STT-FAILURE-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-STT-FAILURE-001-ANDROID.yaml",
+   "title": "10.GM: STT-FAILURE — Android",
+   "claim": "An STT storyboard-preview failure displays Storyboard preview unavailable, asks the user to try again, and offers Retry.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-299"
+  },
+  {
+   "id": "DESIGN-TTS-FAILURE-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-TTS-FAILURE-001-ANDROID.yaml",
+   "title": "10.GM: TTS-FAILURE — Android",
+   "claim": "A TTS storyboard-preview failure displays Storyboard preview unavailable, a partial-credit-refund message, and a Retry action.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+   },
+   "mapped": null,
+   "decision": "pass 7: the current set words the TTS failure 「Couldn't create the storyboard preview. Your credits have been refunded. Try again.」 + Retry ◆1 (PM Error Handling / §13.7), replacing the older Design 「Storyboard preview unavailable. Some credits were refunded…」; TC-078 checks it"
+  },
+  {
+   "id": "FIXTURE-0924-S002-B014",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-0924-S002-B014-ANDROID.yaml",
+   "title": "Daily free chats — Android",
+   "claim": "After successful subscription, the user returns to the original chat with a Continue message.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-222 (Google Play sandbox subscription on Android)"
+  },
+  {
+   "id": "FIXTURE-0924-S002-B015",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-0924-S002-B015-ANDROID.yaml",
+   "title": "Daily free chats — Android",
+   "claim": "Daily free chat use is stored by the app, so reinstalling grants the free chat allowance again.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-224"
+  },
+  {
+   "id": "FIXTURE-0924-S002-B016",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-0924-S002-B016-ANDROID.yaml",
+   "title": "Daily free chats — Android",
+   "claim": "Daily free chat limits can be adjusted through Firebase Remote Config.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-369, TC-393 (Android has no 30-chat tier, so the iOS Pro row is not in this table)"
+  },
+  {
+   "id": "FIXTURE-0924-S002-B017",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-0924-S002-B017-ANDROID.yaml",
+   "title": "First-time free credits — Android",
+   "claim": "The first use of AI Mini Drama grants its feature-specific free credits once in the user's lifetime.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-323"
+  },
+  {
+   "id": "FIXTURE-0924-S002-B018",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-0924-S002-B018-ANDROID.yaml",
+   "title": "First-time free credits — Android",
+   "claim": "AI Mini Drama first-use credits can be spent on its character image generation.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-323"
+  },
+  {
+   "id": "FIXTURE-0924-S002-B019",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-0924-S002-B019-ANDROID.yaml",
+   "title": "First-time free credits — Android",
+   "claim": "AI Mini Drama first-use credits can be spent on its storyboard generation.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-323"
+  },
+  {
+   "id": "FIXTURE-0924-S002-B020",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-0924-S002-B020-ANDROID.yaml",
+   "title": "First-time free credits — Android",
+   "claim": "AI Mini Drama first-use credits can be spent on its video generation.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-323"
+  },
+  {
+   "id": "FIXTURE-0924-S002-B021",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-0924-S002-B021-ANDROID.yaml",
+   "title": "First-time free credits — Android",
+   "claim": "AI Mini Drama first-use credits cannot be spent in other features.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-323"
+  },
+  {
+   "id": "FIXTURE-0924-S002-B028",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-0924-S002-B028-ANDROID.yaml",
+   "title": "Real-time pricing — Android",
+   "claim": "Activating Ready to create video reads the current remaining credits and presents a quote for the corresponding video plan.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-079, TC-115"
+  },
+  {
+   "id": "FIXTURE-1001-S001-B020",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-1001-S001-B020-ANDROID.yaml",
+   "title": "Recent tasks — Android",
+   "claim": "Uninstalling the app removes its local Recent Task entries.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261001-2bdf20db38dbb3e76ca928ec82df594e0ed7e036525672df5cc3e118de61e582.pdf"
+   },
+   "mapped": null,
+   "decision": "older spec: 「uninstalling removes local Recent Task entries」 is in the 2026-10-01 PDF only; PM 20261021, Design and MX version A state no such rule (the MX 「Android uninstall 不 handle」 note is about free credits)"
+  },
+  {
+   "id": "FIXTURE-1001-S001-B026",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-1001-S001-B026-ANDROID.yaml",
+   "title": "Failure handling — Android",
+   "claim": "A failed required storyline character image prevents progression to storyboard.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261001-2bdf20db38dbb3e76ca928ec82df594e0ed7e036525672df5cc3e118de61e582.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-384"
+  },
+  {
+   "id": "FIXTURE-1001-S001-B027",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-1001-S001-B027-ANDROID.yaml",
+   "title": "Failure handling — Android",
+   "claim": "When the Storyboard Preview fails, a Create video anyways button below the failed preview card, next to Retry ◆1, lets the user continue to the video without a preview.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261001-2bdf20db38dbb3e76ca928ec82df594e0ed7e036525672df5cc3e118de61e582.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-355"
+  },
+  {
+   "id": "FIXTURE-1001-S001-B029",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-1001-S001-B029-ANDROID.yaml",
+   "title": "Failure handling — Android",
+   "claim": "A repeatedly failed scene-video request exposes Edit with the retry-failure explanation.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261001-2bdf20db38dbb3e76ca928ec82df594e0ed7e036525672df5cc3e118de61e582.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-092"
+  },
+  {
+   "id": "FIXTURE-1001-S001-B046",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-1001-S001-B046-ANDROID.yaml",
+   "title": "Partial video failure — Android",
+   "claim": "A failed-video placeholder uses the specified 15-second default duration.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261001-2bdf20db38dbb3e76ca928ec82df594e0ed7e036525672df5cc3e118de61e582.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-093"
+  },
+  {
+   "id": "FIXTURE-1001-S002-B059",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-1001-S002-B059-ANDROID.yaml",
+   "title": "Daily free chats — Android",
+   "claim": "Opening a template counts as one daily chat use.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-218, TC-368 (Android Pro = the MX 100-chat tier; the iOS 30-chat Pro row is not in this table)"
+  },
+  {
+   "id": "FIXTURE-1001-S002-B060",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-1001-S002-B060-ANDROID.yaml",
+   "title": "Daily free chats — Android",
+   "claim": "Executing a qualifying task button counts as one daily chat use.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-218, TC-368 (Android Pro = the MX 100-chat tier; the iOS 30-chat Pro row is not in this table)"
+  },
+  {
+   "id": "FIXTURE-1001-S002-B061",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-1001-S002-B061-ANDROID.yaml",
+   "title": "Daily free chats — Android",
+   "claim": "Subscribing removes unused Free chat allowance and grants only the premium additional allowance.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-223"
+  },
+  {
+   "id": "FIXTURE-1001-S002-B062",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-FIXTURE-1001-S002-B062-ANDROID.yaml",
+   "title": "First-time free credits — Android",
+   "claim": "A video task that cannot be covered by the feature free-use allocation consumes the user’s own credits.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-323"
+  },
+  {
+   "id": "MX-CREDIT-CONSENT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-CREDIT-CONSENT-001-ANDROID.yaml",
+   "title": "Credit consumption · TC-PDRM-MINIDRAMA-MX-CREDIT-CONSENT-001 — Android",
+   "claim": "A character or storyboard credit-consuming offer shows a Consume credits? card with a Confirm action.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "pass 7: the MX mockup card 「Consume credits? / Credits will be consumed for this task.」 + Confirm is superseded by the priced action card with Generate (PM chat frames, Design 1016 Create storyboard card) and the Design MX-link line 「You'll have {n} left」 (Q-3); TC-044, TC-060, TC-115 check that"
+  },
+  {
+   "id": "MX-DRAFT-PRESERVE-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-DRAFT-PRESERVE-001-ANDROID.yaml",
+   "title": "Daily free chats · TC-PDRM-MINIDRAMA-MX-DRAFT-PRESERVE-001 — Android",
+   "claim": "Closing the daily-limit dialog returns to chat with unsent input text preserved.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/02-pdrm-mx/slide-002-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-219"
+  },
+  {
+   "id": "MX-DRAFT-PRESERVE-002",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-DRAFT-PRESERVE-002-ANDROID.yaml",
+   "title": "Daily free chats · TC-PDRM-MINIDRAMA-MX-DRAFT-PRESERVE-002 — Android",
+   "claim": "Closing the daily-limit dialog returns to chat with unsent input text preserved.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/02-pdrm-mx/slide-002-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-219"
+  },
+  {
+   "id": "MX-FREE-LIMIT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-FREE-LIMIT-001-ANDROID.yaml",
+   "title": "Daily free chats · TC-PDRM-MINIDRAMA-MX-FREE-LIMIT-001 — Android",
+   "claim": "Sending a chat after the Free daily allowance is exhausted opens the premium upgrade dialog.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/02-pdrm-mx/slide-002-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-117, TC-215"
+  },
+  {
+   "id": "MX-FREE-QUOTA-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-FREE-QUOTA-001-ANDROID.yaml",
+   "title": "Daily free chats · MX-FREE-QUOTA — Android",
+   "claim": "Measure the effective daily chat allowance for a Free account. The MX example is 10, with the remotely configurable count explicitly TBD; a difference requires PM confirmation, not an automatic fixed-quota failure.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-215"
+  },
+  {
+   "id": "MX-FREE-SEND-DEBIT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-FREE-SEND-DEBIT-001-ANDROID.yaml",
+   "title": "Daily free chats · MX-FREE-SEND-DEBIT — Android",
+   "claim": "Each chat sent by a Free user consumes one daily free chat use.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-215, TC-218"
+  },
+  {
+   "id": "MX-MODEL-LOCK-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-MODEL-LOCK-001-ANDROID.yaml",
+   "title": "First-time free credits · TC-PDRM-MINIDRAMA-MX-MODEL-LOCK-001 — Android",
+   "claim": "During first-time free image generation the user cannot choose the generation model.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/02-pdrm-mx/slide-002-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-324"
+  },
+  {
+   "id": "MX-MODEL-LOCK-VIDEO-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-MODEL-LOCK-VIDEO-001-ANDROID.yaml",
+   "title": "First-time free credits · TC-PDRM-MINIDRAMA-MX-MODEL-LOCK-VIDEO-001 — Android",
+   "claim": "During first-time free video generation the user cannot choose the generation model.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/02-pdrm-mx/slide-002-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-324"
+  },
+  {
+   "id": "MX-PROPLUS-LIMIT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-PROPLUS-LIMIT-001-ANDROID.yaml",
+   "title": "Daily free chats · TC-PDRM-MINIDRAMA-MX-PROPLUS-LIMIT-001 — Android",
+   "claim": "Sending a chat after the Pro daily allowance is exhausted opens a dialog.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/02-pdrm-mx/slide-002-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-118, TC-217"
+  },
+  {
+   "id": "MX-PROPLUS-LIMIT-COPY-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-PROPLUS-LIMIT-COPY-001-ANDROID.yaml",
+   "title": "Daily free chats · MX-PROPLUS-LIMIT-COPY — Android",
+   "claim": "At the exhausted Pro daily-chat allowance, record the actual dialog title and body. Earlier MX says “AI Chat used up”; later MX says “server busy”. Retain the observed wording for PM confirmation without selecting a final expected string.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-118, TC-217 (Design wins: 「Today's AI Chats Are Used Up」; MX notes this dialog for iOS Pro+ and Android Premium)"
+  },
+  {
+   "id": "MX-PROPLUS-QUOTA-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-PROPLUS-QUOTA-001-ANDROID.yaml",
+   "title": "Daily free chats · MX-PROPLUS-QUOTA — Android",
+   "claim": "Measure the effective daily chat allowance for a Pro account. The MX example is 100, with the remotely configurable count explicitly TBD; a difference requires PM confirmation, not an automatic fixed-quota failure.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-217"
+  },
+  {
+   "id": "MX-PROPLUS-SEND-DEBIT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-PROPLUS-SEND-DEBIT-001-ANDROID.yaml",
+   "title": "Daily free chats · MX-PROPLUS-SEND-DEBIT — Android",
+   "claim": "Each chat sent by a Pro user consumes one daily free chat use.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Minidrama-PDRM-MX-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-368 (Android Pro = 「Pro+ (and Android Premium)」 in MX version A)"
+  },
+  {
+   "id": "MX-REGEN-TOPUP-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-REGEN-TOPUP-001-ANDROID.yaml",
+   "title": "Credit consumption · TC-PDRM-MINIDRAMA-MX-REGEN-TOPUP-001 — Android",
+   "claim": "When credits are insufficient for a generation or regeneration offer, its credit action opens the top-up panel.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/02-pdrm-mx/slide-002-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-152"
+  },
+  {
+   "id": "MX-REPEAT-LIMIT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-REPEAT-LIMIT-001-ANDROID.yaml",
+   "title": "Daily free chats · TC-PDRM-MINIDRAMA-MX-REPEAT-LIMIT-001 — Android",
+   "claim": "Each further chat send while the daily allowance remains exhausted shows the limit dialog again.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/02-pdrm-mx/slide-002-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-220"
+  },
+  {
+   "id": "MX-REPEAT-LIMIT-002",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-REPEAT-LIMIT-002-ANDROID.yaml",
+   "title": "Daily free chats · TC-PDRM-MINIDRAMA-MX-REPEAT-LIMIT-002 — Android",
+   "claim": "Each further chat send while the daily allowance remains exhausted shows the limit dialog again.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/02-pdrm-mx/slide-002-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-220"
+  },
+  {
+   "id": "MX-TEMPLATE-LIMIT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-TEMPLATE-LIMIT-001-ANDROID.yaml",
+   "title": "Daily free chats · TC-PDRM-MINIDRAMA-MX-TEMPLATE-LIMIT-001 — Android",
+   "claim": "Opening a template after the daily chat allowance is exhausted enters the chat and then shows the limit dialog.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/02-pdrm-mx/slide-002-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-221"
+  },
+  {
+   "id": "MX-TEMPLATE-LIMIT-002",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-TEMPLATE-LIMIT-002-ANDROID.yaml",
+   "title": "Daily free chats · TC-PDRM-MINIDRAMA-MX-TEMPLATE-LIMIT-002 — Android",
+   "claim": "Opening a template after the daily chat allowance is exhausted enters the chat and then shows the limit dialog.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/02-pdrm-mx/slide-002-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-221"
+  },
+  {
+   "id": "MX-TRIAL-BANNER-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-TRIAL-BANNER-001-ANDROID.yaml",
+   "title": "First-time free credits · TC-PDRM-MINIDRAMA-MX-TRIAL-BANNER-001 — Android",
+   "claim": "During first-time free use the input area displays Free trial active with a 0 Credits script message.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/02-pdrm-mx/slide-002-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "older spec: the 「Free trial active」 input message belongs to MX versions B/C, superseded by version A (board notes, MX spec); not in the 2026-10-21-2 OCR of version A, PM or Design"
+  },
+  {
+   "id": "PM-ASSISTANT-INTRO-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-ASSISTANT-INTRO-001-ANDROID.yaml",
+   "title": "Chat introduction · TC-PDRM-MINIDRAMA-PM-ASSISTANT-INTRO-001 — Android",
+   "claim": "Opening AI Mini Drama displays the introduction “Hi, I'm your” and “AI Drama Assistant”, and the input placeholder “Enter your idea to create drama”.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-003, TC-011"
+  },
+  {
+   "id": "PM-CHARACTER-CHOICE-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-CHARACTER-CHOICE-001-ANDROID.yaml",
+   "title": "Characters · TC-PDRM-MINIDRAMA-PM-CHARACTER-CHOICE-001 — Android",
+   "claim": "Character creation permits optional per-character reference photos before AI generation.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-048, TC-049, TC-128"
+  },
+  {
+   "id": "PM-CHARACTER-CONFIRM-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-CHARACTER-CONFIRM-001-ANDROID.yaml",
+   "title": "Characters · TC-PDRM-MINIDRAMA-PM-CHARACTER-CONFIRM-001 — Android",
+   "claim": "The completed character stage offers progression to storyboard creation.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-044"
+  },
+  {
+   "id": "PM-CHARACTER-MAPPING-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-CHARACTER-MAPPING-001-ANDROID.yaml",
+   "title": "Characters · TC-PDRM-MINIDRAMA-PM-CHARACTER-MAPPING-001 — Android",
+   "claim": "A reference photo can be assigned to a named character before generation.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-047, TC-049, TC-133"
+  },
+  {
+   "id": "PM-CHARACTER-REFERENCE-RETAIN-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-CHARACTER-REFERENCE-RETAIN-001-ANDROID.yaml",
+   "title": "Character revision · TC-PDRM-MINIDRAMA-PM-CHARACTER-REFERENCE-RETAIN-001 — Android",
+   "claim": "Regenerating characters retains reference photos previously supplied by the user.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "older spec: 「regenerating characters keeps the user's reference photos」 is 2026-10-01 PM frame F67 only; PM 20261021 keeps the form's input only on Got it / timeout Close (TC-137, TC-335)"
+  },
+  {
+   "id": "PM-CHARACTER-RENAME-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-CHARACTER-RENAME-001-ANDROID.yaml",
+   "title": "Characters · TC-PDRM-MINIDRAMA-PM-CHARACTER-RENAME-001 — Android",
+   "claim": "A generated character can be renamed.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/AI-Mini-Drama-PM-Spec-20260924.pdf"
+   },
+   "mapped": null,
+   "decision": "older spec: renaming a generated character is in PM 20260924 only, not in PM 20261021 or Design; TC-291 (colleague direction R-155) only records whether a route exists"
+  },
+  {
+   "id": "PM-CHARACTER-RESULT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-CHARACTER-RESULT-001-ANDROID.yaml",
+   "title": "Characters · TC-PDRM-MINIDRAMA-PM-CHARACTER-RESULT-001 — Android",
+   "claim": "Character results show each character name with its corresponding photo.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-024, TC-349"
+  },
+  {
+   "id": "PM-CLIP-LEAVE-PROGRESS-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-CLIP-LEAVE-PROGRESS-001-ANDROID.yaml",
+   "title": "Clip regeneration leave · TC-PDRM-MINIDRAMA-PM-CLIP-LEAVE-PROGRESS-001 — Android",
+   "claim": "Returning from a generating scene video to chat retains the existing video and shows the scene-update status.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/figma-20261012/source.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-144"
+  },
+  {
+   "id": "PM-CLIP-LEAVE-REPLACE-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-CLIP-LEAVE-REPLACE-001-ANDROID.yaml",
+   "title": "Clip regeneration leave · TC-PDRM-MINIDRAMA-PM-CLIP-LEAVE-REPLACE-001 — Android",
+   "claim": "When scene-video regeneration finishes, chat replaces the prior video with the refreshed completed video.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/figma-20261012/source.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-145"
+  },
+  {
+   "id": "PM-ENTRY-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-ENTRY-001-ANDROID.yaml",
+   "title": "Feature entry · TC-PDRM-MINIDRAMA-PM-ENTRY-001 — Android",
+   "claim": "The PowerDirector Mobile Launcher page includes an AI Mini Drama entry in its AI feature list.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-001"
+  },
+  {
+   "id": "PM-FAILED-CLIP-RECOVERY-002",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-FAILED-CLIP-RECOVERY-002-ANDROID.yaml",
+   "title": "Failed clip recovery · action, response and same-task completion — Android",
+   "claim": "A failed scene video provides a Regenerate video action.",
+   "source": {
+    "kind": "spec",
+    "ref": "source/20261001-2bdf20db38dbb3e76ca928ec82df594e0ed7e036525672df5cc3e118de61e582.pdf"
+   },
+   "mapped": null,
+   "decision": "covered TC-092, TC-149 (the action is 「Regenerate scene ◆30」 in the current Design)"
+  },
+  {
+   "id": "PM-FORMAT-PROMPT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-FORMAT-PROMPT-001-ANDROID.yaml",
+   "title": "Video creation · TC-PDRM-MINIDRAMA-PM-FORMAT-PROMPT-001 — Android",
+   "claim": "Before video creation the chat asks for video format, including language and captions.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-020"
+  },
+  {
+   "id": "PM-GLOBAL-REVISION-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-GLOBAL-REVISION-001-ANDROID.yaml",
+   "title": "Chat revision · TC-PDRM-MINIDRAMA-PM-GLOBAL-REVISION-001 — Android",
+   "claim": "A global chat instruction can request story revision directions, and the assistant presents corresponding options.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "older spec: story-direction options for a global chat instruction are 2026-10-01 PM frame F40 only; the current chat-change board (pm-update-7, 10/16) offers 2–4 option chips only to clarify a character change (TC-348, TC-391)"
+  },
+  {
+   "id": "PM-IDEA-INPUT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-IDEA-INPUT-001-ANDROID.yaml",
+   "title": "Chat input · TC-PDRM-MINIDRAMA-PM-IDEA-INPUT-001 — Android",
+   "claim": "The chat provides an input for the user's drama idea.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-011"
+  },
+  {
+   "id": "PM-IMAGE-CANCEL-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-IMAGE-CANCEL-001-ANDROID.yaml",
+   "title": "Image editor · TC-PDRM-MINIDRAMA-PM-IMAGE-CANCEL-001 — Android",
+   "claim": "Closing the image editor with X leaves the saved image unchanged.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "older spec: the image (version) editor of 2026-10-01 PM frame F73 is not in PM 20261021 (board notes: 「storyboard text/image-version editor」 not in this PM)"
+  },
+  {
+   "id": "PM-IMAGE-SELECTED-VERSION-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-IMAGE-SELECTED-VERSION-001-ANDROID.yaml",
+   "title": "Image editor · TC-PDRM-MINIDRAMA-PM-IMAGE-SELECTED-VERSION-001 — Android",
+   "claim": "Only the selected generated image version is saved.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "older spec: image-version selection of 2026-10-01 PM frame F69 is not in PM 20261021 (board notes: 「storyboard text/image-version editor」 not in this PM)"
+  },
+  {
+   "id": "PM-INSPIRATION-TWO-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-INSPIRATION-TWO-001-ANDROID.yaml",
+   "title": "Landing inspiration · TC-PDRM-MINIDRAMA-PM-INSPIRATION-TWO-001 — Android",
+   "claim": "The landing page displays two text inspirations from its configured inspiration pool.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-012"
+  },
+  {
+   "id": "PM-MODEL-QUOTE-SWITCH-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-MODEL-QUOTE-SWITCH-001-ANDROID.yaml",
+   "title": "Video creation · TC-PDRM-MINIDRAMA-PM-MODEL-QUOTE-SWITCH-001 — Android",
+   "claim": "Switching the video model to Seedance 2.0 Mini changes the credit quote.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-080, TC-347 (Seedance 2.0 Mini = Fast)"
+  },
+  {
+   "id": "PM-OUTLINE-CONTENT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-OUTLINE-CONTENT-001-ANDROID.yaml",
+   "title": "Story outline · TC-PDRM-MINIDRAMA-PM-OUTLINE-CONTENT-001 — Android",
+   "claim": "The completed outline result presents one story outline with possible characters and character descriptions.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-024"
+  },
+  {
+   "id": "PM-RECENT-CARD-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-RECENT-CARD-001-ANDROID.yaml",
+   "title": "Recent tasks · TC-PDRM-MINIDRAMA-PM-RECENT-CARD-001 — Android",
+   "claim": "A Recent Task card presents its modification time, task name and file size.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-106"
+  },
+  {
+   "id": "PM-RECENT-CARD-002",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-RECENT-CARD-002-ANDROID.yaml",
+   "title": "Recent tasks · TC-PDRM-MINIDRAMA-PM-RECENT-CARD-002 — Android",
+   "claim": "A Recent Task card presents its modification time, task name and file size.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-106"
+  },
+  {
+   "id": "PM-RECENT-CARD-003",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-RECENT-CARD-003-ANDROID.yaml",
+   "title": "Recent tasks · TC-PDRM-MINIDRAMA-PM-RECENT-CARD-003 — Android",
+   "claim": "A Recent Task card presents its modification time, task name and file size.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-106"
+  },
+  {
+   "id": "PM-RECENT-CARD-004",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-RECENT-CARD-004-ANDROID.yaml",
+   "title": "Recent tasks · TC-PDRM-MINIDRAMA-PM-RECENT-CARD-004 — Android",
+   "claim": "A Recent Task card presents its modification time, task name and file size.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-106"
+  },
+  {
+   "id": "PM-RECENT-CARD-005",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-RECENT-CARD-005-ANDROID.yaml",
+   "title": "Recent tasks · TC-PDRM-MINIDRAMA-PM-RECENT-CARD-005 — Android",
+   "claim": "A Recent Task card presents its modification time, task name and file size.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-106"
+  },
+  {
+   "id": "PM-RECENT-DELETE-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-RECENT-DELETE-001-ANDROID.yaml",
+   "title": "Recent tasks · TC-PDRM-MINIDRAMA-PM-RECENT-DELETE-001 — Android",
+   "claim": "Deleting a run-owned Recent Task removes its card.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "added TC-404 (missed by: coverage pass 1, flow arrows — the confirmed Delete edge; TC-111 / TC-112 stop at the dialog)"
+  },
+  {
+   "id": "PM-RECENT-LATEST-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-RECENT-LATEST-001-ANDROID.yaml",
+   "title": "Recent tasks · TC-PDRM-MINIDRAMA-PM-RECENT-LATEST-001 — Android",
+   "claim": "Reopening a saved task shows the latest outline state rather than the complete session chat history.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-113, TC-029, TC-105"
+  },
+  {
+   "id": "PM-RECENT-LATEST-CAST-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-RECENT-LATEST-CAST-001-ANDROID.yaml",
+   "title": "Recent tasks · TC-PDRM-MINIDRAMA-PM-RECENT-LATEST-CAST-001 — Android",
+   "claim": "Reopening a saved character-stage task restores its latest saved character information.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-113"
+  },
+  {
+   "id": "PM-RECENT-LATEST-STORYBOARD-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-RECENT-LATEST-STORYBOARD-001-ANDROID.yaml",
+   "title": "Recent tasks · TC-PDRM-MINIDRAMA-PM-RECENT-LATEST-STORYBOARD-001 — Android",
+   "claim": "Reopening a saved storyboard-stage task restores its latest saved storyboard information.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-113"
+  },
+  {
+   "id": "PM-RECENT-LATEST-VIDEO-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-RECENT-LATEST-VIDEO-001-ANDROID.yaml",
+   "title": "Recent tasks · TC-PDRM-MINIDRAMA-PM-RECENT-LATEST-VIDEO-001 — Android",
+   "claim": "Reopening a completed saved task restores its latest saved video information.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-113"
+  },
+  {
+   "id": "PM-RECENT-NO-OUTLINE-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-RECENT-NO-OUTLINE-001-ANDROID.yaml",
+   "title": "Recent tasks · TC-PDRM-MINIDRAMA-PM-RECENT-NO-OUTLINE-001 — Android",
+   "claim": "A chat without a completed story outline is not saved as a Recent Task.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-028, TC-381, TC-386"
+  },
+  {
+   "id": "PM-RECENT-RENAME-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-RECENT-RENAME-001-ANDROID.yaml",
+   "title": "Recent tasks · TC-PDRM-MINIDRAMA-PM-RECENT-RENAME-001 — Android",
+   "claim": "Renaming a Recent Task updates its displayed task name.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-108, TC-110"
+  },
+  {
+   "id": "PM-RECENT-THUMBNAIL-OUTLINE-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-RECENT-THUMBNAIL-OUTLINE-001-ANDROID.yaml",
+   "title": "Recent tasks · TC-PDRM-MINIDRAMA-PM-RECENT-THUMBNAIL-OUTLINE-001 — Android",
+   "claim": "A saved task that has not reached storyboard uses the default thumbnail.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-320"
+  },
+  {
+   "id": "PM-RECENT-THUMBNAIL-STORYBOARD-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-RECENT-THUMBNAIL-STORYBOARD-001-ANDROID.yaml",
+   "title": "Recent tasks · TC-PDRM-MINIDRAMA-PM-RECENT-THUMBNAIL-STORYBOARD-001 — Android",
+   "claim": "A saved task that reached storyboard uses its first storyboard frame as thumbnail.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-106"
+  },
+  {
+   "id": "PM-REFERENCE-LIMIT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-REFERENCE-LIMIT-001-ANDROID.yaml",
+   "title": "Characters · TC-PDRM-MINIDRAMA-PM-REFERENCE-LIMIT-001 — Android",
+   "claim": "Each character supports one reference photo.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-317"
+  },
+  {
+   "id": "PM-SCENE-REGENERATE-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-SCENE-REGENERATE-001-ANDROID.yaml",
+   "title": "Script and scene plan · TC-PDRM-MINIDRAMA-PM-SCENE-REGENERATE-001 — Android",
+   "claim": "Submitting the scene-video regeneration request starts clip generation.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-149"
+  },
+  {
+   "id": "PM-SCRIPT-EDIT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-SCRIPT-EDIT-001-ANDROID.yaml",
+   "title": "Script and scene plan · TC-PDRM-MINIDRAMA-PM-SCRIPT-EDIT-001 — Android",
+   "claim": "Activating View more on Storyboard Result opens scene details.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-065"
+  },
+  {
+   "id": "PM-SCRIPT-RESULT-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-SCRIPT-RESULT-001-ANDROID.yaml",
+   "title": "Script and scene plan · TC-PDRM-MINIDRAMA-PM-SCRIPT-RESULT-001 — Android",
+   "claim": "Completing storyboard generation presents a Storyboard Result containing scene cards.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-064"
+  },
+  {
+   "id": "PM-SEQUEL-ENTRY-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-SEQUEL-ENTRY-001-ANDROID.yaml",
+   "title": "Next episode · TC-PDRM-MINIDRAMA-PM-SEQUEL-ENTRY-001 — Android",
+   "claim": "The completed custom drama offers Create Next Episode.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-087"
+  },
+  {
+   "id": "PM-SEQUEL-ORIGINAL-RETAIN-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-SEQUEL-ORIGINAL-RETAIN-001-ANDROID.yaml",
+   "title": "Next episode · TC-PDRM-MINIDRAMA-PM-SEQUEL-ORIGINAL-RETAIN-001 — Android",
+   "claim": "The first episode remains accessible from Recent Task after creating its next episode.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-321"
+  },
+  {
+   "id": "PM-SEQUEL-START-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-SEQUEL-START-001-ANDROID.yaml",
+   "title": "Next episode · TC-PDRM-MINIDRAMA-PM-SEQUEL-START-001 — Android",
+   "claim": "Continue making next episode starts the next episode outline and character flow.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-321"
+  },
+  {
+   "id": "PM-SURPRISE-SESSION-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-SURPRISE-SESSION-001-ANDROID.yaml",
+   "title": "Landing inspiration · TC-PDRM-MINIDRAMA-PM-SURPRISE-SESSION-001 — Android",
+   "claim": "Repeated Surprise me activations append randomly selected inspirations excluding the two displayed inspiration choices.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-014, TC-380"
+  },
+  {
+   "id": "PM-TEMPLATE-OUTLINE-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-TEMPLATE-OUTLINE-001-ANDROID.yaml",
+   "title": "Story outline · TC-PDRM-MINIDRAMA-PM-TEMPLATE-OUTLINE-001 — Android",
+   "claim": "Generate on the template-story Format card starts outline drafting.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-009, TC-022, TC-236 (the format card's button is 「Continue」 in the current set)"
+  },
+  {
+   "id": "PM-UPLOAD-ANALYSIS-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-UPLOAD-ANALYSIS-001-ANDROID.yaml",
+   "title": "Characters · TC-PDRM-MINIDRAMA-PM-UPLOAD-ANALYSIS-001 — Android",
+   "claim": "Starting character generation shows a character-generation loading state.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-041, TC-332"
+  },
+  {
+   "id": "PM-VIDEO-GENERATING-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-VIDEO-GENERATING-001-ANDROID.yaml",
+   "title": "Video creation · TC-PDRM-MINIDRAMA-PM-VIDEO-GENERATING-001 — Android",
+   "claim": "Starting video creation displays an in-progress video state in the chat; no fixed Generating Video literal is required.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "added TC-405 (missed by: coverage pass 2, states per job — the video job's start/loading cell)"
+  },
+  {
+   "id": "PM-VIDEO-NOTIFY-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-VIDEO-NOTIFY-001-ANDROID.yaml",
+   "title": "Completion notification · TC-PDRM-MINIDRAMA-PM-VIDEO-NOTIFY-001 — Android",
+   "claim": "Video completion provides a notification.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-085, TC-307"
+  },
+  {
+   "id": "PM-VIDEO-NOTIFY-ROOM-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-VIDEO-NOTIFY-ROOM-001-ANDROID.yaml",
+   "title": "Completion notification · TC-PDRM-MINIDRAMA-PM-VIDEO-NOTIFY-ROOM-001 — Android",
+   "claim": "Opening a video-completion notification enters the corresponding chat room.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-307"
+  },
+  {
+   "id": "PM-VIDEO-PLAN-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-VIDEO-PLAN-001-ANDROID.yaml",
+   "title": "Script and scene plan · TC-PDRM-MINIDRAMA-PM-VIDEO-PLAN-001 — Android",
+   "claim": "Before video generation, the completed storyboard exposes the Storyboard Preview surface, separately from its generated scene cards.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "covered TC-064, TC-075"
+  },
+  {
+   "id": "PM-VOICE-TRANSCRIBE-001",
+   "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-VOICE-TRANSCRIBE-001-ANDROID.yaml",
+   "title": "Voice input · TC-PDRM-MINIDRAMA-PM-VOICE-TRANSCRIBE-001 — Android",
+   "claim": "The recording checkmark transcribes the accepted recording into the idea text box.",
+   "source": {
+    "kind": "spec",
+    "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+   },
+   "mapped": null,
+   "decision": "older spec: the recording-checkmark transcription is the 2026-10-01 PM frame F32; the current set draws only the mic button (TC-011)"
+  }
+ ]
+}

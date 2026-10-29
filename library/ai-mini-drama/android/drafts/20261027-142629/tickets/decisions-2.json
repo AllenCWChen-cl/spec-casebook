@@ -1,0 +1,766 @@
+[
+ {
+  "bug": "DRA262610P0120",
+  "kind": "fold",
+  "row": "TC-034",
+  "note": "Android ticket DRA262610P0120 (NewCreated, AIAgent, UX): on fresh data, after the first manual look no next-slot coachmark appears, only Finish your characters"
+ },
+ {
+  "bug": "DRA262610P0121",
+  "kind": "fold",
+  "row": "TC-395",
+  "note": "Android ticket DRA262610P0121 (Assigned, AIAgent): Android Back while the outline generates leaves without the interruption choices"
+ },
+ {
+  "bug": "DRA262610P0122",
+  "kind": "fold",
+  "row": "TC-377",
+  "note": "Android ticket DRA262610P0122 (Assigned, AIAgent, UI): Generate on Create storyboard adds a user bubble 「Create storyboard」; the ticket expects 「Yes, create storyboard」. Design spec differs: PM 1002 (R-279) adds no user bubble at all; spec wins"
+ },
+ {
+  "bug": "DRA262610P0123",
+  "kind": "row",
+  "after": "TC-141",
+  "section": "Storyboard",
+  "precondition": "Scene detail showing 「Regenerate Image」 (Edit › Done on a scene; use a failed scene if no other offers it); Wi-Fi off and no cellular (Appium confirmed on USB first)",
+  "action": "Tap 「Regenerate Image」 and wait for the result; turn Wi-Fi back on right after",
+  "expected": "The app tells the user to check the network connection (e.g. 「You're offline. Check your connection and try again.」), not a service-busy error; an inline message is not required; nothing is charged",
+  "priority": "P2",
+  "spec_ref": "R-028",
+  "notes": "DRA262610P0123 (NewCreated, AIAgent, UX); real network loss (REQ-020)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0124",
+  "kind": "fold",
+  "row": "TC-002",
+  "note": "Android ticket DRA262610P0124 (NewCreated, AIAgent, UX): on fresh data the Launcher banner stays on 「Turn one photo to cinematic reel」 and never rotates to AI Mini Drama (only the tile shows it)"
+ },
+ {
+  "bug": "DRA262610P0125",
+  "kind": "row",
+  "after": "TC-344",
+  "section": "Chat behaviour",
+  "precondition": "Story Outline finished; chat scrolled up to an earlier message",
+  "action": "Type 「Make the ending hopeful, reveal the hidden letter, and reunite the sisters.」 and tap Send",
+  "expected": "After sending, the chat scrolls down so the newest message and the response are visible",
+  "priority": "P2",
+  "spec_ref": "R-250",
+  "notes": "DRA262610P0125 (Assigned, AIAgent); TC-344 starts at the bottom, this starts scrolled up. Design spec differs in part: PM §13.2 (R-250) scrolls the sent message to the top and the view does not follow the reply (↓ appears); spec wins for the reply",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0126",
+  "kind": "row",
+  "after": "TC-024",
+  "section": "Story outline",
+  "precondition": "Story Outline finished",
+  "action": "Tap the outline body and look for Edit, Save, Done, Cancel and validation",
+  "expected": "A manual outline editor is offered with save / cancel actions and validation safeguards",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0126 (ProposeNAB, AIAgent). Design spec differs: the current PM lists a manual outline editor as not in this PM (the outline changes only through chat, R-038); spec wins, so the read-only outline passes",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0129",
+  "kind": "fold",
+  "row": "TC-043",
+  "note": "Android ticket DRA262610P0129 (Assigned, AIAgent, UI): a Create my character failure (reported with the network off) says the service is busy but not that the credits were refunded"
+ },
+ {
+  "bug": "DRA262610P0130",
+  "kind": "row",
+  "after": "TC-058",
+  "section": "Make your character",
+  "precondition": "Character library has a saved generated character",
+  "action": "Open its More (⋮) menu and look for an editor, a version list or an alternative-image action",
+  "expected": "A character editor / version flow and an alternative-image generation route are offered",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0130 (NewCreated, AIAgent, UX). Design spec differs: the spec's menu offers only Delete (R-049) and has no character editor or versions; looks change through chat (「Update characters」, R-254); spec wins",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0131",
+  "kind": "row",
+  "after": "TC-137",
+  "section": "Make your character",
+  "precondition": "Create my character with a valid description; Wi-Fi off and no cellular (Appium confirmed on USB first)",
+  "action": "Tap Generate, read the failure action; tap Generate again and read it after the second failure; turn Wi-Fi back on",
+  "expected": "The failure offers Retry, and after the repeated failure the action changes to Edit",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0131 (Assigned, AIAgent). Design spec differs: character failures offer only 「Got it」 (R-036, flow arrow 3172-66578); Retry then Edit is the scene-video rule (R-081); spec wins. Real network loss (REQ-020)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0132",
+  "kind": "row",
+  "after": "TC-350",
+  "section": "Characters",
+  "precondition": "Every cast slot already has a look (fully mapped cast), storyboard not started",
+  "action": "Ask Iris in chat to regenerate the characters and wait for the reply",
+  "expected": "Iris offers the priced character-generation card (「Update characters」 with ◆price and Generate); no 「(No reply)」 and no unrelated 「Create storyboard」 offer",
+  "priority": "P2",
+  "spec_ref": "R-254",
+  "notes": "DRA262610P0132 (Assigned, AIAgent); RD: chat character generation added (PR 2969)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0134",
+  "kind": "fold",
+  "row": "TC-073",
+  "note": "Android ticket DRA262610P0134 (Assigned, AIAgent): a chat image update shows 「Script updated」 / 「Create storyboard」, a generic 「Working on it」 row and updates the card in place instead of adding a new storyboard card; the ticket also wants 「Update storyboard images」 and the earlier card synced. Design spec differs: PM 10/20 names the card 「Create storyboard」 (TC-072) and §13.2 ③ keeps earlier cards as they were; spec wins"
+ },
+ {
+  "bug": "DRA262610P0135",
+  "kind": "fold",
+  "row": "TC-126",
+  "note": "Android ticket DRA262610P0135 (RDResolved, AIAgent): AI Suggestion fills only the description; Gender, Ethnicity and Age stay unset and Generate stays disabled"
+ },
+ {
+  "bug": "DRA262610P0137",
+  "kind": "row",
+  "after": "TC-065",
+  "section": "Storyboard",
+  "precondition": "Storyboard finished; Scene 1 detail open (a successful scene)",
+  "action": "Tap the scene description and look for an editor and a save checkmark",
+  "expected": "The scene description can be edited manually and saved with an explicit checkmark",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0137 (NewCreated, AIAgent, UX). Design spec differs: the current PM lists a storyboard text editor as not in this PM; Edit exists only on a failed scene (R-059); spec wins",
+  "needs": [],
+  "ios_lead": "TC-175"
+ },
+ {
+  "bug": "DRA262610P0138",
+  "kind": "fold",
+  "row": "TC-006",
+  "note": "Android ticket DRA262610P0138 (NeedMoreInfo, AIFound): in English no templates load under 「Start from a template」 (also TC-003) and More opens a blank page, even after relaunch"
+ },
+ {
+  "bug": "DRA262610P0142",
+  "kind": "row",
+  "after": "TC-259",
+  "section": "Templates",
+  "precondition": "Chat started from 「The Pop Star's Secret Girlfriend」 (row above)",
+  "action": "Choose English and 「Yes, include captions」, tap Generate and wait for the outline and Choose your characters; swipe the slots to both ends",
+  "expected": "Each preset character appears on the role it is mapped to (character mapping US): Maya Torres and Chase Bennett get presets of their own gender, and Rowan Hale's card is not empty",
+  "priority": "P2",
+  "spec_ref": "R-208",
+  "notes": "DRA262610P0142 (NewCreated, AIFound); also DRA262610P0173 (TRCreated, AIFound): Maya and Chase default actors gender-swapped",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0145",
+  "kind": "fold",
+  "row": "TC-291",
+  "note": "Android ticket DRA262610P0145 (NewCreated, AIFound, UX): story role names (e.g. Clara) in Choose your characters cannot be renamed, so a male look in the Clara slot stays labelled Clara; the ticket expects a rename before the storyboard. The spec draws no rename control (roles change through chat, R-038)"
+ },
+ {
+  "bug": "DRA262610P0147",
+  "kind": "row",
+  "after": "TC-334",
+  "section": "Make your character",
+  "precondition": "Character generating in Create my character",
+  "action": "Tap X, then 「Keep Generating」; use system back (Android back gesture or button), then 「Keep Generating」",
+  "expected": "X stays enabled and both X and system back ask 「Stop and lose your credits?」 and let the user stop; Keep Generating closes the dialog and the character finishes",
+  "priority": "P2",
+  "spec_ref": "R-307",
+  "notes": "DRA262610P0147 (NewCreated, AIFound, UX): X greyed out and Back ignored while Generating",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0148",
+  "kind": "row",
+  "after": "TC-273",
+  "section": "Templates",
+  "precondition": "Chat started from 「The Beer Heir」 (row above)",
+  "action": "Choose English and 「Yes, include captions」, tap Generate and wait for the outline and Choose your characters; swipe the slots to both ends",
+  "expected": "Every card shows its preset character (Beer, Ume, Cabernet, Whiskey, Vodka, Gin); the log has no 「has no CMS character」 line",
+  "priority": "P2",
+  "spec_ref": "R-208",
+  "notes": "DRA262610P0148 (NewCreated, AIFound); its 「The Ring He Worked For」 (US) half was split into DRA262610P0204 (row after TC-271). RD (DRA262610P0201): Beer Heir presets had age 「unknown」 in CMS, fixed on Stage",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0150",
+  "kind": "fold",
+  "row": "TC-376",
+  "note": "Android ticket DRA262610P0150 (NewCreated, AIFound, UI): the failed-scene message says 「Tap Edit to regenerate」 but only 「Fix scenes」 shows; the ticket asks to make the names match. Design spec differs: the spec keeps 「Tap Edit to regenerate」 and puts an 「Edit」 button in the red message (R-278) besides 「Fix scenes」; spec wins"
+ },
+ {
+  "bug": "DRA262610P0153",
+  "kind": "row",
+  "after": "TC-099",
+  "section": "Captions",
+  "precondition": "A finished video from any template (Seedance 2.0 Mini, captions on), opened from History (Recent task)",
+  "action": "Play the video across scene changes (e.g. 00:31–00:37 in the reported drama)",
+  "expected": "Each caption shows only while its line is spoken and disappears when the audio or scene moves on",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0153 (Assigned, UI)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0154",
+  "kind": "row",
+  "after": "TC-143",
+  "section": "Video",
+  "precondition": "A finished video from any template (Seedance 2.0 Mini, captions on), opened from History (Recent task)",
+  "action": "Play the whole video and watch the male lead's outfit",
+  "expected": "The male character's outfit stays the same throughout the video",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0154 (TRCreated, Quality); RD: outfit descriptions synced with the chosen portrait before the storyboard (fixed in 2610212)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0155",
+  "kind": "row",
+  "after": "TC-143",
+  "section": "Video",
+  "precondition": "A finished video from any template (Seedance 2.0 Mini, captions on), opened from History (Recent task)",
+  "action": "Play the whole video and compare each spoken line with the mouth movement and its caption",
+  "expected": "Audio and video are in sync: lines match the speakers' lips and captions appear with their lines",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0155 (Assigned, Quality)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0156",
+  "kind": "row",
+  "after": "TC-143",
+  "section": "Video",
+  "precondition": "A finished video from any template (Seedance 2.0 Mini, captions on), opened from History (Recent task)",
+  "action": "Play the whole video and watch actions and continuity between shots (positions, doors, seats)",
+  "expected": "The plot is logical and consistent: no sudden jumps in position, and a character who gets in by the front door sits in the front",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0156 (NewCreated, Quality)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0158",
+  "kind": "row",
+  "after": "TC-041",
+  "section": "Characters",
+  "precondition": "Template chat; Apply tapped with no character chosen; 「Generate all」 finished on Finish your characters",
+  "action": "Tap a generated character thumbnail",
+  "expected": "The thumbnail opens an enlarged image, and the character can be regenerated from there",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0158 (NewCreated, UX). Design spec differs: the finished sheet shows only 「Your characters are ready」 with Confirm (R-034, R-305); enlarge is drawn only in Character Library (R-120); spec wins",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0159",
+  "kind": "fold",
+  "row": "TC-086",
+  "note": "Android ticket DRA262610P0159 (Assigned, AI Agent): after a 30 sec preview the offer reads 「Create the full episode (60sec)」 instead of (90 sec); the length is 15 s × scenes (R-251, TC-345), so compare it with the scene count"
+ },
+ {
+  "bug": "DRA262610P0160",
+  "kind": "row",
+  "after": "TC-149",
+  "section": "Video errors",
+  "precondition": "Finished video with two failed clips (Debug controls › Inject failure status; record the switch); Fix scenes open",
+  "action": "Edit one failed clip › Done › Regenerate Clip; then Edit the other failed clip › Done",
+  "expected": "The second clip can be regenerated too, or a message explains why 「Regenerate Clip」 is disabled",
+  "priority": "P2",
+  "spec_ref": "R-134",
+  "notes": "DRA262610P0160 (Assigned, AI Agent)",
+  "needs": [
+   "video",
+   "fault-injection"
+  ]
+ },
+ {
+  "bug": "DRA262610P0161",
+  "kind": "row",
+  "after": "TC-143",
+  "section": "Video",
+  "precondition": "A template drama whose characters were made with Generate all (e.g. A 呂布, B 關羽, C 張飛, D 劉備); Seedance 2.0 › Preview - 30 sec finished",
+  "action": "Play Scene 3 and compare each character with its portrait",
+  "expected": "Each character uses its own image; Character B (關羽) never shows Character C's (張飛) look",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0161 (ProposeNAB, Quality)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0162",
+  "kind": "row",
+  "after": "TC-143",
+  "section": "Video",
+  "precondition": "A template drama whose characters were made with Generate all (e.g. A 呂布, B 關羽, C 張飛, D 劉備); Seedance 2.0 › Preview - 30 sec finished",
+  "action": "Play Scene 4 and compare the picture with its caption (「三英齊上, 也不過爾爾!」)",
+  "expected": "The scene matches the caption and storyline (the three attack together, not stand together)",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0162 (Propose Wont Fix, Quality)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0163",
+  "kind": "row",
+  "after": "TC-241",
+  "section": "Templates",
+  "precondition": "Chat started from 「The Art of Falling」 (row above)",
+  "action": "Choose English and 「Yes, include captions」, tap Generate and scroll to Choose your characters",
+  "expected": "Each character gets a default actor matching the gender in Possible Characters (Julian Cross male, Lauren Hale female)",
+  "priority": "P2",
+  "spec_ref": "R-208",
+  "notes": "DRA262610P0163 (TRCreated, UI)",
+  "needs": [],
+  "ios_lead": "TC-212"
+ },
+ {
+  "bug": "DRA262610P0167",
+  "kind": "row",
+  "after": "TC-001",
+  "section": "Entry and landing",
+  "precondition": "Home › Menu › Preferences › Change UI Edit Mode › Landscape",
+  "action": "Return to Home and scroll the shortcut row to the end",
+  "expected": "Landscape Home offers an 「AI Mini Drama」 entry, or states that AI Mini Drama is portrait only",
+  "priority": "P2",
+  "spec_ref": "R-001",
+  "notes": "DRA262610P0167 (NewCreated, AIFound, UX); the spec is silent on landscape edit mode; restore Portrait after the case",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0168",
+  "kind": "row",
+  "after": "TC-143",
+  "section": "Video",
+  "precondition": "A template drama whose characters were made with Generate all (e.g. A 呂布, B 關羽, C 張飛, D 劉備); Seedance 2.0 › Preview - 30 sec finished",
+  "action": "Play Scene 4 and look at the characters' bodies",
+  "expected": "Characters have natural body proportions (upper and lower body not nearly equal in length)",
+  "priority": "P3",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0168 (Propose Wont Fix, Quality)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0169",
+  "kind": "row",
+  "after": "TC-076",
+  "section": "Storyboard Preview",
+  "precondition": "Drama with Video language Chinese and captions on (and one with Korean); storyboard finished",
+  "action": "Play the Storyboard Preview and watch where the captions break",
+  "expected": "Captions break at word or punctuation boundaries, never inside a word (e.g. 洗禮, 影子 stay whole); no caption starts with a comma",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0169 (NeedCodeReview, AIFound, UI); the spec has no caption-break rule",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0170",
+  "kind": "row",
+  "after": "TC-143",
+  "section": "Video",
+  "precondition": "A template drama whose characters were made with Generate all (e.g. A 呂布, B 關羽, C 張飛, D 劉備); Seedance 2.0 › Preview - 30 sec finished",
+  "action": "Play every scene and look for actions that break real-world logic",
+  "expected": "The scenes look realistic and follow real-world logic",
+  "priority": "P3",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0170 (Propose Wont Fix, Quality)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0171",
+  "kind": "row",
+  "after": "TC-240",
+  "section": "Templates",
+  "precondition": "App language Japanese; 「新人くんの秘密」 (The New Guy's Secret) chat with video language 中国語 and captions on; characters assigned; storyboard generated",
+  "action": "Choose Seedance 2.0 › Full Video - 90 sec, tap Generate video and wait; pull the logs",
+  "expected": "Every scene of the 90-sec video is generated and the video can be exported; a Ref-to-Video 429 is retried or queued, not failed",
+  "priority": "P1",
+  "spec_ref": "R-148",
+  "notes": "DRA262610P0171 (Assigned, AIFound)",
+  "needs": [
+   "video",
+   "full-generation",
+   "app-language"
+  ]
+ },
+ {
+  "bug": "DRA262610P0172",
+  "kind": "row",
+  "after": "TC-173",
+  "section": "Waits",
+  "precondition": "Finished video with a failed scene (Debug controls › Inject failure status; record the switch); Fix scenes › Edit with a new description",
+  "action": "Tap Done › Regenerate Clip and time the attempt until the scene updates",
+  "expected": "A single-scene regeneration takes clearly less than the 7–12 minutes per attempt measured on 2610142; record the time",
+  "priority": "P2",
+  "spec_ref": "R-140",
+  "notes": "DRA262610P0172 (Assigned, AIFound, Performance)",
+  "needs": [
+   "video",
+   "fault-injection"
+  ]
+ },
+ {
+  "bug": "DRA262610P0173",
+  "kind": "fold",
+  "row": "new:DRA262610P0142",
+  "note": "Android ticket DRA262610P0173 (TRCreated, AIFound): 「The Pop Star's Secret Girlfriend」 Maya Torres gets a male and Chase Bennett a female default actor — same check as the DRA262610P0142 row added after TC-259"
+ },
+ {
+  "bug": "DRA262610P0174",
+  "kind": "row",
+  "after": "TC-265",
+  "section": "Templates",
+  "precondition": "Chat started from 「Proposal Across Every Lifetime」 (row above; also 「Six Things You Didn't Know」)",
+  "action": "Tap Generate with the default format and read the assistant message above 「Create storyboard」",
+  "expected": "The message says the characters are ready and the storyboard is next; it never says the storyboard was already created",
+  "priority": "P3",
+  "spec_ref": "R-037",
+  "notes": "DRA262610P0174 (Assigned, AIFound, UX): says 「I have created the complete 6-beat storyboard」",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0177",
+  "kind": "fold",
+  "row": "TC-133",
+  "note": "Android ticket DRA262610P0177 (NewCreated, AIFound, UX): after closing the generated character with ✕ it is in the library but not applied to the slot. Design spec differs: X asks 「Discard this character?」 (R-248, TC-057) and 「Save to library」 is the apply action; spec wins"
+ },
+ {
+  "bug": "DRA262610P0178",
+  "kind": "row",
+  "after": "TC-024",
+  "section": "Story outline",
+  "precondition": "Custom idea sent, format confirmed",
+  "action": "Read the headers above the character slots in the story outline",
+  "expected": "Only one header introduces the character slots; the extra 「Ready to create your characters?」 header is gone",
+  "priority": "P3",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0178 (NeedCodeReview, UI); RD removed the card's own 「Choose your characters」 header instead (sync with iOS); the spec catalogue lists 「Ready to create your characters?」 as an Iris prompt (R-090), so check that one header remains",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0180",
+  "kind": "row",
+  "after": "TC-236",
+  "section": "Templates",
+  "precondition": "「Merger Season」 (合併から始まる恋) chat with video language 日本語 and captions on; Seedance 2.0 › Full Video - 90 sec finished",
+  "action": "Play Scene 1 at 9–12 sec",
+  "expected": "The dialogue line is framed toward the character being addressed; both sides of the conversation stay in the shot",
+  "priority": "P3",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0180 (Propose Wont Fix, AIFound, Quality)",
+  "needs": [
+   "video",
+   "full-generation"
+  ]
+ },
+ {
+  "bug": "DRA262610P0181",
+  "kind": "row",
+  "after": "TC-236",
+  "section": "Templates",
+  "precondition": "「Merger Season」 (合併から始まる恋) chat with video language 日本語 and captions on; Seedance 2.0 › Full Video - 90 sec finished",
+  "action": "Play Scene 6 at 0–4 sec",
+  "expected": "Objects move only when a character holds, hands over or throws them; no paper appears and floats in mid-air",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0181 (Propose Wont Fix, AIFound, Quality)",
+  "needs": [
+   "video",
+   "full-generation"
+  ]
+ },
+ {
+  "bug": "DRA262610P0182",
+  "kind": "row",
+  "after": "TC-236",
+  "section": "Templates",
+  "precondition": "「Merger Season」 (合併から始まる恋) chat with video language 日本語 and captions on; Seedance 2.0 › Full Video - 90 sec finished",
+  "action": "Play Scene 5 (terrace conversation)",
+  "expected": "Lighting and time of day stay the same within the scene (no sunset → night → sunset)",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0182 (Propose Wont Fix, AIFound, Quality)",
+  "needs": [
+   "video",
+   "full-generation"
+  ]
+ },
+ {
+  "bug": "DRA262610P0184",
+  "kind": "row",
+  "after": "TC-396",
+  "section": "Story outline",
+  "precondition": "Template chat (e.g. 「Forbidden Office Romance」 › Make my version › Continue); outline generating",
+  "action": "System back (Android back gesture or button); tap 「Leave anyway」; wait 1 minute and open History",
+  "expected": "「Leave this chat?」 appears as in the custom-idea flow; Leave anyway stops generation and nothing is saved in History",
+  "priority": "P2",
+  "spec_ref": "R-022",
+  "notes": "DRA262610P0184 (Assigned, AIFound): template chat leaves with no confirm and is saved to History",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0186",
+  "kind": "row",
+  "after": "TC-349",
+  "section": "Characters",
+  "precondition": "Template chat with preset characters (e.g. 「The Art of Falling」), storyboard not started; credit pill read",
+  "action": "Send 「Make Julian Cross a man in his 50s with gray hair.」, tap Generate on the priced card and wait for the turn to end",
+  "expected": "The preset character is regenerated with the new look; if it fails, an error shows and the credits are refunded (Credit Details)",
+  "priority": "P1",
+  "spec_ref": "R-254",
+  "notes": "DRA262610P0186 (NeedCodeReview, AIFound): 1 credit charged, image unchanged, no result or error",
+  "needs": [],
+  "ios_lead": "TC-206"
+ },
+ {
+  "bug": "DRA262610P0187",
+  "kind": "fold",
+  "row": "TC-349",
+  "note": "Android ticket DRA262610P0187 (Assigned, AIFound): after a chat character change a storyboard card with no scene images appears although no storyboard was generated"
+ },
+ {
+  "bug": "DRA262610P0189",
+  "kind": "row",
+  "after": "TC-053",
+  "section": "Make your character",
+  "precondition": "Create my character open; a photo of a man on the device",
+  "action": "Add the man's photo, choose Female, White, age 30, tap Generate › Generate anyway; Save to library; filter the library by Female",
+  "expected": "The app warns that the photo and the chosen gender conflict, so the saved Gender tag matches the result",
+  "priority": "P3",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0189 (NewCreated, AIFound, UX). Design spec differs: the photo checks are no person, several people and public figure only (R-044–R-046, R-292); there is no gender-conflict warning; spec wins",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0190",
+  "kind": "row",
+  "after": "TC-149",
+  "section": "Video errors",
+  "precondition": "Finished video with two failed clips (Debug controls › Inject failure status; record the switch); Fix scenes open",
+  "action": "Edit failed clip 3 › Done › Regenerate Clip; while it regenerates tap Edit in the preview",
+  "expected": "Edit opens clip 3's own description, or is disabled while it regenerates; never another scene's description",
+  "priority": "P2",
+  "spec_ref": "R-131",
+  "notes": "DRA262610P0190 (Assigned, AIFound)",
+  "needs": [
+   "video",
+   "fault-injection"
+  ]
+ },
+ {
+  "bug": "DRA262610P0191",
+  "kind": "row",
+  "after": "TC-149",
+  "section": "Video errors",
+  "precondition": "Finished video with a failed clip (Debug controls › Inject failure status; record the switch); Fix scenes open",
+  "action": "Edit the failed clip › Done › Regenerate Clip and stay on the page until it finishes",
+  "expected": "When the clip finishes the preview switches to the new clip by itself; 「Couldn't create clip」 and Edit disappear without tapping the clip again",
+  "priority": "P3",
+  "spec_ref": "R-085",
+  "notes": "DRA262610P0191 (TRCreated, AIFound, UI)",
+  "needs": [
+   "video",
+   "fault-injection"
+  ]
+ },
+ {
+  "bug": "DRA262610P0192",
+  "kind": "fold",
+  "row": "TC-096",
+  "note": "Android ticket DRA262610P0192 (Assigned, AIFound): while a Fix scenes clip regenerates (「Updating 1 scene...」) Export Full Video › Produce saves a 1:15 video without that scene, with no warning"
+ },
+ {
+  "bug": "DRA262610P0193",
+  "kind": "row",
+  "after": "TC-041",
+  "section": "Characters",
+  "precondition": "Custom idea 「Taylor Swift and Elon Musk and Oprah Winfrey get stuck in an elevator together」; outline finished",
+  "action": "Open Choose your characters and tap 「Generate all」",
+  "expected": "The generated characters are not likenesses of the real public figures, as Create my character blocks them (「This photo can't be used」/「It looks like a real public figure. Please try another photo.」)",
+  "priority": "P2",
+  "spec_ref": "R-046",
+  "notes": "DRA262610P0193 (NewCreated, AIFound); the spec rule covers reference photos only",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0194",
+  "kind": "row",
+  "after": "TC-382",
+  "section": "Video",
+  "precondition": "Drama with a finished video opened from History; scene-video player open",
+  "action": "Tap clip 4 in the clip strip; press Home and reopen the app (also lock and unlock)",
+  "expected": "The highlight stays on clip 4, the clip the user chose and the preview shows",
+  "priority": "P3",
+  "spec_ref": "R-290",
+  "notes": "DRA262610P0194 (Assigned, AIFound, UI): highlight moves back one clip",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0195",
+  "kind": "fold",
+  "row": "TC-359",
+  "note": "Android ticket DRA262610P0195 (NewCreated, AIFound, UX): History opened during storyboard generation (「Working on it…」) shows no processing state; the ticket asks PM. The spec answers it: History during a storyboard asks 「Stop and lose your credits?」 and leaving stops it (R-262); only video cards show 「processing..」 (R-073)"
+ },
+ {
+  "bug": "DRA262610P0196",
+  "kind": "fold",
+  "row": "TC-034",
+  "note": "Android ticket DRA262610P0196 (NewCreated, AIFound, UX): after Preferences › reset default tips, choosing the first role moves to the next role with no hint bubble"
+ },
+ {
+  "bug": "DRA262610P0197",
+  "kind": "fold",
+  "row": "TC-377",
+  "note": "Android ticket DRA262610P0197 (NewCreated, AIFound, UX): the 「Create storyboard」 bubble stays in the chat after the Storyboard Result arrives"
+ },
+ {
+  "bug": "DRA262610P0198",
+  "kind": "fold",
+  "row": "TC-060",
+  "note": "Android ticket DRA262610P0198 (Assigned, AIFound): six scenes quoted and charged 34 credits while the article says 2 credits per image; check the Credit Details rows add up to images × 2 plus TTS"
+ },
+ {
+  "bug": "DRA262610P0199",
+  "kind": "row",
+  "after": "TC-073",
+  "section": "Storyboard",
+  "precondition": "Storyboard finished (Scene 3 shows Lauren at her workstation)",
+  "action": "Send 「Please regenerate the image for Scene 3. Change it so Lauren is standing beside the window, looking out at the city.」, tap Generate on 「Create storyboard」, then open Scene 3",
+  "expected": "Scene 3's new image shows the requested change: Lauren standing beside the window, looking out at the city",
+  "priority": "P2",
+  "spec_ref": "R-062",
+  "notes": "DRA262610P0199 (Assigned, AIFound)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0200",
+  "kind": "row",
+  "after": "TC-269",
+  "section": "Templates",
+  "precondition": "Chat started from 「The Dog Who Remembered Her」 (row above); app language English",
+  "action": "Choose video language Japanese and 「Yes, include captions」, tap Generate; swipe the character slots to both ends",
+  "expected": "Shiro shows its preset reference image (character mapping JP), not the add-character placeholder",
+  "priority": "P2",
+  "spec_ref": "R-208",
+  "notes": "DRA262610P0200 (NewCreated, AIFound): JP mapping GUID null",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0201",
+  "kind": "row",
+  "after": "TC-271",
+  "section": "Templates",
+  "precondition": "Chat started from 「The Ring He Worked For」 (row above); app language English",
+  "action": "Choose video language Japanese and 「Yes, include captions」, tap Generate; swipe the character slots to both ends; repeat for 「The Beer Heir」",
+  "expected": "All three JP cast cards show the preset images from character mapping JP (Milo-Mugi, Luna-Yuki, Ruby-Kuro), and The Beer Heir's JP presets load too",
+  "priority": "P2",
+  "spec_ref": "R-208",
+  "notes": "DRA262610P0201 (TRCreated, AIFound); RD: CMS ages were 「unknown」, fixed on Stage; retest The Beer Heir as well",
+  "needs": [],
+  "ios_lead": "TC-207"
+ },
+ {
+  "bug": "DRA262610P0202",
+  "kind": "row",
+  "after": "TC-243",
+  "section": "Templates",
+  "precondition": "Chat started from 「Glad We Came」 (row above); app language English",
+  "action": "Choose English and 「Yes, include captions」, tap Generate; compare Lily Morgan's image with the outline description",
+  "expected": "Lily Morgan's preset image matches the appearance in the script (blonde, US V2 H93)",
+  "priority": "P2",
+  "spec_ref": "R-208",
+  "notes": "DRA262610P0202 (NewCreated, AIFound): reference has dark hair",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0203",
+  "kind": "row",
+  "after": "TC-269",
+  "section": "Templates",
+  "precondition": "Chat started from 「The Dog Who Remembered Her」 (row above); app language English",
+  "action": "Choose English and 「Yes, include captions」, tap Generate; swipe the character slots to both ends",
+  "expected": "Murphy shows its preset reference image (character mapping US), not the add-character placeholder",
+  "priority": "P2",
+  "spec_ref": "R-208",
+  "notes": "DRA262610P0203 (NewCreated, AIFound): US mapping GUID null",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0204",
+  "kind": "row",
+  "after": "TC-271",
+  "section": "Templates",
+  "precondition": "Chat started from 「The Ring He Worked For」 (row above); app language English",
+  "action": "Choose English and 「Yes, include captions」, tap Generate; swipe the character slots to both ends",
+  "expected": "All three US cast cards show the preset images from character mapping US (Milo, Luna, Ruby), not placeholders",
+  "priority": "P2",
+  "spec_ref": "R-208",
+  "notes": "DRA262610P0204 (NewCreated, AIFound); split from DRA262610P0148 (its English Ring half)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0205",
+  "kind": "row",
+  "after": "TC-001",
+  "section": "Entry and landing",
+  "precondition": "Android tablet (e.g. Galaxy Tab FE) in portrait; Remote Config is_large_screen_full_shortcut_entries_enabled on",
+  "action": "Check the Launcher shortcut entries, then rotate to landscape and check again",
+  "expected": "The 「AI Mini Drama」 shortcut is offered in portrait and in landscape",
+  "priority": "P2",
+  "spec_ref": "R-001",
+  "notes": "DRA262610P0205 (TRCreated, SPEC, Tablet); requested by PM; RD gated it behind the Remote Config flag (default off)",
+  "needs": [
+   "tablet",
+   "remote-config"
+  ]
+ },
+ {
+  "bug": "DRA262610P0206",
+  "kind": "row",
+  "after": "TC-068",
+  "section": "Storyboard",
+  "precondition": "Balance noted before Generate; a storyboard with a failed scene image (as in 「The New Guy's Secret」 Scene 3, else Debug controls fault injection; record the switch)",
+  "action": "Open the failed scene, read the refund message, then compare the credit pill and Mine › Credits › Details with the balance before the storyboard",
+  "expected": "The failed image's credits are returned: the balance and Credit Details show the refund",
+  "priority": "P1",
+  "spec_ref": "R-057",
+  "notes": "DRA262610P0206 (NeedMoreInfo, AIFound): 2797 → 2760 after a 37-credit quote, no refund seen",
+  "needs": [
+   "fault-injection"
+  ]
+ },
+ {
+  "bug": "DRA262610P0207",
+  "kind": "row",
+  "after": "TC-239",
+  "section": "Templates",
+  "precondition": "Chat started from 「The New Guy's Secret」 (row above); story and the four preset characters kept",
+  "action": "Choose English and 「Yes, include captions」, tap Generate, then Generate on 「Create storyboard」; open Scene 3 「The Man She Respects」",
+  "expected": "Every scene image is generated, including Scene 3",
+  "priority": "P2",
+  "spec_ref": "R-053",
+  "notes": "DRA262610P0207 (NeedMoreInfo, AIFound): logcat TextToImage generation_failed - Others; an unchanged retry succeeded",
+  "needs": []
+ }
+]

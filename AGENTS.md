@@ -33,6 +33,11 @@ to a personal memory store; feature-specific run details go in the skills or the
   batch's TR, after confirming the TR header still names the tested build.
 - **No comments on existing eBugs (2026-10-21, until lifted).** Never comment on, reopen or reject the fix of an
   existing ticket; rechecks and fixed tickets are listed for information only.
+- **Dedupe per OS (user, 2026-10-28).** iOS and Android eBugs are deduped separately: a ticket on the other OS never
+  makes a finding a duplicate (it is a new entry for this OS). A finding that matches an existing ticket on the same
+  OS's TRs is not listed on the review page or in the drafts at all (no recheck rows, no on-hold cards); only the
+  batch's `dedupe.txt` keeps the match (eBug overlays, *Dedupe per OS*). Exception (user, 2026-10-28): when that
+  ticket is **closed** and the bug is back, the finding stays a new card naming the closed ticket as related.
 - **eBug owner and type (RD, 2026-10-21 — replaces the 2026-10-20 rule; revertible).** Casebook findings are
   spec-driven `[AIAgent]` bugs, so they never carry `[UX]`: an interaction or flow problem is Functional or `[UI]`,
   owner RD (Doc for copy), and RD forwards it to PM when it wants a ruling. A finding with no spec basis is held as a

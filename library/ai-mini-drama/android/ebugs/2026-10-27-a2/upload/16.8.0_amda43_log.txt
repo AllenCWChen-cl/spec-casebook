@@ -1,0 +1,88 @@
+# ISS-AMDA-43 Turn timings (MiniDramaPerf turn_end) of the timed waits
+# PowerDirector Mobile for Android 16.8.0 (2610212), TR261021-0082, Stage server, Sony Xperia 10 III / Android 12, account Free. Excerpt of the app's logcat (captured per run segment; the release build writes no readable app log).
+# Lines about turns, decisions, charges (receipts; balance shown only when it changes), failures, template mapping,
+# pushes and turn ends in the windows below; member tokens dropped, URL queries cut at '?'.
+
+## TC-169 outline, Generate 01:11:36 (2026-10-28 01:11:30–01:12:05; logs/A2-h-20261028-015418/logcat-live.txt)
+2026-10-28 01:11:36.421 MiniDramaPerf: t1 +74.1s                        host   turn          turn_end                       superseded
+2026-10-28 01:11:36.422 MiniDrama Log: [USER] A lighthouse keeper finds a letter from her future self warning her about a storm.
+2026-10-28 01:12:03.694 MiniDrama Log: [TURN] turn_complete: final_state=complete
+2026-10-28 01:12:03.727 MiniDrama Log: [AI] I have created the character sheets for Clara, the vigilant lighthouse keeper facing an impossible warning, and Julian, the weathered sailor whose arrival matches her cryptic letter.
+2026-10-28 01:12:03.748 MiniDramaPerf: t2 +27.3s                        host   turn          turn_end                       complete stage=-→character
+2026-10-28 01:12:03.748 MiniDramaPerf: t2 +27.3s                        host   ui            ui_rendered
+
+## TC-171 revision, sent 01:13:23 (2026-10-28 01:13:20–01:14:16; logs/A2-h-20261028-015418/logcat-live.txt)
+2026-10-28 01:13:23.075 MiniDramaPerf: t1 +51.6s                        host   turn          turn_end                       superseded
+2026-10-28 01:13:23.077 MiniDrama Log: [USER] Make the ending a little funnier.
+2026-10-28 01:13:40.002 MiniDrama Log: [SYS] session_created: 261028_011340_f1083f0a
+2026-10-28 01:13:40.899 CreditSystemManager: totalRemain=54
+2026-10-28 01:13:43.700 MiniDrama Log: [SYS] restored session 261028_011022_17bb40f6 (chars=2, shots=0)
+2026-10-28 01:13:43.708 MiniDrama Log: [DECISION] restored approval for interrupted turn: {}
+2026-10-28 01:13:43.715 MiniDrama Log: [SYS] pending_resume detected, resuming turn for session 261028_011022_17bb40f6
+2026-10-28 01:14:15.140 MiniDrama Log: [TURN] turn_complete: final_state=complete
+2026-10-28 01:14:15.169 MiniDrama Log: [AI] Preserved the character sheets for Clara and Julian to match the updated storyline.
+2026-10-28 01:14:15.188 MiniDramaPerf: t1 +35.2s                        host   turn          turn_end                       complete stage=-→character
+2026-10-28 01:14:15.188 MiniDramaPerf: t1 +35.2s                        host   ui            ui_rendered
+
+## TC-172 storyboard, Generate 01:31:23 (2026-10-28 01:31:20–01:36:48; logs/A2-h-20261028-015418/logcat-live.txt)
+2026-10-28 01:31:24.014 MiniDrama Log: [DECISION] pre-approved 'storyboard': {IMAGE=10, VOICE=1}
+2026-10-28 01:31:24.016 MiniDramaPerf: t12 +16.4s                        host   turn          turn_end                       superseded
+2026-10-28 01:31:24.019 MiniDrama Log: [USER] AnswerCreateStoryboard
+2026-10-28 01:33:46.491 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-28 01:33:48.021 CreditSystemManager: totalRemain=50
+2026-10-28 01:33:51.497 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…env_img_1 consumeTaskId=91660991 files=1
+2026-10-28 01:33:51.779 CreditSystemManager: totalRemain=47
+2026-10-28 01:34:10.707 MiniDrama Log: [TOOL] MyCreation receipt completed call=…env_img_1
+2026-10-28 01:34:10.788 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-28 01:34:14.013 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…env_img_2 consumeTaskId=91660993 files=1
+2026-10-28 01:34:14.267 CreditSystemManager: totalRemain=44
+2026-10-28 01:34:44.293 MiniDrama Log: [TOOL] MyCreation receipt completed call=…env_img_2
+2026-10-28 01:34:44.375 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-28 01:34:49.125 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…env_img_3 consumeTaskId=91660994 files=1
+2026-10-28 01:34:49.585 CreditSystemManager: totalRemain=41
+2026-10-28 01:35:15.019 MiniDrama Log: [TOOL] MyCreation receipt completed call=…env_img_3
+2026-10-28 01:35:15.067 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-28 01:35:19.817 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…env_img_4 consumeTaskId=91660996 files=1
+2026-10-28 01:35:21.031 CreditSystemManager: totalRemain=38
+2026-10-28 01:35:43.085 MiniDrama Log: [TOOL] MyCreation receipt completed call=…env_img_4
+2026-10-28 01:35:43.146 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-28 01:35:43.157 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-28 01:35:43.170 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-28 01:35:43.177 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-28 01:35:43.183 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-28 01:35:43.195 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-28 01:35:47.441 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_1 consumeTaskId=91660998 files=1
+2026-10-28 01:35:47.849 CreditSystemManager: totalRemain=35
+2026-10-28 01:35:56.974 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_3 consumeTaskId=91660999 files=1
+2026-10-28 01:35:57.264 CreditSystemManager: totalRemain=32
+2026-10-28 01:35:59.524 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_6 consumeTaskId=91661000 files=1
+2026-10-28 01:36:00.076 CreditSystemManager: totalRemain=29
+2026-10-28 01:36:00.716 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_2 consumeTaskId=91661001 files=1
+2026-10-28 01:36:01.017 CreditSystemManager: totalRemain=26
+2026-10-28 01:36:02.910 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_4 consumeTaskId=91661002 files=1
+2026-10-28 01:36:03.465 CreditSystemManager: totalRemain=23
+2026-10-28 01:36:10.428 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_1
+2026-10-28 01:36:10.477 MiniDrama Log: [DECISION] allowing 'TextToSpeech' x1 (already approved)
+2026-10-28 01:36:10.501 MiniDrama Log: [NARRATION] voice remembered (Zubenelgenubi, en-US)
+2026-10-28 01:36:12.717 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…preview_tts consumeTaskId=91661003 files=1
+2026-10-28 01:36:13.125 CreditSystemManager: totalRemain=22
+2026-10-28 01:36:18.243 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_5 consumeTaskId=91661004 files=1
+2026-10-28 01:36:18.489 CreditSystemManager: totalRemain=19
+2026-10-28 01:36:21.471 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_3
+2026-10-28 01:36:22.355 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_6
+2026-10-28 01:36:26.046 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_4
+2026-10-28 01:36:26.856 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_2
+2026-10-28 01:36:28.532 MiniDrama Log: [TOOL] MyCreation receipt completed call=…preview_tts
+2026-10-28 01:36:41.455 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_5
+2026-10-28 01:36:41.564 MiniDrama Log: [TURN] turn_complete: final_state=complete
+2026-10-28 01:36:47.116 MiniDramaPerf: t13 +323s                         host   turn          turn_end                       complete stage=-→storyboard
+2026-10-28 01:36:47.116 MiniDramaPerf: t13 +323s                         host   ui            ui_rendered
+
+## TC-173 full video 90 s, Generate 11:25:15 (2026-10-28 11:25:10–11:25:20; logs/A2-r1-20261028-130410/logcat-live.txt)
+2026-10-28 11:25:15.398 MiniDrama Log: [DECISION] pre-approved 'storyboard': {VIDEO=6}
+2026-10-28 11:25:15.407 MiniDrama Log: [USER] AnswerVideoVendorSeedance2_0_Mini · AnswerVideoLengthFull90
+
+## TC-173 full video 90 s, turn end (2026-10-28 11:39:15–11:39:25; logs/A2-r1-20261028-130410/logcat-live.txt)
+2026-10-28 11:39:20.709 MiniDrama Log: [TURN] turn_complete: final_state=complete
+2026-10-28 11:39:20.773 MiniDramaPerf: t5 +845s                         host   turn          turn_end                       complete stage=storyboard→beat
+2026-10-28 11:39:20.773 MiniDramaPerf: t5 +845s                         host   ui            ui_rendered

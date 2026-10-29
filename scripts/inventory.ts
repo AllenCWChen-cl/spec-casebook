@@ -4,7 +4,8 @@
 // use_figma call per board group) and writes specs/<set>/extracted/inventory.json:
 //   files    per Figma file: key, page, section box, and the Design PDF offset (pdf point = figma point + offset)
 //   screens  [{ id, file, board, name, box, platform, panel? }]  platform from the frame size / name; a panel
-//            (dialog, sheet, popup drawn beside the phones) is platform "any"
+//            (dialog, sheet, popup drawn beside the phones) is platform "any"; controls on an iPhone frame count for
+//            Android too unless the overrides say otherwise (android_uses_ios_frames, ios_only_screens)
 //   controls [{ id, file, board, name, label, kind, box, screens, node, parent, group, set, platforms }]
 //            id = K-<hash of file + board + name + label + 24-pt position>, stable while the design keeps them;
 //            kind: input (needs a dismiss step), toggle, tab, item (list / grid entry), button;
@@ -141,7 +142,13 @@ for (const a of arrows) {
   if (src && !a.src) a.src = src.id;
   a.kind = a.src ? 'flow' : 'auto';
 }
-for (const c of controls) c.platforms = [...new Set(c.screens.flatMap(s => { const p = scrById.get(s)?.platform ?? 'ios'; return p === 'any' ? ['ios', 'android'] : [p]; }))].sort();
+// The Design draws the shared screens on iPhone frames only (Android frames exist for a few screens), so an iPhone frame
+// counts for Android too (user, 2026-10-28). Overrides turn this off with "android_uses_ios_frames": false, or keep
+// single screens to iOS with "ios_only_screens": [{ "screen": "<id>", "why": "…" }] (Apple-only sheets, Face ID …).
+const shareIos = ov.android_uses_ios_frames !== false;
+const iosOnly = new Set((ov.ios_only_screens ?? []).map((d: any) => d.screen));
+const platformsOf = (s: string) => { const p = scrById.get(s)?.platform ?? 'ios'; return p === 'any' || (p === 'ios' && shareIos && !iosOnly.has(s)) ? ['ios', 'android'] : [p]; };
+for (const c of controls) c.platforms = [...new Set(c.screens.flatMap(platformsOf))].sort();
 
 // Groups: what the totals count (user, 2026-10-28). One group per
 //   choice set  same layer repeated side by side on a screen with different labels (chips, options, template cards,

@@ -1,0 +1,18 @@
+# ISS-AMDA-46 Leaving a video job: History opens a new chat until agent_create fails and the session is restored
+# PowerDirector Mobile for Android 16.8.0 (2610212), TR261021-0082, Stage server, Sony Xperia 10 III / Android 12, account Free. Excerpt of the app's logcat (captured per run segment; the release build writes no readable app log).
+# Lines about turns, decisions, charges (receipts; balance shown only when it changes), failures, template mapping,
+# pushes and turn ends in the windows below; member tokens dropped, URL queries cut at '?'.
+
+## TC-166 Storm Warning: Generate 12:28:54, left 12:29:16, History taps 12:29:45–12:30:50, reopened 12:31:36 (2026-10-28 12:28:50–12:31:40; logs/A2-r1-20261028-130410/logcat-live.txt)
+2026-10-28 12:28:54.974 MiniDrama Log: [DECISION] pre-approved 'storyboard': {VIDEO=2}
+2026-10-28 12:28:54.982 MiniDramaPerf: t1 +134s                         host   turn          turn_end                       superseded
+2026-10-28 12:28:54.986 MiniDrama Log: [USER] AnswerVideoVendorSeedance2_0_Mini · AnswerVideoLengthPreview30
+2026-10-28 12:29:31.378 CreditSystemManager: totalRemain=18445
+2026-10-28 12:31:16.732 MiniDrama Log: [SYS] agent_destroy: queueWait=1ms lockWait=0ms native=125748ms callback=1ms total=125750ms
+2026-10-28 12:31:16.920 MiniDrama Log: [SYS] agent_create FAILED:
+2026-10-28 12:31:16.933 MiniDrama Log: [SYS] agent_destroy: queueWait=0ms lockWait=0ms native=13ms callback=0ms total=13ms
+2026-10-28 12:31:18.823 MiniDrama Log: [PRUNE] pruned 1 unfinished session(s)
+2026-10-28 12:31:18.830 MiniDrama Log: [SYS] session_created: 261028_123118_b991eeb5
+2026-10-28 12:31:26.681 MiniDrama Log: [SYS] restored session 261028_011022_17bb40f6 (chars=2, shots=6)
+2026-10-28 12:31:26.698 MiniDrama Log: [DECISION] restored approval for interrupted turn: {VIDEO=2}
+2026-10-28 12:31:26.817 MiniDrama Log: [SYS] pending_resume detected, resuming turn for session 261028_011022_17bb40f6

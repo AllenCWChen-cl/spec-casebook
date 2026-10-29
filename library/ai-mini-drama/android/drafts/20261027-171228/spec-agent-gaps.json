@@ -1,0 +1,299 @@
+{
+  "spec_agent": {
+    "repo": "~/Desktop/AI Agent/qadm-pdrm-spec-contract-runner-agent",
+    "ref": "origin/main",
+    "commit": "5fb039febd3e898dc40d9e7f2e96238c8d1522b6",
+    "feature": "pdr-mobile-ai-mini-drama",
+    "platform": "android",
+    "cases": 181,
+    "from": "snapshot"
+  },
+  "mapping": "comparisons/20261028_casebook-vs-spec-agent.mapping.json",
+  "generated_at": "2026-10-28T01:57:09.324Z",
+  "gaps": [
+    {
+      "id": "1021-EXPORT-ANDROID-TOAST",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-EXPORT-ANDROID-TOAST-ANDROID.yaml",
+      "title": "Export Full Video: loading, completion toast and saved output",
+      "claim": "During Export Full Video, the export button shows loading without an export-progress dialog.",
+      "source": {
+        "kind": "other",
+        "ref": "(no source in the case file)"
+      },
+      "mapped": "older",
+      "decision": "older spec — TC-343, TC-517: Loading on the export button is PM 10/20 (R-249); PM 10/22 export board (Figma 4418:2, R-324) puts a spinner in the preview and disables the controls; TC-343 checks that plus Saved to Gallery.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "1021-NAV-STORYBOARD-BACK-LEAVE",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-BACK-LEAVE-ANDROID.yaml",
+      "title": "Back: Leave anyway while the storyboard generates",
+      "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+      "source": {
+        "kind": "other",
+        "ref": "(no source in the case file)"
+      },
+      "mapped": "older",
+      "decision": "older spec — TC-061, TC-063, TC-513: PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; Back checked in both stages.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "1021-NAV-STORYBOARD-BACK-STAY",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-BACK-STAY-ANDROID.yaml",
+      "title": "Back: Keep Generating while the storyboard generates",
+      "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+      "source": {
+        "kind": "other",
+        "ref": "(no source in the case file)"
+      },
+      "mapped": "older",
+      "decision": "older spec — TC-061, TC-062: PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; Back then Stay checked in stage ①.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "1021-NAV-STORYBOARD-CREDIT-LEAVE",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-CREDIT-LEAVE-ANDROID.yaml",
+      "title": "Credit: Leave anyway while the storyboard generates",
+      "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+      "source": {
+        "kind": "other",
+        "ref": "(no source in the case file)"
+      },
+      "mapped": "older",
+      "decision": "older spec — TC-359: PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; credit pill then Leave anyway checked in stage ① only.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "1021-NAV-STORYBOARD-CREDIT-STAY",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-CREDIT-STAY-ANDROID.yaml",
+      "title": "Credit: Keep Generating while the storyboard generates",
+      "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+      "source": {
+        "kind": "other",
+        "ref": "(no source in the case file)"
+      },
+      "mapped": "older",
+      "decision": "older spec — TC-359: PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; credit pill shows the dialog, Stay run from History/New chat.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "1021-NAV-STORYBOARD-HISTORY-LEAVE",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-HISTORY-LEAVE-ANDROID.yaml",
+      "title": "History: Leave anyway while the storyboard generates",
+      "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+      "source": {
+        "kind": "other",
+        "ref": "(no source in the case file)"
+      },
+      "mapped": "older",
+      "decision": "older spec — TC-359: PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; History shows the dialog (Stay run), stage ② History exit has no row.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "1021-NAV-STORYBOARD-HISTORY-STAY",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-HISTORY-STAY-ANDROID.yaml",
+      "title": "History: Keep Generating while the storyboard generates",
+      "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+      "source": {
+        "kind": "other",
+        "ref": "(no source in the case file)"
+      },
+      "mapped": "older",
+      "decision": "older spec — TC-359: PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; History then Stay checked in stage ①.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "1021-NAV-STORYBOARD-NEW-LEAVE",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-NEW-LEAVE-ANDROID.yaml",
+      "title": "New chat: Leave anyway while the storyboard generates",
+      "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+      "source": {
+        "kind": "other",
+        "ref": "(no source in the case file)"
+      },
+      "mapped": "older",
+      "decision": "older spec — TC-359: PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; New chat shows the dialog (Stay run), stage ② New chat exit has no row.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "1021-NAV-STORYBOARD-NEW-STAY",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-NEW-STAY-ANDROID.yaml",
+      "title": "New chat: Keep Generating while the storyboard generates",
+      "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+      "source": {
+        "kind": "other",
+        "ref": "(no source in the case file)"
+      },
+      "mapped": "older",
+      "decision": "older spec — TC-359: PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; New chat then Stay checked in stage ①.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "1021-NAV-STORYBOARD-SYSTEM-BACK-LEAVE",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-SYSTEM-BACK-LEAVE-ANDROID.yaml",
+      "title": "Android system Back: Leave anyway while the storyboard generates",
+      "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+      "source": {
+        "kind": "other",
+        "ref": "(no source in the case file)"
+      },
+      "mapped": "older",
+      "decision": "older spec — TC-398, TC-399: PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; system back then Leave anyway checked in stage ①."
+    },
+    {
+      "id": "1021-NAV-STORYBOARD-SYSTEM-BACK-STAY",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-1021-NAV-STORYBOARD-SYSTEM-BACK-STAY-ANDROID.yaml",
+      "title": "Android system Back: Keep Generating while the storyboard generates",
+      "claim": "While the storyboard is generating, using a top chat navigation control (Back, New chat, Credit or History) or Android system Back presents Stop and lose your credits? with This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded. and the buttons Leave anyway and Keep Generating.",
+      "source": {
+        "kind": "other",
+        "ref": "(no source in the case file)"
+      },
+      "mapped": "older",
+      "decision": "older spec — TC-398: PM 10/21 Stop and lose your credits? / Keep Generating replaced by PM 10/22 §13.24 (Figma 4422:2): stage ① Leave while we're preparing? with Leave anyway / Stay, stage ② no dialog and a toast; system back then Stay checked in stage ①."
+    },
+    {
+      "id": "EXP-023-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-EXP-023-001-ANDROID.yaml",
+      "title": "Voice permission and transcription — Android",
+      "claim": "Characterize voice permission and transcription across every declared branch, recording the trigger, resulting state and persistence separately; assess product correctness only against linked source-backed contracts.",
+      "source": {
+        "kind": "request",
+        "ref": "source/user-coverage-expansion-20261007.md"
+      },
+      "mapped": "nonspec",
+      "decision": "not from the spec: The spec only draws a mic button (TC-011 checks it is shown); it states no mic permission or transcription rule and no row checks them.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "DESIGN-TTS-FAILURE-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-DESIGN-TTS-FAILURE-001-ANDROID.yaml",
+      "title": "10.GM: TTS-FAILURE — Android",
+      "claim": "A TTS storyboard-preview failure displays Storyboard preview unavailable, a partial-credit-refund message, and a Retry action.",
+      "source": {
+        "kind": "spec",
+        "ref": "source/20261006-751b7ff937e2c78244a16cb2514d1db7b3d5803b631f8ef8fb60a83b492cdf83.pdf"
+      },
+      "mapped": "older",
+      "decision": "older spec — TC-078: Design copy Storyboard preview unavailable. Some credits were refunded is older; PM §13.7 / E4: Couldn't create the storyboard preview. Your credits have been refunded. Try again. with Retry.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "MX-CREDIT-CONSENT-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-CREDIT-CONSENT-001-ANDROID.yaml",
+      "title": "Credit consumption · TC-PDRM-MINIDRAMA-MX-CREDIT-CONSENT-001 — Android",
+      "claim": "A character or storyboard credit-consuming offer shows a Consume credits? card with a Confirm action.",
+      "source": {
+        "kind": "spec",
+        "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+      },
+      "mapped": "diff",
+      "decision": "stated differently — TC-115: MX boards draw a 'Consume credits?' Confirm card; casebook follows Design: 'You'll have {n} left' under Generate, charged with no separate confirmation.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "MX-TRIAL-BANNER-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-MX-TRIAL-BANNER-001-ANDROID.yaml",
+      "title": "First-time free credits · TC-PDRM-MINIDRAMA-MX-TRIAL-BANNER-001 — Android",
+      "claim": "During first-time free use the input area displays Free trial active with a 0 Credits script message.",
+      "source": {
+        "kind": "spec",
+        "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/02-pdrm-mx/slide-002-20261001-rerun.md"
+      },
+      "mapped": "older",
+      "decision": "older spec — TC-114, TC-356: 'Free trial active' input message is from superseded MX versions B/C; Design 1016_support free trial shows struck ◆15 with 'Free • {n} left' on Create storyboard.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "PM-CHARACTER-REFERENCE-RETAIN-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-CHARACTER-REFERENCE-RETAIN-001-ANDROID.yaml",
+      "title": "Character revision · TC-PDRM-MINIDRAMA-PM-CHARACTER-REFERENCE-RETAIN-001 — Android",
+      "claim": "Regenerating characters retains reference photos previously supplied by the user.",
+      "source": {
+        "kind": "spec",
+        "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+      },
+      "mapped": "older",
+      "decision": "older spec: Stated only in the spec agent's PM 10/01 slides; the current set (PM 20261021, Design 1016, MX) does not restate it. No row regenerates a reference-photo character and checks the photo is kept; TC-137 only checks the form keeps it after a failure.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "PM-CHARACTER-RENAME-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-CHARACTER-RENAME-001-ANDROID.yaml",
+      "title": "Characters · TC-PDRM-MINIDRAMA-PM-CHARACTER-RENAME-001 — Android",
+      "claim": "A generated character can be renamed.",
+      "source": {
+        "kind": "spec",
+        "ref": "source/AI-Mini-Drama-PM-Spec-20260924.pdf"
+      },
+      "mapped": "older",
+      "decision": "older spec — TC-291: PM 0924 rename; current PM/Design draw no character rename (roles change through chat, R-038); TC-291 only records whether a route exists.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "PM-GLOBAL-REVISION-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-GLOBAL-REVISION-001-ANDROID.yaml",
+      "title": "Chat revision · TC-PDRM-MINIDRAMA-PM-GLOBAL-REVISION-001 — Android",
+      "claim": "A global chat instruction can request story revision directions, and the assistant presents corresponding options.",
+      "source": {
+        "kind": "spec",
+        "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+      },
+      "mapped": "older",
+      "decision": "older spec: Stated only in the spec agent's PM 10/01 slides; the current set (PM 20261021, Design 1016, MX) does not restate it. No row asks for whole-story revision directions and checks offered options; TC-348 covers only character-change chips.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "PM-IMAGE-CANCEL-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-IMAGE-CANCEL-001-ANDROID.yaml",
+      "title": "Image editor · TC-PDRM-MINIDRAMA-PM-IMAGE-CANCEL-001 — Android",
+      "claim": "Closing the image editor with X leaves the saved image unchanged.",
+      "source": {
+        "kind": "spec",
+        "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+      },
+      "mapped": "older",
+      "decision": "older spec — TC-072, TC-070: Image-version editor withdrawn (Q-7, not in current PM); images now change via chat Create storyboard or Edit on a failed scene.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "PM-IMAGE-SELECTED-VERSION-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-IMAGE-SELECTED-VERSION-001-ANDROID.yaml",
+      "title": "Image editor · TC-PDRM-MINIDRAMA-PM-IMAGE-SELECTED-VERSION-001 — Android",
+      "claim": "Only the selected generated image version is saved.",
+      "source": {
+        "kind": "spec",
+        "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+      },
+      "mapped": "older",
+      "decision": "older spec — TC-072, TC-073: Image-version selection withdrawn (Q-7); current rule: chat update adds a new storyboard card, earlier card unchanged.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "PM-SEQUEL-START-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-SEQUEL-START-001-ANDROID.yaml",
+      "title": "Next episode · TC-PDRM-MINIDRAMA-PM-SEQUEL-START-001 — Android",
+      "claim": "Continue making next episode starts the next episode outline and character flow.",
+      "source": {
+        "kind": "spec",
+        "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+      },
+      "mapped": "older",
+      "decision": "older spec — TC-321: 'Continue making next episode' is older board wording; current Create Next Episode starts the next episode (R-179), destination not drawn, so TC-321 records what opens.",
+      "carried_from": "20261027-142629"
+    },
+    {
+      "id": "PM-VOICE-TRANSCRIBE-001",
+      "file": "test-cases/generated/pdr-mobile-ai-mini-drama/platforms/android/TC-PDRM-MINIDRAMA-PM-VOICE-TRANSCRIBE-001-ANDROID.yaml",
+      "title": "Voice input · TC-PDRM-MINIDRAMA-PM-VOICE-TRANSCRIBE-001 — Android",
+      "claim": "The recording checkmark transcribes the accepted recording into the idea text box.",
+      "source": {
+        "kind": "spec",
+        "ref": "test-specs/features/pdr-mobile-ai-mini-drama/active/01-pm-flow/slide-001-20261001-rerun.md"
+      },
+      "mapped": "older",
+      "decision": "older spec: Stated only in the spec agent's PM 10/01 slides; the current set (PM 20261021, Design 1016, MX) does not restate it. Only the mic button's presence is checked (TC-011); no row records speech and checks the transcript lands in the idea input.",
+      "carried_from": "20261027-142629"
+    }
+  ]
+}

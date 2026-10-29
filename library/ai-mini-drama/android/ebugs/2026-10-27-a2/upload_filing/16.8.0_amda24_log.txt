@@ -1,0 +1,60 @@
+# ISS-AMDA-24 App swiped away mid-storyboard: turn resumed only on reopen
+# PowerDirector Mobile for Android 16.8.0 (2610212), TR261021-0082, Stage server, Sony Xperia 10 III / Android 12, account Free. Excerpt of the app's logcat (captured per run segment; the release build writes no readable app log).
+# Lines about turns, decisions, charges (receipts; balance shown only when it changes), failures, template mapping,
+# pushes and turn ends in the windows below; member tokens dropped, URL queries cut at '?'.
+
+## TC-514 Quiet Sanctuary: swiped away 19:22:51, reopened 19:24:14 (2026-10-27 19:22:40–19:26:30; logs/A2-d1-20261027-202045/logcat-live.txt)
+2026-10-27 19:24:00.109 CreditSystemManager: totalRemain=1206
+2026-10-27 19:24:08.591 MiniDrama Log: [SYS] deploying assets...
+2026-10-27 19:24:08.615 MiniDrama Log: [SYS] cc_chat_base_url = https://demo.myedit.online/iris-relay
+2026-10-27 19:24:08.913 MiniDrama Log: [SYS] agent created
+2026-10-27 19:24:08.964 MiniDrama Log: [SYS] session_created: 261027_192408_4a4f923c
+2026-10-27 19:24:14.388 MiniDrama Log: [SYS] restored session 261027_183437_ae41d364 (chars=2, shots=6)
+2026-10-27 19:24:14.409 MiniDrama Log: [DECISION] restored approval for interrupted turn: {IMAGE=10, VOICE=1}
+2026-10-27 19:24:14.418 MiniDrama Log: [SYS] pending_resume detected, resuming turn for session 261027_183437_ae41d364
+2026-10-27 19:24:20.216 MiniDrama Log: [DECISION] replaying already-approved request 261027_183437_ae41d364_t14_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_req_1
+2026-10-27 19:24:20.243 MiniDrama Log: [TOOL] MyCreation TTI resume call=…env_img_3 consumeTaskId=91660394
+2026-10-27 19:24:20.244 MiniDrama Log: [TOOL] MyCreation recovery start call=…env_img_3 consumeTaskId=91660394 files=1
+2026-10-27 19:24:20.518 MiniDrama Log: [TOOL] MyCreation session opened=true credential=member_token
+2026-10-27 19:24:20.740 MiniDrama Log: [TOOL] MyCreation task call=…env_img_3 consumeTaskId=91660394 status=Done
+2026-10-27 19:24:20.899 MiniDrama Log: [TOOL] MyCreation result ready call=…env_img_3 files=1
+2026-10-27 19:24:21.622 MiniDrama Log: [TOOL] MyCreation TTI download call=…env_img_3 success=true
+2026-10-27 19:24:21.624 MiniDrama Log: [TOOL] MyCreation receipt completed call=…env_img_3
+2026-10-27 19:24:21.641 MiniDrama Log: [DECISION] replaying already-approved request 261027_183437_ae41d364_t14_i1_d1_ai-mini-drama_s_plan_s_routed_s_asset_routed_s_prompts_done_req_2
+2026-10-27 19:24:26.583 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…env_img_4 consumeTaskId=91660397 files=1
+2026-10-27 19:24:26.837 CreditSystemManager: totalRemain=1203
+2026-10-27 19:24:50.030 MiniDrama Log: [TOOL] MyCreation receipt completed call=…env_img_4
+2026-10-27 19:24:50.132 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-27 19:24:53.700 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…env_img_2 consumeTaskId=91660399 files=1
+2026-10-27 19:24:54.114 CreditSystemManager: totalRemain=1200
+2026-10-27 19:25:15.249 MiniDrama Log: [TOOL] MyCreation receipt completed call=…env_img_2
+2026-10-27 19:25:15.316 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-27 19:25:15.323 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-27 19:25:15.328 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-27 19:25:15.338 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-27 19:25:15.348 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-27 19:25:15.357 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-27 19:25:23.989 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_1 consumeTaskId=91660401 files=1
+2026-10-27 19:25:24.506 CreditSystemManager: totalRemain=1197
+2026-10-27 19:25:33.493 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_2 consumeTaskId=91660402 files=1
+2026-10-27 19:25:34.604 CreditSystemManager: totalRemain=1191
+2026-10-27 19:25:34.625 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_5 consumeTaskId=91660404 files=1
+2026-10-27 19:25:35.545 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_3 consumeTaskId=91660405 files=1
+2026-10-27 19:25:36.156 CreditSystemManager: totalRemain=1185
+2026-10-27 19:25:36.179 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_4 consumeTaskId=91660406 files=1
+2026-10-27 19:25:48.131 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_1
+2026-10-27 19:25:48.147 MiniDrama Log: [DECISION] allowing 'TextToSpeech' x1 (already approved)
+2026-10-27 19:25:48.158 MiniDrama Log: [NARRATION] voice remembered (Zubenelgenubi, en-US)
+2026-10-27 19:25:52.847 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…preview_tts consumeTaskId=91660408 files=1
+2026-10-27 19:25:53.307 CreditSystemManager: totalRemain=1184
+2026-10-27 19:25:54.790 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_6 consumeTaskId=91660409 files=1
+2026-10-27 19:25:55.039 CreditSystemManager: totalRemain=1181
+2026-10-27 19:25:55.604 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_5
+2026-10-27 19:25:56.909 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_2
+2026-10-27 19:25:59.080 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_3
+2026-10-27 19:26:01.670 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_4
+2026-10-27 19:26:06.968 MiniDrama Log: [TOOL] MyCreation receipt completed call=…preview_tts
+2026-10-27 19:26:21.343 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_6
+2026-10-27 19:26:21.452 MiniDrama Log: [TURN] turn_complete: final_state=complete
+2026-10-27 19:26:27.149 MiniDramaPerf: t1 +138s                         host   ui            ui_rendered
+2026-10-27 19:26:27.150 MiniDramaPerf: t1 +138s                         host   turn          turn_end                       complete stage=-→storyboard

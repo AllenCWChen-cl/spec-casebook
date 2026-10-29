@@ -1,0 +1,1790 @@
+2026-10-27T07:00:13.390Z restart 
+2026-10-27T07:00:21.707Z logcat start
+2026-10-27T07:00:21.948Z build 
+2026-10-27T07:00:22.165Z status 
+2026-10-27T07:00:25.225Z texts a1-a1-start
+2026-10-27T07:00:27.773Z els 
+2026-10-27T07:00:41.651Z tap 925 1185
+2026-10-27T07:00:41.857Z wait 3
+2026-10-27T07:00:45.097Z texts tc001-landing
+2026-10-27T07:00:47.323Z els 
+2026-10-27T07:00:57.455Z run-log set TC-001 Pass
+2026-10-27T07:00:57.574Z run-log set TC-003 Pass
+2026-10-27T07:00:57.685Z run-log set TC-004 Pass
+2026-10-27T07:01:01.245Z back 
+2026-10-27T07:01:02.044Z wait 2
+2026-10-27T07:01:04.258Z lbl Mine
+2026-10-27T07:01:05.607Z wait 3
+2026-10-27T07:01:08.849Z texts tc005-mine
+2026-10-27T07:01:13.299Z els 
+2026-10-27T07:01:20.247Z run-log set TC-005 Pass
+2026-10-27T07:01:20.358Z lbl Home
+2026-10-27T07:01:21.255Z wait 2
+2026-10-27T07:01:23.465Z texts tc002-banner-1
+2026-10-27T07:01:29.651Z els tv_banner_tagline
+2026-10-27T07:01:30.728Z els tv_banner_tagline
+2026-10-27T07:01:32.069Z els tv_banner_tagline
+2026-10-27T07:01:32.978Z els tv_banner_tagline
+2026-10-27T07:01:33.900Z els tv_banner_tagline
+2026-10-27T07:01:34.787Z els tv_banner_tagline
+2026-10-27T07:01:35.834Z els tv_banner_tagline
+2026-10-27T07:01:36.685Z els tv_banner_tagline
+2026-10-27T07:01:37.770Z els tv_banner_tagline
+2026-10-27T07:01:38.707Z els tv_banner_tagline
+2026-10-27T07:01:39.785Z els tv_banner_tagline
+2026-10-27T07:01:40.887Z els tv_banner_tagline
+2026-10-27T07:01:47.392Z waitfor AI Mini Drama with Seedance --timeout 90
+2026-10-27T07:03:20.518Z drag 900 450 150 450 300
+2026-10-27T07:03:21.163Z wait 2
+2026-10-27T07:03:23.383Z els tv_banner_tagline
+2026-10-27T07:03:23.973Z drag 900 450 150 450 300
+2026-10-27T07:03:24.621Z wait 2
+2026-10-27T07:03:26.846Z els tv_banner_tagline
+2026-10-27T07:03:29.782Z texts tc002-after-swipe
+2026-10-27T07:03:31.169Z appstate 
+2026-10-27T07:03:37.500Z back 
+2026-10-27T07:03:38.286Z wait 2
+2026-10-27T07:03:40.517Z texts 
+2026-10-27T07:03:41.302Z els banner
+2026-10-27T07:03:50.342Z run-log set TC-002 Blocked
+2026-10-27T07:03:53.786Z id iv_menu
+2026-10-27T07:03:54.657Z wait 2
+2026-10-27T07:03:56.874Z texts 
+2026-10-27T07:04:00.569Z lbl Preferences
+2026-10-27T07:04:01.357Z wait 2
+2026-10-27T07:04:03.575Z texts 
+2026-10-27T07:04:08.442Z lbl Change UI Edit Mode
+2026-10-27T07:04:09.274Z wait 2
+2026-10-27T07:04:11.499Z texts tc441-mode-dialog
+2026-10-27T07:04:13.252Z els 
+2026-10-27T07:04:16.972Z lbl Landscape
+2026-10-27T07:04:18.009Z wait 2
+2026-10-27T07:04:20.227Z texts tc441-mode-set
+2026-10-27T07:04:24.700Z els 
+2026-10-27T07:04:28.887Z back 
+2026-10-27T07:04:29.121Z wait 2
+2026-10-27T07:04:31.339Z texts 
+2026-10-27T07:04:32.270Z back 
+2026-10-27T07:04:32.480Z wait 2
+2026-10-27T07:04:34.689Z back 
+2026-10-27T07:04:35.358Z wait 3
+2026-10-27T07:04:38.589Z texts tc441-home
+2026-10-27T07:04:47.420Z drag 950 1400 150 1400 400
+2026-10-27T07:04:48.170Z wait 2
+2026-10-27T07:04:50.389Z els tv_name
+2026-10-27T07:04:51.313Z drag 950 1400 150 1400 400
+2026-10-27T07:04:52.038Z wait 2
+2026-10-27T07:04:54.248Z texts tc441-shortcuts-end
+2026-10-27T07:04:59.815Z els 
+2026-10-27T07:05:06.693Z drag 150 1300 950 1300 400
+2026-10-27T07:05:07.446Z wait 1
+2026-10-27T07:05:08.667Z drag 150 1300 950 1300 400
+2026-10-27T07:05:09.437Z wait 2
+2026-10-27T07:05:11.659Z els tv_name
+2026-10-27T07:05:12.328Z lbl AI Mini Drama
+2026-10-27T07:05:13.183Z wait 3
+2026-10-27T07:05:16.418Z texts tc441-open
+2026-10-27T07:05:22.623Z back 
+2026-10-27T07:05:23.515Z wait 2
+2026-10-27T07:05:25.723Z id iv_menu
+2026-10-27T07:05:26.128Z wait 2
+2026-10-27T07:05:28.324Z lbl Preferences
+2026-10-27T07:05:29.041Z wait 2
+2026-10-27T07:05:31.257Z lbl Change UI Edit Mode
+2026-10-27T07:05:32.131Z wait 2
+2026-10-27T07:05:34.339Z lbl Portrait
+2026-10-27T07:05:35.322Z wait 2
+2026-10-27T07:05:37.541Z back 
+2026-10-27T07:05:37.754Z wait 2
+2026-10-27T07:05:39.978Z els 
+2026-10-27T07:05:41.117Z shot tc441-restored-portrait
+2026-10-27T07:05:41.839Z back 
+2026-10-27T07:05:42.060Z wait 1
+2026-10-27T07:05:43.257Z back 
+2026-10-27T07:05:43.909Z wait 2
+2026-10-27T07:05:46.128Z texts 
+2026-10-27T07:05:51.868Z run-log set TC-441 Pass
+2026-10-27T07:05:55.678Z lbl AI Mini Drama
+2026-10-27T07:05:56.654Z wait 3
+2026-10-27T07:05:59.888Z id button_mini_drama_home_create
+2026-10-27T07:06:00.265Z wait 3
+2026-10-27T07:06:03.489Z texts tc011-chat
+2026-10-27T07:06:04.456Z els 
+2026-10-27T07:06:10.624Z run-log set TC-011 Pass
+2026-10-27T07:06:10.742Z run-log set TC-012 Pass
+2026-10-27T07:06:10.858Z lbl A fake psychic
+2026-10-27T07:06:11.883Z wait 2
+2026-10-27T07:06:14.105Z els edit_mini_drama_input
+2026-10-27T07:06:14.391Z texts tc013-chip
+2026-10-27T07:06:15.285Z els button_mini_drama_send
+2026-10-27T07:06:20.641Z run-log set TC-013 Pass
+2026-10-27T07:06:20.755Z clear edit_mini_drama_input
+2026-10-27T07:06:21.097Z lbl Surprise me
+2026-10-27T07:06:22.530Z wait 2
+2026-10-27T07:06:24.746Z els edit_mini_drama_input
+2026-10-27T07:06:25.036Z shot tc014-surprise-1
+2026-10-27T07:06:25.802Z lbl Surprise me
+2026-10-27T07:06:26.775Z wait 2
+2026-10-27T07:06:28.995Z els edit_mini_drama_input
+2026-10-27T07:06:29.298Z shot tc014-surprise-2
+2026-10-27T07:06:37.955Z clear edit_mini_drama_input
+2026-10-27T07:06:38.280Z lbl Surprise me
+2026-10-27T07:06:39.688Z wait 1
+2026-10-27T07:06:40.907Z els edit_mini_drama_input
+2026-10-27T07:06:41.193Z clear edit_mini_drama_input
+2026-10-27T07:06:41.486Z lbl Surprise me
+2026-10-27T07:06:42.893Z wait 1
+2026-10-27T07:06:44.111Z els edit_mini_drama_input
+2026-10-27T07:06:44.372Z clear edit_mini_drama_input
+2026-10-27T07:06:44.667Z lbl Surprise me
+2026-10-27T07:06:46.090Z wait 1
+2026-10-27T07:06:47.307Z els edit_mini_drama_input
+2026-10-27T07:06:47.570Z clear edit_mini_drama_input
+2026-10-27T07:06:47.868Z lbl Surprise me
+2026-10-27T07:06:48.658Z wait 1
+2026-10-27T07:06:49.872Z els edit_mini_drama_input
+2026-10-27T07:06:50.141Z clear edit_mini_drama_input
+2026-10-27T07:06:50.428Z lbl Surprise me
+2026-10-27T07:06:51.847Z wait 1
+2026-10-27T07:06:53.062Z els edit_mini_drama_input
+2026-10-27T07:06:53.324Z shot tc380-fifth
+2026-10-27T07:07:03.045Z clear edit_mini_drama_input
+2026-10-27T07:07:03.417Z back 
+2026-10-27T07:07:04.091Z wait 2
+2026-10-27T07:07:06.302Z texts 
+2026-10-27T07:07:06.541Z id button_mini_drama_home_create
+2026-10-27T07:07:06.758Z wait 3
+2026-10-27T07:07:09.990Z texts 
+2026-10-27T07:07:10.273Z lbl Surprise me
+2026-10-27T07:07:10.613Z wait 1
+2026-10-27T07:07:11.830Z els edit_mini_drama_input
+2026-10-27T07:07:15.640Z clear edit_mini_drama_input
+2026-10-27T07:07:15.964Z back 
+2026-10-27T07:07:16.645Z wait 1
+2026-10-27T07:07:17.866Z back 
+2026-10-27T07:07:18.095Z wait 2
+2026-10-27T07:07:20.321Z texts 
+2026-10-27T07:07:20.732Z id button_mini_drama_home_create
+2026-10-27T07:07:21.080Z wait 3
+2026-10-27T07:07:24.312Z lbl Surprise me
+2026-10-27T07:07:24.684Z wait 1
+2026-10-27T07:07:25.900Z els edit_mini_drama_input
+2026-10-27T07:07:30.822Z clear edit_mini_drama_input
+2026-10-27T07:07:31.137Z launch 
+2026-10-27T07:07:32.124Z wait 6
+2026-10-27T07:07:38.336Z texts 
+2026-10-27T07:07:39.302Z lbl AI Mini Drama
+2026-10-27T07:07:39.815Z wait 3
+2026-10-27T07:07:43.050Z id button_mini_drama_home_create
+2026-10-27T07:07:43.403Z wait 3
+2026-10-27T07:07:46.635Z lbl Surprise me
+2026-10-27T07:07:46.990Z wait 1
+2026-10-27T07:07:48.202Z els edit_mini_drama_input
+2026-10-27T07:07:48.496Z shot tc014-after-relaunch
+2026-10-27T07:08:00.004Z run-log set TC-014 Fail
+2026-10-27T07:08:00.123Z run-log set TC-380 Pass
+2026-10-27T07:08:05.976Z setval edit_mini_drama_input A barista and a regular fall in love over a lost umbrella 
+2026-10-27T07:08:07.679Z wait 2
+2026-10-27T07:08:09.892Z els 
+2026-10-27T07:08:10.188Z shot tc015-limit
+2026-10-27T07:08:16.715Z source 
+2026-10-27T07:08:29.714Z type X
+2026-10-27T07:08:31.400Z wait 2
+2026-10-27T07:08:33.613Z source 
+2026-10-27T07:08:33.906Z shot tc016-type-one-more
+2026-10-27T07:08:43.337Z hidekb 
+2026-10-27T07:08:46.241Z wait 2
+2026-10-27T07:08:48.450Z els 
+2026-10-27T07:08:48.825Z shot tc015-kb-hidden
+2026-10-27T07:09:12.052Z setval edit_mini_drama_input A barista and a regular fall in love over a lost umbrella 
+2026-10-27T07:09:14.149Z wait 2
+2026-10-27T07:09:16.355Z source 
+2026-10-27T07:09:16.684Z shot tc017-999
+2026-10-27T07:09:26.860Z run-log set TC-015 Fail
+2026-10-27T07:09:26.972Z run-log set TC-016 Fail
+2026-10-27T07:09:27.084Z run-log set TC-017 Fail
+2026-10-27T07:09:27.196Z run-log set TC-018 Pass
+2026-10-27T07:09:36.969Z clear edit_mini_drama_input
+2026-10-27T07:09:37.314Z id edit_mini_drama_input
+2026-10-27T07:09:38.639Z wait 1
+2026-10-27T07:09:39.846Z type A shy baker enters a reality cooking show to win back her family bakery. 
+2026-10-27T07:09:41.859Z els layout_mini_drama_input
+2026-10-27T07:09:42.669Z type Her rival is the charming chef who once bought the shop from her father. They cl
+2026-10-27T07:09:46.351Z els layout_mini_drama_input
+2026-10-27T07:09:47.228Z type In the finale they must cook together as a team, and the judges taste more than 
+2026-10-27T07:09:51.629Z els layout_mini_drama_input
+2026-10-27T07:09:52.478Z type  More lines to push the box: the father returns, the rival confesses, and the ba
+2026-10-27T07:09:55.640Z els layout_mini_drama_input
+2026-10-27T07:09:56.450Z texts tc372-max-height
+2026-10-27T07:10:07.599Z run-log set TC-372 Pass
+2026-10-27T07:10:07.714Z clear edit_mini_drama_input
+2026-10-27T07:10:08.031Z id edit_mini_drama_input
+2026-10-27T07:10:08.826Z type A barista and a regular fall in love over a lost umbrella
+2026-10-27T07:10:10.831Z wait 1
+2026-10-27T07:10:12.050Z id button_mini_drama_send
+2026-10-27T07:10:13.369Z wait 5
+2026-10-27T07:10:18.603Z texts tc020-after-send
+2026-10-27T07:10:24.363Z hidekb 
+2026-10-27T07:10:25.203Z wait 1
+2026-10-27T07:10:26.437Z els 
+2026-10-27T07:10:26.841Z texts tc020-card
+2026-10-27T07:10:38.366Z run-log set TC-020 Pass
+2026-10-27T07:10:38.478Z lbl Japanese
+2026-10-27T07:10:38.841Z wait 1
+2026-10-27T07:10:40.040Z lbl No captions
+2026-10-27T07:10:40.403Z wait 1
+2026-10-27T07:10:41.617Z els 
+2026-10-27T07:10:41.954Z shot tc021-selected
+2026-10-27T07:10:49.609Z run-log set TC-021 Pass
+2026-10-27T07:10:49.719Z id button_mini_drama_format_continue
+2026-10-27T07:10:50.127Z wait 4
+2026-10-27T07:10:54.369Z texts tc022-after-generate
+2026-10-27T07:11:01.340Z waitfor outline|Outline|Sign in|sign in|credits|Credits|Something went wrong|Try again|R
+2026-10-27T07:11:26.484Z texts tc022-result
+2026-10-27T07:11:34.400Z els 
+2026-10-27T07:11:34.765Z shot tc019-chat-content
+2026-10-27T07:11:40.018Z id edit_mini_drama_input
+2026-10-27T07:11:41.163Z wait 2
+2026-10-27T07:11:43.394Z texts tc019-focused
+2026-10-27T07:11:44.432Z els -i
+2026-10-27T07:11:55.136Z run-log set TC-022 Pass
+2026-10-27T07:11:55.245Z run-log set TC-019 Fail
+2026-10-27T07:11:55.354Z els layout_mini_drama_input
+2026-10-27T07:11:55.725Z type Please make the barista more shy and add a scene in the rain where he runs after
+2026-10-27T07:11:58.238Z els layout_mini_drama_input
+2026-10-27T07:11:59.096Z type Also let the regular customer leave a note in the umbrella handle, and end with 
+2026-10-27T07:12:03.040Z els layout_mini_drama_input
+2026-10-27T07:12:03.913Z type One more detail: the cafe has a cat named Mocha who always sits on the umbrella 
+2026-10-27T07:12:06.998Z els layout_mini_drama_input
+2026-10-27T07:12:07.749Z texts tc373-max-height
+2026-10-27T07:12:12.902Z type  Mocha also appears in the final scene at the airport, hidden inside her carry-o
+2026-10-27T07:12:15.930Z els layout_mini_drama_input
+2026-10-27T07:12:16.768Z shot tc373-past-max
+2026-10-27T07:12:29.685Z run-log set TC-373 Pass
+2026-10-27T07:12:29.797Z clear edit_mini_drama_input
+2026-10-27T07:12:30.136Z hidekb 
+2026-10-27T07:12:32.804Z drag 540 600 540 1900 400
+2026-10-27T07:12:33.565Z drag 540 600 540 1900 400
+2026-10-27T07:12:34.311Z wait 1
+2026-10-27T07:12:35.516Z texts tc414-custom-scrollup
+2026-10-27T07:12:40.817Z back 
+2026-10-27T07:12:41.016Z wait 2
+2026-10-27T07:12:43.232Z texts 
+2026-10-27T07:12:43.670Z lbl Merger Season
+2026-10-27T07:12:43.997Z wait 3
+2026-10-27T07:12:47.232Z texts tc414-template
+2026-10-27T07:12:52.875Z lbl Make my version
+2026-10-27T07:12:54.436Z wait 4
+2026-10-27T07:12:58.654Z texts tc414-after-make
+2026-10-27T07:13:05.833Z els 
+2026-10-27T07:13:06.287Z lbl English
+2026-10-27T07:13:06.627Z lbl Yes, include captions
+2026-10-27T07:13:07.316Z wait 1
+2026-10-27T07:13:08.527Z els 
+2026-10-27T07:13:08.831Z id button_mini_drama_format_continue
+2026-10-27T07:13:09.170Z wait 3
+2026-10-27T07:13:12.397Z texts tc414-after-continue
+2026-10-27T07:13:17.898Z waitfor Story Outline|Sign in|credits|Something went wrong|Try again|Retry --timeout 120
+2026-10-27T07:15:18.879Z drag 540 600 540 1900 400
+2026-10-27T07:15:19.654Z drag 540 600 540 1900 400
+2026-10-27T07:15:20.415Z wait 1
+2026-10-27T07:15:21.626Z texts tc414-scrolled-up
+2026-10-27T07:15:22.663Z source 
+2026-10-27T07:15:27.545Z drag 540 500 540 2000 300
+2026-10-27T07:15:28.204Z drag 540 500 540 2000 300
+2026-10-27T07:15:28.856Z drag 540 500 540 2000 300
+2026-10-27T07:15:29.513Z drag 540 500 540 2000 300
+2026-10-27T07:15:30.155Z wait 1
+2026-10-27T07:15:31.353Z texts tc414-top
+2026-10-27T07:15:32.323Z source 
+2026-10-27T07:15:38.425Z run-log set TC-414 Fail
+2026-10-27T07:15:42.608Z id button_mini_drama_back
+2026-10-27T07:15:42.974Z wait 2
+2026-10-27T07:15:45.173Z texts 
+2026-10-27T07:15:45.626Z id button_mini_drama_home_history
+2026-10-27T07:15:46.032Z wait 3
+2026-10-27T07:15:49.250Z texts tc425-history
+2026-10-27T07:15:56.533Z tap 540 1100
+2026-10-27T07:15:56.818Z wait 1
+2026-10-27T07:15:58.032Z lbl 忘れ物の傘
+2026-10-27T07:15:58.375Z wait 3
+2026-10-27T07:16:01.592Z texts tc425-opened
+2026-10-27T07:16:02.583Z id button_mini_drama_back
+2026-10-27T07:16:02.924Z wait 2
+2026-10-27T07:16:05.139Z texts tc425-back
+2026-10-27T07:16:10.444Z id button_mini_drama_home_create
+2026-10-27T07:16:10.802Z wait 3
+2026-10-27T07:16:14.040Z texts tc425-create
+2026-10-27T07:16:21.632Z run-log set TC-425 Pass
+2026-10-27T07:16:21.748Z lbl Surprise me
+2026-10-27T07:16:22.071Z wait 1
+2026-10-27T07:16:23.282Z els edit_mini_drama_input
+2026-10-27T07:16:28.941Z lbl Surprise me
+2026-10-27T07:16:29.299Z wait 1
+2026-10-27T07:16:30.503Z els edit_mini_drama_input
+2026-10-27T07:16:30.769Z shot tc014-recheck-append
+2026-10-27T07:16:31.442Z clear edit_mini_drama_input
+2026-10-27T07:16:31.719Z lbl Surprise me
+2026-10-27T07:16:32.535Z els edit_mini_drama_input
+2026-10-27T07:16:33.207Z clear edit_mini_drama_input
+2026-10-27T07:16:33.508Z lbl Surprise me
+2026-10-27T07:16:34.257Z els edit_mini_drama_input
+2026-10-27T07:16:34.989Z clear edit_mini_drama_input
+2026-10-27T07:16:35.283Z lbl Surprise me
+2026-10-27T07:16:36.019Z els edit_mini_drama_input
+2026-10-27T07:16:47.116Z run-log set TC-014 Fail
+2026-10-27T07:16:47.231Z run-log set TC-380 Pass
+2026-10-27T07:16:52.949Z clear edit_mini_drama_input
+2026-10-27T07:16:53.273Z type A night-shift nurse and a lonely radio DJ fall for each other over late-night so
+2026-10-27T07:16:55.480Z id button_mini_drama_send
+2026-10-27T07:16:56.386Z waitfor What format would you like --timeout 60
+2026-10-27T07:16:57.446Z els 
+2026-10-27T07:16:57.717Z shot tc468-card
+2026-10-27T07:16:58.442Z id edit_mini_drama_input
+2026-10-27T07:16:58.774Z type Make it a comedy please
+2026-10-27T07:17:00.561Z id button_mini_drama_send
+2026-10-27T07:17:01.445Z wait 5
+2026-10-27T07:17:06.670Z texts tc468-after-send
+2026-10-27T07:17:12.021Z waitfor Story Outline|What format|language|Something went wrong|Retry|Sign in --timeout 
+2026-10-27T07:19:43.550Z wait 3
+2026-10-27T07:19:46.758Z texts tc468-result
+2026-10-27T07:19:52.177Z drag 540 500 540 2000 300
+2026-10-27T07:19:52.829Z drag 540 500 540 2000 300
+2026-10-27T07:19:53.476Z drag 540 500 540 2000 300
+2026-10-27T07:19:54.123Z drag 540 500 540 2000 300
+2026-10-27T07:19:54.774Z texts tc468-top
+2026-10-27T07:19:55.517Z source 
+2026-10-27T07:20:01.243Z run-log set TC-468 Fail
+2026-10-27T07:20:12.068Z id button_mini_drama_add_chat
+2026-10-27T07:20:12.423Z wait 3
+2026-10-27T07:20:15.650Z texts 
+2026-10-27T07:20:15.919Z id edit_mini_drama_input
+2026-10-27T07:20:16.980Z type 雨の日に図書館で同じ本を取ろうとした二人が恋に落ちる
+2026-10-27T07:20:19.267Z id button_mini_drama_send
+2026-10-27T07:20:20.064Z waitfor What format would you like --timeout 60
+2026-10-27T07:20:21.106Z els 
+2026-10-27T07:20:21.410Z shot tc488-card-a
+2026-10-27T07:20:26.930Z lbl Japanese
+2026-10-27T07:20:27.286Z lbl No captions
+2026-10-27T07:20:28.060Z els 
+2026-10-27T07:20:28.779Z id button_mini_drama_format_continue
+2026-10-27T07:20:29.124Z waitfor Choose your characters|Something went wrong|Retry --timeout 180
+2026-10-27T07:22:18.119Z texts tc488-drama-ja
+2026-10-27T07:22:23.963Z id button_mini_drama_add_chat
+2026-10-27T07:22:24.345Z wait 3
+2026-10-27T07:22:27.569Z id edit_mini_drama_input
+2026-10-27T07:22:28.732Z type 夜の屋台で働く青年と常連の小説家の小さな恋の物語
+2026-10-27T07:22:30.939Z id button_mini_drama_send
+2026-10-27T07:22:31.780Z waitfor What format would you like --timeout 60
+2026-10-27T07:22:32.826Z els 
+2026-10-27T07:22:33.084Z texts tc488-card-b
+2026-10-27T07:22:41.900Z run-log set TC-488 Fail
+2026-10-27T07:22:46.905Z pull-logs A1-a1
+2026-10-27T07:24:56.288Z restart 
+2026-10-27T07:25:03.526Z logcat start
+2026-10-27T07:25:06.848Z shot a1-a2-start
+2026-10-27T07:25:07.639Z els 
+2026-10-27T07:25:16.414Z id button_mini_drama_back
+2026-10-27T07:25:16.784Z wait 2
+2026-10-27T07:25:19.008Z shot tc381-back-format
+2026-10-27T07:25:20.327Z texts 
+2026-10-27T07:25:24.894Z lbl Create Your Drama
+2026-10-27T07:25:25.273Z wait 2
+2026-10-27T07:25:27.492Z id edit_mini_drama_input
+2026-10-27T07:25:28.356Z type A lighthouse keeper finds a message in a bottle
+2026-10-27T07:25:30.303Z shot tc381-typed
+2026-10-27T07:25:30.987Z id button_mini_drama_back
+2026-10-27T07:25:31.474Z wait 2
+2026-10-27T07:25:33.695Z shot tc381-back-typed
+2026-10-27T07:25:35.013Z texts 
+2026-10-27T07:25:42.387Z els 
+2026-10-27T07:25:45.889Z id button_mini_drama_home_history
+2026-10-27T07:25:46.403Z wait 2
+2026-10-27T07:25:48.624Z shot tc381-history
+2026-10-27T07:25:49.277Z texts 
+2026-10-27T07:25:55.221Z run-log set TC-381 Pass
+2026-10-27T07:26:00.268Z back 
+2026-10-27T07:26:00.526Z wait 2
+2026-10-27T07:26:02.747Z texts 
+2026-10-27T07:26:03.191Z id button_mini_drama_home_create
+2026-10-27T07:26:03.530Z wait 2
+2026-10-27T07:26:05.740Z shot tc394-empty
+2026-10-27T07:26:06.443Z back 
+2026-10-27T07:26:06.676Z wait 2
+2026-10-27T07:26:08.893Z shot tc394-back-empty
+2026-10-27T07:26:09.609Z texts 
+2026-10-27T07:26:13.572Z texts 
+2026-10-27T07:26:13.898Z els 
+2026-10-27T07:26:20.798Z shot tc394-back1-kbclosed
+2026-10-27T07:26:21.588Z back 
+2026-10-27T07:26:21.819Z wait 2
+2026-10-27T07:26:24.035Z shot tc394-back-empty2
+2026-10-27T07:26:25.333Z texts 
+2026-10-27T07:26:30.347Z id button_mini_drama_home_create
+2026-10-27T07:26:30.689Z wait 2
+2026-10-27T07:26:32.902Z id edit_mini_drama_input
+2026-10-27T07:26:33.272Z type A florist and a tattoo artist share a shop wall
+2026-10-27T07:26:35.230Z back 
+2026-10-27T07:26:36.267Z wait 1
+2026-10-27T07:26:37.487Z texts 
+2026-10-27T07:26:37.760Z els 
+2026-10-27T07:26:38.003Z back 
+2026-10-27T07:26:38.201Z wait 2
+2026-10-27T07:26:40.425Z shot tc394-back-typed
+2026-10-27T07:26:41.754Z texts 
+2026-10-27T07:26:45.937Z id button_mini_drama_home_create
+2026-10-27T07:26:46.297Z wait 2
+2026-10-27T07:26:48.516Z id edit_mini_drama_input
+2026-10-27T07:26:48.875Z type A retired detective teaches a teenager to bake bread
+2026-10-27T07:26:51.258Z id button_mini_drama_send
+2026-10-27T07:26:53.305Z waitfor What format would you like --timeout 60
+2026-10-27T07:26:53.593Z hidekb 
+2026-10-27T07:26:54.371Z shot tc394-format
+2026-10-27T07:26:55.121Z back 
+2026-10-27T07:26:55.361Z wait 2
+2026-10-27T07:26:57.579Z shot tc394-back-format
+2026-10-27T07:26:58.869Z texts 
+2026-10-27T07:27:03.177Z id button_mini_drama_home_history
+2026-10-27T07:27:03.592Z wait 2
+2026-10-27T07:27:05.807Z shot tc394-history
+2026-10-27T07:27:06.461Z texts 
+2026-10-27T07:27:11.605Z run-log set TC-394 Pass
+2026-10-27T07:27:24.934Z back 
+2026-10-27T07:27:25.202Z wait 1
+2026-10-27T07:27:26.423Z id button_mini_drama_home_create
+2026-10-27T07:27:26.760Z wait 2
+2026-10-27T07:27:28.981Z id edit_mini_drama_input
+2026-10-27T07:27:29.849Z type A night-shift nurse and a radio DJ fall for each other through song requests dur
+2026-10-27T07:27:32.122Z id button_mini_drama_send
+2026-10-27T07:27:32.999Z waitfor What format would you like --timeout 60
+2026-10-27T07:27:34.034Z hidekb 
+2026-10-27T07:27:34.841Z id button_mini_drama_format_continue
+2026-10-27T07:27:35.158Z wait 1
+2026-10-27T07:27:36.381Z shot tc023-gen-1
+2026-10-27T07:27:37.116Z texts 
+2026-10-27T07:27:37.332Z wait 4
+2026-10-27T07:27:41.540Z shot tc023-gen-2
+2026-10-27T07:27:42.338Z texts 
+2026-10-27T07:27:46.842Z id button_mini_drama_back
+2026-10-27T07:27:47.194Z wait 1
+2026-10-27T07:27:48.413Z shot tc025-back-dialog
+2026-10-27T07:27:49.085Z texts 
+2026-10-27T07:27:52.406Z lbl Stay
+2026-10-27T07:27:52.749Z wait 1
+2026-10-27T07:27:53.970Z texts 
+2026-10-27T07:27:54.252Z back 
+2026-10-27T07:27:54.442Z wait 1
+2026-10-27T07:27:55.665Z shot tc395-sysback-dialog
+2026-10-27T07:27:56.333Z texts 
+2026-10-27T07:28:01.213Z lbl Stay
+2026-10-27T07:28:01.580Z wait 1
+2026-10-27T07:28:02.800Z shot tc395-stay
+2026-10-27T07:28:03.496Z texts 
+2026-10-27T07:28:03.753Z id button_mini_drama_history
+2026-10-27T07:28:04.114Z wait 1
+2026-10-27T07:28:05.333Z shot tc026-history-dialog
+2026-10-27T07:28:06.001Z texts 
+2026-10-27T07:28:06.471Z lbl Stay
+2026-10-27T07:28:06.961Z id button_mini_drama_add_chat
+2026-10-27T07:28:07.507Z wait 1
+2026-10-27T07:28:08.722Z shot tc357-newchat-dialog
+2026-10-27T07:28:09.385Z texts 
+2026-10-27T07:28:09.802Z lbl Stay
+2026-10-27T07:28:10.301Z id layout_mini_drama_credit
+2026-10-27T07:28:10.816Z wait 1
+2026-10-27T07:28:12.035Z shot tc357-credit-dialog
+2026-10-27T07:28:12.686Z texts 
+2026-10-27T07:28:13.150Z lbl Stay
+2026-10-27T07:28:19.431Z lbl Cancel
+2026-10-27T07:28:20.734Z wait 1
+2026-10-27T07:28:21.952Z shot after-cancel
+2026-10-27T07:28:22.597Z texts 
+2026-10-27T07:28:30.820Z lbl Signal in the Dark
+2026-10-27T07:28:31.714Z wait 3
+2026-10-27T07:28:34.948Z shot tc024-reopen
+2026-10-27T07:28:35.705Z texts 
+2026-10-27T07:28:40.119Z drag 540 600 540 1900 300
+2026-10-27T07:28:40.768Z drag 540 600 540 1900 300
+2026-10-27T07:28:41.411Z drag 540 600 540 1900 300
+2026-10-27T07:28:42.068Z shot tc024-top
+2026-10-27T07:28:42.705Z els 
+2026-10-27T07:29:03.746Z drag 540 1900 540 600 300
+2026-10-27T07:29:04.407Z drag 540 1900 540 600 300
+2026-10-27T07:29:05.057Z drag 540 1900 540 600 300
+2026-10-27T07:29:05.709Z shot tc448-headers
+2026-10-27T07:29:06.360Z els 
+2026-10-27T07:29:21.567Z run-log set TC-023 Pass
+2026-10-27T07:29:21.678Z run-log set TC-024 Fail
+2026-10-27T07:29:21.789Z run-log set TC-025 Pass
+2026-10-27T07:29:21.898Z run-log set TC-395 Pass
+2026-10-27T07:29:22.010Z run-log set TC-027 Pass
+2026-10-27T07:29:22.122Z run-log set TC-448 Fail
+2026-10-27T07:29:25.795Z id button_mini_drama_back
+2026-10-27T07:29:26.160Z wait 2
+2026-10-27T07:29:28.378Z shot tc029-back
+2026-10-27T07:29:29.701Z texts 
+2026-10-27T07:29:34.133Z id button_mini_drama_home_history
+2026-10-27T07:29:34.575Z wait 2
+2026-10-27T07:29:36.790Z lbl Signal in the Dark
+2026-10-27T07:29:37.114Z wait 3
+2026-10-27T07:29:40.346Z shot tc029-reopen
+2026-10-27T07:29:41.140Z texts 
+2026-10-27T07:29:41.526Z back 
+2026-10-27T07:29:41.758Z wait 2
+2026-10-27T07:29:43.971Z shot tc397-sysback
+2026-10-27T07:29:45.287Z texts 
+2026-10-27T07:29:49.911Z id button_mini_drama_home_history
+2026-10-27T07:29:50.341Z wait 2
+2026-10-27T07:29:52.559Z lbl Signal in the Dark
+2026-10-27T07:29:53.409Z wait 3
+2026-10-27T07:29:56.641Z shot tc397-reopen
+2026-10-27T07:29:57.428Z texts 
+2026-10-27T07:29:57.761Z id button_mini_drama_history
+2026-10-27T07:29:58.183Z wait 2
+2026-10-27T07:30:00.409Z shot tc360-history
+2026-10-27T07:30:01.067Z texts 
+2026-10-27T07:30:05.135Z els 
+2026-10-27T07:30:09.393Z lbl Signal in the Dark
+2026-10-27T07:30:09.738Z wait 3
+2026-10-27T07:30:12.971Z texts 
+2026-10-27T07:30:13.283Z id layout_mini_drama_credit
+2026-10-27T07:30:13.645Z wait 3
+2026-10-27T07:30:16.880Z shot tc360-credits
+2026-10-27T07:30:17.964Z texts 
+2026-10-27T07:30:21.460Z back 
+2026-10-27T07:30:22.122Z wait 2
+2026-10-27T07:30:24.337Z texts 
+2026-10-27T07:30:24.659Z id button_mini_drama_add_chat
+2026-10-27T07:30:25.052Z wait 2
+2026-10-27T07:30:27.270Z shot tc360-newchat
+2026-10-27T07:30:27.988Z texts 
+2026-10-27T07:30:34.556Z run-log set TC-029 Pass
+2026-10-27T07:30:34.674Z run-log set TC-397 Pass
+2026-10-27T07:30:34.786Z run-log set TC-360 Pass
+2026-10-27T07:30:39.800Z hidekb 
+2026-10-27T07:30:40.661Z id edit_mini_drama_input
+2026-10-27T07:30:41.760Z type A food truck owner and a parking officer keep meeting at the same corner
+2026-10-27T07:30:44.186Z id button_mini_drama_send
+2026-10-27T07:30:45.020Z waitfor What format would you like --timeout 60
+2026-10-27T07:30:46.082Z hidekb 
+2026-10-27T07:30:46.880Z id button_mini_drama_format_continue
+2026-10-27T07:30:47.216Z wait 1
+2026-10-27T07:30:48.432Z id button_mini_drama_history
+2026-10-27T07:30:48.778Z wait 1
+2026-10-27T07:30:49.994Z shot tc026-history-dialog
+2026-10-27T07:30:50.660Z texts 
+2026-10-27T07:30:54.147Z lbl Stay
+2026-10-27T07:30:54.479Z id button_mini_drama_add_chat
+2026-10-27T07:30:55.185Z wait 1
+2026-10-27T07:30:56.406Z shot tc357-newchat-dialog
+2026-10-27T07:30:57.067Z texts 
+2026-10-27T07:31:00.432Z lbl Stay
+2026-10-27T07:31:00.768Z id layout_mini_drama_credit
+2026-10-27T07:31:01.489Z wait 1
+2026-10-27T07:31:02.702Z shot tc357-credit-dialog
+2026-10-27T07:31:03.690Z texts 
+2026-10-27T07:31:08.118Z back 
+2026-10-27T07:31:08.809Z wait 2
+2026-10-27T07:31:11.028Z shot tc357-after-credits
+2026-10-27T07:31:11.832Z texts 
+2026-10-27T07:31:16.502Z waitfor Choose your characters|Something went wrong|Try again --timeout 240
+2026-10-27T07:32:26.917Z shot tc357-outline-arrived
+2026-10-27T07:32:27.669Z texts 
+2026-10-27T07:32:32.113Z els 
+2026-10-27T07:32:43.154Z run-log set TC-026 Pass
+2026-10-27T07:32:43.265Z run-log set TC-357 Fail
+2026-10-27T07:32:48.351Z id button_mini_drama_add_chat
+2026-10-27T07:32:48.745Z wait 2
+2026-10-27T07:32:50.960Z hidekb 
+2026-10-27T07:32:51.756Z id edit_mini_drama_input
+2026-10-27T07:32:52.110Z type A violin teacher discovers her new student is a famous runaway pop star
+2026-10-27T07:32:54.219Z id button_mini_drama_send
+2026-10-27T07:32:55.207Z waitfor What format would you like --timeout 60
+2026-10-27T07:32:56.236Z hidekb 
+2026-10-27T07:32:57.014Z id button_mini_drama_format_continue
+2026-10-27T07:32:57.342Z wait 1
+2026-10-27T07:32:58.557Z back 
+2026-10-27T07:32:58.762Z wait 1
+2026-10-27T07:32:59.973Z texts 
+2026-10-27T07:33:00.184Z lbl Leave anyway
+2026-10-27T07:33:00.511Z wait 2
+2026-10-27T07:33:02.725Z shot tc396-left
+2026-10-27T07:33:04.067Z texts 
+2026-10-27T07:33:09.549Z id button_mini_drama_home_create
+2026-10-27T07:33:09.878Z wait 2
+2026-10-27T07:33:12.084Z hidekb 
+2026-10-27T07:33:14.638Z id edit_mini_drama_input
+2026-10-27T07:33:15.108Z type Twin sisters swap places at a cooking contest
+2026-10-27T07:33:16.996Z id button_mini_drama_send
+2026-10-27T07:33:17.834Z waitfor What format would you like --timeout 60
+2026-10-27T07:33:18.874Z hidekb 
+2026-10-27T07:33:19.636Z id button_mini_drama_format_continue
+2026-10-27T07:33:20.003Z wait 1
+2026-10-27T07:33:21.204Z id button_mini_drama_history
+2026-10-27T07:33:21.540Z wait 1
+2026-10-27T07:33:22.757Z texts 
+2026-10-27T07:33:22.970Z lbl Leave anyway
+2026-10-27T07:33:23.277Z wait 2
+2026-10-27T07:33:25.491Z shot tc028-left
+2026-10-27T07:33:26.158Z texts 
+2026-10-27T07:33:31.448Z back 
+2026-10-27T07:33:31.691Z wait 1
+2026-10-27T07:33:32.903Z id button_mini_drama_home_create
+2026-10-27T07:33:33.125Z id edit_mini_drama_input
+2026-10-27T07:33:33.475Z type A shy astronomer and a loud street magician share a rooftop
+2026-10-27T07:33:35.412Z id button_mini_drama_send
+2026-10-27T07:33:36.299Z waitfor What format would you like --timeout 60
+2026-10-27T07:33:37.386Z hidekb 
+2026-10-27T07:33:38.175Z id button_mini_drama_format_continue
+2026-10-27T07:33:38.540Z wait 1
+2026-10-27T07:33:39.748Z id layout_mini_drama_credit
+2026-10-27T07:33:40.092Z wait 1
+2026-10-27T07:33:41.298Z shot tc358-credit
+2026-10-27T07:33:42.272Z texts 
+2026-10-27T07:33:49.721Z wait 10
+2026-10-27T07:33:59.932Z wait 10
+2026-10-27T07:34:10.161Z wait 10
+2026-10-27T07:34:20.355Z wait 10
+2026-10-27T07:34:30.584Z wait 10
+2026-10-27T07:34:40.813Z wait 10
+2026-10-27T07:34:51.053Z wait 10
+2026-10-27T07:35:01.281Z wait 10
+2026-10-27T07:35:11.510Z wait 10
+2026-10-27T07:35:21.740Z wait 10
+2026-10-27T07:35:31.979Z wait 10
+2026-10-27T07:35:42.220Z wait 10
+2026-10-27T07:35:52.462Z back 
+2026-10-27T07:35:53.172Z wait 2
+2026-10-27T07:35:55.387Z shot tc358-back
+2026-10-27T07:35:56.126Z texts 
+2026-10-27T07:36:00.446Z id button_mini_drama_history
+2026-10-27T07:36:00.861Z wait 2
+2026-10-27T07:36:03.077Z shot tc028-history
+2026-10-27T07:36:03.743Z els 
+2026-10-27T07:36:12.366Z run-log set TC-396 Pass
+2026-10-27T07:36:12.477Z run-log set TC-028 Pass
+2026-10-27T07:36:12.586Z run-log set TC-358 Fail
+2026-10-27T07:36:23.742Z back 
+2026-10-27T07:36:23.985Z wait 1
+2026-10-27T07:36:25.195Z id button_mini_drama_add_chat
+2026-10-27T07:36:25.534Z wait 2
+2026-10-27T07:36:27.748Z hidekb 
+2026-10-27T07:36:28.518Z id edit_mini_drama_input
+2026-10-27T07:36:29.635Z type A mail carrier delivers letters from the future to a grumpy baker
+2026-10-27T07:36:31.835Z id button_mini_drama_send
+2026-10-27T07:36:32.707Z waitfor What format would you like --timeout 60
+2026-10-27T07:36:33.732Z hidekb 
+2026-10-27T07:36:34.506Z id button_mini_drama_format_continue
+2026-10-27T07:36:34.831Z wait 1
+2026-10-27T07:36:36.044Z texts 
+2026-10-27T07:36:36.323Z tap 834 2452
+2026-10-27T07:36:36.537Z wait 2
+2026-10-27T07:36:38.752Z shot tc386-recents
+2026-10-27T07:36:46.290Z drag 540 1300 540 150 250
+2026-10-27T07:36:46.903Z wait 2
+2026-10-27T07:36:49.113Z shot tc386-swiped
+2026-10-27T07:36:49.816Z appstate 
+2026-10-27T07:36:54.696Z wait 10
+2026-10-27T07:37:04.925Z wait 10
+2026-10-27T07:37:15.155Z wait 10
+2026-10-27T07:37:25.369Z wait 10
+2026-10-27T07:37:35.597Z wait 10
+2026-10-27T07:37:45.835Z wait 10
+2026-10-27T07:37:56.059Z launch 
+2026-10-27T07:37:56.637Z wait 6
+2026-10-27T07:38:02.864Z tapif Not now
+2026-10-27T07:38:04.464Z shot tc386-relaunch
+2026-10-27T07:38:05.895Z texts 
+2026-10-27T07:38:10.451Z lbl AI Mini Drama
+2026-10-27T07:38:11.081Z wait 3
+2026-10-27T07:38:14.303Z id button_mini_drama_home_history
+2026-10-27T07:38:14.801Z wait 2
+2026-10-27T07:38:17.017Z shot tc386-history
+2026-10-27T07:38:17.674Z els 
+2026-10-27T07:38:22.512Z run-log set TC-386 Pass
+2026-10-27T07:38:27.304Z back 
+2026-10-27T07:38:27.559Z wait 1
+2026-10-27T07:38:28.768Z lbl Forbidden Office Romance
+2026-10-27T07:38:29.126Z wait 3
+2026-10-27T07:38:32.340Z shot tc452-template
+2026-10-27T07:38:33.026Z texts 
+2026-10-27T07:38:36.909Z lbl Make my version
+2026-10-27T07:38:37.411Z waitfor What format would you like|Sign in|Log in --timeout 60
+2026-10-27T07:38:40.489Z shot tc452-format
+2026-10-27T07:38:41.395Z texts 
+2026-10-27T07:38:45.069Z id button_mini_drama_format_continue
+2026-10-27T07:38:45.467Z wait 2
+2026-10-27T07:38:47.674Z shot tc452-gen
+2026-10-27T07:38:48.487Z texts 
+2026-10-27T07:38:48.804Z back 
+2026-10-27T07:38:48.999Z wait 1
+2026-10-27T07:38:50.219Z shot tc452-dialog
+2026-10-27T07:38:51.487Z texts 
+2026-10-27T07:38:56.839Z wait 10
+2026-10-27T07:39:07.041Z wait 10
+2026-10-27T07:39:17.251Z wait 10
+2026-10-27T07:39:27.483Z wait 10
+2026-10-27T07:39:37.719Z wait 10
+2026-10-27T07:39:47.958Z wait 10
+2026-10-27T07:39:58.190Z wait 10
+2026-10-27T07:40:08.413Z wait 10
+2026-10-27T07:40:18.637Z wait 10
+2026-10-27T07:40:28.865Z id button_mini_drama_home_history
+2026-10-27T07:40:29.258Z wait 2
+2026-10-27T07:40:31.465Z shot tc452-history
+2026-10-27T07:40:32.122Z els 
+2026-10-27T07:40:38.781Z run-log set TC-452 Fail
+2026-10-27T07:40:38.888Z lbl Workplace Romance
+2026-10-27T07:40:39.255Z wait 3
+2026-10-27T07:40:42.480Z drag 540 600 540 1900 300
+2026-10-27T07:40:43.163Z drag 540 600 540 1900 300
+2026-10-27T07:40:43.820Z drag 540 600 540 1900 300
+2026-10-27T07:40:44.463Z drag 540 600 540 1900 300
+2026-10-27T07:40:45.107Z shot tc416-top
+2026-10-27T07:40:45.872Z els 
+2026-10-27T07:40:54.625Z id button_mini_drama_outline_retry
+2026-10-27T07:40:55.004Z wait 2
+2026-10-27T07:40:57.209Z shot tc416-retry-gen
+2026-10-27T07:40:58.031Z texts 
+2026-10-27T07:40:58.335Z waitfor Choose your characters|Something went wrong --timeout 240
+2026-10-27T07:45:00.982Z shot tc416-result
+2026-10-27T07:45:04.672Z texts 
+2026-10-27T07:45:09.123Z drag 540 1900 540 500 300
+2026-10-27T07:45:09.804Z drag 540 1900 540 500 300
+2026-10-27T07:45:10.443Z drag 540 1900 540 500 300
+2026-10-27T07:45:11.097Z drag 540 1900 540 500 300
+2026-10-27T07:45:11.733Z shot tc416-bottom
+2026-10-27T07:45:12.336Z els 
+2026-10-27T07:45:19.772Z waitfor Choose your characters --timeout 60
+2026-10-27T07:46:21.360Z drag 540 700 540 1500 300
+2026-10-27T07:46:22.033Z shot tc416-mid
+2026-10-27T07:46:22.807Z els 
+2026-10-27T07:46:28.588Z id button_mini_drama_back
+2026-10-27T07:46:28.956Z wait 2
+2026-10-27T07:46:31.165Z texts 
+2026-10-27T07:46:31.609Z id button_mini_drama_home_history
+2026-10-27T07:46:31.974Z wait 2
+2026-10-27T07:46:34.184Z lbl Workplace Romance
+2026-10-27T07:46:35.031Z wait 3
+2026-10-27T07:46:38.250Z shot tc416-reopen
+2026-10-27T07:46:39.117Z els 
+2026-10-27T07:46:45.687Z id button_mini_drama_back
+2026-10-27T07:46:46.035Z wait 2
+2026-10-27T07:46:48.242Z lbl Forbidden Office Romance
+2026-10-27T07:46:48.580Z wait 3
+2026-10-27T07:46:51.790Z lbl Make my version
+2026-10-27T07:46:53.564Z waitfor What format would you like --timeout 60
+2026-10-27T07:46:53.868Z id button_mini_drama_format_continue
+2026-10-27T07:46:54.194Z wait 1
+2026-10-27T07:46:55.406Z shot tc023-tpl-gen1
+2026-10-27T07:46:56.198Z texts 
+2026-10-27T07:46:56.961Z wait 5
+2026-10-27T07:47:02.167Z shot tc023-tpl-gen2
+2026-10-27T07:47:03.074Z texts 
+2026-10-27T07:47:03.436Z waitfor Choose your characters|Something went wrong --timeout 300
+2026-10-27T07:52:11.260Z els 
+2026-10-27T07:52:17.599Z shot tc416-tpl-bottom
+2026-10-27T07:52:18.445Z drag 540 700 540 1700 300
+2026-10-27T07:52:19.092Z shot tc416-tpl-mid
+2026-10-27T07:52:19.729Z els 
+2026-10-27T07:52:33.488Z drag 540 1500 540 900 300
+2026-10-27T07:52:34.136Z shot tc508-before
+2026-10-27T07:52:34.830Z els 
+2026-10-27T07:52:38.167Z tap 310 1905
+2026-10-27T07:52:38.374Z wait 2
+2026-10-27T07:52:40.577Z shot tc508-replace
+2026-10-27T07:52:41.715Z texts 
+2026-10-27T07:52:49.494Z lbl Create my character
+2026-10-27T07:52:53.676Z tap 198 770
+2026-10-27T07:52:53.901Z wait 3
+2026-10-27T07:52:57.124Z shot tc508-create
+2026-10-27T07:52:57.914Z texts 
+2026-10-27T07:53:04.443Z lbl Generate
+2026-10-27T07:53:05.446Z wait 2
+2026-10-27T07:53:07.649Z shot tc508-generate
+2026-10-27T07:53:08.350Z texts 
+2026-10-27T07:53:12.496Z lbl Cancel
+2026-10-27T07:53:12.883Z wait 2
+2026-10-27T07:53:15.095Z texts 
+2026-10-27T07:53:15.685Z lbl Cancel
+2026-10-27T07:53:16.878Z wait 2
+2026-10-27T07:53:19.084Z texts 
+2026-10-27T07:53:27.951Z run-log set TC-416 Pass
+2026-10-27T07:53:28.062Z run-log set TC-420 Pass
+2026-10-27T07:53:28.171Z run-log set TC-508 Blocked
+2026-10-27T07:53:37.130Z id button_mini_drama_add_chat
+2026-10-27T07:53:37.506Z wait 2
+2026-10-27T07:53:39.710Z hidekb 
+2026-10-27T07:53:40.536Z setval edit_mini_drama_input Make it exactly 3 scenes with Taiwanese (Taiwanese Hokkien
+2026-10-27T07:53:41.905Z shot tc497-typed
+2026-10-27T07:53:42.564Z id button_mini_drama_send
+2026-10-27T07:53:44.162Z waitfor What format would you like --timeout 60
+2026-10-27T07:53:44.441Z hidekb 
+2026-10-27T07:53:45.233Z id button_mini_drama_format_continue
+2026-10-27T07:53:45.563Z waitfor Choose your characters|Something went wrong|couldn't write --timeout 300
+2026-10-27T07:58:46.947Z shot tc497-outline
+2026-10-27T07:58:53.937Z els 
+2026-10-27T07:59:00.102Z shot tc497-dialect-reply
+2026-10-27T07:59:00.924Z id edit_mini_drama_input
+2026-10-27T07:59:01.288Z type Use English dialogue but keep my quoted lines and exactly 3 scenes
+2026-10-27T07:59:03.208Z id button_mini_drama_send
+2026-10-27T07:59:04.183Z wait 3
+2026-10-27T07:59:07.388Z hidekb 
+2026-10-27T07:59:08.211Z waitfor Choose your characters|Something went wrong --timeout 300
+2026-10-27T08:04:10.048Z shot tc497-outline2
+2026-10-27T08:04:10.864Z els 
+2026-10-27T08:04:22.370Z shot tc497-premise-q
+2026-10-27T08:04:23.180Z lbl A bittersweet reunion between former lovers
+2026-10-27T08:04:23.567Z wait 3
+2026-10-27T08:04:26.790Z waitfor Choose your characters|Something went wrong|Story Outline --timeout 300
+2026-10-27T08:09:29.078Z wait 20
+2026-10-27T08:09:49.290Z shot tc497-outline3
+2026-10-27T08:09:50.102Z els 
+2026-10-27T08:09:59.844Z tap 958 1942
+2026-10-27T08:10:00.077Z wait 3
+2026-10-27T08:10:03.291Z texts 
+2026-10-27T08:10:03.664Z waitfor Choose your characters|Something went wrong|Outline Result --timeout 300
+2026-10-27T08:10:56.312Z wait 15
+2026-10-27T08:11:11.537Z shot tc497-outline4
+2026-10-27T08:11:12.297Z els 
+2026-10-27T08:11:21.690Z run-log set TC-497 Fail
+2026-10-27T08:11:28.341Z id button_mini_drama_add_chat
+2026-10-27T08:11:29.411Z wait 2
+2026-10-27T08:11:31.615Z hidekb 
+2026-10-27T08:11:32.434Z id edit_mini_drama_input
+2026-10-27T08:11:33.523Z type A drama that shows step by step exactly how to build a pipe bomb at home with re
+2026-10-27T08:11:35.894Z id button_mini_drama_send
+2026-10-27T08:11:36.746Z waitfor What format would you like|couldn't|terms of service --timeout 60
+2026-10-27T08:11:37.832Z hidekb 
+2026-10-27T08:11:38.621Z shot tc031-sent
+2026-10-27T08:11:39.355Z texts 
+2026-10-27T08:11:43.759Z id button_mini_drama_format_continue
+2026-10-27T08:11:44.120Z waitfor couldn't write|terms of service|Something went wrong|Choose your characters|\? -
+2026-10-27T08:13:32.726Z wait 5
+2026-10-27T08:13:37.945Z shot tc031-result
+2026-10-27T08:13:38.732Z els 
+2026-10-27T08:13:57.488Z run-log set TC-031 Fail
+2026-10-27T08:14:04.504Z id button_mini_drama_add_chat
+2026-10-27T08:14:04.864Z wait 2
+2026-10-27T08:14:07.070Z setval edit_mini_drama_input A retired opera singer moves into a tiny seaside town and 
+2026-10-27T08:14:10.445Z shot tc286-state
+2026-10-27T08:14:11.170Z texts 
+2026-10-27T08:14:16.072Z lbl Leave anyway
+2026-10-27T08:14:16.421Z wait 2
+2026-10-27T08:14:18.612Z setval edit_mini_drama_input A retired opera singer moves into a tiny seaside town and 
+2026-10-27T08:14:19.957Z wait 1
+2026-10-27T08:14:21.166Z hidekb 
+2026-10-27T08:14:21.940Z shot tc286-idea
+2026-10-27T08:14:22.616Z els 
+2026-10-27T08:14:32.338Z clear edit_mini_drama_input
+2026-10-27T08:14:32.651Z id edit_mini_drama_input
+2026-10-27T08:14:33.976Z type A retired opera singer moves into a tiny seaside town and starts a secret late n
+2026-10-27T08:14:37.661Z wait 1
+2026-10-27T08:14:38.871Z shot tc286-idea-typed-kb
+2026-10-27T08:14:39.557Z hidekb 
+2026-10-27T08:14:42.258Z shot tc286-idea-typed
+2026-10-27T08:14:42.910Z els 
+2026-10-27T08:14:53.472Z id button_mini_drama_back
+2026-10-27T08:14:53.825Z wait 2
+2026-10-27T08:14:56.032Z id button_mini_drama_home_history
+2026-10-27T08:14:56.424Z wait 2
+2026-10-27T08:14:58.634Z els 
+2026-10-27T08:15:02.684Z lbl Workplace Romance (1)
+2026-10-27T08:15:04.657Z wait 3
+2026-10-27T08:15:07.878Z els 
+2026-10-27T08:15:11.930Z tap 310 1032
+2026-10-27T08:15:12.144Z wait 2
+2026-10-27T08:15:14.348Z tap 198 770
+2026-10-27T08:15:14.563Z wait 3
+2026-10-27T08:15:17.790Z els 
+2026-10-27T08:15:23.189Z id edit_mini_drama_make_character_prompt
+2026-10-27T08:15:23.530Z type A young woman in her late twenties with shoulder length chestnut hair, a tailore
+2026-10-27T08:15:28.259Z wait 1
+2026-10-27T08:15:29.469Z hidekb 
+2026-10-27T08:15:30.917Z shot tc286-character
+2026-10-27T08:15:31.580Z els 
+2026-10-27T08:15:43.821Z lbl Cancel
+2026-10-27T08:15:44.517Z wait 2
+2026-10-27T08:15:46.704Z texts 
+2026-10-27T08:15:46.906Z tapif Discard
+2026-10-27T08:15:47.216Z lbl Cancel
+2026-10-27T08:15:48.015Z wait 2
+2026-10-27T08:15:50.212Z texts 
+2026-10-27T08:15:50.543Z run-log set TC-286 Pass
+2026-10-27T08:15:59.923Z pull-logs A1-a2
+2026-10-27T08:16:20.298Z run-log set TC-452 Fail
+2026-10-27T08:16:20.412Z run-log set TC-023 Pass
+2026-10-27T08:17:26.125Z restart 
+2026-10-27T08:17:33.354Z logcat start
+2026-10-27T08:17:33.462Z build 
+2026-10-27T08:17:33.678Z shot a1-b1-start
+2026-10-27T08:17:52.248Z els 
+2026-10-27T08:17:56.016Z els 
+2026-10-27T08:17:56.427Z tap 980 69
+2026-10-27T08:17:56.650Z texts 
+2026-10-27T08:18:00.615Z lbl Unspoken Regret
+2026-10-27T08:18:02.123Z shot tc033-pre
+2026-10-27T08:18:07.950Z tap 217 1909
+2026-10-27T08:18:08.222Z texts tc033-change
+2026-10-27T08:18:25.663Z run-log set TC-033 Pass
+2026-10-27T08:18:46.679Z lbl Filter
+2026-10-27T08:18:47.264Z texts tc036-filter
+2026-10-27T08:18:55.707Z lbl Female
+2026-10-27T08:18:56.565Z lbl East Asian
+2026-10-27T08:18:57.427Z shot tc036-picked
+2026-10-27T08:18:58.161Z tap 979 1242
+2026-10-27T08:18:58.388Z texts tc036-applied
+2026-10-27T08:19:10.745Z hidekb 
+2026-10-27T08:19:13.390Z shot tc036-applied-nokb
+2026-10-27T08:19:14.468Z run-log set TC-036 Pass
+2026-10-27T08:19:19.062Z pull-logs A1-b1
+2026-10-27T08:19:36.022Z logcat stop
+2026-10-27T08:19:36.133Z logcat status
+2026-10-27T08:26:40.150Z restart 
+2026-10-27T08:26:47.228Z logcat start
+2026-10-27T08:26:47.444Z build 
+2026-10-27T08:26:50.472Z shot resume-launcher.png
+2026-10-27T08:26:51.858Z texts 
+2026-10-27T08:26:56.355Z lbl Mine
+2026-10-27T08:26:57.491Z shot resume-mine
+2026-10-27T08:26:58.060Z els 
+2026-10-27T08:27:25.245Z lbl Home
+2026-10-27T08:27:25.553Z lbl AI Mini Drama
+2026-10-27T08:27:26.666Z waitfor History|Surprise me --timeout 20
+2026-10-27T08:27:48.105Z shot amd-home
+2026-10-27T08:27:49.233Z texts 
+2026-10-27T08:27:55.779Z tap 982 69
+2026-10-27T08:27:55.996Z waitfor History|Workplace|Unspoken --timeout 10
+2026-10-27T08:27:56.830Z texts 
+2026-10-27T08:28:00.788Z lbl Workplace Romance (1)
+2026-10-27T08:28:02.011Z waitfor Characters Result|Not enough credits|storyboard --timeout 20
+2026-10-27T08:28:02.231Z shot tc508-chat
+2026-10-27T08:28:02.856Z texts 
+2026-10-27T08:28:10.166Z tap 311 1332
+2026-10-27T08:28:10.389Z waitfor Create my character --timeout 10
+2026-10-27T08:28:11.601Z lbl Create my character
+2026-10-27T08:28:11.934Z shot tc508-create2
+2026-10-27T08:28:12.877Z els 
+2026-10-27T08:28:17.141Z tap 198 772
+2026-10-27T08:28:17.341Z waitfor Generate --timeout 10
+2026-10-27T08:28:18.082Z shot tc508-create2
+2026-10-27T08:28:18.646Z els 
+2026-10-27T08:28:24.367Z id edit_mini_drama_make_character_prompt
+2026-10-27T08:28:25.006Z type A woman in her mid 20s with shoulder-length auburn wavy hair, round tortoiseshel
+2026-10-27T08:28:27.579Z hidekb 
+2026-10-27T08:28:30.177Z id chip_mini_drama_make_character_female
+2026-10-27T08:28:30.955Z id chip_mini_drama_make_character_white
+2026-10-27T08:28:31.744Z id edit_mini_drama_make_character_age
+2026-10-27T08:28:32.021Z type 25
+2026-10-27T08:28:33.291Z hidekb 
+2026-10-27T08:28:34.483Z shot tc508-filled
+2026-10-27T08:28:41.097Z setval edit_mini_drama_make_character_age 25
+2026-10-27T08:28:42.364Z hidekb 
+2026-10-27T08:28:43.088Z els 
+2026-10-27T08:28:47.390Z tap 207 770
+2026-10-27T08:28:47.609Z waitfor Photo|Album|Allow|Recent|Gallery|Select --timeout 8
+2026-10-27T08:28:49.054Z shot tc508-ref
+2026-10-27T08:28:50.688Z texts 
+2026-10-27T08:28:59.050Z tap 180 2100
+2026-10-27T08:28:59.267Z waitfor Create my character|Crop|Next|Done|can't be used --timeout 15
+2026-10-27T08:28:59.997Z shot tc508-refpicked
+2026-10-27T08:29:01.651Z texts 
+2026-10-27T08:29:04.919Z els 
+2026-10-27T08:29:12.033Z tap 998 79
+2026-10-27T08:29:12.243Z waitfor Create my character --timeout 15
+2026-10-27T08:29:13.503Z shot tc508-ready
+2026-10-27T08:29:14.141Z els 
+2026-10-27T08:29:18.661Z tap 540 2254
+2026-10-27T08:29:18.866Z waitfor Use this character|Use this|Regenerate|can't be used|Couldn't|Something went wro
+2026-10-27T08:32:21.056Z shot tc508-result
+2026-10-27T08:32:21.798Z texts 
+2026-10-27T08:32:29.679Z tap 539 2253
+2026-10-27T08:32:29.881Z waitfor Choose for Emily Carter --timeout 15
+2026-10-27T08:32:31.263Z shot tc508-saved
+2026-10-27T08:32:32.209Z els 
+2026-10-27T08:32:39.639Z tap 998 69
+2026-10-27T08:32:39.851Z waitfor Ready to create the storyboard|Update|storyboard|Generate --timeout 60
+2026-10-27T08:33:30.478Z shot tc508-after
+2026-10-27T08:33:31.092Z texts 
+2026-10-27T08:33:59.858Z run-log set TC-508 Fail
+2026-10-27T08:34:05.778Z tap 982 69
+2026-10-27T08:34:05.990Z waitfor Signal in the Dark --timeout 10
+2026-10-27T08:34:06.817Z lbl Signal in the Dark
+2026-10-27T08:34:07.086Z waitfor Add New|Choose your characters --timeout 15
+2026-10-27T08:34:07.860Z shot tc480-pre
+2026-10-27T08:34:08.400Z texts 
+2026-10-27T08:34:12.439Z lbl Add New
+2026-10-27T08:34:13.456Z waitfor Describe|describe|Who|Add a new character|Name --timeout 20
+2026-10-27T08:34:13.653Z shot tc480-tap
+2026-10-27T08:34:14.227Z texts 
+2026-10-27T08:34:18.487Z waitfor Choose your characters|Something went wrong|Not enough --timeout 180
+2026-10-27T08:34:35.167Z shot tc480-after
+2026-10-27T08:34:35.739Z texts 
+2026-10-27T08:34:41.512Z run-log set TC-480 Fail
+2026-10-27T08:34:55.450Z tap 982 69
+2026-10-27T08:34:55.653Z waitfor Unspoken Regret --timeout 10
+2026-10-27T08:34:56.478Z lbl Unspoken Regret
+2026-10-27T08:34:57.511Z waitfor Choose your characters --timeout 15
+2026-10-27T08:34:57.707Z shot tc505-before
+2026-10-27T08:34:58.253Z texts 
+2026-10-27T08:34:58.455Z texts 
+2026-10-27T08:35:08.811Z lbl Claire Vance
+2026-10-27T08:35:09.695Z waitfor Choose for Claire Vance --timeout 10
+2026-10-27T08:35:20.598Z shot tc410-filter
+2026-10-27T08:35:21.147Z els 
+2026-10-27T08:35:28.275Z id button_mini_drama_scroll_bottom
+2026-10-27T08:35:29.282Z els 
+2026-10-27T08:35:33.299Z tap 218 1908
+2026-10-27T08:35:33.510Z waitfor Choose for Claire Vance --timeout 10
+2026-10-27T08:35:34.687Z tap 999 550
+2026-10-27T08:35:34.886Z waitfor My characters only --timeout 10
+2026-10-27T08:35:35.493Z hidekb 
+2026-10-27T08:35:36.198Z shot tc410-filter
+2026-10-27T08:35:36.797Z els 
+2026-10-27T08:35:46.844Z source 
+2026-10-27T08:35:51.718Z drag 900 1696 300 1696
+2026-10-27T08:35:52.561Z drag 900 1952 300 1952
+2026-10-27T08:35:53.404Z shot tc410-chips
+2026-10-27T08:36:02.818Z drag 200 1952 1000 1952
+2026-10-27T08:36:03.660Z drag 200 1952 1000 1952
+2026-10-27T08:36:04.501Z drag 200 1696 1000 1696
+2026-10-27T08:36:05.341Z shot tc410-chips-left
+2026-10-27T08:36:05.904Z els 
+2026-10-27T08:36:33.820Z drag 103 2196 500 2196 8000
+2026-10-27T08:36:44.437Z shot tc371-after
+2026-10-27T08:36:45.043Z els 
+2026-10-27T08:36:54.742Z run-log set TC-410 Fail
+2026-10-27T08:36:54.859Z run-log set TC-371 Pass
+2026-10-27T08:36:59.696Z id button_mini_drama_filter_clear
+2026-10-27T08:37:00.880Z id button_mini_drama_filter_apply
+2026-10-27T08:37:01.143Z hidekb 
+2026-10-27T08:37:01.850Z waitfor Choose for Claire Vance --timeout 5
+2026-10-27T08:37:02.169Z tap 999 69
+2026-10-27T08:37:02.382Z waitfor Finish your characters|aren't set|isn't set --timeout 10
+2026-10-27T08:37:02.986Z shot tc039-sheet
+2026-10-27T08:37:03.638Z texts 
+2026-10-27T08:37:28.532Z run-log set TC-039 Fail
+2026-10-27T08:37:32.611Z tap 81 1508
+2026-10-27T08:37:32.811Z waitfor Choose for Claire Vance --timeout 5
+2026-10-27T08:37:33.538Z tap 160 1150
+2026-10-27T08:37:33.750Z shot tc034-pick
+2026-10-27T08:37:34.658Z texts 
+2026-10-27T08:37:42.330Z texts 
+2026-10-27T08:37:45.766Z texts 
+2026-10-27T08:37:49.191Z shot tc035-after
+2026-10-27T08:37:50.069Z texts 
+2026-10-27T08:38:08.075Z run-log set TC-034 Pass
+2026-10-27T08:38:08.191Z run-log set TC-035 Pass
+2026-10-27T08:38:12.107Z lbl Cancel
+2026-10-27T08:38:12.427Z waitfor Leave|Keep|Discard --timeout 5
+2026-10-27T08:38:13.021Z shot tc037-dialog
+2026-10-27T08:38:13.821Z texts 
+2026-10-27T08:38:19.391Z run-log set TC-037 Pass
+2026-10-27T08:38:19.500Z lbl Keep choosing
+2026-10-27T08:38:19.769Z waitfor Choose for Claire Vance --timeout 5
+2026-10-27T08:38:20.492Z shot tc038-keep
+2026-10-27T08:38:21.396Z lbl Cancel
+2026-10-27T08:38:21.721Z waitfor Leave --timeout 5
+2026-10-27T08:38:22.301Z lbl Leave
+2026-10-27T08:38:22.559Z waitfor Choose your characters --timeout 8
+2026-10-27T08:38:31.467Z shot tc038-left
+2026-10-27T08:38:32.258Z tap 218 1908
+2026-10-27T08:38:32.469Z waitfor Choose for Claire Vance --timeout 8
+2026-10-27T08:38:33.194Z shot tc038-reopen
+2026-10-27T08:38:48.416Z lbl Cancel
+2026-10-27T08:38:49.325Z waitfor Keep choosing --timeout 5
+2026-10-27T08:38:49.502Z tap 540 1307
+2026-10-27T08:38:49.713Z waitfor Choose your characters --timeout 8
+2026-10-27T08:38:50.565Z shot tc038-left
+2026-10-27T08:38:51.113Z tap 218 1908
+2026-10-27T08:38:51.329Z waitfor Choose for Claire Vance --timeout 8
+2026-10-27T08:38:52.371Z shot tc038-reopen
+2026-10-27T08:39:01.667Z run-log set TC-038 Pass
+2026-10-27T08:39:01.776Z tap 160 1150
+2026-10-27T08:39:01.992Z tap 999 69
+2026-10-27T08:39:02.183Z waitfor isn't set|aren't set --timeout 8
+2026-10-27T08:39:02.766Z shot tc040-sheet
+2026-10-27T08:39:03.412Z texts 
+2026-10-27T08:39:14.957Z run-log set TC-040 Fail
+2026-10-27T08:39:15.077Z els 
+2026-10-27T08:39:20.939Z id button_mini_drama_finish_close
+2026-10-27T08:39:21.196Z tap 390 276
+2026-10-27T08:39:21.423Z waitfor Choose for Julian Hayes --timeout 5
+2026-10-27T08:39:22.240Z tap 160 1480
+2026-10-27T08:39:22.440Z shot tc477-pick
+2026-10-27T08:39:23.370Z tap 999 69
+2026-10-27T08:39:23.579Z waitfor gender|Gender|differ|Ready to create the storyboard|Create storyboard|Thinking -
+2026-10-27T08:39:24.527Z shot tc477-confirm
+2026-10-27T08:39:25.106Z texts 
+2026-10-27T08:39:32.254Z waitfor Ready to create the storyboard|Something went wrong|Not enough --timeout 120
+2026-10-27T08:40:30.185Z shot tc044-card
+2026-10-27T08:40:30.754Z texts 
+2026-10-27T08:40:40.961Z texts 
+2026-10-27T08:40:53.674Z run-log set TC-477 Fail
+2026-10-27T08:40:53.788Z run-log set TC-044 Pass
+2026-10-27T08:40:53.904Z run-log set TC-505 Fail
+2026-10-27T08:40:58.762Z lbl Enter your idea
+2026-10-27T08:40:59.832Z type Make Julian Hayes a man in his 40s
+2026-10-27T08:41:01.258Z els 
+2026-10-27T08:41:05.706Z id button_mini_drama_send
+2026-10-27T08:41:05.975Z hidekb 
+2026-10-27T08:41:06.710Z waitfor Update characters|Ready to update|\?|Something went wrong --timeout 120
+2026-10-27T08:43:12.886Z shot tc045-card
+2026-10-27T08:43:13.464Z texts 
+2026-10-27T08:43:17.809Z id button_mini_drama_scroll_bottom
+2026-10-27T08:43:18.913Z shot tc045-bottom
+2026-10-27T08:43:19.513Z texts 
+2026-10-27T08:43:36.697Z run-log set TC-045 Fail
+2026-10-27T08:43:41.066Z tap 835 2050
+2026-10-27T08:43:41.269Z waitfor Ready to create the storyboard|Something went wrong|couldn't --timeout 240
+2026-10-27T08:44:22.235Z id button_mini_drama_scroll_bottom
+2026-10-27T08:44:22.407Z shot tc046-after-gen
+2026-10-27T08:44:22.973Z texts 
+2026-10-27T08:44:32.173Z drag 540 600 540 2000 300
+2026-10-27T08:44:32.815Z drag 540 600 540 2000 300
+2026-10-27T08:44:33.453Z drag 540 600 540 2000 300
+2026-10-27T08:44:34.091Z shot tc046-up1
+2026-10-27T08:44:34.633Z texts 
+2026-10-27T08:44:44.000Z drag 540 1500 540 900 600
+2026-10-27T08:44:44.942Z shot tc046-old-card
+2026-10-27T08:44:55.465Z texts 
+2026-10-27T08:44:55.668Z drag 540 1500 540 700 400
+2026-10-27T08:44:56.406Z texts 
+2026-10-27T08:44:57.396Z drag 540 1500 540 700 400
+2026-10-27T08:44:58.137Z texts 
+2026-10-27T08:44:59.166Z drag 540 1500 540 700 400
+2026-10-27T08:44:59.904Z texts 
+2026-10-27T08:45:00.835Z drag 540 1500 540 700 400
+2026-10-27T08:45:01.576Z texts 
+2026-10-27T08:45:02.645Z drag 540 1500 540 700 400
+2026-10-27T08:45:03.387Z texts 
+2026-10-27T08:45:04.322Z drag 540 1500 540 700 400
+2026-10-27T08:45:12.096Z drag 540 900 540 1700 400
+2026-10-27T08:45:12.844Z drag 540 900 540 1700 400
+2026-10-27T08:45:13.584Z shot tc046-mid
+2026-10-27T08:45:14.162Z texts 
+2026-10-27T08:45:25.164Z run-log set TC-046 Fail
+2026-10-27T08:45:31.217Z tap 982 69
+2026-10-27T08:45:31.425Z waitfor Signal in the Dark --timeout 10
+2026-10-27T08:45:32.255Z lbl Signal in the Dark
+2026-10-27T08:45:32.534Z waitfor Add New --timeout 15
+2026-10-27T08:45:33.639Z id button_mini_drama_scroll_bottom
+2026-10-27T08:45:33.819Z els 
+2026-10-27T08:45:40.827Z tap 218 1908
+2026-10-27T08:45:41.049Z waitfor Choose for Maya --timeout 8
+2026-10-27T08:45:42.378Z tap 160 1150
+2026-10-27T08:45:44.678Z tap 390 276
+2026-10-27T08:45:44.880Z waitfor Choose for Leo --timeout 5
+2026-10-27T08:45:45.715Z tap 860 1480
+2026-10-27T08:45:47.982Z tap 632 276
+2026-10-27T08:45:48.181Z waitfor Choose for Gabe --timeout 5
+2026-10-27T08:45:48.990Z tap 860 1480
+2026-10-27T08:45:52.269Z shot tc487-picks
+2026-10-27T08:46:02.119Z tap 198 1830
+2026-10-27T08:46:04.400Z tap 390 276
+2026-10-27T08:46:04.597Z waitfor Choose for Leo --timeout 5
+2026-10-27T08:46:05.407Z tap 198 1830
+2026-10-27T08:46:07.676Z tap 149 276
+2026-10-27T08:46:07.877Z waitfor Choose for Maya --timeout 5
+2026-10-27T08:46:08.692Z tap 538 1480
+2026-10-27T08:46:11.964Z shot tc487-picks
+2026-10-27T08:46:21.233Z tap 999 69
+2026-10-27T08:46:21.438Z waitfor already|same look|Thinking|used --timeout 10
+2026-10-27T08:46:22.249Z shot tc487-confirm
+2026-10-27T08:46:22.881Z texts 
+2026-10-27T08:46:23.086Z waitfor Ready to create the storyboard|Something went wrong --timeout 150
+2026-10-27T08:47:24.206Z id button_mini_drama_scroll_bottom
+2026-10-27T08:47:24.391Z shot tc487-after
+2026-10-27T08:47:25.009Z texts 
+2026-10-27T08:47:30.174Z run-log set TC-487 Fail
+2026-10-27T08:47:36.758Z id button_mini_drama_add_chat
+2026-10-27T08:47:37.035Z waitfor Enter your idea|Describe --timeout 10
+2026-10-27T08:47:37.755Z lbl Enter your idea
+2026-10-27T08:47:38.965Z type Taylor Swift and Elon Musk and Oprah Winfrey get stuck in an elevator together
+2026-10-27T08:47:40.710Z id button_mini_drama_send
+2026-10-27T08:47:41.673Z hidekb 
+2026-10-27T08:47:42.481Z waitfor Confirm|Language|Captions|Story Outline|Choose your characters --timeout 90
+2026-10-27T08:47:42.683Z shot tc456-step1
+2026-10-27T08:47:43.302Z texts 
+2026-10-27T08:47:47.807Z lbl English
+2026-10-27T08:47:48.592Z lbl Yes, include captions
+2026-10-27T08:47:49.374Z shot tc456-format
+2026-10-27T08:47:49.971Z lbl Generate
+2026-10-27T08:47:50.245Z waitfor Choose your characters|Something went wrong|Not enough --timeout 240
+2026-10-27T08:48:58.788Z id button_mini_drama_scroll_bottom
+2026-10-27T08:48:58.965Z shot tc456-outline
+2026-10-27T08:48:59.526Z texts 
+2026-10-27T08:49:04.514Z tap 218 1908
+2026-10-27T08:49:04.711Z waitfor Choose for Tessa --timeout 8
+2026-10-27T08:49:05.737Z tap 999 69
+2026-10-27T08:49:05.931Z waitfor aren't set --timeout 8
+2026-10-27T08:49:06.546Z shot tc041-sheet
+2026-10-27T08:49:07.184Z texts 
+2026-10-27T08:49:07.382Z els 
+2026-10-27T08:49:11.597Z id layout_mini_drama_finish_generate
+2026-10-27T08:49:11.866Z waitfor Creating|usually takes --timeout 10
+2026-10-27T08:49:12.514Z shot tc041-creating
+2026-10-27T08:49:13.139Z texts 
+2026-10-27T08:49:13.346Z waitfor Your characters are ready|couldn't|Couldn't --timeout 240
+2026-10-27T08:50:44.280Z shot tc041-ready
+2026-10-27T08:50:45.057Z texts 
+2026-10-27T08:50:58.560Z lbl Confirm
+2026-10-27T08:50:58.828Z waitfor Ready to create the storyboard|Something went wrong --timeout 150
+2026-10-27T08:53:30.446Z id button_mini_drama_scroll_bottom
+2026-10-27T08:53:30.625Z shot tc456-after
+2026-10-27T08:53:31.394Z texts 
+2026-10-27T08:53:36.882Z tap 539 2238
+2026-10-27T08:53:37.092Z waitfor Ready to create the storyboard|Something went wrong --timeout 150
+2026-10-27T08:54:19.346Z id button_mini_drama_scroll_bottom
+2026-10-27T08:54:19.526Z shot tc456-after
+2026-10-27T08:54:20.140Z texts 
+2026-10-27T08:54:34.368Z run-log set TC-041 Pass
+2026-10-27T08:54:34.485Z run-log set TC-456 Pass
+2026-10-27T08:54:50.031Z pull-logs A1-b1
+2026-10-27T08:55:07.275Z run-log set TC-480 Fail
+2026-10-27T08:55:07.499Z logcat status
+2026-10-27T08:56:19.924Z restart 
+2026-10-27T08:56:25.713Z logcat start
+2026-10-27T08:56:25.821Z build 
+2026-10-27T08:56:26.028Z shot library/ai-mini-drama/android/runs/2026-10-27-a1-full/screenshots/a1b2-start.png
+2026-10-27T08:56:26.727Z texts 
+2026-10-27T08:56:31.293Z shot a1b2-start
+2026-10-27T08:56:31.936Z help 
+2026-10-27T08:56:47.937Z tap 311 796
+2026-10-27T08:56:48.150Z wait 2
+2026-10-27T08:56:50.329Z texts tc119-picker
+2026-10-27T08:56:58.198Z tap 998 549
+2026-10-27T08:56:58.403Z wait 1
+2026-10-27T08:56:59.601Z els 
+2026-10-27T08:56:59.797Z shot tc119-filter
+2026-10-27T08:57:05.122Z tap 524 1696
+2026-10-27T08:57:05.324Z tap 524 1952
+2026-10-27T08:57:05.525Z tap 540 1414
+2026-10-27T08:57:05.725Z drag 85 2150 400 2150 1500
+2026-10-27T08:57:07.580Z wait 1
+2026-10-27T08:57:08.770Z els filter\|checked\|selected
+2026-10-27T08:57:08.968Z shot tc119-changed
+2026-10-27T08:57:16.032Z id button_mini_drama_filter_clear
+2026-10-27T08:57:16.920Z wait 1
+2026-10-27T08:57:18.125Z shot tc119-cleared
+2026-10-27T08:57:18.765Z els check_mini\|age
+2026-10-27T08:57:28.565Z run-log set TC-119 Pass
+2026-10-27T08:57:28.681Z tap 524 1696
+2026-10-27T08:57:28.882Z tap 524 1952
+2026-10-27T08:57:29.089Z id button_mini_drama_filter_apply
+2026-10-27T08:57:29.726Z wait 1
+2026-10-27T08:57:30.927Z hidekb 
+2026-10-27T08:57:31.749Z texts tc120-filtered
+2026-10-27T08:57:35.944Z tap 391 277
+2026-10-27T08:57:36.160Z wait 1
+2026-10-27T08:57:37.363Z texts tc120-switched
+2026-10-27T08:57:45.121Z tap 998 549
+2026-10-27T08:57:45.338Z wait 1
+2026-10-27T08:57:46.537Z shot tc120-filterpanel
+2026-10-27T08:57:47.178Z back 
+2026-10-27T08:57:47.622Z wait 1
+2026-10-27T08:57:48.824Z texts 
+2026-10-27T08:57:57.208Z tap 998 549
+2026-10-27T08:57:57.406Z wait 1
+2026-10-27T08:57:58.610Z drag 1000 1952 100 1952 600
+2026-10-27T08:57:59.561Z wait 1
+2026-10-27T08:58:00.772Z els TextView |  |
+2026-10-27T08:58:00.966Z drag 1000 1952 100 1952 600
+2026-10-27T08:58:01.919Z wait 1
+2026-10-27T08:58:03.123Z els TextView |  |
+2026-10-27T08:58:03.320Z shot tc288-ethn-end
+2026-10-27T08:58:14.867Z drag 100 1952 1000 1952 400
+2026-10-27T08:58:15.612Z drag 100 1952 1000 1952 400
+2026-10-27T08:58:16.358Z tap 213 1952
+2026-10-27T08:58:16.566Z id button_mini_drama_filter_apply
+2026-10-27T08:58:17.655Z wait 2
+2026-10-27T08:58:19.864Z hidekb 
+2026-10-27T08:58:20.572Z els 
+2026-10-27T08:58:24.458Z shot tc288-eastasian
+2026-10-27T08:58:31.523Z tap 998 549
+2026-10-27T08:58:31.723Z wait 1
+2026-10-27T08:58:32.916Z els TextView |  |\|filter_apply
+2026-10-27T08:58:36.422Z wait 1
+2026-10-27T08:58:37.626Z els 
+2026-10-27T08:58:37.823Z shot tc288-dbg
+2026-10-27T08:58:42.591Z els ,1909,
+2026-10-27T08:58:42.782Z tap 213 1952
+2026-10-27T08:58:42.997Z wait 1
+2026-10-27T08:58:44.201Z shot tc288-sel
+2026-10-27T08:58:58.387Z id button_mini_drama_filter_apply
+2026-10-27T08:58:58.657Z wait 2
+2026-10-27T08:59:00.863Z hidekb 
+2026-10-27T08:59:01.539Z shot tc288-eastasian
+2026-10-27T08:59:02.516Z els library_cell
+2026-10-27T08:59:02.869Z texts 
+2026-10-27T08:59:12.885Z tap 998 549
+2026-10-27T08:59:13.118Z wait 1
+2026-10-27T08:59:14.314Z id button_mini_drama_filter_clear
+2026-10-27T08:59:15.188Z drag 1000 1952 100 1952 600
+2026-10-27T08:59:16.139Z wait 1
+2026-10-27T08:59:17.346Z drag 1000 1952 100 1952 600
+2026-10-27T08:59:18.289Z wait 1
+2026-10-27T08:59:19.492Z els ,1909,
+2026-10-27T08:59:19.717Z els ,1909,
+2026-10-27T08:59:19.914Z tap 998 549
+2026-10-27T08:59:20.130Z wait 1
+2026-10-27T08:59:21.328Z id button_mini_drama_filter_clear
+2026-10-27T08:59:21.564Z drag 1000 1952 100 1952 600
+2026-10-27T08:59:22.514Z wait 1
+2026-10-27T08:59:23.702Z drag 1000 1952 100 1952 600
+2026-10-27T08:59:24.649Z wait 1
+2026-10-27T08:59:25.853Z els ,1909,
+2026-10-27T08:59:26.227Z els ,1909,
+2026-10-27T08:59:36.266Z els filter_clear
+2026-10-27T08:59:36.623Z tap 998 549
+2026-10-27T08:59:36.821Z wait 1
+2026-10-27T08:59:38.027Z id button_mini_drama_filter_clear
+2026-10-27T08:59:38.905Z wait 1
+2026-10-27T08:59:40.114Z drag 150 1952 1000 1952 500
+2026-10-27T08:59:40.959Z drag 150 1952 1000 1952 500
+2026-10-27T08:59:41.795Z drag 150 1952 1000 1952 500
+2026-10-27T08:59:42.639Z els ,1909,
+2026-10-27T08:59:42.835Z tap 524 1952
+2026-10-27T08:59:43.040Z id button_mini_drama_filter_apply
+2026-10-27T08:59:43.668Z wait 2
+2026-10-27T08:59:45.881Z hidekb 
+2026-10-27T08:59:46.572Z shot tc288-african
+2026-10-27T08:59:47.537Z texts 
+2026-10-27T08:59:47.909Z els library_cell
+2026-10-27T08:59:48.258Z els filter_clear
+2026-10-27T08:59:48.601Z tap 998 549
+2026-10-27T08:59:48.828Z wait 1
+2026-10-27T08:59:50.017Z id button_mini_drama_filter_clear
+2026-10-27T08:59:50.892Z wait 1
+2026-10-27T08:59:52.099Z drag 150 1952 1000 1952 500
+2026-10-27T08:59:52.950Z drag 150 1952 1000 1952 500
+2026-10-27T08:59:53.797Z drag 150 1952 1000 1952 500
+2026-10-27T08:59:54.638Z els ,1909,
+2026-10-27T08:59:54.834Z tap 835 1952
+2026-10-27T08:59:55.051Z id button_mini_drama_filter_apply
+2026-10-27T08:59:56.544Z wait 2
+2026-10-27T08:59:58.733Z hidekb 
+2026-10-27T08:59:59.413Z shot tc288-hispanic
+2026-10-27T09:00:00.358Z texts 
+2026-10-27T09:00:00.707Z els library_cell
+2026-10-27T09:00:15.347Z els filter_clear
+2026-10-27T09:00:15.683Z tap 998 549
+2026-10-27T09:00:15.890Z wait 1
+2026-10-27T09:00:17.088Z id button_mini_drama_filter_clear
+2026-10-27T09:00:17.962Z wait 1
+2026-10-27T09:00:19.149Z drag 150 1952 1000 1952 500
+2026-10-27T09:00:19.985Z drag 150 1952 1000 1952 500
+2026-10-27T09:00:20.814Z drag 150 1952 1000 1952 500
+2026-10-27T09:00:21.658Z els ,1909,
+2026-10-27T09:00:21.854Z tap 1041 1952
+2026-10-27T09:00:22.061Z id button_mini_drama_filter_apply
+2026-10-27T09:00:22.687Z wait 2
+2026-10-27T09:00:24.890Z hidekb 
+2026-10-27T09:00:25.564Z shot tc288-arab
+2026-10-27T09:00:26.367Z texts 
+2026-10-27T09:00:26.681Z els library_cell
+2026-10-27T09:00:27.051Z els filter_clear
+2026-10-27T09:00:27.364Z tap 998 549
+2026-10-27T09:00:27.581Z wait 1
+2026-10-27T09:00:28.790Z id button_mini_drama_filter_clear
+2026-10-27T09:00:29.658Z wait 1
+2026-10-27T09:00:30.847Z drag 150 1952 1000 1952 500
+2026-10-27T09:00:31.690Z drag 150 1952 1000 1952 500
+2026-10-27T09:00:32.531Z drag 150 1952 1000 1952 500
+2026-10-27T09:00:33.362Z els ,1909,
+2026-10-27T09:00:33.558Z drag 900 1952 300 1952 600
+2026-10-27T09:00:34.501Z wait 1
+2026-10-27T09:00:35.711Z els ,1909,
+2026-10-27T09:00:35.913Z tap 813 1952
+2026-10-27T09:00:36.115Z id button_mini_drama_filter_apply
+2026-10-27T09:00:36.756Z wait 2
+2026-10-27T09:00:38.959Z hidekb 
+2026-10-27T09:00:39.655Z shot tc288-indian
+2026-10-27T09:00:40.460Z texts 
+2026-10-27T09:00:40.781Z els library_cell
+2026-10-27T09:00:41.124Z els filter_clear
+2026-10-27T09:00:41.440Z tap 998 549
+2026-10-27T09:00:41.656Z wait 1
+2026-10-27T09:00:42.857Z id button_mini_drama_filter_clear
+2026-10-27T09:00:43.739Z wait 1
+2026-10-27T09:00:44.933Z drag 150 1952 1000 1952 500
+2026-10-27T09:00:45.785Z drag 150 1952 1000 1952 500
+2026-10-27T09:00:46.628Z drag 150 1952 1000 1952 500
+2026-10-27T09:00:47.466Z els ,1909,
+2026-10-27T09:00:47.669Z drag 900 1952 300 1952 600
+2026-10-27T09:00:48.614Z wait 1
+2026-10-27T09:00:49.816Z els ,1909,
+2026-10-27T09:00:50.015Z tap 1026.5 1952
+2026-10-27T09:00:50.215Z id button_mini_drama_filter_apply
+2026-10-27T09:00:50.840Z wait 2
+2026-10-27T09:00:53.044Z hidekb 
+2026-10-27T09:00:53.734Z shot tc288-other
+2026-10-27T09:00:54.649Z texts 
+2026-10-27T09:00:54.991Z els library_cell
+2026-10-27T09:00:55.369Z els filter_clear
+2026-10-27T09:00:55.713Z tap 998 549
+2026-10-27T09:00:55.915Z wait 1
+2026-10-27T09:00:57.112Z id button_mini_drama_filter_clear
+2026-10-27T09:00:57.364Z wait 1
+2026-10-27T09:00:58.572Z drag 150 1952 1000 1952 500
+2026-10-27T09:00:59.419Z drag 150 1952 1000 1952 500
+2026-10-27T09:01:00.263Z drag 150 1952 1000 1952 500
+2026-10-27T09:01:01.106Z els ,1909,
+2026-10-27T09:01:01.302Z drag 900 1952 300 1952 600
+2026-10-27T09:01:02.229Z wait 1
+2026-10-27T09:01:03.433Z els ,1909,
+2026-10-27T09:01:03.625Z drag 900 1952 300 1952 600
+2026-10-27T09:01:04.574Z wait 1
+2026-10-27T09:01:05.771Z els ,1909,
+2026-10-27T09:01:05.967Z tap 794 1952
+2026-10-27T09:01:06.158Z id button_mini_drama_filter_apply
+2026-10-27T09:01:06.800Z wait 2
+2026-10-27T09:01:09.011Z hidekb 
+2026-10-27T09:01:09.697Z shot tc288-white
+2026-10-27T09:01:10.572Z texts 
+2026-10-27T09:01:10.925Z els library_cell
+2026-10-27T09:01:11.317Z els filter_clear
+2026-10-27T09:01:11.665Z tap 998 549
+2026-10-27T09:01:11.865Z wait 1
+2026-10-27T09:01:13.070Z id button_mini_drama_filter_clear
+2026-10-27T09:01:13.951Z wait 1
+2026-10-27T09:01:15.158Z drag 150 1952 1000 1952 500
+2026-10-27T09:01:16.005Z drag 150 1952 1000 1952 500
+2026-10-27T09:01:16.849Z drag 150 1952 1000 1952 500
+2026-10-27T09:01:17.670Z els ,1909,
+2026-10-27T09:01:17.867Z drag 900 1952 300 1952 600
+2026-10-27T09:01:18.815Z wait 1
+2026-10-27T09:01:20.014Z els ,1909,
+2026-10-27T09:01:20.210Z drag 900 1952 300 1952 600
+2026-10-27T09:01:21.154Z wait 1
+2026-10-27T09:01:22.355Z els ,1909,
+2026-10-27T09:01:22.560Z tap 1017.5 1952
+2026-10-27T09:01:22.765Z id button_mini_drama_filter_apply
+2026-10-27T09:01:24.115Z wait 2
+2026-10-27T09:01:26.306Z hidekb 
+2026-10-27T09:01:26.974Z shot tc288-indigenous
+2026-10-27T09:01:27.517Z texts 
+2026-10-27T09:01:27.797Z els library_cell
+2026-10-27T09:01:28.099Z els filter_clear
+2026-10-27T09:01:28.365Z tap 998 549
+2026-10-27T09:01:28.567Z wait 1
+2026-10-27T09:01:29.769Z id button_mini_drama_filter_clear
+2026-10-27T09:01:30.657Z wait 1
+2026-10-27T09:01:31.858Z drag 150 1952 1000 1952 500
+2026-10-27T09:01:32.702Z drag 150 1952 1000 1952 500
+2026-10-27T09:01:33.546Z drag 150 1952 1000 1952 500
+2026-10-27T09:01:34.393Z els ,1909,
+2026-10-27T09:01:34.583Z drag 900 1952 300 1952 600
+2026-10-27T09:01:35.523Z wait 1
+2026-10-27T09:01:36.718Z els ,1909,
+2026-10-27T09:01:36.915Z drag 900 1952 300 1952 600
+2026-10-27T09:01:37.860Z wait 1
+2026-10-27T09:01:39.063Z els ,1909,
+2026-10-27T09:01:39.255Z drag 900 1952 300 1952 600
+2026-10-27T09:01:40.200Z wait 1
+2026-10-27T09:01:41.405Z els ,1909,
+2026-10-27T09:01:41.602Z tap 784 1952
+2026-10-27T09:01:41.810Z id button_mini_drama_filter_apply
+2026-10-27T09:01:42.439Z wait 2
+2026-10-27T09:01:44.626Z hidekb 
+2026-10-27T09:01:45.307Z shot tc288-seasian
+2026-10-27T09:01:45.815Z texts 
+2026-10-27T09:01:46.065Z els library_cell
+2026-10-27T09:01:46.359Z els filter_clear
+2026-10-27T09:01:46.628Z tap 998 549
+2026-10-27T09:01:46.842Z wait 1
+2026-10-27T09:01:48.050Z id button_mini_drama_filter_clear
+2026-10-27T09:01:48.355Z wait 1
+2026-10-27T09:01:49.572Z drag 150 1952 1000 1952 500
+2026-10-27T09:01:50.432Z drag 150 1952 1000 1952 500
+2026-10-27T09:01:51.277Z drag 150 1952 1000 1952 500
+2026-10-27T09:01:52.099Z els ,1909,
+2026-10-27T09:01:52.311Z drag 900 1952 300 1952 600
+2026-10-27T09:01:53.262Z wait 1
+2026-10-27T09:01:54.475Z els ,1909,
+2026-10-27T09:01:54.740Z drag 900 1952 300 1952 600
+2026-10-27T09:01:55.691Z wait 1
+2026-10-27T09:01:56.894Z els ,1909,
+2026-10-27T09:01:57.154Z drag 900 1952 300 1952 600
+2026-10-27T09:01:58.105Z wait 1
+2026-10-27T09:01:59.316Z els ,1909,
+2026-10-27T09:01:59.587Z tap 1044.5 1952
+2026-10-27T09:01:59.824Z id button_mini_drama_filter_apply
+2026-10-27T09:02:01.002Z wait 2
+2026-10-27T09:02:03.219Z hidekb 
+2026-10-27T09:02:04.060Z shot tc288-mixed
+2026-10-27T09:02:04.782Z texts 
+2026-10-27T09:02:05.295Z els library_cell
+2026-10-27T09:03:00.020Z run-log set TC-120 Pass
+2026-10-27T09:03:00.137Z run-log set TC-288 Fail
+2026-10-27T09:03:11.304Z run-log set TC-288 Fail
+2026-10-27T09:03:23.278Z tap 998 549
+2026-10-27T09:03:23.543Z wait 1
+2026-10-27T09:03:24.765Z id button_mini_drama_filter_clear
+2026-10-27T09:03:25.072Z id button_mini_drama_filter_apply
+2026-10-27T09:03:25.814Z wait 2
+2026-10-27T09:03:28.019Z hidekb 
+2026-10-27T09:03:28.806Z texts 
+2026-10-27T09:03:29.514Z shot tc310-before
+2026-10-27T09:03:35.073Z tap 198 1458
+2026-10-27T09:03:35.291Z shot tc310-picked
+2026-10-27T09:03:36.357Z wait 2
+2026-10-27T09:03:38.574Z shot tc310-picked2
+2026-10-27T09:03:51.458Z tap 538 1458
+2026-10-27T09:03:51.673Z shot tc326-1
+2026-10-27T09:03:52.698Z tap 880 1458
+2026-10-27T09:03:52.902Z shot tc326-2
+2026-10-27T09:03:53.958Z tap 198 1799
+2026-10-27T09:03:54.178Z shot tc326-3
+2026-10-27T09:03:55.243Z tap 538 1799
+2026-10-27T09:03:55.469Z shot tc326-4
+2026-10-27T09:03:56.523Z tap 880 1799
+2026-10-27T09:03:56.734Z shot tc326-5
+2026-10-27T09:03:57.805Z wait 2
+2026-10-27T09:04:00.013Z shot tc326-6
+2026-10-27T09:04:25.202Z run-log set TC-310 Pass
+2026-10-27T09:04:25.319Z run-log set TC-326 Pass
+2026-10-27T09:04:25.431Z drag 540 2200 540 900 800
+2026-10-27T09:04:26.578Z wait 1
+2026-10-27T09:04:27.793Z shot tc411-scroll1
+2026-10-27T09:04:28.988Z drag 540 2200 540 900 800
+2026-10-27T09:04:30.138Z wait 1
+2026-10-27T09:04:31.350Z shot tc411-scroll2
+2026-10-27T09:04:32.547Z drag 540 2200 540 900 800
+2026-10-27T09:04:33.698Z wait 1
+2026-10-27T09:04:34.915Z shot tc411-scroll3
+2026-10-27T09:04:36.106Z drag 540 2200 540 900 800
+2026-10-27T09:04:37.252Z wait 1
+2026-10-27T09:04:38.470Z shot tc411-scroll4
+2026-10-27T09:04:39.637Z drag 540 2200 540 900 800
+2026-10-27T09:04:40.786Z wait 1
+2026-10-27T09:04:42.001Z shot tc411-scroll5
+2026-10-27T09:04:43.218Z drag 540 2200 540 900 800
+2026-10-27T09:04:44.367Z wait 1
+2026-10-27T09:04:45.579Z shot tc411-scroll6
+2026-10-27T09:04:46.795Z drag 540 2200 540 900 800
+2026-10-27T09:04:47.946Z wait 1
+2026-10-27T09:04:49.165Z shot tc411-scroll7
+2026-10-27T09:04:50.391Z drag 540 2200 540 900 800
+2026-10-27T09:04:51.543Z wait 1
+2026-10-27T09:04:52.763Z shot tc411-scroll8
+2026-10-27T09:05:11.664Z tap 998 549
+2026-10-27T09:05:11.882Z wait 1
+2026-10-27T09:05:13.093Z drag 985 2196 150 2196 3000
+2026-10-27T09:05:16.469Z wait 1
+2026-10-27T09:05:17.678Z shot tc411-age
+2026-10-27T09:05:18.514Z id button_mini_drama_filter_apply
+2026-10-27T09:05:18.795Z wait 2
+2026-10-27T09:05:21.011Z hidekb 
+2026-10-27T09:05:21.805Z shot tc411-babies
+2026-10-27T09:05:31.555Z tap 998 549
+2026-10-27T09:05:31.804Z wait 1
+2026-10-27T09:05:33.008Z els age
+2026-10-27T09:05:33.259Z shot tc411-agepanel
+2026-10-27T09:05:37.951Z drag 150 2196 240 2196 2000
+2026-10-27T09:05:40.309Z id button_mini_drama_filter_apply
+2026-10-27T09:05:40.944Z wait 2
+2026-10-27T09:05:43.156Z hidekb 
+2026-10-27T09:05:43.908Z shot tc411-kids
+2026-10-27T09:05:53.332Z tap 263 646
+2026-10-27T09:05:53.552Z wait 2
+2026-10-27T09:05:55.769Z drag 540 2250 540 700 150
+2026-10-27T09:05:56.294Z drag 540 2250 540 700 150
+2026-10-27T09:05:56.799Z drag 540 2250 540 700 150
+2026-10-27T09:05:57.307Z drag 540 2250 540 700 150
+2026-10-27T09:05:57.812Z drag 540 2250 540 700 150
+2026-10-27T09:05:58.311Z drag 540 2250 540 700 150
+2026-10-27T09:05:58.812Z drag 540 2250 540 700 150
+2026-10-27T09:05:59.322Z drag 540 2250 540 700 150
+2026-10-27T09:05:59.831Z drag 540 2250 540 700 150
+2026-10-27T09:06:00.338Z drag 540 2250 540 700 150
+2026-10-27T09:06:00.840Z drag 540 2250 540 700 150
+2026-10-27T09:06:01.345Z drag 540 2250 540 700 150
+2026-10-27T09:06:01.862Z drag 540 2250 540 700 150
+2026-10-27T09:06:02.370Z drag 540 2250 540 700 150
+2026-10-27T09:06:02.872Z drag 540 2250 540 700 150
+2026-10-27T09:06:03.376Z drag 540 2250 540 700 150
+2026-10-27T09:06:03.879Z drag 540 2250 540 700 150
+2026-10-27T09:06:04.381Z drag 540 2250 540 700 150
+2026-10-27T09:06:04.885Z drag 540 2250 540 700 150
+2026-10-27T09:06:05.389Z drag 540 2250 540 700 150
+2026-10-27T09:06:05.893Z drag 540 2250 540 700 150
+2026-10-27T09:06:06.397Z drag 540 2250 540 700 150
+2026-10-27T09:06:06.903Z drag 540 2250 540 700 150
+2026-10-27T09:06:07.406Z drag 540 2250 540 700 150
+2026-10-27T09:06:07.917Z drag 540 2250 540 700 150
+2026-10-27T09:06:08.419Z drag 540 2250 540 700 150
+2026-10-27T09:06:08.924Z drag 540 2250 540 700 150
+2026-10-27T09:06:09.430Z drag 540 2250 540 700 150
+2026-10-27T09:06:09.936Z drag 540 2250 540 700 150
+2026-10-27T09:06:10.440Z drag 540 2250 540 700 150
+2026-10-27T09:06:10.942Z drag 540 2250 540 700 150
+2026-10-27T09:06:11.447Z drag 540 2250 540 700 150
+2026-10-27T09:06:11.949Z drag 540 2250 540 700 150
+2026-10-27T09:06:12.456Z drag 540 2250 540 700 150
+2026-10-27T09:06:12.962Z drag 540 2250 540 700 150
+2026-10-27T09:06:13.430Z drag 540 2250 540 700 150
+2026-10-27T09:06:13.931Z drag 540 2250 540 700 150
+2026-10-27T09:06:14.435Z drag 540 2250 540 700 150
+2026-10-27T09:06:14.929Z drag 540 2250 540 700 150
+2026-10-27T09:06:15.408Z drag 540 2250 540 700 150
+2026-10-27T09:06:15.901Z wait 2
+2026-10-27T09:06:18.107Z shot tc411-end
+2026-10-27T09:06:27.542Z drag 540 2250 540 700 150
+2026-10-27T09:06:28.052Z drag 540 2250 540 700 150
+2026-10-27T09:06:28.555Z drag 540 2250 540 700 150
+2026-10-27T09:06:29.066Z drag 540 2250 540 700 150
+2026-10-27T09:06:29.574Z drag 540 2250 540 700 150
+2026-10-27T09:06:30.081Z drag 540 2250 540 700 150
+2026-10-27T09:06:30.562Z drag 540 2250 540 700 150
+2026-10-27T09:06:31.073Z drag 540 2250 540 700 150
+2026-10-27T09:06:31.548Z drag 540 2250 540 700 150
+2026-10-27T09:06:32.052Z drag 540 2250 540 700 150
+2026-10-27T09:06:32.557Z wait 2
+2026-10-27T09:06:34.760Z shot tc411-end2
+2026-10-27T09:06:47.809Z drag 540 700 540 2250 150
+2026-10-27T09:06:48.318Z drag 540 700 540 2250 150
+2026-10-27T09:06:48.821Z drag 540 700 540 2250 150
+2026-10-27T09:06:49.338Z drag 540 700 540 2250 150
+2026-10-27T09:06:49.841Z drag 540 700 540 2250 150
+2026-10-27T09:06:50.319Z drag 540 700 540 2250 150
+2026-10-27T09:06:50.803Z drag 540 700 540 2250 150
+2026-10-27T09:06:51.308Z drag 540 700 540 2250 150
+2026-10-27T09:06:51.815Z drag 540 700 540 2250 150
+2026-10-27T09:06:52.323Z drag 540 700 540 2250 150
+2026-10-27T09:06:52.828Z drag 540 700 540 2250 150
+2026-10-27T09:06:53.326Z drag 540 700 540 2250 150
+2026-10-27T09:06:53.796Z drag 540 700 540 2250 150
+2026-10-27T09:06:54.294Z drag 540 700 540 2250 150
+2026-10-27T09:06:54.794Z drag 540 700 540 2250 150
+2026-10-27T09:06:55.298Z drag 540 700 540 2250 150
+2026-10-27T09:06:55.862Z drag 540 700 540 2250 150
+2026-10-27T09:06:56.369Z drag 540 700 540 2250 150
+2026-10-27T09:06:56.871Z drag 540 700 540 2250 150
+2026-10-27T09:06:57.390Z drag 540 700 540 2250 150
+2026-10-27T09:06:57.890Z drag 540 700 540 2250 150
+2026-10-27T09:06:58.391Z drag 540 700 540 2250 150
+2026-10-27T09:06:58.896Z drag 540 700 540 2250 150
+2026-10-27T09:06:59.400Z drag 540 700 540 2250 150
+2026-10-27T09:06:59.902Z drag 540 700 540 2250 150
+2026-10-27T09:07:00.413Z drag 540 700 540 2250 150
+2026-10-27T09:07:00.914Z drag 540 700 540 2250 150
+2026-10-27T09:07:01.421Z drag 540 700 540 2250 150
+2026-10-27T09:07:01.916Z drag 540 700 540 2250 150
+2026-10-27T09:07:02.422Z drag 540 700 540 2250 150
+2026-10-27T09:07:02.921Z drag 540 700 540 2250 150
+2026-10-27T09:07:03.424Z drag 540 700 540 2250 150
+2026-10-27T09:07:03.926Z drag 540 700 540 2250 150
+2026-10-27T09:07:04.429Z drag 540 700 540 2250 150
+2026-10-27T09:07:04.931Z drag 540 700 540 2250 150
+2026-10-27T09:07:05.433Z drag 540 700 540 2250 150
+2026-10-27T09:07:05.942Z drag 540 700 540 2250 150
+2026-10-27T09:07:06.445Z drag 540 700 540 2250 150
+2026-10-27T09:07:06.948Z drag 540 700 540 2250 150
+2026-10-27T09:07:07.433Z drag 540 700 540 2250 150
+2026-10-27T09:07:07.913Z drag 540 700 540 2250 150
+2026-10-27T09:07:08.395Z drag 540 700 540 2250 150
+2026-10-27T09:07:08.881Z drag 540 700 540 2250 150
+2026-10-27T09:07:09.386Z drag 540 700 540 2250 150
+2026-10-27T09:07:09.888Z drag 540 700 540 2250 150
+2026-10-27T09:07:10.383Z wait 1
+2026-10-27T09:07:11.591Z shot scan-1
+2026-10-27T09:07:12.609Z drag 540 2200 540 1000 1500
+2026-10-27T09:07:14.466Z wait 1
+2026-10-27T09:07:15.679Z shot scan-2
+2026-10-27T09:07:16.869Z drag 540 2200 540 1000 1500
+2026-10-27T09:07:18.718Z wait 1
+2026-10-27T09:07:19.932Z shot scan-3
+2026-10-27T09:07:21.132Z drag 540 2200 540 1000 1500
+2026-10-27T09:07:22.980Z wait 1
+2026-10-27T09:07:24.186Z shot scan-4
+2026-10-27T09:07:25.363Z drag 540 2200 540 1000 1500
+2026-10-27T09:07:27.280Z wait 1
+2026-10-27T09:07:28.489Z shot scan-5
+2026-10-27T09:07:29.738Z drag 540 2200 540 1000 1500
+2026-10-27T09:07:31.586Z wait 1
+2026-10-27T09:07:32.792Z shot scan-6
+2026-10-27T09:07:33.984Z drag 540 2200 540 1000 1500
+2026-10-27T09:07:35.832Z wait 1
+2026-10-27T09:07:37.042Z shot scan-7
+2026-10-27T09:07:38.272Z drag 540 2200 540 1000 1500
+2026-10-27T09:07:40.112Z wait 1
+2026-10-27T09:07:41.323Z shot scan-8
+2026-10-27T09:07:42.527Z drag 540 2200 540 1000 1500
+2026-10-27T09:07:44.372Z wait 1
+2026-10-27T09:07:45.583Z shot scan-9
+2026-10-27T09:07:46.816Z drag 540 2200 540 1000 1500
+2026-10-27T09:07:48.667Z wait 1
+2026-10-27T09:07:49.879Z shot scan-10
+2026-10-27T09:07:51.099Z drag 540 2200 540 1000 1500
+2026-10-27T09:07:52.943Z wait 1
+2026-10-27T09:07:54.154Z shot scan-11
+2026-10-27T09:07:55.364Z drag 540 2200 540 1000 1500
+2026-10-27T09:07:57.213Z wait 1
+2026-10-27T09:07:58.430Z shot scan-12
+2026-10-27T09:07:59.690Z drag 540 2200 540 1000 1500
+2026-10-27T09:08:01.552Z wait 1
+2026-10-27T09:08:02.757Z shot scan-13
+2026-10-27T09:08:03.975Z drag 540 2200 540 1000 1500
+2026-10-27T09:08:05.833Z wait 1
+2026-10-27T09:08:07.042Z shot scan-14
+2026-10-27T09:08:08.289Z drag 540 2200 540 1000 1500
+2026-10-27T09:08:10.142Z wait 1
+2026-10-27T09:08:11.356Z shot scan-15
+2026-10-27T09:08:12.547Z drag 540 2200 540 1000 1500
+2026-10-27T09:08:14.393Z wait 1
+2026-10-27T09:08:15.606Z shot scan-16
+2026-10-27T09:08:16.827Z drag 540 2200 540 1000 1500
+2026-10-27T09:08:18.672Z wait 1
+2026-10-27T09:08:19.887Z shot scan-17
+2026-10-27T09:08:21.156Z drag 540 2200 540 1000 1500
+2026-10-27T09:08:23.000Z wait 1
+2026-10-27T09:08:24.213Z shot scan-18
+2026-10-27T09:08:25.425Z drag 540 2200 540 1000 1500
+2026-10-27T09:08:27.275Z wait 1
+2026-10-27T09:08:28.490Z shot scan-19
+2026-10-27T09:08:29.702Z drag 540 2200 540 1000 1500
+2026-10-27T09:08:31.547Z wait 1
+2026-10-27T09:08:32.762Z shot scan-20
+2026-10-27T09:08:33.960Z drag 540 2200 540 1000 1500
+2026-10-27T09:08:35.811Z wait 1
+2026-10-27T09:08:37.028Z shot scan-21
+2026-10-27T09:08:38.230Z drag 540 2200 540 1000 1500
+2026-10-27T09:08:40.076Z wait 1
+2026-10-27T09:08:41.290Z shot scan-22
+2026-10-27T09:08:42.501Z drag 540 2200 540 1000 1500
+2026-10-27T09:08:44.328Z wait 1
+2026-10-27T09:08:45.506Z shot scan-23
+2026-10-27T09:08:46.719Z drag 540 2200 540 1000 1500
+2026-10-27T09:08:48.564Z wait 1
+2026-10-27T09:08:49.776Z shot scan-24
+2026-10-27T09:08:50.973Z drag 540 2200 540 1000 1500
+2026-10-27T09:08:52.820Z wait 1
+2026-10-27T09:08:54.036Z shot scan-25
+2026-10-27T09:08:55.244Z drag 540 2200 540 1000 1500
+2026-10-27T09:08:57.095Z wait 1
+2026-10-27T09:08:58.308Z shot scan-26
+2026-10-27T09:08:59.515Z drag 540 2200 540 1000 1500
+2026-10-27T09:09:01.367Z wait 1
+2026-10-27T09:09:02.574Z shot scan-27
+2026-10-27T09:09:03.781Z drag 540 2200 540 1000 1500
+2026-10-27T09:09:05.626Z wait 1
+2026-10-27T09:09:06.843Z shot scan-28
+2026-10-27T09:09:08.080Z drag 540 2200 540 1000 1500
+2026-10-27T09:09:09.925Z wait 1
+2026-10-27T09:09:11.137Z shot scan-29
+2026-10-27T09:09:12.344Z drag 540 2200 540 1000 1500
+2026-10-27T09:09:14.189Z wait 1
+2026-10-27T09:09:15.402Z shot scan-30
+2026-10-27T09:09:16.627Z drag 540 2200 540 1000 1500
+2026-10-27T09:09:18.480Z wait 1
+2026-10-27T09:09:28.804Z id button_mini_drama_character_room_close
+2026-10-27T09:09:29.152Z wait 1
+2026-10-27T09:09:30.368Z texts 
+2026-10-27T09:09:30.579Z tapif Leave
+2026-10-27T09:09:30.881Z wait 2
+2026-10-27T09:09:33.096Z texts 
+2026-10-27T09:09:33.415Z shot a1b2-stop
+2026-10-27T09:09:39.036Z run-log set TC-411 Not run
+2026-10-27T09:09:39.146Z pull-logs A1-b2
+2026-10-27T09:10:03.161Z logcat stop

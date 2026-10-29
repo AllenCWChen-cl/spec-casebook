@@ -57,7 +57,10 @@ that showed it). No comparison runs during an analysis or before a proposal.
   `node scripts/status.ts` when the feature is already in the library.
 - Platform: `ios` or `android`. Each platform has its own table, reviewed and approved separately. If the user
   wants both, run the whole workflow once per platform (the second draft may start from the first platform's
-  rows, adjusted for platform differences the spec states).
+  rows, adjusted for platform differences the spec states). Then read every Precondition and Action against the second
+  platform's controls (its debug menu, log, tier switch, install path, system settings): a step that names a control the
+  platform lacks is rewritten or parked, never copied (2026-10-27: 13 Android rows named iOS Pink, Developer Server or
+  Log stage timings).
 - Spec files: every file the user supplied for this feature (PDF, images, exported Figma pages, text).
   Ask for missing ones only if the user said there are more.
 
@@ -170,7 +173,9 @@ and look at the tile images where layout, arrows or states matter.**
    - Text inside phone mockups is sample content (story text, character names) unless an annotation points at it.
    - Dated labels ("10/6 update", "10/13 update") and the dated update boards override older frames; the newest
      wins. Green/yellow callouts are change notes.
-   - UI strings: take them from Design frames exactly (quote them in cases); PM frames carry rules and flows.
+   - UI strings: take them from Design frames exactly (quote them in cases); PM frames carry rules and flows. Screen
+     and sheet titles too: a PM mockup's title is sample wording (2026-10-27: 15 Android rows said 「Change Characters」
+     from the PM where the Design and the app say 「Choose Character」 / 「Choose for {name}」).
 5. **Cross-check PM against Design** and note disagreements as Open questions; the case follows the newer or more
    specific source.
 6. **Keep what you learned** in `specs/<date>/extracted/board-notes.md` (one section per board: rules, states,
@@ -218,7 +223,10 @@ and look at the tile images where layout, arrows or states matter.**
    group on every screen and board, whatever layer draws it; an icon or a numbers-only label (credit pill) groups by
    layer (+ size); a **choice set** (the same layer repeated side by side with different labels, or none: chips,
    options, template or scene cards, avatars) is one group that any one choice covers, and lists separated by a
-   heading stay apart (Gender vs Ethnicity). Every copy stays marked on the coverage page. It also adds every arrow missing from `arrows.json` (write its `expected` and requirement in pass 1). Check
+   heading stay apart (Gender vs Ethnicity). Every copy stays marked on the coverage page. **Platforms (user,
+   2026-10-28, REQ-050):** the Design draws the shared screens on iPhone frames only, so a control on an iPhone frame
+   counts for Android too (`inventory.ts`); an Android table traces it with Android rows or `n/a: iOS-only <why>`.
+   Overrides `ios_only_screens` keep an Apple-only screen to iOS; `android_uses_ios_frames: false` turns this off. It also adds every arrow missing from `arrows.json` (write its `expected` and requirement in pass 1). Check
    every listed arrow's `edge` against the inventory's geometry (the control or text under its tail, the screen under its
    head) and correct it, its requirement and its "Walked by" from the geometry when they disagree: imported labels can be
    swapped (2778-129128 / 129129, shortcut vs banner, user 2026-10-28), and a label next to a control may be its own
@@ -269,12 +277,18 @@ and return, waits), which apply to every job.
 
 1. **Flow arrows.** One requirement per arrow in `arrows.json` (`[DS: flow arrow <node> <Figma URL>]`). Each needs
    a row: its own, or an existing row that walks the edge, named on the requirement as `Walked by: TC-…`
-   (`check.ts` accepts that as coverage). A forward edge does not cover its return edge.
+   (`check.ts` accepts that as coverage). A forward edge does not cover its return edge. A row that stops at a
+   confirmation dialog covers only the arrow into the dialog: the confirming edge (Delete → the cards are gone) needs a
+   row that taps it (2026-10-27: no row confirmed a History delete until the Android cross-check found it).
 2. **States per job.** List every job the feature runs (for AI Mini Drama: outline, characters, Create my character,
    chat revision, storyboard, scene image and Location, chat image update, Storyboard Preview, scene video,
    video regeneration, full video, captions, download/export) and fill a grid in `requirements.md` → `### Job
    states`: start/loading, success, failure (copy and refund), retry, second failure, partial success, Stop (notice
-   and credits), leave and return, longest wait, done notice (toast, push). Each cell names the rows that check it or
+   and credits), leave and return, longest wait, done notice (toast, push). The start/loading cell names the row that
+   checks that job's own status line (「I'll create a video - give me a moment...」), not another job's (2026-10-27: the
+   video job borrowed the outline's). The retry cell checks what the retry brings back (the whole result, e.g. the
+   outline with its characters), and the success cell checks that no message claims a result before it exists (2026-10-27:
+   Try again returned an outline without characters; 「Created the complete storyboard」 came before Generate). Each cell names the rows that check it or
    says `n/a (spec silent)` / `n/a (<reason>)`; `check.ts` fails an empty cell or a row ID that is not active.
    **Error classes (user, 2026-10-22, REQ-030):** a second grid `### Error classes` splits the failure column by the
    classes the spec names (4xxx, 5xxx, 6xxx, …): rows = jobs, each cell the rows that check that class's card copy,
@@ -282,9 +296,13 @@ and return, waits), which apply to every job.
    names. (The scene-video 4xxx / 5xxx rows were missed until 10/22 because one failure column hid them.)
 3. **Fields × rules.** List every input (idea, character description, scene description, scene-video description,
    rename, age, voice) and apply every rule the spec states for any input to all the inputs it names: limit and
-   counter, paste, recover below the limit, required, each way to finish editing, discard on close.
+   counter, paste, recover below the limit, required, each way to finish editing, discard on close. Discard on close
+   means every button of the discard dialog (Keep editing keeps every input, Discard saves nothing) and every way to
+   close (X, swipe, Android back), not only that the dialog appears (2026-10-27). Option lists (Gender, Ethnicity,
+   languages): each option the spec names, once, in the spec's order (2026-10-27: 「Other」 listed twice).
 4. **Numbers.** Every number the spec states (credits, durations, counts, sizes, percentages, line limits) gets a
-   requirement that quotes it. Credit numbers are binding (see requirements.md format).
+   requirement that quotes it. A pick "at random from a pool of N" gets a row that draws several times and checks the
+   picks vary within the pool, not one that taps twice (2026-10-27, 「Surprise me」 from 10 strings). Credit numbers are binding (see requirements.md format).
 5. **Persistence and sessions.** For everything the feature saves (task, title, thumbnail, chat position, episode),
    check reopen, rename, same and new session, reinstall and next episode, as far as the spec states them.
 6. **MX flows.** Tiers, daily chats, charge cards, first-use credits, free trial, discount. The MX file is part of
@@ -312,7 +330,17 @@ and return, waits), which apply to every job.
    in `requirements.md`: each cell names the rows that check the dialog (or its absence), what Stay / Keep Generating
    does and the page Leave anyway opens, or `n/a (<reason>)`. A rule stated for one exit (「Back during generation
    asks first」) applies to every exit the spec says is equivalent (Design 1016: 「任何階段都適用」). `check.ts` fails an
-   empty cell or an inactive row.
+   empty cell or an inactive row. A failed job is a stage too (outline failed before any outline exists: the chat
+   must still ask before leaving and must not be saved; 2026-10-27, O-4). Sheets with their own exits (Make your character, Finish your characters) get the
+   same treatment for each exit × each of their states: X and Cancel, each answer of the dialog they open (2026-10-27:
+   only Cancel → Leave anyway had a row for Finish your characters).
+   **Android system Back (user, 2026-10-28, REQ-051):** on an Android table, system Back is an exit of **every** page,
+   sheet, dialog, popup, picker, editor and full-screen viewer the feature opens, not only of the chat. List them in
+   `### System back` in `requirements.md` (one line per screen, from `inventory.json` screens and panels plus the
+   pages the PM spec names): each names the row that presses system Back there and what it must do (the same as the
+   screen's own X / Cancel / Back when the spec draws one, the leave dialog where the spec asks first, closing the
+   keyboard first when an input has focus), or `n/a (<reason>)`. A screen the spec gives no way out does not stay
+   silent: its row records what system Back does and the spec gap is an Open question.
 
 9. **Hidden clauses (user, 2026-10-22, REQ-032).** A requirement can hold a clause the screen does not show: what is
    sent or uploaded ("only the cropped image is sent"), what does or does not run ("STT is not run", "reruns only
@@ -460,8 +488,8 @@ cites its rule (e.g. `[Rule 2: wait thresholds]`), a flow arrow cites its Figma 
    captions and motion. Order the run by state: first-use, coachmark and bubble checks before anything consumes them,
    then input → outline → character → storyboard → video → History, with destructive and reset cases last. A case
    that needs a fresh install says so in its Precondition. Don't cap generations below what the cases need.
-10. **Dedupe and platforms.** Dedupe within the same product and platform; the same symptom on Android is a related
-    ticket, not a duplicate. Keep separate iOS and Android tables. Android baseline: no Pink menu (find the Android
+10. **Dedupe and platforms.** Dedupe within the same product and platform; the same symptom on the other OS is a
+    related ticket, not a duplicate (user, 2026-10-28: same-OS matches are left off the review page). Keep separate iOS and Android tables. Android baseline: no Pink menu (find the Android
     debug controls), Pro instead of Pro+, Google Play billing instead of Apple, chat limits Free 10 / Pro 100.
 
 ## Running cases and filing eBugs
@@ -609,7 +637,10 @@ own phase, kept in results.csv's Phase column and split out in the report), the 
   × seat ÷ the basis phase's weighted tokens; user, 2026-10-21: P1 ≈ three 1× Pro 5-hour windows), plus "= N% of an
   N× seat" for rows on a Team seat (6.25× in round 2, 1.25× from round 3). Weekly (rough) = that × weekPerFiveHour, or when null × the weekly ÷ 5-hour
   ratio of the latest seat's paired readings (consecutive snapshots that both carry a 5-hour and a weekly value in the
-  same windows; 10/22: counting a new account's first reading, 95% weekly from other work, made the ratio 1.70). "Account total (shared)" (snapshot increments while the run was active,
+  same windows; 10/22: counting a new account's first reading, 95% weekly from other work, made the ratio 1.70). A platform
+  whose runs folder has no basis phase borrows another's: `basisWeightedTokens` in its calibration file (Android, 2026-10-27:
+  iOS P1's 37,078,156 weighted tokens and weekly ratio 0.168, read from `ios/runs/plan.html`). The first reading of a
+  usage file, and the first after an account switch, is a baseline: it adds nothing to the run (2026-10-27). "Account total (shared)" (snapshot increments while the run was active,
   Pro-% = plan-% × the snapshot's seat size) stays as a muted upper bound: other users of a shared account (another
   machine, claude.ai, the apps) are invisible to the transcripts, so neither it nor a token-ratio share can isolate
   the run. The page notes the calibration source, the same-model assumption and each round's output tokens per
@@ -746,6 +777,60 @@ own phase, kept in results.csv's Phase column and split out in the report), the 
    ended earlier. Record whether each video finished, how long it took, its credits and any failed scenes (with
    logs). Template rows follow their own stop rule (rule 6); AI Mini Drama template journeys are Blocked (REQ-019).
 
+### On-device run (Android)
+
+Android runs follow every rule above; only the device commands change. The client is
+`node scripts/device-android.ts <run dir> <command>` (Appium + UiAutomator2 on the QA Sony Xperia 10 III, adb serial
+HQ61563393, Android 12, 1080 × 2520; setup in README › Android phone setup; set up 2026-10-27, debug folder
+`library/ai-mini-drama/android/runs/_android-setup-20261027/`).
+- **Same commands, same files.** `start`, `restart`, `status`, `shot`, `els`, `texts`, `source`, `tap`, `hold`, `drag`,
+  `burst`, `pinch`, `id`, `lbl`, `scrollto`, `type`, `hidekb`, `clear`, `setval`, `launch`, `terminate`, `waitfor`,
+  `tapif`, `expect`, `expect-not`, `do <recipe.steps>` work as on iOS, write the same `.session` and `activity.log`
+  stamps, and exit 75 with `BLOCKER (device): …` when the phone is unplugged, unauthorized or PIN-locked. Coordinates
+  are **pixels** (the screenshot frame), not points. `els` prints `class | resource-id | text | content-desc | x,y,w,h |
+  flags`; `id` takes a resource-id (short or `<pkg>:id/…`), `lbl` / `tapif` / `waitfor` match text or content-desc.
+  PowerDirector's accessibility ids are content-descs starting `[AID]` (e.g. `[AID]IAP_Back`). Recipes go in
+  `library/<feature>/android/recipes/`.
+- **iOS rule → Android command.** Segment start `restart` (fresh UiAutomator2 server, PowerDirector to the front,
+  instead of WDA). Keep the phone awake: the user turns on Developer options › Stay awake (or the longest Screen
+  timeout) and uses no PIN lock for the run. Rows in a list: `scrollto` (half-viewport steps, both ends; it also prints
+  the row's switch state, `| row Switch on at X,Y`). Pages opened as fragments leave the previous page in the source;
+  `els`, `texts`, `waitfor` and `scrollto` drop subtrees covered by a later page, `source` stays raw. Wi-Fi off/on for
+  offline cases: `wifi off|on|status` (refuses unless adb sees the phone over USB). App language: `launch --lang` needs
+  Android 13; on this Android 12 phone it stops, so language cases need the user to change the system language or are
+  Blocked `--as test-data`. Light/Dark (`appearance`), Pink (`pink …`), `ledger` and `install-wda` have no Android
+  version yet. `back` is the system Back: on Android it is a spec exit path, so test it wherever a page can be left.
+  `build` prints versionName / versionCode (the run's build check).
+- **Logs (rule 7 on Android).** The app logs verbosely to logcat (tags such as `CreditSystemManager`,
+  `SplashActivity`); its files are not readable over adb (release build, not debuggable) and it writes no log folder on
+  shared storage. The phone keeps only ~1 MB of logcat, so `logcat start` at every segment start (background capture
+  of the app's uid into `<run dir>/logs/.live/`), and `pull-logs <segment>` at the segment end, before a reinstall and
+  before a hand-off (it rotates the capture into `logs/<segment>-<time>/logcat-live.txt` plus a ring-buffer dump).
+  Logs hold server keys: they stay in the git-ignored `logs/`, eBugs cite excerpts only.
+- **Debug controls, rechecked on 16.8.0 (2610212), 2026-10-27:** AI Mini Drama is on the Launcher; still no Pink, fault
+  switches, tier switch, Write Log or developer-server switch in Menu or Preferences (only `[AID]…` preference
+  switches unrelated to AI Mini Drama). Fault rows stay Blocked `--as observability`; the tier comes from the signed-in
+  account. Builds come from the TR's OneDrive folder (`CL_Deluxe.<build>_<SR>_R9.zip`, APK + `Cyberlink.MD5`), installed
+  with `adb install -r` after the user approves the download (`fixtures.md`). Fault / error switches are planned for
+  a later Android build (user, 2026-10-28); recheck each new build.
+- **Server: Stage vs Production (user, 2026-10-28).** The server is chosen by an empty `testserver.config` in
+  `/sdcard/cyberlink/PDR/` (the per-app folder; `/sdcard/cyberlink/tester.config` holds the SR code and is not the
+  switch): present = Stage at the next launch, absent = Production. A fresh install keeps the file (shared storage),
+  but if it is missing the app comes up on Production with no templates: `adb shell mv` (or `cp`) the file into `PDR/`,
+  force-stop and relaunch. Put the file in place **before the first launch** of a fresh install: a first launch on
+  Production creates the app's credit ID there, and Stage then rejects every signed-out turn (`403 "Fail to verify
+  uuid"`); `adb shell pm clear <package>` (covered by the fresh-install OK) makes a new ID on Stage. Android shows no "developer server" text as iOS does: on Stage the Launcher's **top bar is
+  yellow**, on Production it is dark. Confirm the yellow bar at every segment start and after every (re)install;
+  don't rely on the `[AID]…_Server` content-desc (it read Production on a fresh install).
+- **Debug controls (PowerDirector 16.6.1 build 2609032, 2026-10-27).** No Pink overlay and no ⋯ debug page: the
+  Launcher ☰ › Menu ends with a QA block (「download all … contents」, 「migrate external storage to scoped storage」,
+  「zip / unzip … scoped storage」, 「QA: consume all non-consumables」, 「QA: show all subscription plans」,
+  「QA: purchase SKU test」, region 「Taiwan」). Never tap the consume or purchase rows. The backend shows only as the
+  Launcher toolbar's content-desc (`[AID]Stage_Server`). No Write Log, developer-server switch or AI Mini Drama /
+  AppTweaks fault switches were found, and this build has no AI Mini Drama entry; recheck on the build under test and
+  update this paragraph. Until fault switches exist, failure cases need real failures (network loss) or stay Blocked
+  `--as observability`.
+
 ### eBug drafts and review page
 
 1. Write `ebugs/<date>/<YYYYMMDD>_eBug_drafts_<Feature>_<version>.md` with `ebug-draft-generator` rules: merge
@@ -763,10 +848,14 @@ own phase, kept in results.csv's Phase column and split out in the report), the 
    `verify_ebug_drafts.py`. Avoid `{n}`-style placeholders in body text; they are read as attachments. The format
    check fails a `>` / `›` inside a Repro step, a missing or empty `Spec Link:`, an entry with no image, a video
    attachment without `--videos-requested`, and `[AIAgent][UX]`.
-3. Dedupe with `ecl_query.py dedupe upload/bodies.json --product "PowerDirector Mobile for iOS"` and read each
-   candidate with `ecl_query.py bug <code>`. Duplicates start on hold; a resolved ticket that still reproduces is
-   a reopen, not a new bug.
-4. Build the self-contained review page (ebug-tr-filer layout), publish it, give the link, and stop. Filing
+3. Dedupe with `ecl_query.py dedupe upload/bodies.json --product "PowerDirector Mobile for <iOS|Android>"` (the
+   tested OS only) and read each candidate with `ecl_query.py bug <code>`. **Per OS (user, 2026-10-28):** a match on
+   the other OS is not a duplicate (new entry; its BugCode may go in the Note); a match on the same OS's TRs, open or
+   resolved, is left off the drafts and the review page entirely and recorded only in `dedupe.txt`; a **closed**
+   same-OS ticket whose bug is back stays a new entry naming the closed ticket as related.
+4. Build the self-contained review page (ebug-tr-filer layout), publish it, give the link, and stop. Log excerpts on
+   the cards start collapsed (`<details>`) and wrap (`pre-wrap`); nothing on the page may run past the right edge in a
+   half-width window (user, 2026-10-28): check at 600 px with every section open before handing it over. Filing
    waits for the reviewer's Copy decisions, the account, the TRCode and the source tag. The page prefills Creator,
    TRCode, source tag and method from the newest filed batch (`node scripts/ebug-defaults.ts <feature> <platform>
    --json`, read by the batch's review generator), each marked 「from <batch> — confirm」 rather than left blank.
@@ -775,8 +864,8 @@ own phase, kept in results.csv's Phase column and split out in the report), the 
    (with any split or rewrite note), rewrite the entries, regenerate bodies, format check to 0 errors, dedupe again
    for any new entry, file (IF3: `ecl_if3.py create` then `upload`), read every bug back (Creator, severity, belong,
    TR, build, attachments on the page), write `filed_bugcodes.json` / `.md` (`ecl_if3.py export-filing`), rebuild the
-   review page with the BugCodes, and add one line per batch to the run plan's Log. Comments on Rechecks tickets
-   wait for the user's own decision.
+   review page with the BugCodes, and add one line per batch to the run plan's Log. Existing same-OS tickets are
+   never commented on (they stay in `dedupe.txt`).
 
 ## File formats
 

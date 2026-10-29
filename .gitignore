@@ -50,3 +50,8 @@ library/*/*/ebugs/*/full_logs/
 
 # Coverage pages embed spec renders and run screenshots (local only, like the images themselves)
 library/*/*/coverage.html
+
+# eBug review pages embed every screenshot as base64 (several MB each) and the run plan servers' logs are local noise;
+# both stay local (user, 2026-10-28: keep the repo lean). Pages committed before this rule stay tracked.
+library/*/*/ebugs/*/*_eBug_review_*.html
+library/*/*/runs/plan-server*.log

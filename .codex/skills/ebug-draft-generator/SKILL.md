@@ -65,9 +65,15 @@ reads or updates them.
      and type* in `AGENTS.md` (kept there under "Revert"), drop the UX line in the casebook skill's *eBug drafts and
      review page* step 1, and run `check_ebug_format.py --allow-agent-ux` and `ALLOW_AGENT_UX=1 verify_ebug_drafts.py`.
 - **No comments on existing tickets (user, 2026-10-21, until the user lifts it).** Never post a comment on, reopen or
-  reject the fix of an existing eBug — not for rechecks, not for "still reproduces", not for fixed tickets. List them on
-  the review page and in the drafts' Rechecks section as information only; only new tickets the user decided to file are
-  created.
+  reject the fix of an existing eBug — not for rechecks, not for "still reproduces", not for fixed tickets. Only new
+  tickets the user decided to file are created.
+- **Dedupe per OS (user, 2026-10-28).** iOS and Android bugs are deduped separately: search only the tested OS's
+  product (`PowerDirector Mobile for iOS` / `… for Android`). A ticket on the other OS never makes a finding a
+  duplicate: the finding is a new entry for this OS (the other OS's BugCode may go in its Note). A finding that matches
+  an existing ticket on the same OS's TRs is **not listed** — no card on the review page, no Rechecks section, no
+  on-hold entry; it is kept only in the batch's `dedupe.txt` (finding, case IDs, matching BugCode) for traceability.
+  Exception: a same-OS ticket that is **closed** while the bug is back does not hide the finding; it stays a new card
+  that names the closed ticket as related.
 <!-- END pdr-spec-casebook overlay -->
 
 

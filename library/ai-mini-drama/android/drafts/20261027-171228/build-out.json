@@ -1,0 +1,64 @@
+{
+ "NEW": [
+  "TC-509",
+  "TC-510",
+  "TC-511",
+  "TC-512",
+  "TC-513",
+  "TC-514",
+  "TC-515",
+  "TC-516",
+  "TC-517",
+  "TC-518"
+ ],
+ "addedByFinding": [
+  "TC-511 (O-4)"
+ ],
+ "modifiedByFinding": [
+  "TC-002 (O-2)",
+  "TC-030 (O-4)",
+  "TC-044 (O-5)",
+  "TC-036 (O-9)",
+  "TC-045 (O-11)",
+  "TC-014 (TC-014 result)",
+  "TC-033 (TC-033 result)",
+  "TC-083 (TC-083 result)",
+  "TC-104 (TC-104 result)",
+  "TC-105 (TC-105 result)",
+  "TC-224 (TC-224 result)",
+  "TC-303 (TC-303 result)",
+  "TC-304 (TC-304 result)",
+  "TC-364 (TC-364 result)",
+  "TC-365 (TC-365 result)",
+  "TC-499 (TC-499 result)",
+  "TC-437 (TC-437 result)",
+  "TC-454 (TC-454 result)",
+  "TC-446 (TC-446 result)"
+ ],
+ "needs": {
+  "TC-510": [
+   "video"
+  ],
+  "TC-499": [
+   "fault-injection"
+  ],
+  "TC-437": [
+   "fault-injection"
+  ],
+  "TC-454": [
+   "fault-injection"
+  ],
+  "TC-446": [
+   "fault-injection"
+  ],
+  "TC-518": [
+   "fault-injection"
+  ],
+  "TC-515": [
+   "video"
+  ],
+  "TC-516": [
+   "video"
+  ]
+ }
+}

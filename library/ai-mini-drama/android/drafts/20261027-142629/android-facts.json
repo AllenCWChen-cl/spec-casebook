@@ -1,0 +1,11 @@
+{
+ "debug": "fault switch (iOS Pink; none on Android 16.8) › ",
+ "faultSwitches": false,
+ "tierPath": null,
+ "paidTier": "Pro",
+ "midTier": null,
+ "language": "the phone's system language (Settings › System › Languages; Android 12 has no per-app language)",
+ "install": "install the build under test from its TR with adb",
+ "android": "12",
+ "_status": "2026-10-27, Xperia 10 III (HQ61563393), PowerDirector 16.8.0 (2610212) from TR261021-0082: AI Mini Drama on the Launcher; server [AID]Stage_Server; paid tier shown as 「PowerDirector Pro」 (Menu); no fault switches, tier switch or developer-server switch in Menu or Preferences (screenshots 22–26 in runs/_android-setup-20261027)."
+}

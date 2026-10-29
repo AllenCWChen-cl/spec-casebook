@@ -1,0 +1,282 @@
+{
+  "AI-Mini-Drama-A2-01": {
+    "FormCode": "DRA262610P0324",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0324",
+    "JobID": 22810629653,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Surprise me appends the same inspiration on every tap",
+    "at": "2026-10-28T16:08:06"
+  },
+  "AI-Mini-Drama-A2-02": {
+    "FormCode": "DRA262610P0325",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0325",
+    "JobID": 22810631701,
+    "short": "PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: First outline card is titled 「Story Outline Result」",
+    "at": "2026-10-28T16:08:13"
+  },
+  "AI-Mini-Drama-A2-03": {
+    "FormCode": "DRA262610P0326",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0326",
+    "JobID": 22810632469,
+    "short": "PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Character filter lists 「Other」 twice under Gender",
+    "at": "2026-10-28T16:08:16"
+  },
+  "AI-Mini-Drama-A2-04": {
+    "FormCode": "DRA262610P0327",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0327",
+    "JobID": 22810633237,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Character generation is priced at 4 credits instead of 6",
+    "at": "2026-10-28T16:08:18"
+  },
+  "AI-Mini-Drama-A2-05": {
+    "FormCode": "DRA262610P0328",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0328",
+    "JobID": 22810633749,
+    "short": "PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Update characters card shows no character count",
+    "at": "2026-10-28T16:08:21"
+  },
+  "AI-Mini-Drama-A2-06": {
+    "FormCode": "DRA262610P0329",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0329",
+    "JobID": 22810634773,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: X on 「Your characters are ready」 still applies the looks and commits the cast",
+    "at": "2026-10-28T16:08:24"
+  },
+  "AI-Mini-Drama-A2-07": {
+    "FormCode": "DRA262610P0330",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0330",
+    "JobID": 22810635541,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Leave anyway drops finished character looks but keeps their credits",
+    "at": "2026-10-28T16:08:27"
+  },
+  "AI-Mini-Drama-A2-08": {
+    "FormCode": "DRA262610P0331",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0331",
+    "JobID": 22810636309,
+    "short": "PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Asking to change a character shows a different question and a single chip",
+    "at": "2026-10-28T16:08:30"
+  },
+  "AI-Mini-Drama-A2-09": {
+    "FormCode": "DRA262610P0332",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0332",
+    "JobID": 22810636821,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: A typed character name does not lead to the Update characters card",
+    "at": "2026-10-28T16:08:32"
+  },
+  "AI-Mini-Drama-A2-10": {
+    "FormCode": "DRA262610P0333",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0333",
+    "JobID": 22810637845,
+    "short": "PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Character update shows other progress and result messages than the spec",
+    "at": "2026-10-28T16:08:36"
+  },
+  "AI-Mini-Drama-A2-11": {
+    "FormCode": "DRA262610P0334",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0334",
+    "JobID": 22810638869,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Back during a chat character update leaves with no stop dialog",
+    "at": "2026-10-28T16:08:40"
+  },
+  "AI-Mini-Drama-A2-12": {
+    "FormCode": "DRA262610P0335",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0335",
+    "JobID": 22810639381,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Expanded description editor cuts text to 1,000 characters and writes it back",
+    "at": "2026-10-28T16:08:42"
+  },
+  "AI-Mini-Drama-A2-13": {
+    "FormCode": "DRA262610P0336",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0336",
+    "JobID": 22810639893,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Dragging inside the description box opens the editor instead of scrolling the text",
+    "at": "2026-10-28T16:08:44"
+  },
+  "AI-Mini-Drama-A2-14": {
+    "FormCode": "DRA262610P0337",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0337",
+    "JobID": 22810640405,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Closing a generated character with X, swipe down or Back saves it to Mine anyway",
+    "at": "2026-10-28T16:08:46"
+  },
+  "AI-Mini-Drama-A2-15": {
+    "FormCode": "DRA262610P0338",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0338",
+    "JobID": 22810640917,
+    "short": "PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Generated character page has no Discard button",
+    "at": "2026-10-28T16:08:48"
+  },
+  "AI-Mini-Drama-A2-16": {
+    "FormCode": "DRA262610P0339",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0339",
+    "JobID": 22810641429,
+    "short": "PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Delete character dialog body differs from the spec text",
+    "at": "2026-10-28T16:08:50"
+  },
+  "AI-Mini-Drama-A2-17": {
+    "FormCode": "DRA262610P0340",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0340",
+    "JobID": 22810641941,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Storyboard and video generation skip the 10/22 stage messages and charge per image",
+    "at": "2026-10-28T16:08:52"
+  },
+  "AI-Mini-Drama-A2-18": {
+    "FormCode": "DRA262610P0341",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0341",
+    "JobID": 22810642453,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Stop button stays in the input bar after Generate (10/22: only the mic)",
+    "at": "2026-10-28T16:08:54"
+  },
+  "AI-Mini-Drama-A2-19": {
+    "FormCode": "DRA262610P0342",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0342",
+    "JobID": 22810642709,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Video stage ①: exits leave with no 「Leave while we're preparing?」 dialog",
+    "at": "2026-10-28T16:08:56"
+  },
+  "AI-Mini-Drama-A2-20": {
+    "FormCode": "DRA262610P0343",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0343",
+    "JobID": 22810643477,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Storyboard stage ②: Back still asks 「Stop and lose your credits?」",
+    "at": "2026-10-28T16:08:58"
+  },
+  "AI-Mini-Drama-A2-21": {
+    "FormCode": "DRA262610P0344",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0344",
+    "JobID": 22810643733,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Storyboard stops when the app is swiped away and resumes only on reopen",
+    "at": "2026-10-28T16:09:00"
+  },
+  "AI-Mini-Drama-A2-22": {
+    "FormCode": "DRA262610P0345",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0345",
+    "JobID": 22810644501,
+    "short": "PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: First storyboard shows one skeleton row instead of per-scene skeletons",
+    "at": "2026-10-28T16:09:02"
+  },
+  "AI-Mini-Drama-A2-23": {
+    "FormCode": "DRA262610P0346",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0346",
+    "JobID": 22810645013,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Storyboard and video dramas reopen at the outline, not their latest stage",
+    "at": "2026-10-28T16:09:04"
+  },
+  "AI-Mini-Drama-A2-24": {
+    "FormCode": "DRA262610P0347",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0347",
+    "JobID": 22810645525,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Reopened dramas lose the confirmed cast and the characters card",
+    "at": "2026-10-28T16:09:06"
+  },
+  "AI-Mini-Drama-A2-25": {
+    "FormCode": "DRA262610P0348",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0348",
+    "JobID": 22810645781,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Chat loses earlier messages and cards after a reopen, a Stop or a resume",
+    "at": "2026-10-28T16:09:08"
+  },
+  "AI-Mini-Drama-A2-26": {
+    "FormCode": "DRA262610P0349",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0349",
+    "JobID": 22810646293,
+    "short": "PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Scroll-to-bottom button sits at the bottom centre instead of the bottom right",
+    "at": "2026-10-28T16:09:10"
+  },
+  "AI-Mini-Drama-A2-27": {
+    "FormCode": "DRA262610P0350",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0350",
+    "JobID": 22810646805,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Sent message is not moved to the top and the view follows the reply",
+    "at": "2026-10-28T16:09:12"
+  },
+  "AI-Mini-Drama-A2-28": {
+    "FormCode": "DRA262610P0351",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0351",
+    "JobID": 22810647317,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Returning from History, Choose Character or Full Edit keeps the old scroll position",
+    "at": "2026-10-28T16:09:14"
+  },
+  "AI-Mini-Drama-A2-29": {
+    "FormCode": "DRA262610P0352",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0352",
+    "JobID": 22810648085,
+    "short": "PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: History thumbnail shows a character look instead of the first storyboard frame",
+    "at": "2026-10-28T16:09:16"
+  },
+  "AI-Mini-Drama-A2-30": {
+    "FormCode": "DRA262610P0353",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0353",
+    "JobID": 22810648597,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Opening a drama and cancelling Choose Character moves it to the top of History",
+    "at": "2026-10-28T16:09:18"
+  },
+  "AI-Mini-Drama-A2-31": {
+    "FormCode": "DRA262610P0354",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0354",
+    "JobID": 22810649109,
+    "short": "PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Video and storyboard cards show no 「You'll have N left」 line under Generate",
+    "at": "2026-10-28T16:09:20"
+  },
+  "AI-Mini-Drama-A2-32": {
+    "FormCode": "DRA262610P0355",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0355",
+    "JobID": 22810649365,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Scene video update shows no Updating line and appends a new card",
+    "at": "2026-10-28T16:09:22"
+  },
+  "AI-Mini-Drama-A2-33": {
+    "FormCode": "DRA262610P0356",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0356",
+    "JobID": 22810649877,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Download during a scene video update saves the old clips at once",
+    "at": "2026-10-28T16:09:23"
+  },
+  "AI-Mini-Drama-A2-34": {
+    "FormCode": "DRA262610P0357",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0357",
+    "JobID": 22810650389,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Play on the video card opens the player paused; it needs a second tap",
+    "at": "2026-10-28T16:09:25"
+  },
+  "AI-Mini-Drama-A2-35": {
+    "FormCode": "DRA262610P0358",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0358",
+    "JobID": 22810650901,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Renaming a drama during a video job: the push uses the old name and no toast shows",
+    "at": "2026-10-28T16:09:27"
+  },
+  "AI-Mini-Drama-A2-36": {
+    "FormCode": "DRA262610P0359",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0359",
+    "JobID": 22810651413,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Leaving the export page asks to leave and cancels the export",
+    "at": "2026-10-28T16:09:29"
+  },
+  "AI-Mini-Drama-A2-37": {
+    "FormCode": "DRA262610P0360",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0360",
+    "JobID": 22810651925,
+    "short": "PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Export producing and done pages show another drama's thumbnail",
+    "at": "2026-10-28T16:09:31"
+  },
+  "AI-Mini-Drama-A2-38": {
+    "FormCode": "DRA262610P0361",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0361",
+    "JobID": 22810652437,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Generation waits exceed 10 seconds with only Stop or leaving possible",
+    "at": "2026-10-28T16:09:33"
+  },
+  "AI-Mini-Drama-A2-39": {
+    "FormCode": "DRA262610P0362",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0362",
+    "JobID": 22810652693,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: First video on a fresh install skips the 「Get notified」 pre-prompt",
+    "at": "2026-10-28T16:09:34"
+  },
+  "AI-Mini-Drama-A2-40": {
+    "FormCode": "DRA262610P0363",
+    "Href": "https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0363",
+    "JobID": 22810653205,
+    "short": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: History opens an empty new chat for about 2 minutes after leaving a video job",
+    "at": "2026-10-28T16:09:36"
+  }
+}

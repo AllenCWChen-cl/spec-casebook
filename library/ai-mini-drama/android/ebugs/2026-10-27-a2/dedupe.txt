@@ -1,0 +1,424 @@
+Dedupe per OS (user, 2026-10-28) — AI Mini Drama Android, phase A2 + retest, 16.8.0 (2610212). Read-only; nothing filed, commented or reopened.
+Re-run 2026-10-28: ecl_query.py dedupe upload/bodies.json --product "PowerDirector Mobile for Android" --limit 1000 (301 Android tickets; the other OS is never searched).
+Candidates were read with ecl_query.py bug <code> where unsure. iOS tickets (DRI…) never make a finding a duplicate.
+
+== Not listed: findings that match an existing Android ticket (no card, no recheck row, no on-hold entry) ==
+
+-- Former draft entries --
+ISS-AMDA-04  Character filter has no White ethnicity
+    cases: TC-289   BugCode: DRA262610-0019 (Close (fixed in 2610212 claimed))
+    why: 「Ethnicity options in character filter do not match Create my character」: the filter still has no Caucasian/White on 2610212 — the same mismatch the ticket reports; the fix claim does not hold. Same OS, so not listed (no reopen, team rule).
+ISS-AMDA-06  Finish your characters plural subtitle differs from the spec
+    cases: TC-039   BugCode: DRA262610-0061 (Close)
+    why: 「Finish your characters sheet text and button differ from spec」: its Result already quotes 「Each one needs a look…」, the plural subtitle A2 still sees; the fix changed the one-character sheet only. Same sheet, same text.
+ISS-AMDA-14  Tapping outside the generating Create my character sheet does nothing
+    cases: TC-383   BugCode: DRA262610P0147 (NewCreated)
+    why: 「Create my character cannot be closed or stopped while Generating」: on 2610212 X and Back now ask; the outside tap that still does nothing is the remaining part of the same ticket.
+ISS-AMDA-26  Storyboard Preview is not rebuilt after a scene image update
+    cases: TC-074   BugCode: DRA262610P0027 (Propose Wont Fix)
+    why: 「Storyboard Preview stays "unavailable" even after the missing scene image is regenerated」 (67 % overlap, re-run 2026-10-28): the same defect — the Storyboard Preview is not rebuilt after a scene image is regenerated; RD already declined it, and on 2610212 the image itself did not change either (DRA262610P0199).
+ISS-AMDA-36  Video settings card has no Model • Seedance row
+    cases: TC-079   BugCode: DRA262610P0222 (Assigned)
+    why: 「Re-offered video settings card lacks model and quotes 120 for a 60 job」: the missing 「Model • Seedance」 row is the same symptom on the same card (A2 saw it on the first offer too).
+ISS-AMDA-44  Offline character generation failure blames a busy service
+    cases: O-5   BugCode: DRA262610P0123 (NewCreated)
+    why: 「Offline Regenerate Image reports service busy instead of a network problem」: the same offline-to-「service busy」 mapping of an image-generation failure (「Couldn't create image」), here on Create my character; one fix.
+
+-- Part of a kept entry --
+TC-170  BugCode: DRA262610-0032 / DRA262610P0302 (Assigned / NewCreated — Generate all blocks the screen; the 1-minute hint vs 4 minutes)
+    why: ISS-AMDA-43's one-character wait (109 s, 01:21:14–01:23:03) — same symptom on the same sheet; the rest of ISS-AMDA-43 (outline, revision, storyboard, export, full video) is in no Android ticket and stays an entry.
+
+-- Former recheck rows (failure already reported on Android) --
+TC-410  BugCode: DRA262610-0045  [NewCreated — unchecked 「My characters only」 checkbox gray]
+    A2 saw: Thin light-gray outline square; panel's active controls are blue.
+TC-044, O-4, O-14, TC-447, O-26  BugCode: DRA262610P0174  [Assigned — assistant says the storyboard is created before Create storyboard]
+    A2 saw: Before any storyboard Generate: 「Completed the storyboard script…」, 「I have created the complete 6-beat storyboard…」, 「Retained the storyboard for 'The Understudy'…」 on custom and template chats; retest: 「Generated the full 6-beat storyboard for 'Morning Key'…」 above the ◆28 card after Create Next Episode (O-26).
+TC-057, TC-134, TC-339, TC-340, TC-342, TC-401  BugCode: DRA262610P0262  [NeedCodeReview — X closes a completed character with no discard confirmation]
+    A2 saw: No 「Discard this character?」 for X, swipe down or system Back, so Keep is unreachable. The saving to Mine is new: ISS-AMDA-17.
+TC-126  BugCode: DRA262610P0135  [RDResolved — AI Suggestion fills only the description]
+    A2 saw: Still reproduces on 2610212: Gender, Ethnicity and Age stay unset, Generate grey. Reopen candidate — not acted on (team rule).
+TC-407  BugCode: DRA262610-0015  [NewCreated — AI Suggestion copies the outline role line]
+    A2 saw: 「Female lead, independent bookstore owner facing lease termination」, word for word; a second tap does nothing.
+TC-408  BugCode: DRA262610-0024  [NewCreated — male-looking character when Gender is Female]
+    A2 saw: Description 「male lead…」 overrides Female: prompt says 「Gender presentation: male.」
+TC-469  BugCode: DRA262610P0210  [NeedNewModule — reference photo ignores Age]
+    A2 saw: Age 75 + young photo → a woman of about 25; prompt has no Age line, 「reference image wins」.
+TC-060, TC-072, TC-070  BugCode: DRA262610P0198  [Assigned — storyboard credit rate differs from the article]
+    A2 saw: 3 credits per image (10 × −3 + TTS −1 = ◆31); chat image update ◆3; failed-scene Regenerate Image ◆3 where the spec says ◆6.
+TC-377  BugCode: DRA262610P0122 / DRA262610P0197  [Assigned / NewCreated — 「Create storyboard」 user bubble after Generate]
+    A2 saw: Bubble added and kept after the result. Stage copy and per-image charging: ISS-AMDA-20.
+TC-061, TC-062, TC-063, TC-398, TC-399, TC-294, TC-359  BugCode: DRA262610P0077  [Assigned — no warning when leaving right after Generate storyboard]
+    A2 saw: Stage ① ←, system Back, History and New chat leave with no dialog (first storyboard and chat updates); the job keeps running and is charged once. PM 10/22 §13.24 now asks for 「Leave while we're preparing?」, not 「Stop and lose your credits?」.
+TC-359  BugCode: DRA262610P0195 / DRA262610P0116  [NewCreated / Assigned — History omits the processing state]
+    A2 saw: History during the storyboard shows the drama with no processing state.
+TC-385, TC-073  BugCode: DRA262610P0134  [Assigned — storyboard image updates use a generic regeneration flow]
+    A2 saw: One generic row 「Updating storyboard after description changes.」; no skeleton on the scene; no new storyboard card at the bottom; 「Script updated!」 for an image change.
+TC-073, TC-458  BugCode: DRA262610P0199  [Assigned — regeneration ignores the requested scene change]
+    A2 saw: Rain (Scene 2) and 「Lauren standing beside the window」 (Scene 3) dropped from the TextToImage prompt; 3 credits charged each.
+TC-282  BugCode: DRA262610-0050  [RDResolved — English dialogue uses 「」]
+    A2 saw: All six Workplace Romance (2) scenes: 'Lauren Hale：「…」'. Reopen candidate — not acted on.
+TC-443  BugCode: DRA262610P0169  [RDResolved — preview captions split mid-word]
+    A2 saw: Chinese preview: 「酸甜茶香拐走了阿」|澤, 管理員 and 營業額 split. Reopen candidate — not acted on.
+TC-494  BugCode: DRA262610P0248  [Assigned — assistant switches to the video language]
+    A2 saw: Spanish drama: status row 「Regenerando el guion gráfico tras actualizar la descripción.」
+TC-419  BugCode: DRA262610P0072  [NewCreated — chat text scrolls under the header buttons]
+    A2 saw: Scene titles drawn behind Back and the credit pill (「682」 over 「de compás」).
+TC-106  BugCode: DRA262610-0063  [ProposeNAB — template drama titles in History]
+    A2 saw: Template drama listed as 「Workplace Romance (2)」 (its category), preview card 「Workplace Romance」; R-093 asks for the title Iris generated.
+TC-108  BugCode: DRA262610P0047  [NewCreated — Rename does not move a drama to the top]
+    A2 saw: Kept its position and 05:45 PM after Rename and reopen.
+TC-111  BugCode: DRA262610-0046  [NewCreated — Delete dialog does not name the drama]
+    A2 saw: 「This chat and its videos will be permanently deleted.」
+TC-498  BugCode: DRA262610P0255  [NewCreated — user-given title replaced]
+    A2 saw: 「THE UNDERSTUDY」 saved as 「Understudy」 even after asking (PM ruling pending).
+TC-080, O-15  BugCode: DRA262610P0274  [NewCreated — Best and Standard quote the same credits]
+    A2 saw: Best ◆120 / ◆360 (spec ◆180 / ◆540). Log: Best dispatched as seedance-2-5 720p but billed under action_id genvideo_…seedance2.0std_none_480p (perSecond=4).
+TC-405  BugCode: DRA262610P0226  [NewCreated — 「Here's your drama.」 over an empty card]
+    A2 saw: At the charge the skeleton became 「Here's your drama.」 over a blank shimmer card for ~7 min. Stage copy: ISS-AMDA-20.
+TC-085, TC-484, O-16  BugCode: DRA262610P0233  [NeedMoreInfo — 「is ready」 toast names the wrong drama]
+    A2 saw: Toast on reaching the Launcher names the last finished drama (Quiet Sanctuary while Workplace Romance (2) generated; Workplace Romance (2) while El compás generated).
+TC-482  BugCode: DRA262610P0231 / DRA262610P0026  [Assigned / NewCreated — Full Edit of another drama breaks a running video]
+    A2 saw: A's turn ended with the 3600 s tool-timeout error when B's Full Edit opened; restarted only on reopening A (11 min later).
+TC-086  BugCode: DRA262610P0159  [Assigned — full episode offer says 60 sec, not 90]
+    A2 saw: 「Create the full episode (60 sec)」 ◆240 for 6 scenes on three dramas.
+TC-417  BugCode: DRA262610P0069  [ProposeNAB — re-entering Full Edit creates a new project]
+    A2 saw: Three 「Quiet Sanctuary」 projects; edits not reopened.
+TC-418  BugCode: DRA262610P0071  [ProposeNAB — Export Full Video ignores Full Edit changes]
+    A2 saw: Same 52,218,218-byte file as the unedited export; no text, sticker or filter.
+TC-423  BugCode: DRA262610P0084  [NewCreated — the drama's own captions block a Free export]
+    A2 saw: 「You've used the following pro feature」 / Auto Captions.
+TC-506  BugCode: DRA262610P0286  [NeedCodeReview — player and clip strip show different clips]
+    A2 saw: First reopen: player clip 1, strip highlights clip 4.
+TC-510  BugCode: DRA262610P0297  [Assigned — clip strip does not follow playback]
+    A2 saw: Clip 6 playing, strip still shows clips 1–5.
+TC-422, TC-090  BugCode: DRA262610P0083 / DRA262610P0276  [NewCreated — download saves raw clips with internal names, no captions]
+    A2 saw: Six raw 15-s 「reftovideo_…」 clips; clip 1 has no captions.
+TC-485, O-18  BugCode: DRA262610P0234  [Assigned — Generate video stops silently when the server cannot be reached]
+    A2 saw: Storage upload failure 5 s after Generate: no error or Try again for 9 min, offer card gone, typed retry ends empty. Nothing charged.
+TC-096  BugCode: DRA262610P0192  [Assigned — Export during a clip regeneration]
+    A2 saw: Export Full Video stays enabled while a scene regenerates. Download and the missing 「updated」 message: ISS-AMDA-37 / 38.
+TC-492  BugCode: DRA262610P0244 / P0261 / P0275  [RDResolved / RDResolved / Assigned — captions break mid-word]
+    A2 saw: English pages split 「Ryan | Cole」; Chinese lines split words and start with 「，」.
+TC-507  BugCode: DRA262610P0288  [Assigned — end of long Chinese captions dropped]
+    A2 saw: Exported file: 「半！」 never appears.
+TC-434  BugCode: DRA262610P0154  [Assigned (fixed in 2610212 claimed) — male outfit changes in the video]
+    A2 saw: Ryan Cole: suit with / without tie, then shirt only, between clips. The fix claim does not hold.
+TC-438  BugCode: DRA262610P0161  [ProposeNAB — wrong character image in a scene]
+    A2 saw: Lauren Hale and 宜萱 each show two different people across clips.
+TC-481  BugCode: DRA262610P0230  [NewCreated — no progress bar or time in the player]
+    A2 saw: No progress bar, time or seek (PM ruling pending).
+TC-343  BugCode: DRA262610P0243 / DRA262610P0219  [Assigned — export panel; 51.6 MB estimate]
+    A2 saw: Export sheet first, then a full-screen producing page; 「Estimated size: 51.6 MB」. Wrong thumbnail: ISS-AMDA-42.
+TC-153, TC-155  BugCode: DRA262610-0049  [TRCreated (fixed in 2610212 claimed) — outline Stop gives no feedback]
+    A2 saw: Outline and revision Stop: no dialog, toast or note. The fix claim does not hold. TC-155's lost card: ISS-AMDA-29.
+TC-471  BugCode: DRA262610P0213  [NewCreated — no stopped state or retry after stopping the outline]
+    A2 saw: Chat ends at the format answer and the format card; no 「stopped」 line or Try again.
+TC-156  BugCode: DRA262610-0057  [TRCreated (fixed in 2610212 claimed) — paid storyboard Stop gives no explanation]
+    A2 saw: Stop in stage ① cancels with no dialog or note (before the charge). The fix claim does not hold.
+TC-470  BugCode: DRA262610P0211  [NewCreated — Send stays Stop during a job]
+    A2 saw: Typed 「Use a warmer tone」: the button stays ■ and the tap cancels the storyboard.
+TC-415  BugCode: DRA262610P0065  [NewCreated — no cue for more templates]
+    A2 saw: Only a 19-px sliver of the next cover.
+TC-503, O-22  BugCode: DRA262610P0268  [Assigned — template chat stops after the outline]
+    A2 saw: Merger Season: no Create storyboard card after 5 min; Proposal, The New Guy's Secret, The Art of Falling, Awakening the Storm, Glad We Came likewise.
+TC-440, O-2  BugCode: DRA262610P0163  [TRCreated — The Art of Falling actors swapped by gender]
+    A2 saw: Julian Cross gets a woman, Lauren Hale a man (logcat mapping).
+TC-461  BugCode: DRA262610P0202  [NewCreated — Glad We Came: Lily's reference vs the script]
+    A2 saw: Blonde in the script, dark-haired South Asian preset; Ethan likewise.
+TC-459  BugCode: DRA262610P0200  [NewCreated — JP The Dog Who Remembered Her: Shiro has no preset]
+    A2 saw: Mapping slots=2 of 3; no Characters Result at all within 4 min.
+O-24  BugCode: DRA262610P0093  [NewCreated — outline and scene titles in English when Japanese is selected]
+    A2 saw: The Beer Heir with video language Japanese: outline, beat titles and cast names stay English; The Dog Who Remembered Her English with JP names (The Ring He Worked For is Japanese).
+O-12  BugCode: DRA262610P0285  [Assigned — Story Outline rewritten without notice after the cast is confirmed]
+    A2 saw: El compás del regreso: the Characters Result repeats the outline with 【Pacto en el tablao】 rewritten, no message.
+TC-501  BugCode: DRA262610P0260  [Assigned — chat jumps back to the Story Outline after Generate]
+    A2 saw: Retest (Shared Shelter): after the cast ✓, after the storyboard and after the full video finished (11:39) the chat sat at the first Story Outline with ↓; 「Here's your drama.」 / Create Next Episode ~8 screens down. The user bubble mid-screen is ISS-AMDA-31.
+TC-490  BugCode: DRA262610P0240  [NeedCodeReview — next episode of a No-captions drama gets burned-in captions]
+    A2 saw: Shared Shelter made with No captions (episode-1 export clean); Create Next Episode asked nothing about the format and Morning Key's export has English captions at 0:21 / 0:25.
+TC-496  BugCode: DRA262610P0251  [Propose Wont Fix — French scene description uses 「」]
+    A2 saw: Accords nocturnes (French): 「Hugo：「Si vous venez…」」, never « » (same pattern as DRA262610-0050). Android 16.8 has no Fix scenes, so it was read on the storyboard scene page.
+TC-166  BugCode: DRA262610P0026  [NewCreated (PM) — video generation stops while away and restarts on return]
+    A2 saw: Storm Warning: the job stopped when the page was left (12:29:11) and resumed only on reopening (12:31:26 pending_resume). The empty chat History opened meanwhile: ISS-AMDA-46.
+O-25  BugCode: DRA262610P0216  [Cancelled — No-captions dramas export without the Free watermark]
+    A2 saw: Shared Shelter (No captions) exported with no 「PowerDirector」 watermark; Morning Key and The New Guy's Secret (Free, same sheet) carry it. Also: the New Guy's Secret export is saved as Romance_(7).mp4, not the drama title.
+TC-462, O-23  BugCode: DRA262610P0203  [NewCreated — US The Dog Who Remembered Her: Murphy has no preset]
+    A2 saw: Murphy's slot is now dropped (2 cards); the chat then offers Update characters ◆8 instead of the storyboard.
+
+== iOS-only matches kept as entries (named in the review card's related line) ==
+ISS-AMDA-45 (F-39)  DRI261895P0022 (TC-081: no 「Get notified」 pre-prompt)
+ISS-AMDA-43 (F-38)  DRI261895P0029 / DRI261895P0031 / DRI261897P0008
+ISS-AMDA-17 (F-14)  DRI261896P0037
+ISS-AMDA-27 (F-23)  DRI261896P0032
+ISS-AMDA-38 (F-33)  DRI261895P0028
+
+== Ranked Android candidates for the 40 listed entries (keys AI-Mini-Drama-A2-NN follow the new numbering) ==
+
+
+[AI-Mini-Drama-A2-01] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Surprise me appends the same inspiration on every tap
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      50%  closed    DRA262610-0026  PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Surprise me appends different inspirations in th
+
+[AI-Mini-Drama-A2-02] PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: First outline card is titled 「Story Outline Result」
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 50%  closed    DRA262610P0080  PDR-A 16.8.0 - [SPEC] AI Mini Drama: Story Outline/Character result board is missing fro
+              shares phrase "story outline"
+    ! 33%  OPEN      DRA262610P0285  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Story Outline is rewritten without notice after 
+              shares phrase "story outline"
+    ! 33%  OPEN      DRA262610P0260  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Chat jumps back to the Story Outline after Gener
+              shares phrase "story outline"
+    ! 33%  REJECTED  DRA262610P0126  PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Completed Story Outline has no manual editor or 
+              shares phrase "story outline"
+              ⚠ ProposeNAB — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRA262610P0126.
+
+[AI-Mini-Drama-A2-03] PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Character filter lists 「Other」 twice under Gender
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 57%  OPEN      DRA262610-0020  PDR-A 16.8.0 - [AIFound][UI] AI Mini Drama: Character filter Gender chip reads "Others" 
+              shares label "other", phrase "character filter"
+    ! 43%  OPEN      DRA262610P0284  PDR-A 16.8.0 - [AIFound][MUI] AI Mini Drama: Character filter Gender and Ethnicity optio
+              shares phrase "character filter"
+    ! 29%  closed    DRA262610-0019  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Ethnicity options in character filter do not
+              shares phrase "character filter"
+    ! 29%  OPEN      DRA262610-0018  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Character filter set for one role stays appl
+              shares phrase "character filter"
+    ! 29%  REJECTED  DRA262610-0017  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Character filter Age slider shows no selecte
+              shares phrase "character filter"
+              ⚠ NotReproducible — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRA262610-0017.
+
+[AI-Mini-Drama-A2-04] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Character generation is priced at 4 credits instead of 6
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 60%  OPEN      DRA262610P0129  PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Character-generation failure does not state 
+              shares phrase "character generation"
+    ! 60%  OPEN      DRA262610P0088  PDR-A 16.8.0 - AI Mini Drama: Unexpected "Consume credits?" card appears during TTI char
+              shares phrase "character generation"
+      40%  OPEN      DRA262610P0304  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Generation status uses technical terms inste
+      40%  OPEN      DRA262610P0257  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Failed character says credits refunded but the 4
+      40%  OPEN      DRA262610P0186  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Changing a preset character's look in chat charg
+      40%  OPEN      DRA262610P0132  PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Regenerating a fully mapped cast returns No repl
+
+[AI-Mini-Drama-A2-05] PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Update characters card shows no character count
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 33%  closed    DRA262610P0046  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: History card shows the chat creation time in
+              shares phrase "card shows"
+      50%  closed    DRA262610P0073  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Asking Iris in chat to update a scene image show
+
+[AI-Mini-Drama-A2-06] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: X on 「Your characters are ready」 still applies the looks and commits the cast
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 43%  OPEN      DRA262610P0178  PDR-A 16.8.0 - [UI] AI Mini Drama (Custom topic): Remove the redundant "Ready to create 
+              shares phrase "your characters"
+    ! 29%  OPEN      DRA262610P0158  PDR-A 16.8.0 - [UX] AI Mini Drama: Unable to enlarge character thumbnails or regenerate 
+              shares phrase "your characters"
+    ! 29%  OPEN      DRA262610P0145  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Story role names in Choose your characters c
+              shares phrase "your characters"
+    ! 29%  OPEN      DRA262610P0113  PDR-A 16.8.0 - [UX] AI Mini Drama: Add clear credit usage information to the Finish Your
+              shares phrase "your characters"
+    ! 29%  closed    DRA262610-0061  PDR-A 16.8.0 - [AIFound][UI] AI Mini Drama: Finish your characters sheet text and button
+              shares phrase "your characters"
+
+[AI-Mini-Drama-A2-07] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Leave anyway drops finished character looks but keeps their credits
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A2-08] PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Asking to change a character shows a different question and a single chip
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      38%  OPEN      DRA262610P0210  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Reference-photo character ignores Age while the 
+
+[AI-Mini-Drama-A2-09] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: A typed character name does not lead to the Update characters card
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A2-10] PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Character update shows other progress and result messages than the spec
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 25%  OPEN      DRA262610-0020  PDR-A 16.8.0 - [AIFound][UI] AI Mini Drama: Character filter Gender chip reads "Others" 
+              shares label "other"
+      38%  closed    DRA262610-0060  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Generation shows only "Working on it…" with 
+
+[AI-Mini-Drama-A2-11] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Back during a chat character update leaves with no stop dialog
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 25%  OPEN      DRA262610P0121  PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Back during outline generation does not show int
+              shares phrase "back during"
+
+[AI-Mini-Drama-A2-12] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Expanded description editor cuts text to 1,000 characters and writes it back
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 44%  closed    DRA262610-0039  PDR-A 16.8.0 - [AIFound] AI Mini Drama: System Back in the full-screen character descrip
+              shares phrase "description editor"
+
+[AI-Mini-Drama-A2-13] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Dragging inside the description box opens the editor instead of scrolling the text
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A2-14] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Closing a generated character with X, swipe down or Back saves it to Mine anyway
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 22%  OPEN      DRA262610P0130  PDR-A 16.8.0 - [AIAgent][UX] AI Mini Drama: Generated character lacks edit/version and a
+              shares phrase "generated character"
+
+[AI-Mini-Drama-A2-15] PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Generated character page has no Discard button
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 40%  OPEN      DRA262610P0130  PDR-A 16.8.0 - [AIAgent][UX] AI Mini Drama: Generated character lacks edit/version and a
+              shares phrase "generated character"
+      40%  OPEN      DRA262610P0262  PDR-A 16.8.0 - [AIAgent] AI Mini Drama: X closes a completed character without discard c
+      40%  closed    DRA262610P0175  PDR-A 16.8.0 - AI Mini Drama: The app gets stuck in a loop between the template page and
+      40%  OPEN      DRA262610-0040  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Storyboard scenes dress the character differentl
+
+[AI-Mini-Drama-A2-16] PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Delete character dialog body differs from the spec text
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A2-17] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Storyboard and video generation skip the 10/22 stage messages and charge per image
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 33%  OPEN      DRA262610P0273  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Credit Details records only half of the video ge
+              shares phrase "video generation"
+    ! 22%  OPEN      DRA262610P0231  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Opening Full Edit of another drama makes the run
+              shares phrase "video generation"
+    ! 22%  OPEN      DRA262610P0026  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Video generation stops while the user is in anot
+              shares phrase "video generation"
+    ! 22%  closed    DRA262610P0019  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Leaving the chat during video generation sho
+              shares phrase "video generation"
+    ! 22%  closed    DRA262610-0044  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Video generation saves intermediate clips to
+              shares phrase "video generation"
+
+[AI-Mini-Drama-A2-18] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Stop button stays in the input bar after Generate (10/22: only the mic)
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 38%  OPEN      DRA262610P0211  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Send button stays Stop during a job, so send
+              shares phrase "button stays"
+    ! 38%  closed    DRA262610-0014  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Chat input bar and Send button are hidden behind
+              shares phrase "input bar"
+    ! 25%  closed    DRA262610P0060  PDR-A 16.8.0 - [UI] AI Mini Drama: "Generate" button's text is not bold
+              shares label "generate"
+
+[AI-Mini-Drama-A2-19] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Video stage ①: exits leave with no 「Leave while we're preparing?」 dialog
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A2-20] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Storyboard stage ②: Back still asks 「Stop and lose your credits?」
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 62%  OPEN      DRA262610P0077  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Leaving right after Generate storyboard show
+              shares label "stop and lose your credits"
+
+[AI-Mini-Drama-A2-21] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Storyboard stops when the app is swiped away and resumes only on reopen
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A2-22] PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: First storyboard shows one skeleton row instead of per-scene skeletons
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 20%  closed    DRA262610P0146  PDR-A 16.8.0 - [AIFound][UI] AI Mini Drama: Create storyboard shows "Cancelling…" right 
+              shares phrase "storyboard shows"
+    ! 20%  OPEN      DRA262610P0077  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Leaving right after Generate storyboard show
+              shares phrase "storyboard shows"
+      40%  closed    DRA262610P0185  PDR-A 16.8.0 - [AIFound][UI] AI Mini Drama: Scene page shows the location image full siz
+
+[AI-Mini-Drama-A2-23] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Storyboard and video dramas reopen at the outline, not their latest stage
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A2-24] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Reopened dramas lose the confirmed cast and the characters card
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A2-25] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Chat loses earlier messages and cards after a reopen, a Stop or a resume
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A2-26] PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Scroll-to-bottom button sits at the bottom centre instead of the bottom right
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A2-27] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Sent message is not moved to the top and the view follows the reply
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A2-28] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Returning from History, Choose Character or Full Edit keeps the old scroll position
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 20%  OPEN      DRA262610P0231  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Opening Full Edit of another drama makes the run
+              shares phrase "full edit"
+    ! 20%  OPEN      DRA262610P0224  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Choose Character accepts a gender-mismatched
+              shares phrase "choose character"
+    ! 20%  OPEN      DRA262610P0105  PDR-A 16.8.0 - [AIFound][UI] AI Mini Drama: Undo after a 1:1 switch leaves the drama's c
+              shares phrase "full edit"
+    ! 20%  closed    DRA262610P0101  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: After Rename, Full Edit export still default
+              shares phrase "full edit"
+    ! 20%  OPEN      DRA262610P0084  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Full Edit marks the drama's own captions as 
+              shares phrase "full edit"
+    ! 20%  REJECTED  DRA262610P0071  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Export Full Video leaves out the text, stick
+              shares phrase "full edit"
+              ⚠ ProposeNAB — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRA262610P0071.
+    ! 20%  REJECTED  DRA262610P0069  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Re-entering Full Edit creates a new project inst
+              shares phrase "full edit"
+              ⚠ ProposeNAB — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRA262610P0069.
+    ! 20%  closed    DRA262610P0041  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Choose Character lists no preset characters when
+              shares phrase "choose character"
+
+[AI-Mini-Drama-A2-29] PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: History thumbnail shows a character look instead of the first storyboard frame
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 33%  OPEN      DRA262610P0120  PDR-A 16.8.0 - [AIAgent][UX] AI Mini Drama: First manual character look does not show th
+              shares phrase "character look"
+
+[AI-Mini-Drama-A2-30] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Opening a drama and cancelling Choose Character moves it to the top of History
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 25%  OPEN      DRA262610P0224  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Choose Character accepts a gender-mismatched
+              shares phrase "choose character"
+    ! 25%  closed    DRA262610P0041  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Choose Character lists no preset characters when
+              shares phrase "choose character"
+    ! 12%  closed    DRA262610P0146  PDR-A 16.8.0 - [AIFound][UI] AI Mini Drama: Create storyboard shows "Cancelling…" right 
+              shares label "cancelling"
+      38%  OPEN      DRA262610P0047  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Renaming a drama does not move it to the top
+
+24 of 40 entries have a possible duplicate (overlap >= 34%, or a shared quoted label / rare phrase, marked !). Judge each one yourself — wording varies, so this ranks candidates, it does not decide.
+4 candidate(s) were declined (NAB / Won't Fix / Not Reproducible). Resolve each before filing.
+
+[AI-Mini-Drama-A2-31] PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Video and storyboard cards show no 「You'll have N left」 line under Generate
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 11%  closed    DRA262610P0060  PDR-A 16.8.0 - [UI] AI Mini Drama: "Generate" button's text is not bold
+              shares label "generate"
+
+[AI-Mini-Drama-A2-32] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Scene video update shows no Updating line and appends a new card
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 11%  closed    DRA262610P0050  PDR-A 16.8.0 - [UI] Shortcut(AI Mini Drama): Missing "New" tag. It doesn't follow UI gui
+              shares label "new"
+      44%  closed    DRA262610P0073  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Asking Iris in chat to update a scene image show
+
+[AI-Mini-Drama-A2-33] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Download during a scene video update saves the old clips at once
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A2-34] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Play on the video card opens the player paused; it needs a second tap
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A2-35] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Renaming a drama during a video job: the push uses the old name and no toast shows
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A2-36] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Leaving the export page asks to leave and cancels the export
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 33%  closed    DRA262610P0140  PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Chat Save to gallery opens generic export page
+              shares phrase "export page"
+
+[AI-Mini-Drama-A2-37] PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Export producing and done pages show another drama's thumbnail
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 25%  OPEN      DRA262610P0231  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Opening Full Edit of another drama makes the run
+              shares phrase "another drama"
+    ! 25%  closed    DRA262610P0037  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Unsent text from a new chat appears in another d
+              shares phrase "another drama"
+
+[AI-Mini-Drama-A2-38] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Generation waits exceed 10 seconds with only Stop or leaving possible
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A2-39] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: First video on a fresh install skips the 「Get notified」 pre-prompt
+      feature='AI Mini Drama'  searched 301 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A2-40] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: History opens an empty new chat for about 2 minutes after leaving a video job
+      feature='AI Mini Drama'  searched 301 candidate(s)
+    ! 30%  closed    DRA262610P0075  PDR-A 16.8.0 - [UX] AI Mini Drama:  "New Chat" button remains enabled when chat and prom
+              shares label "new chat"
+    ! 30%  closed    DRA262610P0037  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Unsent text from a new chat appears in another d
+              shares phrase "new chat"
+    ! 20%  OPEN      DRA262610P0306  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Recovered character output requires a new ch
+              shares phrase "new chat"
+    ! 20%  closed    DRA262610P0152  PDR-A 16.8.0 - [AIFound] AI Mini Drama: discarded composer text persists in a new chat
+              shares phrase "new chat"
+    ! 20%  OPEN      DRA262610P0103  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Create Your Drama reopens the last drama ins
+              shares phrase "new chat"
+    ! 10%  closed    DRA262610P0050  PDR-A 16.8.0 - [UI] Shortcut(AI Mini Drama): Missing "New" tag. It doesn't follow UI gui
+              shares label "new"

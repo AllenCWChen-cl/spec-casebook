@@ -1,0 +1,745 @@
+[
+ {
+  "bug": "DRA262610P0208",
+  "kind": "row",
+  "after": "TC-099",
+  "section": "Captions",
+  "precondition": "Drama from 「The New Guy's Secret」 (Make my version) with 「Yes, include captions」, English; full video generated",
+  "action": "Export Full Video and play the exported video; look at the narration captions (e.g. at 00:22 and 01:22)",
+  "expected": "Narration captions use a smaller default font in balanced proportion to the video frame",
+  "priority": "P3",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0208 (NewCreated, AIFound, UX); no caption font size in the spec (PM ruling pending)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0209",
+  "kind": "row",
+  "after": "TC-022",
+  "section": "Format card",
+  "precondition": "Empty chat; idea sent and the format card shown",
+  "action": "Type 「Make it a comedy please」 and send it instead of tapping the card's button",
+  "expected": "The format card stays until the user picks a video language and captions, or the assistant asks for them again; the outline is not generated with default English and captions",
+  "priority": "P2",
+  "spec_ref": "R-018, R-019",
+  "notes": "DRA262610P0209 (NewCreated, AIFound, UX)",
+  "needs": [],
+  "ios_lead": "TC-213"
+ },
+ {
+  "bug": "DRA262610P0210",
+  "kind": "row",
+  "after": "TC-049",
+  "section": "Make your character",
+  "precondition": "Create my character open; a reference photo of a young adult",
+  "action": "Add the photo, set Female / White / Age 75, tap Generate and compare the result with the 「Age: 75」 chip",
+  "expected": "The generated character matches the entered age; the photo is used only for likeness",
+  "priority": "P2",
+  "spec_ref": "R-042",
+  "notes": "DRA262610P0210 (NeedNewModule, AIFound)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0211",
+  "kind": "row",
+  "after": "TC-156",
+  "section": "Interruption",
+  "precondition": "Create storyboard Generate tapped; 「Working on it...」 shown",
+  "action": "Type 「Use a warmer tone」 in the input and tap the button at the right of the input",
+  "expected": "If text cannot be sent while a job runs, the input is disabled until the job ends; typing a message never turns a tap into Stop that cancels the job",
+  "priority": "P2",
+  "spec_ref": "R-138",
+  "notes": "DRA262610P0211 (NewCreated, AIFound, UX); no spec rule for the input during a job (PM ruling pending)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0213",
+  "kind": "row",
+  "after": "TC-153",
+  "section": "Interruption",
+  "precondition": "Idea sent, format card Generate tapped; outline generating",
+  "action": "Tap Stop, then look at the chat",
+  "expected": "The chat says generation was stopped and offers Try again; it does not end at the format reply with no note, retry or format card",
+  "priority": "P2",
+  "spec_ref": "R-138, R-180",
+  "notes": "DRA262610P0213 (NewCreated, AIFound, UX); TC-322 covers continuing by message (DRA262610P0214)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0214",
+  "kind": "fold",
+  "row": "TC-322",
+  "note": "Android ticket DRA262610P0214 (Assigned, AIFound): after Stop on the outline, 「Continue」 makes the agent ask what romance story to develop; the original idea is lost"
+ },
+ {
+  "bug": "DRA262610P0217",
+  "kind": "row",
+  "after": "TC-133",
+  "section": "Make your character",
+  "precondition": "Create my character result shown (front/side/back views)",
+  "action": "Tap the Download button, then check the saved file in Pictures/cyberlink/PowerDirector/Mini Drama",
+  "expected": "The file has one extension matching its format (e.g. 「character - <timestamp>.png」 registered as image/png), not 「.png.jpg」 with MIME image/jpeg",
+  "priority": "P3",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0217 (TRCreated, AIFound)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0218",
+  "kind": "fold",
+  "row": "TC-129",
+  "note": "Android ticket DRA262610P0218 (NewCreated, AIFound, UX): asks for 「…how the photo fits within the frame」 instead of 「clip」; Design spec differs: flow arrow 2811-90589 and ds-characters draw 「Drag and pinch to adjust how the clip fits within the frame」 (R-114); spec wins"
+ },
+ {
+  "bug": "DRA262610P0219",
+  "kind": "fold",
+  "row": "TC-343",
+  "note": "Android ticket DRA262610P0219 (Assigned, AIFound): Export Full Video opens an export sheet whose Estimated size shows the preview's 51.6 MB for the 90 s episode (file 146–149 MB); Design spec differs: PM 10/20 (R-249) exports with no sheet; spec wins"
+ },
+ {
+  "bug": "DRA262610P0220",
+  "kind": "row",
+  "after": "TC-321",
+  "section": "Video",
+  "precondition": "Full video finished; 「Ready for the next episode?」 shown",
+  "action": "Tap 「Create Next Episode」 and wait about 5 minutes; then check the chat and History",
+  "expected": "The next episode starts, or a failed request shows an error with Try again; the 「Working on it...」 thread never disappears silently back to episode 1 with no error and no History entry",
+  "priority": "P2",
+  "spec_ref": "R-179",
+  "notes": "DRA262610P0220 (Assigned, AIFound)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0221",
+  "kind": "row",
+  "after": "TC-361",
+  "section": "Video",
+  "precondition": "Drama A at 「Choose your video settings」; a finished drama B in History",
+  "action": "Tap Generate Video on A, at once open B from History and tap Create Next Episode; return to A; then relaunch the app and open A again",
+  "expected": "A's video generates (progress shown, credits charged), or the video settings card stays available; A never keeps only the request bubble with no progress, charge or settings card",
+  "priority": "P1",
+  "spec_ref": "R-139",
+  "notes": "DRA262610P0221 (TRCreated, AIFound)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0222",
+  "kind": "row",
+  "after": "TC-361",
+  "section": "Video",
+  "precondition": "Drama whose video settings card disappeared after switching chats (DRA262610P0221 steps)",
+  "action": "Send 「Please generate the video now.」; read the re-offered card, tap Generate Video and check the charge in Credit Details",
+  "expected": "The re-offered card has the model row (Best / Standard / Fast) and its price equals the credits charged",
+  "priority": "P1",
+  "spec_ref": "R-068, R-069",
+  "notes": "DRA262610P0222 (Assigned, AIFound)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0223",
+  "kind": "row",
+  "after": "TC-161",
+  "section": "Interruption",
+  "precondition": "Characters confirmed with ✓; 「Working on it...」 shown",
+  "action": "Press the device Home button, wait 60 s and return to PowerDirector",
+  "expected": "The task resumes or has finished; no 「You're offline」 or 「Something went wrong」 message while the phone is online",
+  "priority": "P2",
+  "spec_ref": "R-139",
+  "notes": "DRA262610P0223 (Assigned, AIFound)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0224",
+  "kind": "row",
+  "after": "TC-044",
+  "section": "Characters",
+  "precondition": "Outline with a male role (e.g. Julian)",
+  "action": "Assign a female library character to the male role and tap ✓",
+  "expected": "The app warns that the picked character's gender differs from the role's before confirming",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0224 (NewCreated, AIFound, UX); no spec basis (PM ruling pending)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0225",
+  "kind": "row",
+  "after": "TC-047",
+  "section": "Make your character",
+  "precondition": "Outline lists a character with gender and age (e.g. 「Maya Lin — Female Lead」)",
+  "action": "Tap that character's slot › 「Create my character」 and look at Gender, Ethnicity and Age",
+  "expected": "Gender (and Age when the outline states it) is pre-filled from the outline's character description",
+  "priority": "P3",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0225 (NewCreated, AIFound, UX); the spec fills the fields through 「AI Suggestion」 (R-111, R-268) and lists 「preset by age/gender」 as an open item; no prefill rule (PM ruling pending)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0226",
+  "kind": "fold",
+  "row": "TC-405",
+  "note": "Android ticket DRA262610P0226 (NewCreated, AIFound, UX): pending video shows 「Here's your drama.」 over a blank grey card with no progress or ETA (progress/ETA not in the spec)"
+ },
+ {
+  "bug": "DRA262610P0227",
+  "kind": "row",
+  "after": "TC-087",
+  "section": "Video",
+  "precondition": "Preview video and full episode both generated in one drama",
+  "action": "Compare the two result cards in the chat",
+  "expected": "Each result card shows its type and length (e.g. Preview · 0:30, Full episode · 1:30)",
+  "priority": "P3",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0227 (NewCreated, AIFound, UX); no card label in the spec (PM ruling pending)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0228",
+  "kind": "fold",
+  "row": "TC-031",
+  "note": "Android ticket DRA262610P0228 (NewCreated, AIFound, UX): asks for the content check before the format card; Design spec differs: the format card follows the first idea (R-018) and the refusal comes from the outline request (R-027); spec wins"
+ },
+ {
+  "bug": "DRA262610P0229",
+  "kind": "row",
+  "after": "TC-033",
+  "section": "Characters",
+  "precondition": "Outline shown with the character slot row",
+  "action": "Tap 「Add New」",
+  "expected": "Add New asks the user to describe the new character before regenerating; it does not post 「Add a new character」 and regenerate at once with a character the AI picks",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0229 (NewCreated, AIFound, UX); no Add New rule in the spec (PM ruling pending)",
+  "needs": [],
+  "ios_lead": "TC-194"
+ },
+ {
+  "bug": "DRA262610P0230",
+  "kind": "row",
+  "after": "TC-375",
+  "section": "Video",
+  "precondition": "Finished drama",
+  "action": "Open the video in the scene-video player and play it",
+  "expected": "The player shows a progress bar with elapsed and total time and can seek",
+  "priority": "P3",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0230 (NewCreated, AIFound, UX); Design draws only tap-to-pause (R-275) (PM ruling pending)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0231",
+  "kind": "row",
+  "after": "TC-361",
+  "section": "Video",
+  "precondition": "Drama A with a storyboard; a finished drama B in History",
+  "action": "Tap Generate Video on A; while it generates open B from History › its video › Full Edit, tap Home; wait until A finishes and open it (pull the logs)",
+  "expected": "A's video keeps generating in the background and finishes; its clips do not fail with host_detached or 「the user denied permission」",
+  "priority": "P1",
+  "spec_ref": "R-071",
+  "notes": "DRA262610P0231 (Assigned, AIFound)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0232",
+  "kind": "row",
+  "after": "TC-091",
+  "section": "Video errors",
+  "precondition": "Video with failed clips whose chat says 「Your credits have been refunded.」 (e.g. host_detached after DRA262610P0231 steps); balance noted before Generate",
+  "action": "Open Mine › Credits and Details",
+  "expected": "The credits for the failed clips are refunded: the balance is restored and Details shows a refund row for them",
+  "priority": "P1",
+  "spec_ref": "R-080",
+  "notes": "DRA262610P0232 (Assigned, AIFound)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0233",
+  "kind": "row",
+  "after": "TC-085",
+  "section": "Video",
+  "precondition": "Drama A generating its video; drama B finished earlier",
+  "action": "Open B from History › its video › Full Edit, tap Home; wait until A finishes",
+  "expected": "The 「Good news! Your \"{Drama title}\" is ready.」 toast appears only when a drama finishes and names A; opening B never shows it for B",
+  "priority": "P2",
+  "spec_ref": "R-074",
+  "notes": "DRA262610P0233 (NeedMoreInfo, AIFound, UI)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0234",
+  "kind": "row",
+  "after": "TC-094",
+  "section": "Video errors",
+  "precondition": "Video settings card shown; the server cannot be reached when the request is sent (log: 「HTTP POST Add Media failed: Could not establish connection」)",
+  "action": "Tap Generate Video and stay on the chat for 9 minutes",
+  "expected": "The chat shows an error with Try again; it never stays with no progress card, video or error",
+  "priority": "P2",
+  "spec_ref": "R-083",
+  "notes": "DRA262610P0234 (Assigned, AIFound); trigger not controllable (log shows the connection failure)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0235",
+  "kind": "row",
+  "after": "TC-084",
+  "section": "Video",
+  "precondition": "Video generation ended (finished, failed or regenerated and exported)",
+  "action": "Open History and read that drama's card",
+  "expected": "The card no longer shows 「processing..」 once generation has ended",
+  "priority": "P2",
+  "spec_ref": "R-073",
+  "notes": "DRA262610P0235 (NeedCodeReview, AIFound, UI)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0236",
+  "kind": "row",
+  "after": "TC-044",
+  "section": "Characters",
+  "precondition": "Outline with two or more roles",
+  "action": "Pick the same library look for two different roles and tap ✓",
+  "expected": "The app warns that the look is already used by another role before confirming",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0236 (NewCreated, AIFound, UX); no spec basis (PM ruling pending)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0237",
+  "kind": "row",
+  "after": "TC-022",
+  "section": "Format card",
+  "precondition": "A drama created with Japanese and 「No captions」",
+  "action": "Tap New chat, send an idea written in Japanese and look at the format card",
+  "expected": "The format card pre-selects the last-used language and captions setting",
+  "priority": "P3",
+  "spec_ref": "R-018",
+  "notes": "DRA262610P0237 (NewCreated, AIFound, UX); the spec gives no default selection (PM ruling pending)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0238",
+  "kind": "row",
+  "after": "TC-070",
+  "section": "Storyboard",
+  "precondition": "Scene image failed by moderation (e.g. a gun held to a character's forehead)",
+  "action": "Tap the failed scene › Edit, change the description to a harmless one, Done › Regenerate Image; repeat once",
+  "expected": "Regenerate with the edited description succeeds, or the card states that the scene cannot be generated; it does not keep saying only 「The service is busy - try again later」",
+  "priority": "P2",
+  "spec_ref": "R-059, R-056",
+  "notes": "DRA262610P0238 (Assigned, AIFound); PM 10/14 changed the 4xx card copy to 「Try editing the description for a different result.」 with the ⓘ terms-of-service dialog (TC-067)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0239",
+  "kind": "fold",
+  "row": "TC-343",
+  "note": "Android ticket DRA262610P0239 (NewCreated, AIFound, UX): export sheet resets to 1080p / Standard / 30 fps after every export; Design spec differs: PM 10/20 (R-249) exports with no sheet; spec wins"
+ },
+ {
+  "bug": "DRA262610P0240",
+  "kind": "row",
+  "after": "TC-321",
+  "section": "Video",
+  "precondition": "Drama created with 「No captions」 and its full video finished",
+  "action": "Tap 「Create Next Episode」, Create storyboard, Generate Video; export the new episode and play it",
+  "expected": "The next episode keeps the drama's No-captions setting (no burned-in captions), or asks for the format again",
+  "priority": "P2",
+  "spec_ref": "R-086, R-179",
+  "notes": "DRA262610P0240 (Assigned, AIFound)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0241",
+  "kind": "row",
+  "after": "TC-141",
+  "section": "Storyboard",
+  "precondition": "Storyboard with at least two failed scenes",
+  "action": "Edit one failed scene and regenerate it; while it generates, open another failed scene and regenerate it",
+  "expected": "Both failed scenes can be regenerated at the same time",
+  "priority": "P3",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0241 (NewCreated, UX); no spec rule for concurrent regeneration (PM ruling pending)",
+  "needs": [
+   "fault-injection"
+  ]
+ },
+ {
+  "bug": "DRA262610P0242",
+  "kind": "row",
+  "after": "TC-215",
+  "section": "Credits and limits",
+  "precondition": "Tier Free; finite daily allowance",
+  "action": "Look at the header, chat, History and account pages for daily usage; send 18 accepted messages and look again",
+  "expected": "The AI Mini Drama UI shows the daily limit, used or remaining count and reset time",
+  "priority": "P3",
+  "spec_ref": "R-142",
+  "notes": "DRA262610P0242 (ProposeNAB, AIAgent); Design spec differs: MX ① draws only the limit dialogs, no usage counter or reset time (R-142); spec wins",
+  "needs": [
+   "chat-count"
+  ]
+ },
+ {
+  "bug": "DRA262610P0243",
+  "kind": "fold",
+  "row": "TC-343",
+  "note": "Android ticket DRA262610P0243 (Assigned, AIAgent): 「Export Full Video」 opens an export panel instead of exporting directly"
+ },
+ {
+  "bug": "DRA262610P0244",
+  "kind": "row",
+  "after": "TC-099",
+  "section": "Captions",
+  "precondition": "Drama with 「Yes, include captions」 in each of the 7 video languages",
+  "action": "Play the Storyboard Preview and the finished video; read every caption line and page",
+  "expected": "Captions break only between words or at phrase boundaries (no split syllables, words or names), no line or page starts with punctuation (。，), and no single word sits alone on a line",
+  "priority": "P3",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0244 (NeedCodeReview, AIFound, UI); DRA262610P0261 (NeedCodeReview, AIFound, UI: compare AI Storytelling, which breaks at phrases) and DRA262610P0275 (Assigned, AIFound, UI: Chinese pages split 實習/生 and start with 「，」) folded here",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0245",
+  "kind": "fold",
+  "row": "TC-076",
+  "note": "Android ticket DRA262610P0245 (ProposeNAB, AIFound): asks for no captions in the Storyboard Preview with 「No captions」; Design spec differs: the Storyboard Preview always has captions (R-065, PM 10/8); spec wins"
+ },
+ {
+  "bug": "DRA262610P0246",
+  "kind": "row",
+  "after": "TC-086",
+  "section": "Video",
+  "precondition": "Outline with roles; a Character Library look picked for each role (e.g. a young man, an elderly man)",
+  "action": "Create the storyboard, then Generate Video (Fast, Preview); compare the video's people with the picked looks and the storyboard",
+  "expected": "The video shows the same characters the user picked and the storyboard shows, not people built from the outline text",
+  "priority": "P1",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0246 (NeedCodeReview, AIFound); PM entry copy 「same characters, same voices, every scene」",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0248",
+  "kind": "row",
+  "after": "TC-278",
+  "section": "Text",
+  "precondition": "App language English; drama with a non-English video language (e.g. Spanish, Chinese, French)",
+  "action": "Read every assistant message and status card up to the video",
+  "expected": "Assistant messages and status cards stay in the app language; only the story content uses the video language",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0248 (Assigned, AIFound, UX)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0249",
+  "kind": "row",
+  "after": "TC-278",
+  "section": "Text",
+  "precondition": "Drama with video language Spanish; characters confirmed",
+  "action": "Read the message above the 「Create storyboard」 card",
+  "expected": "The assistant summarizes the story without mentioning internal generation rules (e.g. a dialogue budget, no emotional adjectives in visuals)",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0249 (Assigned, AIFound)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0250",
+  "kind": "fold",
+  "row": "TC-307",
+  "note": "Android ticket DRA262610P0250 (Assigned, AIFound): the ready notification for a drama finished at 19:27 posted only at 19:37, right after the next Generate"
+ },
+ {
+  "bug": "DRA262610P0251",
+  "kind": "row",
+  "after": "TC-282",
+  "section": "Text",
+  "precondition": "Drama with video language French; video generated",
+  "action": "Fix scenes › select a clip › Edit and read the scene description",
+  "expected": "Dialogue is quoted in the video language's style (« » for French), not with 「」",
+  "priority": "P3",
+  "spec_ref": "R-150",
+  "notes": "DRA262610P0251 (Propose Wont Fix, AIFound, UI); R-150 names English quote marks only",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0253",
+  "kind": "fold",
+  "row": "TC-276",
+  "note": "Android ticket DRA262610P0253 (NewCreated, AIFound, MUI): 「完成您的角色設定」 sheet body stays English (「Your characters are ready」, 「Take a look, then confirm to continue.」)"
+ },
+ {
+  "bug": "DRA262610P0254",
+  "kind": "row",
+  "after": "TC-024",
+  "section": "Story outline",
+  "precondition": "Empty chat",
+  "action": "Send a script with quoted lines, a fixed scene count (e.g. 「3 scenes」) and a dialect request (e.g. Taiwanese dialogue); continue to the storyboard and open 「View more >」",
+  "expected": "Quoted lines and the stated scene count are kept, or the assistant says which request cannot be met",
+  "priority": "P2",
+  "spec_ref": "R-141",
+  "notes": "DRA262610P0254 (NewCreated, AIFound, UX)",
+  "needs": [],
+  "ios_lead": "TC-188"
+ },
+ {
+  "bug": "DRA262610P0255",
+  "kind": "row",
+  "after": "TC-318",
+  "section": "History",
+  "precondition": "Empty chat",
+  "action": "Send a script that starts with a title (e.g. 「THE UNDERSTUDY」), finish the characters, type 「keep the title THE UNDERSTUDY」, then open History",
+  "expected": "The title given in the script is kept as the drama title",
+  "priority": "P3",
+  "spec_ref": "R-177",
+  "notes": "DRA262610P0255 (NewCreated, AIFound, UX); R-093: History shows the title Iris generates, and the spec does not say a title in the idea is kept (PM ruling pending); TC-318 covers asking Iris for a new title",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0256",
+  "kind": "row",
+  "after": "TC-091",
+  "section": "Video errors",
+  "precondition": "Video with exactly one failed clip (Debug controls › Inject failure status on one scene)",
+  "action": "Read the chat message and the video card",
+  "expected": "The singular is used: 「1 scene couldn't be generated. Your credits have been refunded. Tap Edit to regenerate, or tell me what to change.」, not 「1 scenes」",
+  "priority": "P3",
+  "spec_ref": "R-080",
+  "notes": "DRA262610P0256 (NeedCodeReview, AIFound); the 「1 characters aren't set yet」 half is TC-040",
+  "needs": [
+   "video",
+   "fault-injection"
+  ]
+ },
+ {
+  "bug": "DRA262610P0257",
+  "kind": "row",
+  "after": "TC-043",
+  "section": "Characters",
+  "precondition": "Character room with an empty role; balance noted",
+  "action": "Tap ✓ › Generate; when generation fails with 「Your credits have been refunded.」 tap 「Got it」; open Mine › Credits › Details",
+  "expected": "The character's credits are returned and a refund row follows the charge in Details",
+  "priority": "P1",
+  "spec_ref": "R-036",
+  "notes": "DRA262610P0257 (NeedNewModule, AIFound); the ticket was charged 4 credits where the Design card shows ◆6",
+  "needs": [
+   "fault-injection"
+  ]
+ },
+ {
+  "bug": "DRA262610P0258",
+  "kind": "fold",
+  "row": "TC-276",
+  "note": "Android ticket DRA262610P0258 (NewCreated, AIFound, MUI): video settings and agent cards stay English (「Choose your video settings」, 「Video length」)"
+ },
+ {
+  "bug": "DRA262610P0259",
+  "kind": "fold",
+  "row": "TC-276",
+  "note": "Android ticket DRA262610P0259 (NewCreated, AIFound, MUI): the Home drama-ready banner 「Good news! Your \"<title>\" is ready.…」 stays English"
+ },
+ {
+  "bug": "DRA262610P0260",
+  "kind": "row",
+  "after": "TC-344",
+  "section": "Chat behaviour",
+  "precondition": "New drama with a long outline",
+  "action": "Tap Generate / Confirm on each step (characters, Create storyboard, Generate Video) and wait for the video to finish",
+  "expected": "The chat never jumps back to the Story Outline; the user's request stays at the top with the reply below, and the chat stays at the newest message",
+  "priority": "P2",
+  "spec_ref": "R-250, R-089",
+  "notes": "DRA262610P0260 (Assigned, AIFound)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0261",
+  "kind": "fold",
+  "row": "DRA262610P0244 (new row)",
+  "note": "Android ticket DRA262610P0261 (NeedCodeReview, AIFound, UI): English and Japanese captions split words and names across lines (Japanese line 2 starts with 。), unlike AI Storytelling"
+ },
+ {
+  "bug": "DRA262610P0262",
+  "kind": "fold",
+  "row": "TC-057",
+  "note": "Android ticket DRA262610P0262 (NeedCodeReview, AIAgent): X closes a completed character without 「Discard this character?」"
+ },
+ {
+  "bug": "DRA262610P0264",
+  "kind": "fold",
+  "row": "TC-173",
+  "note": "Android ticket DRA262610P0264 (Propose Wont Fix, AIFound, Performance): Android generation 18.6%–51.3% slower than iPhone for the same template (Fast, Full Video 90 sec); no cross-platform target in the spec, record the timings"
+ },
+ {
+  "bug": "DRA262610P0266",
+  "kind": "row",
+  "after": "TC-166",
+  "section": "Interruption",
+  "precondition": "Video settings card shown (Fast)",
+  "action": "Tap Generate Video; when the placeholder appears press the device Home button and wait 9 minutes; return and tap 「Fix scenes」; force-stop, relaunch and open the drama",
+  "expected": "A clip still generating or retrying shows as processing; the chat never says a scene failed and was refunded for a clip that later succeeds",
+  "priority": "P1",
+  "spec_ref": "R-080, R-139",
+  "notes": "DRA262610P0266 (Assigned, AIFound)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0267",
+  "kind": "fold",
+  "row": "TC-305",
+  "note": "Android ticket DRA262610P0267 (Assigned, AIFound): 「Your Fated Vows is ready」 notification shown while the chat says 「1 scene couldn't be generated」 (backgrounded 9 min, no injection)"
+ },
+ {
+  "bug": "DRA262610P0268",
+  "kind": "row",
+  "after": "TC-009",
+  "section": "Templates",
+  "precondition": "Template detail open (e.g. 「Merger Season」)",
+  "action": "Tap 「Make my version」, choose English (then French), 「Yes, include captions」, Generate; wait 3 minutes after the outline and Characters Result",
+  "expected": "The 「Create storyboard」 card appears on its own once the template's characters are ready; the chat does not wait for a typed message",
+  "priority": "P1",
+  "spec_ref": "R-037",
+  "notes": "DRA262610P0268 (Assigned, AIFound)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0273",
+  "kind": "row",
+  "after": "TC-080",
+  "section": "Video",
+  "precondition": "Balance noted in Mine",
+  "action": "Generate a Best · Preview • 30 sec video; when it is ready open Mine › Credits › Details",
+  "expected": "The Details entries for the video add up to the credits deducted from the balance (not one AI Video Generator -60 for a 120 drop)",
+  "priority": "P1",
+  "spec_ref": "R-069",
+  "notes": "DRA262610P0273 (Assigned, AIFound)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0274",
+  "kind": "fold",
+  "row": "TC-080",
+  "note": "Android ticket DRA262610P0274 (NewCreated, AIFound): Best (Seedance 2.5) and Standard (Seedance 2.0) both quote 120 / 360; the spec settles the PM question (6 / 4 / 2 credits per second, R-069)"
+ },
+ {
+  "bug": "DRA262610P0275",
+  "kind": "fold",
+  "row": "DRA262610P0244 (new row)",
+  "note": "Android ticket DRA262610P0275 (Assigned, AIFound, UI): Chinese caption pages split words (實習/生, 誤/會了) and one starts with 「，」"
+ },
+ {
+  "bug": "DRA262610P0276",
+  "kind": "fold",
+  "row": "TC-090",
+  "note": "Android ticket DRA262610P0276 (NewCreated, AIFound, UX): result-card download saves two raw 15-sec clips with internal names and no captions (one captioned drama file asked of PM)"
+ },
+ {
+  "bug": "DRA262610P0284",
+  "kind": "fold",
+  "row": "TC-277",
+  "note": "Android ticket DRA262610P0284 (Assigned, AIFound, MUI): character filter Gender and 8 of 10 Ethnicity options stay English, while Create my character shows them in Japanese"
+ },
+ {
+  "bug": "DRA262610P0285",
+  "kind": "row",
+  "after": "TC-046",
+  "section": "Characters",
+  "precondition": "Outline shown (e.g. Korean); outline text noted",
+  "action": "Pick a library look for each role, tap ✓, wait for the 「Create storyboard」 card, then scroll up to the Story Outline card",
+  "expected": "The accepted outline stays the same, or the chat says what changed and why; scene texts are not replaced silently",
+  "priority": "P2",
+  "spec_ref": "R-039",
+  "notes": "DRA262610P0285 (Assigned, AIFound)",
+  "needs": []
+ },
+ {
+  "bug": "DRA262610P0286",
+  "kind": "row",
+  "after": "TC-382",
+  "section": "Video",
+  "precondition": "Finished 90-sec drama",
+  "action": "Open the result page and compare the player with the clip strip; go back and open it again",
+  "expected": "The player and the selected clip in the strip are the same clip each time",
+  "priority": "P3",
+  "spec_ref": "R-290",
+  "notes": "DRA262610P0286 (NewCreated, AIFound, UI)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0287",
+  "kind": "fold",
+  "row": "TC-277",
+  "note": "Android ticket DRA262610P0287 (Assigned, AIFound, UI): template name 「来てよかった、君に会えた」 shows only 「来てよかった、君に」 with no ellipsis"
+ },
+ {
+  "bug": "DRA262610P0288",
+  "kind": "row",
+  "after": "TC-099",
+  "section": "Captions",
+  "precondition": "Chinese drama with 「Yes, include captions」 and a caption longer than 16 characters (Full Edit › Captions List); a Spanish drama with a long caption",
+  "action": "Export Full Video, Produce, and play the exported video at that caption",
+  "expected": "Every caption's full text is shown (e.g. the end of 「…未免太見外了。」), and each page stays long enough to read (not about 0.6 s)",
+  "priority": "P2",
+  "spec_ref": "R-086",
+  "notes": "DRA262610P0288 (Assigned, AIFound)",
+  "needs": [
+   "video"
+  ]
+ },
+ {
+  "bug": "DRA262610P0289",
+  "kind": "fold",
+  "row": "TC-277",
+  "note": "Android ticket DRA262610P0289 (NewCreated, AIFound, MUI): the two idea suggestion chips stay English under 「おまかせ」"
+ },
+ {
+  "bug": "DRA262610P0290",
+  "kind": "row",
+  "after": "TC-024",
+  "section": "Story outline",
+  "precondition": "Template chat (Make my version) with the outline and characters",
+  "action": "Choose your own picture for a character and read the character descriptions",
+  "expected": "Each character description shows the character's look (outfit, hairstyle, accessories), not only the story role and personality",
+  "priority": "P3",
+  "spec_ref": "R-021",
+  "notes": "DRA262610P0290 (NewCreated, AIFound, UX); R-021 asks only for a description per character (PM ruling pending)",
+  "needs": []
+ }
+]

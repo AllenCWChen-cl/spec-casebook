@@ -9,7 +9,8 @@
 // (same as `run-log.ts time`); Claude tokens from this project's transcripts (token-usage.ts) inside the active spans;
 // plan usage in % of a 1× Pro user's limits. Primary figure: "est. from token rate" = the row's weighted tokens (API
 // price ratios: input 1, cache write 1.25, cache read 0.1, output 5) × a rate calibrated in
-// runs/usage-calibration.json ({ basis: phase id, fiveHourPct, seat, source, weekPerFiveHour }): rate = fiveHourPct ×
+// runs/usage-calibration.json ({ basis: phase id, fiveHourPct, seat, source, weekPerFiveHour, basisWeightedTokens? }):
+// basisWeightedTokens carries the basis phase's weighted tokens when it ran on another platform (Android borrows iOS P1). rate = fiveHourPct ×
 // seat ÷ the basis phase's weighted tokens. Weekly (rough) = that × weekPerFiveHour, or, when null, × the weekly ÷
 // 5-hour ratio of the latest seat's readings. Secondary: "account total (shared)" from runs/usage.jsonl snapshots
 // (usage-log.ts): the account's increments during the active time. Each snapshot carries its account's seat size
@@ -88,6 +89,9 @@ function activity(dir: string, rows: Record<string, string>[], phase: string) {
 // Plan-usage increments from the snapshots: positive steps of percentUsed within one window; a changed resetsAt,
 // a drop, or (with no resetsAt) a reading after a 100% stop starts a new window from 0.
 // A seat change between snapshots is an account switch: no window spans it, and an increment never reaches back past it.
+// The first reading of the file, and the first after an account switch, is a baseline only: its value holds use from
+// before the run (other work on a shared account), so it adds nothing (2026-10-27: the Android run's first reading,
+// 14 % of a 6.25× seat, showed as 100 % of a Pro window).
 type Snap = { at: string; fiveHourPct: number | null; fiveHourResetsAt: string | null; weeklyPct: number | null; weeklyResetsAt: string | null; proMultiplier: number; note?: string };
 function increments(snaps: Snap[], key: 'fiveHour' | 'weekly', dur: number) {
   const out: { from: number; to: number; pct: number; mult: number; approx: boolean }[] = [];
@@ -108,7 +112,7 @@ function increments(snaps: Snap[], key: 'fiveHour' | 'weekly', dur: number) {
     }
     const from = same ? prev!.t : Math.max(r !== undefined ? r - dur : t - dur, prev?.t ?? -Infinity, switchAt);
     const inc = same ? pct - prev!.pct : pct;
-    if (inc > 0) out.push({ from, to: t, pct: inc, mult: s.proMultiplier, approx: /approx/i.test(s.note ?? '') || r === undefined });
+    if (inc > 0 && prev) out.push({ from, to: t, pct: inc, mult: s.proMultiplier, approx: /approx/i.test(s.note ?? '') || r === undefined });
     prev = { t, pct, r: r ?? (same ? prev!.r : undefined), mult: s.proMultiplier };
   }
   return out;
@@ -140,8 +144,8 @@ function buildData() {
   for (const d of readdirSync(runsDir).filter(d => statSync(join(runsDir, d)).isDirectory()).sort()) {
     const rc = join(runsDir, d, 'results.csv'); if (!existsSync(rc)) continue;
     const state = existsSync(join(runsDir, d, 'run-state.md')) ? readFileSync(join(runsDir, d, 'run-state.md'), 'utf8') : '';
-    const ph = state.match(/^# Run state — (P\d+)/m)?.[1]; if (ph) phaseRun[ph] = `runs/${d}/`;
-    const b = state.match(/PowerDirector (?:iOS )?(\d+\.\d+\.\d+ \(\d+\))/)?.[1]; if (b) build = b;
+    const ph = state.match(/^# Run state — ([A-Z]+\d+)/m)?.[1]; if (ph) phaseRun[ph] = `runs/${d}/`;
+    const b = (state.match(/PowerDirector (?:iOS )?(\d+\.\d+\.\d+ \(\d+\))/)?.[1] ?? state.match(/PowerDirector Mobile for Android (\d+\.\d+\.\d+) \(versionCode (\d+)\)/)?.slice(1).join(" (").concat(")")); if (b) build = b;
     for (const m of state.matchAll(/^### (\S+)( · next (\S+) \(([^)]*)\)| · all recorded)?\n[^\n]*\n\n([\s\S]*?)(?=\n### |\s*$)/gm))
       checkpoints.push({ time: m[1].replace('T', ' ').slice(0, 16) + ' UTC', next: m[3] ? `${m[3]} (${m[4]})` : 'all recorded', text: m[5].trim().replace(/\s+/g, ' ').slice(0, 420) + (m[5].length > 420 ? '…' : ''), run: d });
     if (!ph) continue;   // older runs (before phases) don't count toward this plan
@@ -193,8 +197,8 @@ function buildData() {
   // first value on a new account holds use from before it (10/22: 95% weekly from other work counted as a 1-second
   // increment made the ratio 1.70 instead of 0.19). The seat factor cancels: both are plan-% of one account.
   const calFile = join(runsDir, 'usage-calibration.json');
-  const cal = existsSync(calFile) ? JSON.parse(readFileSync(calFile, 'utf8')) as { basis: string; fiveHourPct: number; seat?: number; source?: string; weekPerFiveHour?: number | null } : null;
-  const basisW = cal && stat[cal.basis] ? weight(stat[cal.basis].tokens) : 0;
+  const cal = existsSync(calFile) ? JSON.parse(readFileSync(calFile, 'utf8')) as { basis: string; fiveHourPct: number; seat?: number; source?: string; weekPerFiveHour?: number | null; basisWeightedTokens?: number } : null;
+  const basisW = cal ? (stat[cal.basis] ? weight(stat[cal.basis].tokens) : cal.basisWeightedTokens ?? 0) : 0;
   const rate = cal && basisW ? cal.fiveHourPct * (cal.seat ?? 1) / basisW : null;
   let weekRatio: number | null = cal?.weekPerFiveHour ?? null, weekBasis: { seat: number; weekly: number; fiveHour: number; from: string; to: string } | null = null;
   const paired = readings.filter(s => s.fiveHourPct != null && s.weeklyPct != null);
