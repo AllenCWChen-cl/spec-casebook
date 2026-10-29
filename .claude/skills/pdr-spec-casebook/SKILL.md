@@ -192,6 +192,11 @@ and look at the tile images where layout, arrows or states matter.**
    - UI strings: take them from Design frames exactly (quote them in cases); PM frames carry rules and flows. Screen
      and sheet titles too: a PM mockup's title is sample wording (2026-10-27: 15 Android rows said 「Change Characters」
      from the PM where the Design and the app say 「Choose Character」 / 「Choose for {name}」).
+   - **A note's scope is the screen and path its heading names (PDRA, 2026-10-29, REQ-055).** 「10/12 update - Scene
+     編輯頁的「地點圖片」」 is a rule for the Scene edit page, not for the chat storyboard; 「Full Edit 重新生成後返回」 is
+     for regenerating from Full Edit, not for a new generation asked in chat. Put that screen and entry path in the
+     requirement and the row's Precondition. Iris's replies in mockups are sample AI text (rules about them — chip
+     count, order — are spec; their wording is not); notes marked 「待 RD 確認」 are recorded as RD-to-confirm.
 5. **Cross-check PM against Design** and note disagreements as Open questions; the case follows the newer or more
    specific source.
 6. **Keep what you learned** in `specs/<date>/extracted/board-notes.md` (one section per board: rules, states,
@@ -872,6 +877,18 @@ HQ61563393, Android 12, 1080 × 2520; setup in README › Android phone setup; s
    unless the user explicitly asks for one. **No `[UX]` (RD, 2026-10-21):** findings are `[AIAgent]` (Functional)
    or `[AIAgent][UI]`, owner RD, which forwards to PM when it wants a ruling; revert steps are in rule 5 of the eBug
    overlays.
+   **Spec basis check (PDRA, 2026-10-29, REQ-055; A2 had 4 invalid entries of 40).** Before an entry goes on the
+   review page, open the spec text its Expect Result rests on and confirm each point, else hold it as a PM question
+   or drop it:
+   - the rule is written for the screen, state and entry path in the Repro steps; when the row's own path could not
+     be reached, the row is Blocked (test-data) — never a finding on a nearby screen or a substitute flow;
+   - no newer dated Design or PM frame draws what the app does (check every set in `specs/`, newest first), and the
+     Expect quotes the Design string where Design and PM differ;
+   - the expectation is the spec's own words, not our paraphrase (`arrows.json` `expected`, requirement wording) and
+     not sample AI text; a team rule (wait thresholds, R-1xx user rules) or an 「待 RD 確認」 item is named as such;
+   - the Spec Link points at the board that states the rule, not one that matches the app;
+   - Repro steps say what the run did (a `setval` is not 「Paste」), with the platform condition (Android version,
+     permission state), and every attachment shows the defect.
 2. `drafts_to_bodies.py … --out upload/bodies.json --stage upload/`, then `check_ebug_format.py` (0 errors) and
    `verify_ebug_drafts.py`. Avoid `{n}`-style placeholders in body text; they are read as attachments. The format
    check fails a `>` / `›` inside a Repro step, a missing or empty `Spec Link:`, an entry with no image, a video
