@@ -1,6 +1,6 @@
 // Build the run-plan page: phases, segments and every case with its latest result, plus checkpoints and the run log.
-// Usage: node scripts/plan-page.ts <feature> <platform> <draft id> <run plan .md> [--out <file.html>]
-//        node scripts/plan-page.ts <feature> <platform> <draft id> <run plan .md> --serve [port] [--lan]
+// Usage: node scripts/plan-page.ts <product>/<feature> <platform> <draft id> <run plan .md> [--out <file.html>]
+//        node scripts/plan-page.ts <product>/<feature> <platform> <draft id> <run plan .md> --serve [port] [--lan]
 // --serve keeps a local page up (default http://127.0.0.1:4390/) that rebuilds from the files on every request and
 // polls data.json every 10 s, so each `run-log.ts set` shows up live with no extra step from the worker.
 // --lan binds 0.0.0.0 so other computers on the network can open it (no auth: anyone on the LAN can read it).
@@ -22,7 +22,7 @@
 // every phase (user, 2026-10-22: a new draft or plan starts at the top; earlier runs follow in the order they ran).
 // Reads drafts/<draft>/phases.json, the approved cases.csv, every runs/*/results.csv (latest record per case wins),
 // each run folder's run-state.md checkpoints, and the "## Log" list of the run plan. Default output:
-// library/<feature>/<platform>/runs/plan.html. Re-run it whenever the run moves on.
+// library/<product>/<feature>/<platform>/runs/plan.html. Re-run it whenever the run moves on.
 import { existsSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { createServer } from 'node:http';
 import { networkInterfaces } from 'node:os';
@@ -36,7 +36,7 @@ const si = args.indexOf('--serve'); const serve = si >= 0;
 const portArg = serve && /^\d+$/.test(args[si + 1] ?? '') ? Number(args.splice(si, 2)[1]) : (serve ? (args.splice(si, 1), 4390) : 0);
 const li = args.indexOf('--lan'); const lan = li >= 0; if (lan) args.splice(li, 1);
 const [feature, platform, draft, planPath] = args;
-if (!feature || !platform || !draft || !planPath) { console.error('Usage: node scripts/plan-page.ts <feature> <platform> <draft id> <run plan .md> [--out f.html | --serve [port] [--lan]]'); process.exit(2); }
+if (!feature || !platform || !draft || !planPath) { console.error('Usage: node scripts/plan-page.ts <product>/<feature> <platform> <draft id> <run plan .md> [--out f.html | --serve [port] [--lan]]'); process.exit(2); }
 const ROOT = join(import.meta.dirname, '..');
 const base = join(ROOT, 'library', feature, platform);
 const runsDir = join(base, 'runs');

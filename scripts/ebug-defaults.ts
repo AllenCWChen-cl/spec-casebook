@@ -1,7 +1,7 @@
 // Filing defaults for a feature's next eBug batch, read from the newest filed batch.
-// Usage: node scripts/ebug-defaults.ts <feature> <ios|android> [--json] [--exclude <batch>] [--before <batch>]
+// Usage: node scripts/ebug-defaults.ts <product>/<feature> <ios|android> [--json] [--exclude <batch>] [--before <batch>]
 //
-// Looks at every library/<feature>/<platform>/ebugs/<batch>/filed_bugcodes.json and takes the newest one
+// Looks at every library/<product>/<feature>/<platform>/ebugs/<batch>/filed_bugcodes.json and takes the newest one
 // (meta.filed_on, then the batch folder name). Prints Creator (meta.creator), TRCode (meta.tr), the source tag
 // (first [tag] of the filed Short Descriptions), method (meta.method) and the build/version the TR was filed for.
 // Review pages show these as "from <batch> — confirm" instead of blank fields (reviewer rule, 2026-10-21).
@@ -25,7 +25,7 @@ const before = opt('--before');
 const valueIdx = new Set(['--exclude', '--before'].map(n => args.indexOf(n)).filter(i => i >= 0).map(i => i + 1));
 const [feature, platform] = args.filter((a, i) => !a.startsWith('--') && !valueIdx.has(i));
 if (!feature || !platform || !(PLATFORMS as readonly string[]).includes(platform)) {
-  console.error('Usage: node scripts/ebug-defaults.ts <feature> <ios|android> [--json] [--exclude <batch>] [--before <batch>]');
+  console.error('Usage: node scripts/ebug-defaults.ts <product>/<feature> <ios|android> [--json] [--exclude <batch>] [--before <batch>]');
   process.exit(2);
 }
 

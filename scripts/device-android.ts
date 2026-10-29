@@ -59,18 +59,19 @@
 //   tapif TEXT                tap the element whose text/content-desc is exactly TEXT (else contains it) if visible
 //   expect "A|B" | expect-not "A|B"   fail unless one is visible / if any is
 //   do <file.steps> [args…] | do "cmd ;; cmd ;; …"
-//                             many commands as one call (recipes: library/<feature>/android/recipes/*.steps, "$1".."$9"
+//                             many commands as one call (recipes: library/<product>/<feature>/android/recipes/*.steps, "$1".."$9"
 //                             from args, "?" before a line = may fail); stops at the first failure with a screenshot
 //                             and the visible elements
 //   stop                      delete this run's session (the Appium server keeps running)
 // Defaults (override with env): ANDROID_HOME ~/Library/Android/sdk, JAVA_HOME Homebrew openjdk@17,
-// CASEBOOK_ANDROID_PACKAGE com.cyberlink.powerdirector.DRA140225_01, CASEBOOK_SERIAL (else the only adb device).
+// CASEBOOK_ANDROID_PACKAGE (else android.package in library/<product>/product.json), CASEBOOK_SERIAL (else the only adb device).
 // Every command stamps <run dir>/activity.log (run-log.ts `time` reads it). The script never changes a system setting
 // except `wifi`; UiAutomator2 itself relaxes the hidden-API policy while a session is open and restores it on `stop`.
 import { appendFileSync, closeSync, existsSync, mkdirSync, openSync, readdirSync, readFileSync, renameSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
 import { execFileSync, spawn } from 'node:child_process';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
+import { productValue } from './lib/feature-config.ts';
 import { BLOCKER, env, logActivity, runRecipe, sleep, stamp, webdriver } from './lib/device-common.ts';
 
 const HOME = homedir();
@@ -78,9 +79,9 @@ const ANDROID_HOME = process.env.ANDROID_HOME ?? process.env.ANDROID_SDK_ROOT ??
 const JAVA_HOME = process.env.JAVA_HOME ?? '/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home';
 const ADB = existsSync(join(ANDROID_HOME, 'platform-tools/adb')) ? join(ANDROID_HOME, 'platform-tools/adb') : 'adb';
 const BASE = process.env.APPIUM_ANDROID_URL ?? 'http://127.0.0.1:4724';
-const PKG = env('ANDROID_PACKAGE') ?? 'com.cyberlink.powerdirector.DRA140225_01';
 const [runDir, cmd, ...rest] = process.argv.slice(2);
 if (!runDir || !cmd) { console.error('Usage: node scripts/device-android.ts <run dir> <command> [args]'); process.exit(2); }
+const PKG = env('ANDROID_PACKAGE') ?? productValue(runDir, p => p.android?.package, 'ANDROID_PACKAGE');
 mkdirSync(runDir, { recursive: true });
 const SID = join(runDir, '.session'), SERIAL_FILE = join(runDir, '.serial'), UIA_FILE = join(runDir, '.uia2-started');
 const LIVE = join(runDir, 'logs', '.live'), LOGCAT_PID = join(LIVE, 'logcat.pid');

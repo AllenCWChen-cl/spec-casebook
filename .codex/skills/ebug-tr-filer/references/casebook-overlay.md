@@ -10,7 +10,7 @@ skill's body. Rule numbers are cited elsewhere (AGENTS.md: "rule 5 of the eBug o
    select Male and Indigenous, apply" is four. `check_ebug_format.py` fails a step that contains `>` or `›`.
 2. **A Spec Link on every entry**, to the spec used as the reference: the Figma URL with `node-id` — the frame or
    flow-arrow node that `requirements.md` gives for the requirement when it has one, otherwise the file URL from
-   `library/<feature>/specs/<date>/spec-set.json` (`figma`) with the board title from `extracted/boards.json` /
+   `library/<product>/<feature>/specs/<date>/spec-set.json` (`figma`) with the board title from `extracted/boards.json` /
    `board-notes.md`. Only when no URL exists: the PDF name + board ID. Entries resting on a QA rule (rule 7 text,
    rule 8 checks) cite the board that shows the screen or string they are about. The format check fails an entry
    with no `Spec Link:` line, `Spec Link: none`, or a link with neither a URL nor a PDF name.

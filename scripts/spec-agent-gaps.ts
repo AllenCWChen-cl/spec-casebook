@@ -1,10 +1,10 @@
 // Spec agent comparison (user, 2026-10-27, REQ-036 / REQ-037): a report made only when the user asks for one, never a
 // step of the analysis; check.ts does not read its output.
-// Usage: node scripts/spec-agent-gaps.ts <feature> <ios|android> --draft <id> [--no-fetch] [--snapshot]
-//        node scripts/spec-agent-gaps.ts <feature> <ios|android> --refresh   (only refresh the snapshot from the clone)
-// Reads library/<feature>/spec-agent.json ({ repo, ref, feature, id_prefix }) and the platform's spec agent cases, then
-// compares them with the newest library/<feature>/<platform>/comparisons/*.mapping.json. The cases come from the
-// committed snapshot library/<feature>/spec-agent/<platform>.json, so the casebook needs no other repo. When a clone of
+// Usage: node scripts/spec-agent-gaps.ts <product>/<feature> <ios|android> --draft <id> [--no-fetch] [--snapshot]
+//        node scripts/spec-agent-gaps.ts <product>/<feature> <ios|android> --refresh   (only refresh the snapshot from the clone)
+// Reads library/<product>/<feature>/spec-agent.json ({ repo, ref, feature, id_prefix }) and the platform's spec agent cases, then
+// compares them with the newest library/<product>/<feature>/<platform>/comparisons/*.mapping.json. The cases come from the
+// committed snapshot library/<product>/<feature>/spec-agent/<platform>.json, so the casebook needs no other repo. When a clone of
 // the spec agent repo is at <repo>, it is fetched and its <ref> read with git only (never its working tree) and the
 // snapshot is refreshed first; --snapshot uses the committed snapshot even then. Every case the mapping does not mark
 // covered, and every case it does not know yet, is a gap. Each gap gets its source from the case file (spec file, user
@@ -28,7 +28,7 @@ const [feature, platform] = process.argv.slice(2);
 assertIds(feature, platform);
 const draft = arg('draft');
 const refreshOnly = process.argv.includes('--refresh');
-if (!draft && !refreshOnly) { console.error('Usage: node scripts/spec-agent-gaps.ts <feature> <ios|android> --draft <id> [--no-fetch] [--snapshot] | --refresh'); process.exit(2); }
+if (!draft && !refreshOnly) { console.error('Usage: node scripts/spec-agent-gaps.ts <product>/<feature> <ios|android> --draft <id> [--no-fetch] [--snapshot] | --refresh'); process.exit(2); }
 const draftDir = join(draftsDir(feature, platform), draft ?? '');
 if (draft && !existsSync(draftDir)) { console.error(`No draft ${draftDir}`); process.exit(1); }
 const cfgPath = join(featureDir(feature), 'spec-agent.json');

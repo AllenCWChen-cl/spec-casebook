@@ -52,7 +52,7 @@ Filing one wrong ticket is a correction; filing twenty is a re-do.
 ## After filing
 
 Read every filed ticket back and write the batch record — `filed_bugcodes.json` (and `.md`) in the batch folder
-`library/<feature>/<platform>/ebugs/<date>/`. Together with the run's `report.md` that is the record; there is no
+`library/<product>/<feature>/<platform>/ebugs/<date>/`. Together with the run's `report.md` that is the record; there is no
 `.docx` report to stamp in this repo.
 
 ```bash

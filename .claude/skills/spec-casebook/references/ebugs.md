@@ -23,7 +23,8 @@ Part of the spec-casebook skill. The eBug skills carry the full rules (their cas
    `verify_ebug_drafts.py`. Avoid `{n}`-style placeholders in body text; they are read as attachments. The format
    check fails a `>` / `›` inside a Repro step, a missing or empty `Spec Link:`, an entry with no image, a video
    attachment without `--videos-requested`, and `[AIAgent][UX]`.
-3. Dedupe with `ecl_query.py dedupe upload/bodies.json --product "PowerDirector Mobile for <iOS|Android>"` (the
+3. Dedupe with `ecl_query.py dedupe upload/bodies.json --product "<ecl_product>"` (the tested platform's `ecl_product` in
+   `library/<product>/product.json`, e.g. "PowerDirector Mobile for iOS") (the
    tested OS only) and read each candidate with `ecl_query.py bug <code>`. **Per OS (user, 2026-10-28):** a match on
    the other OS is not a duplicate (new entry; its BugCode may go in the Note); a match on the same OS's TRs, open or
    resolved, is left off the drafts and the review page entirely and recorded only in `dedupe.txt`; a **closed**

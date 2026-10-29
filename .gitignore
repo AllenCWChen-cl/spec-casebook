@@ -23,44 +23,45 @@ __pycache__/
 *.orig
 *.rej
 
+# Library paths are library/<product>/<feature>/… (user, 2026-10-29).
 # Original spec files (large PDFs, images) and rendered page tiles stay local; the repo keeps
 # spec-set.json (names, sizes, SHA-256), the SUPERSEDED note of a replaced set, and the extracted text.
-library/*/specs/*/*
-!library/*/specs/*/spec-set.json
-!library/*/specs/*/SUPERSEDED.md
-!library/*/specs/*/extracted/
-library/*/specs/*/extracted/*
-!library/*/specs/*/extracted/*.txt
-!library/*/specs/*/extracted/*.md
-!library/*/specs/*/extracted/*.json
-!library/*/specs/*/extracted/boards/
-library/*/specs/*/extracted/boards/*/
+library/*/*/specs/*/*
+!library/*/*/specs/*/spec-set.json
+!library/*/*/specs/*/SUPERSEDED.md
+!library/*/*/specs/*/extracted/
+library/*/*/specs/*/extracted/*
+!library/*/*/specs/*/extracted/*.txt
+!library/*/*/specs/*/extracted/*.md
+!library/*/*/specs/*/extracted/*.json
+!library/*/*/specs/*/extracted/boards/
+library/*/*/specs/*/extracted/boards/*/
 # Board screenshots from Figma get_screenshot (boards newer than the PDF) are shared so no one spends Figma quota on
 # them again (user, 2026-10-29): one file per board, overwritten when re-captured; figma-check.ts --prune deletes the rest
-!library/*/specs/*/extracted/figma/
-library/*/specs/*/extracted/figma/*
-!library/*/specs/*/extracted/figma/*.png
-!library/*/specs/*/extracted/figma/shots.json
-library/*/*/drafts/*/server.log
+!library/*/*/specs/*/extracted/figma/
+library/*/*/specs/*/extracted/figma/*
+!library/*/*/specs/*/extracted/figma/*.png
+!library/*/*/specs/*/extracted/figma/shots.json
+library/*/*/*/drafts/*/server.log
 
 # Run screenshot folders stay local, including the on-screen text dumps saved next to each screenshot
-library/*/*/runs/*/screenshots/
+library/*/*/*/runs/*/screenshots/
 
 # Pulled app logs (may hold tokens) stay local
-library/*/*/runs/*/logs/
-library/*/*/runs/*/.session
-library/*/*/runs/*/.case
-library/*/*/runs/*/.window
+library/*/*/*/runs/*/logs/
+library/*/*/*/runs/*/.session
+library/*/*/*/runs/*/.case
+library/*/*/*/runs/*/.window
 # Full pulled app logs attached to eBugs (may hold tokens) stay local; excerpts in ebugs/*/logs are checked first
-library/*/*/ebugs/*/full_logs/
+library/*/*/*/ebugs/*/full_logs/
 
 # Coverage pages embed spec renders and run screenshots (local only, like the images themselves)
-library/*/*/coverage.html
+library/*/*/*/coverage.html
 
 # eBug review pages embed every screenshot as base64 (several MB each) and the run plan servers' logs are local noise;
 # both stay local (user, 2026-10-28: keep the repo lean; the pages committed earlier were untracked 2026-10-29).
-library/*/*/ebugs/*/*_eBug_review_*.html
-library/*/*/runs/plan-server*.log
+library/*/*/*/ebugs/*/*_eBug_review_*.html
+library/*/*/*/runs/plan-server*.log
 # eBug filing staging folders are regenerated copies of the drafts' bodies and attachments (drafts_to_bodies.py)
-library/*/*/ebugs/*/upload/
-library/*/*/ebugs/*/upload_filing/
+library/*/*/*/ebugs/*/upload/
+library/*/*/*/ebugs/*/upload_filing/

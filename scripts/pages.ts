@@ -2,12 +2,12 @@
 // Results (every run's cases with screenshots and reasons) and Coverage, each under its own path with a tab bar on top, so one command (and one
 // address, also over the LAN) opens them all and they link to each other (a row on Cases opens /coverage/#case=TC-012;
 // a case on Coverage opens /cases/#TC-012).
-// Usage: node scripts/pages.ts <feature> <ios|android> [--draft <id>] [--plan <RUN-PLAN.md>] [--plan-draft <id>] [--port 4386] [--lan]
+// Usage: node scripts/pages.ts <product>/<feature> <ios|android> [--draft <id>] [--plan <RUN-PLAN.md>] [--plan-draft <id>] [--port 4386] [--lan]
 //   --draft       the draft to review (and to show on the coverage page); without it, the approved table
 //   --plan        the run plan; default the newest runs/RUN-PLAN-*.md
 //   --plan-draft  the draft whose phases.json the plan uses; default the newest draft that has one
 // No restart needed after changes: a change under scripts/ restarts the four pages (a new run plan or draft is picked
-// up then too), and a change under library/<feature>/ tells open pages to reload (Cases only offers a Reload button,
+// up then too), and a change under library/<product>/<feature>/ tells open pages to reload (Cases only offers a Reload button,
 // so unsaved review edits are never lost). Only a change to this file itself needs Ctrl+C and a new start.
 // Each page runs as its own server (review.ts, plan-page.ts --serve, results-page.ts --serve, coverage-page.ts --serve) on a loopback port,
 // and this one forwards to it, adding the tab bar. --lan binds this server to 0.0.0.0 (no auth: anyone on the network

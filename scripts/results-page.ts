@@ -1,8 +1,8 @@
 // Results page (user, 2026-10-28): every run's cases with their result, the reason behind it (Actual, the blocked note),
 // the expected result and the screenshots recorded as evidence, so a run reads without opening its folder. The run plan
 // shows where a run stands; this page shows what each case found.
-// Usage: node scripts/results-page.ts <feature> <platform> [--out <file.html>]
-//        node scripts/results-page.ts <feature> <platform> --serve [port] [--lan]
+// Usage: node scripts/results-page.ts <product>/<feature> <platform> [--out <file.html>]
+//        node scripts/results-page.ts <product>/<feature> <platform> --serve [port] [--lan]
 // Reads runs/*/results.csv (the latest record per case in each run folder), each folder's run-state.md (phase, build)
 // and blocked-reasons.json, and the table's cases.csv (Precondition, Priority). --serve (default port 4492) rebuilds on
 // every request and sends the screenshots as files/<path under the repo>; scripts/pages.ts serves it as /results/.

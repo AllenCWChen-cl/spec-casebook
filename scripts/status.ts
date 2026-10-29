@@ -2,10 +2,10 @@
 // Usage: node scripts/status.ts
 import { existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { LIBRARY, PLATFORMS, draftsDir, readManifest } from './lib/library.ts';
+import { PLATFORMS, draftsDir, listFeatures, readManifest } from './lib/library.ts';
 
 const out: unknown[] = [];
-for (const feature of existsSync(LIBRARY) ? readdirSync(LIBRARY).filter(f => !f.startsWith('.')).sort() : []) {
+for (const feature of listFeatures()) {
   for (const platform of PLATFORMS) {
     const m = readManifest(feature, platform);
     const dd = draftsDir(feature, platform);

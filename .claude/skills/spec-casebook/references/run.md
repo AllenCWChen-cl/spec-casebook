@@ -6,10 +6,10 @@ step N* means the numbered steps at the end of this file; *verdict rule N* means
 verdict rules.
 
 **What the phone needs** (account, build, photos for the upload cases, settings) is listed per table in
-`library/<feature>/<platform>/fixtures.md`, because none of it can be committed. Check it before the first segment;
+`library/<product>/<feature>/<platform>/fixtures.md`, because none of it can be committed. Check it before the first segment;
 when a new row needs a new photo or account state, add it there in the same draft. What the scripts need to know about
 the feature (its log files and tags for `log-slice.ts` and `pull-logs`, its Pink menu and the switches `fresh` turns
-on) is in `library/<feature>/feature.json`; a new feature adds its own before the first run.
+on) is in `library/<product>/<feature>/feature.json`; a new feature adds its own before the first run.
 
 **Tap log and coverage proof (user, 2026-10-28, REQ-038).** Every press through `device.ts` (`tap`, `hold`, `burst`,
 `id`, `lbl`, `tapif`, `clear`, `setval`) is logged to `<run dir>/taps.jsonl` with the element hit, a small screenshot
@@ -160,7 +160,7 @@ refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows
      `pink close`, `pink tier Free|Pro|Pro+|System` (set and tier read the row back and screenshot it; `pink tier`
      is slow, ~6 min, fix pending).
    - `do <recipe.steps> [args]` or `do "cmd ;; cmd ;; …"`: several commands as one call, stopping at the first failure
-     with a screenshot. A sequence needed a second time becomes `library/<feature>/<platform>/recipes/<name>.steps`
+     with a screenshot. A sequence needed a second time becomes `library/<product>/<feature>/<platform>/recipes/<name>.steps`
      (one device.ts command per line, `$1`… for arguments, `?` before a line that may fail, a comment saying where
      it starts and ends). Use ids and labels in recipes, coordinates only where nothing else exists.
    - `tapif TEXT` for optional dialogs (「Allow」, intro pages).

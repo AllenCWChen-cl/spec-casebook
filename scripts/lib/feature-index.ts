@@ -1,4 +1,4 @@
-// Write library/<feature>/README.md: a generated index of the feature's spec sets and platform tables.
+// Write library/<product>/<feature>/README.md: a generated index of the feature's spec sets and platform tables.
 import { existsSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { PLATFORMS, draftsDir, featureDir, readManifest } from './library.ts';

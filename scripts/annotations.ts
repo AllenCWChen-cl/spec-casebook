@@ -1,7 +1,7 @@
 // Annotation trace (Reading the spec, step 9; user, 2026-10-22, REQ-032): every annotation on the spec boards is traced
 // to the requirements that state it, so no written rule is skipped (the 10/22 miss: PM 「只送 crop 後的圖」, read by OCR
 // as low-confidence and never turned into a requirement).
-// Usage: node scripts/annotations.ts <feature> <ios|android> --draft <id> [--skip <board prefix,…> --skip-reason "<why>"]
+// Usage: node scripts/annotations.ts <product>/<feature> <ios|android> --draft <id> [--skip <board prefix,…> --skip-reason "<why>"]
 // (a skipped board's blocks stay in the file, traced `older: <why>`, so every board is marked on the coverage page)
 // Reads specs/<set>/extracted/boards/*.md of the draft's spec set, keeps annotation lines (Chinese text or a • bullet,
 // dropping OCR noise of 3 characters or fewer), groups lines that sit together on the canvas into blocks, and writes
@@ -27,7 +27,7 @@ type Block = { id: string; board: string; x: number; y: number; low: boolean; te
 const [feature, platform] = process.argv.slice(2);
 assertIds(feature, platform);
 const draft = arg('draft');
-if (!draft) { console.error('Usage: node scripts/annotations.ts <feature> <ios|android> --draft <id> [--skip <prefixes> --skip-reason "<why>"]'); process.exit(2); }
+if (!draft) { console.error('Usage: node scripts/annotations.ts <product>/<feature> <ios|android> --draft <id> [--skip <prefixes> --skip-reason "<why>"]'); process.exit(2); }
 const drafts = draftsDir(feature, platform);
 const dir = join(drafts, draft);
 const outPath = join(dir, 'annotation-trace.json');

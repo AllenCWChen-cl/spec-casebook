@@ -1,0 +1,27 @@
+{
+  "feature": "pdr/ai-mini-drama",
+  "platform": "ios",
+  "title": "AI Mini Drama",
+  "draft": "20261019-094124",
+  "created_at": "2026-10-19T01:41:24.818Z",
+  "based_on_version": null,
+  "spec_folder": "specs/2026-10-19",
+  "spec_files": [
+    {
+      "name": "PDRM MX.pdf",
+      "sha256": "29d2299bee38b86d3b6c4f49997f7a2000ae69b45ecbfb9aa6794688d959a73a",
+      "bytes": 133482642
+    },
+    {
+      "name": "AI Mini Drama - PM spec.pdf",
+      "sha256": "2d5a9fbcaa4e8bce90c42a71e21b39247cb5ed2362526bc060149d89ddf655c8",
+      "bytes": 233007298
+    },
+    {
+      "name": "AI Mini Drama - Design Spec.pdf",
+      "sha256": "ef20c0310dcc5d099328304488a83e78f37a52cdbbf95837391805401371dd9f",
+      "bytes": 345110906
+    }
+  ],
+  "spec_set_sha256": "67f99556024a9e88f4c96eb82b82c1318911b1744a3c0c5d22d4f4e9bcfd5574"
+}

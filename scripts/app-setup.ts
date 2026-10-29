@@ -29,16 +29,16 @@
 // Every command prints what it saw; screenshots go to <run dir>/screenshots/setup-*.png.
 import { appendFileSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { configForRunDir } from './lib/feature-config.ts';
+import { configForRunDir, productValue } from './lib/feature-config.ts';
 
 // Settings come from CASEBOOK_<name>; the older PDR_<name> spellings still work.
 const env = (k: string, old = k) => process.env[`CASEBOOK_${k}`] ?? process.env[`PDR_${old}`];
 const BASE = process.env.APPIUM_URL ?? 'http://127.0.0.1:4723';
-const APP = env('APP_BUNDLE', 'BUNDLE') ?? 'com.cyberlink.ios.powerdirector';
-const APP_NAME = env("APP_NAME") ?? "PowerDirector";   // as TestFlight lists it
 const TF = 'com.apple.TestFlight';
 const [runDir, cmd, ...rest] = process.argv.slice(2);
 if (!runDir || !cmd) { console.error('Usage: node scripts/app-setup.ts <run dir> build|reinstall|first-launch|server|devserver|fresh|credits|claim-daily|topup|pink-switch|pull-logs'); process.exit(2); }
+const APP = env('APP_BUNDLE', 'BUNDLE') ?? productValue(runDir, p => p.ios?.bundle_id, 'APP_BUNDLE');
+const APP_NAME = env('APP_NAME') ?? productValue(runDir, p => p.ios?.testflight_name ?? p.name, 'APP_NAME');   // as TestFlight lists it
 const sid = readFileSync(join(runDir, '.session'), 'utf8').trim();
 // Every command leaves a time stamp; run-log.ts `time` uses them to tell test time from idle waits.
 try { appendFileSync(join(runDir, 'activity.log'), `${new Date().toISOString()} ${cmd} ${rest.join(' ').slice(0, 80)}\n`); } catch {}

@@ -1,0 +1,13 @@
+{
+  "saved_at": "2026-10-29T07:32:43.681Z",
+  "version": 11,
+  "decisions": [
+    {
+      "type": "delete",
+      "id": "TC-231",
+      "was_change": "removed"
+    }
+  ],
+  "summary": "Review: pdr/ai-mini-drama / ios · draft 20261029-152720\nFinal table: 425 cases · kept 425 · edited 0 · added 0 · deleted 1\n\nDELETE TC-231",
+  "notes": []
+}

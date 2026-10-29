@@ -1,6 +1,6 @@
 // Paths, columns and manifest handling for the approved-table library.
 import { createHash } from 'node:crypto';
-import { existsSync, mkdirSync, readFileSync, writeFileSync, statSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs';
 import { basename, dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readRecords, writeRecords } from './csv.ts';
@@ -24,11 +24,26 @@ export type Manifest = {
   cases: number; history: HistoryEntry[];
 };
 
+// A feature id is <product>/<feature>, both kebab-case (user, 2026-10-29): library/pdr/ai-mini-drama.
+const ID = /^[a-z0-9]+(-[a-z0-9]+)*\/[a-z0-9]+(-[a-z0-9]+)*$/;
+
+/** Every feature in the library as <product>/<feature>. */
+export function listFeatures(): string[] {
+  if (!existsSync(LIBRARY)) return [];
+  const dirs = (d: string) => readdirSync(d).filter(f => !f.startsWith('.') && statSync(join(d, f)).isDirectory());
+  return dirs(LIBRARY).flatMap(product => dirs(join(LIBRARY, product)).map(f => `${product}/${f}`)).sort();
+}
+
 export function assertIds(feature: string, platform: string) {
-  if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(feature)) throw new Error(`Feature id must be kebab-case, for example ai-mini-drama (got "${feature}").`);
+  if (!ID.test(feature ?? '')) {
+    const near = listFeatures().filter(f => f.endsWith(`/${feature}`));
+    throw new Error(`Feature id must be <product>/<feature>, for example pdr/ai-mini-drama (got "${feature}").${near.length ? ` Did you mean ${near.join(' or ')}?` : ''}`);
+  }
   if (!PLATFORMS.includes(platform)) throw new Error(`Platform must be one of ${PLATFORMS.join(', ')} (got "${platform}").`);
 }
 
+export const productOf = (feature: string) => feature.split('/')[0];
+export const productDir = (feature: string) => join(LIBRARY, productOf(feature));
 export const featureDir = (feature: string) => join(LIBRARY, feature);
 export const tableDir = (feature: string, platform: string) => join(LIBRARY, feature, platform);
 export const draftsDir = (feature: string, platform: string) => join(tableDir(feature, platform), 'drafts');

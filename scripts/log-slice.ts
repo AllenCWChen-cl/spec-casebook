@@ -1,7 +1,7 @@
 // Cut one log pull into per-case excerpts, using each case's time window from results.csv.
 // Usage: node scripts/log-slice.ts <run dir> <pull dir> [ID ...]
 //   <pull dir>: a folder written by `device.ts logs` / `app-setup.ts pull-logs` (holds the app's *.txt log files).
-// Which log files and tags count comes from library/<feature>/feature.json (lib/feature-config.ts).
+// Which log files and tags count comes from library/<product>/<feature>/feature.json (lib/feature-config.ts).
 // A case's window runs from the previous recorded case's 「Recorded At」 to its own (the first case starts 30 min
 // earlier). Log times are the phone's local time; this assumes the Mac and the phone share a time zone.
 // Writes <pull dir>/by-case/<ID>.txt (failures, toasts, credit authorisations and refunds, stage timings) and prints

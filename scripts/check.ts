@@ -1,9 +1,9 @@
 // Validate a draft (or the approved table) before review.
-// Usage: node scripts/check.ts <feature> <ios|android> [--draft <id>]
+// Usage: node scripts/check.ts <product>/<feature> <ios|android> [--draft <id>]
 // Besides the table itself it checks the analysis coverage (skill: "Coverage passes", "Standing inputs"):
 // - every Design flow arrow in specs/<set>/extracted/arrows.json has a requirement in requirements.md;
 // - a requirement is covered by a row's Spec Ref, or by "Walked by: TC-…" naming an active row;
-// - every open "table" entry of library/<feature>/requests.md for this platform is cited in requirements.md;
+// - every open "table" entry of library/<product>/<feature>/requests.md for this platform is cited in requirements.md;
 // - the "Job states", "Exit × stage" and "Error classes" grids in requirements.md have no empty cell and name only
 //   existing, active rows (the last two from 2026-10-22, REQ-030);
 // - every dated frame in specs/<set>/extracted/figma-frames.json says where it was read (REQ-030);

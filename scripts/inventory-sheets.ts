@@ -1,6 +1,6 @@
 // Review sheets for the Figma inventory (REQ-038 / REQ-040): every screen of the Design PDF cropped with its control
 // boxes drawn, so a reviewer can find tappable elements the inventory missed and boxes on things that are not tappable.
-// Usage: node scripts/inventory-sheets.ts <feature> <spec-set folder> [--board "<name>,…"] [--scale 1.5] [--band 25] [--out <dir>]
+// Usage: node scripts/inventory-sheets.ts <product>/<feature> <spec-set folder> [--board "<name>,…"] [--scale 1.5] [--band 25] [--out <dir>]
 // --band: megapixels per render (lower it when a large board fails with "malloc … failed")
 // --tiles: cut from the OCR tiles (boards/<id>/tiles) instead of replaying the PDF, where a PDF has them (PM, MX)
 // --tag <name>: the sheets file of a --board run is sheets-<name>.json
@@ -17,7 +17,7 @@ import * as mupdf from 'mupdf';
 import { arg, assertIds, featureDir, writeJson } from './lib/library.ts';
 
 const [feature, folder] = process.argv.slice(2);
-if (!feature || !folder) { console.error('Usage: node scripts/inventory-sheets.ts <feature> <spec-set folder> [--board <names>] [--scale 1.5] [--out <dir>]'); process.exit(2); }
+if (!feature || !folder) { console.error('Usage: node scripts/inventory-sheets.ts <product>/<feature> <spec-set folder> [--board <names>] [--scale 1.5] [--out <dir>]'); process.exit(2); }
 assertIds(feature, 'ios');
 const specDir = join(featureDir(feature), 'specs', folder), ex = join(specDir, 'extracted');
 const inv = JSON.parse(readFileSync(join(ex, 'inventory.json'), 'utf8'));

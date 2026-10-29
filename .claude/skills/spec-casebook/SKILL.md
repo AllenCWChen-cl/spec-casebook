@@ -6,10 +6,11 @@ description: Turn a CyberLink product feature spec (PowerDirector, PhotoDirector
 # Spec casebook
 
 Produces one reviewed test-case table per **feature × platform** (`ios`, `android`) from the feature's spec files.
-Everything for a feature lives in `library/<feature>/`:
+Everything for a feature lives in `library/<product>/<feature>/`; `library/<product>/product.json` holds the
+product's app ids and eBug product names:
 
 ```
-library/<feature>/
+library/<product>/<feature>/
   README.md            generated index (spec sets, platform tables, versions)
   specs/<date>/        one folder per spec set received: original files (git-ignored), spec-set.json,
                        extracted/ (text and notes pulled from the spec; renders in extracted/regions/ are local)
@@ -19,7 +20,7 @@ library/<feature>/
 ```
 
 Spec files are copied in by the scripts (`add-spec.ts`, `new-draft.ts`); never store them anywhere else. Put any
-other per-feature material the user asks to keep (exports, notes) under `library/<feature>/`, never at the repo root.
+other per-feature material the user asks to keep (exports, notes) under `library/<product>/<feature>/`, never at the repo root.
 
 All commands run from the repo root. Scripts are TypeScript run directly by Node ≥ 22.18
 (`node scripts/<name>.ts`); run `npm install` once if `node_modules/` is missing.
@@ -32,7 +33,7 @@ a normal draft (new rows, `Change` = `new`, the finding named in `Notes`) and se
 other change. Never push anything the other way. Requests the user made elsewhere (for example to the spec agent)
 reach the casebook only as entries in the feature's `requests.md`; the one-time import of 2026-10-21 is recorded
 there. Everything a table, a run or a filing needs is in this repo. The spec agent comparison (`references/analysis.md`) reads a
-snapshot of the spec agent's cases committed here (`library/<feature>/spec-agent/<platform>.json`); a clone of the
+snapshot of the spec agent's cases committed here (`library/<product>/<feature>/spec-agent/<platform>.json`); a clone of the
 spec agent repo, when one is on the machine, only refreshes that snapshot (git only, never its working tree).
 
 ## What this repo is for (user, 2026-10-27, REQ-036)
@@ -74,7 +75,8 @@ that showed it). No comparison runs during an analysis or before a proposal.
    (`references/run.md`, "Keep going without asking"). Check the phone and `fixtures.md` first; a missing phone or fixture
    stops for the user.
 
-- Feature ID: kebab-case product feature name, e.g. `ai-mini-drama`. Reuse an existing ID from
+- Feature ID: `<product>/<feature>`, both kebab-case, e.g. `pdr/ai-mini-drama` (product ids: the folders under
+  `library/`; a new product also needs `library/<product>/product.json`, README › Adding a product). Reuse an existing ID from
   `node scripts/status.ts` when the feature is already in the library.
 - Platform: `ios` or `android`. Each platform has its own table, reviewed and approved separately. If the user
   wants both, run the whole workflow once per platform (the second draft may start from the first platform's
@@ -100,7 +102,7 @@ node scripts/fingerprint.ts <feature> <platform> <spec files...>
 ### 2. New table
 
 1. `node scripts/new-draft.ts <feature> <platform> --title "<Feature name>" <spec files...>` → copies the spec set to
-   `library/<feature>/specs/<date>/` (or reuses an identical set) and prints the draft folder.
+   `library/<product>/<feature>/specs/<date>/` (or reuses an identical set) and prints the draft folder.
 2. Read every spec file completely, following `references/reading-the-spec.md`, then run the **Coverage passes** and
    apply the **Standing inputs** (`references/analysis.md`). Write `requirements.md` in the draft folder (`references/formats.md`), trace every
    annotation against it (`reading-the-spec.md` step 9).
@@ -110,7 +112,7 @@ node scripts/fingerprint.ts <feature> <platform> <spec files...>
 5. Step 4 (review).
 
 When a draft's rows are built by a script (many rule-derived rows), keep the script in the draft folder in
-TypeScript (`build-draft.ts`, as in `ai-mini-drama/ios/drafts/20261021-150855/`) so the draft can be rebuilt.
+TypeScript (`build-draft.ts`, as in `pdr/ai-mini-drama/ios/drafts/20261021-150855/`) so the draft can be rebuilt.
 
 ### 3. Changed spec → update plan
 
@@ -121,7 +123,7 @@ TypeScript (`build-draft.ts`, as in `ai-mini-drama/ios/drafts/20261021-150855/`)
    unchanged blocks carry over, so only new or changed blocks need a decision). **Keep the ID of every requirement that still exists** (same meaning, even if reworded); give
    new requirements new IDs after the highest existing one; never reuse a removed ID. A new draft on the same spec
    set (e.g. after new requests or a new build) follows this step too: `new-draft.ts` reuses the spec folder.
-3. Compare with the approved `library/<feature>/<platform>/requirements.md` and write `update-plan.md` in the
+3. Compare with the approved `library/<product>/<feature>/<platform>/requirements.md` and write `update-plan.md` in the
    draft folder (`references/formats.md`).
 4. Run the **Value check**, then write `draft.csv`: every approved row, marked `unchanged`, `modified` (row text
    updated to the new spec) or `removed` (kept in the draft so the reviewer can confirm the removal), plus `new` rows. Every non-`unchanged`
@@ -163,7 +165,7 @@ report them. If the user pastes copied decisions instead of saving, apply them t
 result with the same columns, and re-open the review (or save on their explicit request by editing `cases.csv`
 and re-running `node scripts/export.ts`). Leave the review server running unless the user asks you to stop it.
 
-**New-case notes (user, 2026-10-28).** Save appends the notes to `library/<feature>/<platform>/new-case-notes.json`
+**New-case notes (user, 2026-10-28).** Save appends the notes to `library/<product>/<feature>/<platform>/new-case-notes.json`
 (`status: "open"`, the version saved with them); Copy decisions ends with a `NEW CASE NOTES` block. Whenever either
 arrives, go over every open note before anything else: split it into the cases it describes, read each against the
 spec and `requirements.md` as an analysis would (which requirement it observes, or a new one when the spec states it;
@@ -178,7 +180,7 @@ answer) in `new-case-notes.json`, and tell the user which rows each note became.
 
 ### 5. Later questions about a feature
 
-Answer from `library/<feature>/<platform>/cases.csv` (and `requirements.md`) directly; for large tables read the
+Answer from `library/<product>/<feature>/<platform>/cases.csv` (and `requirements.md`) directly; for large tables read the
 CSV rather than asking the user to open the page. Never edit an approved `cases.csv` without the user's request.
 
 ## References — read the one the task needs
@@ -199,8 +201,8 @@ A segment subagent reads this file and `run.md` (plus `run-android.md` on Androi
 
 This repo carries its own copies of `ebug-draft-generator` and `ebug-tr-filer` (each starts with a casebook
 overlay). When the user runs the approved table on a build and reports or asks to file failures, use them with
-`references/ebugs.md`. Keep run evidence in `library/<feature>/<platform>/runs/<date>/` and filing material in
-`library/<feature>/<platform>/ebugs/<date>/`. A failure that shows the table itself is wrong (spec changed, case
+`references/ebugs.md`. Keep run evidence in `library/<product>/<feature>/<platform>/runs/<date>/` and filing material in
+`library/<product>/<feature>/<platform>/ebugs/<date>/`. A failure that shows the table itself is wrong (spec changed, case
 mis-written) is a table change: open a draft and send it through review instead of filing it.
 
 ## Checks before handing over

@@ -11,7 +11,7 @@ adb serial HQ61563393, Android 12, 1080 × 2520; setup in README › Android pho
   are **pixels** (the screenshot frame), not points. `els` prints `class | resource-id | text | content-desc | x,y,w,h |
   flags`; `id` takes a resource-id (short or `<pkg>:id/…`), `lbl` / `tapif` / `waitfor` match text or content-desc.
   PowerDirector's accessibility ids are content-descs starting `[AID]` (e.g. `[AID]IAP_Back`). Recipes go in
-  `library/<feature>/android/recipes/`.
+  `library/<product>/<feature>/android/recipes/`.
 - **iOS rule → Android command.** Segment start: `restart` (fresh UiAutomator2 server, PowerDirector in front). Keep
   the phone awake: the user turns on Developer options › Stay awake (or the longest Screen timeout) and uses no PIN
   lock. Rows in a list: `scrollto` (it also prints a row's switch state, `| row Switch on at X,Y`). Pages opened as

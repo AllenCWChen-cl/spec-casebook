@@ -1,13 +1,13 @@
 // Serve the review page for a draft (or for the approved table) and save the reviewed result.
-// Usage: node scripts/review.ts <feature> <ios|android> [--draft <id>] [--port 4387] [--lan]
+// Usage: node scripts/review.ts <product>/<feature> <ios|android> [--draft <id>] [--port 4387] [--lan]
 // Without --draft the approved table itself is opened for editing; saving creates a new version.
 // --lan binds 0.0.0.0 so other computers on the network can open the page (no auth); Save is only accepted from this
 // computer, others can read, edit in their browser and Copy. Served through scripts/pages.ts, each row links to the
 // coverage page, which shows where in the spec the case comes from.
-// Save writes library/<feature>/<platform>/cases.csv (the approved table), archives the previous
+// Save writes library/<product>/<feature>/<platform>/cases.csv (the approved table), archives the previous
 // version under history/, updates manifest.json, and regenerates cases.xlsx and cases.html.
 // New-case notes (+ Add case opens a free-text box, user 2026-10-28) are not rows: Save appends them to
-// library/<feature>/<platform>/new-case-notes.json with status "open", and the agent turns them into rows in the next
+// library/<product>/<feature>/<platform>/new-case-notes.json with status "open", and the agent turns them into rows in the next
 // draft (skill: "New-case notes").
 import { copyFileSync, existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { createServer } from 'node:http';

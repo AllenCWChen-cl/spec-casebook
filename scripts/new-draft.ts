@@ -1,7 +1,7 @@
 // Start a draft for a feature and platform from a set of spec files.
-// Usage: node scripts/new-draft.ts <feature> <ios|android> --title "AI Mini Drama" <spec file> [...]
-// Creates library/<feature>/<platform>/drafts/<stamp>/ with spec.json, and copies the spec files into the
-// feature's spec library (library/<feature>/specs/<date>/) so later updates can be compared with the originals.
+// Usage: node scripts/new-draft.ts <product>/<feature> <ios|android> --title "AI Mini Drama" <spec file> [...]
+// Creates library/<product>/<feature>/<platform>/drafts/<stamp>/ with spec.json, and copies the spec files into the
+// feature's spec library (library/<product>/<feature>/specs/<date>/) so later updates can be compared with the originals.
 import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { arg, assertIds, draftsDir, readManifest, stamp, writeJson } from './lib/library.ts';
@@ -13,7 +13,7 @@ const title = arg('title', process.argv) ?? '';
 const rest = argv.filter((a, i) => a !== '--title' && argv[i - 1] !== '--title');
 const [feature, platform, ...paths] = rest;
 if (!feature || !platform || !paths.length) {
-  console.error('Usage: node scripts/new-draft.ts <feature> <ios|android> --title "<Feature name>" <spec file> [...]');
+  console.error('Usage: node scripts/new-draft.ts <product>/<feature> <ios|android> --title "<Feature name>" <spec file> [...]');
   process.exit(2);
 }
 assertIds(feature, platform);

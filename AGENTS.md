@@ -7,13 +7,13 @@ table; their casebook overlay (`ebug-tr-filer/references/casebook-overlay.md`) c
 `.claude/skills/`, then run `node scripts/sync-skills.ts` to copy them to `.codex/skills/` (`check.ts` warns when the
 two differ).
 
-- The approved table for a feature is `library/<feature>/<ios|android>/cases.csv`. Treat it as the correct answer
+- The approved table for a feature is `library/<product>/<feature>/<ios|android>/cases.csv`. Treat it as the correct answer
   for that feature; change it only through the review page's Save or an explicit user request.
 - Keep this repo independent from the exploration-test folder, the spec agent repo and other QA tools.
 - Table rows are written in English.
 - Scripts are TypeScript run directly with Node ≥ 22.18 (types are stripped, not checked). Keep new scripts in
   TypeScript and run `npm run typecheck` after changing any script.
-- Each feature lives in `library/<feature>/` (see its generated `README.md`): `specs/<date>/` holds every spec set
+- Each feature lives in `library/<product>/<feature>/` (see its generated `README.md`): `specs/<date>/` holds every spec set
   received (original files git-ignored; `spec-set.json` and `extracted/` text kept), and `ios/` / `android/` hold
   the platform tables. Never put spec files anywhere else.
 - The review server (`scripts/review.ts`) and the page server (`scripts/pages.ts`: review, plan and coverage on one
@@ -50,7 +50,7 @@ lines; put the full rule in the skill or reference file that applies it and poin
   found with injection on with every fault switch Off (or the correct one), and name the switch in the Repro steps
   (RD rejected DRI261896P0043 for using the wrong switch).
 - **Request ledger (2026-10-21).** Every request about a feature's tables or runs (from anyone) goes into
-  `library/<feature>/requests.md` the same session with the next REQ ID (`analysis.md` › Standing inputs).
+  `library/<product>/<feature>/requests.md` the same session with the next REQ ID (`analysis.md` › Standing inputs).
 - **Design vs PM (2026-10-21/22, REQ-029).** PM-only features become rows now (「PM-only: no Design frame yet」) and are
   updated when the Design draws them; where the two disagree the newer wins, a Design frame older than the newest PM
   file loses to it, and when dates can't tell, check the device and decide with the user (`analysis.md` pass 7).
@@ -73,7 +73,7 @@ lines; put the full rule in the skill or reference file that applies it and poin
   README Setup 5. Quota is small: bulk reads per board group, changes found by fingerprint (`figma-check.ts`), every
   read committed (`reading-the-spec.md` step 10).
 - **Phone fixtures (2026-10-27).** What a run needs on the phone or account is in
-  `library/<feature>/<platform>/fixtures.md`.
+  `library/<product>/<feature>/<platform>/fixtures.md`.
 - **Live pages (user, 2026-10-28).** `scripts/pages.ts` serves Cases, Progress, Results and Coverage with one shared
   tab bar holding the only language switch. `+ Add case` takes free text; the agent turns open notes into rows
   (`SKILL.md` step 4, New-case notes).

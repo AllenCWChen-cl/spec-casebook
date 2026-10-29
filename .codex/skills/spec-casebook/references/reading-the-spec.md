@@ -9,7 +9,7 @@ mangles both. The reliable source is the rendered page: **render each board, OCR
 and look at the tile images where layout, arrows or states matter.**
 
 1. **Copy the set in.** `new-draft.ts` (or `node scripts/add-spec.ts <feature> <files...>`) copies the files to
-   `library/<feature>/specs/<date>/` with `spec-set.json`. Work only from that copy.
+   `library/<product>/<feature>/specs/<date>/` with `spec-set.json`. Work only from that copy.
 2. **Overview.** `node scripts/render-region.ts "<pdf>" specs/<date>/extracted/regions/<name>-overview.png --max 2400`
    renders the whole page small (about a minute for a 300 MB file). Look at it and write
    `specs/<date>/extracted/boards.json`: for each PDF, a list of boards `{ "id", "title", "region": [x, y, w, h] }`

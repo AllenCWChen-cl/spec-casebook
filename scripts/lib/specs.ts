@@ -1,5 +1,5 @@
 // Spec sets: every set of spec files received for a feature is copied into its own dated folder,
-//   library/<feature>/specs/<YYYY-MM-DD>[-n]/
+//   library/<product>/<feature>/specs/<YYYY-MM-DD>[-n]/
 // with spec-set.json recording names, sizes and SHA-256. The original files are git-ignored (they are large);
 // spec-set.json and the extracted text are tracked. Receiving the same set again reuses its folder.
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync } from 'node:fs';

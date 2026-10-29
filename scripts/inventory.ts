@@ -1,5 +1,5 @@
 // Merge the Figma inventory groups of a spec set into one inventory (REQ-038): screens, tappable controls, flow arrows.
-// Usage: node scripts/inventory.ts <feature> <spec-set folder> [--sync-arrows] [--file <figma file key>,…]
+// Usage: node scripts/inventory.ts <product>/<feature> <spec-set folder> [--sync-arrows] [--file <figma file key>,…]
 // Reads specs/<set>/extracted/figma-inventory-<group>.json (written by the agent from scripts/figma/inventory.js, one
 // use_figma call per board group) and writes specs/<set>/extracted/inventory.json:
 //   files    per Figma file: key, page, section box, and the Design PDF offset (pdf point = figma point + offset)
@@ -23,7 +23,7 @@ import { arg, assertIds, featureDir, writeJson, writeJsonRows } from './lib/libr
 import { normLabel } from './lib/coverage.ts';
 
 const [feature, folder] = process.argv.slice(2);
-if (!feature || !folder) { console.error('Usage: node scripts/inventory.ts <feature> <spec-set folder> [--sync-arrows]'); process.exit(2); }
+if (!feature || !folder) { console.error('Usage: node scripts/inventory.ts <product>/<feature> <spec-set folder> [--sync-arrows]'); process.exit(2); }
 assertIds(feature, 'ios');
 const ex = join(featureDir(feature), 'specs', folder, 'extracted');
 const only = arg('file')?.split(',');

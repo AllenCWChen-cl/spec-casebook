@@ -110,7 +110,7 @@ and return, waits), which apply to every job.
 
 Read these on every new or updated draft, even when the spec set has not changed.
 
-1. **Request ledger** `library/<feature>/requests.md`: every request from the user, a colleague, a reviewer or RD
+1. **Request ledger** `library/<product>/<feature>/requests.md`: every request from the user, a colleague, a reviewer or RD
    (ID, date, from, request, kind `table` / `run` / `analysis`, platform `ios` / `android` / `both`, status). When
    the user asks for coverage, a check or a run rule for a feature, add an entry there in the same session (dated,
    next ID). Re-apply every open `table` entry: its requirements cite the entry (`[Req: REQ-…]`) and the
@@ -131,10 +131,10 @@ Read these on every new or updated draft, even when the spec set has not changed
 A report for the manager, never a step of the analysis and never a source of rows. Run it only when the user asks
 for the comparison, on an approved table or a draft.
 
-1. `node scripts/spec-agent-gaps.ts <feature> <platform> --draft <id>` (settings in `library/<feature>/spec-agent.json`)
+1. `node scripts/spec-agent-gaps.ts <feature> <platform> --draft <id>` (settings in `library/<product>/<feature>/spec-agent.json`)
    lists the spec agent cases the newest `comparisons/<date>_casebook-vs-spec-agent.mapping.json` does not mark
    covered, with each case's source (`spec` = a PM, Design, Figma or MX file; `request`; `build` = an RD note;
-   `casebook`; `other`). It reads the committed snapshot `library/<feature>/spec-agent/<platform>.json`; when a clone
+   `casebook`; `other`). It reads the committed snapshot `library/<product>/<feature>/spec-agent/<platform>.json`; when a clone
    of the spec agent repo is at the configured path (`~/Desktop/Spec Agent`), it first fetches it, reads
    `origin/main` with git only (never its working tree) and refreshes the snapshot (`--snapshot` skips the clone,
    `--refresh` only refreshes the snapshot).

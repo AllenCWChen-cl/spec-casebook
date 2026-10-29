@@ -1,5 +1,5 @@
 // Regenerate the Excel and HTML views of an approved table from its cases.csv.
-// Usage: node scripts/export.ts <feature> <ios|android>
+// Usage: node scripts/export.ts <product>/<feature> <ios|android>
 import { assertIds } from './lib/library.ts';
 import { exportTable } from './lib/exporter.ts';
 

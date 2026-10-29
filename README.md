@@ -80,14 +80,14 @@ flowchart LR
 
 | Term | Meaning |
 | --- | --- |
-| **Feature / platform** | A feature ID in kebab-case (`ai-mini-drama`) and a platform (`ios`, `android`). Each pair has its own table, reviewed and approved separately. |
-| **Spec set** | The group of spec files received together, stored as `library/<feature>/specs/<date>/` with names, sizes and SHA-256 in `spec-set.json`. The same files again reuse the folder. |
+| **Product / feature / platform** | A feature ID is `<product>/<feature>`, both kebab-case (`pdr/ai-mini-drama`: PowerDirector's AI Mini Drama), plus a platform (`ios`, `android`). Each feature × platform has its own table, reviewed and approved separately. Every script takes the full ID. |
+| **Spec set** | The group of spec files received together, stored as `library/<product>/<feature>/specs/<date>/` with names, sizes and SHA-256 in `spec-set.json`. The same files again reuse the folder. |
 | **Board** | One titled frame group on a Figma-export page (Main flow, Error Handling, each dated update board). Boards are listed in `boards.json` and read one at a time. |
 | **Requirement** | One testable statement from the spec, `R-001`, with its source tag (`[PM:<board>]`, `[DS:<board>]`, `[MX:<board>]`, a flow-arrow node, a ledger entry or a build note). |
 | **Case (row)** | `TC-001`: Section, Precondition, Action, Expected Result, Priority, Spec Ref, Notes. IDs are never reused or renumbered. |
 | **Approved table** | `cases.csv`, the feature's correct answer. Changed only through the review page's Save or an explicit request. Each save is a new version. |
 | **Draft** | A proposed change: `draft.csv` with a `Change` column (`new`, `modified`, `removed`, `unchanged`), `requirements.md`, `update-plan.md` and the script that built it. |
-| **Request ledger** | `library/<feature>/requests.md`: every request from you, a colleague, a reviewer or RD, numbered `REQ-001`… and re-applied on every draft. |
+| **Request ledger** | `library/<product>/<feature>/requests.md`: every request from you, a colleague, a reviewer or RD, numbered `REQ-001`… and re-applied on every draft. |
 | **Control group** | A tappable element of the Design, counted once: the same button on many screens is one group, and a choice list (chips, cards) is one group that any one choice covers. `control-trace.json` names the rows that press each group, or why it is excluded. |
 | **Job-state grid** | A table in `requirements.md` listing, for every generation job, which rows check its start, success, failure, retry, Stop, leave-and-return, wait and done notice. |
 | **Phase / segment** | A run is split into phases (P1 core, P23 regression and flows, P4 templates, …) and each phase into segments of 10–40 cases, one clean agent context per segment. |
@@ -221,7 +221,7 @@ One-time setup on the Mac:
    the Developer App certificate › **Trust** on the phone, then start again.
 
 Then set up what the phone itself needs for the table you run: the build, the shared QA account and the photos the
-upload cases pick, listed in `library/<feature>/<platform>/fixtures.md` (none of it can be committed).
+upload cases pick, listed in `library/<product>/<feature>/<platform>/fixtures.md` (none of it can be committed).
 
 After that, every segment begins with `device.ts <run dir> restart`. Never uninstall WDA from the phone: the phone
 then forgets its trust in the certificate (step 5 again).
@@ -447,7 +447,7 @@ owner, TR, account). After filing, every ticket is read back and recorded in `fi
 One command serves all four pages on one address, with tabs to switch between them:
 
 ```bash
-node scripts/pages.ts ai-mini-drama ios --lan
+node scripts/pages.ts pdr/ai-mini-drama ios --lan
 ```
 
 It opens `http://127.0.0.1:4386/` with four tabs, **Cases** (the review page, `/cases/`), **Progress** (the run plan,
@@ -482,16 +482,16 @@ connections for `node`.
 
 | Page | Command | Address |
 | --- | --- | --- |
-| All four, with tabs | `node scripts/pages.ts ai-mini-drama ios [--draft <id>] [--lan]` | `http://127.0.0.1:4386/` |
-| Review a draft or the approved table | `node scripts/review.ts ai-mini-drama ios [--draft <id>] [--lan]` | `http://127.0.0.1:4387/` |
-| Run plan (phases, cases, time, tokens) | `node scripts/plan-page.ts ai-mini-drama ios <draft> <run plan .md> --serve [port] [--lan]` | `http://127.0.0.1:4390/` |
-| Results (every run's cases, reasons and screenshots) | `node scripts/results-page.ts ai-mini-drama ios --serve [port] [--lan]` | `http://127.0.0.1:4492/` |
-| Coverage (controls, arrows, tap proof; English / 繁體中文) | `node scripts/coverage-page.ts ai-mini-drama ios [--draft <id>] --serve [port] [--lan]` | `http://127.0.0.1:4391/` |
+| All four, with tabs | `node scripts/pages.ts pdr/ai-mini-drama ios [--draft <id>] [--lan]` | `http://127.0.0.1:4386/` |
+| Review a draft or the approved table | `node scripts/review.ts pdr/ai-mini-drama ios [--draft <id>] [--lan]` | `http://127.0.0.1:4387/` |
+| Run plan (phases, cases, time, tokens) | `node scripts/plan-page.ts pdr/ai-mini-drama ios <draft> <run plan .md> --serve [port] [--lan]` | `http://127.0.0.1:4390/` |
+| Results (every run's cases, reasons and screenshots) | `node scripts/results-page.ts pdr/ai-mini-drama ios --serve [port] [--lan]` | `http://127.0.0.1:4492/` |
+| Coverage (controls, arrows, tap proof; English / 繁體中文) | `node scripts/coverage-page.ts pdr/ai-mini-drama ios [--draft <id>] --serve [port] [--lan]` | `http://127.0.0.1:4391/` |
 
 Each takes the next free port when its default is busy. Stop a server with Ctrl+C in its terminal. A review server
 should not be left running for a draft that is already saved: saving from it again overwrites that version.
 
-Without `--serve`, `coverage-page.ts` writes `library/<feature>/<platform>/coverage.html`, a single file with the
+Without `--serve`, `coverage-page.ts` writes `library/<product>/<feature>/<platform>/coverage.html`, a single file with the
 board images embedded that opens anywhere (local only, not committed); its case IDs link to `cases.html` beside it,
 and `cases.html` links back. `--render` draws the board images from the Design PDF, and the PM and MX spec regions
 from their PDFs, first (a few minutes per board); `--runs <folders>` limits it to one run, to see whether that run pressed
@@ -511,12 +511,34 @@ everything.
 │   └── lib/                  # Shared helpers (CSV, library paths, spec sets, export)
 ├── templates/                # Review page template
 └── library/
-    └── <feature>/            # One folder per feature (see below)
+    └── <product>/            # One folder per product (pdr = PowerDirector Mobile)
+        ├── product.json      # App ids per platform, TestFlight name, eBug (ECL) product names
+        └── <feature>/        # One folder per feature (see below)
 ```
+
+### Adding a product
+
+Make `library/<product>/` with a `product.json` (copy `library/pdr/product.json` and change the app ids and ECL
+product names), then start the first feature with `node scripts/new-draft.ts <product>/<feature> <platform> …`.
+Give the feature its own `feature.json` (log files and tags, Pink menu) before its first on-device run. Scripts read
+the app ids from `product.json` through the run folder, so a run folder must sit under `library/<product>/…/runs/`
+(or set `CASEBOOK_APP_BUNDLE` / `CASEBOOK_ANDROID_PACKAGE`).
+
+### Moving a checkout from the old layout (2026-10-29)
+
+The library moved from `library/<feature>/` to `library/<product>/<feature>/`. `git pull` moves the committed files;
+untracked local files (spec PDFs, screenshots, pulled logs, review pages) stay in the old folder. Move them once
+after pulling, then delete the empty old folder:
+
+```bash
+rsync -a library/ai-mini-drama/ library/pdr/ai-mini-drama/ && rm -rf library/ai-mini-drama
+```
+
+Restart any review or pages server you had running, with the new ID (`pdr/ai-mini-drama`).
 
 ### Inside a feature folder
 
-Using `library/ai-mini-drama/` as the example:
+Using `library/pdr/ai-mini-drama/` as the example:
 
 | Path | Purpose |
 | --- | --- |
@@ -546,8 +568,8 @@ Using `library/ai-mini-drama/` as the example:
 
 | Feature | Platform | Approved | Cases | Spec set | Runs and eBugs |
 | --- | --- | --- | --- | --- | --- |
-| `ai-mini-drama` | iOS | v8, 2026-10-28 | 399 | `specs/2026-10-21-2` (PM 10/21, Design and MX 10/19; Design Figma read 10/28) | Runs 10/16–10/22 incl. the P9 full run; 59 eBugs filed in five batches; 146 control groups traced |
-| `ai-mini-drama` | Android | not started | — | — | Android leads are in the request ledger (REQ-022) |
+| `pdr/ai-mini-drama` | iOS | v11, 2026-10-29 | 425 | `specs/2026-10-21-2` | Runs 10/16–10/22 incl. the P9 full run; eBugs filed in five batches |
+| `pdr/ai-mini-drama` | Android | v6, 2026-10-29 | 501 | `specs/2026-10-21-2` | Rounds A1–A4 run 10/27–10/29 |
 
 ## Skills
 
@@ -565,19 +587,20 @@ Edit skills under `.claude/skills/` only, then run `node scripts/sync-skills.ts`
 
 ## Scripts
 
-All scripts run from the repository root with `node scripts/<name>.ts`.
+All scripts run from the repository root with `node scripts/<name>.ts`. In the usages below, `<feature>` is the full feature ID
+`<product>/<feature>` (for example `pdr/ai-mini-drama`).
 
 | Script | What it does |
 | --- | --- |
 | `status.ts` | Lists every approved table and open draft |
 | `fingerprint.ts <feature> <platform> <files…>` | Compares spec files with the approved table: NEW, SAME or CHANGED |
-| `add-spec.ts <feature> <files…>` | Copies a spec set into `library/<feature>/specs/<date>/` |
+| `add-spec.ts <feature> <files…>` | Copies a spec set into `library/<product>/<feature>/specs/<date>/` |
 | `new-draft.ts <feature> <platform> --title "<Name>" <files…>` | Starts a draft and records its spec set |
 | `render-region.ts <pdf> <out.png> [x y w h]` | Renders part of a huge Figma page to look at a frame |
 | `render-tiles.ts <pdf> <out dir> [x y w h]` | Renders a region as a grid of readable tiles |
 | `spec-boards.ts <feature> <spec-set> [--file] [--jobs 3]` | Renders and OCRs every board in `boards.json` (uses `ocr-tiles.swift`) |
 | `annotations.ts <feature> <platform> --draft <id>` | Groups every board's annotations into blocks to trace to requirements (`annotation-trace.json`) |
-| `spec-agent-gaps.ts <feature> <platform> --draft <id>` | Comparison report data (on request): spec agent cases the table doesn't cover, with their source, from the snapshot in `library/<feature>/spec-agent/` (`--refresh` updates it from a local spec agent clone, read with git only) |
+| `spec-agent-gaps.ts <feature> <platform> --draft <id>` | Comparison report data (on request): spec agent cases the table doesn't cover, with their source, from the snapshot in `library/<product>/<feature>/spec-agent/` (`--refresh` updates it from a local spec agent clone, read with git only) |
 | `check.ts <feature> <platform> [--draft <id>]` | Validates a table or draft, incl. arrows, controls, ledger, annotation trace and grids |
 | `sync-skills.ts [--check]` | Copies `.claude/skills/` to `.codex/skills/` (or only lists differences) |
 | `figma/inventory.js` | Figma plugin script the agent runs through Figma MCP (`use_figma`), one call per board group: screens, dialogs, controls, flow arrows |
@@ -626,7 +649,7 @@ All scripts run from the repository root with `node scripts/<name>.ts`.
 - Add standing preferences to [`AGENTS.md`](AGENTS.md) › Team preferences (dated) and feature requests to the
   feature's `requests.md`, not to a personal agent memory.
 - Never edit an approved `cases.csv` by hand without a request; go through a draft and the review page.
-- Keep spec files only under `library/<feature>/specs/`.
+- Keep spec files only under `library/<product>/<feature>/specs/`.
 - Before committing, check staged files for credentials and images.
 
 ## Further reading
@@ -634,6 +657,6 @@ All scripts run from the repository root with `node scripts/<name>.ts`.
 - [`AGENTS.md`](AGENTS.md): repository rules and team preferences
 - [`.claude/skills/spec-casebook/SKILL.md`](.claude/skills/spec-casebook/SKILL.md): the full workflow, coverage
   passes, run rules and file formats
-- [`library/ai-mini-drama/requests.md`](library/ai-mini-drama/requests.md): an example request ledger
-- [`library/ai-mini-drama/ios/runs/RUN-PLAN-20261019.md`](library/ai-mini-drama/ios/runs/RUN-PLAN-20261019.md): an example phased run plan
+- [`library/pdr/ai-mini-drama/requests.md`](library/pdr/ai-mini-drama/requests.md): an example request ledger
+- [`library/pdr/ai-mini-drama/ios/runs/RUN-PLAN-20261019.md`](library/pdr/ai-mini-drama/ios/runs/RUN-PLAN-20261019.md): an example phased run plan
 - [`INVESTIGATE.md`](INVESTIGATE.md): ideas not yet implemented

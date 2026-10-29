@@ -45,7 +45,7 @@
 //                             Pink debug tweaks in one call each, from the Launcher (see the case for details); set and
 //                             tier read the row back and save screenshots/pink-<row>-<time>.png
 //   do <file.steps> [args…] | do "cmd ;; cmd ;; …"
-//                             run many commands as one call (recipes: library/<feature>/<platform>/recipes/*.steps,
+//                             run many commands as one call (recipes: library/<product>/<feature>/<platform>/recipes/*.steps,
 //                             "$1".."$9" from args, "?" before a line = may fail); stops at the first failure with a
 //                             screenshot and the visible elements
 //   logs [ID]                 pull the app's tmp/ folder (holds Logs.zip after ⋯ › Send logs via...) to
@@ -58,13 +58,13 @@
 import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
-import { configForRunDir } from './lib/feature-config.ts';
+import { configForRunDir, productValue } from './lib/feature-config.ts';
 import { BLOCKER, env, logActivity, runRecipe, sleep, stamp, webdriver } from './lib/device-common.ts';
 
 const BASE = process.env.APPIUM_URL ?? 'http://127.0.0.1:4723';
-const BUNDLE = env('APP_BUNDLE', 'BUNDLE') ?? 'com.cyberlink.ios.powerdirector';
 const [runDir, cmd, ...rest] = process.argv.slice(2);
 if (!runDir || !cmd) { console.error('Usage: node scripts/device.ts <run dir> <command> [args]'); process.exit(2); }
+const BUNDLE = env('APP_BUNDLE', 'BUNDLE') ?? productValue(runDir, p => p.ios?.bundle_id, 'APP_BUNDLE');
 mkdirSync(runDir, { recursive: true });
 const SID = join(runDir, '.session');
 const UDID_FILE = join(runDir, '.udid'), WDA_FILE = join(runDir, '.wda-started');
@@ -627,7 +627,7 @@ switch (cmd) {
 // `do`: run a recipe (a .steps file, one device.ts command per line, "$1".."$9" filled from the extra arguments) or an
 // inline list ("tap 1 2 ;; waitfor X ;; shot Y") as ONE call. A line starting with "?" may fail without stopping the
 // recipe. On the first real failure it prints the step, saves a screenshot and the visible elements, and exits 1.
-// Recipes for a feature live in library/<feature>/<platform>/recipes/.
+// Recipes for a feature live in library/<product>/<feature>/<platform>/recipes/.
 try {
   if (cmd === 'do') await runRecipe(runDir, rest, runRecovering, async () => [
     `  screenshot ${await quiet('shot', [`do-fail-${stamp()}`]).catch(() => '?')}`,

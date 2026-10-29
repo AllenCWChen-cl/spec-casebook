@@ -1,5 +1,5 @@
 // Read the boards of a Figma-export spec PDF: render each board to tiles, OCR them, and merge the text.
-// Usage: node scripts/spec-boards.ts <feature> <spec-set folder> [--file "<pdf name>"] [--board <id,id>] [--scale 1.5] [--jobs 3] [--reverse]
+// Usage: node scripts/spec-boards.ts <product>/<feature> <spec-set folder> [--file "<pdf name>"] [--board <id,id>] [--scale 1.5] [--jobs 3] [--reverse]
 // Several runs can share the work: a board being rendered carries boards/<id>/.lock and other runs skip it.
 // Needs specs/<folder>/extracted/boards.json: { "<pdf name>": [{ "id", "title", "region": [x, y, w, h] }] }
 // (board regions in PDF points, read off an overview render). For each board it writes
@@ -16,7 +16,7 @@ type Board = { id: string; title: string; region: [number, number, number, numbe
 type OcrLine = { text: string; x: number; y: number; w: number; h: number; conf: number };
 
 const [feature, folder] = process.argv.slice(2);
-if (!feature || !folder) { console.error('Usage: node scripts/spec-boards.ts <feature> <spec-set folder> [--file <pdf>] [--board <id>] [--scale 1.5]'); process.exit(2); }
+if (!feature || !folder) { console.error('Usage: node scripts/spec-boards.ts <product>/<feature> <spec-set folder> [--file <pdf>] [--board <id>] [--scale 1.5]'); process.exit(2); }
 assertIds(feature, 'ios');
 const dir = join(specsDir(feature), folder);
 const ex = join(dir, 'extracted');

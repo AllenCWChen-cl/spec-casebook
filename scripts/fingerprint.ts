@@ -1,11 +1,11 @@
 // Compare spec files with the approved table for a feature and platform.
-// Usage: node scripts/fingerprint.ts <feature> <ios|android> <spec file> [more spec files...]
+// Usage: node scripts/fingerprint.ts <product>/<feature> <ios|android> <spec file> [more spec files...]
 // Prints JSON: status NEW (no approved table), SAME (identical spec set) or CHANGED.
 import { assertIds, readManifest, specFiles, specSetHash } from './lib/library.ts';
 
 const [feature, platform, ...paths] = process.argv.slice(2);
 if (!feature || !platform || !paths.length) {
-  console.error('Usage: node scripts/fingerprint.ts <feature> <ios|android> <spec file> [...]');
+  console.error('Usage: node scripts/fingerprint.ts <product>/<feature> <ios|android> <spec file> [...]');
   process.exit(2);
 }
 assertIds(feature, platform);

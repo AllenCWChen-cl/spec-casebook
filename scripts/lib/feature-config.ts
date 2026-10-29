@@ -1,4 +1,4 @@
-// Per-feature settings the run scripts need (log files and tags, the Pink menu), from library/<feature>/feature.json,
+// Per-feature settings the run scripts need (log files and tags, the Pink menu), from library/<product>/<feature>/feature.json,
 // so the scripts carry no feature names. A feature without the file gets the generic defaults below.
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve, sep } from 'node:path';
@@ -45,10 +45,31 @@ export function loadFeatureConfig(feature: string): FeatureConfig {
   };
 }
 
-// The feature a run folder belongs to: library/<feature>/<platform>/runs/<run>.
+// The feature a run folder belongs to: library/<product>/<feature>/<platform>/runs/<run> → <product>/<feature>.
 export function featureOfRunDir(runDir: string): string | null {
-  const rel = resolve(runDir).slice(LIBRARY.length + 1);
-  return resolve(runDir).startsWith(LIBRARY + sep) ? rel.split(sep)[0] : null;
+  if (!resolve(runDir).startsWith(LIBRARY + sep)) return null;
+  const [product, feature] = resolve(runDir).slice(LIBRARY.length + 1).split(sep);
+  return product && feature ? `${product}/${feature}` : null;
 }
 
 export const configForRunDir = (runDir: string) => { const f = featureOfRunDir(runDir); return f ? loadFeatureConfig(f) : DEFAULTS; };
+
+// The product a feature belongs to, from library/<product>/product.json: app ids per platform and the eBug (ECL)
+// product names, so no script hard-codes one product.
+export type ProductConfig = {
+  name: string;
+  ios?: { bundle_id: string; testflight_name?: string; ecl_product?: string };
+  android?: { package: string; ecl_product?: string };
+};
+export function loadProductConfig(feature: string): ProductConfig | null {
+  const p = join(LIBRARY, feature.split('/')[0], 'product.json');
+  return existsSync(p) ? JSON.parse(readFileSync(p, 'utf8')) : null;
+}
+export const productForRunDir = (runDir: string) => { const f = featureOfRunDir(runDir); return f ? loadProductConfig(f) : null; };
+// A required product value, else stop with what to set: the run folder's product.json or the CASEBOOK_<env> variable.
+export function productValue(runDir: string, pick: (p: ProductConfig) => string | undefined, envName: string): string {
+  const p = productForRunDir(runDir), v = p ? pick(p) : undefined;
+  if (v) return v;
+  console.error(`No ${envName.toLowerCase().replace(/_/g, ' ')}: run inside library/<product>/<feature>/<platform>/runs/ with that value in library/<product>/product.json, or set CASEBOOK_${envName}.`);
+  process.exit(2);
+}

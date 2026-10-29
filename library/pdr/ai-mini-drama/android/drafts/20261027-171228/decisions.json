@@ -1,0 +1,12 @@
+{
+  "saved_at": "2026-10-27T09:21:03.279Z",
+  "version": 2,
+  "decisions": [
+    {
+      "type": "delete",
+      "id": "TC-455",
+      "was_change": "removed"
+    }
+  ],
+  "summary": "Review: pdr/ai-mini-drama / android · draft 20261027-171228\nFinal table: 471 cases · kept 471 · edited 0 · added 0 · deleted 1\n\nDELETE TC-455"
+}

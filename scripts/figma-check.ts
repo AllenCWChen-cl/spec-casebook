@@ -2,7 +2,7 @@
 // group (Figma MCP has a small quota; user, 2026-10-29). Board fingerprints come from scripts/figma/inventory.js:
 // every group read records one hash per board, and the check call returns the current hash of every board the saved
 // groups cover, plus the boards on the page that no group covers yet.
-// Usage: node scripts/figma-check.ts <feature> [<spec-set folder>] [command]
+// Usage: node scripts/figma-check.ts <product>/<feature> [<spec-set folder>] [command]
 //   (none)            writes extracted/figma-check/<role>.js, one check call per Figma file (role = design / pm / mx
 //                     from figma-frames.json), and prints which MCP server runs each; the agent passes the file as
 //                     `code` to use_figma (read-only) and saves the returned JSON verbatim as figma-check/<role>.json
@@ -23,7 +23,7 @@ import { arg, assertIds, featureDir, ROOT, writeJson } from './lib/library.ts';
 import { listSpecSets } from './lib/specs.ts';
 
 const [feature, maybeSet] = process.argv.slice(2);
-if (!feature) { console.error('Usage: node scripts/figma-check.ts <feature> [<spec-set folder>] [--compare | --ack <ids> | --shot <png> <board> | --prune]'); process.exit(2); }
+if (!feature) { console.error('Usage: node scripts/figma-check.ts <product>/<feature> [<spec-set folder>] [--compare | --ack <ids> | --shot <png> <board> | --prune]'); process.exit(2); }
 assertIds(feature, 'ios');
 const specs = join(featureDir(feature), 'specs');
 const hasGroups = (set: string) => existsSync(join(specs, set, 'extracted')) && readdirSync(join(specs, set, 'extracted')).some(f => /^figma-inventory-.+\.json$/.test(f));

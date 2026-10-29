@@ -1,7 +1,7 @@
 // Coverage page (REQ-038): the Figma boards with every tappable control and flow arrow marked by whether a run pressed
 // or walked it, with the counts on top and the tap screenshots as proof.
-// Usage: node scripts/coverage-page.ts <feature> <ios|android> [--draft <id>] [--runs <run dir name,…>] [--render] [--scale 0.45] [--out <file.html>] [--link]
-//        node scripts/coverage-page.ts <feature> <ios|android> [--draft <id>] [--runs …] --serve [port] [--lan]
+// Usage: node scripts/coverage-page.ts <product>/<feature> <ios|android> [--draft <id>] [--runs <run dir name,…>] [--render] [--scale 0.45] [--out <file.html>] [--link]
+//        node scripts/coverage-page.ts <product>/<feature> <ios|android> [--draft <id>] [--runs …] --serve [port] [--lan]
 // Reads specs/<set>/extracted/inventory.json (scripts/inventory.ts), <table>/control-trace.json (scripts/controls.ts),
 // cases.csv and requirements.md of the approved table, and every run folder under <table>/runs with a results.csv
 // (or only --runs): the latest result per case, and taps.jsonl (device.ts tap log).
@@ -21,7 +21,7 @@
 // anyone on the LAN can read it). scripts/pages.ts serves it next to the review and plan pages, with links between them.
 // Case view: #case=TC-012 (or the Case box) shows where a case comes from: its requirements with their spec boards,
 // and the controls and arrows it presses or walks, highlighted on the board.
-// Default output: library/<feature>/<platform>/coverage.html, self-contained (board images and the best three tap
+// Default output: library/<product>/<feature>/<platform>/coverage.html, self-contained (board images and the best three tap
 // screenshots per control embedded; local only, git-ignored like the renders). --link writes relative links instead;
 // --files (what --serve uses) links them as files/<path under the repo>, which the server sends.
 // Spec regions (boards.json) of a PDF the Figma inventory does not cover (PM, MX) are boards too, image only (rendered
@@ -44,7 +44,7 @@ async function serveMode(): Promise<never> {
   const argv = process.argv.slice(2), si = argv.indexOf('--serve');
   const portArg = /^\d+$/.test(argv[si + 1] ?? '') ? Number(argv[si + 1]) : 4391, lan = argv.includes('--lan');
   const child = [...argv.filter((a, i) => a !== '--serve' && a !== '--lan' && !(i === si + 1 && /^\d+$/.test(a)) && a !== '--render'), '--files'];
-  const cache = join(tmpdir(), `coverage-${feature}-${platform}-${process.pid}.html`);
+  const cache = join(tmpdir(), `coverage-${feature.replace('/', '-')}-${platform}-${process.pid}.html`);
   let builtAt = 0, html = '', builtFor = '';
   const build = (stamp = builtFor) => {
     if (Date.now() - builtAt < 30_000 && html && stamp === builtFor) return html;

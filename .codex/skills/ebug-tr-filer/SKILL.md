@@ -11,11 +11,11 @@ This is the casebook's own copy of the shared eBug skill. **Before drafting or f
 (one action per step, Spec Link, attachments and logs, filing account memory, no `[UX]` with its revert steps, no
 comments on existing tickets, dedupe per OS). Those rules and the lines below override the body of this skill.
 
-- **Findings** come from running the approved cases in `library/<feature>/<platform>/cases.csv`: each names the
+- **Findings** come from running the approved cases in `library/<product>/<feature>/<platform>/cases.csv`: each names the
   failed case ID(s) and their Spec Ref requirement(s). Repro Steps come from the case's Precondition and Action,
   Expected Result from its Expected Result and the requirement in `requirements.md`.
-- **Files** stay in the feature folder: run evidence in `library/<feature>/<platform>/runs/<YYYY-MM-DD>/`; drafts,
-  review page, upload frames and `filed_bugcodes.json` / `.md` in `library/<feature>/<platform>/ebugs/<YYYY-MM-DD>/`.
+- **Files** stay in the feature folder: run evidence in `library/<product>/<feature>/<platform>/runs/<YYYY-MM-DD>/`; drafts,
+  review page, upload frames and `filed_bugcodes.json` / `.md` in `library/<product>/<feature>/<platform>/ebugs/<YYYY-MM-DD>/`.
 - **Source tag:** never `[AIFound]` (exploration-suite findings); use the casebook tag the user set, else ask.
 - **Device control:** `scripts/device.ts` (see the casebook skill), not the exploration suite's transports.
 - **Python packages:** standard library only, except `make_filing_sheets.py` (Pillow; `pip install -r

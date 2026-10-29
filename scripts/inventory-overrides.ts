@@ -1,5 +1,5 @@
 // Merge the review sheets' findings into the inventory overrides (REQ-038 / REQ-040).
-// Usage: node scripts/inventory-overrides.ts <feature> <spec-set folder> [--dry]
+// Usage: node scripts/inventory-overrides.ts <product>/<feature> <spec-set folder> [--dry]
 // Reads specs/<set>/extracted/inventory-review-*.json (one per board group, written by the reviewers of
 // inventory-sheets.ts) and merges their missing / not_tappable / drop_screens lists into
 // specs/<set>/extracted/inventory-overrides.json (add / drop / hide / drop_screens; a not_tappable entry naming a
@@ -11,7 +11,7 @@ import { join } from 'node:path';
 import { assertIds, featureDir, writeJsonRows } from './lib/library.ts';
 
 const [feature, folder] = process.argv.slice(2);
-if (!feature || !folder) { console.error('Usage: node scripts/inventory-overrides.ts <feature> <spec-set folder> [--dry]'); process.exit(2); }
+if (!feature || !folder) { console.error('Usage: node scripts/inventory-overrides.ts <product>/<feature> <spec-set folder> [--dry]'); process.exit(2); }
 assertIds(feature, 'ios');
 const ex = join(featureDir(feature), 'specs', folder, 'extracted');
 const path = join(ex, 'inventory-overrides.json');

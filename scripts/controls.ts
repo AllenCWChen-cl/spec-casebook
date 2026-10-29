@@ -1,6 +1,6 @@
 // Control trace (REQ-038): every tappable control in the Figma inventory names the rows that press it, so each run
 // presses every control at least once. Inputs also name the row that dismisses them (keyboard down / Done / tap outside).
-// Usage: node scripts/controls.ts <feature> <ios|android> [--draft <id>]
+// Usage: node scripts/controls.ts <product>/<feature> <ios|android> [--draft <id>]
 // Reads specs/<set>/extracted/inventory.json (scripts/inventory.ts) and writes control-trace.json next to the table or
 // draft. One entry per group (inventory.ts): the same button on any number of screens or boards is one entry, and a
 // choice set (chips, options, template or scene cards) is one entry that one press of any choice covers. Fill each
