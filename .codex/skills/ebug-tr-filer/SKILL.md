@@ -6,77 +6,20 @@ description: File verified QA findings as real CyberLink eBugs — via the ECL w
 <!-- BEGIN spec-casebook overlay -->
 ## In this repo (spec-casebook) — read first
 
-This is a copy of the shared eBug skill, kept here so the casebook works on its own. The rules in this section
-override the parts below that assume the exploration suite (`pdri-exploration-suite`, its `sessions/` folders,
-knowledge-base files, QA sign-off files and `.docx` reports). Those do not exist in this repo; skip any step that
-reads or updates them.
+This is the casebook's own copy of the shared eBug skill. **Before drafting or filing, read
+`.claude/skills/ebug-tr-filer/references/casebook-overlay.md`** (Codex: `.codex/skills/…`): reviewer rules 1–7
+(one action per step, Spec Link, attachments and logs, filing account memory, no `[UX]` with its revert steps, no
+comments on existing tickets, dedupe per OS). Those rules and the lines below override the body of this skill.
 
-- **Where findings come from:** running the approved cases in `library/<feature>/<platform>/cases.csv`. Each finding
-  names the failed case ID(s) and their Spec Ref requirement(s). Build Repro Steps from the case's Precondition and
-  Action, and Expected Result from the case's Expected Result and the requirement in `requirements.md`.
-- **Where files go:** everything stays in the feature folder.
-  - Run evidence (screenshots, recordings, logs): `library/<feature>/<platform>/runs/<YYYY-MM-DD>/`
-  - eBug drafts, the review page, upload frames, `filed_bugcodes.json` / `.md`:
-    `library/<feature>/<platform>/ebugs/<YYYY-MM-DD>/`
-- **Source tag:** do not use `[AIFound]` (it marks exploration-suite findings). Use the tag the user set for
-  casebook findings; if none is recorded here yet, ask before drafting.
-- **Device control:** `scripts/device.ts` (Appium on the QA iPhone, see the casebook skill); the iPhone Mirroring /
-  `computer-use` transport named below is the exploration suite's and is not used here.
-- **Skip these sections here** (they write into exploration-suite reports, which this repo does not have): *After
-  filing — write the results back into the exploration report* (only its `export-filing` command applies: it writes
-  `filed_bugcodes.json` into the batch folder) and *Closing the loop — annotate the source report*. The batch's
-  `filed_bugcodes.json` / `.md` and the run's `report.md` are the record instead.
-- **Python packages:** the scripts use the standard library, except `make_filing_sheets.py`, which needs Pillow
-  (`pip install -r requirements.txt` in a venv, see the README).
-- Everything else (format rules, dedupe through the ECL API, severity review page, token handling, never filing
-  unverified findings) applies unchanged.
-- **Reviewer rules (user, 2026-10-21, from the eBug reviewers) — every entry, every batch:**
-  1. **One action per Repro step.** Each numbered step is one tap, one typed entry, one swipe or one wait. No `>` /
-     `›` chains: 「Mine > Credits > Details」 is three steps (Tap Mine · Tap Credits · Tap Details), and "Tap Filter,
-     select Male and Indigenous, apply" is four. `check_ebug_format.py` fails a step that contains `>` or `›`.
-  2. **A Spec Link on every entry**, to the spec used as the reference: the Figma URL with `node-id` — the frame or
-     flow-arrow node that `requirements.md` gives for the requirement when it has one, otherwise the file URL from
-     `library/<feature>/specs/<date>/spec-set.json` (`figma`) with the board title from `extracted/boards.json` /
-     `board-notes.md`. Only when no URL exists: the PDF name + board ID. Entries resting on a QA rule (rule 7 text,
-     rule 8 checks) cite the board that shows the screen or string they are about. The format check fails an entry
-     with no `Spec Link:` line, `Spec Link: none`, or a link with neither a URL nor a PDF name.
-  3. **Attachments on every entry:** at least one image (red-boxed frame) per bug, cited inline as `{<ver>_<slug>.jpg}`;
-     plus the relevant log excerpt (`<ver>_<slug>_log.txt`) when the finding has a log cause. **Every failure-related
-     entry carries its log (user, 2026-10-27):** a failed generation, turn, upload or retry, an error card or dialog,
-     a charge or a missing refund, a step that ends with nothing — attach the excerpt of that failure's time window
-     (the failing tool line, `status=…` / `error=…`, the `authorized, credit=N` and refund lines) even when the screen
-     already shows the error, cite it inline under Result, and show it on the review page card (a 「Log」 section
-     with the excerpt text), so the reviewer sees it before deciding (F-6 of the 10/27 P9 batch had its log attached
-     but the page hid it). Scan each excerpt for
-     tokens, `Bearer`/`authorization` lines and signed URL queries before staging it. Layout and content findings need
-     no log. **No video unless the user explicitly asks for one** for that batch or entry (then pass
-     `--videos-requested` to the format check); keep recordings in the run folder. The format check fails an entry
-     with no image reference and any video attachment without that flag.
-  4. **Filing account memory.** Review pages prefill Creator, TRCode, source tag and method from the newest
-     `filed_bugcodes.json` under the feature's `ebugs/` folders (`meta.creator`, `meta.tr`, the tag of the filed Short
-     Descriptions, `meta.method`) — `node scripts/ebug-defaults.ts <feature> <platform>` prints them (`--json` for
-     generators) — shown as 「from <batch> — confirm」, never blank. In a user's decisions, "Same build" / "Same TR"
-     means that previous batch's TR when the build matches: read the TR header (`ecl_query.py tr <TR>`) and confirm it
-     still names the build the findings were verified on before filing; if not, stop and ask.
-  5. **No `[UX]` on casebook findings (RD, 2026-10-21 — in force until the user reverts it).** The casebook tests
-     against the spec, so every finding is `[AIAgent]` (Functional) or `[AIAgent][UI]`, owner RD (Doc for copy) —
-     interaction and flow problems included; RD forwards one to PM when it wants a ruling. A finding with no spec basis
-     is not a casebook bug: hold it and list it on the review page as a PM question. `check_ebug_format.py` fails
-     `[AIAgent][UX]`. This supersedes the 2026-10-20 rule "a UX problem goes to PM (BugBelong PM)".
-     **To revert** (back to `[AIAgent][UX]` with BugBelong PM): delete this rule 5 from both casebook eBug overlays
-     (`ebug-draft-generator`, `ebug-tr-filer`, `.claude` and `.codex`), restore the 2026-10-20 wording of *eBug owner
-     and type* in `AGENTS.md` (kept there under "Revert"), drop the UX line in the casebook skill's *eBug drafts and
-     review page* step 1, and run `check_ebug_format.py --allow-agent-ux` and `ALLOW_AGENT_UX=1 verify_ebug_drafts.py`.
-- **No comments on existing tickets (user, 2026-10-21, until the user lifts it).** Never post a comment on, reopen or
-  reject the fix of an existing eBug — not for rechecks, not for "still reproduces", not for fixed tickets. Only new
-  tickets the user decided to file are created.
-- **Dedupe per OS (user, 2026-10-28).** iOS and Android bugs are deduped separately: search only the tested OS's
-  product (`PowerDirector Mobile for iOS` / `… for Android`). A ticket on the other OS never makes a finding a
-  duplicate: the finding is a new entry for this OS (the other OS's BugCode may go in its Note). A finding that matches
-  an existing ticket on the same OS's TRs is **not listed** — no card on the review page, no Rechecks section, no
-  on-hold entry; it is kept only in the batch's `dedupe.txt` (finding, case IDs, matching BugCode) for traceability.
-  Exception: a same-OS ticket that is **closed** while the bug is back does not hide the finding; it stays a new card
-  that names the closed ticket as related.
+- **Findings** come from running the approved cases in `library/<feature>/<platform>/cases.csv`: each names the
+  failed case ID(s) and their Spec Ref requirement(s). Repro Steps come from the case's Precondition and Action,
+  Expected Result from its Expected Result and the requirement in `requirements.md`.
+- **Files** stay in the feature folder: run evidence in `library/<feature>/<platform>/runs/<YYYY-MM-DD>/`; drafts,
+  review page, upload frames and `filed_bugcodes.json` / `.md` in `library/<feature>/<platform>/ebugs/<YYYY-MM-DD>/`.
+- **Source tag:** never `[AIFound]` (exploration-suite findings); use the casebook tag the user set, else ask.
+- **Device control:** `scripts/device.ts` (see the casebook skill), not the exploration suite's transports.
+- **Python packages:** standard library only, except `make_filing_sheets.py` (Pillow; `pip install -r
+  requirements.txt` in a venv, see the README).
 <!-- END spec-casebook overlay -->
 
 
@@ -103,21 +46,10 @@ posting sends a NewCreated email to Creator, PM(s) and PL(s) for every bug, and 
 
 ## Reviewer rules and the UX basis rule (2026-10-21) — apply to every batch
 
-Owned by `ebug-draft-generator` §*Reviewer rules and the UX basis rule*; `check_ebug_format.py` enforces
-them, and nothing that fails them is filed:
-
-1. **One action per numbered Repro step, each on its own line** — no `>` / `›` / `→` chains.
-2. **Every bug carries its link** — a `Spec Link:` with a URL (Figma with `node-id`) or, only when no
-   URL exists, a PDF name + board ID. No `Spec Link: none`; a reviewer-approved exception is passed as
-   `--no-link-ok <key>` and recorded in `decisions.md`.
-3. **At least one image on every bug; the log excerpt when a log shows the cause, and always on a failure-related
-   entry (failed job, error card, charge or refund; user 2026-10-27); no video** unless
-   the user explicitly asked for one (then `--videos-requested`).
-4. **`[UX]` only when the expectation rests on another product or on nothing** (`Basis: External — …` /
-   `Basis: None — …`, owner PM). Spec-based and in-product-referenced findings are Functional or `[UI]`,
-   owner RD, with the referenced feature and document in a `Basis: In-product — …` Note line.
-   **`[AIAgent]` never carries `[UX]`.** Every `[UX]` card is flagged on the review page and needs the
-   reviewer's **UX check** before it is filed (*UX entries — make them impossible to miss*).
+Rules 1–7 in `references/casebook-overlay.md`; `check_ebug_format.py` enforces them and nothing that fails them is
+filed. Beyond them: `→` chains also break rule 1; a reviewer-approved missing link is passed as `--no-link-ok <key>`
+and recorded in `decisions.md`. The `[UX]` basis rule (exploration tags only) is in `ebug-draft-generator`; every
+`[UX]` card needs the reviewer's **UX check** before filing (*UX entries — make them impossible to miss*).
 
 ## Hard preconditions — check all five before filing anything
 
@@ -139,28 +71,15 @@ them, and nothing that fails them is filed:
 
 ## Verifying on the device — do not file from a report
 
-**Never file a finding you have not re-exercised yourself on the build the TR names.** Reports go
-stale between builds: on 2026-09-09 the four AI-audio reports were written against 188575 while the
-device ran **188820**, and that build had grown a brand-new rejection path ("No sounds detected")
-that no report mentioned. A finding that reproduces is a bug; a finding copied forward is a guess.
+**Never file a finding you have not re-exercised yourself on the build the TR names.** Reports go stale between
+builds (2026-09-09: a newer build had grown a rejection path no report mentioned). A finding that reproduces is a
+bug; a finding copied forward is a guess. Drive the phone with `scripts/device.ts` as in the casebook skill's
+on-device run. Any credit claim comes from **Mine → Credits → Details** (`device.ts ledger`), matched by feature
+name *and* minute — the account is shared, so other devices burn credits too.
 
-Drive the phone exactly as `pdri-exploration-suite` does — **full-screen `mcp__computer-use__*`
-only** (the cua driver was removed on 2026-09-16; see that skill's *Shared setup*):
-
-- `request_access(["iPhone Mirroring"])` with clipboard read/write, then `computer_batch` for
-  click → wait → screenshot sequences in full-screen coordinates.
-- Scroll with `scroll_amount: 100`, one per ~1 s; drag never scrolls a view on the mirror.
-- Text entry is `write_clipboard` → `key cmd+v`.
-- Toasts and self-ejecting pages live less than one round trip. Put the tap and several
-  `wait 0.3` + `screenshot` actions in **one** batch so the capture is already armed.
-- Evidence files are `screencapture -x -o -l<window_id>`, never the full screen.
-- Any credit claim comes from **Mine → Credits → Details**, attributed by feature name *and* minute.
-  A background workload burns credits on this device while you idle.
-
-**Run a positive control for every "it does nothing" finding**, in the same screen state, before
-calling it a defect — the same drag with the toggle On, the sibling menu item on the same clip.
-Without it you cannot tell a dead control from a dead transport, and on this mirror **every failed
-input returns a success-shaped result**.
+**Run a positive control for every "it does nothing" finding**, in the same screen state, before calling it a
+defect — the same drag with the toggle On, the sibling menu item on the same clip. Without it you cannot tell a dead
+control from a dead transport.
 
 Record each verdict as CONFIRMED / did-not-reproduce / not-re-verified. **Only CONFIRMED items reach
 the review page.** Say plainly which findings you never got to; "not re-verified" is not a verdict
@@ -171,8 +90,7 @@ and must never be quietly folded into "not a bug".
 ### Build it from the eBug draft file, not from the report (2026-09-16)
 
 **The cards on the review page are the eBug entries themselves.** Read
-`ebugs/<YYYYMMDD>_eBug_drafts_<Feature>_<version>.md` — produced by `ebug-draft-generator` at the
-same time as the report — and render one card per entry, carrying **verbatim**:
+`ebugs/<YYYYMMDD>_eBug_drafts_<Feature>_<version>.md` — produced by `ebug-draft-generator` — and render one card per entry, carrying **verbatim**:
 
 - the **Short Description** exactly as it will be pasted, in a mono strip;
 - the full **Repro Steps / Result / Expect Result / Note** body, with the `摘要:` lines intact;
@@ -221,11 +139,8 @@ artifact, publish it, hand over the link, and **stop**.
 
 **Do not preview the page in the built-in browser pane** (user, 2026-09-16: *"just opening the html is good enough"*). Generate the HTML, publish it, hand over the link — no file:// navigation or screenshot pass first. The browser pane is for filing on ECL, not for checking the review page.
 
-**Building the page is automatic — never offer it, never ask whether to build it.** The moment
-verification is finished, go straight on and build it in the same run. It is the deliverable of the
-verification stage, not an optional extra. Standing instruction from the user, 2026-09-10:
-*"always continue to build the review page"* — so a turn that ends with "say the word and I'll build
-it" is a failure. Verify → build → publish → **then** stop for sign-off.
+**Building the page is automatic — never offer it, never ask whether to build it** (user, 2026-09-10). The moment
+verification is finished, build it in the same run: verify → build → publish → **then** stop for sign-off.
 
 This applies however few findings there are, and whether or not any of them will be filed: a run
 that produced only non-defects still gets a page, because the reviewer needs to see the evidence
@@ -236,9 +151,8 @@ Load `artifact-design` first, then build a page carrying, per finding:
 - the number, title, proposed **Severity** and **BugBelong**, and the source finding ID;
 - the repro prose in the reviewer's language — what happened, and why it matters;
 - **its own evidence, inline.** Downscale each frame with
-  `sips -Z 760 -s format jpeg -s formatOptions 72 in.png --out out.jpg` and embed as a `data:` URI.
-  37 phone screenshots came to ~1.6 MB, ~2.1 MB base64 — far inside the 16 MB cap, and it means the
-  page works with no dependency on any folder surviving. Thumbnails open a lightbox with a caption
+  `sips -Z 760 -s format jpeg -s formatOptions 72 in.png --out out.jpg` and embed as a `data:` URI (37 frames ≈
+  2 MB, far inside the 16 MB cap), so the page depends on no folder surviving. Thumbnails open a lightbox with a caption
   saying what the frame proves, and arrow keys step through that finding's frames.
 
 Give every finding **three** controls, not two:
@@ -250,13 +164,10 @@ Give every finding **three** controls, not two:
 | **file / hold** | whether it ships at all |
 | **Add context** — a free-text note per finding | **the one that matters most** |
 
-The context box is not optional polish. On the 09-09 run the reviewer's note on one finding
-(*"the problem is that there's only an Apply button but no back/cancel button; in general the back
-gesture isn't used in this app"*) **re-framed the bug**: what had been written up as "the back-swipe
-pans the clip" was really "the room offers no exit affordance at all, so the user reaches for a
-system gesture that then damages the composition". That is a better ticket, and it existed nowhere
-in the evidence — only in the reviewer's head. Ask for it explicitly, per finding, and **rewrite the
-body from what comes back** rather than filing your original wording.
+The context box is not optional polish: on 09-09 a reviewer's note re-framed "the back-swipe pans the clip" into
+"the screen offers no exit, so the user reaches for a gesture that damages the composition" — a better ticket that
+existed only in the reviewer's head. Ask for it per finding, and **rewrite the body from what comes back** rather
+than filing your original wording.
 
 Persist the controls in `localStorage` (wrapped in try/catch) and give the page a **Copy decisions**
 button that emits a markdown table of `# / Sev / Belong / Type / UX check / Action / Short Description / Note`, so
@@ -452,13 +363,8 @@ reach dev at anywhere from ~4 to ~11px. Verified 2026-09-29 on the AI Mini Drama
 
 ## Attaching screenshots — the part that breaks
 
-**What every bug carries (reviewer rule 3, 2026-10-21):** at least one image (the red-boxed frame, cited
-inline); the log excerpt `<ver>_<slug>_log.txt` whenever a log shows the cause and on every failure-related
-entry (failed job, error card, charge or refund; user 2026-10-27), shown on the review card, scanned for tokens,
-`Bearer` / `authorization` lines and signed URL queries before staging; **no video unless the user
-explicitly asked for it** for this batch or entry — keep recordings locally and name them in the QA
-note. `check_ebug_format.py` fails a bug with no image and any video attachment without
-`--videos-requested`.
+**What every bug carries:** reviewer rule 3 in `references/casebook-overlay.md` (image always, log on
+failures, no video unless asked).
 
 **What works (27/27 on 2026-09-17, TR260911-068):** one captioned evidence sheet per ticket, staged alone in
 `~/Desktop/ebug_current/`, picked through the native Open dialog with **cua desktop-scope clicks**.
@@ -743,9 +649,8 @@ instead of writing `Spec Link: none`:
    the step-8 read-back is what proves the mechanics. Only stop early if a ticket fails to file or
    comes back wrong; then fix the cause and resume.
 10. **Read the batch back and write it into the deliverables** — see *After filing* below:
-    `ecl_if3.py export-filing` → `filed_bugcodes.json` (both paths), `apply_ebug_filing.py` → the
-    report's `_送單.docx`, the `Filed by:` line in each draft file, and a `filed_bugcodes.md` for
-    humans. Then annotate MX/scenario reports (*Closing the loop*).
+    `ecl_if3.py export-filing` → `filed_bugcodes.json` (both paths), the `Filed by:` line in each draft
+    file, and a `filed_bugcodes.md` for humans.
 
 **Step 5 is the only hard stop.** Everything before it is yours to run unattended; steps 7 and 8 are
 self-checks you verify yourself, not questions for the user. Stopping after every ticket, or
@@ -900,7 +805,7 @@ three places, so the batch can be audited without re-opening ECL:
 
 - the **filing report / review page** header, beside Version, Build No, Server and TRCode;
 - the eBug draft file's header line (`Filed by: <ECL login> on <date>`);
-- the exploration report's new **eBug 送單結果** section (below).
+- the batch's `filed_bugcodes.json` / `.md` (`export-filing`, *After filing* below).
 
 If `Creator` and the token owner differ, print **both**: `Creator: ETHAN_HSU · filed via token of
 QA_CLAUDE1`. A reader who sees one name assumes it is both.
@@ -936,6 +841,7 @@ Filing one wrong ticket is a correction; filing twenty is a re-do.
 
 | Path | What it is |
 |---|---|
+| `references/casebook-overlay.md` | the casebook's reviewer rules 1–7, shared with `ebug-draft-generator`; read first |
 | `scripts/check_ebug_format.py` | the pre-filing validator; run it on every batch |
 | `scripts/ecl_if3.py` | the IF3 REST client — `preflight` / `create` (Creator-verified) / `assign` / `resolve` / `codereview` / `buildresolve` / `readback` / `export-filing`. Stdlib only; token from `~/.ecl_token` |
 | `scripts/ecl_query.py` | **searching, without spending tokens** — `bugs` / `bug` / `tr` / `dedupe` / `calibrate`. Use this instead of the MCP for anything repetitive |
@@ -1032,202 +938,35 @@ The four forward actions are there too (`assign`, `resolve`, `codereview`, `buil
 remember that **permission follows the ticket's current handler, not the token's role** — one token
 cannot walk a ticket through several stages. QA filing normally stops after `create`.
 
-## After filing — write the results back into the exploration report (2026-09-16)
+## After filing
 
-**Standing instruction from the user, 2026-09-16:** fill the BugCode into the report the way MX
-cases are handled, **and** add a section that reproduces the eBug system's own fields *"so others can
-just see the report and figure out what the bugs are and all the information (bug belong, severity
-etc.)"*.
-
-This applies to the `pdri-exploration-suite` 原創版 `.docx`, and it is two separate edits.
-
-### 1. Stamp the BugCode on every step row that produced a ticket
-
-Same convention as the MX reports (*Closing the loop* below): the defect ID on a 問題 step header
-gains its BugCode, so a reader scanning the steps sees which ones became tickets.
-
-`步驟 8 · 大捷徑列固定不動　▲ 問題　[功能性]　ISS-LAU-01 → DRI261890P0012`
-
-A defect that was reviewed and **held** reads `ISS-LAU-07 → 不開單（PM 裁示）`; one that could not be
-re-verified reads `ISS-LAU-xx → 未結案`. Never leave a filed defect showing a bare `ISS-` id — the
-whole point is that the report and ECL can be reconciled without opening either.
-
-### 1b. Every BugCode in the report is a link (2026-09-17)
-
-**Standing instruction from the user:** BugCodes in the reports link to the actual eBug, and every link has
-the same shape — determined by the BugCode alone:
-
-`https://ecl.cyberlink.com/Ebug/eBugHandle/HandleMainEbug.asp?BugCode=<BugCode>`
-
-`build_docx_report.py` does this automatically (`EBUG_URL`, `run_codes()`) wherever a BugCode appears —
-step-header stamps, the index table, the card headers, and disposition lines such as
-「已知單，不重複開：DRI261885-0020」. Never hand-build a link from any other path.
-
-### 1c. AI Found / Created / Known — in the report and in the dashboard (2026-09-17)
-
-**Standing instruction from the user:** after the bugs are filed, **always** produce the three counts
-**AI Found #**, **Created #** and **Known #**:
-
-| Count | Definition |
-|---|---|
-| AI Found # | distinct ISS defects on the report's ▲ rows (the report headline number) |
-| Created # | eBugs actually filed in this batch (BugCodes read back) |
-| Known # | defects that reproduce but already have a ticket (`已知單，不重複開`, or `不開單（重複 …）／（已涵蓋 …）`) |
-
-**One row per report (user, 2026-10-12).** When one filing covers several reports (e.g. five character
-passes filed together), each report is its own dashboard row, and each report's 「eBug 送單結果」 lists **only the
-tickets and dispositions for defects on its own rows**. A defect found by more than one pass counts once, in
-the report of the pass that found it first (run order). Record that before rendering, in the filing JSON:
-`meta.counted_in = {"ISS-MD-50": "<FEATURE_EN of that report>", ...}`, needed only for IDs that appear in more
-than one report. The later report still shows the ticket and its BugCode stamp, plus a line saying where it is
-counted, so the rows add up to what is in ECL.
-
-- **In the report:** one compact line at the top of 「eBug 送單結果」 —
-  `AI Found 11 · Created 9 · Known 1 · 未開單 1` — that report's own row. Generated from the filing JSON
-  (`apply_ebug_filing.py` / `build_docx_report.py` filter and count it); nothing is typed by hand.
-- **In the dashboard:** `AI_Test_Dashboard_Summary.xlsx` (SharePoint, opened in the built-in browser) →
-  tab **PDR Mobile**, columns **J AI Found # · K Created # · L Known #** (M False Alarm is derived). Each
-  feature has its own row(s) keyed by column A Feature and F Platform. **Hand the user the numbers as a
-  small Feature / AI Found # / Created # / Known # table in the final summary, one row per report, — do not type into the sheet**
-  unless they ask (user's choice, 2026-09-17: "Just give me the numbers"; it is a shared sheet with other
-  editors live).
-  **Always a markdown table, even with a single report** (user, 2026-10-15) — never a sentence such as
-  "Dashboard numbers: AI Found 7, Created 7, Known 0". Columns in sheet order, one row per report:
-
-  | Feature | Platform | AI Found # | Created # | Known # |
-  |---|---|---|---|---|
-  | AI Mini Drama (New User) | iOS | 7 | 7 | 0 |
-
-### 2. Add the 「eBug 送單結果」 section — the eBug form, mirrored
-
-A new section after 發現與建議 and before 測試方法, present **only** once filing has happened.
-It is a table with **one row per filed ticket**, carrying the fields a reader would otherwise have to
-open ECL for:
-
-| Column | Source |
-|---|---|
-| BugCode | the `FormCode` from create, read back |
-| ISS ID | the KB defect id it came from |
-| Short Description | verbatim, as filed |
-| Severity | integer, as filed |
-| Priority | integer, as filed |
-| BugBelong | `RD` / `PM` / `Doc` … as filed |
-| Problem Type | Functional / UI / UX |
-| Status | as read back (`NewCreated`, `Assigned`, …) |
-| TRCode | the parent TR |
-
-Above the table, a meta block: **Creator (ECL login, as read back) · filing method · TRCode · Version /
-Build · Server · 送單日期**. Below the disposition line, **one card per ticket laid out like the eBug
-page** — BugCode + Short Description header, a field grid (Product, Template, Version, Build No,
-Creator, Created, TRCode, Bug Source, Severity, Priority, BugBelong, Status, Reproduce, Problem Type,
-Happens on previous build, Assignee) and the full Description as filed — so a reader of the report
-never has to open ECL.
-
-**The evidence is in the card, not just its file name (user, 2026-09-17).** Every `{filename}` line in the
-Description is rendered as the attachment image itself, with the file name as a small caption so it
-still matches the ECL attachment list. **One ticket per page (user, 2026-09-17):** each card starts on
-a new page, and its image is scaled to the height left after that card's header, field grid and
-description text (`ebug_image_budget`; ≤ 6.4 in wide, ≥ 1.6 in tall, 0.45 in safety for renderer line-height
-differences). Existing reports were not regenerated when this changed — the next rebuild picks it up.
-`build_docx_report.py` does this (`ebug_picture`, `find_attachment`): it looks in `ATTACH_DIRS`, then
-beside `filed_bugcodes.json` and its `upload/`, then `ebugs/*_images/*/`. A missing file prints
-「附件檔不在本機」 instead of silently dropping the line — count images per section after every build
-(tickets × 2, Chinese + English).
-
-**MX scenario reports get the same section.** They have no `build_docx_report.py` generator, so the
-section is inserted into the `_eBug覆核` copy with `gen.ebug_section` (Chinese before 測試方法, English
-before Method) — see `sessions/verify_mx01_ux05_ux06_20260916/annotate_mx_reports.py`. Move the new
-elements by **position** (python-docx appends just before `sectPr`); an `id()`-based diff of lxml
-elements is unstable and scrambled a whole report on the first attempt.
-
-**Read-back text keeps literal `<`.** `export-filing` strips only real HTML tags (`strip_tags`). The old
-`<[^>]+>` ate `"<" button … 「>」` out of DRI261889-0026 and dropped every `<Claude Reviewed>` line.
-The Creator line is the one from *Who is filing* above — it is required here, not optional.
-
-Below the table, the disposition summary, so the arithmetic is visible in the report itself:
-
-```
-本場缺陷合計 N 項 ＝ 已開單 N 張 ＋ 已知單不重複開 N 項 ＋ 不開單（設計／PM 裁示）N 項 ＋ 未結案 N 項
-```
-
-### The commands
+Read every filed ticket back and write the batch record — `filed_bugcodes.json` (and `.md`) in the batch folder
+`library/<feature>/<platform>/ebugs/<date>/`. Together with the run's `report.md` that is the record; there is no
+`.docx` report to stamp in this repo.
 
 ```bash
 export ECL_TOKEN="$(cat ~/.ecl_token)"
-# 1. read every filed ticket back from the server — same for both filing methods.
-#    API path: --ledger; browser-form path: --map KEY=BUGCODE ... (keys from bodies.json).
-#    dispositions.json: {"ISS-LAU-04": "不開單（PM 裁示）", ...} for every defect not filed.
+# API path: --ledger; browser-form path: --map KEY=BUGCODE ... (keys from bodies.json).
+# dispositions.json: {"F-4": "不開單（PM 裁示）", ...} for every finding not filed.
 python3 scripts/ecl_if3.py export-filing \
-    --ledger <session>/upload/filed_formcodes.json \
-    --bodies <session>/upload/bodies.json \
-    --dispositions <session>/upload/dispositions.json \
+    --ledger <batch>/upload/filed_formcodes.json \
+    --bodies <batch>/upload/bodies.json \
+    --dispositions <batch>/upload/dispositions.json \
     --creator ETHAN_HSU --method api+browser-upload \
     --tr TR260915-0007 --version 16.8.0 --build 189063 --server Developer \
-    --out <session>/filed_bugcodes.json
-
-# 2. (exploration suite only; not in this repo) rebuild each feature report with the BugCodes stamped:
-#    pdri-exploration-suite's apply_ebug_filing.py <original session>/build_report.py <session>/filed_bugcodes.json
+    --out <batch>/filed_bugcodes.json
 ```
 
-`export-filing` records **Creator as read back per ticket** (plus the token owner when it differs) —
-that is the "user name in the filing report" the user asked for, taken from the server rather than
-from what was intended. `apply_ebug_filing.py` exits non-zero if any ▲ defect ends with neither a
-BugCode nor a disposition, and recovers figure JPEGs from the original `.docx` when the session's
-temp crops are gone. `dispositions.json` must name every defect that was not filed: `已知單，不重複開：<BugCode>`
-/ `不開單（<reason>）` / `未結案`.
+`export-filing` records **Creator as read back per ticket** (plus the token owner when it differs), taken from the
+server rather than from what was intended. `dispositions.json` names every finding that was not filed:
+`已知單，不重複開：<BugCode>` / `不開單（<reason>）` / `未結案`. Read-back text keeps literal `<` (`strip_tags`
+removes only real HTML tags, so `<Claude Reviewed>` and 「<」 button names survive). BugCodes link as
+`https://ecl.cyberlink.com/Ebug/eBugHandle/HandleMainEbug.asp?BugCode=<BugCode>`; never build a link from another
+path. In the final summary give the counts as a markdown table, even for one report:
 
-**Never regenerate the report from scratch to add this** — rebuild it from the original generator
-with the new section filled in, so the step rows, figures and counts stay byte-identical apart from
-the additions. `scripts/build_docx_report.py` carries an `EBUGS` block for exactly this; leaving it
-empty omits the section entirely, which is the correct state for a run that has not been filed yet.
+| Feature | Platform | AI Found # | Created # | Known # |
+|---|---|---|---|---|
+| AI Mini Drama | iOS | 7 | 7 | 0 |
 
-Save the filed version suffixed `_送單`. An original from an **earlier** run is never overwritten or
-deleted. When the run is filed in the same session, there is no original: only `_送單` is rendered (user,
-2026-10-12, they upload only that one) — waiting at the review page does not count as the run ending. If a
-plain copy was rendered earlier in this same run, add `--drop-plain` to `apply_ebug_filing.py` so it is removed
-(user, 2026-10-15).
-
-## Closing the loop — annotate the source report
-
-Filing is not finished until the scenario report says what happened to each finding.
-
-**The reader's default assumption is that every listed finding is a bug.** In an
-`mx-scenario-suite` report the findings section is one flat priority-ordered list, so an
-observation, a known bug and a real new defect all look identical. Fix that explicitly: label
-every finding, and never publish a bare count of "findings" as if it were a defect count.
-
-Give each finding exactly one of five dispositions, appended to its title as a visible tag:
-
-| Tag | Meaning |
-|---|---|
-| `✔ 缺陷｜已開單：DRI…` | a new eBug was raised |
-| `✔ 缺陷｜已知單，不重複開：ISS-…` | reproduces, existing ticket covers it |
-| `✘ 非缺陷｜已修復／未重現` | fixed, or did not reproduce on the build under test |
-| `✘ 非缺陷｜設計或產品議題，不開單` | real observation, but not a defect — product gap or design call |
-| `？ 未結案｜本輪無法驗證` | could not be exercised. **Not a verdict** — never fold into 非缺陷 |
-
-Then insert a summary block that leads with the bug / not-a-bug split, not a single total:
-
-```
-AI 發現問題合計 N 項 ＝ 確認為缺陷 N 項 ＋ 非缺陷 N 項 ＋ 未結案 N 項
- · 確認為缺陷：新開單 N 張、已知單不重複開 N 項
- · 非缺陷：已修復或未重現 N 項、設計或產品議題不開單 N 項
- · 未結案（本輪無法驗證，非結論）：N 項
- · 新開單 BugCode：…
- ※「AI 發現問題」為本場提出的觀察總數，不等同缺陷數
-```
-
-The three top-level numbers must sum to the finding total, and 新開單 must equal the BugCode
-count. That arithmetic is the check that nothing was silently dropped.
-
-**Supersede the old 送單狀態, do not just append to the title.** These lines carry stale text from
-the previous build's batch — including "已立 eBug Entry N", which is a *draft batch index, not a
-BugCode*. Leaving it produces a report that contradicts itself: a finding tagged 非缺陷 whose
-送單狀態 still reads 仍需處理. Append an explicit dated override to that line saying what the old
-text was and what the current verdict is; keep the history, remove the ambiguity.
-
-**Mechanics:** `python-docx` in a scratchpad venv. Findings live in
-**table cells**, so `doc.paragraphs` alone finds nothing — walk `doc.tables` recursively. Append a
-`deepcopy` of the paragraph's last run to inherit formatting, then set colour per disposition.
-Save as a `_eBug覆核` copy; never overwrite the original, and always regenerate from the original
-rather than re-annotating an annotated file.
+(AI Found = distinct findings, Created = tickets filed and read back, Known = reproduces but a ticket exists.) Do not
+type into the shared dashboard sheet unless the user asks.

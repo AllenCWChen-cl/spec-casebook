@@ -1,9 +1,11 @@
 # spec-casebook — agent instructions
 
 This repo turns CyberLink product feature specs (PowerDirector first, any product with specs) into reviewed test-case tables, one per feature and platform.
-Follow the skill in `.claude/skills/spec-casebook/SKILL.md` (Codex: `.codex/skills/spec-casebook/SKILL.md`;
-both files are identical — update them together). The repo also carries its own `ebug-draft-generator` and
-`ebug-tr-filer` skills for filing failures found while running a table; their casebook overlay comes first.
+Follow the skill in `.claude/skills/spec-casebook/SKILL.md` and the `references/` file it names for the task. The
+repo also carries its own `ebug-draft-generator` and `ebug-tr-filer` skills for filing failures found while running a
+table; their casebook overlay (`ebug-tr-filer/references/casebook-overlay.md`) comes first. Edit skills only under
+`.claude/skills/`, then run `node scripts/sync-skills.ts` to copy them to `.codex/skills/` (`check.ts` warns when the
+two differ).
 
 - The approved table for a feature is `library/<feature>/<ios|android>/cases.csv`. Treat it as the correct answer
   for that feature; change it only through the review page's Save or an explicit user request.
@@ -19,128 +21,71 @@ both files are identical — update them together). The repo also carries its ow
 ## Team preferences
 
 Standing rules from the team's sessions, kept here (not in any one person's local agent memory) so everyone who
-clones the repo, in Claude Code or Codex, works the same way. Add new standing preferences here, dated, rather than
-to a personal memory store; feature-specific run details go in the skills or the feature folder.
+clones the repo, in Claude Code or Codex, works the same way. Add new standing preferences here, dated, in one or two
+lines; put the full rule in the skill or reference file that applies it and point to it. Pointers: *overlay* =
+`ebug-tr-filer/references/casebook-overlay.md`; other files are under `spec-casebook/`.
 
-- **eBug descriptions (reviewers, 2026-10-21).** One action per numbered Repro step (no `>` / `›` chains); a Spec
-  Link on every entry (Figma URL with node-id, else PDF + board ID); attachments on every entry: at least one image,
-  the log excerpt when a log shows the cause and on every failure-related entry (failed generation, turn, upload
-  or retry, error card, charge or missing refund), shown on the review page card (2026-10-27), no video unless the
-  user explicitly asks for one (2026-10-21).
-  `check_ebug_format.py` enforces all three.
+- **eBug descriptions (reviewers, 2026-10-21/27).** One action per Repro step, a Spec Link on every entry, an image on
+  every entry and the log excerpt on every failure-related one (shown on the review card), no video unless asked;
+  `check_ebug_format.py` enforces them (overlay rules 1–3).
 - **Filing account.** Review pages prefill Creator, TRCode, source tag and method from the newest filed batch
-  (`node scripts/ebug-defaults.ts <feature> <platform>`). "Same build" / "Same TR" in decisions means the previous
-  batch's TR, after confirming the TR header still names the tested build.
+  (`node scripts/ebug-defaults.ts`); "Same build" / "Same TR" means that batch's TR once its header names the tested
+  build (overlay rule 4).
 - **No comments on existing eBugs (2026-10-21, until lifted).** Never comment on, reopen or reject the fix of an
-  existing ticket; rechecks and fixed tickets are listed for information only.
-- **Dedupe per OS (user, 2026-10-28).** iOS and Android eBugs are deduped separately: a ticket on the other OS never
-  makes a finding a duplicate (it is a new entry for this OS). A finding that matches an existing ticket on the same
-  OS's TRs is not listed on the review page or in the drafts at all (no recheck rows, no on-hold cards); only the
-  batch's `dedupe.txt` keeps the match (eBug overlays, *Dedupe per OS*). Exception (user, 2026-10-28): when that
-  ticket is **closed** and the bug is back, the finding stays a new card naming the closed ticket as related.
+  existing ticket; rechecks and fixed tickets are listed for information only (overlay).
+- **Dedupe per OS (user, 2026-10-28).** A ticket on the other OS never makes a finding a duplicate; a same-OS match is
+  left off the drafts and review page (kept only in `dedupe.txt`), unless that ticket is **closed** and the bug is
+  back: then it is a new card naming the closed ticket (overlay, *Dedupe per OS*).
 - **eBug owner and type (RD, 2026-10-21 — replaces the 2026-10-20 rule; revertible).** Casebook findings are
-  spec-driven `[AIAgent]` bugs, so they never carry `[UX]`: an interaction or flow problem is Functional or `[UI]`,
-  owner RD (Doc for copy), and RD forwards it to PM when it wants a ruling. A finding with no spec basis is held as a
-  PM question, not filed. Exploration (`[AIFound]`) keeps filing `[UX]` for findings with no spec or in-product basis.
+  `[AIAgent]` Functional or `[UI]`, owner RD (Doc for copy), never `[UX]`; RD forwards to PM when it wants a ruling. A
+  finding with no spec basis is held as a PM question, not filed. Exploration (`[AIFound]`) keeps filing `[UX]`.
   **Revert** — the user may restore the 2026-10-20 rule: "A UX problem goes to PM (BugBelong PM), who decides before
   handing it to RD. A problem that plainly needs an RD fix (performance, waits, missing behaviour) is Functional,
-  owner RD, with no `[UX]` tag." Put that text back here, then follow the revert steps in rule 5 of the eBug overlays
+  owner RD, with no `[UX]` tag." Put that text back here, then follow the revert steps in overlay rule 5
   (`--allow-agent-ux` / `ALLOW_AGENT_UX=1`).
 - **Pink fault switches, AI Mini Drama (2026-10-20).** 「Fail turn」 fails an LLM chat turn (outline, cast confirm,
-  storyboard offer); 「Inject failure status」 only applies to a video beat once filming starts and cannot simulate
-  chat-turn failures. An injected failure logs `AppTweaks injected <Tool> failure #N`; `status=tool_error` alone is
-  the server's own failure. Re-check any bug found with injection on with every fault switch Off (or the correct
-  one), and name the switch in the Repro steps. (RD rejected DRI261896P0043 for using the wrong switch.)
-- **Request ledger (2026-10-21).** Every request about what a feature's tables cover or how its runs go (from the
-  user, a colleague, a reviewer or RD) is added the same session to `library/<feature>/requests.md` with the next
-  REQ ID. The spec analysis re-applies the ledger on every draft and `check.ts` fails a draft that leaves an open
-  table entry uncited (skill: "Standing inputs").
-- **PM-only features are cases (2026-10-21).** Anything the PM spec states but the Design spec does not draw yet
-  becomes rows now, from the PM spec, with Notes 「PM-only: no Design frame yet」. When the Design spec is updated,
-  modify those rows to the Design version (or remove them only if the Design leaves the feature out on purpose).
-  Design still wins wherever both specs cover the same thing (skill: coverage pass 7), except (2026-10-22): when the two
-  disagree, the newer one wins (dated update boards and frame labels decide); when the dates can't tell, check the app
-  on the device first, then decide with the user.
-- **Figma and the spec agent (2026-10-22).** PDF exports can lag the Figma file: on every analysis list the dated
-  Figma frames through Figma MCP and read any the PDF lacks (skill: Reading the spec, step 8). A Design frame older
-  than the newest PM spec file loses to that PM where they conflict (REQ-029).
-- **What the repo is for (user, 2026-10-27, REQ-036 / REQ-037 — replaces REQ-031).** A complete, thorough analysis of
-  the spec files, then an on-device run that does not drain tokens. A more complete table comes from refining how the
-  spec is read and analyzed, never from comparing with another tool's cases and covering what they cover. When a run
-  finding, a reviewer's edit, an RD rejection or an outside bug shows a missed rule, the reading step or pass that
-  skipped it is fixed in the skill, so every future spec gets it. No comparison runs during an analysis; the spec
-  agent comparison (skill: *Spec agent comparison*, from the snapshot in `library/<feature>/spec-agent/`) is a report
-  made only on request, adds no rows and is not checked by `check.ts`.
-- **Phone fixtures (2026-10-27).** What a run needs on the phone or account (build, account, photos for upload cases,
-  settings) is listed in `library/<feature>/<platform>/fixtures.md`, since none of it is committed.
-- **The analysis finds spec rules itself (user, 2026-10-22, REQ-032).** The casebook's own reading must find every
-  rule in the spec files. Every annotation block is traced to its requirements (`scripts/annotations.ts`),
-  requirements with a clause the screen does not show get a row that observes it (log, ledger, stored files, RD), and
-  a rule for several tiers, models or languages gets a row per variant.
-- **New rows go where they belong (user, 2026-10-22, REQ-033).** A row added by an analysis or from another source
-  goes right after the row it extends (even between rows already run), an old row is modified when the new rule is
-  checked on the same screen, and each analysis ends with a check of the row and run order. The next round's phase
-  lists added and changed rows in their stage segments (`"round": true`), never only as an appended phase.
-- **Every control pressed, every arrow walked (user, 2026-10-28, REQ-038).** Every tappable element the Design,
-  PM and MX Figma files draw is tested (PM and MX added 2026-10-28, REQ-052): the Figma inventory (`scripts/figma/inventory.js` → `scripts/inventory.ts`) lists screens, controls
-  and arrows, counting each button once however many screens show it and each choice list once;
-  `control-trace.json` names the row that presses each control (inputs also the row that dismisses them);
-  each run aims to press all of them, and `scripts/coverage-page.ts` shows counts and the boards marked with tap
-  screenshots as proof (taps matched by a scored label / id / icon / position match, ties left for review). Figma MCP has a small quota (View seat): read the file in a few bulk calls per board group,
-  never element by element (skill: Reading the spec, step 10). Accounts (user, 2026-10-28): the Design Figma file is
-  read as qa-dm@cyberlink.com (Dev seat), the PM and MX Figma files as qa1@cyberlink.com (qa-dm only has a View seat on PM);
-  check with Figma MCP `whoami` before a read. The inventory is reviewed on the sheets before tracing (REQ-041).
-- **Two Figma MCP servers (user, 2026-10-29).** The repo's `.mcp.json` (Claude Code) defines `figma-design`, signed in
-  as qa-dm@cyberlink.com, and `figma-pm`, signed in as qa1@cyberlink.com (Codex: the same two names under
-  `mcp_servers`, README Setup 5). Read the Design file only through `figma-design` and the PM and MX files only
-  through `figma-pm`; never swap accounts by hand or read through a claude.ai Figma connector (turn it off for this
-  repo). Before the first read of a section, `whoami` on that server; a wrong or expired account stops the read and
-  the user signs it in again (`/mcp` in a terminal `claude`, or `codex mcp login <name>`). Sign-ins are the user's:
-  when a server is missing, pending approval or signed out, the agent opens a Terminal panel tab running the
-  `claude` CLI in this folder and walks the user through README Setup 5, then checks both accounts with the headless
-  `claude -p … whoami` command there (a session opened before the approval cannot see the servers).
-- **Figma reads are shared, changes found by fingerprint (user, 2026-10-29).** Everything a Figma read produces is
-  committed (group files, `figma-hashes.json`, `inventory.json`, and board screenshots in `extracted/figma/`, one file
-  per board, listed in `shots.json`), so another machine never spends quota on an unchanged board. A new run checks
-  each Figma file with one call (`scripts/figma-check.ts`) and re-reads only the groups whose boards changed. A
-  re-captured screenshot overwrites its file and `figma-check.ts --prune` deletes unlisted or superseded ones; other
-  images stay local. Started with no arguments, the skill asks for the feature, asks for spec files and links if none
-  are recorded, else runs the check itself and goes on to analysis, case changes, review and the on-device run
-  (skill: step 0).
-- **Everything on the coverage page is marked (user, 2026-10-29).** Every board the coverage page shows has every
-  screen, control, arrow and annotation note marked with a state; superseded spec versions are inventoried too and
-  marked Excluded, and a board holding only a note (or a link) gets that note marked; a link is followed and every item
-  of the linked page (each price, id or rule) becomes a note of its own (`extracted/links.json`, REQ-058, 2026-10-29).
-  A blank board, or one listed as a spec region with nothing tracked, is a gap to fix, not a display choice (skill:
-  Reading the spec, steps 9–10).
-- **Live pages (user, 2026-10-28).** `scripts/pages.ts` serves four tabs, Cases (review), Progress (run plan), Results and Coverage, with one
-  shared tab bar that holds the only language switch; a page served there never shows its own. Results
-  (`scripts/results-page.ts`) shows each case's reason and screenshots. On the review page `+ Add case` takes free
-  text, never a blank row: after a Save (`new-case-notes.json`) or a pasted Copy decisions, the agent turns every
-  open note into rows in the right section and proposes the next draft (skill: Human review, New-case notes).
-- **Wi-Fi during runs (2026-10-21).** Offline cases may turn Wi-Fi off and on during a run once the phone is
-  confirmed on a USB cable; restore it right after the case. Other system settings still need the user's go-ahead.
-- **Finding rows on the phone.** Reach a list row only with `device.ts scrollto` (Pink rows: `device.ts pink …`),
-  screenshot before tapping, read the value back after every tap that changes a setting. No hand-written drag-and-grep
-  loops, no steering by off-screen elements (recycled cells keep stale frames), taps only inside the list band.
-- **Keeping WDA alive (2026-10-27).** iPhone Auto-Lock is Never during a run (the user sets it); every segment starts
-  with `device.ts restart` (fresh WDA, app back in front); never uninstall WDA or use `useNewWDA` (the phone then
-  drops its trust in the QA certificate). `device.ts` exit 75 = BLOCKER (locked phone or untrusted certificate): the
-  orchestrator pushes a notification to the user with the BLOCKER line instead of waiting silently.
-- **One section per context (user, 2026-10-27).** Every run in this repo works section by section (a run segment, a
-  phase wrap-up, a board group of a large analysis), and no section continues in a context that already ran another.
-  The chat the user talks to only orchestrates: it runs each section as a new subagent (Claude Code: Agent tool;
-  Codex: its native subagents, one new agent per section, closed when done), one at a time unless the skill says
-  parallel, else in a worker session it clears and re-briefs. Briefs are self-contained (run dir, plan, files to
-  read), since Codex does not promise a subagent starts without the parent's history. If no subagent or session
-  tool is available, it stops after the section's checkpoint and asks the user to open a new chat, giving the
-  one-line brief to paste (skill: "Keep going without asking").
+  storyboard offer); 「Inject failure status」 only applies to a video beat once filming starts. An injected failure
+  logs `AppTweaks injected <Tool> failure #N`; `status=tool_error` alone is the server's own failure. Re-check any bug
+  found with injection on with every fault switch Off (or the correct one), and name the switch in the Repro steps
+  (RD rejected DRI261896P0043 for using the wrong switch).
+- **Request ledger (2026-10-21).** Every request about a feature's tables or runs (from anyone) goes into
+  `library/<feature>/requests.md` the same session with the next REQ ID (`analysis.md` › Standing inputs).
+- **Design vs PM (2026-10-21/22, REQ-029).** PM-only features become rows now (「PM-only: no Design frame yet」) and are
+  updated when the Design draws them; where the two disagree the newer wins, a Design frame older than the newest PM
+  file loses to it, and when dates can't tell, check the device and decide with the user (`analysis.md` pass 7).
+- **What the repo is for (user, 2026-10-27, REQ-036 / REQ-037).** A thorough spec analysis, then a run that does not
+  drain tokens. Missed rules are fixed in the reading step or pass that skipped them, never by copying another
+  tool's cases; the spec agent comparison is a report on request only (`SKILL.md`, `analysis.md`).
+- **The analysis finds spec rules itself (user, 2026-10-22, REQ-030 / REQ-032).** Dated Figma frames newer than the
+  PDF are read, every annotation block and linked page is traced, hidden clauses get an observing row, and each
+  variant gets its own row (`reading-the-spec.md` steps 8–9, `analysis.md` passes 9–10).
+- **New rows go where they belong (user, 2026-10-22, REQ-033).** Right after the row they extend, an old row modified
+  when checked on the same screen, and the next round lists them in their stage segments (`SKILL.md` step 3).
+- **Every control pressed, every arrow walked (user, 2026-10-28, REQ-038 / REQ-052).** Every tappable element the
+  Design, PM and MX Figma files draw is inventoried, traced to a row and pressed in runs; the coverage page proves it
+  and marks everything on every board, superseded versions as Excluded (`reading-the-spec.md` step 10, `analysis.md`
+  pass 11, `run.md`).
+- **Figma access (user, 2026-10-28/29).** Design only through the `figma-design` MCP server (qa-dm@cyberlink.com), PM
+  and MX only through `figma-pm` (qa1@cyberlink.com); never swap accounts by hand or use a claude.ai Figma connector;
+  `whoami` before a read. Sign-ins are the user's: the agent opens a Terminal tab with `claude` and walks them through
+  README Setup 5. Quota is small: bulk reads per board group, changes found by fingerprint (`figma-check.ts`), every
+  read committed (`reading-the-spec.md` step 10).
+- **Phone fixtures (2026-10-27).** What a run needs on the phone or account is in
+  `library/<feature>/<platform>/fixtures.md`.
+- **Live pages (user, 2026-10-28).** `scripts/pages.ts` serves Cases, Progress, Results and Coverage with one shared
+  tab bar holding the only language switch. `+ Add case` takes free text; the agent turns open notes into rows
+  (`SKILL.md` step 4, New-case notes).
+- **On the phone (2026-10-21/27).** Wi-Fi may be toggled for offline cases once the phone is on USB (other system
+  settings need the user's go-ahead); rows are reached only with `scrollto` / `pink`; Auto-Lock Never, `device.ts
+  restart` at every segment, never uninstall WDA; exit 75 = BLOCKER, pushed to the user (`run.md` steps 1, 3, 4).
+- **One section per context (user, 2026-10-27).** Every run works section by section (segment, phase wrap-up, board
+  group); the user's chat only orchestrates, each section in a new subagent with a self-contained brief, else a
+  cleared worker session, else a new chat the user opens (`run.md`, "Keep going without asking").
 - **Commit and push (user, 2026-10-27).** "Commit and push" (or "push") means push to `origin` right after the
   commit, with no second confirmation; a plain "commit" stays local.
-- **Parallel phones: investigate only.** Running segments on several iPhones at once is an open idea in
+- **Parallel phones: investigate only.** Running segments on several phones at once is an open idea in
   `INVESTIGATE.md`; do not build multi-device support without asking.
-- **Plan usage (2026-10-21).** The account is shared, and other people's use on other machines is invisible to the
-  transcripts, so usage-card readings overstate a run. The run plan's main figure is a token-rate estimate calibrated
-  on P1 (`runs/usage-calibration.json`: P1 ≈ 3 full 5-hour windows of a 1× Pro account); the account total is shown
-  muted. Seat sizes: round 1/P1 a 1× Pro account, round 2 a Team seat = 6.25× Pro, round 3 (from 2026-10-22) a
-  1.25× Team account.
+- **Plan usage (2026-10-21).** The account is shared, so usage-card readings overstate a run. The run plan's main
+  figure is a token-rate estimate calibrated on P1 (`runs/usage-calibration.json`: P1 ≈ 3 full 5-hour windows of a 1×
+  Pro account); the account total is shown muted. Seat sizes: round 1/P1 1× Pro, round 2 a Team seat = 6.25× Pro,
+  round 3 (from 2026-10-22) a 1.25× Team account.

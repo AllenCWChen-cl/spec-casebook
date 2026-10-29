@@ -14,6 +14,7 @@ import { join } from 'node:path';
 import { CHANGES, COLUMNS, arg, assertIds, draftsDir, featureDir, readManifest, readTable, tableDir } from './lib/library.ts';
 import { parseCsv } from './lib/csv.ts';
 import { linkBlocks } from './lib/links.ts';
+import { skillDiffs } from './lib/skills.ts';
 
 const [feature, platform] = process.argv.slice(2);
 assertIds(feature, platform);
@@ -209,6 +210,9 @@ if (draft && reqText) {
     }
   }
 }
+
+const skillDrift = skillDiffs();
+if (skillDrift.length) warnings.push(`.codex/skills differs from .claude/skills (${skillDrift.length} file(s), e.g. ${skillDrift[0]}): run node scripts/sync-skills.ts`);
 
 console.log(JSON.stringify({ table: csv, rows: rows.length, errors, warnings }, null, 2));
 process.exit(errors.length ? 1 : 0);

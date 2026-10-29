@@ -556,7 +556,11 @@ Using `library/ai-mini-drama/` as the example:
 | `ebug-draft-generator` | eBug drafts from failed cases (casebook overlay first) |
 | `ebug-tr-filer` | Dedupe, format check, review page, filing through the IF3 API, read-back (needs `~/.ecl_token`) |
 
-Each skill exists for Claude Code (`.claude/skills/`) and Codex (`.codex/skills/`); keep both copies identical.
+`spec-casebook/SKILL.md` holds the workflow; the details sit in `references/` (reading the spec, analysis, file
+formats, runs on iPhone and Android, eBugs) and are read only when a task needs them, so a run segment does not load
+the analysis rules. The eBug skills share their casebook rules in `ebug-tr-filer/references/casebook-overlay.md`.
+Edit skills under `.claude/skills/` only, then run `node scripts/sync-skills.ts` to copy them to `.codex/skills/`
+(`--check` lists differences; `check.ts` warns about them).
 
 ## Scripts
 
@@ -574,6 +578,7 @@ All scripts run from the repository root with `node scripts/<name>.ts`.
 | `annotations.ts <feature> <platform> --draft <id>` | Groups every board's annotations into blocks to trace to requirements (`annotation-trace.json`) |
 | `spec-agent-gaps.ts <feature> <platform> --draft <id>` | Comparison report data (on request): spec agent cases the table doesn't cover, with their source, from the snapshot in `library/<feature>/spec-agent/` (`--refresh` updates it from a local spec agent clone, read with git only) |
 | `check.ts <feature> <platform> [--draft <id>]` | Validates a table or draft, incl. arrows, controls, ledger, annotation trace and grids |
+| `sync-skills.ts [--check]` | Copies `.claude/skills/` to `.codex/skills/` (or only lists differences) |
 | `figma/inventory.js` | Figma plugin script the agent runs through Figma MCP (`use_figma`), one call per board group: screens, dialogs, controls, flow arrows |
 | `inventory.ts <feature> <spec-set> [--sync-arrows]` | Merges the Figma inventory, groups the controls, applies the review overrides; `--sync-arrows` adds missed arrows to `arrows.json` |
 | `inventory-sheets.ts <feature> <spec-set> [--board …]` | Cuts every screen out of the Design PDF (or a saved Figma screenshot) with its control boxes drawn, for review |
@@ -615,7 +620,7 @@ All scripts run from the repository root with `node scripts/<name>.ts`.
 ## Contributing
 
 - Write new scripts in TypeScript (`node` runs them directly).
-- Change a skill in both `.claude/skills/` and `.codex/skills/` and keep them identical.
+- Change a skill under `.claude/skills/`, then run `node scripts/sync-skills.ts` to update `.codex/skills/`.
 - Add standing preferences to [`AGENTS.md`](AGENTS.md) › Team preferences (dated) and feature requests to the
   feature's `requests.md`, not to a personal agent memory.
 - Never edit an approved `cases.csv` by hand without a request; go through a draft and the review page.

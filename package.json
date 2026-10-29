@@ -19,7 +19,8 @@
     "render-tiles": "node scripts/render-tiles.ts",
     "render-region": "node scripts/render-region.ts",
     "ebug-defaults": "node scripts/ebug-defaults.ts",
-    "coverage": "node scripts/coverage-page.ts"
+    "coverage": "node scripts/coverage-page.ts",
+    "sync-skills": "node scripts/sync-skills.ts"
   },
   "dependencies": {
     "exceljs": "4.4.0",

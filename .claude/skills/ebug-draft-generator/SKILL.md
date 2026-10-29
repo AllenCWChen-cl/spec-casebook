@@ -6,74 +6,22 @@ description: Turn QA verification / sign-off results for a PowerDirector feature
 <!-- BEGIN spec-casebook overlay -->
 ## In this repo (spec-casebook) — read first
 
-This is a copy of the shared eBug skill, kept here so the casebook works on its own. The rules in this section
-override the parts below that assume the exploration suite (`pdri-exploration-suite`, its `sessions/` folders,
-knowledge-base files, QA sign-off files and `.docx` reports). Those do not exist in this repo; skip any step that
-reads or updates them.
+This is the casebook's own copy of the shared eBug skill. **Before drafting or filing, read
+`.claude/skills/ebug-tr-filer/references/casebook-overlay.md`** (Codex: `.codex/skills/…`): reviewer rules 1–7
+(one action per step, Spec Link, attachments and logs, filing account memory, no `[UX]` with its revert steps, no
+comments on existing tickets, dedupe per OS). Those rules and the lines below override the body of this skill.
 
-- **Where findings come from:** running the approved cases in `library/<feature>/<platform>/cases.csv`. Each finding
-  names the failed case ID(s) and their Spec Ref requirement(s). Build Repro Steps from the case's Precondition and
-  Action, and Expected Result from the case's Expected Result and the requirement in `requirements.md`.
-- **Where files go:** everything stays in the feature folder.
-  - Run evidence (screenshots, recordings, logs): `library/<feature>/<platform>/runs/<YYYY-MM-DD>/`
-  - eBug drafts, the review page, upload frames, `filed_bugcodes.json` / `.md`:
-    `library/<feature>/<platform>/ebugs/<YYYY-MM-DD>/`
-- **Source tag:** do not use `[AIFound]` (it marks exploration-suite findings). Use the tag the user set for
-  casebook findings; if none is recorded here yet, ask before drafting.
-- **Device control:** `scripts/device.ts` (Appium on the QA iPhone, see the casebook skill); the iPhone Mirroring /
-  `computer-use` transport named below is the exploration suite's and is not used here.
-- **Skip these sections here:** *Inputs* (the sign-off and KB files are the exploration suite's; the inputs are the run
-  folder's `results.csv`, `observations.md` and screenshots), *When this runs* and *Related*.
-- Everything else (format rules, dedupe through the ECL API, severity review page, token handling, never filing
-  unverified findings) applies unchanged.
-- **Spec Link checks:** `verify_ebug_drafts.py`'s sheet-index checks look for the exploration suite's `Figma/_index/` transcripts, which the casebook does not have; its 'unknown sheet' / 'never names that sheet' failures do not apply. Casebook `Spec Link:` lines name the source (Design or PM spec), the board title from `extracted/boards.json` and the Figma file URL from `spec-set.json`. Design outranks PM when they disagree.
-- **Reviewer rules (user, 2026-10-21, from the eBug reviewers) — every entry, every batch:**
-  1. **One action per Repro step.** Each numbered step is one tap, one typed entry, one swipe or one wait. No `>` /
-     `›` chains: 「Mine > Credits > Details」 is three steps (Tap Mine · Tap Credits · Tap Details), and "Tap Filter,
-     select Male and Indigenous, apply" is four. `check_ebug_format.py` fails a step that contains `>` or `›`.
-  2. **A Spec Link on every entry**, to the spec used as the reference: the Figma URL with `node-id` — the frame or
-     flow-arrow node that `requirements.md` gives for the requirement when it has one, otherwise the file URL from
-     `library/<feature>/specs/<date>/spec-set.json` (`figma`) with the board title from `extracted/boards.json` /
-     `board-notes.md`. Only when no URL exists: the PDF name + board ID. Entries resting on a QA rule (rule 7 text,
-     rule 8 checks) cite the board that shows the screen or string they are about. The format check fails an entry
-     with no `Spec Link:` line, `Spec Link: none`, or a link with neither a URL nor a PDF name.
-  3. **Attachments on every entry:** at least one image (red-boxed frame) per bug, cited inline as `{<ver>_<slug>.jpg}`;
-     plus the relevant log excerpt (`<ver>_<slug>_log.txt`) when the finding has a log cause. **Every failure-related
-     entry carries its log (user, 2026-10-27):** a failed generation, turn, upload or retry, an error card or dialog,
-     a charge or a missing refund, a step that ends with nothing — attach the excerpt of that failure's time window
-     (the failing tool line, `status=…` / `error=…`, the `authorized, credit=N` and refund lines) even when the screen
-     already shows the error, cite it inline under Result, and show it on the review page card (a 「Log」 section
-     with the excerpt text), so the reviewer sees it before deciding (F-6 of the 10/27 P9 batch had its log attached
-     but the page hid it). Scan each excerpt for
-     tokens, `Bearer`/`authorization` lines and signed URL queries before staging it. Layout and content findings need
-     no log. **No video unless the user explicitly asks for one** for that batch or entry (then pass
-     `--videos-requested` to the format check); keep recordings in the run folder. The format check fails an entry
-     with no image reference and any video attachment without that flag.
-  4. **Filing account memory.** Review pages prefill Creator, TRCode, source tag and method from the newest
-     `filed_bugcodes.json` under the feature's `ebugs/` folders (`meta.creator`, `meta.tr`, the tag of the filed Short
-     Descriptions, `meta.method`) — `node scripts/ebug-defaults.ts <feature> <platform>` prints them (`--json` for
-     generators) — shown as 「from <batch> — confirm」, never blank. In a user's decisions, "Same build" / "Same TR"
-     means that previous batch's TR when the build matches: read the TR header (`ecl_query.py tr <TR>`) and confirm it
-     still names the build the findings were verified on before filing; if not, stop and ask.
-  5. **No `[UX]` on casebook findings (RD, 2026-10-21 — in force until the user reverts it).** The casebook tests
-     against the spec, so every finding is `[AIAgent]` (Functional) or `[AIAgent][UI]`, owner RD (Doc for copy) —
-     interaction and flow problems included; RD forwards one to PM when it wants a ruling. A finding with no spec basis
-     is not a casebook bug: hold it and list it on the review page as a PM question. `check_ebug_format.py` fails
-     `[AIAgent][UX]`. This supersedes the 2026-10-20 rule "a UX problem goes to PM (BugBelong PM)".
-     **To revert** (back to `[AIAgent][UX]` with BugBelong PM): delete this rule 5 from both casebook eBug overlays
-     (`ebug-draft-generator`, `ebug-tr-filer`, `.claude` and `.codex`), restore the 2026-10-20 wording of *eBug owner
-     and type* in `AGENTS.md` (kept there under "Revert"), drop the UX line in the casebook skill's *eBug drafts and
-     review page* step 1, and run `check_ebug_format.py --allow-agent-ux` and `ALLOW_AGENT_UX=1 verify_ebug_drafts.py`.
-- **No comments on existing tickets (user, 2026-10-21, until the user lifts it).** Never post a comment on, reopen or
-  reject the fix of an existing eBug — not for rechecks, not for "still reproduces", not for fixed tickets. Only new
-  tickets the user decided to file are created.
-- **Dedupe per OS (user, 2026-10-28).** iOS and Android bugs are deduped separately: search only the tested OS's
-  product (`PowerDirector Mobile for iOS` / `… for Android`). A ticket on the other OS never makes a finding a
-  duplicate: the finding is a new entry for this OS (the other OS's BugCode may go in its Note). A finding that matches
-  an existing ticket on the same OS's TRs is **not listed** — no card on the review page, no Rechecks section, no
-  on-hold entry; it is kept only in the batch's `dedupe.txt` (finding, case IDs, matching BugCode) for traceability.
-  Exception: a same-OS ticket that is **closed** while the bug is back does not hide the finding; it stays a new card
-  that names the closed ticket as related.
+- **Findings** come from running the approved cases in `library/<feature>/<platform>/cases.csv`: each names the
+  failed case ID(s) and their Spec Ref requirement(s). Repro Steps come from the case's Precondition and Action,
+  Expected Result from its Expected Result and the requirement in `requirements.md`.
+- **Files** stay in the feature folder: run evidence in `library/<feature>/<platform>/runs/<YYYY-MM-DD>/`; drafts,
+  review page, upload frames and `filed_bugcodes.json` / `.md` in `library/<feature>/<platform>/ebugs/<YYYY-MM-DD>/`.
+- **Source tag:** never `[AIFound]` (exploration-suite findings); use the casebook tag the user set, else ask.
+- **Device control:** `scripts/device.ts` (see the casebook skill), not the exploration suite's transports.
+- **Spec Link checks:** `verify_ebug_drafts.py`'s sheet-index checks look for the exploration suite's
+  `Figma/_index/` transcripts; its 'unknown sheet' / 'never names that sheet' failures do not apply here. Casebook
+  `Spec Link:` lines name the source (Design or PM spec), the board title from `extracted/boards.json` and the Figma
+  file URL from `spec-set.json`. Where Design and PM disagree, the newer source wins (spec-casebook `references/formats.md`).
 <!-- END spec-casebook overlay -->
 
 
@@ -83,15 +31,14 @@ reads or updates them.
 
 Reads a QA sign-off (per-finding verdicts) plus the matching feature knowledge-base file, keeps only the findings that actually need to be raised, and writes a markdown doc with one paste-ready eBug entry per bug. Each entry contains the two fields that are tedious to hand-write: the **Short Description** and the **Information → Description** body. The remaining eBug form fields (Creator, Version, Build No, Bug Source, Reproduce probability, Priority, Severity, Problem Type, OS Language) are filled by the user in the tool.
 
-This is the write-up step that follows a `pdri-exploration-suite` deep dive + QA review. It does not test the app.
+This is the write-up step after a casebook run (and in the shared copy, after an exploration dive). It does not test the app.
 
-## Inputs (ask if not provided)
+## Inputs
 
-If the user has not named the feature or report, ask in one line: **which feature / which report?** Then locate:
-
-1. **The QA sign-off** — the authoritative per-finding verdicts, usually `sessions/<...>/QA_signoff_<feature>.md`. Columns: step, finding, class, QA verdict.
-2. **The feature KB file** — `skills/pdri-exploration-suite/knowledge_base/features/<feature>.md`. This holds the detailed issue text (ISS-xx IDs, summaries, and the `stepNN` screenshot references) that make good Repro Steps / Result / Expected Result.
-3. **The screenshots folder** for that session — `sessions/<...>/screenshots/` — so Result lines can cite real filenames.
+If the user has not named the feature or run, ask in one line: **which feature / which run?** Then read, in the run
+folder `library/<feature>/<platform>/runs/<run>/`: `results.csv` (each Fail and its disposition), `observations.md`
+(off-case findings), `screenshots/` (filenames the Result lines cite) and the sliced logs (`logs/…/by-case/`); and the
+table's `cases.csv` and `requirements.md` for the Expected Result and Spec Ref.
 
 ## Which findings to include
 
@@ -111,10 +58,8 @@ Exclude everything else: ✔ passed, **NAB** (intended / stale-spec), **False al
 
 ## Reconcile against the report — this is not optional
 
-**Close the loop explicitly, or findings go missing.** The 16.7.0 Template Page batch shipped with two
-findings (ISS-TP-07, ISS-TP-08) present in the report and in neither the entries nor the "Not raised"
-table — under a heading that read "Nothing was silently dropped." Nobody noticed for two days, because
-the batch's 14 entries were being compared against a report footer that counted something else.
+**Close the loop explicitly, or findings go missing** (a 16.7.0 batch dropped two findings from both the entries
+and the "Not raised" table, unnoticed for two days).
 
 So the doc **must end with a `## Reconciliation against the report` section** containing:
 
@@ -134,47 +79,22 @@ Two counts that legitimately differ, and should be stated rather than reconciled
 
 ## Reviewer rules and the UX basis rule (2026-10-21) — every entry, every batch
 
-Standing rules from the eBug reviewers and RD. They override any older wording further down, and
-`check_ebug_format.py` fails an entry that breaks one.
+Reviewer rules 1–7 are in `.claude/skills/ebug-tr-filer/references/casebook-overlay.md`; `check_ebug_format.py`
+fails an entry that breaks one. Beyond them: no two numbered steps on one line, and a typed prompt stays inside its
+own step, verbatim; when no document exists at all, put 「Link needed」 in the QA note so the review page asks the
+reviewer for one; put the Class call in the entry header and its reasoning in the QA note, so the reviewer can flip
+it. Casebook findings never carry `[UX]` (rule 5).
 
-1. **One action per Repro step, each on its own line.** A step is one tap, one typed entry, one
-   swipe or one wait. No `>` / `›` / `→` chains and no two numbered steps on one line:
-   「Mine > Credits > Details」 is three steps (`3. Tap Mine` / `4. Tap Credits` / `5. Tap Details`), and
-   "Tap Filter, select Male, then apply" is three. A typed prompt stays inside its own step, verbatim.
-2. **Every entry carries its link.** At least one `Spec Link:` with a URL — the Figma URL with
-   `node-id` for the frame that defines the behaviour, or, when nothing defines it, the frame of the
-   screen the entry is about. Only when no URL exists: the PDF name + board ID. `Spec Link: none` is
-   no longer accepted; if no document exists at all, put 「Link needed」 in the QA note so the review
-   page asks the reviewer for one.
-3. **Attachments: at least one image on every entry** (red-boxed frame, cited inline). Add the log
-   excerpt (`{<ver>_<slug>_log.txt}`, scrubbed of tokens, `Bearer` / `authorization` lines and signed
-   URL queries) whenever a log shows the cause — a crash, an error code, a server status, a timing —
-   and on **every failure-related entry** (a failed generation, turn, upload or retry, an error card, a
-   charge or a missing refund; user 2026-10-27), even when the screen already shows the error. The
-   review page shows each log excerpt on its card. Layout and copy findings need no log. **No video unless the user explicitly asks for one** for that
-   batch or entry; keep recordings locally and mention them in the QA note.
-4. **UX basis rule (RD, 2026-10-21).** RD reported too many AI-filed `[UX]` tickets. A finding is
-   still recorded whatever its kind, but the type tag and owner now follow **what the expected result
-   rests on**:
+**UX basis rule (RD, 2026-10-21) — exploration tags only** (`[AIFound]` / `[EDF]` / `[MXFound]`; `[AIAgent]` never
+takes `[UX]`). Tag and owner follow what the expected result rests on:
 
-   | Basis of the expectation | Tag | Class · Owner | Note line |
-   |---|---|---|---|
-   | A spec (PM / Design / MX sheet) | no `[UX]`: `[UI]` for visible string/layout, none for behaviour | UI or Functional · RD (Doc for copy) | `Spec Link:` |
-   | Another feature or screen of **this** app (consistency) | no `[UX]`: `[UI]` or none | UI or Functional · RD | `Basis: In-product — <feature/screen>: <its behaviour> (<document: spec link, BugCode or KB entry>)` |
-   | Another product's behaviour, or nothing at all | `[UX]` | UX · **PM** decides | `Basis: External — <product>: <behaviour> - <url>` or `Basis: None — PM decision requested` |
+| Basis of the expectation | Tag | Class · Owner | Note line |
+|---|---|---|---|
+| A spec (PM / Design / MX sheet) | `[UI]` for string/layout, none for behaviour | UI or Functional · RD (Doc for copy) | `Spec Link:` |
+| Another feature of **this** app | `[UI]` or none | UI or Functional · RD | `Basis: In-product — <feature>: <behaviour> (<document>)` |
+| Another product, or nothing | `[UX]` | UX · **PM** | `Basis: External — <product>: <behaviour> - <url>` / `Basis: None — PM decision requested` |
 
-   - **`[AIAgent]` (spec-driven runs: casebook, Spec Agent `qa-workflow`) never carries `[UX]`** — those
-     agents test against a spec, so their findings rest on the spec. A spec-driven finding with no spec
-     basis is not an `[AIAgent]` bug: hold it and raise it as a PM question or an exploration finding.
-   - **`[AIFound]` / `[EDF]` / `[MXFound]` findings referenced to another feature of the same app are not
-     `[UX]`**: the other feature is the basis, so PM need not write a new spec. Say in the Note which
-     feature and which document it rests on (`Basis: In-product — …`). RD can still forward it to PM.
-   - **`[UX]` is kept for findings that rest on another product's behaviour or on no basis at all** —
-     those need a PM decision, so the owner is PM. Exploration runs keep finding and recording these;
-     they are filed only after the reviewer confirms them on the review page (`ebug-tr-filer`, *UX
-     entries*).
-   - Put the basis call in the entry header's Class and repeat the reasoning in the QA note, so the
-     reviewer can flip it.
+`[UX]` entries are filed only after the reviewer confirms them on the review page (`ebug-tr-filer`, *UX entries*).
 
 ## Output format
 
@@ -378,9 +298,8 @@ exactly one 摘要 with Chinese in it, Note lines restricted). Run it through
 
 - **Short Description** = `PDR-I <version> - [<found-by>][<type>] <Feature>: <description>`.
   - **All five parts are mandatory except `[<type>]`** (dropped for a plain functional defect). The
-    part that actually gets skipped is **`<Feature>`** — the 2026-09-15 batch shipped four bugs with
-    no feature name and ten with no `PDR-I <version> - ` prefix, and they had to be fixed by hand.
-    The failure mode is that the sentence still reads fine: *"[EDF][UX] AI task failure dialog asks
+    part that actually gets skipped is **`<Feature>`** (a 2026-09-15 batch needed 14 fixed by hand), because the
+    sentence still reads fine: *"[EDF][UX] AI task failure dialog asks
     the user to contact support"* is good English and completely unfilterable.
   - **Name the feature the user was in, not the widget that misbehaved.** A dialog, toast, preset or
     button is not a feature; the screen it belongs to is. **If the first word after the tags is a
@@ -406,9 +325,21 @@ exactly one 摘要 with Chinese in it, Note lines restricted). Run it through
   - **For any finding about on-screen text** give a concrete suggested string in an
     `[AI Recommendation]` block below Expect Result — strings only, no prose (Title / Body / Buttons
     for dialogs; one line per state for toasts/labels).
-- **Note** — **device info, spec links, and the reviewer marker. Nothing else.** Name **the device the finding was last actually reproduced on**, not the machine you drove it from. PDRi Mobile work runs on a real iPhone through the native macOS iPhone Mirroring window, so the app under test is iOS and the Mac is only the host: write `Device: iPhone 17 Air / iOS 26.2.1 (tested via iPhone Mirroring on MacBook Neo)`. Re-read the phone's model and iOS from Settings → General → About rather than trusting that line; ask the user if the mirror isn't up. Only write a Mac as the device if the build genuinely ran on macOS. Then add the reviewer marker on its own line: **`<Claude Reviewed>`** (the team's earlier tickets used `<GPT Reviewed>`). Do not put build numbers here — Version and Build No are separate top-level eBug fields.
-  - **Every entry that cites a spec MUST carry a `Spec Link:` line** (standing instruction from QA, 2026-08-27). Put it between `Device:` and `<Claude Reviewed>`, **one line per sheet**, formatted `Spec Link: <milestone> <sheet name> - <url>` — e.g. `Spec Link: 12/E Add keep video bg - https://www.figma.com/design/…?node-id=539-32&p=f&t=…`. **Only the sheet(s) this entry's own argument rests on — never a blanket set** (QA correction, 2026-08-27). An entry quoting two sheets that disagree carries both; an entry disputing one string carries the one sheet that defines it. A sheet that merely happens to contain the string, on a board about something else, is not relevant and must be left out. **An entry whose claim is that no sheet covers the behaviour links the one sheet for the screen it is about** (reviewer rule 2, 2026-10-21, replaces "no `Spec Link:` at all") — still not the set of sheets you checked to prove a negative; say 「No sheet describes this」 in Expect Result, add its `Basis:` line, and let the owner settle it. If two links genuinely apply but the entry never names them, that is a sign the Expect Result should cite the spec properly — fix the prose, then the links are cited rather than decorative. **Why:** dev cannot act on 「spec 12/E says X」 without being able to open 12/E, and hunting a node id inside a 650 MB board is exactly the friction that gets a ticket bounced. URLs live in `Figma/INDEX.md` next to each sheet — add any new one there in the same pass. **Verify the claim before you link it — grep `Figma/_index/<sheet>.md`, do not trust the KB's summary.** Checking Character Motion Swap on 2026-08-27 changed two entries: the KB said one 12/E sheet held the photo label incidentally, but the transcript shows **both** 12/E sheets spec it as a numbered item (F11/F22 and F02/F11), so both belong; and the mode subtitle turned out to live in **only** `12/E Add keep video bg`, so the entry citing a bare 「12/E」 was ambiguous. **When two sheets share a milestone tag — Character Motion Swap has two 12/E sheets — always name the sheet in full**, in the prose and on the `Spec Link:` line; a bare `12/E` is not a citation. Quote spec strings verbatim, but note the boards use typographic apostrophes (`video’s`), so normalise before comparing. If the feature genuinely has no sheet, link the closest document that exists (the checklist, the PDF + board ID); if nothing exists, write 「Link needed」 in the QA note so the reviewer supplies one on the review page — `Spec Link: none` fails the format check since 2026-10-21.
-  - **This is easy to get wrong.** The 16.7.0 batch shipped 24 entries stamped `Device: MacBook Neo (Apple A18 Pro) / macOS Tahoe 26.5` — the host Mac — for bugs that only reproduce in PowerDirector Mobile on iOS. Two of the four reports also described the setup as "PowerDirector native window on macOS", which reads as a Mac app. Record the phone in the session notes at the start of the run so this can't drift.
+- **Note** — **device info, spec links, and the reviewer marker. Nothing else.** Name **the device the finding was
+  last actually reproduced on** — the run's phone, e.g. `Device: iPhone 17 Air / iOS 26.2.1` (model and OS from
+  Settings › General › About on that phone, recorded at the start of the run), never the Mac that drives it (a
+  16.7.0 batch stamped 24 iOS bugs with the host Mac). Then the reviewer marker on its own line: **`<Claude
+  Reviewed>`**. No build numbers here — Version and Build No are separate eBug fields.
+  - **`Spec Link:` lines** (QA, 2026-08-27; reviewer rule 2) go between `Device:` and `<Claude Reviewed>`, **one line
+    per sheet**: `Spec Link: <milestone> <sheet name> - <url>`. **Only the sheet(s) this entry's argument rests on —
+    never a blanket set**: two disagreeing sheets → both; one disputed string → the sheet that defines it; a sheet
+    that merely contains the string on a board about something else → left out. An entry claiming no sheet covers
+    the behaviour links the one sheet for the screen it is about and says 「No sheet describes this」 in Expect
+    Result. **When two sheets share a milestone tag, name the sheet in full**; a bare `12/E` is not a citation. If a
+    link applies but the entry never names it, fix the Expect Result prose so the link is cited, not decorative.
+    Verify the claim against the spec text before linking (not a summary), and normalise typographic apostrophes
+    (`video’s`) before comparing. **Why:** dev cannot act on 「spec 12/E says X」 without opening 12/E. If nothing
+    exists, write 「Link needed」 in the QA note; `Spec Link: none` fails the format check since 2026-10-21.
   - **Nothing else goes in Note** beyond `Device:`, the `Spec Link:` lines, the `Basis:` line (*UX basis rule*) and `<Claude Reviewed>`. Confidence flags, "not re-tested this pass", scope limits, tooling limits, corrections to an earlier revision, and "the spec contradicts itself" caveats are all QA-internal — dev should not be reading them in the ticket body.
   - Put them in a **`> **QA note — not pasted into eBug.**`** blockquote *above* the Short Description, outside every fenced block. If the caveat should stop the ticket being filed at all, prefix it **`> **⛔ QA note — do NOT paste into eBug; resolve before filing.**`** so it is unmissable.
 - **No hard wrapping inside the fenced blocks.** These blocks get pasted into an eBug textarea, where hard newlines survive and the browser cannot reflow them; wrapping prose at 90-odd characters produces breaks mid-sentence. Write each paragraph of Result / Expect Result / Note / `[AI Recommendation]` as **one unwrapped line**, however long. Only these get their own line: each numbered Repro Step, each `{screenshot}` reference, each bullet, each quoted 「spec string」, and the `[AI Recommendation]` header itself.
@@ -421,17 +352,13 @@ exactly one 摘要 with Chinese in it, Note lines restricted). Run it through
   - **Doc** — the fix is a string: on-screen copy, labels, naming, dialog wording. Usually CMS-served content. A capitalisation divergence or a mislabeled button is Doc, not RD.
   - When a finding needs a PM ruling *before* anyone can act, the owner is **PM** even if the eventual fix lands with RD — routing it to RD first just gets it bounced.
 
-### Getting this computer's device info
-
-If the target build was tested on this Mac (the usual PDRi Mobile / TestFlight native-window setup), request access to **System Settings**, open it, click **General → About**, and read Model name, Chip, and macOS version. As of last check this machine is **MacBook Neo (Apple A18 Pro) / macOS Tahoe 26.5** — re-read it rather than trusting this line, since it can change. If the bug was reproduced on a physical iPhone instead, ask the user for the device/iOS string.
-
 ## Steps
 
 1. Confirm feature/report (ask if missing). Set up a short task list.
 2. Read the QA sign-off and the feature KB file. Read the screenshots folder listing for filenames. **Extract the report's ▲ rows** (the step table in the .docx) — this is the checklist the batch is reconciled against in step 8.
 3. **If the KB has no ID column, add one before drafting.** Minting IDs inside the eBug doc leaves the KB unable to refer back to the tickets. Continue the existing sequence; never renumber.
 4. Select the findings to raise (Actual Bug, minus already-reported). Map each to its ISS-ID, class, severity, spec strings, and screenshot filename(s).
-5. Read the device info for the Note (see above). **Check it against the report's 測試裝置 row** — if the report says the run used a native macOS window and you are about to write "iPhone Mirroring" (or the reverse), stop and ask which is true rather than copying the previous batch.
+5. Read the device info for the Note (see above) from the phone the run used, not from the previous batch.
 6. Write `ebugs/<YYYYMMDD>_eBug_drafts_<Feature>_<version>.md` — one file per feature, dated with the **session** date — Short Description and Description each in a fenced code block, filed entries first in report-step order, then the **⛔ Withdrawn by QA** section, then the "Not raised" table.
 7. Copy each bug's cited screenshots into `ebugs/<YYYYMMDD>_eBug_drafts_<Feature>_<version>_images/<NN>_<ISS-ID>/` and add the **Images:** line to each entry. `<NN>` must match the entry's final number.
 8. Write the `## Reconciliation against the report` section (delta table + row-by-row map). **Every report ▲ row from step 2 must appear in it.**
@@ -448,17 +375,3 @@ If the target build was tested on this Mac (the usual PDRi Mobile / TestFlight n
    A batch with errors is not ready for the review page.
 
    **Fix the file when a check fails — but read the failure first.** A check written against the old convention will fail on a correctly-updated file; correct the checker then, not the doc, and re-run until clean. Then present the markdown (the image folders travel with it in `ebugs/`).
-
-## When this runs — automatically, with the report (2026-09-16)
-
-`pdri-exploration-suite` invokes this skill **in the same breath as the `.docx` report** — the draft
-markdown and its `_images/` folder are written while the screenshots and step records are still in
-hand, dated with the session date. A dive with no QA sign-off yet still gets its batch: every
-Phase-3-CONFIRMED defect becomes an entry with a proposed Severity/Owner, and the reviewer's sign-off
-happens on the `ebug-tr-filer` review page built from this very file. Unverified (未複驗) defects go
-in "Not raised" as ⏳ rows, never as entries.
-
-## Related
-
-- `pdri-exploration-suite` — runs the tests and produces the KB + sign-off this skill reads.
-- `qa-verification-to-word` — the companion skill that folds the same QA verdicts back into the Word exploration report.
