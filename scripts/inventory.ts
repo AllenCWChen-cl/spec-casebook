@@ -97,8 +97,16 @@ for (const g of groups) {
 //   { "drop_screens": [{ "screen", "why" }], "drop": [{ "control", "why" }],
 //     "hide": [{ "screen", "controls": [ids], "why" }]  (covered on that screen only, e.g. behind a dimmed sheet),
 //     "add": [{ "screen", "screens"?: [more screen ids showing the same element], "label", "box": [x, y, w, h]
-//              (screen points), "kind": button | input | toggle | tab | item, "layer"?: Figma layer it copies, "why" }] }
-// A dropped screen takes its controls with it; an added control gets id M-<hash> and layer "manual/<kind>".
+//              (screen points), "kind": button | input | toggle | tab | item, "layer"?: Figma layer it copies, "why" }],
+//     "kind": [{ "control" | "group": id, "kind", "why" }]  (a wrong kind: a slider drawn as an input, a field drawn as
+//              chips; set after the group ids are computed, so a worded label's group id, which hashes the kind, stays),
+//     "merge": [{ "groups": [ids], "into": "<group id>", "set"?: bool, "why" }]  (one element the grouping split: the
+//              selected state drawn at another size, an icon added by hand next to the layer's own copies; the listed
+//              groups' controls take the `into` id, so a control-trace entry keyed on it keeps applying; `set` is true
+//              when any of them was a choice set unless the entry says otherwise) }
+// `drop`, `hide` and `kind` "control" take control ids (K-… / M-…), not group ids: map a group through
+// inventory.json controls[].group. A dropped screen takes its controls with it; an added control gets id M-<hash> and
+// layer "manual/<kind>". `kind` and `merge` run after grouping (kind first; a `kind` "group" names the id before the merge).
 const ovPath = join(ex, 'inventory-overrides.json');
 const ov = existsSync(ovPath) ? JSON.parse(readFileSync(ovPath, 'utf8')) : {};
 const dropScreens = new Set((ov.drop_screens ?? []).map((d: any) => d.screen));
@@ -204,6 +212,18 @@ for (const c of controls) {
     : /[a-z\p{L}]/u.test(normLabel(c.label).replace(/#/g, '')) ? `K-${hash(`${c.file}|${c.kind}|${normLabel(c.label)}`)}`
     : `K-${hash(`${c.file}|${c.name}|${normLabel(c.label) || sizeKey(c)}`)}`;
 }
+// Review fixes that need the group ids (overrides `kind`, `merge`; see the comment above `ovPath`)
+for (const k of ov.kind ?? []) {
+  const hit = controls.filter(c => k.control ? c.id === k.control : c.group === k.group);
+  if (!hit.length) console.error(`override kind: no ${k.control ? 'control' : 'group'} ${k.control ?? k.group}`);
+  for (const c of hit) c.kind = k.kind;
+}
+for (const m of ov.merge ?? []) {
+  const from = new Set<string>([...m.groups, m.into]), hit = controls.filter(c => from.has(c.group));
+  for (const g of from) if (!controls.some(c => c.group === g)) console.error(`override merge: no group ${g} (into ${m.into})`);
+  const set = m.set ?? hit.some(c => c.set);
+  for (const c of hit) { c.group = m.into; c.set = set; }
+}
 
 // Design PDF offset: the export spans the section, flush with its bottom edge (checked on Template Detail, 2026-10-28)
 const setJson = JSON.parse(readFileSync(join(featureDir(feature), 'specs', folder, 'spec-set.json'), 'utf8'));
@@ -249,7 +269,7 @@ if (process.argv.includes('--sync-arrows')) {
 
 const count = (xs: any[], f: (x: any) => string) => xs.reduce((m, x) => (m[f(x)] = (m[f(x)] ?? 0) + 1, m), {} as Record<string, number>);
 console.log(JSON.stringify({
-  out: join(ex, 'inventory.json'), groups, screens: count(screens, s => s.platform), overrides: { drop_screens: dropScreens.size, drop: dropControls.size, hide: (ov.hide ?? []).length, add: (ov.add ?? []).length }, hidden_by_figma: groups.map(g => JSON.parse(readFileSync(join(ex, g), 'utf8')).hidden ?? null),
+  out: join(ex, 'inventory.json'), groups, screens: count(screens, s => s.platform), overrides: { drop_screens: dropScreens.size, drop: dropControls.size, hide: (ov.hide ?? []).length, add: (ov.add ?? []).length, kind: (ov.kind ?? []).length, merge: (ov.merge ?? []).length }, hidden_by_figma: groups.map(g => JSON.parse(readFileSync(join(ex, g), 'utf8')).hidden ?? null),
   controls: controls.length, by_kind: count(controls, c => c.kind),
   ios_required: new Set(controls.filter(c => c.platforms.includes('ios')).map(c => c.group)).size,
   android_required: new Set(controls.filter(c => c.platforms.includes('android')).map(c => c.group)).size,
