@@ -73,7 +73,7 @@ const classify = (text: string): Gap['source'] => {
   if (!p) return { kind: 'other', ref: '(no source in the case file)' };
   if (/source\/user-/.test(p)) return { kind: 'request', ref: p };
   if (/source\/tr-/.test(p)) return { kind: 'build', ref: p };
-  if (/pdr-spec-casebook/.test(p)) return { kind: 'casebook', ref: p };
+  if (/(?:pdr-)?spec-casebook/.test(p)) return { kind: 'casebook', ref: p };
   if (/source\/(pm|design|figma)[-\w]*\/|active\/0\d-|\.pdf\b/.test(p)) return { kind: 'spec', ref: paths.find(x => x.endsWith('.pdf')) ?? paths[0] };
   return { kind: 'other', ref: p };
 };

@@ -3,8 +3,8 @@ name: ebug-tr-filer
 description: File verified QA findings as real CyberLink eBugs — via the ECL web form on old-ASP TRs, or the IF3 REST API where the project has migrated. Builds the HTML review page for severity sign-off, dedupes against the whole pool with eBug Search, runs a pre-filing format check, fills every field, attaches screenshots, submits, and reads each bug back. Use when the user asks to post/file/create eBugs on TR, submit bugs to ECL, "automatically post the bugs", or to take an eBug draft file and actually raise the tickets. Also holds the Short Description format rule and the eBug description body rules. Never files findings that have not been verified on the build the TR is for.
 ---
 
-<!-- BEGIN pdr-spec-casebook overlay -->
-## In this repo (pdr-spec-casebook) — read first
+<!-- BEGIN spec-casebook overlay -->
+## In this repo (spec-casebook) — read first
 
 This is a copy of the shared eBug skill, kept here so the casebook works on its own. The rules in this section
 override the parts below that assume the exploration suite (`pdri-exploration-suite`, its `sessions/` folders,
@@ -77,7 +77,7 @@ reads or updates them.
   on-hold entry; it is kept only in the batch's `dedupe.txt` (finding, case IDs, matching BugCode) for traceability.
   Exception: a same-OS ticket that is **closed** while the bug is back does not hide the finding; it stays a new card
   that names the closed ticket as related.
-<!-- END pdr-spec-casebook overlay -->
+<!-- END spec-casebook overlay -->
 
 
 # eBug TR Filer

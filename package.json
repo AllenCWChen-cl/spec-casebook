@@ -1,8 +1,8 @@
 {
-  "name": "pdr-spec-casebook",
+  "name": "spec-casebook",
   "version": "0.1.0",
   "private": true,
-  "description": "Turn PowerDirector feature specs into reviewed, versioned test-case tables (one per platform).",
+  "description": "Turn product feature specs (PowerDirector and others) into reviewed, versioned test-case tables (one per platform).",
   "type": "module",
   "engines": {
     "node": ">=22.18"

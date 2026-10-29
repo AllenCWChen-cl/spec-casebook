@@ -1,9 +1,9 @@
 ---
-name: pdr-spec-casebook
-description: Turn a PowerDirector feature spec (PM / Design / MX files) into a plain test-case table (Action + Expected Result per row, one table per platform), get it reviewed on an HTML review page, and keep the approved table as the feature's "correct answer". Use when the user gives spec files and asks for test cases, a test table or a checklist for a feature; asks to review, update or reuse a feature's approved cases; or gives an updated spec for a feature that already has a table. Do not use for exploration testing or eBug filing.
+name: spec-casebook
+description: Turn a CyberLink product feature spec (PowerDirector, PhotoDirector and others; PM / Design / MX files) into a plain test-case table (Action + Expected Result per row, one table per platform), get it reviewed on an HTML review page, and keep the approved table as the feature's "correct answer". Use when the user gives spec files and asks for test cases, a test table or a checklist for a feature; asks to review, update or reuse a feature's approved cases; or gives an updated spec for a feature that already has a table. Do not use for exploration testing or eBug filing.
 ---
 
-# PDR spec casebook
+# Spec casebook
 
 Produces one reviewed test-case table per **feature × platform** (`ios`, `android`) from the feature's spec files.
 Everything for a feature lives in `library/<feature>/`:
@@ -601,7 +601,7 @@ own phase, kept in results.csv's Phase column and split out in the report), the 
   (Codex: spawns one new native subagent per segment and closes it after its reply; general-purpose; wait for it to finish, in the foreground or through its completion notice, before the next) with
   the one-line brief "Resume casebook run
   <run dir> (or start phase <Pn>) per <RUN-PLAN>: read the plan, run-state.md and `run-log.ts <run dir> next`;
-  follow the pdr-spec-casebook skill; do exactly one segment, then pull and slice the logs, checkpoint, update the
+  follow the spec-casebook skill; do exactly one segment, then pull and slice the logs, checkpoint, update the
   plan's Status and Log, and reply with at most 10 lines: tally, next case, blockers." At a phase's last segment the
   brief adds the phase wrap-up (summary, `time`, tokens, eBug drafts and review page, report.md). The orchestrator
   reads only that reply (never the subagent's screenshots or logs), decides the next brief from `run-log next` and
@@ -721,7 +721,7 @@ own phase, kept in results.csv's Phase column and split out in the report), the 
      `device.ts <dir> install-wda` (the newest `WebDriverAgentRunner-Runner.app` in Xcode's DerivedData, signed by the
      QA team LR55RBG94F), then the user trusts the certificate once. The signing caps (`xcodeOrgId` LR55RBG94F,
      `Apple Development`, bundle `com.cyberlinkqa1-4.WebDriverAgentRunner`, as the AT_PDRi suite uses) stay set for the
-     xcodebuild mode (`PDR_WDA_PREINSTALLED=0`). Point `APPIUM_LOG` at the Appium server's log so the BLOCKER names
+     xcodebuild mode (`CASEBOOK_WDA_PREINSTALLED=0`). Point `APPIUM_LOG` at the Appium server's log so the BLOCKER names
      the exact cause.
    - **Device troubleshooting is not run time (user, 2026-10-27).** Debug WDA or the phone in a separate folder
      (`runs/_wda-debug-<date>/`, no results.csv, so the live plan page ignores it), never in a phase's run folder:

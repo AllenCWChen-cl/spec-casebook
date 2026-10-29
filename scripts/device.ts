@@ -2,14 +2,14 @@
 // Usage: node scripts/device.ts <run dir> <command> [args]
 //   start [udid]              create a session (noReset) and remember it in <run dir>/.session (+ .udid, .wda-started)
 //   restart [udid]            end the session, stop this phone's xcodebuild (the WDA process) and start a fresh one,
-//                             then bring PowerDirector back to the front; run it at every segment start so one WDA never
+//                             then bring the app back to the front; run it at every segment start so one WDA never
 //                             serves many hours. WDA stays installed: uninstalling it (useNewWDA) drops the phone's trust
 //                             in the developer certificate, which only the user can restore on the phone.
 //   install-wda [app path]    install the built WebDriverAgentRunner-Runner.app (newest in Xcode's DerivedData) with
 //                             devicectl and leave it installed, so the phone keeps the QA certificate it can trust
 //   status                    Appium status, whether the stored session is alive and how long WDA has been up
 // WDA recovery (2026-10-27): a command that fails because WDA is gone (socket hang up, connection refused, dead
-// session) restarts WDA once, re-activates PowerDirector and retries. When the phone is locked or Xcode holds a
+// session) restarts WDA once, re-activates the app and retries. When the phone is locked or Xcode holds a
 // "preparation error" the restart cannot work: the script prints BLOCKER and exits 75 (unlock the phone, replug USB).
 //   shot NAME                 save <run dir>/screenshots/NAME.png (device pixels)
 //   els [filter]              visible accessible elements: type | name | label | value | x,y,w,h (points)
@@ -27,7 +27,7 @@
 //   clear NAME                clear the text of the element with accessibility id NAME
 //   setval NAME TEXT          clear then set the element's text in one call (fast for long strings)
 //   launch [--lang en|zh-Hant|ja] | terminate
-//                             (re)activate / terminate PowerDirector; --lang relaunches it in that language through
+//                             (re)activate / terminate the app; --lang relaunches it in that language through
 //                             launch arguments (no iOS Settings change)
 //   appearance [light|dark]   read or set Light/Dark mode (restore dark after a Light-mode case)
 //   texts [NAME]              the visible on-screen strings only (labels of text, buttons, cells; ids and empty labels
@@ -59,8 +59,10 @@ import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, statS
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 
+// Settings come from CASEBOOK_<name>; the older PDR_<name> spellings still work.
+const env = (k: string, old = k) => process.env[`CASEBOOK_${k}`] ?? process.env[`PDR_${old}`];
 const BASE = process.env.APPIUM_URL ?? 'http://127.0.0.1:4723';
-const BUNDLE = process.env.PDR_BUNDLE ?? 'com.cyberlink.ios.powerdirector';
+const BUNDLE = env('APP_BUNDLE', 'BUNDLE') ?? 'com.cyberlink.ios.powerdirector';
 const [runDir, cmd, ...rest] = process.argv.slice(2);
 if (!runDir || !cmd) { console.error('Usage: node scripts/device.ts <run dir> <command> [args]'); process.exit(2); }
 mkdirSync(runDir, { recursive: true });
@@ -209,18 +211,18 @@ async function runRecovering(c: string, a: string[]) {
 async function run(cmd: string, rest: string[]): Promise<string | void> {
 switch (cmd) {
   case 'start': {
-    const udid = (rest[0] && !rest[0].startsWith('--') ? rest[0] : undefined) ?? (existsSync(UDID_FILE) ? readFileSync(UDID_FILE, 'utf8').trim() : undefined) ?? process.env.PDR_UDID;
-    if (!udid) throw new Error('Pass the device UDID (xcrun xctrace list devices) or set PDR_UDID.');
+    const udid = (rest[0] && !rest[0].startsWith('--') ? rest[0] : undefined) ?? (existsSync(UDID_FILE) ? readFileSync(UDID_FILE, 'utf8').trim() : undefined) ?? env('UDID');
+    if (!udid) throw new Error('Pass the device UDID (xcrun xctrace list devices) or set CASEBOOK_UDID.');
     const caps = { platformName: 'iOS', 'appium:automationName': 'XCUITest', 'appium:udid': udid, 'appium:noReset': true,
       'appium:newCommandTimeout': 7200, 'appium:wdaLaunchTimeout': 180000, 'appium:wdaConnectionTimeout': 180000,
       // WDA signing (the QA team's, as the AT_PDRi suite uses it); without it a rebuild fails with "requires a development team".
-      'appium:xcodeOrgId': process.env.PDR_WDA_TEAM ?? 'LR55RBG94F', 'appium:xcodeSigningId': 'Apple Development',
-      'appium:updatedWDABundleId': process.env.PDR_WDA_BUNDLE ?? 'com.cyberlinkqa1-4.WebDriverAgentRunner',
+      'appium:xcodeOrgId': env('WDA_TEAM') ?? 'LR55RBG94F', 'appium:xcodeSigningId': 'Apple Development',
+      'appium:updatedWDABundleId': env('WDA_BUNDLE') ?? 'com.cyberlinkqa1-4.WebDriverAgentRunner',
       'appium:showXcodeLog': true,
-      // PDR_WDA_PREINSTALLED=1 launches the WDA already on the phone through devicectl (no xcodebuild, never uninstalled),
+      // CASEBOOK_WDA_PREINSTALLED=1 launches the WDA already on the phone through devicectl (no xcodebuild, never uninstalled),
       // but on iOS 26.2 with this WDA build it never listened on 8100 (10/27), so xcodebuild stays the default. Appium
       // uninstalls WDA after a failed xcodebuild launch; then `install-wda` and the user trusts the certificate again.
-      ...(process.env.PDR_WDA_PREINSTALLED === '1' ? { 'appium:usePreinstalledWDA': true } : {}) };
+      ...(env('WDA_PREINSTALLED') === '1' ? { 'appium:usePreinstalledWDA': true } : {}) };
     let r;
     try { r = await call('POST', '/session', { capabilities: { alwaysMatch: caps } }, 900_000); }
     catch (e: any) {
@@ -235,7 +237,7 @@ switch (cmd) {
     break;
   }
   case 'install-wda': {
-    const udid = existsSync(UDID_FILE) ? readFileSync(UDID_FILE, 'utf8').trim() : process.env.PDR_UDID;
+    const udid = existsSync(UDID_FILE) ? readFileSync(UDID_FILE, 'utf8').trim() : env('UDID');
     const dd = join(process.env.HOME ?? '', 'Library/Developer/Xcode/DerivedData');
     const app = rest[0] ?? readdirSync(dd).filter(d => d.startsWith('WebDriverAgent-'))
       .map(d => join(dd, d, 'Build/Products/Debug-iphoneos/WebDriverAgentRunner-Runner.app')).filter(existsSync)
@@ -255,12 +257,12 @@ switch (cmd) {
   }
   case 'restart': {
     // A fresh WDA process: P9 lost its run when one WDA had served 18.5 h and ~22,000 searches (2026-10-23 09:57).
-    const udid = rest[0] ?? (existsSync(UDID_FILE) ? readFileSync(UDID_FILE, 'utf8').trim() : process.env.PDR_UDID);
+    const udid = rest[0] ?? (existsSync(UDID_FILE) ? readFileSync(UDID_FILE, 'utf8').trim() : env('UDID'));
     if (existsSync(SID)) await call('DELETE', `/session/${sid()}`).catch(() => {});
     if (udid) { try { execFileSync('pkill', ['-f', `xcodebuild.*${udid}`]); } catch {} await sleep(3); }
     await run('start', udid ? [udid] : []);
     await mobile('activateApp', { bundleId: BUNDLE }).catch(() => {});
-    console.log('WDA restarted; PowerDirector brought to the front');
+    console.log('WDA restarted; the app brought to the front');
     break;
   }
   case 'status': {
@@ -384,7 +386,7 @@ switch (cmd) {
   case 'hidekb': await s('POST', '/appium/device/hide_keyboard', {}); await logTap('hidekb', null); console.log('keyboard hidden'); break;
   case 'type': await mobile('keys', { keys: [...rest.join(' ')] }); await logTap('type', null); console.log('typed'); break;
   case 'launch': {
-    // launch [--lang en|zh-Hant|ja …]: with --lang, relaunch PowerDirector with -AppleLanguages/-AppleLocale launch
+    // launch [--lang en|zh-Hant|ja …]: with --lang, relaunch the app with -AppleLanguages/-AppleLocale launch
     // arguments, so the app runs in that language without touching iOS Settings (lasts until the next plain launch).
     const li = rest.indexOf('--lang');
     // A plain launch relaunches with no launch arguments, so an app started with --lang returns to the device

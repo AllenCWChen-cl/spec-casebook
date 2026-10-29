@@ -1,7 +1,7 @@
-# pdr-spec-casebook — agent instructions
+# spec-casebook — agent instructions
 
-This repo turns PowerDirector feature specs into reviewed test-case tables, one per feature and platform.
-Follow the skill in `.claude/skills/pdr-spec-casebook/SKILL.md` (Codex: `.codex/skills/pdr-spec-casebook/SKILL.md`;
+This repo turns CyberLink product feature specs (PowerDirector first, any product with specs) into reviewed test-case tables, one per feature and platform.
+Follow the skill in `.claude/skills/spec-casebook/SKILL.md` (Codex: `.codex/skills/spec-casebook/SKILL.md`;
 both files are identical — update them together). The repo also carries its own `ebug-draft-generator` and
 `ebug-tr-filer` skills for filing failures found while running a table; their casebook overlay comes first.
 

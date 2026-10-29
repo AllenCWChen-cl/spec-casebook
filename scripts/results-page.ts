@@ -47,7 +47,7 @@ function buildData(link: (abs: string) => string) {
     if (!latest.size) continue;
     const list = [...latest.values()].sort((a, b) => a.seg.localeCompare(b.seg, 'en', { numeric: true }) || a.id.localeCompare(b.id, 'en', { numeric: true }));
     const times = list.map(c => c.t).filter(Boolean);
-    runs.push({ id: d, phase: state.match(/^# Run state — (P\d+)/m)?.[1] ?? '', build: state.match(/PowerDirector (?:iOS )?(\d+\.\d+\.\d+ \(\d+\))/)?.[1] ?? '',
+    runs.push({ id: d, phase: state.match(/^# Run state — (P\d+)/m)?.[1] ?? '', build: state.match(/\b[A-Z][A-Za-z]+(?: iOS)? (\d+\.\d+\.\d+ \(\d+\))/)?.[1] ?? '',
       report: existsSync(join(dir, 'report.md')), first: times.length ? new Date(Math.min(...times)).toISOString() : '', last: times.length ? new Date(Math.max(...times)).toISOString() : '',
       cases: list.map(({ t, ...c }) => c) });
   }

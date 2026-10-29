@@ -2,8 +2,8 @@
 // Adapted from the AT_PDRi automation suite (TestFlight install, first-launch dialogs, credits page), taking only
 // the steps the casebook needs. Never run that suite itself: it can buy credits and consume generations.
 // Usage: node scripts/app-setup.ts <run dir> <command> [args]
-//   build                         installed PowerDirector version and build (from WDA listApps)
-//   reinstall <version> <build>   uninstall PowerDirector, install exactly <version> (<build>) from TestFlight's
+//   build                         installed the app version and build (from WDA listApps)
+//   reinstall <version> <build>   uninstall the app, install exactly <version> (<build>) from TestFlight's
 //                                 Previous Builds, wait until installed, check the build, open the app.
 //                                 --check-only: keep the app, just confirm TestFlight still offers that build
 //   first-launch                  clear first-launch screens until the Launcher shows: TestFlight build notes
@@ -30,8 +30,11 @@
 import { appendFileSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
+// Settings come from CASEBOOK_<name>; the older PDR_<name> spellings still work.
+const env = (k: string, old = k) => process.env[`CASEBOOK_${k}`] ?? process.env[`PDR_${old}`];
 const BASE = process.env.APPIUM_URL ?? 'http://127.0.0.1:4723';
-const PDR = process.env.PDR_BUNDLE ?? 'com.cyberlink.ios.powerdirector';
+const APP = env('APP_BUNDLE', 'BUNDLE') ?? 'com.cyberlink.ios.powerdirector';
+const APP_NAME = env("APP_NAME") ?? "PowerDirector";   // as TestFlight lists it
 const TF = 'com.apple.TestFlight';
 const [runDir, cmd, ...rest] = process.argv.slice(2);
 if (!runDir || !cmd) { console.error('Usage: node scripts/app-setup.ts <run dir> build|reinstall|first-launch|server|devserver|fresh|credits|claim-daily|topup|pink-switch|pull-logs'); process.exit(2); }
@@ -78,7 +81,7 @@ async function shot(name: string) {
 const swipeUp = () => mobile('swipe', { direction: 'up' }).catch(() => {});
 async function installed(): Promise<{ version?: string; build?: string } | null> {
   const apps = await mobile('listApps', { applicationType: 'User' });
-  const a = apps?.[PDR]; return a ? { version: a.CFBundleShortVersionString, build: a.CFBundleVersion } : null;
+  const a = apps?.[APP]; return a ? { version: a.CFBundleShortVersionString, build: a.CFBundleVersion } : null;
 }
 const onScreen = async (id: string) => { const r = await rect(id); return r.y > 0 && r.y < 900 && r.height > 0; };
 
@@ -91,7 +94,7 @@ async function openDebugPage() {
     if (await tapIf('type == "XCUIElementTypeButton" AND (label == "Leave anyway" OR label == "Leave")', 'Leave anyway')) continue;
     const back = await find('type == "XCUIElementTypeButton" AND (name ENDSWITH ".UIButton.back" OR name ENDSWITH ".UIButton.backButton" OR name ENDSWITH ".button.back" OR name ENDSWITH ".UIButton.btnBack" OR name == "header.closeButton")');
     if (back) { await click(back); await sleep(1.5); continue; }
-    if (!(await tapIf('name == "launcher.UIButton.homeButton"', 'Home'))) { await mobile('activateApp', { bundleId: PDR }); await sleep(2); }
+    if (!(await tapIf('name == "launcher.UIButton.homeButton"', 'Home'))) { await mobile('activateApp', { bundleId: APP }); await sleep(2); }
   }
   if (!(await onLauncher())) { console.log(await shot('pull-logs-lost')); throw new Error('Could not get back to the Launcher'); }
   await tapIf('name == "launcher.UIButton.homeButton"', 'Home');
@@ -120,17 +123,17 @@ switch (cmd) {
     const checkOnly = rest.includes('--check-only');
     console.log('before:', JSON.stringify(await installed()));
     if (!checkOnly) {
-      if (await mobile('isAppInstalled', { bundleId: PDR })) { await mobile('removeApp', { bundleId: PDR }); await sleep(3); }
-      if (await mobile('isAppInstalled', { bundleId: PDR })) throw new Error('PowerDirector is still installed after removeApp');
+      if (await mobile('isAppInstalled', { bundleId: APP })) { await mobile('removeApp', { bundleId: APP }); await sleep(3); }
+      if (await mobile('isAppInstalled', { bundleId: APP })) throw new Error(`${APP_NAME} is still installed after removeApp`);
       console.log('uninstalled');
     }
     await mobile('terminateApp', { bundleId: TF }).catch(() => {}); await sleep(2);
     await mobile('activateApp', { bundleId: TF }); await sleep(5);
     await tapIf('name == "Allow" OR label == "Allow"', 'Allow (TestFlight notifications)');
     await tapIf('name == "Not Now" OR label == "Not Now"', 'Not Now (TestFlight sign-in)');
-    const cell = await waitFor('type == "XCUIElementTypeCell" AND (name CONTAINS "PowerDirector" OR label CONTAINS "PowerDirector")', 20)
-      ?? await waitFor('name BEGINSWITH "PowerDirector" OR label BEGINSWITH "PowerDirector"', 5);
-    if (!cell) { console.log(await shot('tf-no-app')); throw new Error('PowerDirector not listed in TestFlight'); }
+    const cell = await waitFor(`type == "XCUIElementTypeCell" AND (name CONTAINS "${APP_NAME}" OR label CONTAINS "${APP_NAME}")`, 20)
+      ?? await waitFor(`name BEGINSWITH "${APP_NAME}" OR label BEGINSWITH "${APP_NAME}"`, 5);
+    if (!cell) { console.log(await shot('tf-no-app')); throw new Error(`${APP_NAME} not listed in TestFlight`); }
     await click(cell); await sleep(3);
     const prev = await waitFor('name == "Previous Builds" OR label == "Previous Builds"', 30);
     if (!prev) { console.log(await shot('tf-no-previous')); throw new Error('Previous Builds not shown'); }
@@ -152,7 +155,7 @@ switch (cmd) {
         if (b && await onScreen(b)) { await click(b); tapped = true; console.log(`  tapped Install for ${version} (${build})`); break; }
       }
     }
-    if (checkOnly) { await mobile('activateApp', { bundleId: PDR }); if (!tapped) throw new Error(`${version} (${build}) not offered in TestFlight`); break; }
+    if (checkOnly) { await mobile('activateApp', { bundleId: APP }); if (!tapped) throw new Error(`${version} (${build}) not offered in TestFlight`); break; }
     if (!tapped) { console.log(await shot('tf-no-build')); throw new Error(`Install for ${version} (${build}) not found — the build may have expired in TestFlight`); }
     await sleep(2);
     if (await find('name == "Install Older Build?" AND type == "XCUIElementTypeAlert"'))
@@ -160,7 +163,7 @@ switch (cmd) {
     const end = Date.now() + 600_000; let done = false;
     while (Date.now() < end) {
       const busy = await find('name == "Installing" OR label == "Installing" OR name == "Cancel Download" OR label == "Cancel Download"');
-      if (!busy && await mobile('isAppInstalled', { bundleId: PDR })) { done = true; break; }
+      if (!busy && await mobile('isAppInstalled', { bundleId: APP })) { done = true; break; }
       process.stdout.write('.'); await sleep(10);
     }
     console.log('');
@@ -168,13 +171,13 @@ switch (cmd) {
     const now = await installed();
     console.log('installed:', JSON.stringify(now));
     if (now?.version !== version || now?.build !== build) throw new Error(`Installed ${now?.version} (${now?.build}), expected ${version} (${build})`);
-    await mobile('activateApp', { bundleId: PDR }); await sleep(5);
-    console.log('PowerDirector opened; next: first-launch');
+    await mobile('activateApp', { bundleId: APP }); await sleep(5);
+    console.log(`${APP_NAME} opened; next: first-launch`);
     break;
   }
 
   case 'first-launch': {
-    await mobile('activateApp', { bundleId: PDR }); await sleep(3);
+    await mobile('activateApp', { bundleId: APP }); await sleep(3);
     const steps: [string, string][] = [
       ['(name == "Continue" AND label == "Continue" AND type == "XCUIElementTypeButton")', 'Continue (TestFlight build notes)'],
       ['label == "Ask App Not to Track"', 'Ask App Not to Track'],
@@ -327,7 +330,7 @@ switch (cmd) {
     console.log(await shot('devserver-debug-page'));
     await tapIf('name == "debugViewController.UIButton.btnBack"', 'back to the Launcher');
     if (changed) {
-      await mobile('terminateApp', { bundleId: PDR }); await sleep(2); await mobile('activateApp', { bundleId: PDR }); await sleep(5);
+      await mobile('terminateApp', { bundleId: APP }); await sleep(2); await mobile('activateApp', { bundleId: APP }); await sleep(5);
       const { execFileSync } = await import('node:child_process');
       execFileSync('node', [join(import.meta.dirname, 'app-setup.ts'), runDir, 'first-launch'], { stdio: 'inherit' });
     }

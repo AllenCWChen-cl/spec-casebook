@@ -13,7 +13,7 @@ export async function exportTable(feature: string, platform: string) {
   if (!m) throw new Error(`No approved table for ${feature} / ${platform}`);
   const rows = readTable(join(dir, 'cases.csv'));
   const wb = new ExcelJS.Workbook();
-  wb.creator = 'pdr-spec-casebook';
+  wb.creator = 'spec-casebook';
   const ws = wb.addWorksheet('Cases', { views: [{ state: 'frozen', ySplit: 1 }] });
   ws.columns = COLUMNS.map(c => ({ header: c, key: c, width: WIDTHS[c] ?? 20 }));
   rows.forEach(r => ws.addRow(r));

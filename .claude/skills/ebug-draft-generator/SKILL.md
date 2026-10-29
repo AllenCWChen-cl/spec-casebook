@@ -3,8 +3,8 @@ name: ebug-draft-generator
 description: Turn QA verification / sign-off results for a PowerDirector feature into ready-to-paste CyberLink eBug draft entries — a Short Description plus the Information→Description body (Repro Steps / Result / Expect Result / Note) for every finding that needs to be raised. Use when the user asks to draft eBugs, create bug tickets, prepare eBug entries, or "automate the eBug" from a QA report, sign-off, or verified findings list. If no feature/report is named, ask which one first.
 ---
 
-<!-- BEGIN pdr-spec-casebook overlay -->
-## In this repo (pdr-spec-casebook) — read first
+<!-- BEGIN spec-casebook overlay -->
+## In this repo (spec-casebook) — read first
 
 This is a copy of the shared eBug skill, kept here so the casebook works on its own. The rules in this section
 override the parts below that assume the exploration suite (`pdri-exploration-suite`, its `sessions/` folders,
@@ -74,7 +74,7 @@ reads or updates them.
   on-hold entry; it is kept only in the batch's `dedupe.txt` (finding, case IDs, matching BugCode) for traceability.
   Exception: a same-OS ticket that is **closed** while the bug is back does not hide the finding; it stays a new card
   that names the closed ticket as related.
-<!-- END pdr-spec-casebook overlay -->
+<!-- END spec-casebook overlay -->
 
 
 # eBug Draft Generator

@@ -12,11 +12,11 @@
 //                             log ~/Library/Logs/appium-android-4724.log) when none answers; the iOS servers on
 //                             4723/4725 are never touched (they loaded their drivers before uiautomator2 was installed).
 //   restart [serial]          end the session, stop the phone's UiAutomator2 server, start a fresh session and bring
-//                             PowerDirector back to the front; run it at every segment start (as with WDA on iOS)
+//                             the app back to the front; run it at every segment start (as with WDA on iOS)
 //   status                    Appium status, adb state, screen/lock state, whether the stored session is alive and
 //                             how long the UiAutomator2 server has been up
 // Recovery: a command that fails because UiAutomator2 is gone (instrumentation crashed, socket hang up, dead session)
-// restarts it once, re-activates PowerDirector and retries. When the phone is unplugged, unauthorized, offline or
+// restarts it once, re-activates the app and retries. When the phone is unplugged, unauthorized, offline or
 // locked behind a PIN/pattern, the script prints BLOCKER and exits 75 (same convention as device.ts).
 //   shot NAME                 save <run dir>/screenshots/NAME.png (device pixels; adb screencap when no session)
 //   els [filter]              visible elements (format above); filter matches anywhere in the line, case-insensitive
@@ -37,14 +37,14 @@
 //   clear NAME                clear the field with resource-id NAME
 //   setval NAME TEXT          clear then set the field's text in one call (fast for long strings)
 //   launch [--lang en|zh-Hant|ja] | terminate
-//                             relaunch / stop PowerDirector. --lang needs per-app languages (Android 13+); on Android 12
+//                             relaunch / stop the app. --lang needs per-app languages (Android 13+); on Android 12
 //                             (the XQ-BT52) it stops with a note: the app language then follows the system language,
 //                             a system setting only the user changes
 //   appstate                  0 not installed · 1 not running · 3 background · 4 foreground
 //   back                      system Back (KEYCODE_BACK): a spec exit path on Android, test it like any other button
 //   wifi on|off|status        Wi-Fi through adb (`cmd wifi set-wifi-enabled`); refuses unless adb sees the phone over
 //                             USB. Offline cases only (AGENTS.md, Wi-Fi during runs); turn it back on right after.
-//   build                     installed PowerDirector versionName / versionCode / last update time
+//   build                     installed app versionName / versionCode / last update time
 //   logcat start|stop|status  background capture of the app's logcat (main, system, crash buffers, app uid only) into
 //                             <run dir>/logs/.live/; the phone's ring buffer holds only ~1 MB, so start it at the
 //                             segment start or the early lines are gone by the pull
@@ -64,7 +64,7 @@
 //                             and the visible elements
 //   stop                      delete this run's session (the Appium server keeps running)
 // Defaults (override with env): ANDROID_HOME ~/Library/Android/sdk, JAVA_HOME Homebrew openjdk@17,
-// PDR_ANDROID_PACKAGE com.cyberlink.powerdirector.DRA140225_01, PDR_SERIAL (else the only adb device).
+// CASEBOOK_ANDROID_PACKAGE com.cyberlink.powerdirector.DRA140225_01, CASEBOOK_SERIAL (else the only adb device).
 // Every command stamps <run dir>/activity.log (run-log.ts `time` reads it). The script never changes a system setting
 // except `wifi`; UiAutomator2 itself relaxes the hidden-API policy while a session is open and restores it on `stop`.
 import { appendFileSync, closeSync, existsSync, mkdirSync, openSync, readdirSync, readFileSync, renameSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
@@ -76,8 +76,10 @@ const HOME = homedir();
 const ANDROID_HOME = process.env.ANDROID_HOME ?? process.env.ANDROID_SDK_ROOT ?? join(HOME, 'Library/Android/sdk');
 const JAVA_HOME = process.env.JAVA_HOME ?? '/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home';
 const ADB = existsSync(join(ANDROID_HOME, 'platform-tools/adb')) ? join(ANDROID_HOME, 'platform-tools/adb') : 'adb';
+// Settings come from CASEBOOK_<name>; the older PDR_<name> spellings still work.
+const env = (k: string, old = k) => process.env[`CASEBOOK_${k}`] ?? process.env[`PDR_${old}`];
 const BASE = process.env.APPIUM_ANDROID_URL ?? 'http://127.0.0.1:4724';
-const PKG = process.env.PDR_ANDROID_PACKAGE ?? 'com.cyberlink.powerdirector.DRA140225_01';
+const PKG = env('ANDROID_PACKAGE') ?? 'com.cyberlink.powerdirector.DRA140225_01';
 const [runDir, cmd, ...rest] = process.argv.slice(2);
 if (!runDir || !cmd) { console.error('Usage: node scripts/device-android.ts <run dir> <command> [args]'); process.exit(2); }
 mkdirSync(runDir, { recursive: true });
@@ -104,14 +106,14 @@ const s = (method: string, path: string, body?: unknown) => call(method, `/sessi
 const mobile = (script: string, args: unknown = {}) => s('POST', '/execute/sync', { script: `mobile: ${script}`, args: [args] });
 const pointer = (actions: unknown[]) => s('POST', '/actions', { actions: [{ type: 'pointer', id: 'f', parameters: { pointerType: 'touch' }, actions }] });
 
-// adb on the run's phone. `serial()` is the stored one, else PDR_SERIAL, else the only device adb lists.
+// adb on the run's phone. `serial()` is the stored one, else CASEBOOK_SERIAL, else the only device adb lists.
 function serial(): string {
   if (existsSync(SERIAL_FILE)) return readFileSync(SERIAL_FILE, 'utf8').trim();
-  if (process.env.PDR_SERIAL) return process.env.PDR_SERIAL;
+  if (env('SERIAL')) return env('SERIAL');
   const devs = adbDevices();
   if (devs.length === 1) return devs[0].serial;
   if (!devs.length) blocker('adb lists no Android device.');
-  throw new Error(`Several adb devices (${devs.map(d => d.serial).join(', ')}): pass the serial to start or set PDR_SERIAL.`);
+  throw new Error(`Several adb devices (${devs.map(d => d.serial).join(', ')}): pass the serial to start or set CASEBOOK_SERIAL.`);
 }
 function adbDevices() {
   const out = execFileSync(ADB, ['devices', '-l'], { encoding: 'utf8' });
@@ -163,7 +165,7 @@ async function ensureServer() {
 type El = { cls: string; id: string; text: string; desc: string; x: number; y: number; w: number; h: number; a: Record<string, string>; kids: El[]; hidden: boolean };
 const dec = (t: string) => t.replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#10;/g, ' ').replace(/&#xA;/gi, ' ').replace(/&amp;/g, '&');
 const shortId = (id: string) => id.replace(/^[\w.]+:id\//, '');
-// Elements in document order, with `hidden` set for views covered by a later screen. PowerDirector opens pages as
+// Elements in document order, with `hidden` set for views covered by a later screen. The app opens pages as
 // fragments on top of the previous one in the same container (Menu › Preferences keeps the whole Menu in the source,
 // marked displayed="true"), so a subtree counts as hidden when a later sibling (higher drawing-order) covers its whole
 // frame and holds text or a content-desc of its own: a page, not an empty overlay such as a player's touch layer.
@@ -245,13 +247,13 @@ async function runRecovering(c: string, a: string[]) {
 async function run(cmd: string, rest: string[]): Promise<string | void> {
 switch (cmd) {
   case 'start': {
-    const sn = (rest[0] && !rest[0].startsWith('--') ? rest[0] : undefined) ?? (existsSync(SERIAL_FILE) ? readFileSync(SERIAL_FILE, 'utf8').trim() : undefined) ?? process.env.PDR_SERIAL ?? serial();
+    const sn = (rest[0] && !rest[0].startsWith('--') ? rest[0] : undefined) ?? (existsSync(SERIAL_FILE) ? readFileSync(SERIAL_FILE, 'utf8').trim() : undefined) ?? env('SERIAL') ?? serial();
     ensurePhone(sn);
     await ensureServer();
     const caps = { platformName: 'Android', 'appium:automationName': 'UiAutomator2', 'appium:udid': sn, 'appium:noReset': true,
       'appium:newCommandTimeout': 7200, 'appium:uiautomator2ServerLaunchTimeout': 120_000, 'appium:uiautomator2ServerInstallTimeout': 120_000,
       'appium:adbExecTimeout': 60_000,
-      // No app in the caps: the session attaches to whatever is on screen (launch brings PowerDirector up). The
+      // No app in the caps: the session attaches to whatever is on screen (launch brings the app up). The
       // phone is unlocked by ensurePhone, never by Appium's unlock helper; no mock-location grant (empty app id).
       'appium:skipUnlock': true, 'appium:mockLocationApp': '', 'appium:skipLogcatCapture': true,
       // io.appium.settings on this phone (3.4.0) is signed by another key and cannot be upgraded; keep it as it is.
@@ -270,7 +272,7 @@ switch (cmd) {
     await sleep(2);
     await run('start', sn ? [sn] : []);
     await mobile('activateApp', { appId: PKG }).catch(() => {});
-    console.log('UiAutomator2 restarted; PowerDirector brought to the front');
+    console.log('UiAutomator2 restarted; the app brought to the front');
     break;
   }
   case 'status': {
@@ -392,7 +394,7 @@ switch (cmd) {
     if (li >= 0) {
       // Per-app language exists from Android 13 (API 33): `cmd locale set-app-locales` changes only this app.
       const lang = rest[li + 1]; const sdk = +sh('getprop ro.build.version.sdk').trim();
-      if (sdk < 33) throw new Error(`launch --lang: Android API ${sdk} has no per-app language; PowerDirector follows the system language here, which only the user changes (Settings › System › Languages). Record the case Blocked --as test-data unless the user switches it.`);
+      if (sdk < 33) throw new Error(`launch --lang: Android API ${sdk} has no per-app language; the app follows the system language here, which only the user changes (Settings › System › Languages). Record the case Blocked --as test-data unless the user switches it.`);
       sh(`cmd locale set-app-locales ${PKG} --locales ${lang}`);
     }
     await mobile('terminateApp', { appId: PKG }).catch(() => {});

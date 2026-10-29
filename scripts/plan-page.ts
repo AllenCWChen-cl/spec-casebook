@@ -145,7 +145,7 @@ function buildData() {
     const rc = join(runsDir, d, 'results.csv'); if (!existsSync(rc)) continue;
     const state = existsSync(join(runsDir, d, 'run-state.md')) ? readFileSync(join(runsDir, d, 'run-state.md'), 'utf8') : '';
     const ph = state.match(/^# Run state — ([A-Z]+\d+)/m)?.[1]; if (ph) phaseRun[ph] = `runs/${d}/`;
-    const b = (state.match(/PowerDirector (?:iOS )?(\d+\.\d+\.\d+ \(\d+\))/)?.[1] ?? state.match(/PowerDirector Mobile for Android (\d+\.\d+\.\d+) \(versionCode (\d+)\)/)?.slice(1).join(" (").concat(")")); if (b) build = b;
+    const b = (state.match(/\b[A-Z][A-Za-z]+(?: iOS)? (\d+\.\d+\.\d+ \(\d+\))/)?.[1] ?? state.match(/\b[A-Z][A-Za-z]+(?: Mobile)? for Android (\d+\.\d+\.\d+) \(versionCode (\d+)\)/)?.slice(1).join(" (").concat(")")); if (b) build = b;
     for (const m of state.matchAll(/^### (\S+)( · next (\S+) \(([^)]*)\)| · all recorded)?\n[^\n]*\n\n([\s\S]*?)(?=\n### |\s*$)/gm))
       checkpoints.push({ time: m[1].replace('T', ' ').slice(0, 16) + ' UTC', next: m[3] ? `${m[3]} (${m[4]})` : 'all recorded', text: m[5].trim().replace(/\s+/g, ' ').slice(0, 420) + (m[5].length > 420 ? '…' : ''), run: d });
     if (!ph) continue;   // older runs (before phases) don't count toward this plan

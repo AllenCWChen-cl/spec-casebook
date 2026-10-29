@@ -1,7 +1,7 @@
-# PDR Spec Casebook
+# Spec Casebook
 
-A workspace for turning CyberLink **PowerDirector Mobile** feature specs (PM, Design and MX files, usually huge
-Figma-export PDFs) into a plain, reviewed **test-case table**: one row per check, each with an **Action** and an
+A workspace for turning CyberLink product feature specs (PM, Design and MX files, usually huge Figma-export PDFs;
+first used for **PowerDirector Mobile**, but any product with such specs fits) into a plain, reviewed **test-case table**: one row per check, each with an **Action** and an
 **Expected Result**, like the SFT/BFT checklists. A person reviews the table in the browser and saves it; the saved
 table becomes that feature's **correct answer** for one platform (iOS or Android).
 
@@ -207,7 +207,7 @@ One-time setup on the Mac:
    appium driver install xcuitest
    ```
 
-3. On the iPhone: install the QA build of PowerDirector from TestFlight; connect it by USB and tap **Trust** on the
+3. On the iPhone: install the QA build of the app under test (e.g. PowerDirector) from TestFlight; connect it by USB and tap **Trust** on the
    phone; turn on Settings › Privacy & Security › **Developer Mode** (the phone restarts) and then Settings ›
    Developer › **Enable UI Automation**; set Settings › Display & Brightness › Auto-Lock to **Never** for runs.
 4. Start Appium in its own terminal and leave it running (port 4723):
@@ -231,15 +231,18 @@ Set these in your shell before the first `device.ts start` of a run (the run fol
 
 | Variable | What it is | Default |
 | --- | --- | --- |
-| `PDR_UDID` | Your phone's UDID (`xcrun xctrace list devices`); or pass it to `device.ts start <udid>` | none, required |
-| `PDR_WDA_TEAM` | Apple team ID that signs your WebDriverAgent | `LR55RBG94F` |
-| `PDR_WDA_BUNDLE` | Bundle ID of your WebDriverAgentRunner | `com.cyberlinkqa1-4.WebDriverAgentRunner` |
+| `CASEBOOK_UDID` | Your phone's UDID (`xcrun xctrace list devices`); or pass it to `device.ts start <udid>` | none, required |
+| `CASEBOOK_WDA_TEAM` | Apple team ID that signs your WebDriverAgent | `LR55RBG94F` |
+| `CASEBOOK_WDA_BUNDLE` | Bundle ID of your WebDriverAgentRunner | `com.cyberlinkqa1-4.WebDriverAgentRunner` |
+| `CASEBOOK_APP_BUNDLE` | Bundle ID of the app under test | `com.cyberlink.ios.powerdirector` |
+| `CASEBOOK_APP_NAME` | The app name TestFlight lists (`app-setup.ts reinstall`) | `PowerDirector` |
 
 The defaults are the team's QA signing account; set the two WDA values only if you signed WebDriverAgent under
-another account, or WebDriverAgent will not start.
+another account, or WebDriverAgent will not start. Set the two app values when the feature belongs to another
+product. The older `PDR_*` spellings of every variable still work.
 
 ```bash
-export PDR_UDID=<your phone UDID> PDR_WDA_TEAM=<team ID> PDR_WDA_BUNDLE=<bundle ID>
+export CASEBOOK_UDID=<your phone UDID> CASEBOOK_WDA_TEAM=<team ID> CASEBOOK_WDA_BUNDLE=<bundle ID>
 ```
 
 ### 4b. Phone (Android)
@@ -267,15 +270,15 @@ phone and relaxes the hidden-API policy while a session is open (restored when t
 
 | Variable | What it is | Default |
 | --- | --- | --- |
-| `PDR_SERIAL` | adb serial (`adb devices -l`); or pass it to `device-android.ts start <serial>` | the only adb device |
-| `PDR_ANDROID_PACKAGE` | PowerDirector's package | `com.cyberlink.powerdirector.DRA140225_01` |
+| `CASEBOOK_SERIAL` | adb serial (`adb devices -l`); or pass it to `device-android.ts start <serial>` | the only adb device |
+| `CASEBOOK_ANDROID_PACKAGE` | Package of the app under test | `com.cyberlink.powerdirector.DRA140225_01` |
 | `APPIUM_ANDROID_URL` | Android Appium server | `http://127.0.0.1:4724` |
 | `ANDROID_HOME`, `JAVA_HOME` | SDK and JDK for that server | `~/Library/Android/sdk`, Homebrew `openjdk@17` |
 
 
 On Windows (no Homebrew), the same pieces come from these sources; the phone side needs:
 
-- A QA build of PowerDirector on the Android phone, with Developer options › **USB debugging** on and the computer
+- A QA build of the app under test on the Android phone, with Developer options › **USB debugging** on and the computer
   allowed when the phone asks.
 - **Android SDK Platform-Tools** (`adb`): from Android Studio's SDK Manager, or `winget install Google.PlatformTools`
   (Windows) / `brew install --cask android-platform-tools` (macOS). `adb devices` must list the phone as `device`.
@@ -549,7 +552,7 @@ Using `library/ai-mini-drama/` as the example:
 
 | Skill | Use |
 | --- | --- |
-| `pdr-spec-casebook` | Spec → reviewed table, updates, reuse; coverage passes, standing inputs, value check; on-device runs |
+| `spec-casebook` | Spec → reviewed table, updates, reuse; coverage passes, standing inputs, value check; on-device runs |
 | `ebug-draft-generator` | eBug drafts from failed cases (casebook overlay first) |
 | `ebug-tr-filer` | Dedupe, format check, review page, filing through the IF3 API, read-back (needs `~/.ecl_token`) |
 
@@ -622,7 +625,7 @@ All scripts run from the repository root with `node scripts/<name>.ts`.
 ## Further reading
 
 - [`AGENTS.md`](AGENTS.md): repository rules and team preferences
-- [`.claude/skills/pdr-spec-casebook/SKILL.md`](.claude/skills/pdr-spec-casebook/SKILL.md): the full workflow, coverage
+- [`.claude/skills/spec-casebook/SKILL.md`](.claude/skills/spec-casebook/SKILL.md): the full workflow, coverage
   passes, run rules and file formats
 - [`library/ai-mini-drama/requests.md`](library/ai-mini-drama/requests.md): an example request ledger
 - [`library/ai-mini-drama/ios/runs/RUN-PLAN-20261019.md`](library/ai-mini-drama/ios/runs/RUN-PLAN-20261019.md): an example phased run plan
