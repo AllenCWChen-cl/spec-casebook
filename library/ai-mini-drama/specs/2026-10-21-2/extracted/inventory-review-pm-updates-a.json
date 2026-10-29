@@ -1,0 +1,1117 @@
+{
+ "boards": [
+  "pm-0930-updates",
+  "pm-0930-updates-2",
+  "pm-update-4",
+  "pm-update-3-a",
+  "pm-update-3-b",
+  "pm-update-3-c",
+  "pm-1002-update-a",
+  "pm-1002-update-b",
+  "pm-1002-update-c"
+ ],
+ "missing": [
+  {
+   "screen": "3025:13118",
+   "screens": [
+    "3025:13184",
+    "3025:13384",
+    "3037:13396",
+    "3037:13454",
+    "3130:15166",
+    "3130:15221",
+    "3130:16069",
+    "3130:16627",
+    "3130:17203",
+    "3130:17331",
+    "3130:17459",
+    "3167:17420",
+    "3167:17552",
+    "3168:17686",
+    "3168:17826",
+    "3168:17965"
+   ],
+   "label": "Mic",
+   "box": [
+    319,
+    721,
+    24,
+    24
+   ],
+   "kind": "button",
+   "why": "Voice-input mic icon at the right end of the idea input; only the whole input is boxed (input at y=706)."
+  },
+  {
+   "screen": "3037:13513",
+   "screens": [
+    "3130:16020",
+    "3130:16139"
+   ],
+   "label": "Mic",
+   "box": [
+    319,
+    730,
+    24,
+    24
+   ],
+   "kind": "button",
+   "why": "Voice-input mic icon at the right end of the idea input; only the whole input is boxed (input at y=714 on these screens)."
+  },
+  {
+   "screen": "3130:15166",
+   "screens": [],
+   "label": "Scroll to bottom (down arrow)",
+   "box": [
+    170,
+    624,
+    32,
+    32
+   ],
+   "kind": "button",
+   "why": "Round down-arrow button floating above the input when the chat is scrolled up; no box."
+  },
+  {
+   "screen": "3178:18271",
+   "screens": [
+    "3178:18741"
+   ],
+   "label": "New Chat (pill)",
+   "box": [
+    192,
+    53,
+    103,
+    29
+   ],
+   "kind": "button",
+   "why": "Only the small edit icon inside the New Chat pill is boxed; the whole pill is the button.",
+   "layer": "round/ic_edit_square"
+  },
+  {
+   "screen": "3178:18271",
+   "screens": [
+    "3178:18741"
+   ],
+   "label": "Manage (header text button)",
+   "box": [
+    302,
+    54,
+    60,
+    24
+   ],
+   "kind": "button",
+   "why": "Grey text button at the right of the header; no box."
+  },
+  {
+   "screen": "3178:18271",
+   "screens": [
+    "3178:18741"
+   ],
+   "label": "History drama card (whole row, opens the chat)",
+   "box": [
+    17,
+    108,
+    343,
+    120
+   ],
+   "kind": "item",
+   "why": "Only the more button is boxed on each card; the card row itself (5 visible, pitch 128 pt: y=108, 236, 364, 492, 620) has no box."
+  },
+  {
+   "screen": "3178:18437",
+   "screens": [
+    "3178:18449"
+   ],
+   "label": "Delete (dialog button)",
+   "box": [
+    135,
+    102,
+    135,
+    46
+   ],
+   "kind": "button",
+   "why": "The Cancel/Delete split row is one box labelled Cancel that spans both halves; Delete (right half) has no own box. Box is in panel points."
+  },
+  {
+   "screen": "3178:18682",
+   "screens": [
+    "3178:18712"
+   ],
+   "label": "OK (dialog button)",
+   "box": [
+    135,
+    102,
+    135,
+    46
+   ],
+   "kind": "button",
+   "why": "Rename dialog: Cancel box spans the whole button row; OK (right half) has no own box. On 3178:18712 OK is drawn disabled (empty name). Box is in panel points."
+  },
+  {
+   "screen": "3038:14585",
+   "screens": [],
+   "label": "Push notification banner (tap opens the drama)",
+   "box": [
+    8,
+    250,
+    360,
+    100
+   ],
+   "kind": "item",
+   "why": "Lock-screen push \"Your drama is ready ... Tap to watch it.\" is the only thing on the frame and has no box; tapping it is the case."
+  },
+  {
+   "screen": "3038:14340",
+   "screens": [],
+   "label": "Toast Close (text button)",
+   "box": [
+    30,
+    120,
+    44,
+    22
+   ],
+   "kind": "button",
+   "why": "Underlined Close link at the bottom-left of the in-app toast; no box."
+  },
+  {
+   "screen": "3038:14340",
+   "screens": [],
+   "label": "Toast View (button)",
+   "box": [
+    265,
+    114,
+    78,
+    30
+   ],
+   "kind": "button",
+   "why": "View pill at the bottom-right of the in-app toast; no box."
+  },
+  {
+   "screen": "3038:14340",
+   "screens": [],
+   "label": "In-app toast banner (tap to view results)",
+   "box": [
+    16,
+    52,
+    343,
+    109
+   ],
+   "kind": "item",
+   "why": "The toast says \"Tap here to view your results\"; the banner body has no box (only stray boxes of the home header behind it)."
+  },
+  {
+   "screen": "3038:14340",
+   "screens": [],
+   "label": "AI Mini Drama (feature tile)",
+   "box": [
+    305,
+    381,
+    28,
+    28
+   ],
+   "kind": "button",
+   "why": "Home tool grid: every other tile has an icon box but the AI Mini Drama tile (NEW badge) has none."
+  },
+  {
+   "screen": "3038:14340",
+   "screens": [],
+   "label": "Video Edit by Chat (tile, whole card)",
+   "box": [
+    134,
+    272,
+    107,
+    86
+   ],
+   "kind": "item",
+   "why": "Only the small icon is boxed; New Project beside it is boxed as the whole card."
+  },
+  {
+   "screen": "3038:14340",
+   "screens": [],
+   "label": "Video Enhance (tile, whole card)",
+   "box": [
+    253,
+    272,
+    106,
+    86
+   ],
+   "kind": "item",
+   "why": "Only the small icon is boxed; New Project beside it is boxed as the whole card."
+  },
+  {
+   "screen": "3130:14243",
+   "screens": [
+    "3130:14351",
+    "3153:16397"
+   ],
+   "label": "Expand (full screen) on character card",
+   "box": [
+    341,
+    358,
+    12,
+    12
+   ],
+   "kind": "button",
+   "why": "Grey expand icon on a library card; only the 'My character' cards in the first two rows have a box.",
+   "layer": "round/ic_full screen"
+  },
+  {
+   "screen": "3130:14243",
+   "screens": [
+    "3130:14351",
+    "3153:16397"
+   ],
+   "label": "Expand (full screen) on character card",
+   "box": [
+    105,
+    476,
+    12,
+    12
+   ],
+   "kind": "button",
+   "why": "Grey expand icon on a library card; only the 'My character' cards in the first two rows have a box.",
+   "layer": "round/ic_full screen"
+  },
+  {
+   "screen": "3130:14243",
+   "screens": [
+    "3130:14351",
+    "3153:16397"
+   ],
+   "label": "Expand (full screen) on character card",
+   "box": [
+    223,
+    476,
+    12,
+    12
+   ],
+   "kind": "button",
+   "why": "Grey expand icon on a library card; only the 'My character' cards in the first two rows have a box.",
+   "layer": "round/ic_full screen"
+  },
+  {
+   "screen": "3130:14243",
+   "screens": [
+    "3130:14351",
+    "3153:16397"
+   ],
+   "label": "Expand (full screen) on character card",
+   "box": [
+    341,
+    476,
+    12,
+    12
+   ],
+   "kind": "button",
+   "why": "Grey expand icon on a library card; only the 'My character' cards in the first two rows have a box.",
+   "layer": "round/ic_full screen"
+  },
+  {
+   "screen": "3130:14243",
+   "screens": [
+    "3130:14351",
+    "3153:16397"
+   ],
+   "label": "Expand (full screen) on character card",
+   "box": [
+    105,
+    594,
+    12,
+    12
+   ],
+   "kind": "button",
+   "why": "Grey expand icon on a library card; only the 'My character' cards in the first two rows have a box.",
+   "layer": "round/ic_full screen"
+  },
+  {
+   "screen": "3130:14243",
+   "screens": [
+    "3130:14351",
+    "3153:16397"
+   ],
+   "label": "Expand (full screen) on character card",
+   "box": [
+    223,
+    594,
+    12,
+    12
+   ],
+   "kind": "button",
+   "why": "Grey expand icon on a library card; only the 'My character' cards in the first two rows have a box.",
+   "layer": "round/ic_full screen"
+  },
+  {
+   "screen": "3130:14243",
+   "screens": [
+    "3130:14351",
+    "3153:16397"
+   ],
+   "label": "Expand (full screen) on character card",
+   "box": [
+    341,
+    594,
+    12,
+    12
+   ],
+   "kind": "button",
+   "why": "Grey expand icon on a library card; only the 'My character' cards in the first two rows have a box.",
+   "layer": "round/ic_full screen"
+  },
+  {
+   "screen": "3130:14243",
+   "screens": [
+    "3130:14351",
+    "3153:16397"
+   ],
+   "label": "Expand (full screen) on character card",
+   "box": [
+    105,
+    712,
+    12,
+    12
+   ],
+   "kind": "button",
+   "why": "Grey expand icon on a library card; only the 'My character' cards in the first two rows have a box.",
+   "layer": "round/ic_full screen"
+  },
+  {
+   "screen": "3130:14243",
+   "screens": [
+    "3130:14351",
+    "3153:16397"
+   ],
+   "label": "Expand (full screen) on character card",
+   "box": [
+    223,
+    712,
+    12,
+    12
+   ],
+   "kind": "button",
+   "why": "Grey expand icon on a library card; only the 'My character' cards in the first two rows have a box.",
+   "layer": "round/ic_full screen"
+  },
+  {
+   "screen": "3130:14243",
+   "screens": [
+    "3130:14351",
+    "3153:16397"
+   ],
+   "label": "Expand (full screen) on character card",
+   "box": [
+    341,
+    712,
+    12,
+    12
+   ],
+   "kind": "button",
+   "why": "Grey expand icon on a library card; only the 'My character' cards in the first two rows have a box.",
+   "layer": "round/ic_full screen"
+  },
+  {
+   "screen": "3153:16350",
+   "screens": [],
+   "label": "Failed character tile (Error, tap to try again)",
+   "box": [
+    25,
+    115,
+    96,
+    96
+   ],
+   "kind": "item",
+   "why": "The text says \"Tap a character to try again\"; the tile has no box (only the warning icon inside it is boxed). Box is in panel points."
+  },
+  {
+   "screen": "3153:16902",
+   "screens": [],
+   "label": "Description text input (Make your character)",
+   "box": [
+    25,
+    181,
+    326,
+    110
+   ],
+   "kind": "input",
+   "why": "Text area \"Description text... (1,000 characters)\" with the 1000/1000 limit message has no input box (only stray boxes of the library behind the sheet)."
+  },
+  {
+   "screen": "3153:16902",
+   "screens": [],
+   "label": "Clear (description text button)",
+   "box": [
+    304,
+    254,
+    40,
+    22
+   ],
+   "kind": "button",
+   "why": "Grey Clear text button inside the description area; no box."
+  },
+  {
+   "screen": "3153:16902",
+   "screens": [],
+   "label": "Age input (1-100)",
+   "box": [
+    37,
+    493,
+    94,
+    34
+   ],
+   "kind": "input",
+   "why": "Age text field has no box."
+  },
+  {
+   "screen": "3153:17730",
+   "screens": [],
+   "label": "Scene description text input",
+   "box": [
+    16,
+    440,
+    343,
+    255
+   ],
+   "kind": "input",
+   "why": "Scrollable multi-line description of the failed scene (limit 1000/1000) has no input box; only its expand icon is boxed."
+  },
+  {
+   "screen": "3130:16681",
+   "screens": [],
+   "label": "Retry (pill)",
+   "box": [
+    139,
+    420,
+    97,
+    36
+   ],
+   "kind": "button",
+   "why": "Only the small restart icon inside the white Retry pill is boxed; the pill is the button.",
+   "layer": "round/ic_restart"
+  },
+  {
+   "screen": "3130:16748",
+   "screens": [],
+   "label": "View more (label)",
+   "box": [
+    229,
+    -2,
+    64,
+    20
+   ],
+   "kind": "button",
+   "why": "Label of the View more > link; only the chevron is boxed."
+  },
+  {
+   "screen": "3130:16748",
+   "screens": [],
+   "label": "Scene row (storyboard card, opens the scene)",
+   "box": [
+    0,
+    28,
+    311,
+    96
+   ],
+   "kind": "item",
+   "why": "Storyboard Result card row 1 (Scene 1) has no box; scene rows are boxed as items elsewhere (e.g. 'Scene 6 - Giving Back'). Box in panel points."
+  },
+  {
+   "screen": "3130:16748",
+   "screens": [],
+   "label": "Scene row (storyboard card, opens the scene)",
+   "box": [
+    0,
+    136,
+    311,
+    96
+   ],
+   "kind": "item",
+   "why": "Storyboard Result card row 2 (Scene 2) has no box; scene rows are boxed as items elsewhere (e.g. 'Scene 6 - Giving Back'). Box in panel points."
+  },
+  {
+   "screen": "3130:16748",
+   "screens": [],
+   "label": "Scene row (storyboard card, opens the scene)",
+   "box": [
+    0,
+    244,
+    311,
+    96
+   ],
+   "kind": "item",
+   "why": "Storyboard Result card row 3 (Scene 3) has no box; scene rows are boxed as items elsewhere (e.g. 'Scene 6 - Giving Back'). Box in panel points."
+  },
+  {
+   "screen": "3130:16748",
+   "screens": [],
+   "label": "Scene row (storyboard card, opens the scene)",
+   "box": [
+    0,
+    352,
+    311,
+    96
+   ],
+   "kind": "item",
+   "why": "Storyboard Result card row 4 (Scene 4) has no box; scene rows are boxed as items elsewhere (e.g. 'Scene 6 - Giving Back'). Box in panel points."
+  },
+  {
+   "screen": "3130:16748",
+   "screens": [],
+   "label": "Scene row (storyboard card, opens the scene)",
+   "box": [
+    0,
+    460,
+    311,
+    96
+   ],
+   "kind": "item",
+   "why": "Storyboard Result card row 5 (Scene 5) has no box; scene rows are boxed as items elsewhere (e.g. 'Scene 6 - Giving Back'). Box in panel points."
+  },
+  {
+   "screen": "3130:16748",
+   "screens": [],
+   "label": "Scene row (storyboard card, opens the scene)",
+   "box": [
+    0,
+    568,
+    311,
+    96
+   ],
+   "kind": "item",
+   "why": "Storyboard Result card row 6 (Scene 6) has no box; scene rows are boxed as items elsewhere (e.g. 'Scene 6 - Giving Back'). Box in panel points."
+  },
+  {
+   "screen": "3168:17686",
+   "screens": [
+    "3168:17826"
+   ],
+   "label": "Scene row (storyboard card, opens the scene)",
+   "box": [
+    32,
+    128,
+    311,
+    96
+   ],
+   "kind": "item",
+   "why": "Scene 4 row in the chat storyboard card has no box (same rows on 3168:17826). On 3168:17686 Scene 5 is drawn as a skeleton while the image updates."
+  },
+  {
+   "screen": "3168:17686",
+   "screens": [
+    "3168:17826"
+   ],
+   "label": "Scene row (storyboard card, opens the scene)",
+   "box": [
+    32,
+    236,
+    311,
+    96
+   ],
+   "kind": "item",
+   "why": "Scene 5 row in the chat storyboard card has no box (same rows on 3168:17826). On 3168:17686 Scene 5 is drawn as a skeleton while the image updates."
+  },
+  {
+   "screen": "3168:17686",
+   "screens": [
+    "3168:17826"
+   ],
+   "label": "Scene row (storyboard card, opens the scene)",
+   "box": [
+    32,
+    344,
+    311,
+    96
+   ],
+   "kind": "item",
+   "why": "Scene 6 row in the chat storyboard card has no box (same rows on 3168:17826). On 3168:17686 Scene 5 is drawn as a skeleton while the image updates."
+  },
+  {
+   "screen": "3168:17965",
+   "screens": [],
+   "label": "Scene row (storyboard card, opens the scene)",
+   "box": [
+    32,
+    177,
+    311,
+    96
+   ],
+   "kind": "item",
+   "why": "Scene 5 row in the chat storyboard card has no box (Scene 5 is drawn as failed with an exclamation mark)."
+  },
+  {
+   "screen": "3168:17965",
+   "screens": [],
+   "label": "Scene row (storyboard card, opens the scene)",
+   "box": [
+    32,
+    285,
+    311,
+    96
+   ],
+   "kind": "item",
+   "why": "Scene 6 row in the chat storyboard card has no box (Scene 5 is drawn as failed with an exclamation mark)."
+  }
+ ],
+ "not_tappable": [
+  {
+   "control": "K-d5487e",
+   "screen": "3178:18081",
+   "label": "English chip",
+   "why": "Behind the dimmed Leave this chat? dialog; only the dialog buttons are reachable."
+  },
+  {
+   "control": "K-85cf26",
+   "screen": "3178:18081",
+   "label": "Spanish chip",
+   "why": "Behind the dimmed Leave this chat? dialog; only the dialog buttons are reachable."
+  },
+  {
+   "control": "K-ccd39c",
+   "screen": "3178:18081",
+   "label": "French chip",
+   "why": "Behind the dimmed Leave this chat? dialog; only the dialog buttons are reachable."
+  },
+  {
+   "control": "K-559876",
+   "screen": "3178:18081",
+   "label": "German chip",
+   "why": "Behind the dimmed Leave this chat? dialog; only the dialog buttons are reachable."
+  },
+  {
+   "control": "K-a27c6f",
+   "screen": "3178:18081",
+   "label": "Japanese chip",
+   "why": "Behind the dimmed Leave this chat? dialog; only the dialog buttons are reachable."
+  },
+  {
+   "control": "K-dd59cc",
+   "screen": "3178:18081",
+   "label": "Korean chip",
+   "why": "Behind the dimmed Leave this chat? dialog; only the dialog buttons are reachable."
+  },
+  {
+   "control": "K-d8ebaf",
+   "screen": "3178:18081",
+   "label": "Chinese chip",
+   "why": "Behind the dimmed Leave this chat? dialog; only the dialog buttons are reachable."
+  },
+  {
+   "control": "K-fe43e0",
+   "screen": "3178:18081",
+   "label": "Yes, include captions chip",
+   "why": "Behind the dimmed Leave this chat? dialog; only the dialog buttons are reachable."
+  },
+  {
+   "control": "K-063a05",
+   "screen": "3178:18081",
+   "label": "No captions chip",
+   "why": "Behind the dimmed Leave this chat? dialog; only the dialog buttons are reachable."
+  },
+  {
+   "control": "K-4d03ee",
+   "screen": "3178:18081",
+   "label": "Continue",
+   "why": "Behind the dimmed Leave this chat? dialog; only the dialog buttons are reachable."
+  },
+  {
+   "control": "K-f34948",
+   "screen": "3178:18081",
+   "label": "Idea input",
+   "why": "Behind the dimmed Leave this chat? dialog; only the dialog buttons are reachable."
+  },
+  {
+   "control": "K-585d7f",
+   "screen": "3178:18081",
+   "label": "Back",
+   "why": "Behind the dimmed Leave this chat? dialog; only the dialog buttons are reachable."
+  },
+  {
+   "control": "K-9e1973",
+   "screen": "3178:18081",
+   "label": "Credit pill",
+   "why": "Behind the dimmed Leave this chat? dialog; only the dialog buttons are reachable."
+  },
+  {
+   "control": "K-22590c",
+   "screen": "3178:18081",
+   "label": "New chat",
+   "why": "Behind the dimmed Leave this chat? dialog; only the dialog buttons are reachable."
+  },
+  {
+   "control": "K-3614fd",
+   "screen": "3178:18081",
+   "label": "History",
+   "why": "Behind the dimmed Leave this chat? dialog; only the dialog buttons are reachable."
+  },
+  {
+   "control": "K-f907a6",
+   "label": "AI video placeholder icon in a history thumbnail",
+   "why": "Placeholder illustration inside a history card thumbnail (cards without a cover); the card, not the icon, is the tap target."
+  },
+  {
+   "control": "K-f607a2",
+   "label": "AI video placeholder icon in a history thumbnail",
+   "why": "Placeholder illustration inside a history card thumbnail (cards without a cover); the card, not the icon, is the tap target."
+  },
+  {
+   "control": "K-8b0f48",
+   "label": "AI video placeholder icon in a history thumbnail",
+   "why": "Placeholder illustration inside a history card thumbnail (cards without a cover); the card, not the icon, is the tap target."
+  },
+  {
+   "control": "K-810f38",
+   "label": "AI video placeholder icon in a history thumbnail",
+   "why": "Placeholder illustration inside a history card thumbnail (cards without a cover); the card, not the icon, is the tap target."
+  },
+  {
+   "control": "K-fe7287",
+   "screen": "3037:13454",
+   "label": "Continue (scrolled above the header)",
+   "why": "Old Continue button scrolled up under the status bar / header (y=8); not reachable on this screen."
+  },
+  {
+   "control": "K-d81a07",
+   "screen": "3038:14340",
+   "label": "Menu",
+   "why": "Home header icon covered by the in-app toast banner on this screen."
+  },
+  {
+   "control": "K-b8fdaa",
+   "screen": "3038:14340",
+   "label": "Try Pro+ 7 days for free",
+   "why": "Home header icon covered by the in-app toast banner on this screen."
+  },
+  {
+   "control": "K-4b83b4",
+   "screen": "3038:14340",
+   "label": "Notification bell",
+   "why": "Home header icon covered by the in-app toast banner on this screen."
+  },
+  {
+   "control": "K-b799b1",
+   "screen": "3038:14340",
+   "label": "Next section chevron",
+   "why": "Chevron of a section scrolled below the tab bar; covered by the tab bar / home indicator on this screen."
+  },
+  {
+   "control": "K-b97b2b",
+   "label": "Credit coin icon next to cost (15)",
+   "why": "Coin icon inside the Create storyboard card; the Generate button is the tap target."
+  },
+  {
+   "control": "K-e9c9eb",
+   "label": "Credit coin icon next to cost (15)",
+   "why": "Coin icon inside the Create storyboard card; the Generate button is the tap target."
+  },
+  {
+   "control": "K-c457bf",
+   "label": "Credit coin icon next to cost (15)",
+   "why": "Coin icon inside the Create storyboard card; the Generate button is the tap target."
+  },
+  {
+   "control": "K-cb151e",
+   "label": "Credit coin icon next to cost (2)",
+   "why": "Coin icon inside the Create storyboard card; the Generate button is the tap target."
+  },
+  {
+   "control": "K-302cbb",
+   "screen": "3130:15221",
+   "label": "Generate (card peeking behind the input)",
+   "why": "Generate button of the faded 'Proceed to the next step' card that sits behind the input bar; hidden on this screen."
+  },
+  {
+   "control": "K-37538c",
+   "screen": "3130:16534",
+   "label": "Close X",
+   "why": "Behind the dimmed Stop and lose your credits? dialog; hidden on this screen only."
+  },
+  {
+   "control": "K-ab4a6e",
+   "label": "Warning (!) icon before the failure note",
+   "why": "Inline status icon before the 'scenes couldn't be generated' text, not a button."
+  },
+  {
+   "control": "K-6bede4",
+   "screen": "3130:17203",
+   "label": "Scene 6 - Giving Back (scrolled under header)",
+   "why": "Previous message's scene row scrolled under the status bar / header (y=-8..88); covered on this screen."
+  },
+  {
+   "control": "K-42bc16",
+   "screen": "3130:17203",
+   "label": "Scene thumbnail (scrolled under header)",
+   "why": "Thumbnail of the scene row scrolled under the status bar / header; covered on this screen."
+  },
+  {
+   "control": "K-6bede4",
+   "screen": "3130:17331",
+   "label": "Scene 6 - Giving Back (scrolled under header)",
+   "why": "Scene row scrolled under the status bar / header; covered on this screen."
+  },
+  {
+   "control": "K-41bc14",
+   "screen": "3130:17331",
+   "label": "Scene thumbnail (scrolled under header)",
+   "why": "Thumbnail of the scene row scrolled under the status bar / header; covered on this screen."
+  },
+  {
+   "control": "K-6bede4",
+   "screen": "3130:17459",
+   "label": "Scene 6 - Giving Back (scrolled under header)",
+   "why": "Scene row scrolled under the status bar / header; covered on this screen."
+  },
+  {
+   "control": "K-42bc16",
+   "screen": "3130:17459",
+   "label": "Scene thumbnail (scrolled under header)",
+   "why": "Thumbnail of the scene row scrolled under the status bar / header; covered on this screen."
+  },
+  {
+   "control": "K-3bc8ea",
+   "label": "Video placeholder icon in the failed video card",
+   "why": "Decorative placeholder icon above 'Couldn't create video'; not a button."
+  },
+  {
+   "control": "K-5b86cd",
+   "label": "Video placeholder icon in the failed video card",
+   "why": "Decorative placeholder icon above 'Couldn't create video'; not a button."
+  },
+  {
+   "control": "K-33568f",
+   "label": "Add-image placeholder in a generating character tile",
+   "why": "Loading placeholder inside the Chloe tile while it generates; not a button."
+  },
+  {
+   "control": "K-b9f207",
+   "label": "Warning icon inside the Error character tile",
+   "why": "Icon inside the failed character tile; the tile is the tap target (see missing)."
+  },
+  {
+   "control": "K-81e43a",
+   "screen": "3153:16902",
+   "label": "Create my character tile (library behind sheet)",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-73df9d",
+   "screen": "3153:16902",
+   "label": "Library card",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-8ef790",
+   "screen": "3153:16902",
+   "label": "Library card",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-2d5e2e",
+   "screen": "3153:16902",
+   "label": "Library card",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-4974b0",
+   "screen": "3153:16902",
+   "label": "Library card",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-efca59",
+   "screen": "3153:16902",
+   "label": "Library card",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-285e26",
+   "screen": "3153:16902",
+   "label": "Library card",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-5274be",
+   "screen": "3153:16902",
+   "label": "Library card",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-e4ca48",
+   "screen": "3153:16902",
+   "label": "Library card",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-b56142",
+   "screen": "3153:16902",
+   "label": "Library card",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-617297",
+   "screen": "3153:16902",
+   "label": "Library card",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-5fd1c5",
+   "screen": "3153:16902",
+   "label": "Library card",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-ae6137",
+   "screen": "3153:16902",
+   "label": "Library card",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-5c728f",
+   "screen": "3153:16902",
+   "label": "Library card",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-66d1d0",
+   "screen": "3153:16902",
+   "label": "Library card",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-0cc459",
+   "screen": "3153:16902",
+   "label": "Expand icon (library behind sheet)",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-b51bb4",
+   "screen": "3153:16902",
+   "label": "Icon of a library card behind the sheet",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-2ff7fd",
+   "screen": "3153:16902",
+   "label": "Plus of Create my character (library behind sheet)",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-5c4144",
+   "screen": "3153:16902",
+   "label": "Library close X (behind sheet)",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-e9d973",
+   "screen": "3153:16902",
+   "label": "Library confirm check (behind sheet)",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-c15b99",
+   "screen": "3153:16902",
+   "label": "Strip item X (behind sheet)",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-e47c57",
+   "screen": "3153:16902",
+   "label": "Strip item X (behind sheet)",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-20922c",
+   "screen": "3153:16902",
+   "label": "Strip item X (behind sheet)",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-6de253",
+   "screen": "3153:16902",
+   "label": "Filter (behind sheet)",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  },
+  {
+   "control": "K-8d2e87",
+   "screen": "3153:16902",
+   "label": "Plus icon on the generated image",
+   "why": "Character Library grid, header and strip sit behind the dimmed Make your character sheet; hidden on this screen only (stray boxes drawn over the sheet)."
+  }
+ ],
+ "drop_screens": [
+  {
+   "screen": "3178:18741",
+   "why": "Pixel-identical duplicate of 3178:18271 (same History list, same boxes). The name says 'History tooltip' but no tooltip is drawn in the cut."
+  },
+  {
+   "screen": "3038:15004",
+   "why": "Older 0930 copy of the History list; superseded by 3178:18271 (pm-update-4, same layout and rows)."
+  },
+  {
+   "screen": "3038:15165",
+   "why": "Older copy of Dialog_delete drama; superseded by 3178:18437 (identical content)."
+  },
+  {
+   "screen": "3038:15177",
+   "why": "Older copy of Dialog_delete dramas (Manage); superseded by 3178:18449 (identical content)."
+  }
+ ],
+ "unsure": [
+  {
+   "screen": "3178:18081",
+   "what": "Answered chip card (language and caption chips, Continue)",
+   "why": "On 3025:13118, 3025:13184, 3037:13396, 3037:13454 and 3178:18081 the format card was already submitted (user echo 'Video language: English / Captions: Yes', Continue greyed). Boxes are kept; check whether chips are still tappable after Continue."
+  },
+  {
+   "screen": "3178:18682",
+   "what": "Rename / Delete dialogs: Cancel box width",
+   "why": "The Cancel box (K-c5b40e / K-489d14) spans the whole button row [0,102,270,46]; it should be the left half [0,102,135,46] once the right-hand button is added."
+  },
+  {
+   "screen": "3178:18741",
+   "what": "Tooltip named in the frame title",
+   "why": "'0013_History tooltip' draws no tooltip (identical to 18271). Spec text about a tooltip, if any, is not visible in this cut."
+  },
+  {
+   "screen": "3153:16332",
+   "what": "'generating...' button (K-368d70)",
+   "why": "Drawn greyed as a disabled state button; kept as a control to press, decide whether disabled buttons count."
+  },
+  {
+   "screen": "3130:16681",
+   "what": "Full Edit and Export Full Video (K-18a028, K-454a4a) on 3130:16681 and 3130:16696",
+   "why": "Both drawn greyed in the failed state; probably disabled. Kept."
+  },
+  {
+   "screen": "3130:16681",
+   "what": "Video error card (K-da3f76, large item box)",
+   "why": "Whole 'Couldn't create video' card is boxed as an item; likely not tappable in the error state (Retry / Edit is the action)."
+  },
+  {
+   "screen": "3130:16681",
+   "what": "Info (i) icon next to 'Couldn't create video' (K-b4e1ce, also 3130:16696, 3153:17730 K-1c4b89) and next to 'Make your character' (K-1ceaf7)",
+   "why": "Boxed as buttons but the frames do not show what a tap does (tooltip?)."
+  },
+  {
+   "screen": "3153:16902",
+   "what": "Ethnicity chips second row (K-468692, K-bef763, K-a4bc91, K-6847e8)",
+   "why": "Four chips all labelled 'Others' are drawn under Asian / White / African / Hispanic; looks like Figma component defaults rather than real options."
+  },
+  {
+   "screen": "3168:17965",
+   "what": "'Tap Edit to try again' text",
+   "why": "The note says Tap Edit but no Edit button is drawn on this frame; Scene 5 shows an exclamation tile instead."
+  },
+  {
+   "screen": "3130:14243",
+   "what": "Annotation text above the phone ('...的角色框 (先往右找)') and tooltip 'Tap to choose a look for ...'",
+   "why": "Not controls. 14243, 14351 and 3153:16397 are near-identical Change Characters frames (different tooltip / heading); all kept."
+  },
+  {
+   "screen": "3038:14585",
+   "what": "Lock-screen push frame has no app controls",
+   "why": "OS-level lock screen mock; kept only because the push tap is a case (see missing)."
+  },
+  {
+   "screen": "3130:17203",
+   "what": "Boxes vs. Figma drift",
+   "why": "No large drift seen on any of the 43 sheets; boxes line up with the drawn elements."
+  }
+ ]
+}

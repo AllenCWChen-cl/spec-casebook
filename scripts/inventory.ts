@@ -1,5 +1,5 @@
 // Merge the Figma inventory groups of a spec set into one inventory (REQ-038): screens, tappable controls, flow arrows.
-// Usage: node scripts/inventory.ts <feature> <spec-set folder> [--sync-arrows]
+// Usage: node scripts/inventory.ts <feature> <spec-set folder> [--sync-arrows] [--file <figma file key>,…]
 // Reads specs/<set>/extracted/figma-inventory-<group>.json (written by the agent from scripts/figma/inventory.js, one
 // use_figma call per board group) and writes specs/<set>/extracted/inventory.json:
 //   files    per Figma file: key, page, section box, and the Design PDF offset (pdf point = figma point + offset)
@@ -15,16 +15,19 @@
 // --sync-arrows adds every flow/auto arrow missing from specs/<set>/extracted/arrows.json (edge text from the
 // inventory, "expected" left for the analysis to write) and marks listed arrows that are annotation pointers with
 // "not_flow"; check.ts then asks for a requirement per added arrow.
+// --file merges only the groups of those Figma files (e.g. the Design file while a PM / MX extraction is unfinished).
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { assertIds, featureDir, writeJson, writeJsonRows } from './lib/library.ts';
+import { arg, assertIds, featureDir, writeJson, writeJsonRows } from './lib/library.ts';
 import { normLabel } from './lib/coverage.ts';
 
 const [feature, folder] = process.argv.slice(2);
 if (!feature || !folder) { console.error('Usage: node scripts/inventory.ts <feature> <spec-set folder> [--sync-arrows]'); process.exit(2); }
 assertIds(feature, 'ios');
 const ex = join(featureDir(feature), 'specs', folder, 'extracted');
-const groups = readdirSync(ex).filter(f => /^figma-inventory-.+\.json$/.test(f) && !f.endsWith('-boards.json')).sort();
+const only = arg('file')?.split(',');
+const groups = readdirSync(ex).filter(f => /^figma-inventory-.+\.json$/.test(f) && !f.endsWith('-boards.json')
+  && (!only || only.includes(JSON.parse(readFileSync(join(ex, f), 'utf8')).file))).sort();
 if (!groups.length) { console.error(`No ${ex}/figma-inventory-<group>.json: extract with scripts/figma/inventory.js first`); process.exit(1); }
 
 const hash = (s: string) => { let h = 0x811c9dc5; for (const c of s) { h ^= c.codePointAt(0)!; h = Math.imul(h, 0x01000193) >>> 0; } return h.toString(16).padStart(8, '0').slice(0, 6); };
@@ -54,6 +57,8 @@ for (const g of groups) {
   const sIds: string[] = [];
   for (const [id, bi, name, x, y, w, h, kind] of j.screens) {
     sIds.push(id);
+    // node ids are per file: the same id in two files (Design, PM, MX) would merge two screens
+    if (seenScreen.has(id) && screens.find(s => s.id === id)?.file !== j.file) console.error(`screen id ${id} is in ${j.file} and another file: rename one before tracing`);
     if (seenScreen.has(id)) continue;
     seenScreen.add(id);
     // a panel (dialog, sheet, popup) is drawn once for both platforms
@@ -116,6 +121,26 @@ for (const a of ov.add ?? []) {
 }
 for (const a of arrows) if (a.src && !ctlById.has(a.src)) a.src = null;
 const scrById = new Map(screens.map(s => [s.id, s]));
+// An arrow whose tail or head lies on a screen of another group (a heavy frame split into region boards so each
+// use_figma call stays small) is resolved here by geometry, as the extractor does inside one group: tail within 4 pt,
+// head within 24 pt, the smallest screen wins; the control under the tail within 6 pt is its source.
+const near = (b: number[], x: number, y: number, pad: number) => x >= b[0] - pad && x <= b[0] + b[2] + pad && y >= b[1] - pad && y <= b[1] + b[3] + pad;
+const screenAt = (file: string, x: number, y: number, pad: number) => screens.filter(s => s.file === file && near(s.box, x, y, pad)).sort((p, q) => p.box[2] * p.box[3] - q.box[2] * q.box[3])[0] ?? null;
+const ctlsOn = new Map<string, Control[]>();
+for (const c of controls) for (const s of c.screens) ctlsOn.set(s, [...(ctlsOn.get(s) ?? []), c]);
+// an end on a screen the review dropped (a duplicate frame) is looked up again among the screens kept
+for (const a of arrows) { if (a.from && !scrById.has(a.from)) a.from = a.src = null; if (a.to && !scrById.has(a.to)) a.to = null; }
+for (const a of arrows) {
+  if (a.from && a.to) continue;
+  const n = a.points.length, from = a.from ? null : screenAt(a.file, a.points[0], a.points[1], 4), to = a.to ? null : screenAt(a.file, a.points[n - 2], a.points[n - 1], 24);
+  if (to) { a.to = to.id; a.target = ''; }
+  if (!from) continue;
+  a.from = from.id;
+  const [tx, ty] = [a.points[0] - from.box[0], a.points[1] - from.box[1]];
+  const src = (ctlsOn.get(from.id) ?? []).filter(c => near(c.box, tx, ty, 6)).sort((p, q) => p.box[2] * p.box[3] - q.box[2] * q.box[3])[0];
+  if (src && !a.src) a.src = src.id;
+  a.kind = a.src ? 'flow' : 'auto';
+}
 for (const c of controls) c.platforms = [...new Set(c.screens.flatMap(s => { const p = scrById.get(s)?.platform ?? 'ios'; return p === 'any' ? ['ios', 'android'] : [p]; }))].sort();
 
 // Groups: what the totals count (user, 2026-10-28). One group per
@@ -129,7 +154,8 @@ const parentOf = new Map<string, string>();
 const find = (k: string): string => { const p = parentOf.get(k) ?? k; if (p === k) return k; const r = find(p); parentOf.set(k, r); return r; };
 const union = (a: string, b: string) => { const ra = find(a), rb = find(b); if (ra !== rb) parentOf.set(ra, rb); };
 const sizeKey = (c: Control) => `${Math.round(c.box[2] / 8)}x${Math.round(c.box[3] / 8)}`;
-const sets: { key: string; name: string; labels: Set<string>; ids: string[] }[] = [];
+// sets never join across Figma files: a PM chip list that matches a Design one is the PM spec's own set
+const sets: { key: string; file: string; name: string; labels: Set<string>; ids: string[] }[] = [];
 const byScreen = new Map<string, Control[]>();
 for (const c of controls) for (const s of c.screens) byScreen.set(s, [...(byScreen.get(s) ?? []), c]);
 for (const [sid, cs] of byScreen) {
@@ -146,20 +172,20 @@ for (const [sid, cs] of byScreen) {
       if (cl.length < 2) continue;
       const labels = new Set(cl.map(c => normLabel(c.label)).filter(Boolean));
       if (labels.size < 2 && !(labels.size === 0 && new Set(cl.map(sizeKey)).size === 1)) continue;
-      const key = `S${sets.length}`; sets.push({ key, name, labels, ids: cl.map(c => c.id) });
+      const key = `S${sets.length}`; sets.push({ key, file: cl[0].file, name, labels, ids: cl.map(c => c.id) });
       for (const c of cl) union(`c:${c.id}`, key);
     }
   }
 }
 const jaccard = (a: Set<string>, b: Set<string>) => { if (!a.size && !b.size) return 1; let n = 0; for (const x of a) if (b.has(x)) n++; return n / (a.size + b.size - n); };
 for (let i = 0; i < sets.length; i++) for (let k = i + 1; k < sets.length; k++)
-  if (sets[i].name === sets[k].name && jaccard(sets[i].labels, sets[k].labels) >= 0.5) union(sets[i].key, sets[k].key);
+  if (sets[i].file === sets[k].file && sets[i].name === sets[k].name && jaccard(sets[i].labels, sets[k].labels) >= 0.5) union(sets[i].key, sets[k].key);
 // a lone copy whose label belongs to a set of its layer (the one chip left on a selected-state screen) joins that set
 const setLabels = new Map<string, Set<string>>();
 for (const s of sets) { const r = find(s.key); setLabels.set(r, new Set([...(setLabels.get(r) ?? []), ...s.labels])); }
 for (const c of controls) {
   if (parentOf.has(`c:${c.id}`) || !c.label) continue;
-  const r = [...setLabels].find(([root, ls]) => ls.has(normLabel(c.label)) && sets.some(s => find(s.key) === root && s.name === c.name));
+  const r = [...setLabels].find(([root, ls]) => ls.has(normLabel(c.label)) && sets.some(s => find(s.key) === root && s.name === c.name && s.file === c.file));
   if (r) union(`c:${c.id}`, r[0]);
 }
 for (const c of controls) {
@@ -184,6 +210,11 @@ if (pdfPath && existsSync(pdfPath)) {
     if (Math.abs(pw - w) < 2) f.pdf = { name: designPdf, size: [Math.round(pw), Math.round(ph)], offset: [-x, -y + Math.round(ph - h)] };
   }
 }
+// PM and MX PDFs export a whole page whose Figma file kept changing, so their offset is measured once (OCR anchors or
+// the page bounds) and kept in figma-frames.json: files.<role> = { fileKey, pdf, pdf_offset }
+const framesPath = join(ex, 'figma-frames.json');
+for (const fr of Object.values<any>(existsSync(framesPath) ? JSON.parse(readFileSync(framesPath, 'utf8')).files ?? {} : {}))
+  if (files[fr.fileKey] && !files[fr.fileKey].pdf && fr.pdf && fr.pdf_offset) files[fr.fileKey].pdf = { name: fr.pdf, offset: fr.pdf_offset };
 writeJsonRows(join(ex, 'inventory.json'), { built_at: new Date().toISOString(), groups, files, screens, controls, arrows });
 
 if (process.argv.includes('--sync-arrows')) {

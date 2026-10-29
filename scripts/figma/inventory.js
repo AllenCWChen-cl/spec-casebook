@@ -2,9 +2,13 @@
 // call per group so a large file costs a handful of Figma MCP calls, not one per element (Figma MCP has a daily quota).
 // Run by the agent: read this file, replace the two placeholders, pass it as `code` to use_figma (read-only), and save
 // the returned JSON as specs/<set>/extracted/figma-inventory/<group>.json; then run scripts/inventory.ts.
-//   __PAGE__    the Design page id, e.g. '116:7873'
+//   __PAGE__    the page id, e.g. '116:7873' (Design), '2016:2' (PM), '989:8' (MX)
 //   __BOARDS__  JSON array of board (top-level frame) ids in the page's section, e.g. ['2778:127318','2566:113114'];
 //               [] lists the boards only (ids, names, boxes, a rough size) so the groups can be chosen.
+//               An entry can also be { id, name } (the board under another name, e.g. the spec PDF's board id) or a
+//               region { name, parent: id | [ids], box: [x, y, w, h] } for a file whose phones and arrows lie loose
+//               in a page or frame (the PM and MX files): the board is the parents' visible children (sections
+//               excluded) whose centre lies in the box (absolute canvas points).
 // Output (compact; indices are local to this group, scripts/inventory.ts merges the groups):
 //   section: [id, name, x, y, w, h]          absolute canvas box of the section holding the boards
 //   boards:  [[id, name, x, y, w, h]]
@@ -23,11 +27,16 @@ const page = await figma.getNodeByIdAsync(PAGE);
 await figma.setCurrentPageAsync(page);
 const R = n => Math.round(n);
 const box = n => { const b = n.absoluteBoundingBox; return b ? [R(b.x), R(b.y), R(b.width), R(b.height)] : null; };
-const first = BOARDS.length ? await figma.getNodeByIdAsync(BOARDS[0]) : null;
+const idOf = e => typeof e === 'string' ? e : e.id || [e.parent].flat()[0];
+const first = BOARDS.length ? await figma.getNodeByIdAsync(idOf(BOARDS[0])) : null;
 const sections = page.children.filter(n => n.type === 'SECTION' && 'children' in n).sort((a, b) => b.children.length - a.children.length);
-const sec = first ? first.parent : sections[0] || page;
+const sec = first ? (typeof BOARDS[0] === 'object' && BOARDS[0].box ? first : first.parent) : sections[0] || page;
+// a page has no box: use the union of what it draws
+const secBox = n => box(n) || (() => { const bs = n.children.filter(c => c.visible !== false && c.absoluteBoundingBox).map(c => c.absoluteBoundingBox);
+  const x0 = Math.min(...bs.map(b => b.x)), y0 = Math.min(...bs.map(b => b.y));
+  return [R(x0), R(y0), R(Math.max(...bs.map(b => b.x + b.width)) - x0), R(Math.max(...bs.map(b => b.y + b.height)) - y0)]; })();
 if (!BOARDS.length) {
-  return { section: [sec.id, sec.name, ...(box(sec) || [])], boards: sec.children.filter(b => 'children' in b).map(b => [b.id, b.name.trim(), ...box(b), b.findAllWithCriteria({ types: ['INSTANCE'] }).length]) };
+  return { section: [sec.id, sec.name, ...secBox(sec)], boards: sec.children.filter(b => 'children' in b).map(b => [b.id, b.name.trim(), ...box(b), b.findAllWithCriteria({ types: ['INSTANCE'] }).length]) };
 }
 const SKIP = /^(Key|Keys|Keyboard|HomeIndicator|Home Indicator|iPhone X|Time|Status ?Bar|Background|bg)\b/i;
 const TAP = /button|btn|^round\/ic_|^ic_|chip|tab\b|tabs|toggle|switch|link|select|thumb|card|imput|input|text ?field|search|scene|video|download|paycard|option|ViewMore|Launcher_|Free user|AI Smart Tools|checkbox|radio|slider|dropdown|menu|nav\/|Top\/|close|back/i;
@@ -52,11 +61,25 @@ const shown = n => {
 // buttons drawn as plain frames rather than component instances
 const TAPFRAME = /^(button|btn|cta|chip|tab|toggle|link|close|back)\b|button$/i;
 const inside = (b, x, y, pad) => b && x >= b.x - pad && x <= b.x + b.width + pad && y >= b.y - pad && y <= b.y + b.height + pad;
-const out = { section: [sec.id, sec.name, ...(box(sec) || [])], boards: [], names: [], screens: [], controls: [], arrows: [], hidden: { screens: 0, controls: 0 } };
+const out = { section: [sec.id, sec.name, ...secBox(sec)], boards: [], names: [], screens: [], controls: [], arrows: [], hidden: { screens: 0, controls: 0 } };
 const nameIdx = new Map(), ctlIdx = new Map(), inst = [];
 const nameOf = s => { if (!nameIdx.has(s)) { nameIdx.set(s, out.names.length); out.names.push(s); } return nameIdx.get(s); };
 const boardNodes = [];
-for (const id of BOARDS) { const b = await figma.getNodeByIdAsync(id); if (b) { boardNodes.push(b); out.boards.push([b.id, b.name.trim(), ...box(b)]); } }
+// a region board stands in for a frame: its members are searched as a frame's children would be
+const region = async e => {
+  const [x, y, w, h] = e.box, nodes = [];
+  for (const pid of [e.parent].flat()) { const p = await figma.getNodeByIdAsync(pid);
+    for (const n of p ? p.children : []) { const b = n.absoluteBoundingBox;
+      if (n.visible !== false && n.type !== 'SECTION' && b && b.x + b.width / 2 >= x && b.x + b.width / 2 <= x + w && b.y + b.height / 2 >= y && b.y + b.height / 2 <= y + h) nodes.push(n); } }
+  const all = (n, f) => [...(f(n) ? [n] : []), ...('findAll' in n ? n.findAll(f) : [])];
+  return { id: `${[e.parent].flat()[0]}/${e.name}`, name: e.name, type: 'REGION', children: nodes, absoluteBoundingBox: { x, y, width: w, height: h },
+    findAll: f => nodes.flatMap(n => all(n, f)),
+    findAllWithCriteria: o => nodes.flatMap(n => [...(o.types.includes(n.type) ? [n] : []), ...('findAllWithCriteria' in n ? n.findAllWithCriteria(o) : [])]) };
+};
+for (const e of BOARDS) {
+  const b = typeof e === 'object' && e.box ? await region(e) : await figma.getNodeByIdAsync(idOf(e));
+  if (b) { boardNodes.push(b); out.boards.push([b.id, (typeof e === 'object' && e.name) || b.name.trim(), ...box(b)]); }
+}
 const isHead = c => c === 'ARROW_LINES' || c === 'ARROW_EQUILATERAL' || c === 'TRIANGLE_FILLED';
 const abs = (v, p) => { const t = v.absoluteTransform; return [R(t[0][0] * p.x + t[0][1] * p.y + t[0][2]), R(t[1][0] * p.x + t[1][1] * p.y + t[1][2])]; };
 // arrow geometry first: panels (dialogs, popups) are found partly by the arrows that point at them

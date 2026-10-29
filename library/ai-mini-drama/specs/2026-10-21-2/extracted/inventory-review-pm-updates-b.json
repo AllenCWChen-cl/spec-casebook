@@ -1,0 +1,2248 @@
+{
+"boards": [
+"pm-update-5",
+"pm-update-6",
+"pm-update-7",
+"pm-update-9-a-1",
+"pm-update-9-a-2",
+"pm-update-9-b",
+"pm-update-10",
+"pm-update-11",
+"pm-1022-export",
+"pm-1022-leave"
+],
+"missing": [
+{
+"screen": "3325:18435",
+"screens": [
+"3970:43405",
+"3970:43579",
+"3970:43652",
+"3970:43865"
+],
+"label": "Mic",
+"box": [
+319,
+730,
+24,
+24
+],
+"kind": "button",
+"layer": "round/ic_vocal",
+"why": "Voice-input mic at the right end of the idea input bar; the input is boxed but the mic is a separate tap target."
+},
+{
+"screen": "3325:18487",
+"screens": [
+"3325:19081",
+"3325:19206",
+"3327:19034",
+"3327:19159",
+"3327:19284",
+"4422:17",
+"4422:113",
+"4456:18",
+"4456:140"
+],
+"label": "Mic",
+"box": [
+319,
+722,
+24,
+24
+],
+"kind": "button",
+"layer": "round/ic_vocal",
+"why": "Voice-input mic at the right end of the idea input bar; the input is boxed but the mic is a separate tap target. Input sits at y 706 on these screens."
+},
+{
+"screen": "3325:18915",
+"screens": [],
+"label": "Project card (whole row, opens the drama)",
+"box": [
+17,
+108,
+343,
+120
+],
+"kind": "item",
+"why": "Project card row in the History list; only the placeholder icon and the more button are boxed, the card itself has no box. Same row repeats down the list (128 pt step)."
+},
+{
+"screen": "3325:18915",
+"screens": [],
+"label": "Project card (whole row, opens the drama)",
+"box": [
+17,
+236,
+343,
+120
+],
+"kind": "item",
+"why": "Project card row in the History list; only the placeholder icon and the more button are boxed, the card itself has no box."
+},
+{
+"screen": "3325:18915",
+"screens": [],
+"label": "Project card (whole row, opens the drama)",
+"box": [
+17,
+364,
+343,
+120
+],
+"kind": "item",
+"why": "Project card row in the History list; only the placeholder icon and the more button are boxed, the card itself has no box."
+},
+{
+"screen": "3325:18915",
+"screens": [],
+"label": "Project card (whole row, opens the drama)",
+"box": [
+17,
+492,
+343,
+120
+],
+"kind": "item",
+"why": "Project card row in the History list; only the placeholder icon and the more button are boxed, the card itself has no box."
+},
+{
+"screen": "3325:18915",
+"screens": [],
+"label": "Project card (whole row, opens the drama)",
+"box": [
+17,
+620,
+343,
+120
+],
+"kind": "item",
+"why": "Project card row in the History list; only the placeholder icon and the more button are boxed, the card itself has no box."
+},
+{
+"screen": "3325:18915",
+"screens": [],
+"label": "New Chat",
+"box": [
+192,
+53,
+103,
+29
+],
+"kind": "button",
+"layer": "round/ic_edit_square",
+"why": "Black 'New Chat' pill in the header; only its small pencil icon (K-2b7e46) is boxed, the label and pill are tappable."
+},
+{
+"screen": "3325:18915",
+"screens": [],
+"label": "Manage",
+"box": [
+301,
+56,
+60,
+24
+],
+"kind": "button",
+"why": "'Manage' text button at the top right of the History header, no box."
+},
+{
+"screen": "3327:19034",
+"screens": [
+"3327:19159"
+],
+"label": "Try again (captions failed link)",
+"box": [
+181,
+608,
+58,
+22
+],
+"kind": "button",
+"why": "Bold 'Try again' link after 'Captions couldn't be added.'; no box. On 3327:19159 the same line shows 'Adding captions...' with no link."
+},
+{
+"screen": "3352:19523",
+"screens": [
+"3505:20022",
+"3516:20480"
+],
+"label": "Scene description text area (editable prompt)",
+"box": [
+16,
+440,
+343,
+260
+],
+"kind": "input",
+"why": "Scrollable scene description box under the failed image; Regenerate Image costs credits and the dialog says 'Edit it below', so it is an editable text input. No box."
+},
+{
+"screen": "3352:19617",
+"screens": [],
+"label": "Retry (failed clip card)",
+"box": [
+139,
+419,
+98,
+35
+],
+"kind": "button",
+"layer": "round/ic_restart",
+"why": "White 'Retry' pill in the 'Couldn't create video' card; only its small restart icon (K-afb628) is boxed."
+},
+{
+"screen": "3327:19596",
+"screens": [],
+"label": "View more",
+"box": [
+229,
+1,
+66,
+18
+],
+"kind": "button",
+"why": "'View more >' text button in the Storyboard Result header; only the chevron is boxed."
+},
+{
+"screen": "3327:19596",
+"screens": [],
+"label": "Scene 1 (row in Storyboard Result)",
+"box": [
+1,
+28,
+311,
+96
+],
+"kind": "item",
+"why": "Storyboard Result row (thumbnail, title, text); tapping opens the scene detail. Only the refresh icons of the two failed rows are boxed (rows 1 and 2 failed)."
+},
+{
+"screen": "3327:19596",
+"screens": [],
+"label": "Scene 2 (row in Storyboard Result)",
+"box": [
+1,
+136,
+311,
+96
+],
+"kind": "item",
+"why": "Storyboard Result row (thumbnail, title, text); tapping opens the scene detail. Only the refresh icons of the two failed rows are boxed (rows 1 and 2 failed)."
+},
+{
+"screen": "3327:19596",
+"screens": [],
+"label": "Scene 3 (row in Storyboard Result)",
+"box": [
+1,
+244,
+311,
+96
+],
+"kind": "item",
+"why": "Storyboard Result row (thumbnail, title, text); tapping opens the scene detail. Only the refresh icons of the two failed rows are boxed (rows 1 and 2 failed)."
+},
+{
+"screen": "3327:19596",
+"screens": [],
+"label": "Scene 4 (row in Storyboard Result)",
+"box": [
+1,
+352,
+311,
+96
+],
+"kind": "item",
+"why": "Storyboard Result row (thumbnail, title, text); tapping opens the scene detail. Only the refresh icons of the two failed rows are boxed (rows 1 and 2 failed)."
+},
+{
+"screen": "3327:19596",
+"screens": [],
+"label": "Scene 5 (row in Storyboard Result)",
+"box": [
+1,
+460,
+311,
+96
+],
+"kind": "item",
+"why": "Storyboard Result row (thumbnail, title, text); tapping opens the scene detail. Only the refresh icons of the two failed rows are boxed (rows 1 and 2 failed)."
+},
+{
+"screen": "3327:19596",
+"screens": [],
+"label": "Scene 6 (row in Storyboard Result)",
+"box": [
+1,
+568,
+311,
+96
+],
+"kind": "item",
+"why": "Storyboard Result row (thumbnail, title, text); tapping opens the scene detail. Only the refresh icons of the two failed rows are boxed (rows 1 and 2 failed)."
+},
+{
+"screen": "3505:20035",
+"screens": [],
+"label": "terms of service (link in the error dialog)",
+"box": [
+21,
+104,
+107,
+19
+],
+"kind": "button",
+"why": "Underlined 'terms of service' link inside the dialog body; only Got it is boxed."
+},
+{
+"screen": "3505:20036",
+"screens": [],
+"label": "terms of service (link in the error dialog)",
+"box": [
+21,
+104,
+107,
+19
+],
+"kind": "button",
+"why": "Underlined 'terms of service' link inside the dialog body; only Got it is boxed."
+},
+{
+"screen": "3505:19972",
+"screens": [],
+"label": "Text to Video prompt text area",
+"box": [
+17,
+53,
+342,
+389
+],
+"kind": "input",
+"why": "The multi-line description box with the keyboard up (967/1000 counter, trash and collapse buttons); the field itself has no box."
+},
+{
+"screen": "3505:19972",
+"screens": [],
+"label": "Done (keyboard toolbar text button)",
+"box": [
+308,
+428,
+50,
+24
+],
+"kind": "button",
+"why": "Faded 'Done' text at the bottom right of the text box (annotation marker next to it); no box."
+},
+{
+"screen": "3505:20022",
+"screens": [],
+"label": "Scene description text area (editable prompt)",
+"box": [
+16,
+105,
+343,
+585
+],
+"kind": "input",
+"why": "Regenerate Image screen: the description box is editable ('Edit it below and try again'); no box."
+},
+{
+"screen": "3516:20480",
+"screens": [],
+"label": "Scene description text area (editable prompt)",
+"box": [
+16,
+105,
+343,
+553
+],
+"kind": "input",
+"why": "Regenerate Image (12 credits) screen: editable description box; no box."
+},
+{
+"screen": "3505:19893",
+"screens": [
+"3505:19911",
+"3505:19929",
+"3505:19947",
+"3511:20137"
+],
+"label": "Location",
+"box": [
+143,
+399,
+33,
+57
+],
+"kind": "item",
+"why": "Location reference thumbnail under the scene image (boxed as an item on other storyboard screens); no box here."
+},
+{
+"screen": "3511:20162",
+"screens": [
+"3511:20215"
+],
+"label": "Location · Failed (location thumbnail)",
+"box": [
+121,
+399,
+32,
+57
+],
+"kind": "item",
+"layer": "round/ic_image",
+"why": "Failed Location thumbnail tile under the scene image; only its small image icon (K-57d824) is boxed."
+},
+{
+"screen": "3505:19866",
+"screens": [],
+"label": "Regenerate Scene 1 image (refresh icon on the failed row)",
+"box": [
+34,
+80,
+26,
+26
+],
+"kind": "button",
+"layer": "round/ic_refresh",
+"why": "Failed Scene 1 row shows a refresh icon in place of the thumbnail; it is boxed as a button in the same Storyboard Result card on pm-update-5 (3327:19596) but not here."
+},
+{
+"screen": "4018:26757",
+"screens": [],
+"label": "Close (X) of the Create my character sheet",
+"box": [
+24,
+267,
+24,
+24
+],
+"kind": "button",
+"layer": "round/ic_xmark",
+"why": "Sheet X at the top left of the sheet; every boxed X on this screen belongs to the dimmed Library behind it."
+},
+{
+"screen": "4018:26757",
+"screens": [],
+"label": "Cancel (text button under Generating)",
+"box": [
+158,
+748,
+58,
+24
+],
+"kind": "button",
+"why": "'Cancel' text button below the Generating button (annotation line pointing at it); the page notes say it opens the Stop and lose your credits dialog. No box."
+},
+{
+"screen": "4015:23820",
+"screens": [],
+"label": "Cancel (text button under Generating…)",
+"box": [
+158,
+744,
+58,
+24
+],
+"kind": "button",
+"why": "'Cancel' text button below Generating… (opens the Stop and lose your credits dialog); no box."
+},
+{
+"screen": "4018:26957",
+"screens": [
+"4015:25950"
+],
+"label": "Send Feedback (dialog button)",
+"box": [
+188,
+454,
+135,
+46
+],
+"kind": "button",
+"layer": "cta",
+"why": "Right half of the 'We couldn't create your character(s)' dialog; the only box (labelled Close) spans both halves."
+},
+{
+"screen": "4012:23497",
+"screens": [],
+"label": "Back",
+"box": [
+20,
+58,
+24,
+24
+],
+"kind": "button",
+"layer": "round/ic_chevron_left",
+"why": "Back chevron of the Send Feedback page; the whole nav bar is boxed as one control."
+},
+{
+"screen": "4012:23497",
+"screens": [],
+"label": "General (feedback tab)",
+"box": [
+16,
+100,
+61,
+30
+],
+"kind": "tab",
+"why": "Feedback category tab; none of the three is boxed."
+},
+{
+"screen": "4012:23497",
+"screens": [],
+"label": "AI Issues (feedback tab)",
+"box": [
+91,
+100,
+73,
+30
+],
+"kind": "tab",
+"why": "Feedback category tab; none of the three is boxed."
+},
+{
+"screen": "4012:23497",
+"screens": [],
+"label": "Order Problems (feedback tab)",
+"box": [
+173,
+100,
+115,
+30
+],
+"kind": "tab",
+"why": "Feedback category tab; none of the three is boxed."
+},
+{
+"screen": "4012:23497",
+"screens": [],
+"label": "Privacy Policy (link in the footer)",
+"box": [
+191,
+752,
+80,
+18
+],
+"kind": "button",
+"why": "Underlined/linked 'Privacy Policy' at the end of the legal line above the home indicator; no box."
+},
+{
+"screen": "4325:27005",
+"screens": [],
+"label": "Female (Make your character chip)",
+"box": [
+25,
+431,
+69,
+28
+],
+"kind": "item",
+"why": "Chip of the Gender / Ethnicity selectors in the Make your character sheet; no selector or chip is boxed on this screen (the 'Others' chips repeat the same label in the design)."
+},
+{
+"screen": "4325:27005",
+"screens": [],
+"label": "Male (Make your character chip)",
+"box": [
+101,
+431,
+60,
+28
+],
+"kind": "item",
+"why": "Chip of the Gender / Ethnicity selectors in the Make your character sheet; no selector or chip is boxed on this screen (the 'Others' chips repeat the same label in the design)."
+},
+{
+"screen": "4325:27005",
+"screens": [],
+"label": "Asian (Make your character chip)",
+"box": [
+25,
+501,
+60,
+28
+],
+"kind": "item",
+"why": "Chip of the Gender / Ethnicity selectors in the Make your character sheet; no selector or chip is boxed on this screen (the 'Others' chips repeat the same label in the design)."
+},
+{
+"screen": "4325:27005",
+"screens": [],
+"label": "Caucasian (Make your character chip)",
+"box": [
+93,
+501,
+87,
+28
+],
+"kind": "item",
+"why": "Chip of the Gender / Ethnicity selectors in the Make your character sheet; no selector or chip is boxed on this screen (the 'Others' chips repeat the same label in the design)."
+},
+{
+"screen": "4325:27005",
+"screens": [],
+"label": "African (Make your character chip)",
+"box": [
+189,
+501,
+66,
+28
+],
+"kind": "item",
+"why": "Chip of the Gender / Ethnicity selectors in the Make your character sheet; no selector or chip is boxed on this screen (the 'Others' chips repeat the same label in the design)."
+},
+{
+"screen": "4325:27005",
+"screens": [],
+"label": "Hispanic (Make your character chip)",
+"box": [
+265,
+501,
+83,
+28
+],
+"kind": "item",
+"why": "Chip of the Gender / Ethnicity selectors in the Make your character sheet; no selector or chip is boxed on this screen (the 'Others' chips repeat the same label in the design)."
+},
+{
+"screen": "4325:27005",
+"screens": [],
+"label": "Others (1) (Make your character chip)",
+"box": [
+25,
+537,
+65,
+28
+],
+"kind": "item",
+"why": "Chip of the Gender / Ethnicity selectors in the Make your character sheet; no selector or chip is boxed on this screen (the 'Others' chips repeat the same label in the design)."
+},
+{
+"screen": "4325:27005",
+"screens": [],
+"label": "Others (2) (Make your character chip)",
+"box": [
+99,
+537,
+65,
+28
+],
+"kind": "item",
+"why": "Chip of the Gender / Ethnicity selectors in the Make your character sheet; no selector or chip is boxed on this screen (the 'Others' chips repeat the same label in the design)."
+},
+{
+"screen": "4325:27005",
+"screens": [],
+"label": "Others (3) (Make your character chip)",
+"box": [
+173,
+537,
+65,
+28
+],
+"kind": "item",
+"why": "Chip of the Gender / Ethnicity selectors in the Make your character sheet; no selector or chip is boxed on this screen (the 'Others' chips repeat the same label in the design)."
+},
+{
+"screen": "4325:27005",
+"screens": [],
+"label": "Others (4) (Make your character chip)",
+"box": [
+247,
+537,
+66,
+28
+],
+"kind": "item",
+"why": "Chip of the Gender / Ethnicity selectors in the Make your character sheet; no selector or chip is boxed on this screen (the 'Others' chips repeat the same label in the design)."
+},
+{
+"screen": "4325:27005",
+"screens": [],
+"label": "Age (28 field)",
+"box": [
+25,
+607,
+55,
+36
+],
+"kind": "input",
+"why": "Outlined age value '28' under Age; looks like an editable / stepper field, no box."
+},
+{
+"screen": "4325:27005",
+"screens": [],
+"label": "Discard",
+"box": [
+41,
+720,
+295,
+43
+],
+"kind": "button",
+"why": "Grey 'Discard' pill under Save to library; the box labelled Save to library (K-3abae8) sits on it."
+},
+{
+"screen": "4422:65",
+"screens": [
+"4456:79"
+],
+"label": "Leave anyway (dialog button)",
+"box": [
+188,
+454,
+135,
+46
+],
+"kind": "button",
+"layer": "cta",
+"why": "Right half of the 'Leave while we're preparing?' dialog; the only box (labelled Stay) spans both halves."
+}
+],
+"not_tappable": [
+{
+"control": "K-5d580c",
+"label": "clapperboard placeholder icon",
+"why": "Placeholder illustration in the thumbnail of a History card; the card is the tap target."
+},
+{
+"control": "K-585804",
+"label": "clapperboard placeholder icon",
+"why": "Placeholder illustration in the thumbnail of a History card; the card is the tap target."
+},
+{
+"control": "K-eb509c",
+"label": "clapperboard placeholder icon",
+"why": "Placeholder illustration in the thumbnail of a History card; the card is the tap target."
+},
+{
+"control": "K-e1508d",
+"label": "clapperboard placeholder icon",
+"why": "Placeholder illustration in the thumbnail of a History card; the card is the tap target."
+},
+{
+"control": "K-7c184b",
+"screen": "3325:18915",
+"label": "more button of the clipped sixth card",
+"why": "Sits under the bottom fade and the 'To keep the file lightweight...' footer text, so it cannot be tapped at this scroll position; the card is list content reached by scrolling."
+},
+{
+"control": "K-5b82e1",
+"label": "credit icon beside the cost 15",
+"why": "12px decorative credit glyph inside the Create storyboard card; Generate has its own box."
+},
+{
+"control": "K-c86e33",
+"label": "character thumbnail inside the scene card",
+"why": "Illustration inside the scene card that already has its own box; not a separate tap target."
+},
+{
+"control": "K-c56e2e",
+"label": "character thumbnail inside the scene card",
+"why": "Illustration inside the scene card that already has its own box; not a separate tap target."
+},
+{
+"control": "K-7809d3",
+"label": "image placeholder icon of the failed image",
+"why": "Grey placeholder illustration above 'Couldn't create image'; Regenerate Image is the real control."
+},
+{
+"control": "K-962317",
+"label": "film icon of the failed clip card",
+"why": "Grey placeholder illustration above 'Couldn't create video'; the card's real control is Retry."
+},
+{
+"control": "K-3f0d72",
+"label": "failed image card (Couldn't create image)",
+"why": "Error placeholder that only holds error text, the ⓘ and Edit; tapping the card itself does nothing. Its inner buttons keep their own boxes."
+},
+{
+"control": "K-e4e761",
+"label": "image icon of the failed image card",
+"why": "Grey placeholder illustration above 'Couldn't create image'; the card's real controls are the ⓘ and Edit."
+},
+{
+"control": "K-57d824",
+"label": "image icon inside the failed Location tile",
+"why": "Placeholder icon inside the Location tile; the tile is the tap target."
+},
+{
+"control": "K-8190db",
+"label": "character thumbnail inside a scene row",
+"why": "Illustration inside a scene row that already has its own box."
+},
+{
+"control": "K-8690e3",
+"label": "character thumbnail inside a scene row",
+"why": "Illustration inside a scene row that already has its own box."
+},
+{
+"control": "K-3506e4",
+"label": "character thumbnail inside a scene row",
+"why": "Illustration inside a scene row that already has its own box."
+},
+{
+"control": "K-3906ea",
+"label": "character thumbnail inside a scene row",
+"why": "Illustration inside a scene row that already has its own box."
+},
+{
+"control": "K-3e0930",
+"label": "character thumbnail inside a scene row",
+"why": "Illustration inside a scene row that already has its own box."
+},
+{
+"control": "K-370925",
+"label": "character thumbnail inside a scene row",
+"why": "Illustration inside a scene row that already has its own box."
+},
+{
+"control": "K-f18d82",
+"label": "red exclamation icon before 'Storyboard preview unavailable'",
+"why": "Decorative error icon in front of a text line, not a button."
+},
+{
+"control": "K-50a6a5",
+"label": "credit icon beside the cost",
+"why": "12px decorative credit glyph inside the Create storyboard / Update characters card; Generate has its own box."
+},
+{
+"control": "K-52a6a8",
+"label": "credit icon beside the cost",
+"why": "12px decorative credit glyph inside the Create storyboard / Update characters card; Generate has its own box."
+},
+{
+"control": "K-83e665",
+"label": "paycard: Characters updated! Regenerate the story to match?",
+"why": "Whole-card container box; only Generate and More ideas inside are tappable."
+},
+{
+"control": "K-ef0b7f",
+"screen": "4018:26757",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-4bcacc",
+"screen": "4018:26757",
+"label": "imput_characters_v1",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-b24361",
+"screen": "4018:26757",
+"label": "round/ic_full screen",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-6913b1",
+"screen": "4018:26757",
+"label": "round/ic_project_9-16",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-c17e99",
+"screen": "4018:26757",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-3302fa",
+"screen": "4018:26757",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-93e907",
+"screen": "4018:26757",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-fb3a2a",
+"screen": "4018:26757",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-2802e9",
+"screen": "4018:26757",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-8ae8f9",
+"screen": "4018:26757",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-023a35",
+"screen": "4018:26757",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-a30a66",
+"screen": "4018:26757",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-83e232",
+"screen": "4018:26757",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-8b32be",
+"screen": "4018:26757",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-aa0a71",
+"screen": "4018:26757",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-88e23a",
+"screen": "4018:26757",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-8032ad",
+"screen": "4018:26757",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-62881c",
+"screen": "4018:26757",
+"label": "round/ic_add",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-08fd88",
+"screen": "4018:26757",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-c1a79d",
+"screen": "4018:26757",
+"label": "round/ic_check",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-b3a722",
+"screen": "4018:26757",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-80c275",
+"screen": "4018:26757",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-a34071",
+"screen": "4018:26757",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-44ae78",
+"screen": "4018:26757",
+"label": "round/ic_filter_check",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-ef0b7f",
+"screen": "4018:26863",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-4bcacc",
+"screen": "4018:26863",
+"label": "imput_characters_v1",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-b24361",
+"screen": "4018:26863",
+"label": "round/ic_full screen",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-6913b1",
+"screen": "4018:26863",
+"label": "round/ic_project_9-16",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-c17e99",
+"screen": "4018:26863",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-3302fa",
+"screen": "4018:26863",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-93e907",
+"screen": "4018:26863",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-fb3a2a",
+"screen": "4018:26863",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-2802e9",
+"screen": "4018:26863",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-8ae8f9",
+"screen": "4018:26863",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-023a35",
+"screen": "4018:26863",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-a30a66",
+"screen": "4018:26863",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-83e232",
+"screen": "4018:26863",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-8b32be",
+"screen": "4018:26863",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-aa0a71",
+"screen": "4018:26863",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-88e23a",
+"screen": "4018:26863",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-8032ad",
+"screen": "4018:26863",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-62881c",
+"screen": "4018:26863",
+"label": "round/ic_add",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-08fd88",
+"screen": "4018:26863",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-c1a79d",
+"screen": "4018:26863",
+"label": "round/ic_check",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-b3a722",
+"screen": "4018:26863",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-80c275",
+"screen": "4018:26863",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-a34071",
+"screen": "4018:26863",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-44ae78",
+"screen": "4018:26863",
+"label": "round/ic_filter_check",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-16c043",
+"screen": "4018:26863",
+"label": "round/ic_info",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-c4f208",
+"screen": "4018:26863",
+"label": "Generating",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-ef0b7f",
+"screen": "4018:26957",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-4bcacc",
+"screen": "4018:26957",
+"label": "imput_characters_v1",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-b24361",
+"screen": "4018:26957",
+"label": "round/ic_full screen",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-6913b1",
+"screen": "4018:26957",
+"label": "round/ic_project_9-16",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-c17e99",
+"screen": "4018:26957",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-3302fa",
+"screen": "4018:26957",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-93e907",
+"screen": "4018:26957",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-fb3a2a",
+"screen": "4018:26957",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-2802e9",
+"screen": "4018:26957",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-8ae8f9",
+"screen": "4018:26957",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-023a35",
+"screen": "4018:26957",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-a30a66",
+"screen": "4018:26957",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-83e232",
+"screen": "4018:26957",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-8b32be",
+"screen": "4018:26957",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-aa0a71",
+"screen": "4018:26957",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-88e23a",
+"screen": "4018:26957",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-8032ad",
+"screen": "4018:26957",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-62881c",
+"screen": "4018:26957",
+"label": "round/ic_add",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-08fd88",
+"screen": "4018:26957",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-c1a79d",
+"screen": "4018:26957",
+"label": "round/ic_check",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-b3a722",
+"screen": "4018:26957",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-80c275",
+"screen": "4018:26957",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-a34071",
+"screen": "4018:26957",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-44ae78",
+"screen": "4018:26957",
+"label": "round/ic_filter_check",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-16c043",
+"screen": "4018:26957",
+"label": "round/ic_info",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-c4f208",
+"screen": "4018:26957",
+"label": "Generating",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-826836",
+"screen": "4015:23820",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-a5df38",
+"screen": "4015:23820",
+"label": "imput_characters_v1",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-bbb951",
+"screen": "4015:23820",
+"label": "round/ic_full screen",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-8b1974",
+"screen": "4015:23820",
+"label": "round/ic_project_9-16",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-e57787",
+"screen": "4015:23820",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-a4fc48",
+"screen": "4015:23820",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-629f19",
+"screen": "4015:23820",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-b3147b",
+"screen": "4015:23820",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-affc59",
+"screen": "4015:23820",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-5b9f0e",
+"screen": "4015:23820",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-b81483",
+"screen": "4015:23820",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-acfe93",
+"screen": "4015:23820",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-5a9cce",
+"screen": "4015:23820",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-431c1a",
+"screen": "4015:23820",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-b5fea1",
+"screen": "4015:23820",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-659cdf",
+"screen": "4015:23820",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-3a1c0b",
+"screen": "4015:23820",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-7688c8",
+"screen": "4015:23820",
+"label": "round/ic_add",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-c04efd",
+"screen": "4015:23820",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-2f5540",
+"screen": "4015:23820",
+"label": "round/ic_check",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-8569e9",
+"screen": "4015:23820",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-2889de",
+"screen": "4015:23820",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-e90ee8",
+"screen": "4015:23820",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-046c43",
+"screen": "4015:23820",
+"label": "round/ic_filter_check",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-826836",
+"screen": "4015:25856",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-a5df38",
+"screen": "4015:25856",
+"label": "imput_characters_v1",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-bbb951",
+"screen": "4015:25856",
+"label": "round/ic_full screen",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-8b1974",
+"screen": "4015:25856",
+"label": "round/ic_project_9-16",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-e57787",
+"screen": "4015:25856",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-a4fc48",
+"screen": "4015:25856",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-629f19",
+"screen": "4015:25856",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-b3147b",
+"screen": "4015:25856",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-affc59",
+"screen": "4015:25856",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-5b9f0e",
+"screen": "4015:25856",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-b81483",
+"screen": "4015:25856",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-acfe93",
+"screen": "4015:25856",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-5a9cce",
+"screen": "4015:25856",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-431c1a",
+"screen": "4015:25856",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-b5fea1",
+"screen": "4015:25856",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-659cdf",
+"screen": "4015:25856",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-3a1c0b",
+"screen": "4015:25856",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-7688c8",
+"screen": "4015:25856",
+"label": "round/ic_add",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-c04efd",
+"screen": "4015:25856",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-2f5540",
+"screen": "4015:25856",
+"label": "round/ic_check",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-8569e9",
+"screen": "4015:25856",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-2889de",
+"screen": "4015:25856",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-e90ee8",
+"screen": "4015:25856",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-046c43",
+"screen": "4015:25856",
+"label": "round/ic_filter_check",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-07567e",
+"screen": "4015:25856",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-8f41e5",
+"screen": "4015:25856",
+"label": "round/ic_info",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-6ab232",
+"screen": "4015:25856",
+"label": "Generating…",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the stop dialog too)"
+},
+{
+"control": "K-826836",
+"screen": "4015:25950",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-a5df38",
+"screen": "4015:25950",
+"label": "imput_characters_v1",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-bbb951",
+"screen": "4015:25950",
+"label": "round/ic_full screen",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-8b1974",
+"screen": "4015:25950",
+"label": "round/ic_project_9-16",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-e57787",
+"screen": "4015:25950",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-a4fc48",
+"screen": "4015:25950",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-629f19",
+"screen": "4015:25950",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-b3147b",
+"screen": "4015:25950",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-affc59",
+"screen": "4015:25950",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-5b9f0e",
+"screen": "4015:25950",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-b81483",
+"screen": "4015:25950",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-acfe93",
+"screen": "4015:25950",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-5a9cce",
+"screen": "4015:25950",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-431c1a",
+"screen": "4015:25950",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-b5fea1",
+"screen": "4015:25950",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-659cdf",
+"screen": "4015:25950",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-3a1c0b",
+"screen": "4015:25950",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-7688c8",
+"screen": "4015:25950",
+"label": "round/ic_add",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-c04efd",
+"screen": "4015:25950",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-2f5540",
+"screen": "4015:25950",
+"label": "round/ic_check",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-8569e9",
+"screen": "4015:25950",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-2889de",
+"screen": "4015:25950",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-e90ee8",
+"screen": "4015:25950",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-046c43",
+"screen": "4015:25950",
+"label": "round/ic_filter_check",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-07567e",
+"screen": "4015:25950",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-8f41e5",
+"screen": "4015:25950",
+"label": "round/ic_info",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-6ab232",
+"screen": "4015:25950",
+"label": "Generating…",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control. (sheet controls are covered by the failure dialog too)"
+},
+{
+"control": "K-231b6d",
+"screen": "4015:24032",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-e956b4",
+"screen": "4015:24032",
+"label": "imput_characters_v1",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-23afd6",
+"screen": "4015:24032",
+"label": "round/ic_full screen",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-9a0848",
+"screen": "4015:24032",
+"label": "round/ic_project_9-16",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-8ba39b",
+"screen": "4015:24032",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-ad4495",
+"screen": "4015:24032",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-8509ac",
+"screen": "4015:24032",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-d49fe0",
+"screen": "4015:24032",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-a44487",
+"screen": "4015:24032",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-7a099b",
+"screen": "4015:24032",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-cd9fd5",
+"screen": "4015:24032",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-1d3cf7",
+"screen": "4015:24032",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-f51119",
+"screen": "4015:24032",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-4c9ccb",
+"screen": "4015:24032",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-223cff",
+"screen": "4015:24032",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-fc1124",
+"screen": "4015:24032",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-479cc3",
+"screen": "4015:24032",
+"label": "thumb_media",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-f773c6",
+"screen": "4015:24032",
+"label": "round/ic_add",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-af2571",
+"screen": "4015:24032",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-96cdd8",
+"screen": "4015:24032",
+"label": "round/ic_check",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-c0cd11",
+"screen": "4015:24032",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-f3b1be",
+"screen": "4015:24032",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-761ad2",
+"screen": "4015:24032",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-6bd33b",
+"screen": "4015:24032",
+"label": "round/ic_filter_check",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-67cfd7",
+"label": "Send Feedback top navigation bar",
+"why": "Whole-width bar container; only its Back arrow is tappable (title text is not)."
+},
+{
+"control": "K-7877c7",
+"screen": "4012:23497",
+"label": "add feedback attachment button (Attach screenshots)",
+"why": "The 'Attach screenshots' add tile sits under the fixed Submit footer at this scroll position (its section title is faded behind it), so it cannot be tapped here; reached by scrolling."
+},
+{
+"control": "K-21c6ea",
+"screen": "4325:27005",
+"label": "library_thumbnail",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-25c92f",
+"screen": "4325:27005",
+"label": "library_thumbnail",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-26cb6f",
+"screen": "4325:27005",
+"label": "library_thumbnail",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-287280",
+"screen": "4325:27005",
+"label": "library_select",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-28c934",
+"screen": "4325:27005",
+"label": "library_thumbnail",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-4715c9",
+"screen": "4325:27005",
+"label": "library_select",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-5725e4",
+"screen": "4325:27005",
+"label": "library_thumbnail",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-65d2ca",
+"screen": "4325:27005",
+"label": "library_thumbnail",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-66d2cc",
+"screen": "4325:27005",
+"label": "library_thumbnail",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-6a3687",
+"screen": "4325:27005",
+"label": "library_select",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-78d0aa",
+"screen": "4325:27005",
+"label": "library_thumbnail",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-7dd0b2",
+"screen": "4325:27005",
+"label": "library_thumbnail",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-7df68b",
+"screen": "4325:27005",
+"label": "round/ic_check",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-a24461",
+"screen": "4325:27005",
+"label": "round/ic_xmark",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-cb208a",
+"screen": "4325:27005",
+"label": "library_thumbnail",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-cc22ca",
+"screen": "4325:27005",
+"label": "library_thumbnail",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-ce208f",
+"screen": "4325:27005",
+"label": "library_thumbnail",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-d27169",
+"screen": "4325:27005",
+"label": "library_select",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-d322d5",
+"screen": "4325:27005",
+"label": "library_thumbnail",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-e9d5d9",
+"screen": "4325:27005",
+"label": "library_thumbnail",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-eb4285",
+"screen": "4325:27005",
+"label": "Create my character",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-ed2455",
+"screen": "4325:27005",
+"label": "round/ic_filter",
+"why": "Behind the dimmed bottom sheet (Character Library in the background); a tap goes to the sheet/dialog, not to this control."
+},
+{
+"control": "K-7289cf",
+"screen": "4422:65",
+"label": "Scene 4 — Almost Caught",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-c65f14",
+"screen": "4422:65",
+"label": "imput_characters_v1",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-763877",
+"screen": "4422:65",
+"label": "Scene 5 — HR Interrogation",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-c95f19",
+"screen": "4422:65",
+"label": "imput_characters_v1",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-de2e68",
+"screen": "4422:65",
+"label": "Scene 6 — The Price of Going ...",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-b0a665",
+"screen": "4422:65",
+"label": "imput_characters_v1",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-70613b",
+"screen": "4422:65",
+"label": "Enter your idea to create drama",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-042115",
+"screen": "4422:65",
+"label": "round/ic_chevron_left",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-0c0433",
+"screen": "4422:65",
+"label": "182",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-3c6c37",
+"screen": "4422:65",
+"label": "round/ic_add_chat",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-9275f9",
+"screen": "4422:65",
+"label": "ic_history_n",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-042115",
+"screen": "4456:79",
+"label": "round/ic_chevron_left",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-3c6c37",
+"screen": "4456:79",
+"label": "round/ic_add_chat",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-9275f9",
+"screen": "4456:79",
+"label": "ic_history_n",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-e3a025",
+"screen": "4456:79",
+"label": "Sophie",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-9a3b9f",
+"screen": "4456:79",
+"label": "The Manager",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-3264bc",
+"screen": "4456:79",
+"label": "HR",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-e123ac",
+"screen": "4456:79",
+"label": "Enter your idea to create drama",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-41d8a0",
+"screen": "4456:79",
+"label": "400",
+"why": "Behind the dimmed dialog; a tap goes to the dialog, not to this control."
+},
+{
+"control": "K-c65f14",
+"label": "scene thumbnail inside the scene card",
+"why": "Illustration inside a scene card that already has its own box."
+},
+{
+"control": "K-c95f19",
+"label": "scene thumbnail inside the scene card",
+"why": "Illustration inside a scene card that already has its own box."
+},
+{
+"control": "K-b0a665",
+"label": "scene thumbnail inside the scene card",
+"why": "Illustration inside a scene card that already has its own box."
+},
+{
+"control": "K-514fba",
+"label": "video placeholder 'Making your video...'",
+"why": "Loading tile of the video that is still being made; no play or other control yet, not tappable."
+}
+],
+"drop_screens": [],
+"unsure": [
+{
+"screen": "4325:27005",
+"what": "Make your character sheet: boxes K-a8446a (X [16,192]), K-35f7c8 (info [260,194]), K-d27693 (download [303,527]) and K-3abae8 (Save to library [24,710,327,44]) sit off the drawing",
+"why": "The Figma frame moved the sheet up about 185 pt and the PDF crop predates it. In the drawing the sheet X is now at the top right (about [346,75,16,16]), the character download icon is at about [263,333,39,39], the info icon is not visible, and Save to library is a pill at about [41,667,295,43] with Discard under it. The sheet looks redesigned (title 'Make your character', preview image, Gender/Ethnicity/Age); please check it on the Figma file before tracing these."
+},
+{
+"screen": "4294:25868",
+"what": "Panel 'Dialog_text_02-3' with one box 'Keep' [0,102,270,46]",
+"why": "The crop shows only the 'Make your character' title and the top of the character image, not a dialog; the Keep box floats over the picture. The dialog (Keep / Discard?) is probably a newer Figma frame the PDF does not draw. Not dropped because Keep is likely real UI; re-cut from Figma or drop it."
+},
+{
+"screen": "4015:25950",
+"what": "Close box K-a1ced0 [53,454,270,46] and (4018:26957) K-79374e spans both buttons",
+"why": "The Close | Send Feedback dialog draws two half-width buttons; the single box labelled Close covers both. The Close box should be about [53,454,135,46] (see the Send Feedback adds)."
+},
+{
+"screen": "4422:65",
+"what": "Stay box K-2d3815 [53,454,270,46] (also 4456:79) spans both buttons",
+"why": "The Stay | Leave anyway dialog draws two half-width buttons; Stay should be about [53,454,135,46] (see the Leave anyway adds)."
+},
+{
+"screen": "4018:26757",
+"what": "Generating button K-c4f208 [24,689,327,45] (also 4015:23820 Generating…, 4418:4 Export Full Video / Full Edit / download)",
+"why": "Greyed, disabled-looking state buttons (spinner, 'Generating'); a tap probably does nothing. Kept as buttons; decide whether to trace them as 'no response' presses."
+},
+{
+"screen": "4015:25856",
+"what": "Sheet X and info boxes K-07567e / K-8f41e5 are about 10 pt off on 4015:25950 (X drawn higher than its box)",
+"why": "Drift between the three Finish your characters frames; boxes are otherwise aligned. Same on 4015:25856."
+},
+{
+"screen": "4015:24032",
+"what": "Result cards 'Dana Cross' and 'Photographer' in the 'Your characters are ready' sheet",
+"why": "Two white character cards under Tap Confirm to continue; not boxed. The design does not say whether tapping one opens a preview, so they are not added as missing."
+},
+{
+"screen": "4018:26757",
+"what": "Gender / Ethnicity / Age info chips and the 'This usually takes about 1 minute.' line",
+"why": "Read-only summary chips at the bottom of the Create my character sheet; treated as not tappable and not added."
+},
+{
+"screen": "3505:19911",
+"what": "Scene card on pm-update-5 chat screens (K-7f5a94 / K-7d5a91, e.g. 3325:19081, 3327:19034)",
+"why": "The scene card is scrolled partly under the header (boxes overlap Back / credit / history). It is chat content and tappable when scrolled into view, so kept; only the part under the header buttons is covered."
+},
+{
+"screen": "3505:19893",
+"what": "Storyboard thumbnail K-a80452 on 3505:19929 and 3511:20137 is an empty grey gradient",
+"why": "A skeleton / loading look; no content in the frame, so the item may not be tappable while it loads. Kept as an item."
+},
+{
+"screen": "3505:19866",
+"what": "Storyboard Preview card thumbnail K-90bca1 [24,810,80,142]",
+"why": "'Storyboard preview unavailable...' is shown above it, so the preview card is probably not tappable on this screen; left boxed."
+},
+{
+"screen": "3970:43405",
+"what": "AI option box K-06aeb3 [16,600,343,88] labelled 'The Manager' covers both option rows (The Manager, HR Officer)",
+"why": "Each row has its own arrow (K-00c45b, K-01c45d) which are boxed; the rows are one choice list, so treated as one box. A trace needs one press per option."
+},
+{
+"screen": "3327:19596",
+"what": "Panel is a crop of the Storyboard Result card (icon-only failed thumbnails), x-origin at about 0",
+"why": "Real UI, kept. Row boxes are given in this crop's own points ([1,y,311,96]), not in a phone screen's points."
+},
+{
+"screen": "4198:25578",
+"what": "Frame is the Android toast copy ('Saved to Gallery.') of 4198:25565 ('Saved to Photos.')",
+"why": "Not a duplicate: the two differ in platform copy only; both kept (all sheets here are cut as ios)."
+},
+{
+"screen": "3352:19523",
+"what": "Scene description text box under the failed image (also 3505:20022 / 3516:20480)",
+"why": "Added as an input; PM text does not mark it editable in the drawing itself, so confirm in the app."
+}
+]
+}

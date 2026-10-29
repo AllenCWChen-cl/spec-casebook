@@ -1,0 +1,570 @@
+{
+ "boards": [
+  "pm-error-handling-a",
+  "pm-error-handling-b",
+  "pm-error-handling-c"
+ ],
+ "missing": [
+  {
+   "screen": "2628:33946",
+   "screens": [],
+   "label": "Expand character preview (card corner icon)",
+   "box": [
+    342,
+    357,
+    14,
+    14
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Small expand icon in the top-right corner of every library card (row 1, column 3 of the card grid); only 4 of the cards have it boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF)."
+  },
+  {
+   "screen": "2628:33946",
+   "screens": [],
+   "label": "Expand character preview (card corner icon)",
+   "box": [
+    104,
+    474,
+    14,
+    14
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Small expand icon in the top-right corner of every library card (row 2, column 1 of the card grid); only 4 of the cards have it boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF)."
+  },
+  {
+   "screen": "2628:33946",
+   "screens": [],
+   "label": "Expand character preview (card corner icon)",
+   "box": [
+    223,
+    474,
+    14,
+    14
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Small expand icon in the top-right corner of every library card (row 2, column 2 of the card grid); only 4 of the cards have it boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF)."
+  },
+  {
+   "screen": "2628:33946",
+   "screens": [],
+   "label": "Expand character preview (card corner icon)",
+   "box": [
+    342,
+    474,
+    14,
+    14
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Small expand icon in the top-right corner of every library card (row 2, column 3 of the card grid); only 4 of the cards have it boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF)."
+  },
+  {
+   "screen": "2628:33946",
+   "screens": [],
+   "label": "Expand character preview (card corner icon)",
+   "box": [
+    104,
+    592,
+    14,
+    14
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Small expand icon in the top-right corner of every library card (row 3, column 1 of the card grid); only 4 of the cards have it boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF)."
+  },
+  {
+   "screen": "2628:33946",
+   "screens": [],
+   "label": "Expand character preview (card corner icon)",
+   "box": [
+    223,
+    592,
+    14,
+    14
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Small expand icon in the top-right corner of every library card (row 3, column 2 of the card grid); only 4 of the cards have it boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF)."
+  },
+  {
+   "screen": "2628:33946",
+   "screens": [],
+   "label": "Expand character preview (card corner icon)",
+   "box": [
+    342,
+    592,
+    14,
+    14
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Small expand icon in the top-right corner of every library card (row 3, column 3 of the card grid); only 4 of the cards have it boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF)."
+  },
+  {
+   "screen": "2628:33946",
+   "screens": [],
+   "label": "Expand character preview (card corner icon)",
+   "box": [
+    104,
+    710,
+    14,
+    14
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Small expand icon in the top-right corner of every library card (row 4, column 1 of the card grid); only 4 of the cards have it boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF)."
+  },
+  {
+   "screen": "2628:33946",
+   "screens": [],
+   "label": "Expand character preview (card corner icon)",
+   "box": [
+    223,
+    710,
+    14,
+    14
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Small expand icon in the top-right corner of every library card (row 4, column 2 of the card grid); only 4 of the cards have it boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF)."
+  },
+  {
+   "screen": "2628:33946",
+   "screens": [],
+   "label": "Expand character preview (card corner icon)",
+   "box": [
+    342,
+    710,
+    14,
+    14
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Small expand icon in the top-right corner of every library card (row 4, column 3 of the card grid); only 4 of the cards have it boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF)."
+  },
+  {
+   "screen": "2621:30444",
+   "screens": [
+    "2756:22507",
+    "2756:22492"
+   ],
+   "label": "terms of service (link in the error dialog)",
+   "box": [
+    21,
+    84,
+    107,
+    16
+   ],
+   "kind": "button",
+   "why": "Underlined 'terms of service' link inside the dialog body; board notes say it opens the CyberLink terms page. Only Got it is boxed. On the two 'Couldn't generate this image' dialogs (2756:22507, 2756:22492) the link sits about 22 points lower at [21,84,107,16]."
+  },
+  {
+   "screen": "2701:22002",
+   "screens": [
+    "2701:22065",
+    "2621:30109",
+    "2621:30172"
+   ],
+   "label": "Mic",
+   "box": [
+    321,
+    723,
+    20,
+    20
+   ],
+   "kind": "button",
+   "why": "Microphone icon at the right end of the chat input bar; the input is boxed but the mic is a separate tap target."
+  },
+  {
+   "screen": "2701:22002",
+   "screens": [],
+   "label": "Edit (chat button after failed clips)",
+   "box": [
+    100,
+    645,
+    75,
+    34
+   ],
+   "kind": "button",
+   "why": "'✦ Edit' pill under the 'scenes couldn't be generated' note. Only the small sparkle icon (K-c097f4, in its left end) is boxed, not the button. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF)."
+  },
+  {
+   "screen": "2701:22121",
+   "screens": [
+    "2621:30231"
+   ],
+   "label": "Video prompt (editable text box)",
+   "box": [
+    16,
+    440,
+    343,
+    260
+   ],
+   "kind": "input",
+   "why": "Scrollable Cinematic Style / Scene / Motion text card; the frame note 'Format: 純文字可編輯' says it is plain editable text. Only its expand icon is boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF)."
+  },
+  {
+   "screen": "2621:30246",
+   "screens": [],
+   "label": "Scene description (editable text box)",
+   "box": [
+    16,
+    301,
+    343,
+    259
+   ],
+   "kind": "input",
+   "why": "Scene title and script card with a scrollbar above Regenerate Image; in Edit mode the description is editable (board notes: Edit makes the description editable). Not boxed."
+  },
+  {
+   "screen": "2621:30411",
+   "screens": [],
+   "label": "Edit (failed image card)",
+   "box": [
+    153,
+    241,
+    82,
+    34
+   ],
+   "kind": "button",
+   "why": "'✦ Edit' pill inside the 'Couldn't create image' card (4xxx), leads to Regenerate Image (2621:30246). Not boxed."
+  },
+  {
+   "screen": "2719:22522",
+   "screens": [
+    "2719:22407"
+   ],
+   "label": "View more",
+   "box": [
+    245,
+    42,
+    80,
+    24
+   ],
+   "kind": "button",
+   "why": "'View more >' text button in the Storyboard Result header; only the chevron (K-1c4156) is boxed, and it is clipped at the top edge of the crop on 2719:22407."
+  },
+  {
+   "screen": "2719:22522",
+   "screens": [
+    "2719:22407"
+   ],
+   "label": "Scene 1 — After Hours (row in Storyboard Result)",
+   "box": [
+    16,
+    74,
+    311,
+    96
+   ],
+   "kind": "item",
+   "why": "Storyboard Result row (thumbnail, title, text); tapping a row opens the Scene 1 detail screen (X, Scene title, arrows). Only the refresh icons of the failed rows are boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF). On 2719:22407 the rows sit at other y offsets (no header in the crop)."
+  },
+  {
+   "screen": "2719:22522",
+   "screens": [
+    "2719:22407"
+   ],
+   "label": "Scene 2 — Liquid Courage (row in Storyboard Result)",
+   "box": [
+    16,
+    182,
+    311,
+    96
+   ],
+   "kind": "item",
+   "why": "Storyboard Result row (thumbnail, title, text); tapping a row opens the Scene 2 detail screen (X, Scene title, arrows). Only the refresh icons of the failed rows are boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF). On 2719:22407 the rows sit at other y offsets (no header in the crop)."
+  },
+  {
+   "screen": "2719:22522",
+   "screens": [
+    "2719:22407"
+   ],
+   "label": "Scene 3 — Secret Dates (row in Storyboard Result)",
+   "box": [
+    16,
+    290,
+    311,
+    96
+   ],
+   "kind": "item",
+   "why": "Storyboard Result row (thumbnail, title, text); tapping a row opens the Scene 3 detail screen (X, Scene title, arrows). Only the refresh icons of the failed rows are boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF). On 2719:22407 the rows sit at other y offsets (no header in the crop)."
+  },
+  {
+   "screen": "2719:22522",
+   "screens": [
+    "2719:22407"
+   ],
+   "label": "Scene 4 — The Policy (row in Storyboard Result)",
+   "box": [
+    16,
+    398,
+    311,
+    96
+   ],
+   "kind": "item",
+   "why": "Storyboard Result row (thumbnail, title, text); tapping a row opens the Scene 4 detail screen (X, Scene title, arrows). Only the refresh icons of the failed rows are boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF). On 2719:22407 the rows sit at other y offsets (no header in the crop)."
+  },
+  {
+   "screen": "2719:22522",
+   "screens": [
+    "2719:22407"
+   ],
+   "label": "Scene 5 — HR Interrogation (row in Storyboard Result)",
+   "box": [
+    16,
+    506,
+    311,
+    96
+   ],
+   "kind": "item",
+   "why": "Storyboard Result row (thumbnail, title, text); tapping a row opens the Scene 5 detail screen (X, Scene title, arrows). Only the refresh icons of the failed rows are boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF). On 2719:22407 the rows sit at other y offsets (no header in the crop)."
+  },
+  {
+   "screen": "2719:22522",
+   "screens": [
+    "2719:22407"
+   ],
+   "label": "Scene 6 — The Price of Going ... (row in Storyboard Result)",
+   "box": [
+    16,
+    614,
+    311,
+    96
+   ],
+   "kind": "item",
+   "why": "Storyboard Result row (thumbnail, title, text); tapping a row opens the Scene 6 detail screen (X, Scene title, arrows). Only the refresh icons of the failed rows are boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF). On 2719:22407 the rows sit at other y offsets (no header in the crop)."
+  },
+  {
+   "screen": "2621:30158",
+   "screens": [],
+   "label": "Retry (failed clip card)",
+   "box": [
+    139,
+    412,
+    97,
+    36
+   ],
+   "kind": "button",
+   "why": "White 'Retry' pill in the 6xxx 'Couldn't create video / Something went wrong' card; only its small restart icon (K-c9926b) is boxed. Box positions below are where the element is DRAWN in the sheet image (PM Figma moved the boxed layers about 20 points down after the 10/21 PDF)."
+  },
+  {
+   "screen": "2621:30400",
+   "screens": [],
+   "label": "Previous scene",
+   "box": [
+    29,
+    179,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_chevron_left",
+   "why": "Round ‹ arrow beside the loading skeleton; the same arrow is boxed on 2621:30383 / 2621:30411 but not here (it may be disabled while loading, see unsure)."
+  },
+  {
+   "screen": "2621:30400",
+   "screens": [],
+   "label": "Next scene",
+   "box": [
+    317,
+    179,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_chevron_right",
+   "why": "Round › arrow beside the loading skeleton; boxed on 2621:30383 / 2621:30411 but not here."
+  }
+ ],
+ "not_tappable": [
+  {
+   "control": "K-6ff216",
+   "label": "plus icon in the Create my character card",
+   "why": "Plus icon inside the Create my character card, which has its own card box; not a separate tap target."
+  },
+  {
+   "control": "K-951f87",
+   "label": "thumbnail inside a storyboard scene card",
+   "why": "Thumbnail of the scene card in the chat, which has its own card box; not a separate tap target."
+  },
+  {
+   "control": "K-d13a98",
+   "label": "thumbnail inside a storyboard scene card",
+   "why": "Thumbnail of the scene card in the chat, which has its own card box; not a separate tap target."
+  },
+  {
+   "control": "K-f2230a",
+   "label": "thumbnail inside a storyboard scene card",
+   "why": "Thumbnail of the scene card in the chat, which has its own card box; not a separate tap target."
+  },
+  {
+   "control": "K-ef2305",
+   "label": "thumbnail inside a storyboard scene card",
+   "why": "Thumbnail of the scene card in the chat, which has its own card box; not a separate tap target."
+  },
+  {
+   "control": "K-d32702",
+   "label": "inline status icon (ⓘ) at the start of a notice line",
+   "why": "Small circle icon in front of a grey notice ('scenes couldn't be generated', 'Some videos need another try', 'Storyboard preview unavailable'); it is a status line, not a button."
+  },
+  {
+   "control": "K-d22700",
+   "label": "inline status icon (ⓘ) at the start of a notice line",
+   "why": "Small circle icon in front of a grey notice ('scenes couldn't be generated', 'Some videos need another try', 'Storyboard preview unavailable'); it is a status line, not a button."
+  },
+  {
+   "control": "K-06ed9c",
+   "label": "inline status icon (ⓘ) at the start of a notice line",
+   "why": "Small circle icon in front of a grey notice ('scenes couldn't be generated', 'Some videos need another try', 'Storyboard preview unavailable'); it is a status line, not a button."
+  },
+  {
+   "control": "K-04ed99",
+   "label": "inline status icon (ⓘ) at the start of a notice line",
+   "why": "Small circle icon in front of a grey notice ('scenes couldn't be generated', 'Some videos need another try', 'Storyboard preview unavailable'); it is a status line, not a button."
+  },
+  {
+   "control": "K-8bf0ac",
+   "label": "inline status icon (ⓘ) at the start of a notice line",
+   "why": "Small circle icon in front of a grey notice ('scenes couldn't be generated', 'Some videos need another try', 'Storyboard preview unavailable'); it is a status line, not a button."
+  },
+  {
+   "control": "K-f72096",
+   "label": "film icon of the failed clip card",
+   "why": "Grey placeholder illustration above 'Couldn't create video/image'; the card's real controls are the ⓘ and Edit / Retry, not this icon."
+  },
+  {
+   "control": "K-80da8d",
+   "label": "film icon of the failed clip card",
+   "why": "Grey placeholder illustration above 'Couldn't create video/image'; the card's real controls are the ⓘ and Edit / Retry, not this icon."
+  },
+  {
+   "control": "K-9f8cfa",
+   "label": "film icon of the failed clip card",
+   "why": "Grey placeholder illustration above 'Couldn't create video/image'; the card's real controls are the ⓘ and Edit / Retry, not this icon."
+  },
+  {
+   "control": "K-acc338",
+   "label": "film icon of the failed clip card",
+   "why": "Grey placeholder illustration above 'Couldn't create video/image'; the card's real controls are the ⓘ and Edit / Retry, not this icon."
+  },
+  {
+   "control": "K-307569",
+   "label": "film icon of the failed clip card",
+   "why": "Grey placeholder illustration above 'Couldn't create video/image'; the card's real controls are the ⓘ and Edit / Retry, not this icon."
+  },
+  {
+   "control": "K-11bfc1",
+   "label": "film icon of the failed clip card",
+   "why": "Grey placeholder illustration above 'Couldn't create video/image'; the card's real controls are the ⓘ and Edit / Retry, not this icon."
+  },
+  {
+   "control": "K-94354b",
+   "label": "image icon of the failed image card",
+   "why": "Grey placeholder illustration above 'Couldn't create video/image'; the card's real controls are the ⓘ and Edit / Retry, not this icon."
+  },
+  {
+   "control": "K-d7d367",
+   "label": "failed clip card (Couldn't create video)",
+   "why": "Error placeholder that only holds error text, ⓘ and Edit / Retry; tapping the card itself does nothing (no play, no preview). Its inner buttons keep their own boxes."
+  },
+  {
+   "control": "K-0a1278",
+   "label": "failed clip preview (Couldn't create video)",
+   "why": "Error placeholder that only holds error text, ⓘ and Edit / Retry; tapping the card itself does nothing (no play, no preview). Its inner buttons keep their own boxes."
+  },
+  {
+   "control": "K-245468",
+   "label": "failed clip card (Couldn't create video)",
+   "why": "Error placeholder that only holds error text, ⓘ and Edit / Retry; tapping the card itself does nothing (no play, no preview). Its inner buttons keep their own boxes."
+  },
+  {
+   "control": "K-1c9349",
+   "label": "failed clip card (Couldn't create video)",
+   "why": "Error placeholder that only holds error text, ⓘ and Edit / Retry; tapping the card itself does nothing (no play, no preview). Its inner buttons keep their own boxes."
+  },
+  {
+   "control": "K-ad0afe",
+   "label": "failed clip preview (Couldn't create video)",
+   "why": "Error placeholder that only holds error text, ⓘ and Edit / Retry; tapping the card itself does nothing (no play, no preview). Its inner buttons keep their own boxes."
+  },
+  {
+   "control": "K-334def",
+   "label": "failed image card (Couldn't create image)",
+   "why": "Error placeholder that only holds error text, ⓘ and Edit / Retry; tapping the card itself does nothing (no play, no preview). Its inner buttons keep their own boxes."
+  },
+  {
+   "control": "K-384e9d",
+   "label": "video area showing 'generating...'",
+   "why": "Loading skeleton of the clip being generated; nothing to play or tap yet."
+  },
+  {
+   "control": "K-849a2e",
+   "label": "empty video area (clip still loading)",
+   "why": "Loading skeleton of the clip being generated; nothing to play or tap yet."
+  }
+ ],
+ "drop_screens": [
+  {
+   "screen": "2736:23315",
+   "why": "Pixel-identical copy of 2719:22407 (same Storyboard Result rows, no differences); keep 2719:22407. Check no arrow in arrows.json ends only on this frame."
+  },
+  {
+   "screen": "2735:23104",
+   "why": "Pixel-identical copy of 2719:22407; keep 2719:22407. Check no arrow in arrows.json ends only on this frame."
+  },
+  {
+   "screen": "2736:23547",
+   "why": "Same Storyboard Result rows as 2719:22407; the only pixel difference is in the thumbnail column (scene images). OCR shows half-rendered text (animation/overlay), so it is a duplicate frame."
+  },
+  {
+   "screen": "2621:30287",
+   "why": "Pixel-identical copy of 2701:22165 (clip viewer showing 'generating...', same controls); keep 2701:22165. Check arrows."
+  }
+ ],
+ "unsure": [
+  {
+   "screen": "2628:33946",
+   "what": "Large drift between boxes and drawing",
+   "why": "Every box on this sheet (header X and check, filter, character strip, cards) sits about 21 points below the drawn element (PM Figma moved it after the 10/21 PDF). The same ~20-point shift is on all phone sheets of pm-error-handling-a/b/c (chat, clip viewer, scene viewer, dialogs). Nothing is missing or wrongly boxed because of it; the boxes should be treated as placed, not moved."
+  },
+  {
+   "screen": "2701:22137",
+   "what": "Full Edit and Export Full Video look disabled",
+   "why": "Both header pills are drawn dimmed on the clip viewer states with failed or generating clips (2701:22137, 2621:30158, 2701:22165, 2621:30259, 2621:30273); they are boxed everywhere. If they cannot be tapped while a clip failed/generates, the rows that press them need a note; I left them boxed."
+  },
+  {
+   "screen": "2621:30400",
+   "what": "Scene viewer arrows while the image loads",
+   "why": "Arrows are drawn on the skeleton state but may be inactive while loading; reported as missing because the same arrows are boxed on the loaded and failed states."
+  },
+  {
+   "screen": "2719:22522",
+   "what": "Storyboard Preview card with warning icon (Forbidden Office Romance 1:30)",
+   "why": "Card is the unavailable preview state ('Complete the image generation above first'); the board notes say it has no generate button, so it is probably not tappable, but it is not boxed and I did not add it."
+  },
+  {
+   "screen": "2621:30383",
+   "what": "Scene image (storyboard_thumbnail_v2, K-8e5276)",
+   "why": "Boxed as an item; the design does not show what tapping the image does (only the ⋯ more icon on it is drawn as a control). Kept."
+  },
+  {
+   "screen": "2701:22002",
+   "what": "Scene card at the top of the chat",
+   "why": "Card (K-f90c1d and the same card on 2701:22065, 2621:30109, 2621:30172) is half hidden behind the header, so the drawing shows only its lower part; whether tapping it opens anything is not visible. Kept as boxed."
+  },
+  {
+   "screen": "2756:22507",
+   "what": "Got it button position",
+   "why": "Got it box (and the one on 2621:30444, 2756:22492) is about 20 points off the drawn button; same drift as the phone sheets, not reported as missing."
+  },
+  {
+   "screen": "2621:30443",
+   "what": "Dialog button boxes",
+   "why": "Leave anyway and Keep Generating are both boxed, but the boxes sit one row lower than the drawn buttons (Keep Generating box covers the area below the dialog). Only a drift; both buttons exist."
+  }
+ ],
+ "note": "missing boxes moved +22 pt in y (2026-10-28): the sheets were cut with a PM offset 22 pt too low, so drawn positions read 22 pt high."
+}

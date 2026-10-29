@@ -367,3 +367,55 @@ The Design PDF of this set stops at the 1014 updates. Figma (file dZk5HLzZTdcZwW
 - **1016_add seedance 2.5** (frame 2824:130034): 「Choose your video settings」 with 「Quality」 Best / Standard / Fast,
   「Seedance 2.5 · Sharper motion and richer detail」, 「Length」 Preview · 30 sec / Full Video · 90 sec. Older than
   PM 10/21; the casebook keeps the PM 10/16 labels (R-253, REQ-026, REQ-029).
+
+## PM — Figma only, newer than the PM PDF (read 2026-10-28 through Figma MCP as qa1, REQ-042)
+The PM PDF of this set (10/21) stops at the 10/21 update. The PM Figma file (44RyrcOcWi2MvhGci9bO5F, page 「🆕 Spec
+with jau proposal」) has two 10/22 frames below it; screenshots `figma/pm-1022-export.png` and
+`figma/pm-1022-leave.png` (local only), inventory boards `pm-1022-export` / `pm-1022-leave`. **Not yet in
+requirements.md or the table**: the rows wait for a new draft the user approves.
+
+### 10/22 Export Full Video while exporting (`pm-1022-export`, node 4418:2, §8, Jane, comment #245)
+- While exporting: a loading spinner (Laoding_01) in the middle of the preview, the play button hidden and the video
+  paused. ① Back < (and Android back) stays enabled: leaving lets the export finish in the background, and on
+  completion the toast shows on whatever page the user is on (「Saved to Photos.」 / 「Saved to Gallery.」).
+  ② Full Edit disabled (40 % opacity). ③ Export Full Video disabled (40 %), label unchanged. ⑤ The download icon at
+  the preview's bottom right disabled (40 %). ⑥ Scene thumbnails stay tappable: they switch the preview only and do
+  not affect the export.
+- Done: buttons restored + toast (10/20 board). Failed: toast 「Couldn't save your video. Try again.」, ①–⑥ restored,
+  Export can be pressed again. iOS first export asks for photo library access; denied → buttons restored and toast
+  「Allow Photos access in Settings to save your video.」
+- Open (RD to confirm): whether export can continue after leaving the page; if not, Back asks 「Stop exporting? / Your
+  video won't be saved.」 Keep exporting / Stop.
+
+### 10/22 Storyboard / Video in two phases, no pause in chat (`pm-1022-leave`, node 4422:2, §13.24 revised)
+- Any generation started by a Generate button (Create storyboard, Generate Video, updating the storyboard in chat,
+  regenerating a video) offers no pause / stop in chat; after Generate the input field shows no ■ stop, only the mic
+  (the current build has it and must drop it).
+- Phase ① Iris writes the prompt (not charged yet): the card turns into a skeleton in place — video: 「Advancing the
+  mini drama production.」, storyboard: 「Preparing your scenes...」. Leaving the chat (←, credit pill, New chat,
+  History, system back) asks 「Leave while we're preparing?」 — video body 「Your video will start soon. If you leave
+  now, we'll have to prepare it again when you come back.」, storyboard body 「Your storyboard will start soon. If you
+  leave now, we'll have to prepare it again when you come back.」 — buttons 「Stay」 / 「Leave anyway」 (red). Leave
+  anyway, the app being swiped away or sent to the background → back in the chat phase ① restarts by itself, no
+  second Generate, no second charge.
+- Phase ② sent to the third party (charged now): the card reads 「Making your video...」 / 「Creating your
+  storyboard...」; leaving shows no dialog, only the toast (§6.1; storyboard: 「We'll keep making your storyboard. Find
+  it in History.」); swiping the app away still finishes the job and the result is there on return.
+- The storyboard 「Stop and lose your credits?」 dialog is withdrawn. Open (RD to confirm, Open questions #20): charge
+  moved to the start of phase ②, chat restarts phase ① after an interruption, storyboard phase ② finishes in the
+  background.
+
+### Proposed requirements (for the next draft; replace or modify the listed ones)
+- R-051, R-262 (storyboard part), R-158: modify — a storyboard or chat storyboard update no longer asks 「Stop and lose
+  your credits?」; phase ① asks 「Leave while we're preparing?」 (storyboard body), phase ② toasts and keeps going.
+- R-071, R-264: modify — video phase ① asks 「Leave while we're preparing?」 (video body); only phase ② leaves with
+  the 「We'll keep making your video.」 toast.
+- New: after any Generate the input shows no stop button, only the mic.
+- New: Leave anyway (or app killed / backgrounded) in phase ① → back in the chat phase ① restarts automatically and
+  only one charge is taken (check the credit pill and ledger).
+- New: phase ② storyboard leave toast 「We'll keep making your storyboard. Find it in History.」 and the storyboard is
+  in History after the app is swiped away.
+- R-249: modify/extend — while exporting: spinner, play hidden, video paused; Back enabled and the toast arrives on
+  another page; Full Edit, Export and download disabled at 40 %; scene thumbnails switch the preview.
+- New: export failure toast 「Couldn't save your video. Try again.」 with buttons restored; iOS photo access denied →
+  toast 「Allow Photos access in Settings to save your video.」

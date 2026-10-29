@@ -1,0 +1,1084 @@
+{
+ "boards": [
+  "mx-a-left",
+  "mx-a-mid"
+ ],
+ "missing": [
+  {
+   "screen": "1083:16616",
+   "screens": [],
+   "label": "Close (X of the Daily Free Chat Limit dialog)",
+   "box": [
+    333,
+    238,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_circle_xmark_filled",
+   "why": "X circle just above the dialog's top-right corner (same icon and place as boxed on the dialog screens 1034:1959 / 1034:39421 / 1034:40673), no box here."
+  },
+  {
+   "screen": "1083:16616",
+   "screens": [
+    "1083:16697"
+   ],
+   "label": "Upgrade to Premium",
+   "box": [
+    38,
+    553,
+    295,
+    43
+   ],
+   "kind": "button",
+   "why": "The limit dialog drawn inside this phone has no box at all (only the panel copy 1083:16697 has one)."
+  },
+  {
+   "screen": "1083:16616",
+   "screens": [
+    "1083:16537",
+    "1224:10396"
+   ],
+   "label": "Add image",
+   "box": [
+    33,
+    724,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_add_image",
+   "why": "Add-image icon at the left of the idle input bar; only a stray sparkle box sits near it (5, 6) or nothing (7)."
+  },
+  {
+   "screen": "1083:16616",
+   "screens": [
+    "1083:16537",
+    "1224:10396"
+   ],
+   "label": "Mic",
+   "box": [
+    320,
+    724,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_vocal",
+   "why": "Voice-input mic at the right end of the idle input bar; no box."
+  },
+  {
+   "screen": "1034:39354",
+   "screens": [
+    "1034:40606"
+   ],
+   "label": "Don't ask again",
+   "box": [
+    32,
+    298,
+    134,
+    24
+   ],
+   "kind": "toggle",
+   "why": "Radio / checkbox with the label 'Don't ask again.' in the Consume credits card; tappable, no box (the screens 1 / 2 / 10 do not draw it)."
+  },
+  {
+   "screen": "1034:39877",
+   "screens": [
+    "1034:40235",
+    "1563:17766",
+    "1563:22204"
+   ],
+   "label": "Monthly plan card",
+   "box": [
+    27,
+    321,
+    157,
+    111
+   ],
+   "kind": "item",
+   "why": "Plan card ($18.99 per month) is tappable to choose the plan; no box."
+  },
+  {
+   "screen": "1034:39877",
+   "screens": [
+    "1034:40235",
+    "1563:17766",
+    "1563:22204"
+   ],
+   "label": "Yearly plan card (Best Value)",
+   "box": [
+    193,
+    321,
+    156,
+    111
+   ],
+   "kind": "item",
+   "why": "Plan card ($4.99 per month, Best Value) is tappable to choose the plan; no box."
+  },
+  {
+   "screen": "1034:39877",
+   "screens": [
+    "1034:40235",
+    "1563:17766",
+    "1563:22204"
+   ],
+   "label": "Terms of Service",
+   "box": [
+    41,
+    765,
+    79,
+    14
+   ],
+   "kind": "button",
+   "why": "Underlined footer link, no box."
+  },
+  {
+   "screen": "1034:39877",
+   "screens": [
+    "1034:40235",
+    "1563:17766",
+    "1563:22204"
+   ],
+   "label": "Privacy Policy",
+   "box": [
+    154,
+    765,
+    65,
+    14
+   ],
+   "kind": "button",
+   "why": "Underlined footer link, no box."
+  },
+  {
+   "screen": "1034:39877",
+   "screens": [
+    "1034:40235",
+    "1563:17766",
+    "1563:22204"
+   ],
+   "label": "Restore purchase",
+   "box": [
+    253,
+    765,
+    82,
+    14
+   ],
+   "kind": "button",
+   "why": "Underlined footer link, no box."
+  },
+  {
+   "screen": "1563:19622",
+   "screens": [
+    "1563:19657",
+    "1563:19677",
+    "1563:19711",
+    "1563:19805",
+    "1563:21696",
+    "1563:19864",
+    "1561:13919",
+    "1561:13954",
+    "1561:14219",
+    "1563:14743",
+    "1563:16302",
+    "1563:16788",
+    "1563:17178",
+    "1563:21909",
+    "1563:21944",
+    "1563:21964",
+    "1563:21998",
+    "1563:22095",
+    "1595:14290"
+   ],
+   "label": "Mic",
+   "box": [
+    319,
+    724,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_vocal",
+   "why": "Voice-input mic at the right end of the 'Enter your idea to create drama' bar has no box (only the whole input is boxed); separate tap target."
+  },
+  {
+   "screen": "1572:23608",
+   "screens": [],
+   "label": "Mic",
+   "box": [
+    319,
+    653,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_vocal",
+   "why": "Voice-input mic at the right end of the Tell AI what to change... prompt box has no box (only the whole field is boxed)."
+  },
+  {
+   "screen": "1563:19805",
+   "screens": [
+    "1563:16302",
+    "1563:22095",
+    "1595:14290"
+   ],
+   "label": "More ideas",
+   "box": [
+    16,
+    638,
+    117,
+    34
+   ],
+   "kind": "item",
+   "why": "On the Not-enough-credits screens only the plus glyph of the 'More ideas +' chip is boxed; the whole chip is the tap target (other screens box it as K-052ae7)."
+  },
+  {
+   "screen": "1057:16571",
+   "screens": [],
+   "label": "Close (X of Top up your credits sheet)",
+   "box": [
+    339,
+    13,
+    24,
+    24
+   ],
+   "kind": "button",
+   "why": "Only the whole header bar is boxed; the X inside it is the real button."
+  },
+  {
+   "screen": "1057:16571",
+   "screens": [],
+   "label": "Privacy Policy",
+   "box": [
+    108,
+    397,
+    65,
+    14
+   ],
+   "kind": "button",
+   "why": "Text link under the expiry note in the Top up sheet, no box."
+  },
+  {
+   "screen": "1057:16571",
+   "screens": [],
+   "label": "Terms of Use",
+   "box": [
+    206,
+    397,
+    62,
+    14
+   ],
+   "kind": "button",
+   "why": "Text link next to Privacy Policy in the Top up sheet, no box."
+  },
+  {
+   "screen": "1572:23705",
+   "screens": [],
+   "label": "Privacy Policy",
+   "box": [
+    107,
+    780,
+    65,
+    14
+   ],
+   "kind": "button",
+   "why": "Text link under the expiry note in the Top up sheet drawn over the video screen, no box."
+  },
+  {
+   "screen": "1572:23705",
+   "screens": [],
+   "label": "Terms of Use",
+   "box": [
+    205,
+    780,
+    62,
+    14
+   ],
+   "kind": "button",
+   "why": "Text link next to Privacy Policy in the Top up sheet drawn over the video screen, no box."
+  },
+  {
+   "screen": "1057:4551",
+   "screens": [],
+   "label": "Credit tier 50 (Top up sheet)",
+   "box": [
+    25,
+    480,
+    101,
+    88
+   ],
+   "kind": "button",
+   "why": "The sheet drawn over the storyboard has no tier boxes (Figma moved them); same tier button as 1057:16571 / 1572:23705."
+  },
+  {
+   "screen": "1057:4551",
+   "screens": [],
+   "label": "Credit tier 100 (Top up sheet)",
+   "box": [
+    138,
+    480,
+    101,
+    88
+   ],
+   "kind": "button",
+   "why": "The sheet drawn over the storyboard has no tier boxes (Figma moved them); same tier button as 1057:16571 / 1572:23705."
+  },
+  {
+   "screen": "1057:4551",
+   "screens": [],
+   "label": "Credit tier 200 (Top up sheet)",
+   "box": [
+    251,
+    480,
+    101,
+    88
+   ],
+   "kind": "button",
+   "why": "The sheet drawn over the storyboard has no tier boxes (Figma moved them); same tier button as 1057:16571 / 1572:23705."
+  },
+  {
+   "screen": "1057:4551",
+   "screens": [],
+   "label": "Credit tier 500 (Top up sheet)",
+   "box": [
+    25,
+    583,
+    101,
+    88
+   ],
+   "kind": "button",
+   "why": "The sheet drawn over the storyboard has no tier boxes (Figma moved them); same tier button as 1057:16571 / 1572:23705."
+  },
+  {
+   "screen": "1057:4551",
+   "screens": [],
+   "label": "Credit tier 1000 (Top up sheet)",
+   "box": [
+    138,
+    583,
+    101,
+    88
+   ],
+   "kind": "button",
+   "why": "The sheet drawn over the storyboard has no tier boxes (Figma moved them); same tier button as 1057:16571 / 1572:23705."
+  },
+  {
+   "screen": "1057:4551",
+   "screens": [],
+   "label": "Credit tier 2000 (Top up sheet)",
+   "box": [
+    251,
+    583,
+    101,
+    88
+   ],
+   "kind": "button",
+   "why": "The sheet drawn over the storyboard has no tier boxes (Figma moved them); same tier button as 1057:16571 / 1572:23705."
+  },
+  {
+   "screen": "1057:4551",
+   "screens": [],
+   "label": "Buy Credit",
+   "box": [
+    23,
+    687,
+    327,
+    48
+   ],
+   "kind": "button",
+   "why": "Sheet's main button; the stray 'Buy Credits' box K-7f05e6 sits on the 2000 tier instead."
+  },
+  {
+   "screen": "1057:4551",
+   "screens": [],
+   "label": "Close (X of Top up your credits sheet)",
+   "box": [
+    339,
+    399,
+    24,
+    24
+   ],
+   "kind": "button",
+   "why": "X at the sheet's top-right, no box."
+  },
+  {
+   "screen": "1057:4551",
+   "screens": [],
+   "label": "Privacy Policy",
+   "box": [
+    107,
+    779,
+    65,
+    14
+   ],
+   "kind": "button",
+   "why": "Text link at the bottom of the sheet, no box."
+  },
+  {
+   "screen": "1057:4551",
+   "screens": [],
+   "label": "Terms of Use",
+   "box": [
+    205,
+    779,
+    62,
+    14
+   ],
+   "kind": "button",
+   "why": "Text link at the bottom of the sheet, no box."
+  }
+ ],
+ "not_tappable": [
+  {
+   "control": "K-cf2c17",
+   "label": "ic_sparkle (cost icon beside 300)",
+   "why": "Decorative credit glyph beside the cost '300' in the Consume credits card; Confirm has its own box."
+  },
+  {
+   "control": "K-0f7e89",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-0c7e84",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-1a7e9a",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-1b7e9c",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-1880d6",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-2c4699",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-2b4697",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-3146a1",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-30469f",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-23444c",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-25444f",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-264451",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-0e7e87",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-1a80d9",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-1980d7",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-bccdb5",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-bdcdb7",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-afcda1",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-b0cda3",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-bdcff6",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-406f21",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-416f23",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-67dd1a",
+   "label": "ic_sparkle (stray box on the idle input bar)",
+   "why": "Box sits at the top of the input bar, on no visible icon (hidden layer); the add-image icon and Mic are the real controls there and have no box."
+  },
+  {
+   "control": "K-404766",
+   "label": "Current plan check circle beside Pro",
+   "why": "Badge marking the user's current plan next to the Pro column header; not tappable."
+  },
+  {
+   "control": "K-36fc0b",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-37fc0c",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-7859ab",
+   "label": "ic_credit (cost icon)",
+   "why": "12px decorative credit glyph beside the cost number in the Generate / Buy Credits card; not a button."
+  },
+  {
+   "control": "K-503b19",
+   "label": "Scene card thumbnail (imput_characters)",
+   "why": "Thumbnail inside a Scene card that already has its own box; part of the card tap, not a separate control."
+  },
+  {
+   "control": "K-b47a26",
+   "label": "Scene card thumbnail (imput_characters)",
+   "why": "Thumbnail inside a Scene card that already has its own box; part of the card tap, not a separate control."
+  },
+  {
+   "control": "K-b97a2d",
+   "label": "Scene card thumbnail (imput_characters)",
+   "why": "Thumbnail inside a Scene card that already has its own box; part of the card tap, not a separate control."
+  },
+  {
+   "control": "K-c644cd",
+   "label": "Scene card thumbnail (imput_characters)",
+   "why": "Thumbnail inside a Scene card that already has its own box; part of the card tap, not a separate control."
+  },
+  {
+   "control": "K-b17a21",
+   "label": "Scene card thumbnail (imput_characters)",
+   "why": "Thumbnail inside a Scene card that already has its own box; part of the card tap, not a separate control."
+  },
+  {
+   "control": "K-b67a29",
+   "label": "Scene card thumbnail (imput_characters)",
+   "why": "Thumbnail inside a Scene card that already has its own box; part of the card tap, not a separate control."
+  },
+  {
+   "control": "K-ba7a2f",
+   "label": "Scene card thumbnail (imput_characters)",
+   "why": "Thumbnail inside a Scene card that already has its own box; part of the card tap, not a separate control."
+  },
+  {
+   "control": "K-7759aa",
+   "label": "ic_credit (cost icon)",
+   "why": "12px decorative credit glyph beside the cost number in the Generate / Buy Credits card; not a button."
+  },
+  {
+   "control": "K-d00330",
+   "label": "ic_add plus of 'More ideas +'",
+   "why": "Only the plus glyph of the More ideas chip is boxed; the whole chip is the tap target (added as missing)."
+  },
+  {
+   "control": "K-7989da",
+   "label": "Scene card thumbnail (imput_characters)",
+   "why": "Thumbnail inside a Scene card that already has its own box; part of the card tap, not a separate control."
+  },
+  {
+   "control": "K-77e260",
+   "label": "Scene card thumbnail (imput_characters)",
+   "why": "Thumbnail inside a Scene card that already has its own box; part of the card tap, not a separate control."
+  },
+  {
+   "control": "K-7ce267",
+   "label": "Scene card thumbnail (imput_characters)",
+   "why": "Thumbnail inside a Scene card that already has its own box; part of the card tap, not a separate control."
+  },
+  {
+   "control": "K-7f5847",
+   "label": "Scene card thumbnail (imput_characters)",
+   "why": "Thumbnail inside a Scene card that already has its own box; part of the card tap, not a separate control."
+  },
+  {
+   "control": "K-7b5841",
+   "label": "Scene card thumbnail (imput_characters)",
+   "why": "Thumbnail inside a Scene card that already has its own box; part of the card tap, not a separate control."
+  },
+  {
+   "control": "K-c944d2",
+   "label": "Scene card thumbnail (imput_characters)",
+   "why": "Thumbnail inside a Scene card that already has its own box; part of the card tap, not a separate control."
+  },
+  {
+   "control": "K-b27a22",
+   "label": "Scene card thumbnail (imput_characters)",
+   "why": "Thumbnail inside a Scene card that already has its own box; part of the card tap, not a separate control."
+  },
+  {
+   "control": "K-637402",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-cdd938",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-b2858f",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-b1858e",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-b48593",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-ae8589",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-ad8588",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-b0834e",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-ae834b",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-af834c",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-376219",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-3a621d",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-44622d",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-43622c",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-365fd9",
+   "label": "Plan comparison table mark (xmark)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-707ee9",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-6f7ee7",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-9afed1",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-97fecc",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-9dfed5",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-9efed7",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-9c0111",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-9e0114",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-9d0112",
+   "label": "Plan comparison table mark (check)",
+   "why": "Feature check / cross mark in the Free / Pro / Pro+ comparison table; a static indicator, not tappable."
+  },
+  {
+   "control": "K-b5ae43",
+   "label": "Scene 3 card / thumbnail (scrolled under the header)",
+   "why": "Box at y=-42..54 lies entirely behind the status bar and header; the card is not visible in these screens (Scene 4, 5, 6 show instead)."
+  },
+  {
+   "control": "K-385644",
+   "screen": "1057:16571",
+   "label": "Top up your credits (header bar)",
+   "why": "Whole title bar boxed as a button; the title is not tappable, only the X inside it (added as missing)."
+  },
+  {
+   "control": "K-7f05e6",
+   "screen": "1057:4551",
+   "label": "Buy Credits (stray box on the 2000 tier price)",
+   "why": "Box [237,631] sits on the $99.99 price text of the 2000 tier (Figma moved the old Buy Credits card); the sheet's real button is 'Buy Credit' lower down (added as missing)."
+  },
+  {
+   "control": "K-646666",
+   "screen": "1034:1959",
+   "label": "round/ic_chevron_left",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-1555b2",
+   "screen": "1034:1959",
+   "label": "ic_history_n",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-714c79",
+   "screen": "1034:1959",
+   "label": "182",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-89ff3b",
+   "screen": "1034:1959",
+   "label": "Confirm",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-37e921",
+   "screen": "1034:1959",
+   "label": "Enter your idea to create drama",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-99b626",
+   "screen": "1034:1959",
+   "label": "round/ic_add_image",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-82b7cd",
+   "screen": "1034:1959",
+   "label": "round/ic_vocal",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-92448f",
+   "screen": "1034:1959",
+   "label": "round/ic_arrow_up",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-646666",
+   "screen": "1034:39421",
+   "label": "round/ic_chevron_left",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-1555b2",
+   "screen": "1034:39421",
+   "label": "ic_history_n",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-714c79",
+   "screen": "1034:39421",
+   "label": "182",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-89ff3b",
+   "screen": "1034:39421",
+   "label": "Confirm",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-37e921",
+   "screen": "1034:39421",
+   "label": "Enter your idea to create drama",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-99b626",
+   "screen": "1034:39421",
+   "label": "round/ic_add_image",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-82b7cd",
+   "screen": "1034:39421",
+   "label": "round/ic_vocal",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-92448f",
+   "screen": "1034:39421",
+   "label": "round/ic_arrow_up",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-646666",
+   "screen": "1034:40673",
+   "label": "round/ic_chevron_left",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-1555b2",
+   "screen": "1034:40673",
+   "label": "ic_history_n",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-714c79",
+   "screen": "1034:40673",
+   "label": "182",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-89ff3b",
+   "screen": "1034:40673",
+   "label": "Confirm",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-37e921",
+   "screen": "1034:40673",
+   "label": "Enter your idea to create drama",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-99b626",
+   "screen": "1034:40673",
+   "label": "round/ic_add_image",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-82b7cd",
+   "screen": "1034:40673",
+   "label": "round/ic_vocal",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-92448f",
+   "screen": "1034:40673",
+   "label": "round/ic_arrow_up",
+   "why": "Behind the dimmed limit dialog (scrim and dialog cover the header and the Consume credits card and input bar on this screen); the same control is live on the screens without the dialog."
+  },
+  {
+   "control": "K-819af6",
+   "screen": "1572:23705",
+   "label": "Regenerate Video",
+   "why": "Behind the dimmed Top up your credits sheet (scrim and sheet cover the video, prompt box, Regenerate Video and header); live on the screen without the sheet (1572:23608)."
+  },
+  {
+   "control": "K-0e2d33",
+   "screen": "1572:23705",
+   "label": "Tell AI what to change…",
+   "why": "Behind the dimmed Top up your credits sheet (scrim and sheet cover the video, prompt box, Regenerate Video and header); live on the screen without the sheet (1572:23608)."
+  },
+  {
+   "control": "K-5241a2",
+   "screen": "1572:23705",
+   "label": "download",
+   "why": "Behind the dimmed Top up your credits sheet (scrim and sheet cover the video, prompt box, Regenerate Video and header); live on the screen without the sheet (1572:23608)."
+  },
+  {
+   "control": "K-0dcb80",
+   "screen": "1572:23705",
+   "label": "round/ic_expand_text",
+   "why": "Behind the dimmed Top up your credits sheet (scrim and sheet cover the video, prompt box, Regenerate Video and header); live on the screen without the sheet (1572:23608)."
+  },
+  {
+   "control": "K-91c857",
+   "screen": "1572:23705",
+   "label": "btn_play",
+   "why": "Behind the dimmed Top up your credits sheet (scrim and sheet cover the video, prompt box, Regenerate Video and header); live on the screen without the sheet (1572:23608)."
+  },
+  {
+   "control": "K-cec694",
+   "screen": "1572:23705",
+   "label": "video",
+   "why": "Behind the dimmed Top up your credits sheet (scrim and sheet cover the video, prompt box, Regenerate Video and header); live on the screen without the sheet (1572:23608)."
+  },
+  {
+   "control": "K-47187a",
+   "screen": "1572:23705",
+   "label": "thumbnail_video",
+   "why": "Behind the dimmed Top up your credits sheet (scrim and sheet cover the video, prompt box, Regenerate Video and header); live on the screen without the sheet (1572:23608)."
+  },
+  {
+   "control": "K-14b7f7",
+   "screen": "1572:23705",
+   "label": "182",
+   "why": "Behind the dimmed Top up your credits sheet (scrim and sheet cover the video, prompt box, Regenerate Video and header); live on the screen without the sheet (1572:23608)."
+  },
+  {
+   "control": "K-0705e0",
+   "screen": "1057:4551",
+   "label": "Enter your idea to create drama",
+   "why": "Behind the dimmed Top up your credits sheet; live on the storyboard screens without the sheet."
+  },
+  {
+   "control": "K-cd94d4",
+   "screen": "1057:4551",
+   "label": "round/ic_chevron_left",
+   "why": "Behind the dimmed Top up your credits sheet; live on the storyboard screens without the sheet."
+  },
+  {
+   "control": "K-061257",
+   "screen": "1057:4551",
+   "label": "ic_history_n",
+   "why": "Behind the dimmed Top up your credits sheet; live on the storyboard screens without the sheet."
+  },
+  {
+   "control": "K-707602",
+   "screen": "1057:4551",
+   "label": "122",
+   "why": "Behind the dimmed Top up your credits sheet; live on the storyboard screens without the sheet."
+  },
+  {
+   "control": "K-0ee875",
+   "screen": "1057:4551",
+   "label": "Scene 2 — The Chance Encou...",
+   "why": "Behind the dimmed Top up your credits sheet; live on the storyboard screens without the sheet."
+  },
+  {
+   "control": "K-b15740",
+   "screen": "1057:4551",
+   "label": "Scene 3 — One Chance",
+   "why": "Behind the dimmed Top up your credits sheet; live on the storyboard screens without the sheet."
+  },
+  {
+   "control": "K-a64965",
+   "screen": "1057:4551",
+   "label": "Scene 4 — Building From Noth...",
+   "why": "Behind the dimmed Top up your credits sheet; live on the storyboard screens without the sheet."
+  },
+  {
+   "control": "K-678bf9",
+   "screen": "1057:4551",
+   "label": "Scene 5 — Rejection and Brea...",
+   "why": "Behind the dimmed Top up your credits sheet; live on the storyboard screens without the sheet."
+  },
+  {
+   "control": "K-1d7d2a",
+   "screen": "1057:4551",
+   "label": "Scene 6 — Giving Back",
+   "why": "Behind the dimmed Top up your credits sheet; live on the storyboard screens without the sheet."
+  }
+ ],
+ "drop_screens": [],
+ "unsure": [
+  {
+   "screen": "1034:39421",
+   "what": "Limit dialog title reads 'Free Chat Limit Reached' (no 'Daily'), and the frame is otherwise the same as 1034:1959 / 1083:16697",
+   "why": "Probably an older copy of the dialog; the 'Daily Free Chat Limit Reached' wording is on the other frames. Kept (not dropped) since the controls are identical."
+  },
+  {
+   "screen": "1224:10083",
+   "what": "1224:10083 and 1224:10505 look identical to each other and to 1034:1716 (Consume credits card with keyboard)",
+   "why": "Same controls, only annotation arrows differ; counted once per button anyway, so kept."
+  },
+  {
+   "screen": "1563:19805",
+   "what": "1563:19805, 1563:22095, 1595:14290 (Buy Credits) and 1563:16302 (Upgrade Now) are the same screen state repeated",
+   "why": "Identical control sets; kept, the group merges them."
+  },
+  {
+   "screen": "1083:16616",
+   "what": "No visible scrim behind the Daily Free Chat Limit dialog here (header and input look un-dimmed), unlike 1034:1959 / 1034:39421 / 1034:40673",
+   "why": "Unclear whether header and input are tappable behind the dialog on this frame; left boxed, only the dialog-covered screens were hidden."
+  },
+  {
+   "screen": "1034:39877",
+   "what": "Plan comparison boxes (xmark / check) are far off the table marks they copy (large Figma drift), and the feature carousel (Filter ...) and Free / Pro / Pro+ column headers are unboxed",
+   "why": "All table marks are reported as not tappable; the carousel is swipe-only and the column headers look like static labels, so neither was added; confirm on the device."
+  },
+  {
+   "screen": "1083:16395",
+   "what": "Template detail: the poster / video card (Homeless to CEO) may toggle play or full screen on tap",
+   "why": "Only the volume icon and Make my version are boxed; the Design spec for the same screen should settle it."
+  },
+  {
+   "screen": "1572:23608",
+   "what": "'Tell AI what to change...' prompt box is typed 'button' (imput_lightversion) and Regenerate Video shows the cost 225 inside the button",
+   "why": "It is a text input, so the tap/dismiss trace should treat it as an input; the cost glyph inside the button is part of the button."
+  },
+  {
+   "screen": "1563:21696",
+   "what": "Credit pill reads 2122 (other frames 122 / 272 / 772)",
+   "why": "Looks like a typo in the design; only matters for the expected-value rows, not the inventory."
+  },
+  {
+   "screen": "1563:19805",
+   "what": "Scene 4 card sits half under the header (box y=0..96) and Scene 6 on the video-result screens (y=22..118)",
+   "why": "Scroll-clipped cards are kept boxed (visible part is tappable); not reported as covered."
+  }
+ ]
+}

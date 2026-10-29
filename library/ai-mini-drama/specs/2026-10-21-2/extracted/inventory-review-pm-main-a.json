@@ -1,0 +1,936 @@
+{
+ "boards": [
+  "AI Mini Drama main flow A: pm-main-flow-11, pm-main-flow-12, pm-main-flow-13, pm-main-flow-21, pm-main-flow-22, pm-main-flow-23"
+ ],
+ "missing": [
+  {
+   "screen": "3016:57170",
+   "screens": [
+    "3016:57224",
+    "2182:6677",
+    "2284:11274",
+    "2284:11087",
+    "2286:19459",
+    "2586:23090",
+    "2286:20903",
+    "2569:22653",
+    "2186:7485",
+    "2287:22040",
+    "2287:22349"
+   ],
+   "label": "Mic",
+   "box": [
+    319,
+    721,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_vocal",
+   "why": "Microphone icon inside the 'Enter your idea to create drama' pill; the input box covers the whole pill but the mic is its own tap target (the typing state boxes it)."
+  },
+  {
+   "screen": "3016:57224",
+   "screens": [
+    "3016:57170",
+    "2182:6677",
+    "2284:11274",
+    "2284:11087",
+    "2286:19459",
+    "2586:23090",
+    "2286:20903",
+    "2569:22653",
+    "2186:7485",
+    "2287:22040",
+    "2287:22349"
+   ],
+   "label": "Mic",
+   "box": [
+    319,
+    721,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_vocal",
+   "why": "Microphone icon inside the 'Enter your idea to create drama' pill; the input box covers the whole pill but the mic is its own tap target (the typing state boxes it)."
+  },
+  {
+   "screen": "2182:6677",
+   "screens": [
+    "3016:57170",
+    "3016:57224",
+    "2284:11274",
+    "2284:11087",
+    "2286:19459",
+    "2586:23090",
+    "2286:20903",
+    "2569:22653",
+    "2186:7485",
+    "2287:22040",
+    "2287:22349"
+   ],
+   "label": "Mic",
+   "box": [
+    319,
+    721,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_vocal",
+   "why": "Microphone icon inside the 'Enter your idea to create drama' pill; the input box covers the whole pill but the mic is its own tap target (the typing state boxes it)."
+  },
+  {
+   "screen": "2284:11274",
+   "screens": [
+    "3016:57170",
+    "3016:57224",
+    "2182:6677",
+    "2284:11087",
+    "2286:19459",
+    "2586:23090",
+    "2286:20903",
+    "2569:22653",
+    "2186:7485",
+    "2287:22040",
+    "2287:22349"
+   ],
+   "label": "Mic",
+   "box": [
+    319,
+    721,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_vocal",
+   "why": "Microphone icon inside the 'Enter your idea to create drama' pill; the input box covers the whole pill but the mic is its own tap target (the typing state boxes it)."
+  },
+  {
+   "screen": "2284:11087",
+   "screens": [
+    "3016:57170",
+    "3016:57224",
+    "2182:6677",
+    "2284:11274",
+    "2286:19459",
+    "2586:23090",
+    "2286:20903",
+    "2569:22653",
+    "2186:7485",
+    "2287:22040",
+    "2287:22349"
+   ],
+   "label": "Mic",
+   "box": [
+    319,
+    721,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_vocal",
+   "why": "Microphone icon inside the 'Enter your idea to create drama' pill; the input box covers the whole pill but the mic is its own tap target (the typing state boxes it)."
+  },
+  {
+   "screen": "2286:19459",
+   "screens": [
+    "3016:57170",
+    "3016:57224",
+    "2182:6677",
+    "2284:11274",
+    "2284:11087",
+    "2586:23090",
+    "2286:20903",
+    "2569:22653",
+    "2186:7485",
+    "2287:22040",
+    "2287:22349"
+   ],
+   "label": "Mic",
+   "box": [
+    319,
+    721,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_vocal",
+   "why": "Microphone icon inside the 'Enter your idea to create drama' pill; the input box covers the whole pill but the mic is its own tap target (the typing state boxes it)."
+  },
+  {
+   "screen": "2586:23090",
+   "screens": [
+    "3016:57170",
+    "3016:57224",
+    "2182:6677",
+    "2284:11274",
+    "2284:11087",
+    "2286:19459",
+    "2286:20903",
+    "2569:22653",
+    "2186:7485",
+    "2287:22040",
+    "2287:22349"
+   ],
+   "label": "Mic",
+   "box": [
+    319,
+    721,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_vocal",
+   "why": "Microphone icon inside the 'Enter your idea to create drama' pill; the input box covers the whole pill but the mic is its own tap target (the typing state boxes it)."
+  },
+  {
+   "screen": "2286:20903",
+   "screens": [
+    "3016:57170",
+    "3016:57224",
+    "2182:6677",
+    "2284:11274",
+    "2284:11087",
+    "2286:19459",
+    "2586:23090",
+    "2569:22653",
+    "2186:7485",
+    "2287:22040",
+    "2287:22349"
+   ],
+   "label": "Mic",
+   "box": [
+    319,
+    729,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_vocal",
+   "why": "Microphone icon inside the 'Enter your idea to create drama' pill; the input box covers the whole pill but the mic is its own tap target (the typing state boxes it)."
+  },
+  {
+   "screen": "2569:22653",
+   "screens": [
+    "3016:57170",
+    "3016:57224",
+    "2182:6677",
+    "2284:11274",
+    "2284:11087",
+    "2286:19459",
+    "2586:23090",
+    "2286:20903",
+    "2186:7485",
+    "2287:22040",
+    "2287:22349"
+   ],
+   "label": "Mic",
+   "box": [
+    319,
+    729,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_vocal",
+   "why": "Microphone icon inside the 'Enter your idea to create drama' pill; the input box covers the whole pill but the mic is its own tap target (the typing state boxes it)."
+  },
+  {
+   "screen": "2186:7485",
+   "screens": [
+    "3016:57170",
+    "3016:57224",
+    "2182:6677",
+    "2284:11274",
+    "2284:11087",
+    "2286:19459",
+    "2586:23090",
+    "2286:20903",
+    "2569:22653",
+    "2287:22040",
+    "2287:22349"
+   ],
+   "label": "Mic",
+   "box": [
+    319,
+    721,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_vocal",
+   "why": "Microphone icon inside the 'Enter your idea to create drama' pill; the input box covers the whole pill but the mic is its own tap target (the typing state boxes it)."
+  },
+  {
+   "screen": "2287:22040",
+   "screens": [
+    "3016:57170",
+    "3016:57224",
+    "2182:6677",
+    "2284:11274",
+    "2284:11087",
+    "2286:19459",
+    "2586:23090",
+    "2286:20903",
+    "2569:22653",
+    "2186:7485",
+    "2287:22349"
+   ],
+   "label": "Mic",
+   "box": [
+    319,
+    721,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_vocal",
+   "why": "Microphone icon inside the 'Enter your idea to create drama' pill; the input box covers the whole pill but the mic is its own tap target (the typing state boxes it)."
+  },
+  {
+   "screen": "2287:22349",
+   "screens": [
+    "3016:57170",
+    "3016:57224",
+    "2182:6677",
+    "2284:11274",
+    "2284:11087",
+    "2286:19459",
+    "2586:23090",
+    "2286:20903",
+    "2569:22653",
+    "2186:7485",
+    "2287:22040"
+   ],
+   "label": "Mic",
+   "box": [
+    319,
+    721,
+    24,
+    24
+   ],
+   "kind": "button",
+   "layer": "round/ic_vocal",
+   "why": "Microphone icon inside the 'Enter your idea to create drama' pill; the input box covers the whole pill but the mic is its own tap target (the typing state boxes it)."
+  },
+  {
+   "screen": "2531:22431",
+   "screens": [
+    "2182:6314",
+    "2182:6101"
+   ],
+   "label": "Enter your idea to create drama",
+   "box": [
+    16,
+    375,
+    343,
+    102
+   ],
+   "kind": "input",
+   "why": "The focused multi-line idea text field (keyboard open) has no box; only its mic and send buttons are boxed."
+  },
+  {
+   "screen": "2182:6314",
+   "screens": [
+    "2531:22431",
+    "2182:6101"
+   ],
+   "label": "Enter your idea to create drama",
+   "box": [
+    16,
+    375,
+    343,
+    85
+   ],
+   "kind": "input",
+   "why": "The focused multi-line idea text field (keyboard open) has no box; only its mic and send buttons are boxed."
+  },
+  {
+   "screen": "2182:6101",
+   "screens": [
+    "2531:22431",
+    "2182:6314"
+   ],
+   "label": "Enter your idea to create drama",
+   "box": [
+    16,
+    375,
+    343,
+    85
+   ],
+   "kind": "input",
+   "why": "The focused multi-line idea text field (keyboard open) has no box; only its mic and send buttons are boxed."
+  },
+  {
+   "screen": "2286:21105",
+   "screens": [
+    "2611:26996",
+    "2286:19979",
+    "2286:20466"
+   ],
+   "label": "Enlarge (card fullscreen icon)",
+   "box": [
+    341,
+    358,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Every library card carries the round enlarge icon at its top-right corner but only 5 of 15 cards are boxed (row 1 cols 2-3, row 2 cols 1-2). Unboxed: row 2 col 3 (this box, 341,358) and all nine cards of rows 3-5 (x 105/223/341, y 476/594/712). One group, same layer as the boxed ones."
+  },
+  {
+   "screen": "2611:26996",
+   "screens": [
+    "2286:21105",
+    "2286:19979",
+    "2286:20466"
+   ],
+   "label": "Enlarge (card fullscreen icon)",
+   "box": [
+    341,
+    358,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Every library card carries the round enlarge icon at its top-right corner but only 5 of 15 cards are boxed (row 1 cols 2-3, row 2 cols 1-2). Unboxed: row 2 col 3 (this box, 341,358) and all nine cards of rows 3-5 (x 105/223/341, y 476/594/712). One group, same layer as the boxed ones."
+  },
+  {
+   "screen": "2286:19979",
+   "screens": [
+    "2286:21105",
+    "2611:26996",
+    "2286:20466"
+   ],
+   "label": "Enlarge (card fullscreen icon)",
+   "box": [
+    341,
+    358,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Every library card carries the round enlarge icon at its top-right corner but only 5 of 15 cards are boxed (row 1 cols 2-3, row 2 cols 1-2). Unboxed: row 2 col 3 (this box, 341,358) and all nine cards of rows 3-5 (x 105/223/341, y 476/594/712). One group, same layer as the boxed ones."
+  },
+  {
+   "screen": "2286:20466",
+   "screens": [
+    "2286:21105",
+    "2611:26996",
+    "2286:19979"
+   ],
+   "label": "Enlarge (card fullscreen icon)",
+   "box": [
+    341,
+    358,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Every library card carries the round enlarge icon at its top-right corner but only 5 of 15 cards are boxed (row 1 cols 2-3, row 2 cols 1-2). Unboxed: row 2 col 3 (this box, 341,358) and all nine cards of rows 3-5 (x 105/223/341, y 476/594/712). One group, same layer as the boxed ones."
+  },
+  {
+   "screen": "2179:5117",
+   "screens": [],
+   "label": "AI Mini Drama",
+   "box": [
+    306,
+    384,
+    28,
+    28
+   ],
+   "kind": "button",
+   "why": "The 'AI Mini Drama' (NEW) tool icon in the 4th column of row 2 has no box, while every other tool icon of the grid is boxed. It is the entry to this feature."
+  },
+  {
+   "screen": "2179:5117",
+   "screens": [],
+   "label": "Video Edit by Chat (whole tile)",
+   "box": [
+    134,
+    273,
+    107,
+    85
+   ],
+   "kind": "button",
+   "layer": "round/ic_video_edit_by_chat",
+   "why": "Only the small icon inside the tile is boxed; the whole rounded tile is the tap target."
+  },
+  {
+   "screen": "2179:5117",
+   "screens": [],
+   "label": "Video Enhance (whole tile)",
+   "box": [
+    253,
+    273,
+    107,
+    85
+   ],
+   "kind": "button",
+   "layer": "round/ic_video enhancer",
+   "why": "Only the small icon inside the tile is boxed; the whole rounded tile is the tap target."
+  },
+  {
+   "screen": "2286:21844",
+   "screens": [
+    "2287:22349"
+   ],
+   "label": "Scene 1 - After Hours (scene row)",
+   "box": [
+    16,
+    75,
+    311,
+    95
+   ],
+   "kind": "item",
+   "why": "Storyboard Result card: the six scene rows have no boxes, only the 'View more' chevron and the play button are boxed. The scene row is a tappable card (boxed as 'scene' on 2287:22349)."
+  },
+  {
+   "screen": "2286:21844",
+   "screens": [
+    "2287:22349"
+   ],
+   "label": "Scene 2 - Liquid Courage (scene row)",
+   "box": [
+    16,
+    183,
+    311,
+    95
+   ],
+   "kind": "item",
+   "why": "Storyboard Result card: the six scene rows have no boxes, only the 'View more' chevron and the play button are boxed. The scene row is a tappable card (boxed as 'scene' on 2287:22349)."
+  },
+  {
+   "screen": "2286:21844",
+   "screens": [
+    "2287:22349"
+   ],
+   "label": "Scene 3 - Secret Dates (scene row)",
+   "box": [
+    16,
+    291,
+    311,
+    95
+   ],
+   "kind": "item",
+   "why": "Storyboard Result card: the six scene rows have no boxes, only the 'View more' chevron and the play button are boxed. The scene row is a tappable card (boxed as 'scene' on 2287:22349)."
+  },
+  {
+   "screen": "2286:21844",
+   "screens": [
+    "2287:22349"
+   ],
+   "label": "Scene 4 - The Policy (scene row)",
+   "box": [
+    16,
+    399,
+    311,
+    95
+   ],
+   "kind": "item",
+   "why": "Storyboard Result card: the six scene rows have no boxes, only the 'View more' chevron and the play button are boxed. The scene row is a tappable card (boxed as 'scene' on 2287:22349)."
+  },
+  {
+   "screen": "2286:21844",
+   "screens": [
+    "2287:22349"
+   ],
+   "label": "Scene 5 - HR Interrogation (scene row)",
+   "box": [
+    16,
+    507,
+    311,
+    95
+   ],
+   "kind": "item",
+   "why": "Storyboard Result card: the six scene rows have no boxes, only the 'View more' chevron and the play button are boxed. The scene row is a tappable card (boxed as 'scene' on 2287:22349)."
+  },
+  {
+   "screen": "2286:21844",
+   "screens": [
+    "2287:22349"
+   ],
+   "label": "Scene 6 - The Price of Going Away (scene row)",
+   "box": [
+    16,
+    615,
+    311,
+    95
+   ],
+   "kind": "item",
+   "why": "Storyboard Result card: the six scene rows have no boxes, only the 'View more' chevron and the play button are boxed. The scene row is a tappable card (boxed as 'scene' on 2287:22349)."
+  }
+ ],
+ "not_tappable": [
+  {
+   "control": "K-3c4519",
+   "label": "plus icon of the 'Create my character' tile",
+   "why": "Icon inside the dashed 'Create my character' tile, which has its own box; the tile is the tap target, not the icon alone."
+  },
+  {
+   "control": "K-8d57b5",
+   "label": "placeholder add-image icon inside an empty character slot",
+   "why": "Empty-state glyph in a character slot that already has its own box; the slot is the tap target."
+  },
+  {
+   "control": "K-7f1fd4",
+   "label": "plus icon of the 'Create my character' tile",
+   "why": "Icon inside the dashed 'Create my character' tile, which has its own box; the tile is the tap target, not the icon alone."
+  },
+  {
+   "control": "K-0527d1",
+   "label": "placeholder add-image icon inside an empty character slot",
+   "why": "Empty-state glyph in a character slot that already has its own box; the slot is the tap target."
+  },
+  {
+   "control": "K-51c80c",
+   "label": "placeholder add-image icon inside an empty character slot",
+   "why": "Empty-state glyph in a character slot that already has its own box; the slot is the tap target."
+  },
+  {
+   "control": "K-c1e568",
+   "label": "placeholder add-image icon inside an empty character slot",
+   "why": "Empty-state glyph in a character slot that already has its own box; the slot is the tap target."
+  },
+  {
+   "control": "K-4d2d17",
+   "label": "placeholder add-image icon inside an empty character slot",
+   "why": "Empty-state glyph in a character slot that already has its own box; the slot is the tap target."
+  },
+  {
+   "control": "K-d881db",
+   "label": "plus icon of the 'Create my character' tile",
+   "why": "Icon inside the dashed 'Create my character' tile, which has its own box; the tile is the tap target, not the icon alone."
+  },
+  {
+   "control": "K-d46056",
+   "label": "chevron below the tab bar",
+   "why": "Sits at y=776, under the bottom tab bar next to the home indicator; the PDF draws nothing there, it is the cut-off 'What's Trending' row chevron."
+  },
+  {
+   "control": "K-ca4881",
+   "label": "Top_Navigation bar (whole 375x48 header)",
+   "why": "Box spans the whole header bar; the real targets are the back / credit / new chat / history buttons inside it (boxed on every other screen)."
+  },
+  {
+   "control": "K-7aeb4f",
+   "label": "character thumbnail inside a scene row",
+   "why": "Thumbnail of a scene card that has its own box (K-405b83); not a separate tap target."
+  },
+  {
+   "control": "K-e691a9",
+   "label": "video generating placeholder",
+   "why": "Grey skeleton card shown while 'I'll create a video - give me a moment...' is generating; nothing to tap yet."
+  },
+  {
+   "control": "K-69f711",
+   "label": "credit coin icon in the 'Create storyboard' card",
+   "why": "Coin glyph beside the '15' cost label on the Create storyboard card; part of the label, not a button."
+  },
+  {
+   "control": "K-37a0c3",
+   "screen": "2286:19459",
+   "label": "Generate (card 'Proceed to the next step')",
+   "why": "Button of a card that is clipped behind the input pill at the bottom; its box floats under the pill / home indicator and is covered."
+  },
+  {
+   "control": "K-88d1c6",
+   "screen": "3016:57170",
+   "label": "English (language chip)",
+   "why": "The language row is scrolled up under the status bar / header bar and is clipped; the question was already answered ('1. Video language: English') in this generating state."
+  },
+  {
+   "control": "K-f1e274",
+   "screen": "3016:57170",
+   "label": "Spanish (language chip)",
+   "why": "The language row is scrolled up under the status bar / header bar and is clipped; the question was already answered ('1. Video language: English') in this generating state."
+  },
+  {
+   "control": "K-a3c9f8",
+   "screen": "3016:57170",
+   "label": "French (language chip)",
+   "why": "The language row is scrolled up under the status bar / header bar and is clipped; the question was already answered ('1. Video language: English') in this generating state."
+  },
+  {
+   "control": "K-701f58",
+   "screen": "3016:57170",
+   "label": "German (language chip)",
+   "why": "The language row is scrolled up under the status bar / header bar and is clipped; the question was already answered ('1. Video language: English') in this generating state."
+  },
+  {
+   "control": "K-1b17a8",
+   "screen": "3016:57170",
+   "label": "Japanese (language chip)",
+   "why": "The language row is scrolled up under the status bar / header bar and is clipped; the question was already answered ('1. Video language: English') in this generating state."
+  },
+  {
+   "control": "K-9026aa",
+   "screen": "3016:57170",
+   "label": "Korean (language chip)",
+   "why": "The language row is scrolled up under the status bar / header bar and is clipped; the question was already answered ('1. Video language: English') in this generating state."
+  },
+  {
+   "control": "K-6181b7",
+   "screen": "3016:57170",
+   "label": "Chinese (language chip)",
+   "why": "The language row is scrolled up under the status bar / header bar and is clipped; the question was already answered ('1. Video language: English') in this generating state."
+  },
+  {
+   "control": "K-87d1c5",
+   "screen": "3016:57224",
+   "label": "English (language chip)",
+   "why": "The language row is scrolled up under the status bar / header bar and is clipped; the question was already answered ('1. Video language: English') in this generating state."
+  },
+  {
+   "control": "K-f2e275",
+   "screen": "3016:57224",
+   "label": "Spanish (language chip)",
+   "why": "The language row is scrolled up under the status bar / header bar and is clipped; the question was already answered ('1. Video language: English') in this generating state."
+  },
+  {
+   "control": "K-a4c9fa",
+   "screen": "3016:57224",
+   "label": "French (language chip)",
+   "why": "The language row is scrolled up under the status bar / header bar and is clipped; the question was already answered ('1. Video language: English') in this generating state."
+  },
+  {
+   "control": "K-711f59",
+   "screen": "3016:57224",
+   "label": "German (language chip)",
+   "why": "The language row is scrolled up under the status bar / header bar and is clipped; the question was already answered ('1. Video language: English') in this generating state."
+  },
+  {
+   "control": "K-1c17aa",
+   "screen": "3016:57224",
+   "label": "Japanese (language chip)",
+   "why": "The language row is scrolled up under the status bar / header bar and is clipped; the question was already answered ('1. Video language: English') in this generating state."
+  },
+  {
+   "control": "K-8f26a8",
+   "screen": "3016:57224",
+   "label": "Korean (language chip)",
+   "why": "The language row is scrolled up under the status bar / header bar and is clipped; the question was already answered ('1. Video language: English') in this generating state."
+  },
+  {
+   "control": "K-6081b5",
+   "screen": "3016:57224",
+   "label": "Chinese (language chip)",
+   "why": "The language row is scrolled up under the status bar / header bar and is clipped; the question was already answered ('1. Video language: English') in this generating state."
+  },
+  {
+   "control": "K-1662b2",
+   "screen": "2340:23334",
+   "label": "round/ic_xmark",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-443a36",
+   "screen": "2340:23334",
+   "label": "round/ic_check",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-012c17",
+   "screen": "2340:23334",
+   "label": "thumb_media",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-abb7e0",
+   "screen": "2340:23334",
+   "label": "imput_characters_v1",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-df252b",
+   "screen": "2340:23334",
+   "label": "round/ic_full screen",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-0a115f",
+   "screen": "2340:23334",
+   "label": "round/ic_project_9-16",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-37db83",
+   "screen": "2340:23334",
+   "label": "thumb_media",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-847a8c",
+   "screen": "2340:23334",
+   "label": "thumb_media",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-e5609a",
+   "screen": "2340:23334",
+   "label": "thumb_media",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-e7a687",
+   "screen": "2340:23334",
+   "label": "thumb_media",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-897a94",
+   "screen": "2340:23334",
+   "label": "thumb_media",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-ec60a5",
+   "screen": "2340:23334",
+   "label": "thumb_media",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-dea679",
+   "screen": "2340:23334",
+   "label": "thumb_media",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-14822b",
+   "screen": "2340:23334",
+   "label": "thumb_media",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-75592d",
+   "screen": "2340:23334",
+   "label": "thumb_media",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-d79fb2",
+   "screen": "2340:23334",
+   "label": "thumb_media",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-0b821d",
+   "screen": "2340:23334",
+   "label": "thumb_media",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-6a591c",
+   "screen": "2340:23334",
+   "label": "thumb_media",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-dc9fba",
+   "screen": "2340:23334",
+   "label": "thumb_media",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-d21788",
+   "screen": "2340:23334",
+   "label": "round/ic_add",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-415b34",
+   "screen": "2340:23334",
+   "label": "round/ic_xmark",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-2e2707",
+   "screen": "2340:23334",
+   "label": "round/ic_xmark",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-7f2611",
+   "screen": "2340:23334",
+   "label": "round/ic_xmark",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  },
+  {
+   "control": "K-82b7fd",
+   "screen": "2340:23334",
+   "label": "round/ic_filter_check",
+   "why": "Behind the dimmed 'characters isn't set yet' bottom sheet and its scrim; not tappable while the sheet is open."
+  }
+ ],
+ "drop_screens": [
+  {
+   "screen": "2286:21915",
+   "why": "'top' is a crop of the top navigation bar (blur-under-header annotation); no phone, only a bar-wide box. The back / credit / new chat / history buttons are boxed on every chat screen."
+  },
+  {
+   "screen": "2286:21912",
+   "why": "'imput' is a crop of the input pill (annotation of the input bar), a duplicate of the pill drawn on every chat screen; its mic is the same as the others."
+  },
+  {
+   "screen": "2286:21818",
+   "why": "'ai' is a scroll-state annotation frame (an arrow from the bottom of one phone into a second, top-cropped phone) of the outline + Characters Result card already drawn on 2286:20903 / 2569:22653; its header buttons are unboxed duplicates of the ones elsewhere."
+  },
+  {
+   "screen": "2182:5797",
+   "why": "'content' is a text-content mock (Story Outline & Characters Result card without phone chrome) that repeats the card of 2286:19459 / 2286:20903; only the three character thumbnails are boxed and the card's refresh icons are the ones boxed on those screens."
+  }
+ ],
+ "unsure": [
+  {
+   "screen": "3016:57170",
+   "what": "Captions chips ('Yes, include captions' / 'No captions') and 'Continue' of the answered format card",
+   "why": "In the generating state the card has already been answered (user bubble '1. Video language: English 2. Captions: Yes'), so these are probably disabled/locked; the PDF does not say. Same on 3016:57224. Kept as boxed."
+  },
+  {
+   "screen": "3016:57224",
+   "what": "Same answered format card (captions chips + Continue) as 3016:57170, with the language chips hidden under the status bar",
+   "why": "Probably locked after the answer; cannot tell from the drawing."
+  },
+  {
+   "screen": "2340:23334",
+   "what": "'Chloe' tile K-15822c inside the 'isn't set yet' sheet (dashed square with !)",
+   "why": "It lists the unset character; could be a tap target (open that character's slot) or just an indicator."
+  },
+  {
+   "screen": "2283:10856",
+   "what": "'Don't show again' box K-30f1be is [57,613,262,86], twice the checkbox row height and overlapping 'Try It Now'",
+   "why": "The checkbox row on the drawing is only about [57,613,262,32]; box looks oversized (drift or wrong layer). The checkbox itself is tappable."
+  },
+  {
+   "screen": "2284:11087",
+   "what": "Template cover K-1a2f07 inside the user bubble (Forbidden Office Romance poster)",
+   "why": "It echoes the chosen template; unclear whether tapping it reopens the template detail."
+  },
+  {
+   "screen": "2757:44582",
+   "what": "Template video preview area (large video, only the volume icon boxed)",
+   "why": "May toggle play/pause when tapped; the PDF draws nothing but the volume button."
+  },
+  {
+   "screen": "2179:5117",
+   "what": "Hero banner 'AI Mini Drama with Seedance 2.0 >' (only the chevron is boxed) and 'View more >' text",
+   "why": "Whole title row / banner is probably one tap target; the chevron box covers only part of it. Possible drift from the newer Figma."
+  },
+  {
+   "screen": "2287:22040",
+   "what": "'Create video' box K-800991 sits about 12pt above the drawn button",
+   "why": "Small drift (button drawn at y~248, box at 236); the same box on 2186:7485 matches. Not reported as missing."
+  },
+  {
+   "screen": "2286:19459",
+   "what": "Create storyboard card and 'Proceed to the next step' card",
+   "why": "Whole card might be tappable besides the Generate button; and the second card is clipped under the input pill, so its Generate (K-37a0c3) is reported as covered."
+  }
+ ]
+}

@@ -218,7 +218,11 @@ and look at the tile images where layout, arrows or states matter.**
    group on every screen and board, whatever layer draws it; an icon or a numbers-only label (credit pill) groups by
    layer (+ size); a **choice set** (the same layer repeated side by side with different labels, or none: chips,
    options, template or scene cards, avatars) is one group that any one choice covers, and lists separated by a
-   heading stay apart (Gender vs Ethnicity). Every copy stays marked on the coverage page. It also adds every arrow missing from `arrows.json` (write its `expected` and requirement in pass 1);
+   heading stay apart (Gender vs Ethnicity). Every copy stays marked on the coverage page. It also adds every arrow missing from `arrows.json` (write its `expected` and requirement in pass 1). Check
+   every listed arrow's `edge` against the inventory's geometry (the control or text under its tail, the screen under its
+   head) and correct it, its requirement and its "Walked by" from the geometry when they disagree: imported labels can be
+   swapped (2778-129128 / 129129, shortcut vs banner, user 2026-10-28), and a label next to a control may be its own
+   button rather than a separate icon (the banner's 「>」);
    annotation pointers (Figma's default 「Vector N」 name, tail off-screen) are marked `not_flow`. The extractor also
    takes **panels** (dialogs, sheets, popups drawn beside the phones: dialog-sized frames or groups named like one or
    touched by an arrow; their buttons are often plain frames), buttons drawn as frames named `btn` / `back` / `cta`,
@@ -238,8 +242,21 @@ and look at the tile images where layout, arrows or states matter.**
    its selector (drop those adds); 「behind a sheet」 is a per-screen `hide`, never a `drop`. A board whose Figma is
    newer than the PDF (`figma-frames.json`, e.g. MX and 1016 on 2026-10-28) is cut from a saved Figma screenshot
    (`get_screenshot` of the board → `extracted/figma/<board>.png`), never from the stale PDF. Figma access: the Design file through the qa-dm
-   account's Dev seat; the PM file needs the qa1 account (qa-dm only has a View seat there). The PM Figma file gets
-   the same read when that account is connected. Board images for the coverage page come from the Design PDF
+   account's Dev seat; the PM and MX files need the qa1 account (qa-dm only has a View seat on PM). **PM and MX get the
+   same inventory (user, 2026-10-28, REQ-042)**: every Figma file of the spec set is read, not only Design. Their
+   phones and arrows lie loose in one page or frame, so their boards are **regions** (`__BOARDS__` entry `{ name,
+   parent, box }`, named after the PDF board id: `pm-main-flow`, `mx-a-left`) or dated update frames named the same
+   way (`{ id, name }`); only the current MX section is read (superseded versions stay out). Their PDF offset is
+   the page bounds' top-left, negated (the PDF page is the page's bounds; OCR line positions read about 22 pt low, so
+   check one sheet's boxes against the drawing) and kept in `figma-frames.json` `files.<role>`
+   (`pdf`, `pdf_offset`); `inventory.ts` and `inventory-sheets.ts` use each file's own PDF and OCR. The PM file is
+   heavy: its calls drop (「MCP server connection lost」) when run in parallel or when one call reads more than about
+   300 component instances, so run its groups **one call at a time** and cut heavy frames and regions into smaller
+   region boxes (2026-10-28: 37 calls of 1–13 phones each); `inventory.ts` joins arrows that cross a cut by geometry.
+   Cut the PM / MX sheets from the OCR tiles (`inventory-sheets.ts --tiles --tag <name>`: seconds instead of a page
+   replay of minutes per row). On every analysis
+   list the PM and MX Figma pages too: a dated frame past the PDF (PM 10/22 on 2026-10-28) is spec content to read.
+   Board images for the coverage page come from each file's PDF
    (`coverage-page.ts --render`, no Figma call; pdf point = figma point + `files.<key>.pdf.offset`).
 
 ## Coverage passes (user, 2026-10-21)

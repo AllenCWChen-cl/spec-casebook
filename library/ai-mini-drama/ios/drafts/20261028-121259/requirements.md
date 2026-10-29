@@ -263,8 +263,8 @@ Skill sections "Coverage passes", "Standing inputs" and "Value check" (user appr
 
 ### Flow arrows walked by existing rows
 Every Design arrow in arrows.json is either cited by a row above (「flow arrow <node>」) or listed here with the row that walks it.
-- R-190 [DS: flow arrow 2778-129128 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=2778-129128] Launcher AI Mini Drama banner → Mini Drama landing: The AI Mini Drama launcher banner opens the Mini Drama entry page. Walked by: TC-002.
-- R-191 [DS: flow arrow 2778-129129 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=2778-129129] Launcher AI Mini Drama shortcut → Mini Drama landing: Activating the AI Mini Drama launcher shortcut opens the Mini Drama landing page. Walked by: TC-001.
+- R-190 [DS: flow arrow 2778-129128 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=2778-129128] Launcher AI Mini Drama shortcut → Mini Drama landing: Activating the AI Mini Drama launcher shortcut opens the Mini Drama landing page. Walked by: TC-001.
+- R-191 [DS: flow arrow 2778-129129 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=2778-129129] Launcher AI Mini Drama banner → Mini Drama landing: The AI Mini Drama launcher banner opens the Mini Drama entry page. Walked by: TC-002.
 - R-192 [DS: flow arrow 2778-129130 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=2778-129130] Create Your Drama → empty custom idea input with keyboard: Create Your Drama opens an empty custom-idea input with the keyboard displayed. Walked by: TC-011.
 - R-193 [DS: flow arrow 2778-129131 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=2778-129131] Displayed inspiration → populated unsent idea: Selecting a displayed inspiration populates the empty drama idea input. Walked by: TC-013.
 - R-194 [DS: flow arrow 2778-129132 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=2778-129132] Idea Send → Format options: Before video creation the chat asks for video format, including language and captions. Walked by: TC-020.

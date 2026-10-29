@@ -1,0 +1,2019 @@
+{
+ "boards": [
+  "pm-main-flow-24",
+  "pm-main-flow-32",
+  "pm-main-flow-33",
+  "pm-main-flow-34",
+  "pm-top-mockups"
+ ],
+ "missing": [
+  {
+   "screen": "2287:22302",
+   "screens": [
+    "2287:22397",
+    "2287:22445",
+    "2522:21958",
+    "2480:21202"
+   ],
+   "label": "Mic",
+   "box": [
+    319,
+    722,
+    24,
+    24
+   ],
+   "kind": "button",
+   "why": "Microphone icon at the right end of the idea input bar; the input is boxed but the mic inside it is a separate tap target with no box."
+  },
+  {
+   "screen": "2480:21396",
+   "screens": [
+    "2480:21023"
+   ],
+   "label": "Mic",
+   "box": [
+    319,
+    731,
+    24,
+    24
+   ],
+   "kind": "button",
+   "why": "Microphone icon at the right end of the idea input bar (input sits 8pt lower on the storyoutline screens); no box."
+  },
+  {
+   "screen": "2285:17532",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    223,
+    362,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards of the grid are boxed)."
+  },
+  {
+   "screen": "2285:17532",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    341,
+    362,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards of the grid are boxed)."
+  },
+  {
+   "screen": "2285:17532",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    105,
+    480,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards of the grid are boxed)."
+  },
+  {
+   "screen": "2285:17532",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    223,
+    480,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards of the grid are boxed)."
+  },
+  {
+   "screen": "2285:17532",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    341,
+    480,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards of the grid are boxed)."
+  },
+  {
+   "screen": "2285:17532",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    105,
+    598,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards of the grid are boxed)."
+  },
+  {
+   "screen": "2285:17532",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    223,
+    598,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards of the grid are boxed)."
+  },
+  {
+   "screen": "2285:17532",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    341,
+    598,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards of the grid are boxed)."
+  },
+  {
+   "screen": "2285:17532",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    105,
+    715,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards of the grid are boxed)."
+  },
+  {
+   "screen": "2285:17532",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    223,
+    715,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards of the grid are boxed)."
+  },
+  {
+   "screen": "2285:17532",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    341,
+    715,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards of the grid are boxed)."
+  },
+  {
+   "screen": "2285:18661",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    223,
+    409,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards are boxed)."
+  },
+  {
+   "screen": "2285:18661",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    341,
+    409,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards are boxed)."
+  },
+  {
+   "screen": "2285:18661",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    105,
+    527,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards are boxed)."
+  },
+  {
+   "screen": "2285:18661",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    223,
+    527,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards are boxed)."
+  },
+  {
+   "screen": "2285:18661",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    341,
+    527,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards are boxed)."
+  },
+  {
+   "screen": "2285:18661",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    105,
+    645,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards are boxed)."
+  },
+  {
+   "screen": "2285:18661",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    223,
+    645,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards are boxed)."
+  },
+  {
+   "screen": "2285:18661",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    341,
+    645,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards are boxed)."
+  },
+  {
+   "screen": "2285:18661",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    105,
+    763,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards are boxed)."
+  },
+  {
+   "screen": "2285:18661",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    223,
+    763,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards are boxed)."
+  },
+  {
+   "screen": "2285:18661",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    341,
+    763,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 3 cards are boxed)."
+  },
+  {
+   "screen": "2285:11602",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    341,
+    358,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 4 cards are boxed)."
+  },
+  {
+   "screen": "2285:11602",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    105,
+    477,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 4 cards are boxed)."
+  },
+  {
+   "screen": "2285:11602",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    223,
+    477,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 4 cards are boxed)."
+  },
+  {
+   "screen": "2285:11602",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    341,
+    477,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 4 cards are boxed)."
+  },
+  {
+   "screen": "2285:11602",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    105,
+    594,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 4 cards are boxed)."
+  },
+  {
+   "screen": "2285:11602",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    223,
+    594,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 4 cards are boxed)."
+  },
+  {
+   "screen": "2285:11602",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    341,
+    594,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 4 cards are boxed)."
+  },
+  {
+   "screen": "2285:11602",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    105,
+    712,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 4 cards are boxed)."
+  },
+  {
+   "screen": "2285:11602",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    223,
+    712,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 4 cards are boxed)."
+  },
+  {
+   "screen": "2285:11602",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    341,
+    712,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this library card, no box (only 4 cards are boxed)."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    105,
+    236,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this Add Media photo tile, no box (only the girl photo's is boxed)."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    223,
+    236,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this Add Media photo tile, no box (only the girl photo's is boxed)."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    105,
+    353,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this Add Media photo tile, no box (only the girl photo's is boxed)."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    223,
+    353,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this Add Media photo tile, no box (only the girl photo's is boxed)."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    341,
+    353,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this Add Media photo tile, no box (only the girl photo's is boxed)."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    105,
+    472,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this Add Media photo tile, no box (only the girl photo's is boxed)."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    223,
+    472,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this Add Media photo tile, no box (only the girl photo's is boxed)."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    341,
+    472,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this Add Media photo tile, no box (only the girl photo's is boxed)."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    105,
+    590,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this Add Media photo tile, no box (only the girl photo's is boxed)."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    223,
+    590,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this Add Media photo tile, no box (only the girl photo's is boxed)."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    341,
+    590,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this Add Media photo tile, no box (only the girl photo's is boxed)."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    105,
+    709,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this Add Media photo tile, no box (only the girl photo's is boxed)."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    223,
+    709,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this Add Media photo tile, no box (only the girl photo's is boxed)."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Enlarge (full screen) icon on character card",
+   "box": [
+    341,
+    709,
+    12,
+    12
+   ],
+   "kind": "button",
+   "layer": "round/ic_full screen",
+   "why": "Grey expand icon at the top-right corner of this Add Media photo tile, no box (only the girl photo's is boxed)."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Photo tile (girl portrait, 3rd tile of row 1)",
+   "box": [
+    253,
+    230,
+    106,
+    106
+   ],
+   "kind": "item",
+   "why": "Only its expand icon and the small badge are boxed; every other photo tile has a tile box."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Photo (media type button)",
+   "box": [
+    17,
+    104,
+    295,
+    53
+   ],
+   "kind": "button",
+   "layer": "round/ic_image",
+   "why": "The wide grey Photo button; only the small image icon inside it is boxed."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Recents (source dropdown)",
+   "box": [
+    19,
+    184,
+    62,
+    22
+   ],
+   "kind": "tab",
+   "layer": "round/ic_chevron_down",
+   "why": "Only the chevron is boxed; the Recents label next to it opens the same list."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Getty Images / iStock tab",
+   "box": [
+    116,
+    183,
+    129,
+    26
+   ],
+   "kind": "tab",
+   "why": "Source tab with no box."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "GIPHY tab",
+   "box": [
+    264,
+    183,
+    60,
+    26
+   ],
+   "kind": "tab",
+   "why": "Source tab with no box."
+  },
+  {
+   "screen": "2285:12049",
+   "screens": [],
+   "label": "Pixabay tab",
+   "box": [
+    338,
+    183,
+    37,
+    26
+   ],
+   "kind": "tab",
+   "why": "Source tab (clipped at the right edge, scrolls horizontally) with no box."
+  },
+  {
+   "screen": "2611:27936",
+   "screens": [],
+   "label": "Description text area (Describe the image you want to create)",
+   "box": [
+    0,
+    65,
+    333,
+    108
+   ],
+   "kind": "input",
+   "why": "Big text input with placeholder and 0/1000 counter has no green input box."
+  },
+  {
+   "screen": "2611:27936",
+   "screens": [],
+   "label": "Clear (text link in the description area)",
+   "box": [
+    280,
+    136,
+    38,
+    22
+   ],
+   "kind": "button",
+   "why": "Clear text at the bottom-right of the text area has no box."
+  },
+  {
+   "screen": "2340:29585",
+   "screens": [],
+   "label": "Description text area (Describe the image you want to create)",
+   "box": [
+    25,
+    181,
+    325,
+    108
+   ],
+   "kind": "input",
+   "why": "Big text input with placeholder and 0/1000 counter has no green input box (the stray blue boxes over it are the hidden library grid)."
+  },
+  {
+   "screen": "2340:29585",
+   "screens": [],
+   "label": "Clear (text link in the description area)",
+   "box": [
+    304,
+    252,
+    38,
+    22
+   ],
+   "kind": "button",
+   "why": "Clear text at the bottom-right of the text area has no box."
+  },
+  {
+   "screen": "2340:29585",
+   "screens": [],
+   "label": "Age input (1-100)",
+   "box": [
+    36,
+    493,
+    94,
+    34
+   ],
+   "kind": "input",
+   "why": "Age field with the 1-100 placeholder has no box (the 3 screens with the sheet's top part box it as a chip)."
+  },
+  {
+   "screen": "3678:20292",
+   "screens": [],
+   "label": "Discard (dialog button)",
+   "box": [
+    188,
+    435,
+    135,
+    46
+   ],
+   "kind": "button",
+   "why": "The Keep editing box spans the whole button row; Discard (right half, bold) has no box of its own."
+  },
+  {
+   "screen": "2613:28718",
+   "screens": [],
+   "label": "Delete (dialog button)",
+   "box": [
+    135,
+    102,
+    135,
+    46
+   ],
+   "kind": "button",
+   "why": "The Cancel box spans the whole button row; Delete (right half, bold) has no box of its own."
+  },
+  {
+   "screen": "3690:20912",
+   "screens": [],
+   "label": "More (templates link)",
+   "box": [
+    300,
+    354,
+    52,
+    20
+   ],
+   "kind": "button",
+   "layer": "round/ic_chevron_right",
+   "why": "Only the small chevron after 'More' is boxed; the text link next to it is the same tap target."
+  },
+  {
+   "screen": "3359:20621",
+   "screens": [],
+   "label": "Clear (filter sheet)",
+   "box": [
+    22,
+    20,
+    44,
+    24
+   ],
+   "kind": "button",
+   "why": "Text button at the top-left of the Filter sheet; only the check button is boxed."
+  },
+  {
+   "screen": "3359:20621",
+   "screens": [],
+   "label": "Age range slider (1 to 100, two handles)",
+   "box": [
+    24,
+    320,
+    327,
+    34
+   ],
+   "kind": "input",
+   "why": "Range slider with two draggable handles under Age has no box."
+  },
+  {
+   "screen": "2613:28162",
+   "screens": [],
+   "label": "More (...) button on the character preview",
+   "box": [
+    320,
+    244,
+    24,
+    24
+   ],
+   "kind": "button",
+   "why": "The grey '...' button at the top-right of the preview opens the Download / Report / Delete menu; no box."
+  },
+  {
+   "screen": "2613:28162",
+   "screens": [],
+   "label": "Download (menu row)",
+   "box": [
+    189,
+    273,
+    159,
+    37
+   ],
+   "kind": "button",
+   "why": "First row of the more menu; no box at all."
+  },
+  {
+   "screen": "2613:28162",
+   "screens": [],
+   "label": "Report (menu row)",
+   "box": [
+    189,
+    311,
+    159,
+    43
+   ],
+   "kind": "button",
+   "layer": "round/ic_report",
+   "why": "Only the small icon is boxed; the whole row with its label is tappable."
+  },
+  {
+   "screen": "2613:28162",
+   "screens": [],
+   "label": "Delete (menu row)",
+   "box": [
+    189,
+    355,
+    159,
+    43
+   ],
+   "kind": "button",
+   "layer": "round/ic_trash",
+   "why": "Only the small icon is boxed; the whole row with its label is tappable."
+  },
+  {
+   "screen": "2613:28618",
+   "screens": [],
+   "label": "General (tab)",
+   "box": [
+    18,
+    102,
+    58,
+    30
+   ],
+   "kind": "tab",
+   "why": "Feedback category tab; the tab strip has no boxes."
+  },
+  {
+   "screen": "2613:28618",
+   "screens": [],
+   "label": "AI Issues (tab, selected)",
+   "box": [
+    92,
+    102,
+    68,
+    30
+   ],
+   "kind": "tab",
+   "why": "Feedback category tab (selected); no box."
+  },
+  {
+   "screen": "2613:28618",
+   "screens": [],
+   "label": "Order Problems (tab)",
+   "box": [
+    174,
+    102,
+    114,
+    30
+   ],
+   "kind": "tab",
+   "why": "Feedback category tab; no box."
+  },
+  {
+   "screen": "2613:28618",
+   "screens": [],
+   "label": "Back",
+   "box": [
+    15,
+    54,
+    28,
+    28
+   ],
+   "kind": "button",
+   "layer": "round/ic_chevron_left",
+   "why": "Back arrow at the left of the title bar; the whole title bar is boxed as one item instead."
+  },
+  {
+   "screen": "2613:28618",
+   "screens": [],
+   "label": "Privacy Policy (link)",
+   "box": [
+    189,
+    752,
+    82,
+    18
+   ],
+   "kind": "button",
+   "why": "Underlined-style link in the legal sentence under Submit; no box."
+  }
+ ],
+ "not_tappable": [
+  {
+   "control": "K-6ea199",
+   "label": "ic_credit",
+   "why": "Small credit-coin icon next to the '120' cost on the Create-the-full-episode card; a price label, only Generate is tappable."
+  },
+  {
+   "control": "K-d8904b",
+   "label": "ic_credit",
+   "why": "Small credit-coin icon next to the '120' cost on the Create-the-full-episode card; a price label, only Generate is tappable."
+  },
+  {
+   "control": "K-da904e",
+   "label": "ic_credit",
+   "why": "Small credit-coin icon next to the '15' cost on the Create storyboard card; a price label, only Generate is tappable."
+  },
+  {
+   "control": "K-d09595",
+   "label": "imput_characters_v1",
+   "why": "Thumbnail inside a scene card that has its own card box; not a separate tap target."
+  },
+  {
+   "control": "K-f70e29",
+   "label": "imput_characters_v1",
+   "why": "Thumbnail inside a scene card that has its own card box; not a separate tap target."
+  },
+  {
+   "control": "K-636f9a",
+   "screen": "2287:22397",
+   "label": "Scene 5 — HR Interrogation",
+   "why": "Scene 5 card is scrolled up under the status bar and header; only a sliver shows."
+  },
+  {
+   "control": "K-1c47b7",
+   "screen": "2287:22445",
+   "label": "btn_play",
+   "why": "Play button of the video scrolled up behind the status bar / header; it is off the visible screen here."
+  },
+  {
+   "control": "K-3da2a8",
+   "label": "",
+   "why": "Plus icon inside the 'Create my character' card, which already has its own card box; same tap."
+  },
+  {
+   "control": "K-25637d",
+   "label": "round/ic_add",
+   "why": "Plus icon inside the 'Create my character' card, which already has its own card box; same tap."
+  },
+  {
+   "control": "K-27c5da",
+   "label": "round/ic_add",
+   "why": "Plus icon inside the 'Create my character' card, which already has its own card box; same tap."
+  },
+  {
+   "control": "K-faa77a",
+   "label": "round/ic_add",
+   "why": "Plus icon inside the 'Create my character' card, which already has its own card box; same tap."
+  },
+  {
+   "control": "K-c7b581",
+   "label": "round/ic_add",
+   "why": "Plus icon inside the 'Create my character' card, which already has its own card box; same tap."
+  },
+  {
+   "control": "K-fca77d",
+   "label": "round/ic_add",
+   "why": "Plus icon inside the 'Create my character' card, which already has its own card box; same tap."
+  },
+  {
+   "control": "K-c09d48",
+   "label": "round/ic_project_9-16",
+   "why": "Small 9:16 / video badge at the bottom-left of a photo tile; an indicator, not a button."
+  },
+  {
+   "control": "K-efd2ed",
+   "label": "",
+   "why": "Small 9:16 project-ratio badge at the bottom of a character card; an indicator, not a button."
+  },
+  {
+   "control": "K-6c3e70",
+   "screen": "3678:20292",
+   "label": "round/ic_project_9-16",
+   "why": "Small 9:16 project-ratio badge on a character card (hidden behind the dialog anyway); an indicator."
+  },
+  {
+   "control": "K-64cd50",
+   "label": "round/ic_project_9-16",
+   "why": "Small 9:16 project-ratio badge on a character card; an indicator, not a button."
+  },
+  {
+   "control": "K-2cd344",
+   "screen": "2285:18661",
+   "label": "round/ic_filter",
+   "why": "Empty box: the filter icon is not drawn here; with filters on, the filter-check icon sits in the chip row below."
+  },
+  {
+   "control": "K-dff539",
+   "label": "Discard this character?",
+   "why": "Whole dialog box ('Discard this character?'); a container, not a control. Its buttons are boxed separately."
+  },
+  {
+   "control": "K-25bfa8",
+   "label": "Send Feedback",
+   "why": "Whole 'Send Feedback' title bar boxed as one item; only the back arrow in it is tappable."
+  },
+  {
+   "control": "K-83f91b",
+   "screen": "3678:20292",
+   "label": "Generate",
+   "why": "Stray layer drawn above the notch (a grey Generate bar with 3 grid cells) that sits outside the screen; not part of the discard-dialog screen."
+  },
+  {
+   "control": "K-5f8455",
+   "screen": "3678:20292",
+   "label": "thumb_media",
+   "why": "Stray layer drawn above the notch (a grey Generate bar with 3 grid cells) that sits outside the screen; not part of the discard-dialog screen."
+  },
+  {
+   "control": "K-c7bf36",
+   "screen": "3678:20292",
+   "label": "thumb_media",
+   "why": "Stray layer drawn above the notch (a grey Generate bar with 3 grid cells) that sits outside the screen; not part of the discard-dialog screen."
+  },
+  {
+   "control": "K-7450e2",
+   "screen": "3678:20292",
+   "label": "thumb_media",
+   "why": "Stray layer drawn above the notch (a grey Generate bar with 3 grid cells) that sits outside the screen; not part of the discard-dialog screen."
+  },
+  {
+   "control": "K-c62324",
+   "screen": "3678:20292",
+   "label": "round/ic_xmark",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-4430c7",
+   "screen": "3678:20292",
+   "label": "round/ic_check",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-792c02",
+   "screen": "3678:20292",
+   "label": "thumb_media",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-7e5ac1",
+   "screen": "3678:20292",
+   "label": "imput_characters_v1",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-0b1019",
+   "screen": "3678:20292",
+   "label": "round/ic_full screen",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-8f494b",
+   "screen": "3678:20292",
+   "label": "thumb_media",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-f73633",
+   "screen": "3678:20292",
+   "label": "thumb_media",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-a730fc",
+   "screen": "3678:20292",
+   "label": "thumb_media",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-ac7286",
+   "screen": "3678:20292",
+   "label": "thumb_media",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-f2362b",
+   "screen": "3678:20292",
+   "label": "thumb_media",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-a030f1",
+   "screen": "3678:20292",
+   "label": "thumb_media",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-b1728e",
+   "screen": "3678:20292",
+   "label": "thumb_media",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-df384c",
+   "screen": "3678:20292",
+   "label": "thumb_media",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-9f2eb0",
+   "screen": "3678:20292",
+   "label": "thumb_media",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-3c7a24",
+   "screen": "3678:20292",
+   "label": "thumb_media",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-e8385a",
+   "screen": "3678:20292",
+   "label": "thumb_media",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-9a2ea9",
+   "screen": "3678:20292",
+   "label": "thumb_media",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-337a16",
+   "screen": "3678:20292",
+   "label": "thumb_media",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-27c5da",
+   "screen": "3678:20292",
+   "label": "round/ic_add",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-933e1d",
+   "screen": "3678:20292",
+   "label": "round/ic_xmark",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-cf506a",
+   "screen": "3678:20292",
+   "label": "round/ic_xmark",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-2de8a2",
+   "screen": "3678:20292",
+   "label": "round/ic_xmark",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-9baec0",
+   "screen": "3678:20292",
+   "label": "round/ic_filter_check",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-80a297",
+   "screen": "3678:20292",
+   "label": "round/ic_xmark",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-4bbb44",
+   "screen": "3678:20292",
+   "label": "Generate",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-3b218a",
+   "screen": "3678:20292",
+   "label": "round/ic_add",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-08cf3c",
+   "screen": "3678:20292",
+   "label": "182",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-d8ae6a",
+   "screen": "3678:20292",
+   "label": "round/ic_info",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-633fd9",
+   "screen": "3678:20292",
+   "label": "Female",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-3a7cc0",
+   "screen": "3678:20292",
+   "label": "Male",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-1c788e",
+   "screen": "3678:20292",
+   "label": "Others",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-a7ce06",
+   "screen": "3678:20292",
+   "label": "Asian",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-8d516a",
+   "screen": "3678:20292",
+   "label": "White",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-891592",
+   "screen": "3678:20292",
+   "label": "African",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-692420",
+   "screen": "3678:20292",
+   "label": "Hispanic",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-d89ac6",
+   "screen": "3678:20292",
+   "label": "Others",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-a53e0b",
+   "screen": "3678:20292",
+   "label": "Others",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-207894",
+   "screen": "3678:20292",
+   "label": "Others",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-d3fab9",
+   "screen": "3678:20292",
+   "label": "Others",
+   "why": "Behind the dimmed Discard dialog (library grid and Make-your-character sheet); not tappable while the dialog is up."
+  },
+  {
+   "control": "K-e73ba6",
+   "screen": "2340:29585",
+   "label": "round/ic_xmark",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-beb7e6",
+   "screen": "2340:29585",
+   "label": "round/ic_check",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-a8b03b",
+   "screen": "2340:29585",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-0876ef",
+   "screen": "2340:29585",
+   "label": "imput_characters_v1",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-efe666",
+   "screen": "2340:29585",
+   "label": "round/ic_full screen",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-64cd50",
+   "screen": "2340:29585",
+   "label": "round/ic_project_9-16",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-b75343",
+   "screen": "2340:29585",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-6356d8",
+   "screen": "2340:29585",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-474056",
+   "screen": "2340:29585",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-9f013a",
+   "screen": "2340:29585",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-6c56e6",
+   "screen": "2340:29585",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-42404e",
+   "screen": "2340:29585",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-9a0133",
+   "screen": "2340:29585",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-7b54bf",
+   "screen": "2340:29585",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-cf436b",
+   "screen": "2340:29585",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-07041d",
+   "screen": "2340:29585",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-7654b7",
+   "screen": "2340:29585",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-c84360",
+   "screen": "2340:29585",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-10042b",
+   "screen": "2340:29585",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-c7b581",
+   "screen": "2340:29585",
+   "label": "round/ic_add",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-457f9b",
+   "screen": "2340:29585",
+   "label": "round/ic_xmark",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-a25fa6",
+   "screen": "2340:29585",
+   "label": "round/ic_xmark",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-5d7250",
+   "screen": "2340:29585",
+   "label": "round/ic_xmark",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-f7ee8f",
+   "screen": "2340:29585",
+   "label": "round/ic_filter_check",
+   "why": "Library underneath the dimmed Make-your-character sheet (top X/check, grid, filter chips); covered by the sheet."
+  },
+  {
+   "control": "K-f49b2a",
+   "screen": "2340:29585",
+   "label": "round/ic_add",
+   "why": "Plus of the reference-photo upload tile, hidden under the uploaded photo here (the photo carries the refresh icon instead)."
+  },
+  {
+   "control": "K-e73ba6",
+   "screen": "2285:11957",
+   "label": "round/ic_xmark",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-beb7e6",
+   "screen": "2285:11957",
+   "label": "round/ic_check",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-a8b03b",
+   "screen": "2285:11957",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-0876ef",
+   "screen": "2285:11957",
+   "label": "imput_characters_v1",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-efe666",
+   "screen": "2285:11957",
+   "label": "round/ic_full screen",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-64cd50",
+   "screen": "2285:11957",
+   "label": "round/ic_project_9-16",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-b75343",
+   "screen": "2285:11957",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-6356d8",
+   "screen": "2285:11957",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-474056",
+   "screen": "2285:11957",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-9f013a",
+   "screen": "2285:11957",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-6c56e6",
+   "screen": "2285:11957",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-42404e",
+   "screen": "2285:11957",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-9a0133",
+   "screen": "2285:11957",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-7b54bf",
+   "screen": "2285:11957",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-cf436b",
+   "screen": "2285:11957",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-07041d",
+   "screen": "2285:11957",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-7654b7",
+   "screen": "2285:11957",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-c84360",
+   "screen": "2285:11957",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-10042b",
+   "screen": "2285:11957",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-c7b581",
+   "screen": "2285:11957",
+   "label": "round/ic_add",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-457f9b",
+   "screen": "2285:11957",
+   "label": "round/ic_xmark",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-a25fa6",
+   "screen": "2285:11957",
+   "label": "round/ic_xmark",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-5d7250",
+   "screen": "2285:11957",
+   "label": "round/ic_xmark",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-f7ee8f",
+   "screen": "2285:11957",
+   "label": "round/ic_filter_check",
+   "why": "Library underneath the dimmed Make-your-character sheet (generating state); covered by the sheet."
+  },
+  {
+   "control": "K-e73ba6",
+   "screen": "2285:11855",
+   "label": "round/ic_xmark",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-beb7e6",
+   "screen": "2285:11855",
+   "label": "round/ic_check",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-a8b03b",
+   "screen": "2285:11855",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-0876ef",
+   "screen": "2285:11855",
+   "label": "imput_characters_v1",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-efe666",
+   "screen": "2285:11855",
+   "label": "round/ic_full screen",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-64cd50",
+   "screen": "2285:11855",
+   "label": "round/ic_project_9-16",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-b75343",
+   "screen": "2285:11855",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-6356d8",
+   "screen": "2285:11855",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-474056",
+   "screen": "2285:11855",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-9f013a",
+   "screen": "2285:11855",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-6c56e6",
+   "screen": "2285:11855",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-42404e",
+   "screen": "2285:11855",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-9a0133",
+   "screen": "2285:11855",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-7b54bf",
+   "screen": "2285:11855",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-cf436b",
+   "screen": "2285:11855",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-07041d",
+   "screen": "2285:11855",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-7654b7",
+   "screen": "2285:11855",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-c84360",
+   "screen": "2285:11855",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-10042b",
+   "screen": "2285:11855",
+   "label": "thumb_media",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-c7b581",
+   "screen": "2285:11855",
+   "label": "round/ic_add",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-457f9b",
+   "screen": "2285:11855",
+   "label": "round/ic_xmark",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-a25fa6",
+   "screen": "2285:11855",
+   "label": "round/ic_xmark",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-5d7250",
+   "screen": "2285:11855",
+   "label": "round/ic_xmark",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-f7ee8f",
+   "screen": "2285:11855",
+   "label": "round/ic_filter_check",
+   "why": "Library underneath the dimmed result sheet; covered by the sheet."
+  },
+  {
+   "control": "K-e73ba6",
+   "screen": "2613:28162",
+   "label": "round/ic_xmark",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-beb7e6",
+   "screen": "2613:28162",
+   "label": "round/ic_check",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-2dd345",
+   "screen": "2613:28162",
+   "label": "round/ic_filter",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-482cfd",
+   "screen": "2613:28162",
+   "label": "Create my character",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-02fe74",
+   "screen": "2613:28162",
+   "label": "Mine",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-f555b2",
+   "screen": "2613:28162",
+   "label": "library_thumbnail",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-0140b9",
+   "screen": "2613:28162",
+   "label": "library_thumbnail",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-2eec96",
+   "screen": "2613:28162",
+   "label": "library_thumbnail",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-f255ad",
+   "screen": "2613:28162",
+   "label": "library_thumbnail",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-0e430c",
+   "screen": "2613:28162",
+   "label": "library_thumbnail",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-ade98d",
+   "screen": "2613:28162",
+   "label": "library_thumbnail",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-655d1e",
+   "screen": "2613:28162",
+   "label": "library_thumbnail",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-0f430e",
+   "screen": "2613:28162",
+   "label": "library_thumbnail",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-b0e991",
+   "screen": "2613:28162",
+   "label": "library_thumbnail",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-645d1c",
+   "screen": "2613:28162",
+   "label": "library_thumbnail",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-124551",
+   "screen": "2613:28162",
+   "label": "library_thumbnail",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-a9e748",
+   "screen": "2613:28162",
+   "label": "library_thumbnail",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-615ad9",
+   "screen": "2613:28162",
+   "label": "library_thumbnail",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-98dd4d",
+   "screen": "2613:28162",
+   "label": "library_select",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-3bfd42",
+   "screen": "2613:28162",
+   "label": "library_select",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-df0d3c",
+   "screen": "2613:28162",
+   "label": "library_select",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  },
+  {
+   "control": "K-6bcd77",
+   "screen": "2613:28162",
+   "label": "library_select",
+   "why": "Library underneath the dimmed character preview and its menu; covered by the preview."
+  }
+ ],
+ "drop_screens": [
+  {
+   "screen": "2480:21574",
+   "why": "Pixel-identical duplicate of 2480:21202 (same 'Here's your drama' chat, same boxes) on the same board."
+  },
+  {
+   "screen": "2480:21768",
+   "why": "Duplicate of 2480:21396: same 'Characters updated! Regenerate the storyboard to match?' frame, same layout and boxes (only 2480:21023 differs, with 'The characters look great!')."
+  },
+  {
+   "screen": "2476:20844",
+   "why": "Duplicate of 2480:21396: same 'Characters updated! Regenerate the storyboard to match?' frame, same layout and boxes."
+  }
+ ],
+ "unsure": [
+  {
+   "screen": "2613:28618",
+   "what": "The add_feedback box [16,724,72,72] (attachment tile) sits over the privacy sentence with nothing drawn in it.",
+   "why": "The attach-photo tile is probably moved or absent in the PDF; the PM Figma is newer, so it may be fine. Not reported as not_tappable."
+  },
+  {
+   "screen": "2285:12049",
+   "what": "Photo tile boxes are 9-12pt lower than the tiles they belong to (rows 1 and 2), and the 9-16 badge / expand boxes of the girl tile are off.",
+   "why": "Drift from the newer Figma; tiles are all boxed so nothing is missing, only the position is off."
+  },
+  {
+   "screen": "3678:20292",
+   "what": "This frame is a composite: a dimmed library grid and Make-your-character sheet under the Discard dialog, plus a stray grey bar with a Generate 7 button above the notch.",
+   "why": "Only the dialog (Keep editing / Discard) is live UI; everything else is hidden. The stray bar is reported as not_tappable, confirm it is not a second dialog."
+  },
+  {
+   "screen": "3678:20292",
+   "what": "K-b3ccc5 'Keep editing' box covers the whole button row [53,434,270,46].",
+   "why": "The box should be only the left half ([53,434,135,46]); the right half is the Discard button reported under missing."
+  },
+  {
+   "screen": "2613:28718",
+   "what": "K-7217ec 'Cancel' box covers the whole button row [0,102,270,46].",
+   "why": "Should be only the left half; Delete is reported under missing."
+  },
+  {
+   "screen": "2340:29585",
+   "what": "The uploaded reference photo in the sheet (with a refresh icon at its bottom-right).",
+   "why": "Unclear whether tapping the photo itself does anything beyond the refresh (replace) icon; left unboxed."
+  },
+  {
+   "screen": "2613:28162",
+   "what": "Delete row of the more menu looks dimmed compared with Download and Report.",
+   "why": "May be a disabled or low-emphasis state (the character may be locked); reported as a tappable row, confirm on device."
+  },
+  {
+   "screen": "2287:22302",
+   "what": "Same 'Here's your drama' chat as 2480:21202 on pm-top-mockups.",
+   "why": "Visually identical frame on another board; kept on both, a cross-board duplicate is for the merge step to decide."
+  },
+  {
+   "screen": "2285:12049",
+   "what": "Photo / video tiles show a small film badge at bottom-left and the 'Photo' bar suggests a second tab (Video) that is not drawn.",
+   "why": "Only Photo is drawn; the badge is treated as an indicator."
+  },
+  {
+   "screen": "3359:20621",
+   "what": "The Ethnicity row continues past the right edge (a 4th chip is cut off).",
+   "why": "Horizontal scroll or clipped chip; not boxed, left alone."
+  }
+ ]
+}

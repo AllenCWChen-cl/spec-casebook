@@ -76,14 +76,14 @@ to a personal memory store; feature-specific run details go in the skills or the
   goes right after the row it extends (even between rows already run), an old row is modified when the new rule is
   checked on the same screen, and each analysis ends with a check of the row and run order. The next round's phase
   lists added and changed rows in their stage segments (`"round": true`), never only as an appended phase.
-- **Every control pressed, every arrow walked (user, 2026-10-28, REQ-038).** Every tappable element the Design
-  draws is tested: the Figma inventory (`scripts/figma/inventory.js` → `scripts/inventory.ts`) lists screens, controls
+- **Every control pressed, every arrow walked (user, 2026-10-28, REQ-038).** Every tappable element the Design,
+  PM and MX Figma files draw is tested (PM and MX added 2026-10-28, REQ-042): the Figma inventory (`scripts/figma/inventory.js` → `scripts/inventory.ts`) lists screens, controls
   and arrows, counting each button once however many screens show it and each choice list once;
   `control-trace.json` names the row that presses each control (inputs also the row that dismisses them);
   each run aims to press all of them, and `scripts/coverage-page.ts` shows counts and the boards marked with tap
   screenshots as proof (taps matched by a scored label / id / icon / position match, ties left for review). Figma MCP has a small quota (View seat): read the file in a few bulk calls per board group,
   never element by element (skill: Reading the spec, step 10). Accounts (user, 2026-10-28): the Design Figma file is
-  read as qa-dm@cyberlink.com (Dev seat), the PM Figma file as qa1@cyberlink.com (qa-dm only has a View seat there);
+  read as qa-dm@cyberlink.com (Dev seat), the PM and MX Figma files as qa1@cyberlink.com (qa-dm only has a View seat on PM);
   check with Figma MCP `whoami` before a read. The inventory is reviewed on the sheets before tracing (REQ-041).
 - **Wi-Fi during runs (2026-10-21).** Offline cases may turn Wi-Fi off and on during a run once the phone is
   confirmed on a USB cable; restore it right after the case. Other system settings still need the user's go-ahead.

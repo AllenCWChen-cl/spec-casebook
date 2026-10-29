@@ -1,19 +1,21 @@
 {
   "source": "Design flow arrows of the 2026-10-19 Design spec (Figma file dZk5HLzZTdcZwWwvN9aZfZ). One-time import 2026-10-21 of the arrow inventory the spec agent recorded with node IDs (user approved); later spec sets build this list in the analysis (Coverage pass 1).",
   "figma": "https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=",
-  "count": 98,
+  "count": 219,
   "arrows": [
     {
       "arrow": "2778-129128",
       "node": "2778-129128",
-      "edge": "Launcher AI Mini Drama banner → Mini Drama landing",
-      "expected": "The AI Mini Drama launcher banner opens the Mini Drama entry page."
+      "fixed": "2026-10-28: edge text was swapped with its neighbour; the tail geometry puts 2778-129128 on the shortcut icon (y≈398) and 2778-129129 on the banner chevron (y≈244)",
+      "edge": "Launcher AI Mini Drama shortcut → Mini Drama landing",
+      "expected": "Activating the AI Mini Drama launcher shortcut opens the Mini Drama landing page."
     },
     {
       "arrow": "2778-129129",
       "node": "2778-129129",
-      "edge": "Launcher AI Mini Drama shortcut → Mini Drama landing",
-      "expected": "Activating the AI Mini Drama launcher shortcut opens the Mini Drama landing page."
+      "fixed": "2026-10-28: edge text was swapped with its neighbour; the tail geometry puts 2778-129128 on the shortcut icon (y≈398) and 2778-129129 on the banner chevron (y≈244)",
+      "edge": "Launcher AI Mini Drama banner → Mini Drama landing",
+      "expected": "The AI Mini Drama launcher banner opens the Mini Drama entry page."
     },
     {
       "arrow": "2778-129130",
@@ -615,6 +617,859 @@
       "node": "4877-33089",
       "edge": "1016_Chat navigation: leave dialog 「Stay」 → Chat (same stage)",
       "expected": "「Stay」 closes the leave dialog and keeps the user in the chat at the same stage; whatever was generating keeps going (Figma note: 「Stay → 關閉 dialog，留在原畫面」).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2628-34404",
+      "node": "2628-34404",
+      "edge": "pm-error-handling-a: ? → Character Library",
+      "expected": "「Got it」 on 「Couldn't create image」/「We couldn't create this character. Your credits have been refunded. Try again.」 closes the dialog and returns to Change Characters with the Character Library.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2701-22119",
+      "node": "2701-22119",
+      "edge": "pm-error-handling-a: AI Mini Drama_storyboard · video → AI Mini Drama_storyboard",
+      "expected": "Tapping the video card opens the result page (Full Edit, Export Full Video, scene thumbnails) on the failed scene, whose card reads 「Couldn't create video」 with 「Edit」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2701-22120",
+      "node": "2701-22120",
+      "edge": "pm-error-handling-a: AI Mini Drama_characters · video → AI Mini Drama_storyboard",
+      "expected": "Tapping the video card opens the result page on the failed scene, whose card reads 「Couldn't create video」 with 「Edit」; the failed clip has no download icon.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2701-22184",
+      "node": "2701-22184",
+      "edge": "pm-error-handling-a: AI Mini Drama_storyboard · 「Edit」 → AI Mini Drama_storyboard",
+      "expected": "「Edit」 opens the scene-video description editor (Cinematic Style / Scene / Motion / Camera text, expand icon) with the regenerate button priced by the model used.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2701-22185",
+      "node": "2701-22185",
+      "edge": "pm-error-handling-a: AI Mini Drama_storyboard · 「Regenerate Video」 → AI Mini Drama_storyboard",
+      "expected": "The regeneration starts: the result page shows that scene generating while the other scenes stay.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2703-22780",
+      "node": "2703-22780",
+      "edge": "pm-error-handling-a: regen · round/ic_info → Dialog_text_03",
+      "expected": "ⓘ opens 「Couldn't generate this video」/「Your credits have been refunded. The description may not meet our terms of service, such as violence, NSFW content, or content involving minors. Edit the description to try again.」 with 「Got it」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2621-30440",
+      "node": "2621-30440",
+      "edge": "pm-error-handling-b: AI Mini Drama_storyboard · 「Regenerate Image」 → AI Mini Drama_storyboard",
+      "expected": "「Regenerate Image」 starts the regeneration: the scene detail shows a skeleton where the image was and the credits are charged once.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2621-30441",
+      "node": "2621-30441",
+      "edge": "pm-error-handling-b: AI Mini Drama_storyboard → AI Mini Drama_storyboard",
+      "expected": "「Edit」 opens the scene description editor with 「Regenerate Image ◆6」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2621-30229",
+      "node": "2621-30229",
+      "edge": "pm-error-handling-b: AI Mini Drama_storyboard · video → AI Mini Drama_storyboard",
+      "expected": "Tapping the video card opens the result page on the failed scene, whose card reads 「Couldn't create video」/「Something went wrong. Give it another try.」 with 「Retry」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2621-30230",
+      "node": "2621-30230",
+      "edge": "pm-error-handling-b: AI Mini Drama_characters · video → AI Mini Drama_storyboard",
+      "expected": "Tapping the video card opens the result page on the failed scene with its 「Retry」 card (「Something went wrong. Give it another try.」).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2621-30307",
+      "node": "2621-30307",
+      "edge": "pm-error-handling-b: AI Mini Drama_storyboard → AI Mini Drama_storyboard",
+      "expected": "「Retry」 starts that scene again: its preview shows 「generating...」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2701-22188",
+      "node": "2701-22188",
+      "edge": "pm-error-handling-b: AI Mini Drama_storyboard · 「Export Full Video」 → 2762:44652 Frame 1430104234 「1 characters isn’t set yet」",
+      "expected": "「Export Full Video」 starts no export while a scene is still generating; a toast with an icon explains it (copy not given, Q-24).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2719-22996",
+      "node": "2719-22996",
+      "edge": "pm-error-handling-b: storyboard (automatic) → AI Mini Drama_storyboard",
+      "expected": "Opening a failed scene from the Storyboard Result shows its scene detail with 「Couldn't create image」, the refund text and 「Edit」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2621-30442",
+      "node": "2621-30442",
+      "edge": "pm-error-handling-c: ? → AI Mini Drama_storyboard",
+      "expected": "When the regeneration ends the skeleton is replaced by the new image (with its ⋯ menu); title and script stay.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2628-34410",
+      "node": "2628-34410",
+      "edge": "pm-error-handling-c: AI Mini Drama_storyboard (automatic) → Dialog_text_02-1",
+      "expected": "X while the scene image regenerates asks 「Stop and lose your credits?」/「This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded.」 with 「Leave anyway」/「Keep Generating」 (scene-image regeneration is not one of the 10/22 two-phase jobs, Q-22).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2621-30306",
+      "node": "2621-30306",
+      "edge": "pm-error-handling-c: ? → AI Mini Drama_storyboard",
+      "expected": "When the retry fails too, the scene card offers 「Edit」 instead of 「Retry」 (Design copy 「Retrying didn't work. Try a different description.」; the PM frame reads 「Your credits have been refunded. Edit the description and try again.」, Q-27).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2621-30308",
+      "node": "2621-30308",
+      "edge": "pm-error-handling-c: AI Mini Drama_storyboard · 「Edit」 → AI Mini Drama_storyboard",
+      "expected": "「Edit」 opens the scene-video description editor with the priced regenerate button.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2621-30309",
+      "node": "2621-30309",
+      "edge": "pm-error-handling-c: AI Mini Drama_storyboard · 「Regenerate Video」 → ",
+      "expected": "The regeneration starts and the result page shows that scene generating.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2651-21992",
+      "node": "2651-21992",
+      "edge": "pm-error-handling-c: ? → ",
+      "expected": "「Export Full Video」 starts no export while the scene regenerates; a toast with an icon explains it (copy not given, Q-24).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1083-16545",
+      "node": "1083-16545",
+      "edge": "mx-a-left: AI Mini Drama · 「Make my version」 → AI Mini Drama",
+      "expected": "The template chat opens first, then the limit dialog for the tier appears over it.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1224-10079",
+      "node": "1224-10079",
+      "edge": "mx-a-left: AI Mini Drama (automatic) → AI Mini Drama",
+      "expected": "Closing the limit dialog leaves the template chat open with nothing sent.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1034-1957",
+      "node": "1034-1957",
+      "edge": "mx-a-left: AI Mini Drama_outline · round/ic_arrow_up → AI Mini Drama_outline",
+      "expected": "The send shows 「Daily Free Chat Limit Reached」/「You have used up your AI Mini Drama free chats. To keep chatting, please upgrade to Premium.」 with 「Upgrade to Premium」; nothing is sent.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1034-40228",
+      "node": "1034-40228",
+      "edge": "mx-a-left: AI Mini Drama_outline · 「Upgrade to Premium」 → IAP_Pro+_free user",
+      "expected": "「Upgrade to Premium」 opens the subscription page with the Pro / Pro+ tabs, the plan comparison and 「Get 7-Day Free Trial」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1034-39559",
+      "node": "1034-39559",
+      "edge": "mx-a-left: AI Mini Drama_outline · round/ic_arrow_up → AI Mini Drama_outline",
+      "expected": "A Pro user's send at the limit shows the Free-type dialog (mockup title 「Free Chat Limit Reached」) with 「Upgrade to Premium」, not 「Today's AI Chats Are Used Up」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1224-10486",
+      "node": "1224-10486",
+      "edge": "mx-a-left: AI Mini Drama_outline · round/ic_circle_xmark_filled → 1034:1965 story 「Story Outline」",
+      "expected": "ⓧ closes the dialog; the chat stays with the unsent text in the input.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1034-40811",
+      "node": "1034-40811",
+      "edge": "mx-a-left: AI Mini Drama_outline · round/ic_arrow_up → AI Mini Drama_outline",
+      "expected": "A Pro+ user's send at the limit shows 「Today's AI Chats Are Used Up」/「They'll refresh tomorrow, and we'll be ready to chat again.」 (button 「Continue Tomorrow」 per the Design; the MX frame reads 「Try Again Later」, Q-26).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1034-40514",
+      "node": "1034-40514",
+      "edge": "mx-a-left: AI Mini Drama_outline · 「Upgrade to Premium」 → IAP_Pro+_pro user",
+      "expected": "「Upgrade to Premium」 opens the Pro+ subscription page (「PowerDirector Pro+」, plan comparison, 「Continue」).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1224-10081",
+      "node": "1224-10081",
+      "edge": "mx-a-left: Premium dialog · 「Upgrade to Premium」 → IAP_Pro+_free user",
+      "expected": "「Upgrade to Premium」 on the template-chat dialog opens the same subscription page as in a typed chat.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1224-10312",
+      "node": "1224-10312",
+      "edge": "mx-a-left: IAP_Pro+_free user · round/ic_chevron_left → AI Mini Drama_outline",
+      "expected": "‹ on the subscription page without subscribing returns to the chat; the limit dialog is closed and the message was not sent.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1224-10502",
+      "node": "1224-10502",
+      "edge": "mx-a-left: AI Mini Drama_outline · round/ic_circle_xmark_filled → 1034:39427 story 「Story Outline」",
+      "expected": "ⓧ closes the dialog; the chat stays with the unsent text in the input.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1224-10503",
+      "node": "1224-10503",
+      "edge": "mx-a-left: IAP_Pro+_pro user · round/ic_chevron_left → AI Mini Drama_outline",
+      "expected": "‹ on the Pro+ subscription page without subscribing returns to the chat with the dialog closed.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1563-16786",
+      "node": "1563-16786",
+      "edge": "mx-a-mid: AI Mini Drama_characters · 「Upgrade Now」 → IAP_Pro+_free user",
+      "expected": "「Upgrade Now」 opens the subscription page (Pro / Pro+, 「Get 7-Day Free Trial」).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1563-21899",
+      "node": "1563-21899",
+      "edge": "mx-a-mid: IAP_Pro+_free user → AI Mini Drama_storyboard",
+      "expected": "After subscribing in this session the chat comes back with the card switched to the enough-credits copy and 「Generate」, priced with the first-time credit discount.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1563-22392",
+      "node": "1563-22392",
+      "edge": "mx-a-mid: AI Mini Drama_characters · 「Buy Credits」 → IAP_Pro+_free user",
+      "expected": "A Free user's not-enough card opens the subscription page (the rows follow the MX note's 「Upgrade Now」 label, Q-25).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1057-4729",
+      "node": "1057-4729",
+      "edge": "mx-a-mid: AI Mini Drama_characters · 「Buy Credits」 → Credit Panel",
+      "expected": "「Buy Credits」 opens 「Top up your credits」 with 「{X} credits needed. You have {Y} credits left.」 and the 2000 pack selected.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1563-21897",
+      "node": "1563-21897",
+      "edge": "mx-a-mid: Credit Panel · 「Buy Credit」 → AI Mini Drama_storyboard",
+      "expected": "After buying credits the chat shows the card with the enough-credits copy and 「Generate」 (the charge is confirmed again before anything is charged).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1572-23894",
+      "node": "1572-23894",
+      "edge": "mx-a-mid: IAP_Pro+_free user · round/ic_chevron_left → AI Mini Drama_characters",
+      "expected": "‹ without subscribing returns to the chat with the same not-enough card.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1572-23896",
+      "node": "1572-23896",
+      "edge": "mx-a-mid: IAP_Pro+_free user · round/ic_chevron_left → AI Mini Drama_characters",
+      "expected": "‹ without subscribing returns to the chat; the card still shows the not-enough copy and 「Upgrade Now」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "1572-23891",
+      "node": "1572-23891",
+      "edge": "mx-a-mid: AI Mini Drama_storyboard · 「Regenerate Video」 → AI Mini Drama_storyboard",
+      "expected": "A regeneration priced above the balance opens 「Top up your credits」/「225 credits needed. You have 182 credits left.」 instead of regenerating.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2531-22643",
+      "node": "2531-22643",
+      "edge": "pm-main-flow-11: AI Mini Drama_outline · 「Surprise me」 → AI Mini Drama_outline",
+      "expected": "「Surprise me」 puts a random inspiration into the input (not sent).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2595-44970",
+      "node": "2595-44970",
+      "edge": "pm-main-flow-12: Character Library · round/ic_check → Character Library",
+      "expected": "✓ with one unset slot opens the unset-character sheet with that slot marked and 「Generate」 / 「Choose myself」 (Design copy, R-033).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2286-21802",
+      "node": "2286-21802",
+      "edge": "pm-main-flow-12: Character Library (automatic) → Character Library",
+      "expected": "Choosing a library character sets it on the selected cast tab (check mark on the card).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2595-44983",
+      "node": "2595-44983",
+      "edge": "pm-main-flow-12: Character Library · round/ic_xmark → Dialog_text_02-1",
+      "expected": "X with unsaved picks asks before leaving (Design 「Leave without finishing?」/「If you leave now, your picks won't be saved.」 with 「Leave」/「Keep choosing」; the PM frame's 「Discard character changes?」 is older).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2595-44984",
+      "node": "2595-44984",
+      "edge": "pm-main-flow-12: Dialog_text_02-1 · 「Discard」 → storyoutline",
+      "expected": "Leaving from the warning closes Change Characters and returns to the chat outline without the unsaved picks.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3152-16328",
+      "node": "3152-16328",
+      "edge": "pm-main-flow-12: AI Mini Drama_outline_generating (custom · round/ic_chevron_left → Dialog_leave_before_outline",
+      "expected": "Back while the outline generates asks 「Leave this chat?」/「Your story outline isn't ready yet, so this chat won't be saved.」 with 「Leave anyway」/「Stay」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2286-21806",
+      "node": "2286-21806",
+      "edge": "pm-main-flow-21: AI Mini Drama · 「Create Your Drama」 → AI Mini Drama_outline",
+      "expected": "「Create Your Drama」 opens an empty chat with 「Surprise me」, two inspiration chips and the keyboard up.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2286-21807",
+      "node": "2286-21807",
+      "edge": "pm-main-flow-21: ? → AI Mini Drama_outline",
+      "expected": "The typed idea shows in the input with the send button.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2458-20836",
+      "node": "2458-20836",
+      "edge": "pm-main-flow-21: AI Mini Drama_outline (automatic) → AI Mini Drama",
+      "expected": "Back from a chat with nothing sent returns to the landing page with no dialog and nothing saved to History.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2458-20839",
+      "node": "2458-20839",
+      "edge": "pm-main-flow-21: AI Mini Drama_outline (automatic) → AI Mini Drama",
+      "expected": "Back at the format card returns to the landing page with no dialog and nothing saved to History.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2285-17950",
+      "node": "2285-17950",
+      "edge": "pm-main-flow-22: ? → Character Library",
+      "expected": "The switch icon opens Change Characters on that character.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2285-17953",
+      "node": "2285-17953",
+      "edge": "pm-main-flow-22: ? → Character Library",
+      "expected": "The switch icon opens Change Characters on the character it belongs to.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2286-21104",
+      "node": "2286-21104",
+      "edge": "pm-main-flow-22: Character Library · round/ic_check → storyoutline",
+      "expected": "✓ returns to the chat; the Characters Result shows every look and Iris prepares the storyboard offer.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2286-21808",
+      "node": "2286-21808",
+      "edge": "pm-main-flow-22: AI Mini Drama_outline (automatic) → AI Mini Drama_outline",
+      "expected": "Sending the idea shows the format question 「What format would you like for your video?」 (language, captions).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2295-17339",
+      "node": "2295-17339",
+      "edge": "pm-main-flow-22: ? → Character Library",
+      "expected": "Each cast tab shows its chosen look and ✓ can confirm the cast.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2286-21809",
+      "node": "2286-21809",
+      "edge": "pm-main-flow-22: AI Mini Drama_outline · 「Continue」 → storyoutline",
+      "expected": "「Continue」 replaces the card with the answer bubble and the outline arrives with its Characters Result slots unset.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2286-19458",
+      "node": "2286-19458",
+      "edge": "pm-main-flow-22: AI Mini Drama_outline · 「Continue」 → ",
+      "expected": "「Continue」 on a template's format card starts the template's outline.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2323-19567",
+      "node": "2323-19567",
+      "edge": "pm-main-flow-22: storyoutline · 「Sophie」 → Character Library",
+      "expected": "Tapping a named slot opens Change Characters with that character's tab selected.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2323-19568",
+      "node": "2323-19568",
+      "edge": "pm-main-flow-22: storyoutline · 「The Manager」 → Character Library",
+      "expected": "Tapping another named slot opens Change Characters on that character.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2287-22301",
+      "node": "2287-22301",
+      "edge": "pm-main-flow-23: storyboard · 「Seedance 2.0 Mini」 → storyboard",
+      "expected": "Choosing another model updates the Generate Video price at once (Design 10/16: Best / Standard / Fast).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2295-18666",
+      "node": "2295-18666",
+      "edge": "pm-main-flow-23: storyboard · 「Generate Video」 → AI Mini Drama_characters",
+      "expected": "「Generate Video」 starts the video in the chat (phase ① 「Advancing the mini drama production.」 per PM 10/22).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2586-23239",
+      "node": "2586-23239",
+      "edge": "pm-main-flow-23: AI Mini Drama_template (automatic) → Dialog_text_02-1",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded: storyboard generating, Back → 「Stop and lose your credits?」; PM Figma 10/22 frame 4422:2 replaced it with 「Leave while we're preparing?」 in phase ① and a toast in phase ② (R-051, TC-061, TC-401)"
+    },
+    {
+      "arrow": "2586-23240",
+      "node": "2586-23240",
+      "edge": "pm-main-flow-23: AI Mini Drama_template (automatic) → Dialog_text_02-1",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded: storyboard generating, History → 「Stop and lose your credits?」; PM Figma 10/22 frame 4422:2 replaced it (R-262, TC-359, TC-402)"
+    },
+    {
+      "arrow": "2586-23241",
+      "node": "2586-23241",
+      "edge": "pm-main-flow-23: AI Mini Drama_template (automatic) → Dialog_text_02-1",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded: storyboard generating, New chat → 「Stop and lose your credits?」; PM Figma 10/22 frame 4422:2 replaced it (R-262, TC-359, TC-402)"
+    },
+    {
+      "arrow": "2586-23242",
+      "node": "2586-23242",
+      "edge": "pm-main-flow-23: AI Mini Drama_template · 「400」 → Dialog_text_02-1",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded: storyboard generating, credit pill → 「Stop and lose your credits?」; PM Figma 10/22 frame 4422:2 replaced it (R-262, TC-359, TC-402)"
+    },
+    {
+      "arrow": "2592-21573",
+      "node": "2592-21573",
+      "edge": "pm-main-flow-23: ? → storyoutline",
+      "expected": "Iris says 「The characters look great! Ready to create the storyboard?」 with the Create storyboard card (price, Generate).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2592-21574",
+      "node": "2592-21574",
+      "edge": "pm-main-flow-23: storyoutline · 「Generate」 → AI Mini Drama_template",
+      "expected": "Generate turns the card into the storyboard progress card (phase ① 「Preparing your scenes...」 per PM 10/22) with no user bubble.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2286-22038",
+      "node": "2286-22038",
+      "edge": "pm-main-flow-23: storyoutline · 「Generate」 → ai",
+      "expected": "The storyboard is generated and the chat shows 「Here's your storyboard」 with the Storyboard Result and Storyboard Preview.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2592-21575",
+      "node": "2592-21575",
+      "edge": "pm-main-flow-23: ? (automatic) → ",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "decorative connector: an automatic stub below 2586:23090 that ends in empty canvas (no target frame); the storyboard finishing is walked through 2286-22038"
+    },
+    {
+      "arrow": "3146-17088",
+      "node": "3146-17088",
+      "edge": "pm-main-flow-23: ? → storyboard",
+      "expected": "After the storyboard the chat shows 「Choose your video settings」 with model, length and 「Generate Video」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3692-20998",
+      "node": "3692-20998",
+      "edge": "pm-main-flow-23: AI Mini Drama_characters · round/ic_chevron_left → AI Mini Drama_left chat while video gene",
+      "expected": "Back while the video is made (phase ②) opens the landing page with 「We'll keep making your video. Find it in History.」 and, the first time, the bubble 「Find your video here in History.」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2295-18667",
+      "node": "2295-18667",
+      "edge": "pm-main-flow-24: ? → AI Mini Drama_characters",
+      "expected": "The finished preview shows 「Here's your drama.」 with the video, then 「Looking good! Ready for the full video?」 with 「Create the full episode (90 sec)」 and its price.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2340-53370",
+      "node": "2340-53370",
+      "edge": "pm-main-flow-24: AI Mini Drama_characters · 「Generate」 → AI Mini Drama_characters",
+      "expected": "Generate on the full-episode card starts the full video.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2340-53371",
+      "node": "2340-53371",
+      "edge": "pm-main-flow-24: ? → AI Mini Drama_characters",
+      "expected": "The finished full video shows with the next-episode offer (Design 「Ready for the next episode?」/「Create Next Episode」).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2592-43757",
+      "node": "2592-43757",
+      "edge": "pm-main-flow-24: AI Mini Drama_characters · video → AI Mini Drama_storyboard",
+      "expected": "Tapping the video opens the result page with 「Full Edit」, 「Export Full Video」 and one thumbnail per scene.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2592-43758",
+      "node": "2592-43758",
+      "edge": "pm-main-flow-24: AI Mini Drama_characters · video → AI Mini Drama_storyboard",
+      "expected": "Tapping the full video opens the result page with every scene's thumbnail.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2285-19139",
+      "node": "2285-19139",
+      "edge": "pm-main-flow-32: Character Library · thumb_media → ",
+      "expected": "The tile opens the Make your character form.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2340-30314",
+      "node": "2340-30314",
+      "edge": "pm-main-flow-32: ? → Add Media",
+      "expected": "The reference slot opens Add Media (Select Media) to pick a photo.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2340-30315",
+      "node": "2340-30315",
+      "edge": "pm-main-flow-32: Add Media (automatic) → Character Library",
+      "expected": "The chosen photo is set as the reference on the form (after the Design's crop step).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2611-27730",
+      "node": "2611-27730",
+      "edge": "pm-main-flow-32: Dialog_text_02-1 · 「Use another photo」 → Add Media",
+      "expected": "「Use another photo」 closes the warning and opens Add Media to choose a different reference photo.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2611-28043",
+      "node": "2611-28043",
+      "edge": "pm-main-flow-32: Dialog_text_02-1 · 「Use another photo」 → Add Media",
+      "expected": "「Use another photo」 closes the warning and opens Add Media to choose a different reference photo.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3678-21038",
+      "node": "3678-21038",
+      "edge": "pm-main-flow-32: ? → Character Library_make character_tap X →",
+      "expected": "X with something entered asks 「Discard this character?」/「What you've entered won't be saved.」 with Discard / Keep editing.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2285-12130",
+      "node": "2285-12130",
+      "edge": "pm-main-flow-33: ? → Character Library",
+      "expected": "When generation ends the front/side/back views show with the confirm action (Design 「Save to library」).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2285-12131",
+      "node": "2285-12131",
+      "edge": "pm-main-flow-33: Character Library → Character Library",
+      "expected": "Confirming applies the new character to the slot and lists it in the library with the My character tag.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2340-53109",
+      "node": "2340-53109",
+      "edge": "pm-main-flow-33: Character Library · round/ic_xmark → Dialog_text_02-1",
+      "expected": "X while the character generates asks 「Stop and lose your credits?」 with 「Leave anyway」/「Keep Generating」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2611-27728",
+      "node": "2611-27728",
+      "edge": "pm-main-flow-33: Character Library → Dialog_text_03",
+      "expected": "Generate with a celebrity photo shows 「This photo can't be used」/「It looks like a real public figure. Please try another photo.」 and does not generate.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2611-27729",
+      "node": "2611-27729",
+      "edge": "pm-main-flow-33: ? · 「Use another photo」 → Add Media",
+      "expected": "「Use another photo」 closes the block and opens Add Media to choose a different reference photo.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2611-27727",
+      "node": "2611-27727",
+      "edge": "pm-main-flow-33: Character Library → Dialog_text_02-1",
+      "expected": "Generate with several people shows 「More than one person detected」 with 「Generate anyway」/「Use another photo」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2611-28035",
+      "node": "2611-28035",
+      "edge": "pm-main-flow-33: Character Library → Dialog_text_02-1",
+      "expected": "Generate with no person shows 「No person detected」/「Results may not turn out well. Want to try anyway?」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2611-28044",
+      "node": "2611-28044",
+      "edge": "pm-main-flow-33: ? → Character Library",
+      "expected": "Generate starts the character generation (「generating your character...」).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2613-28717",
+      "node": "2613-28717",
+      "edge": "pm-main-flow-33: Character Library → Send Feedback",
+      "expected": "「Report」 opens the Send Feedback form.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2613-28731",
+      "node": "2613-28731",
+      "edge": "pm-main-flow-33: Character Library → Dialog_text_02-3",
+      "expected": "「Delete」 asks 「Delete this character?」/「This character will be permanently deleted and can't be recovered.」 with Cancel / Delete.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2613-28739",
+      "node": "2613-28739",
+      "edge": "pm-main-flow-33: Dialog_text_02-3 · 「Cancel」 → Character Library",
+      "expected": "「Cancel」 closes the dialog and the character stays in the library.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "2613-28591",
+      "node": "2613-28591",
+      "edge": "pm-main-flow-33: Character Library · imput_characters_v1 → Character Library",
+      "expected": "The enlarge control opens the character's enlarged preview with ⋯ (Download, Report, Delete for the user's own).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3359-20678",
+      "node": "3359-20678",
+      "edge": "pm-main-flow-33: Character Library · round/ic_filter → settings",
+      "expected": "The filter icon opens the Filter panel (Clear, My characters only, Gender, Ethnicity, Age, ✓).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3970-44074",
+      "node": "3970-44074",
+      "edge": "pm-update-7: Chat_change character → Iris asks which  (automatic) → Chat_confirm → Update characters card",
+      "expected": "After the user names the character, Iris shows 「Ready to update your characters?」 with the 「Update characters • 1 character」 card (price, Generate).",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3970-44075",
+      "node": "3970-44075",
+      "edge": "pm-update-7: Chat_confirm → Update characters card · 「Generate」 → Chat_after Generate → Working on it...",
+      "expected": "Generate removes the card and Iris replies 「Working on it...」 while the character updates.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3970-44076",
+      "node": "3970-44076",
+      "edge": "pm-update-7: Chat_after Generate → Working on it... (automatic) → Chat_characters updated → Ready to creat",
+      "expected": "The update ends with the new look in a Story Outline & Characters card and a priced Create storyboard card.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "4422-26772",
+      "node": "4422-26772",
+      "edge": "pm-1022-leave: Chat_video preparing (Preparing your sce · round/ic_chevron_left → I4422:97;411:37243 content 「Scene 2 — Elevator Sparks」",
+      "expected": "Back in video phase ① asks 「Leave while we're preparing?」 with the video body, 「Stay」 and a red 「Leave anyway」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "4456-263",
+      "node": "4456-263",
+      "edge": "pm-1022-leave: Chat_storyboard preparing · round/ic_chevron_left → 4456:108 Story Outline 「Story Outline」",
+      "expected": "Back in storyboard phase ① asks 「Leave while we're preparing?」 with the storyboard body, 「Stay」 and a red 「Leave anyway」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3152-16326",
+      "node": "3152-16326",
+      "edge": "pm-0930-updates: Storyboard generating_leave · round/ic_chevron_left → Dialog_leave_storyboard",
+      "expected": "",
+      "source": "figma-inventory",
+      "not_flow": "superseded: 0930 update storyboard generating, Back → 「Stop and lose your credits?」 (Dialog_leave_storyboard); PM Figma 10/22 frame 4422:2 replaced it (R-051, TC-061, TC-401)"
+    },
+    {
+      "arrow": "3505-20031",
+      "node": "3505-20031",
+      "edge": "pm-update-6: storyboard · 「Scene 1 — The Ban Is Announc...」 → AI Mini Drama_storyboard",
+      "expected": "Opening the failed scene shows 「Couldn't create image ⓘ」 with the refund text and 「Edit」 under the main image, Location below.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3505-20032",
+      "node": "3505-20032",
+      "edge": "pm-update-6: Text to Video (automatic) → AI Mini Drama_storyboard",
+      "expected": "「Done」 closes the editor back to the scene with the edited text and 「Regenerate Image ◆6」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3505-20033",
+      "node": "3505-20033",
+      "edge": "pm-update-6: Text to Video · round/ic_collapse_text → AI Mini Drama_storyboard",
+      "expected": "The collapse icon closes the editor back to the scene with the edited text and 「Regenerate Image ◆6」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3505-20034",
+      "node": "3505-20034",
+      "edge": "pm-update-6: AI Mini Drama_storyboard · 「Regenerate Image」 → AI Mini Drama_storyboard",
+      "expected": "「Regenerate Image」 shows skeletons for the scene image (and the Location) until the new images arrive.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3327-19587",
+      "node": "3327-19587",
+      "edge": "pm-update-5: Chat_captions failed (automatic) → Chat_captions retrying",
+      "expected": "「Try again」 changes the line to 「Adding captions…」 while the video stays.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3327-19588",
+      "node": "3327-19588",
+      "edge": "pm-update-5: Chat_captions retrying (automatic) → Chat_captions added",
+      "expected": "When every caption segment succeeds the captioned video replaces it and the failure line disappears.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3130-17768",
+      "node": "3130-17768",
+      "edge": "pm-1002-update-a: Chat_scrolled up (↓ shown) · 「The Manager」 → Chat_at bottom",
+      "expected": "↓ scrolls to the newest message and hides itself.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3130-17769",
+      "node": "3130-17769",
+      "edge": "pm-1002-update-a: Chat_action card (automatic) → Chat_after Generate",
+      "expected": "Generate turns the card into its progress state in place; no user bubble is added.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3130-17770",
+      "node": "3130-17770",
+      "edge": "pm-1002-update-a: Chat_action card (automatic) → Chat_charge failed",
+      "expected": "Offline, Generate sends and charges nothing; 「You're offline. Check your connection and try again.」 shows (toast per PM 10/6) and the card stays.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3130-17772",
+      "node": "3130-17772",
+      "edge": "pm-1002-update-b: Scene edit_regenerating (automatic) → Scene edit_regenerating_tap X",
+      "expected": "X while the scene image regenerates asks 「Stop and lose your credits?」 with 「Leave anyway」/「Keep Generating」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3130-17773",
+      "node": "3130-17773",
+      "edge": "pm-1002-update-c: Chat_video regenerating · video → Chat_regenerating_tap download",
+      "expected": "Download during the regeneration shows 「Your video is still updating. Try again when it's done.」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3130-17774",
+      "node": "3130-17774",
+      "edge": "pm-1002-update-c: ? → Chat_video updated",
+      "expected": "The regenerated video replaces the old one and 「Your video has been updated.」 shows under it.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3153-17814",
+      "node": "3153-17814",
+      "edge": "pm-update-3-a: ? → Character_some failed",
+      "expected": "When some characters fail, the successful ones are applied and 「Couldn't create some images」/「{n} characters couldn't be created. Your credits have been refunded. Tap a character to try again.」 shows.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3153-17816",
+      "node": "3153-17816",
+      "edge": "pm-update-3-a: ? → Character_not set yet",
+      "expected": "Closing it shows the unset-characters sheet with the failed characters marked 「!」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3153-17818",
+      "node": "3153-17818",
+      "edge": "pm-update-3-a: Character_not set yet · thumb_media → Character Library_landing on failed char",
+      "expected": "Tapping the failed character opens Change Characters on it.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3168-18114",
+      "node": "3168-18114",
+      "edge": "pm-update-3-c: ? → Chat_confirm image update",
+      "expected": "Iris replies with the priced update card (Design: a 「Create storyboard」 card, 2 credits per image) and Generate.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3168-18116",
+      "node": "3168-18116",
+      "edge": "pm-update-3-c: Chat_confirm image update (automatic) → Chat_updating storyboard images",
+      "expected": "Generate removes the card and a new storyboard message shows skeletons on the changed scenes and the preview.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3168-18117",
+      "node": "3168-18117",
+      "edge": "pm-update-3-c: ? → Chat_storyboard images updated",
+      "expected": "The changed scenes show their new images in the new storyboard message.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "3168-18119",
+      "node": "3168-18119",
+      "edge": "pm-update-3-c: ? → Chat_storyboard images partly failed",
+      "expected": "A partly failed update keeps the successful images and marks the failed one 「!」 with 「1 image couldn't be updated. Your credits have been refunded. Tap Edit to try again, or tell me what to change.」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "4018-28776",
+      "node": "4018-28776",
+      "edge": "pm-update-9-a-2: Create my character_generating (time hin · 「Cancel」 → Create my character_Cancel/X → Stop and ",
+      "expected": "「Cancel」 asks 「Stop and lose your credits?」 with 「Leave anyway」/「Keep Generating」.",
+      "source": "figma-inventory"
+    },
+    {
+      "arrow": "4018-28778",
+      "node": "4018-28778",
+      "edge": "pm-update-9-b: Create my character_timeout (5 min) → Se · 「Send Feedback」 → Send Feedback_AI Issues (pre-filled)",
+      "expected": "「Send Feedback」 opens Feedback on 「AI Issues」 with the AI Feature Name and issue text pre-filled.",
       "source": "figma-inventory"
     }
   ]
