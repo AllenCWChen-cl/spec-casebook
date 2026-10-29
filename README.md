@@ -300,18 +300,65 @@ Set an environment variable for the session in PowerShell with `$env:NAME = "val
 ### 5. Figma (for spec analyses)
 
 Each analysis lists the Figma file's dated frames, because PDF exports can lag behind it, and reads the Design file's
-screens, controls and flow arrows for the control inventory. Connect Figma to your agent through Figma's MCP server
-(Claude Code: add the Figma connector or MCP server; Codex: add it under `mcp_servers`). This is an online service,
-not another repository; what it reads is saved in the feature folder (`extracted/figma-frames.json`,
-`figma-inventory-*.json`, board notes).
+screens, controls and flow arrows for the control inventory. Figma is an online service, not another repository;
+what it reads is saved in the feature folder (`extracted/figma-frames.json`, `figma-inventory-*.json`, board notes).
 
-| Figma file | Sign in as | Why |
-| --- | --- | --- |
-| Design spec | `qa-dm@cyberlink.com` | Dev seat: enough MCP calls for the inventory |
-| PM spec | `qa1@cyberlink.com` | `qa-dm` has only a View seat in PM Workspace, which allows very few MCP calls |
+The Figma files need two accounts, so the casebook uses **two Figma MCP servers**, each signed in once to its own
+account. No switching accounts between reads.
 
-The agent checks the account (`whoami`) before a read. Figma MCP calls are rationed per seat, so the inventory reads
-a whole group of boards per call, never one element at a time.
+| Server | Figma file | Sign in as | Why |
+| --- | --- | --- | --- |
+| `figma-design` | Design spec | `qa-dm@cyberlink.com` | Dev seat: enough MCP calls for the inventory |
+| `figma-pm` | PM and MX specs | `qa1@cyberlink.com` | `qa-dm` has only a View seat in PM Workspace, which allows very few MCP calls |
+
+**Claude Code.** Both servers are defined in the repo's `.mcp.json`, so no config is needed; only the approval and
+the two sign-ins. These are done once per machine, in the terminal version of Claude Code (the tested route, run
+from the desktop app's Terminal panel on 2026-10-29). The desktop app's agent can start it for you: ask it to "sign in the Figma
+servers", and it opens a Terminal panel tab running `claude` in this folder; you do steps 2–5 in that tab.
+
+1. Turn off the claude.ai **Figma connector** for Claude Code sessions in this folder (the composer's
+   **+ → Connectors** menu). If it stays on, the agent sees a third set of Figma tools signed in to whichever
+   account the connector uses. That switch is also the default for new sessions in other folders, so turn it back on
+   there if you use it elsewhere.
+2. Start `claude` in a terminal in this folder. With only the desktop app installed, the CLI is inside it:
+
+   ```bash
+   "$(ls -d "$HOME/Library/Application Support/Claude/claude-code/"*/*/claude.app/Contents/MacOS/claude | tail -1)"
+   ```
+
+   On a first start, pick a theme and sign in to Claude if it asks.
+3. When it asks about the project's MCP servers, approve `figma-design` and `figma-pm`.
+4. Type `/mcp`, choose `figma-design`, then **Authenticate**. Sign in to Figma in the browser as
+   `qa-dm@cyberlink.com`.
+5. Type `/mcp` again, choose `figma-pm`, then **Authenticate**. The browser is still signed in as qa-dm, so switch
+   accounts on Figma's sign-in page first (or paste the sign-in link into a private window) and sign in as
+   `qa1@cyberlink.com`. Exit with `/exit`.
+6. Check both accounts (the agent can run this for you; same CLI path as step 2):
+
+   ```bash
+   claude -p "Call whoami on the figma-design and figma-pm MCP servers. Reply 'figma-design: <email>' and 'figma-pm: <email>'." --allowedTools "mcp__figma-design__whoami,mcp__figma-pm__whoami" < /dev/null
+   ```
+
+   It must print `figma-design: qa-dm@cyberlink.com` and `figma-pm: qa1@cyberlink.com` (checked on 2026-10-29: the
+   two servers keep separate sign-ins although they share a URL).
+
+A desktop session that was already open when the servers were approved does not see them; start a new session. A
+token that expires later is renewed the same way (steps 2, 4–6 for that server).
+
+**Codex.** Add the same two names to your own Codex config, then sign each in:
+
+```bash
+codex mcp add figma-design --url https://mcp.figma.com/mcp
+codex mcp add figma-pm --url https://mcp.figma.com/mcp
+codex mcp login figma-design
+codex mcp login figma-pm
+```
+
+Sign in as qa-dm for `figma-design` and as qa1 for `figma-pm` (switch accounts in the browser between the two
+logins). Turn off the ChatGPT Figma app for this project so its tools don't sit beside these two.
+
+The agent checks the account (`whoami`) on each server before a read and stops if it is wrong. Figma MCP calls are
+rationed per seat, so the inventory reads a whole group of boards per call, never one element at a time.
 
 ### 6. ECL (only for eBug filing)
 
@@ -443,6 +490,7 @@ everything.
 ├── AGENTS.md                 # Rules for agents, incl. the team preferences (read first)
 ├── CLAUDE.md                 # Points Claude Code at AGENTS.md
 ├── INVESTIGATE.md            # Ideas to investigate, not implemented (e.g. several phones at once)
+├── .mcp.json                 # Figma MCP servers for Claude Code: figma-design (qa-dm), figma-pm (qa1)
 ├── .claude/skills/           # Skills for Claude Code
 ├── .codex/skills/            # The same skills for Codex (kept identical)
 ├── scripts/                  # TypeScript tools (spec reading, checks, review page, phone, run log)

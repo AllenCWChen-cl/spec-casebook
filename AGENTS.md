@@ -90,6 +90,15 @@ to a personal memory store; feature-specific run details go in the skills or the
   never element by element (skill: Reading the spec, step 10). Accounts (user, 2026-10-28): the Design Figma file is
   read as qa-dm@cyberlink.com (Dev seat), the PM and MX Figma files as qa1@cyberlink.com (qa-dm only has a View seat on PM);
   check with Figma MCP `whoami` before a read. The inventory is reviewed on the sheets before tracing (REQ-041).
+- **Two Figma MCP servers (user, 2026-10-29).** The repo's `.mcp.json` (Claude Code) defines `figma-design`, signed in
+  as qa-dm@cyberlink.com, and `figma-pm`, signed in as qa1@cyberlink.com (Codex: the same two names under
+  `mcp_servers`, README Setup 5). Read the Design file only through `figma-design` and the PM and MX files only
+  through `figma-pm`; never swap accounts by hand or read through a claude.ai Figma connector (turn it off for this
+  repo). Before the first read of a section, `whoami` on that server; a wrong or expired account stops the read and
+  the user signs it in again (`/mcp` in a terminal `claude`, or `codex mcp login <name>`). Sign-ins are the user's:
+  when a server is missing, pending approval or signed out, the agent opens a Terminal panel tab running the
+  `claude` CLI in this folder and walks the user through README Setup 5, then checks both accounts with the headless
+  `claude -p … whoami` command there (a session opened before the approval cannot see the servers).
 - **Wi-Fi during runs (2026-10-21).** Offline cases may turn Wi-Fi off and on during a run once the phone is
   confirmed on a USB cable; restore it right after the case. Other system settings still need the user's go-ahead.
 - **Finding rows on the phone.** Reach a list row only with `device.ts scrollto` (Pink rows: `device.ts pink …`),

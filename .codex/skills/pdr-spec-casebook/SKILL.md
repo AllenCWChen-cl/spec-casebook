@@ -188,7 +188,7 @@ and look at the tile images where layout, arrows or states matter.**
 8. **Check Figma for frames newer than the PDF (user, 2026-10-22, REQ-030).** A PDF export can be days older than the
    Figma file (the 10/19 Design PDF stopped at the 1014 updates; three 1016 frames were only in Figma). When the spec
    set has Figma links (`spec-set.json` → `figma`, or the links on the boards), list the file's pages with Figma MCP
-   `get_metadata` (no node ID), then `get_metadata` on the design page and collect every frame or text whose name
+   (`figma-design` for the Design file, `figma-pm` for PM and MX) `get_metadata` (no node ID), then `get_metadata` on the design page and collect every frame or text whose name
    starts with a date (`1016_…`, `1005_Update`) or is a dated update note. Compare them with the labels in the PDF OCR
    (`boards/*.md`). Read each label the PDF lacks with `get_screenshot` (save to `extracted/figma/`, local only) and
    `get_metadata` for its text, and add it to board-notes under 「Design — Figma only」. Record every dated label in
@@ -254,8 +254,15 @@ and look at the tile images where layout, arrows or states matter.**
    (`round/ic_vocal`) to join that group; a clipped card is already in its card set and a segment of a selector in
    its selector (drop those adds); 「behind a sheet」 is a per-screen `hide`, never a `drop`. A board whose Figma is
    newer than the PDF (`figma-frames.json`, e.g. MX and 1016 on 2026-10-28) is cut from a saved Figma screenshot
-   (`get_screenshot` of the board → `extracted/figma/<board>.png`), never from the stale PDF. Figma access: the Design file through the qa-dm
-   account's Dev seat; the PM and MX files need the qa1 account (qa-dm only has a View seat on PM). **PM and MX get the
+   (`get_screenshot` of the board → `extracted/figma/<board>.png`), never from the stale PDF. Figma access: the Design file through the
+   `figma-design` server (qa-dm account, Dev seat); the PM and MX files through the `figma-pm` server (qa1 account;
+   qa-dm only has a View seat on PM). Both are in the repo's `.mcp.json` (Codex: same names under `mcp_servers`);
+   `whoami` on the server before its first read, and stop for the user if it names the wrong account. If a server
+   is absent from the session, pending approval, needs auth or names the wrong account, do not read through any
+   other Figma tool: open a Terminal panel tab running the `claude` CLI in the repo (path in README Setup 5) and have
+   the user approve the servers and Authenticate each through `/mcp` (qa-dm for `figma-design`, then switch the
+   browser to qa1 for `figma-pm`); then confirm with the headless `claude -p … whoami` check from README Setup 5 and
+   continue the section in a new session or subagent, since a session opened before the approval cannot see them. **PM and MX get the
    same inventory (user, 2026-10-28, REQ-052)**: every Figma file of the spec set is read, not only Design. Their
    phones and arrows lie loose in one page or frame, so their boards are **regions** (`__BOARDS__` entry `{ name,
    parent, box }`, named after the PDF board id: `pm-main-flow`, `mx-a-left`) or dated update frames named the same
