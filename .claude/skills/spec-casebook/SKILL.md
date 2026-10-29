@@ -698,15 +698,20 @@ own phase, kept in results.csv's Phase column and split out in the report), the 
   (reinstall › first-launch › devserver › Pink Log stage timings ON › tier › Launcher screenshot). A run's first
   step is `build` and `reinstall … --check-only` to record whether a newer build exists in TestFlight; which build
   to test is the user's call.
-- **Live run plan (user, 2026-10-20).** `node scripts/plan-page.ts <feature> <platform> <draft id> <RUN-PLAN.md> --serve`
-  serves http://127.0.0.1:4390/, rebuilt from phases.json, every run folder's results.csv and run-state.md and the plan's
-  Log on each request; the page polls every 10 s, so each `run-log.ts set` appears live with no extra worker step. It is
-  a local process like the review server: start it once per run, never stop it unless asked. **The page leads with
+- **Live run plan (user, 2026-10-20).** A run starts the full pages server, not the plan page alone (user, 2026-10-29):
+  `node scripts/pages.ts <feature> <platform> --plan <RUN-PLAN.md> --plan-draft <draft id> [--lan]` serves
+  http://127.0.0.1:4386/ with all four tabs, **Progress** (this run plan) beside Cases, Results and Coverage, so the run's
+  results and tap proof can be followed live too. Use `--lan` when the user follows from another device. If a pages
+  server for the table is already running (`ps`), reuse it rather than starting a second; restart it only when it points
+  at another plan. The Progress tab is `plan-page.ts --serve` underneath: rebuilt from phases.json, every run folder's
+  results.csv and run-state.md and the plan's Log on each request; the page polls every 10 s, so each `run-log.ts set`
+  appears live with no extra worker step. It is a local process like the review server: start it once per run, never
+  stop it unless asked. **The page leads with
   the current run (user, 2026-10-22):** header totals, next case, the phases, their time and usage table, checkpoints
   and the Log cover only the current run (`phases.json` → `"current": [ids]` when set, else the newest `"round": true`
   phase and every phase after it, else all phases); earlier runs follow under 「Earlier runs」, in the order they ran (first
-  segment on top), with their own time and usage table and their phases collapsed. When a new draft or plan takes over, restart the server on it
-  (`plan-page.ts <feature> <platform> <new draft> <new plan> --serve`) so its run is the one at the top. An English / 中文
+  segment on top), with their own time and usage table and their phases collapsed. When a new draft or plan takes over, restart the pages server on it
+  (`pages.ts <feature> <platform> --plan <new plan> --plan-draft <new draft>`) so its run is the one at the top. An English / 中文
   toggle (user, 2026-10-27) switches everything the page writes itself (labels, states, result names, table headings,
   the usage notes) and is remembered per browser; run data (actions, notes, results text, log) stays as written. A new
   label or note in `plan-page.tpl` gets its Chinese too (`tx(en, zh)` in the script, `data-zh` on fixed HTML). Without `--serve` the

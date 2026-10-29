@@ -422,8 +422,8 @@ Typical requests:
 - The draft's `phases.json` splits the table into phases and segments, tags cases with what they need (`video`,
   `purchase`, `new-account`, …) and lists the needs this run can't meet; those cases are recorded Blocked up front.
 - Each segment runs in a clean agent context; the chat you talk to only orchestrates and never asks between
-  segments. A live run plan (`plan-page.ts --serve`, `http://127.0.0.1:4390/`) shows every case, checkpoint, time and
-  token use as the run goes.
+  segments. A run starts the four-tab pages server (`pages.ts --plan <RUN-PLAN.md>`, `http://127.0.0.1:4386/`): its
+  Progress tab shows every case, checkpoint, time and token use as the run goes, beside Cases, Results and Coverage.
 - Before the first test action: Log stage timings and Write Log on, build and server checked, tier set. When a phase
   needs video, one preview generation runs first as a gate; if it fails, video cases are recorded Blocked instead of
   spending six minutes each.
