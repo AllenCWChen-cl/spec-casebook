@@ -60,6 +60,12 @@ td.dec{white-space:nowrap}
 .seg button[aria-pressed="true"].k{background:var(--new);color:#fff} .seg button[aria-pressed="true"].d{background:var(--rem);color:#fff}
 button:focus-visible,.chip:focus-visible{outline:2px solid var(--edit);outline-offset:2px}
 .add{border:1px dashed var(--line);background:transparent;color:var(--muted);border-radius:6px;padding:3px 8px;font:500 .78rem var(--body);cursor:pointer}
+tr.newcase td{background:var(--new-soft);padding:10px 12px}
+tr.newcase textarea.big{min-height:9em;border:1px solid var(--new);background:var(--surface);font-size:14px;padding:8px 10px;field-sizing:content}
+tr.newcase .nh{display:flex;gap:10px;align-items:center;margin-bottom:6px;font-size:.84rem;color:var(--muted)}
+tr.newcase .nh b{color:var(--new)} tr.newcase .nh button{margin-left:auto}
+/* the table scrolls sideways: keep the note box within the window */
+tr.newcase td>*{position:sticky;left:12px;max-width:calc(100vw - 72px)}
 footer{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);padding:10px 20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;z-index:5}
 footer .counts{font-size:.84rem;color:var(--muted)} footer .counts b{color:var(--fg)}
 .btn{border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:8px 14px;border-radius:6px;font:600 .86rem var(--body);cursor:pointer}
@@ -106,9 +112,13 @@ const PAGES=window.CASEBOOK?.pages??(location.protocol==='file:'?{coverage:'cove
 const KEY='casebook:'+D.feature+':'+D.platform+':'+D.draft;
 // state: each row keeps its original values, current values, and the decision (keep/delete)
 let rows=D.rows.map((r,i)=>({orig:{...r},cur:{...r},dec:r.Change==='removed'?'delete':'keep',added:false,i}));
-try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(REVIEW&&s&&s.rows){rows=s.rows;}}catch(e){}
+// new-case notes (user, 2026-10-28): + Add case opens a free-text box under the section header instead of a blank row;
+// Save and Copy decisions hand the text to the agent, which writes the rows (section, precondition, spec ref) in a new draft
+let notes=[];
+try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(REVIEW&&s&&s.rows){rows=s.rows;notes=s.notes||[];}}catch(e){}
 const F={q:'',section:'',change:'',state:''};
-const persist=()=>{try{localStorage.setItem(KEY,JSON.stringify({rows}))}catch(e){}};
+const persist=()=>{try{localStorage.setItem(KEY,JSON.stringify({rows,notes}))}catch(e){}};
+const liveNotes=()=>notes.filter(n=>n.text.trim());
 const edited=r=>!r.added&&FIELDS.some(f=>(r.cur[f]??'')!==(r.orig[f]??''));
 const state=r=>r.dec==='delete'?'deleted':r.added?'added':edited(r)?'edited':'kept';
 const sections=()=>[...new Set(rows.map(r=>r.cur.Section||'(no section)'))];
@@ -131,7 +141,7 @@ function md(src){
 }
 function header(){
   const plat=D.platform==='ios'?'iOS':'Android';
-  $('#h').textContent=`${D.title} · ${plat} · ${REVIEW?'Review':'Approved test cases'}`;
+  $('#h').textContent=`${D.title} · ${plat} · ${REVIEW?'Cases':'Approved test cases'}`;
   const f=[];
   if(REVIEW){f.push(`Draft <code>${esc(D.draft)}</code>`);f.push(D.based_on_version?`Updates approved version ${D.based_on_version}`:'No approved table yet');}
   else f.push(`Version ${D.version} · approved ${esc((D.approved_at||'').slice(0,10))}`);
@@ -141,7 +151,7 @@ function header(){
   if(D.requirements){$('#reqBox').hidden=false;$('#req').innerHTML=md(D.requirements)}
   if(!REVIEW){document.body.classList.add('view');$('#decHead').hidden=true;$('#copyDec').hidden=true;$('#save').hidden=true}
   if(REVIEW&&!D.save){$('#save').disabled=true;$('#save').title='Open this page through scripts/review.ts to save.'}
-  $('#foot').textContent=REVIEW?'Edits are kept in this browser until you save. Save writes the approved CSV, keeps the previous version in history/, and regenerates the Excel and HTML views.':'Read-only view generated from cases.csv.';
+  $('#foot').textContent=REVIEW?'Edits and new-case notes are kept in this browser until you save. Save writes the approved CSV, keeps the previous version in history/, regenerates the Excel and HTML views, and hands new-case notes to the agent for the next draft.':'Read-only view generated from cases.csv.';
 }
 function filters(){
   const cnt=(k,v)=>rows.filter(r=>k==='change'?(r.cur.Change||'')===v:state(r)===v).length;
@@ -169,8 +179,9 @@ function idCell(r){
   const badges=[ch&&ch!=='unchanged'?`<span class="badge b-${ch}">${ch}</span>`:'',REVIEW&&st!=='kept'?`<span class="badge b-${st==='deleted'?'removed':st}">${st}</span>`:''].join(' ');
   // opens the coverage page on this case: its requirements, the spec boards they come from, the controls it presses
   // and the run plan on it: the segment that runs it and its latest result
-  const links=r.added?[]:[PAGES.coverage&&`<a class="spec" href="${esc(PAGES.coverage)}#case=${encodeURIComponent(r.cur.ID)}" title="Show where in the spec this case comes from">Spec →</a>`,
-    PAGES.plan&&`<a class="spec" href="${esc(PAGES.plan)}#case=${encodeURIComponent(r.cur.ID)}" title="Show this case in the run plan">Plan →</a>`].filter(Boolean);
+  const links=r.added?[]:[PAGES.coverage&&`<a class="spec" href="${esc(PAGES.coverage)}#case=${encodeURIComponent(r.cur.ID)}" title="Coverage: where in the spec this case comes from and the controls it presses">Coverage →</a>`,
+    PAGES.plan&&`<a class="spec" href="${esc(PAGES.plan)}#case=${encodeURIComponent(r.cur.ID)}" title="Progress: the segment that runs this case and its latest result">Progress →</a>`,
+    PAGES.results&&`<a class="spec" href="${esc(PAGES.results)}#case=${encodeURIComponent(r.cur.ID)}" title="Results: what each run found, with screenshots">Results →</a>`].filter(Boolean);
   const spec=links.length?`<div class="xl">${links.join('')}</div>`:'';
   return `${esc(r.cur.ID)}<div>${badges}</div>${spec}${r.cur['Change Reason']?`<div class="reason">${esc(r.cur['Change Reason'])}</div>`:''}`;
 }
@@ -179,7 +190,8 @@ function body(){
   for(const s of sections()){
     const rs=rows.filter(r=>(r.cur.Section||'(no section)')===s&&visible(r));
     if(!rs.length)continue;
-    h+=`<tr class="section"><td colspan="8">${esc(s)} <span class="note">(${rs.length})</span>${REVIEW?`<button class="add" data-sec="${esc(s)}">+ Add case</button>`:''}</td></tr>`;
+    h+=`<tr class="section"><td colspan="8">${esc(s)} <span class="note">(${rs.length})</span>${REVIEW?`<button class="add" data-sec="${esc(s)}" title="Describe new cases in your own words; they become rows in the next draft">+ Add case</button>`:''}</td></tr>`;
+    for(const n of notes.filter(n=>n.section===s))h+=`<tr class="newcase"><td colspan="8"><div class="nh"><b>New case notes</b><span>Write what to test in your own words, one case or several. After Save or Copy decisions, the agent places each case in the right section, fills in the columns and proposes the next draft.</span><button class="add" data-del="${esc(n.id)}">Remove</button></div><textarea class="big" data-note="${esc(n.id)}" placeholder="e.g. Tap the credit pill while the outline is generating: a leave dialog should appear, and leaving keeps the chat">${esc(n.text)}</textarea></td></tr>`;
     for(const r of rs){
       const st=state(r);
       h+=`<tr data-row="${esc(r.cur.ID)}" class="${st==='deleted'?'deleted':''}${r.cur.ID===focusId?' focus':''}"><td class="id">${idCell(r)}</td>
@@ -191,14 +203,20 @@ function body(){
   }
   tb.innerHTML=h||`<tr><td colspan="8" class="note">No cases match these filters.</td></tr>`;
   const find=id=>rows.find(r=>r.cur.ID===id);
-  tb.querySelectorAll('textarea,select').forEach(el=>{if(!REVIEW){el.readOnly=true;return}el.onchange=el.oninput=()=>{const r=find(el.dataset.id);r.cur[el.dataset.f]=el.value;persist();counts();const tr=el.closest('tr');tr.querySelector('td.id').innerHTML=idCell(r);};el.onblur=()=>filters()});
+  tb.querySelectorAll('textarea[data-note]').forEach(el=>el.oninput=()=>{notes.find(n=>n.id===el.dataset.note).text=el.value;persist();counts()});
+  tb.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{const n=notes.find(n=>n.id===b.dataset.del);if(n.text.trim()&&!confirm('Remove this note and its text?'))return;notes=notes.filter(x=>x!==n);persist();body();counts()});
+  tb.querySelectorAll('textarea[data-id],select').forEach(el=>{if(!REVIEW){el.readOnly=true;return}el.onchange=el.oninput=()=>{const r=find(el.dataset.id);r.cur[el.dataset.f]=el.value;persist();counts();const tr=el.closest('tr');tr.querySelector('td.id').innerHTML=idCell(r);};el.onblur=()=>filters()});
   tb.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{find(b.dataset.id).dec=b.dataset.d;persist();filters();body();counts()});
-  tb.querySelectorAll('.add').forEach(b=>b.onclick=()=>{const id=nextId();rows.push({orig:{},cur:{ID:id,Section:b.dataset.sec==='(no section)'?'':b.dataset.sec,Priority:'P2',Change:'new','Change Reason':'Added in review'},dec:'keep',added:true,i:rows.length});persist();filters();body();counts();setTimeout(()=>tb.querySelector(`textarea[data-id="${id}"][data-f="Action"]`)?.focus(),0)});
+  // + Add case: focus the section's empty note, else open a new one
+  tb.querySelectorAll('.add[data-sec]').forEach(b=>b.onclick=()=>{const sec=b.dataset.sec;let n=notes.find(n=>n.section===sec&&!n.text.trim());
+    if(!n){n={id:'N'+Date.now().toString(36),section:sec,text:'',at:new Date().toISOString()};notes.push(n);persist();body();}
+    setTimeout(()=>tb.querySelector(`textarea[data-note="${n.id}"]`)?.focus(),0)});
 }
 function counts(){
   const c=s=>rows.filter(r=>state(r)===s).length;
   const fin=rows.filter(r=>r.dec!=='delete').length;
-  $('#counts').innerHTML=REVIEW?`<b>${fin}</b> cases in the final table · kept ${c('kept')} · edited ${c('edited')} · added ${c('added')} · deleted ${c('deleted')}`:`<b>${rows.length}</b> cases`;
+  const nn=liveNotes().length;
+  $('#counts').innerHTML=REVIEW?`<b>${fin}</b> cases in the final table · kept ${c('kept')} · edited ${c('edited')} · added ${c('added')} · deleted ${c('deleted')}${nn?` · <b>${nn}</b> new-case note${nn>1?'s':''} for the next draft`:''}`:`<b>${rows.length}</b> cases`;
 }
 const COLS=['ID','Section','Precondition','Action','Expected Result','Priority','Spec Ref','Notes'];
 const q=v=>/[",\r\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;
@@ -220,19 +238,23 @@ function decisionText(){
     if(x.type==='add')L.push(`ADD ${x.id} [${x.row.Section}] Action: ${x.row.Action} | Expected: ${x.row['Expected Result']} | Spec Ref: ${x.row['Spec Ref']}`);
     if(x.type==='edit')L.push(`EDIT ${x.id} `+Object.entries(x.fields).map(([f,v])=>`${f}: "${v.to}"`).join(' | '));
   }
+  const ns=liveNotes();
+  if(ns.length){L.push('',`NEW CASE NOTES (${ns.length}): turn each into rows in the right section, then propose the next draft`);
+    for(const n of ns)L.push(`NOTE ${n.id} [typed under: ${n.section}]`,...n.text.trim().split(/\r?\n/).map(l=>'  '+l));}
   return L.join('\n');
 }
 async function copy(text,label){try{await navigator.clipboard.writeText(text);toast(label+' copied.')}catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast(label+' copied.')}catch(_){toast('Copy failed; select the text manually.')}ta.remove()}}
-$('#copyCsv').onclick=()=>copy(csv(),'Final CSV');
+$('#copyCsv').onclick=()=>{copy(csv(),'Final CSV');if(liveNotes().length)setTimeout(()=>toast('Final CSV copied. New-case notes are not rows yet: use Copy decisions or Save to hand them over.'),50)};
 $('#copyDec').onclick=()=>copy(decisionText(),'Decisions');
 $('#save').onclick=async()=>{
   const empty=finalRows().filter(r=>!r.Action||!r['Expected Result']);
   if(empty.length){toast(`Fill in Action and Expected Result for ${empty.map(r=>r.ID).join(', ')} before saving.`);return}
   $('#save').disabled=true;
-  try{const res=await fetch('save',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({rows:finalRows(),decisions:decisions(),summary:decisionText()})});
+  try{const res=await fetch('save',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({rows:finalRows(),decisions:decisions(),summary:decisionText(),notes:liveNotes()})});
     const j=await res.json();if(!res.ok)throw new Error(j.error||res.statusText);
     try{localStorage.removeItem(KEY)}catch(e){}
-    toast(`Saved as approved version ${j.version}: ${j.cases} cases. ${j.csv}`);
+    const nn=liveNotes().length;notes=[];body();counts();
+    toast(`Saved as approved version ${j.version}: ${j.cases} cases. ${j.csv}`+(nn?` · ${nn} new-case note${nn>1?'s':''} saved to ${j.notes_file}: ask the agent to turn them into the next draft.`:''));
   }catch(e){toast('Save failed: '+e.message)}finally{$('#save').disabled=false}
 };
 // #TC-012 (a link from the coverage page): show that row, clearing filters that hide it

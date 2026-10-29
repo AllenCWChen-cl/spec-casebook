@@ -123,12 +123,15 @@ node scripts/review.ts <feature> <platform>                  # edit the approved
 
 Run it in the background (it is a local server on 127.0.0.1, port 4387 or the next free one), give the user the
 printed URL, and tell them what to do. When the user wants the pages shared or together, run
-`node scripts/pages.ts <feature> <platform> [--draft <id>] [--lan]` instead: review, run plan and coverage on one
-address with tabs; each row's **Spec →** opens the coverage page on that case (its requirements, their spec boards and
-the controls it presses), and Save works only on this computer:
+`node scripts/pages.ts <feature> <platform> [--draft <id>] [--lan]` instead: four tabs on one address, **Cases** (this review
+page, `/cases/`), **Progress** (the run plan, `/progress/`), **Results** and **Coverage** (user, 2026-10-28), with one
+shared tab bar holding the only English / 中文 switch; each row's **Coverage →** opens the coverage page on that case
+(its requirements, their spec boards and the controls it presses), **Results →** its run records with the screenshots
+and the pass / fail / block reason, and Save works only on this computer:
 
 - Each row: edit any text inline, change Priority, **Keep** or **Delete**. Rows marked `removed` default to Delete.
-  `+ Add case` adds a row to that section. Modified rows show the previous text struck through.
+  `+ Add case` opens a free-text box under that section's header (user, 2026-10-28), not a blank row: the reviewer
+  describes the case in their own words. Modified rows show the previous text struck through.
 - **Copy decisions** copies a short change list to paste into the chat; **Copy final CSV** copies the whole table.
 - **Save as approved table** writes `cases.csv`, archives the previous version to `history/v<N>.csv`
   (+ its requirements), updates `manifest.json`, and regenerates `cases.xlsx` / `cases.html`. Saving again from
@@ -138,6 +141,19 @@ After the user says they saved, read `manifest.json` and `cases.csv` to confirm 
 report them. If the user pastes copied decisions instead of saving, apply them to the draft's rows, write the
 result with the same columns, and re-open the review (or save on their explicit request by editing `cases.csv`
 and re-running `node scripts/export.ts`). Leave the review server running unless the user asks you to stop it.
+
+**New-case notes (user, 2026-10-28).** Save appends the notes to `library/<feature>/<platform>/new-case-notes.json`
+(`status: "open"`, the version saved with them); Copy decisions ends with a `NEW CASE NOTES` block. Whenever either
+arrives, go over every open note before anything else: split it into the cases it describes, read each against the
+spec and `requirements.md` as an analysis would (which requirement it observes, or a new one when the spec states it;
+a note with no spec basis becomes a row only if the reviewer asks for it, with Notes 「Reviewer request」 and a
+`requests.md` entry), and decide its section from what it tests, not from where it was typed. Write the rows in the
+draft format (Precondition, Action, Expected Result, Priority, Spec Ref, Notes, `Change: new`, `Change Reason`
+naming the note ID), placed right after the row they extend (REQ-033); an existing row that already covers a note is
+modified instead, or the note is answered with that row's ID. If the notes came with a Save, start a new draft whose
+`draft.csv`, `requirements.md` and `spec.json` copy the version just saved, add the rows there, run `check.ts`, and open the review again on it; if they
+came as pasted text, add them to the open draft. Then set each note's `status` to `done` with the rows (or the
+answer) in `new-case-notes.json`, and tell the user which rows each note became.
 
 ### 5. Later questions about a feature
 

@@ -18,5 +18,5 @@ export type PageData = {
 export function renderPage(data: PageData): string {
   const tpl = readFileSync(join(ROOT, 'templates', 'table.html'), 'utf8');
   const json = JSON.stringify(data).replace(/</g, '\\u003c');
-  return tpl.replace('/*__DATA__*/null', json).replace('__TITLE__', `${data.title} · ${data.platform === 'ios' ? 'iOS' : 'Android'}`);
+  return tpl.replace('/*__DATA__*/null', json).replace('__TITLE__', `${data.title} ${data.mode === 'review' ? 'Cases' : 'Test Cases'} · ${data.platform === 'ios' ? 'iOS' : 'Android'}`);
 }

@@ -145,7 +145,7 @@ scripts. The full workflow needs **macOS**; Windows covers everything except rea
 | Tables: `status`, `fingerprint`, `add-spec`, `new-draft`, `check`, `review`, `export`, `annotations`, `spec-agent-gaps` | ✓ | ✓ |
 | Rendering spec frames (`render-region.ts`, `render-tiles.ts`) | ✓ | ✓ |
 | Reading a new spec set (`spec-boards.ts`: OCR through Apple's Vision framework and `swift`) | ✓ | ✗ (run it on a Mac and pull the committed `extracted/` text) |
-| Run log, log slicing, run plan page (`run-log.ts`, `log-slice.ts`, `plan-page.ts`) | ✓ | ✓ |
+| Run log, log slicing, run plan and results pages (`run-log.ts`, `log-slice.ts`, `plan-page.ts`, `results-page.ts`) | ✓ | ✓ |
 | Control inventory, review sheets, control trace, coverage page (`inventory.ts`, `inventory-sheets.ts`, `controls.ts`, `coverage-page.ts`) | ✓ | ✓ |
 | iPhone runs (`device.ts`, `app-setup.ts`: XCUITest, `xcrun`, `ditto`) | ✓ | ✗ |
 | Android runs | see [Phone (Android)](#4b-phone-android) | see [Phone (Android)](#4b-phone-android) |
@@ -441,25 +441,35 @@ owner, TR, account). After filing, every ticket is read back and recorded in `fi
 
 ### Live pages
 
-One command serves all three pages on one address, with tabs to switch between them:
+One command serves all four pages on one address, with tabs to switch between them:
 
 ```bash
 node scripts/pages.ts ai-mini-drama ios --lan
 ```
 
-It opens `http://127.0.0.1:4386/` (`/review/`, `/plan/`, `/coverage/`) and, with `--lan`, prints the LAN address
-to share. `--draft <id>` reviews a draft (and shows it on the coverage page); the run plan defaults to the newest
+It opens `http://127.0.0.1:4386/` with four tabs, **Cases** (the review page, `/cases/`), **Progress** (the run plan,
+`/progress/`), **Results** (`/results/`) and **Coverage** (`/coverage/`); old `/review/` and `/plan/` links still
+work. With `--lan` it prints the LAN address to share. `--draft <id>` reviews a draft (and shows it on the coverage page); the run plan defaults to the newest
 `runs/RUN-PLAN-*.md` and the newest draft with a `phases.json` (`--plan`, `--plan-draft` pick others). Save on the
 review page works only on the computer running the server; colleagues on the network can read, edit in their
-browser and Copy.
+browser and Copy. The tab bar is the same on every page and holds the one English / 中文 switch; the choice is
+remembered in the browser and applies to every page (table rows stay in English).
 
-The pages link to each other. Each review row has **Spec →**, which opens the coverage page on that case: its
+**Results** shows what each run found, case by case: the action, the expected result, what happened (the pass, fail
+or block reason, eBug codes highlighted, the blocked note) and the screenshots recorded as evidence, which open in a
+viewer (arrow keys step through them). Pick a run at the top; filter by result, segment or disposition, search, or
+show only cases with screenshots.
+
+On Cases, **+ Add case** opens a free-text box under the section header: describe the new case in your
+own words. Save (or Copy decisions, pasted into the chat) hands the notes to the agent, which turns each into rows in
+the right section, with the columns filled from the spec, in the next draft.
+
+The pages link to each other. Each row on Cases has **Coverage →**, which opens the coverage page on that case: its
 requirements, the spec boards they come from (Design boards from Figma; PM and MX spec regions as boards of their
-own), and the controls and flow arrows it presses, highlighted on the board. **Plan →** opens the run plan on the
-segment that runs the case, with its latest result. On the coverage page, a case ID opens that case's view, and
-**review →** / **plan →** open it on the other pages; each case on the run plan links to **review →** and
-**spec →**. Type a case ID (or just `12`) in the Case box,
-or open `/coverage/#case=TC-012`.
+own), and the controls and flow arrows it presses, highlighted on the board. **Progress →** opens the segment that
+runs the case, with its latest result; **Results →** opens its run records and screenshots. Every page links a case
+the same way: **cases →**, **progress →**, **results →**, **coverage →**. On Coverage, a case ID opens that case's
+view; type a case ID (or just `12`) in the Case box, or open `/coverage/#case=TC-012`.
 
 Each page can also run on its own, a small server started from the repository root. They read the files on every request (the
 coverage page at most every 30 s), so they show new results without a restart. Add `--lan` to open one from other
@@ -469,9 +479,10 @@ connections for `node`.
 
 | Page | Command | Address |
 | --- | --- | --- |
-| All three, with tabs | `node scripts/pages.ts ai-mini-drama ios [--draft <id>] [--lan]` | `http://127.0.0.1:4386/` |
+| All four, with tabs | `node scripts/pages.ts ai-mini-drama ios [--draft <id>] [--lan]` | `http://127.0.0.1:4386/` |
 | Review a draft or the approved table | `node scripts/review.ts ai-mini-drama ios [--draft <id>] [--lan]` | `http://127.0.0.1:4387/` |
 | Run plan (phases, cases, time, tokens) | `node scripts/plan-page.ts ai-mini-drama ios <draft> <run plan .md> --serve [port] [--lan]` | `http://127.0.0.1:4390/` |
+| Results (every run's cases, reasons and screenshots) | `node scripts/results-page.ts ai-mini-drama ios --serve [port] [--lan]` | `http://127.0.0.1:4492/` |
 | Coverage (controls, arrows, tap proof; English / 繁體中文) | `node scripts/coverage-page.ts ai-mini-drama ios [--draft <id>] --serve [port] [--lan]` | `http://127.0.0.1:4391/` |
 
 Each takes the next free port when its default is busy. Stop a server with Ctrl+C in its terminal. A review server
@@ -566,7 +577,8 @@ All scripts run from the repository root with `node scripts/<name>.ts`.
 | `inventory-overrides.ts <feature> <spec-set>` | Merges the review findings into `inventory-overrides.json` (each review file once) |
 | `controls.ts <feature> <platform> [--draft <id>]` | Writes `control-trace.json`: every control group and the rows that press it |
 | `coverage-page.ts <feature> <platform> [--draft <id>] [--serve [port] [--lan]]` | The coverage page: boards with controls and arrows marked, tap proof, what is planned or blocked |
-| `pages.ts <feature> <platform> [--draft <id>] [--plan <md>] [--plan-draft <id>] [--lan]` | Serves review, run plan and coverage on one address with tabs and links between them |
+| `results-page.ts <feature> <platform> [--serve [port] [--lan]]` | The results page: every run's cases with the reason and the screenshots (static: `runs/results.html`) |
+| `pages.ts <feature> <platform> [--draft <id>] [--plan <md>] [--plan-draft <id>] [--lan]` | Serves Cases (review), Progress (run plan), Results and Coverage on one address with tabs and links between them |
 | `review.ts <feature> <platform> [--draft <id>] [--lan]` | Serves the review page and saves the approved table (Save from this computer only) |
 | `export.ts <feature> <platform>` | Rebuilds `cases.xlsx` / `cases.html` from `cases.csv` |
 | `device.ts <run dir> <command>` | Appium client for the QA iPhone: screenshots, taps (each logged to `taps.jsonl`), `case`, `scrollto`, `waitfor`, `pink`, recipes, logs, ledger |

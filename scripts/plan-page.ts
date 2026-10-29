@@ -292,7 +292,7 @@ const page = (data: unknown, live: boolean) => {
   const d = data as { feature: string };
   const tpl = readFileSync(join(import.meta.dirname, 'plan-page.tpl'), 'utf8');
   // The static page carries its data inline and has no polling code (no fetch), so it renders with no server.
-  return (live ? tpl : tpl.replace(/\/\*LIVE\*\/[\s\S]*?\/\*\/LIVE\*\//, '')).replaceAll('__TITLE__', `${d.feature} Run Plan`)
+  return (live ? tpl : tpl.replace(/\/\*LIVE\*\/[\s\S]*?\/\*\/LIVE\*\//, '')).replaceAll('__TITLE__', `${d.feature} Progress`)
     .replace('__LIVE__', String(live)).replace('__DATA__', () => JSON.stringify(data).replace(/</g, '\\u003c').replace(/\uFFFD/g, '\\ufffd'));
 };
 

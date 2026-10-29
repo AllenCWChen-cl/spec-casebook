@@ -118,6 +118,7 @@ tbody tr.go { cursor: pointer } tbody tr.go:hover { background: var(--chip-bg) }
 .casef { display: flex; gap: 6px }
 .casef input { flex: 1; min-width: 0; font: inherit; font-size: 0.88rem; border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 7px; padding: 5px 8px }
 .casebar { position: absolute; left: 10px; top: 10px; display: flex; align-items: center; gap: 8px; background: #000c; color: #fff; font-size: 0.85rem; padding: 4px 6px 4px 10px; border-radius: 8px; max-width: calc(100% - 200px) }
+.casebar[hidden] { display: none }
 .casebar b { font-family: var(--mono); color: var(--hl) }
 .casebar button { font: 600 0.8rem var(--body); border: 0; background: #fff2; color: #fff; border-radius: 5px; padding: 2px 8px; cursor: pointer }
 .boards .cb { justify-self: start; font: 600 0.66rem var(--mono); color: #1a1a1a; background: var(--hl); border-radius: 4px; padding: 0 5px; line-height: 1.5 }
@@ -180,7 +181,7 @@ const D = __DATA__;
 // Interface strings in English and Traditional Chinese. Design labels, board names and row text stay as written.
 const I18N = {
   en: {
-    title: (t, p) => `${t} · ${p} coverage`,
+    title: (t, p) => `${t} · ${p} · Coverage`,
     lead: 'Every tappable element and flow arrow the Figma design draws, and whether a device run has pressed or walked it.',
     sub: (v, f, runs, from, to, taps, built) => `Table v${v} · ${f} · ${runs ? `${runs} runs (${from} – ${to})` : 'no runs yet'} · ${taps ? `${taps} logged taps` : 'no tap log yet'} · built ${built}`,
     st: { proof: 'Pressed (tap proof)', ran: 'Pressed (row ran)', blocked: 'Blocked on device', notrun: 'Planned, not run yet', none: 'No row (missing)', na: 'Excluded' },
@@ -222,16 +223,16 @@ const I18N = {
     specNone: s => `No ${s} boards in this inventory yet (its Figma file has not been read)`,
     reasons: {},
     caseFind: 'Case ID, e.g. TC-012', caseNotFound: id => `No case ${id} in this table.`, caseEyebrow: 'Case', caseWhere: 'Where in the spec',
-    casePresses: 'Controls it presses', caseWalks: 'Flow arrows it walks', caseScreens: 'Screens it names', caseClear: 'Clear',
+    casePresses: 'Controls it presses', caseWalks: 'Flow arrows it walks', caseScreens: 'Screens it names', caseClear: 'Clear', selControl: 'selected control', selArrow: 'selected arrow',
     caseNoItems: 'No control or arrow on the boards is tied to this case; the boards its requirements come from are listed above.',
-    caseNoRefs: 'This case names no requirement in its Spec Ref.', caseBack: id => `← Back to ${id}`, openReview: 'Open in the review page', reviewLink: 'review →', openPlan: 'Open in the run plan', planLink: 'plan →',
+    caseNoRefs: 'This case names no requirement in its Spec Ref.', caseBack: id => `← Back to ${id}`, openReview: 'Open in Cases', reviewLink: 'cases →', resultsLink: 'results →', openResults: 'Open in Results (screenshots)', openPlan: 'Open in Progress', planLink: 'progress →',
     caseBar: (g, a, b) => `${g} controls · ${a} arrows · on ${b} board${b === 1 ? '' : 's'}`, caseSrcOnly: 'spec board',
     action: 'Action', expected: 'Expected result', notOnBoards: 'no board for this source', regionOnly: 'Spec region (no controls traced)',
     caseOnBoard: 'case items here', caseSrc: 'a requirement of the case comes from this board',
     noSource: 'No spec board: a rule across the feature (tickets, roster, ledger request), not one drawing',
   },
   zh: {
-    title: (t, p) => `${t} · ${p} 覆蓋率`,
+    title: (t, p) => `${t} · ${p} · 覆蓋率`,
     lead: 'Figma 設計中每個可點擊元素與流程箭頭，以及裝置上的執行是否已按過或走過。',
     sub: (v, f, runs, from, to, taps, built) => `表格 v${v} · ${f} · ${runs ? `${runs} 次執行（${from} – ${to}）` : '尚無執行'} · ${taps ? `${taps} 筆點擊紀錄` : '尚無點擊紀錄'} · 產生於 ${built}`,
     st: { proof: '已按（有點擊證據）', ran: '已按（案例已執行）', blocked: '裝置上受阻', notrun: '已規劃，尚未執行', none: '無案例（缺漏）', na: '排除' },
@@ -283,9 +284,9 @@ const I18N = {
       'Daily-limit state for that tier could not be set up (test-data)': '無法為該方案設定每日上限狀態（測試資料）',
     },
     caseFind: '案例 ID，例如 TC-012', caseNotFound: id => `此表格沒有案例 ${id}。`, caseEyebrow: '案例', caseWhere: '來自規格的哪裡',
-    casePresses: '它按的控制項', caseWalks: '它走過的流程箭頭', caseScreens: '它提到的畫面', caseClear: '清除',
+    casePresses: '它按的控制項', caseWalks: '它走過的流程箭頭', caseScreens: '它提到的畫面', caseClear: '清除', selControl: '已選控制項', selArrow: '已選流程箭頭',
     caseNoItems: '畫板上沒有控制項或箭頭對應到此案例；其需求來自的畫板列在上方。',
-    caseNoRefs: '此案例的 Spec Ref 沒有列出需求。', caseBack: id => `← 回到 ${id}`, openReview: '在審查頁開啟', reviewLink: '審查頁 →', openPlan: '在執行計畫開啟', planLink: '執行計畫 →',
+    caseNoRefs: '此案例的 Spec Ref 沒有列出需求。', caseBack: id => `← 回到 ${id}`, openReview: '在案例頁開啟', reviewLink: '案例 →', resultsLink: '結果 →', openResults: '在結果頁開啟（截圖）', openPlan: '在進度頁開啟', planLink: '進度 →',
     caseBar: (g, a, b) => `${g} 個控制項 · ${a} 個箭頭 · 分布於 ${b} 個畫板`, caseSrcOnly: '規格畫板',
     action: '動作', expected: '預期結果', notOnBoards: '此來源沒有畫板', regionOnly: '規格區域（未追蹤控制項）',
     caseOnBoard: '此案例的項目', caseSrc: '此案例的某項需求來自這個畫板',
@@ -293,7 +294,7 @@ const I18N = {
   },
 };
 let L = 'en';
-try { L = new URLSearchParams(location.search).get('lang') === 'zh' ? 'zh' : localStorage.getItem('coverage-lang') === 'zh' ? 'zh' : 'en'; } catch {}
+try { L = window.CASEBOOK ? window.CASEBOOK.lang : new URLSearchParams(location.search).get('lang') === 'zh' ? 'zh' : localStorage.getItem('coverage-lang') === 'zh' ? 'zh' : 'en'; } catch {}
 const t = k => I18N[L][k] ?? I18N.en[k];
 const ST = () => t('st');
 const tr = r => r.split('; ').map(x => I18N[L].reasons?.[x] ?? x).join('；');
@@ -487,10 +488,16 @@ function hoverMark(m, keep) {
 const kindName = k => t('kinds')[k] ?? k;
 const rowHtml = id => { const r = D.rows[id] || { result: 'Not run' };
   // the id opens the case view here; review → opens the row on the review page
-  return `<div class="row"><a class="id" href="#case=${encodeURIComponent(id)}">${esc(id)}</a>${PAGES.review ? `<a class="rv" href="${esc(PAGES.review)}#${encodeURIComponent(id)}">${t('reviewLink')}</a>` : ''}${PAGES.plan ? `<a class="rv" href="${esc(PAGES.plan)}#case=${encodeURIComponent(id)}">${t('planLink')}</a>` : ''}<span class="res ${esc(r.result)}">${esc(r.result === 'Not run' ? t('plannedRes') : r.result)}</span>${r.reason ? ` <span style="color:var(--blocked);font-size:.8rem">${esc(tr(r.reason))}</span>` : ''}${r.run ? ` <span class="mono" style="color:var(--muted)">${esc(r.run)}</span>` : ''}<div>${esc(r.action || '')}</div>${r.actual ? `<div style="color:var(--muted);font-size:.82rem">${esc(r.actual)}</div>` : ''}</div>`; };
+  return `<div class="row"><a class="id" href="#case=${encodeURIComponent(id)}">${esc(id)}</a>${PAGES.review ? `<a class="rv" href="${esc(PAGES.review)}#${encodeURIComponent(id)}">${t('reviewLink')}</a>` : ''}${PAGES.plan ? `<a class="rv" href="${esc(PAGES.plan)}#case=${encodeURIComponent(id)}">${t('planLink')}</a>` : ''}${PAGES.results ? `<a class="rv" href="${esc(PAGES.results)}#case=${encodeURIComponent(id)}">${t('resultsLink')}</a>` : ''}<span class="res ${esc(r.result)}">${esc(r.result === 'Not run' ? t('plannedRes') : r.result)}</span>${r.reason ? ` <span style="color:var(--blocked);font-size:.8rem">${esc(tr(r.reason))}</span>` : ''}${r.run ? ` <span class="mono" style="color:var(--muted)">${esc(r.run)}</span>` : ''}<div>${esc(r.action || '')}</div>${r.actual ? `<div style="color:var(--muted);font-size:.82rem">${esc(r.actual)}</div>` : ''}</div>`; };
 function select(kind, id) {
-  sel = kind === 'g' ? { group: id } : { arrow: id }; draw(); renderPanel();
+  sel = kind === 'g' ? { group: id } : { arrow: id }; draw(); renderPanel(); caseBar();
 }
+// Clear ✕ or Esc: drop the selected control or arrow (back to the case when one is open); a second Esc clears the case
+function clearSel() { sel = null; draw(); renderPanel(); caseBar(); }
+addEventListener('keydown', e => {
+  if (e.key !== 'Escape' || e.target.closest?.('input, textarea, select')) return;
+  if (sel) clearSel(); else if (kase) clearCase();
+});
 function renderPanel() {
   const p = $('panel');
   if (!sel && kase) { casePanel(); return; }
@@ -519,7 +526,7 @@ function renderPanel() {
       ${a.src ? `<p><a href="#" id="srcl">${t('srcControl')}</a></p>` : ''}<h2 style="margin-top:14px">${t('rows')}</h2>${a.rows.length ? a.rows.map(rowHtml).join('') : `<p class="empty">${t('noArrowRows')}</p>`}`;
     if (a.src) $('srcl').onclick = e => { e.preventDefault(); select('g', a.src); };
   }
-  if (kase) $('back').onclick = () => { sel = null; draw(); renderPanel(); };
+  if (kase) $('back').onclick = clearSel;
 }
 // ---- Case view: where a case comes from ----
 const inBoard = (b, [x, y]) => x >= b.box[0] && x <= b.box[0] + b.box[2] && y >= b.box[1] && y <= b.box[1] + b.box[3];
@@ -561,11 +568,17 @@ function clearCase() {
   if (location.hash) history.replaceState(null, '', location.pathname + location.search);
   caseBar(); boardsNav(); draw(); renderPanel();
 }
+// the bar over the board: the open case, or the selected control or arrow when no case is open
 function caseBar() {
-  const el = $('casebar'); el.hidden = !kase; if (!kase) return;
-  const nb = D.boards.filter(b => caseOnBoard(b)).length;
-  el.innerHTML = `<b>${esc(kase)}</b><span>${esc(t('caseBar')(caseIt.groups.length, caseIt.arrows.length, nb))}</span><button id="caseclr">${t('caseClear')} ✕</button>`;
-  $('caseclr').onclick = clearCase;
+  const el = $('casebar'); el.hidden = !kase && !sel; if (el.hidden) return;
+  if (kase) {
+    const nb = D.boards.filter(b => caseOnBoard(b)).length;
+    el.innerHTML = `<b>${esc(kase)}</b><span>${esc(t('caseBar')(caseIt.groups.length, caseIt.arrows.length, nb))}</span><button id="caseclr">${t('caseClear')} ✕</button>`;
+    $('caseclr').onclick = clearCase; return;
+  }
+  const g = sel.group && D.groups.find(x => x.group === sel.group), a = sel.arrow && D.arrows.find(x => x.id === sel.arrow);
+  el.innerHTML = `<b>${esc(g ? g.label || g.name : a?.edge ?? '')}</b><span>${t(g ? 'selControl' : 'selArrow')}</span><button id="caseclr">${t('caseClear')} ✕</button>`;
+  $('caseclr').onclick = clearSel;
 }
 function casePanel() {
   const r = D.rows[kase], it = caseIt;
@@ -585,7 +598,7 @@ function casePanel() {
   $('panel').innerHTML = `<div class="k muted" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.04em">${t('caseEyebrow')}${r.section ? ` · ${esc(r.section)}` : ''}</div>
     <h2>${esc(kase)} <span class="res ${esc(r.result)}">${esc(r.result === 'Not run' ? t('plannedRes') : r.result)}</span></h2>
     <dl><dt>${t('action')}</dt><dd>${esc(r.action)}</dd><dt>${t('expected')}</dt><dd>${esc(r.expected)}</dd></dl>
-    <p style="display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 0">${PAGES.review ? `<a href="${esc(PAGES.review)}#${encodeURIComponent(kase)}">${t('openReview')} →</a>` : ''}${PAGES.plan ? `<a href="${esc(PAGES.plan)}#case=${encodeURIComponent(kase)}">${t('openPlan')} →</a>` : ''}</p>
+    <p style="display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 0">${PAGES.review ? `<a href="${esc(PAGES.review)}#${encodeURIComponent(kase)}">${t('openReview')} →</a>` : ''}${PAGES.plan ? `<a href="${esc(PAGES.plan)}#case=${encodeURIComponent(kase)}">${t('openPlan')} →</a>` : ''}${PAGES.results ? `<a href="${esc(PAGES.results)}#case=${encodeURIComponent(kase)}">${t('openResults')} →</a>` : ''}</p>
     <h2 style="margin-top:14px">${t('caseWhere')}</h2>${r.refs.length ? r.refs.map(reqHtml).join('') : `<p class="empty">${t('caseNoRefs')}</p>`}
     ${it.groups.length ? `<h2 style="margin-top:14px">${t('casePresses')} (${it.groups.length})</h2><div class="items">${it.groups.map(gBtn).join('')}</div>` : ''}
     ${it.arrows.length ? `<h2 style="margin-top:14px">${t('caseWalks')} (${it.arrows.length})</h2><div class="items">${it.arrows.map(aBtn).join('')}</div>` : ''}
@@ -671,6 +684,8 @@ function unmatchedList() {
 }
 function render() { header(); strip(); legend(); unmatchedList(); specFilter(); boardsNav(); draw(); renderPanel(); gaps(); caseBar(); }
 for (const b of document.querySelectorAll('.lang button')) b.onclick = () => { L = b.dataset.lang; try { localStorage.setItem('coverage-lang', L); } catch {} render(); };
+// served by scripts/pages.ts: the tab bar holds the one language switch for every page
+if (window.CASEBOOK) { document.querySelector('.lang')?.remove(); addEventListener('casebook-lang', e => { L = e.detail; render(); }); }
 board = D.boards.find(b => b.img) || D.boards[0]; openBoard(board); render(); hashCase();
 </script>
 </body>

@@ -99,6 +99,11 @@ to a personal memory store; feature-specific run details go in the skills or the
   when a server is missing, pending approval or signed out, the agent opens a Terminal panel tab running the
   `claude` CLI in this folder and walks the user through README Setup 5, then checks both accounts with the headless
   `claude -p … whoami` command there (a session opened before the approval cannot see the servers).
+- **Live pages (user, 2026-10-28).** `scripts/pages.ts` serves four tabs, Cases (review), Progress (run plan), Results and Coverage, with one
+  shared tab bar that holds the only language switch; a page served there never shows its own. Results
+  (`scripts/results-page.ts`) shows each case's reason and screenshots. On the review page `+ Add case` takes free
+  text, never a blank row: after a Save (`new-case-notes.json`) or a pasted Copy decisions, the agent turns every
+  open note into rows in the right section and proposes the next draft (skill: Human review, New-case notes).
 - **Wi-Fi during runs (2026-10-21).** Offline cases may turn Wi-Fi off and on during a run once the phone is
   confirmed on a USB cable; restore it right after the case. Other system settings still need the user's go-ahead.
 - **Finding rows on the phone.** Reach a list row only with `device.ts scrollto` (Pink rows: `device.ts pink …`),

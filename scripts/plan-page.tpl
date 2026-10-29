@@ -138,7 +138,7 @@ details.hist > summary { cursor: pointer; font-size: 13.5px; color: var(--muted)
 
 <div class="wrap">
   <header style="display:grid;gap:10px">
-    <div class="top"><div class="eyebrow"><span data-zh="測試表執行計畫 · 本次執行">Casebook run plan · current run</span></div><div class="lang" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">English</button><button type="button" data-l="zh" aria-pressed="false">中文</button></div></div>
+    <div class="top"><div class="eyebrow"><span data-zh="測試表進度 · 本次執行">Casebook progress · current run</span></div><div class="lang" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">English</button><button type="button" data-l="zh" aria-pressed="false">中文</button></div></div>
     <h1>__TITLE__</h1>
     <div class="run-name" id="runname"></div>
     <div class="meta" id="meta"></div>
@@ -192,9 +192,9 @@ details.hist > summary { cursor: pointer; font-size: 13.5px; color: var(--muted)
 let DATA = __DATA__;
 const LIVE = __LIVE__;
 // Language: English or 中文 for everything the page writes itself; run data (actions, notes, results text, log) stays
-// as written in the files. The choice is remembered per browser.
+// as written in the files. The choice is remembered per browser (served by pages.ts: the tab bar's switch).
 let LANG = 'en';
-try { if (localStorage.getItem('plan-lang') === 'zh') LANG = 'zh'; } catch (e) {}
+if (window.CASEBOOK) LANG = window.CASEBOOK.lang; else try { if (localStorage.getItem('plan-lang') === 'zh') LANG = 'zh'; } catch (e) {}
 const tx = (en, zh) => LANG === 'zh' ? zh : en;
 const RES = ['Pass', 'Fail', 'Blocked', 'Inconclusive', 'Not run'];
 const RES_ZH = { 'Pass': '通過', 'Fail': '失敗', 'Blocked': '受阻', 'Inconclusive': '無法判定', 'Not run': '未執行' };
@@ -205,7 +205,7 @@ const COLOR = { 'Pass': 'var(--pass)', 'Fail': 'var(--fail)', 'Blocked': 'var(--
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 // the other pages, when scripts/pages.ts serves this one (window.CASEBOOK); none for the static plan.html
 const PAGES = window.CASEBOOK?.pages ?? {};
-const xlinks = id => (PAGES.review || PAGES.coverage) ? `<div class="xl">${PAGES.review ? `<a href="${esc(PAGES.review)}#${encodeURIComponent(id)}">${tx('review', '審查')} →</a>` : ''}${PAGES.coverage ? `<a href="${esc(PAGES.coverage)}#case=${encodeURIComponent(id)}">${tx('spec', '規格')} →</a>` : ''}</div>` : '';
+const xlinks = id => (PAGES.review || PAGES.coverage || PAGES.results) ? `<div class="xl">${PAGES.review ? `<a href="${esc(PAGES.review)}#${encodeURIComponent(id)}">${tx('cases', '案例')} →</a>` : ''}${PAGES.results ? `<a href="${esc(PAGES.results)}#case=${encodeURIComponent(id)}">${tx('results', '結果')} →</a>` : ''}${PAGES.coverage ? `<a href="${esc(PAGES.coverage)}#case=${encodeURIComponent(id)}">${tx('coverage', '覆蓋率')} →</a>` : ''}</div>` : '';
 let focusCase = '';
 const tally = cs => { const t = Object.fromEntries(RES.map(r => [r, 0])); cs.forEach(c => t[c.result in t ? c.result : 'Not run']++); return t; };
 const bar = t => { const n = Object.values(t).reduce((a, b) => a + b, 0) || 1; return RES.map(r => t[r] ? `<span style="width:${t[r] / n * 100}%;background:${COLOR[r]}" title="${resName(r)} ${t[r]}"></span>` : '').join(''); };
@@ -402,6 +402,8 @@ function applyStatic() {
 }
 function setLang(l) { LANG = l; try { localStorage.setItem('plan-lang', l); } catch (e) {} applyStatic(); render(); }
 document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.l)));
+// served by scripts/pages.ts: the tab bar holds the one language switch for every page
+if (window.CASEBOOK) { document.querySelector('.lang')?.remove(); addEventListener('casebook-lang', e => { LANG = e.detail; applyStatic(); render(); }); }
 // #case=TC-012 (a link from the review or coverage page): open the segment that runs it, in the current run when it
 // is there, else the latest earlier run, and scroll to its row
 function showCase() {

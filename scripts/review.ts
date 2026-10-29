@@ -6,6 +6,9 @@
 // coverage page, which shows where in the spec the case comes from.
 // Save writes library/<feature>/<platform>/cases.csv (the approved table), archives the previous
 // version under history/, updates manifest.json, and regenerates cases.xlsx and cases.html.
+// New-case notes (+ Add case opens a free-text box, user 2026-10-28) are not rows: Save appends them to
+// library/<feature>/<platform>/new-case-notes.json with status "open", and the agent turns them into rows in the next
+// draft (skill: "New-case notes").
 import { copyFileSync, existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { createServer } from 'node:http';
 import { networkInterfaces } from 'node:os';
@@ -51,7 +54,8 @@ const page = (local: boolean) => renderPage({
   spec_files: spec.spec_files, rows, previous: draftArg ? previous : {}, requirements, update_plan: plan,
 });
 
-async function save(body: { rows: Record<string, string>[]; decisions: unknown[]; summary: string }) {
+type Note = { id: string; section: string; text: string; at?: string };
+async function save(body: { rows: Record<string, string>[]; decisions: unknown[]; summary: string; notes?: Note[] }) {
   const current = readManifest(feature, platform);
   const sameDraft = current?.draft === draftId;
   const version = current ? (sameDraft ? current.version : current.version + 1) : 1;
@@ -73,10 +77,17 @@ async function save(body: { rows: Record<string, string>[]; decisions: unknown[]
     spec_folder: spec.spec_folder ?? current?.spec_folder, spec_files: spec.spec_files, spec_set_sha256: spec.spec_set_sha256, cases: clean.length, history: [...hist, entry] };
   writeJson(join(table, 'manifest.json'), m);
   const logDir = draftDir ?? join(table, 'history');
-  writeJson(join(logDir, draftDir ? 'decisions.json' : `${draftId}-decisions.json`), { saved_at: now, version, decisions: body.decisions, summary: body.summary });
+  const notes = (body.notes ?? []).filter(n => n.text?.trim());
+  writeJson(join(logDir, draftDir ? 'decisions.json' : `${draftId}-decisions.json`), { saved_at: now, version, decisions: body.decisions, summary: body.summary, notes });
+  const notesFile = join(table, 'new-case-notes.json');
+  if (notes.length) {
+    const old = existsSync(notesFile) ? JSON.parse(readFileSync(notesFile, 'utf8')) : { notes: [] };
+    old.notes.push(...notes.map(n => ({ ...n, text: n.text.trim(), saved_at: now, saved_with: `v${version}`, draft: draftId, status: 'open' })));
+    writeJson(notesFile, old);
+  }
   const out = await exportTable(feature, platform);
   writeFeatureIndex(feature);
-  return { version, cases: clean.length, csv: join(table, 'cases.csv'), ...out };
+  return { version, cases: clean.length, csv: join(table, 'cases.csv'), notes: notes.length, notes_file: notes.length ? notesFile : '', ...out };
 }
 
 const isLocal = (a = '') => a === '127.0.0.1' || a === '::1' || a === '::ffff:127.0.0.1';
@@ -90,7 +101,7 @@ const server = createServer(async (req, res) => {
       if (!local) { res.writeHead(403, { 'content-type': 'application/json' }); res.end(JSON.stringify({ error: 'Save works only on the computer running scripts/review.ts.' })); return; }
       let raw = ''; for await (const c of req) raw += c;
       const result = await save(JSON.parse(raw));
-      console.log(`Saved version ${result.version}: ${result.cases} cases → ${result.csv}`);
+      console.log(`Saved version ${result.version}: ${result.cases} cases → ${result.csv}${result.notes ? ` · ${result.notes} new-case notes → ${result.notes_file}` : ''}`);
       res.writeHead(200, { 'content-type': 'application/json' }); res.end(JSON.stringify(result)); return;
     }
     res.writeHead(404); res.end('Not found');
