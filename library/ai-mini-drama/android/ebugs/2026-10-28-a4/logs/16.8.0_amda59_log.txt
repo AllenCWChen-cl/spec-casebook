@@ -1,0 +1,10 @@
+# ISS-AMDA-59 Stop during the cast confirmation: turn cancelled, error text shown
+# PowerDirector Mobile for Android 16.8.0 (2610212), TR261021-0082, Stage server, Sony Xperia 10 III / Android 12, account Free. Excerpt of the app's logcat (captured per run segment; the release build writes no readable app log).
+# Lines about turns, decisions, charges (receipts; balance shown only when it changes), failures, template mapping,
+# pushes and turn ends in the windows below; member tokens dropped, URL queries cut at '?'.
+
+## TC-154 ✓ 04:14:10, Stop 04:14:25 (2026-10-29 04:14:05–04:14:45; logs/A4-h-20261029-044109/logcat-live.txt)
+2026-10-29 04:14:25.559 MiniDrama Log: [TOOL] MyCreation cancel session=261029_033614_06ca7a4d calls=0
+2026-10-29 04:14:25.562 MiniDrama Log: [TURN] cancel_turn -> 0
+2026-10-29 04:14:25.668 MiniDrama Log: [TURN] turn_complete: final_state=cancelled
+2026-10-29 04:14:25.669 MiniDrama Log: [TURN] turn failed: final_state=cancelled

@@ -1,0 +1,40 @@
+Filing as Creator: ETHAN_HSU
+  Creator verified — last filed DRA262610P0363 on 2026-10-28
+Format check: PDR-A 16.8.0
+
+13 bug(s) checked — 0 error(s), 0 warning(s)
+Format OK — clear to file.
+
+[AI-Mini-Drama-A4-01] created DRA262610P0380
+  DRA262610P0380  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+[AI-Mini-Drama-A4-02] created DRA262610P0381
+[AI-Mini-Drama-A4-03] created DRA262610P0382
+[AI-Mini-Drama-A4-04] created DRA262610P0383
+[AI-Mini-Drama-A4-05] created DRA262610P0384
+[AI-Mini-Drama-A4-06] created DRA262610P0385
+[AI-Mini-Drama-A4-07] created DRA262610P0386
+[AI-Mini-Drama-A4-08] created DRA262610P0387
+[AI-Mini-Drama-A4-09] created DRA262610P0388
+[AI-Mini-Drama-A4-10] created DRA262610P0389
+[AI-Mini-Drama-A4-11] created DRA262610P0390
+[AI-Mini-Drama-A4-12] created DRA262610P0391
+[AI-Mini-Drama-A4-13] created DRA262610P0392
+
+created 13 · skipped 0 · failed 0
+
+Read-back (Status: OK is not proof — Version has been seen not to persist):
+  DRA262610P0380  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0381  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0382  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0383  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0384  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0385  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0386  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0387  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0388  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0389  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0390  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0391  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0392  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+
+Attachments are NOT part of create — upload them with `ecl_if3.py upload <BugCode> <files…>` (SKILL.md → IF3 attachments over the API).

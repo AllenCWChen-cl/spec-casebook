@@ -1,0 +1,190 @@
+{
+  "TC-091": {
+    "label": "A failed scene clip (none failed this round; no fault switch on Android 16.8)",
+    "note": "every video generation of A4 succeeded; a good clip offers no Edit / regenerate"
+  },
+  "TC-483": {
+    "label": "A failed scene clip (none failed this round; no fault switch on Android 16.8)",
+    "note": "every video generation of A4 succeeded; a good clip offers no Edit / regenerate"
+  },
+  "TC-092": {
+    "label": "A failed scene clip (none failed this round; no fault switch on Android 16.8)",
+    "note": "every video generation of A4 succeeded; a good clip offers no Edit / regenerate"
+  },
+  "TC-093": {
+    "label": "A failed scene clip (none failed this round; no fault switch on Android 16.8)",
+    "note": "every video generation of A4 succeeded; a good clip offers no Edit / regenerate"
+  },
+  "TC-096": {
+    "label": "A failed scene clip (none failed this round; no fault switch on Android 16.8)",
+    "note": "every video generation of A4 succeeded; a good clip offers no Edit / regenerate"
+  },
+  "TC-144": {
+    "label": "A failed scene clip (none failed this round; no fault switch on Android 16.8)",
+    "note": "every video generation of A4 succeeded; a good clip offers no Edit / regenerate"
+  },
+  "TC-145": {
+    "label": "A failed scene clip (none failed this round; no fault switch on Android 16.8)",
+    "note": "every video generation of A4 succeeded; a good clip offers no Edit / regenerate"
+  },
+  "TC-146": {
+    "label": "A failed scene clip (none failed this round; no fault switch on Android 16.8)",
+    "note": "every video generation of A4 succeeded; a good clip offers no Edit / regenerate"
+  },
+  "TC-147": {
+    "label": "A failed scene clip (none failed this round; no fault switch on Android 16.8)",
+    "note": "every video generation of A4 succeeded; a good clip offers no Edit / regenerate"
+  },
+  "TC-148": {
+    "label": "A failed scene clip (none failed this round; no fault switch on Android 16.8)",
+    "note": "every video generation of A4 succeeded; a good clip offers no Edit / regenerate"
+  },
+  "TC-531": {
+    "label": "A failed scene clip (none failed this round; no fault switch on Android 16.8)",
+    "note": "every video generation of A4 succeeded; a good clip offers no Edit / regenerate"
+  },
+  "TC-149": {
+    "label": "A failed scene clip (none failed this round; no fault switch on Android 16.8)",
+    "note": "every video generation of A4 succeeded; a good clip offers no Edit / regenerate"
+  },
+  "TC-150": {
+    "label": "A failed scene clip (none failed this round; no fault switch on Android 16.8)",
+    "note": "every video generation of A4 succeeded; a good clip offers no Edit / regenerate"
+  },
+  "TC-297": {
+    "label": "A failed scene clip (none failed this round; no fault switch on Android 16.8)",
+    "note": "every video generation of A4 succeeded; a good clip offers no Edit / regenerate"
+  },
+  "TC-314": {
+    "label": "A failed scene clip (none failed this round; no fault switch on Android 16.8)",
+    "note": "every video generation of A4 succeeded; a good clip offers no Edit / regenerate"
+  },
+  "TC-315": {
+    "label": "A failed scene clip (none failed this round; no fault switch on Android 16.8)",
+    "note": "every video generation of A4 succeeded; a good clip offers no Edit / regenerate"
+  },
+  "TC-316": {
+    "label": "A failed scene clip (none failed this round; no fault switch on Android 16.8)",
+    "note": "every video generation of A4 succeeded; a good clip offers no Edit / regenerate"
+  },
+  "TC-296": {
+    "group": "need:fault-injection",
+    "note": "needs a scene clip set to fail; no real clip failure this round"
+  },
+  "TC-305": {
+    "group": "need:fault-injection",
+    "note": "needs a scene clip set to fail; no real clip failure this round"
+  },
+  "TC-151": {
+    "group": "need:stt-failure",
+    "note": "speech-to-text never failed this round"
+  },
+  "TC-355": {
+    "group": "need:fault-injection",
+    "note": "needs a Storyboard Preview TTS failure; all 4 previews of A4-d2 built"
+  },
+  "TC-043": {
+    "group": "need:fault-injection",
+    "note": "the real character failure (TC-042) did not repeat; generating alone succeeded"
+  },
+  "TC-077": {
+    "label": "A failed scene image (every storyboard image succeeded this round)",
+    "note": "four storyboards in A4-d2 finished with every image; a good scene offers no Edit"
+  },
+  "TC-140": {
+    "label": "A failed scene image (every storyboard image succeeded this round)",
+    "note": "four storyboards in A4-d2 finished with every image; a good scene offers no Edit"
+  },
+  "TC-530": {
+    "label": "A failed scene image (every storyboard image succeeded this round)",
+    "note": "four storyboards in A4-d2 finished with every image; a good scene offers no Edit"
+  },
+  "TC-141": {
+    "label": "A failed scene image (every storyboard image succeeded this round)",
+    "note": "four storyboards in A4-d2 finished with every image; a good scene offers no Edit"
+  },
+  "TC-428": {
+    "label": "A failed scene image (every storyboard image succeeded this round)",
+    "note": "four storyboards in A4-d2 finished with every image; a good scene offers no Edit"
+  },
+  "TC-312": {
+    "label": "A failed scene image (every storyboard image succeeded this round)",
+    "note": "four storyboards in A4-d2 finished with every image; a good scene offers no Edit"
+  },
+  "TC-313": {
+    "label": "A failed scene image (every storyboard image succeeded this round)",
+    "note": "four storyboards in A4-d2 finished with every image; a good scene offers no Edit"
+  },
+  "TC-034": {
+    "label": "One-time hint already seen on this install (needs a fresh install; not in A4-j)",
+    "note": "the 「Tap to choose a look for …」 tip shows once per install"
+  },
+  "TC-035": {
+    "label": "One-time hint already seen on this install (needs a fresh install; not in A4-j)",
+    "note": "the 「Tap to choose a look for …」 tip shows once per install"
+  },
+  "TC-309": {
+    "label": "One-time hint already seen on this install (fresh install, A4-j)",
+    "note": "the 「Tap to choose a look for …」 tip shows once per install"
+  },
+  "TC-117": {
+    "group": "need:chat-count",
+    "note": "12 counted sends in The Understudy reached no limit (Stage limit 9999)"
+  },
+  "TC-215": {
+    "group": "need:chat-count",
+    "note": "12 counted sends in The Understudy reached no limit (Stage limit 9999)"
+  },
+  "TC-219": {
+    "group": "need:chat-count",
+    "note": "12 counted sends in The Understudy reached no limit (Stage limit 9999)"
+  },
+  "TC-220": {
+    "group": "need:chat-count",
+    "note": "12 counted sends in The Understudy reached no limit (Stage limit 9999)"
+  },
+  "TC-221": {
+    "group": "need:chat-count",
+    "note": "12 counted sends in The Understudy reached no limit (Stage limit 9999)"
+  },
+  "TC-424": {
+    "group": "need:app-language",
+    "note": "app follows the system language on Android 12; user away"
+  },
+  "TC-002": {
+    "label": "CMS content not served",
+    "note": "the Seedance 2.0 hero banner never showed in 5 relaunches"
+  },
+  "TC-411": {
+    "label": "Test material not on the phone or not found",
+    "note": "no built-in look the app rejects (whole library scrolled)"
+  },
+  "TC-054": {
+    "label": "Test material not on the phone or not found",
+    "note": "no public-figure photo on the phone; pushing one needs a download"
+  },
+  "TC-139": {
+    "label": "Test material not on the phone or not found",
+    "note": "no scene script longer than its area in three dramas"
+  },
+  "TC-366": {
+    "label": "Not observable on Android 16.8",
+    "note": "the crop file sent is in the app's private cache (release build, not readable)"
+  },
+  "TC-389": {
+    "label": "Not observable on Android 16.8",
+    "note": "no scene card can be opened while the storyboard generates (skeleton only)"
+  },
+  "TC-496": {
+    "label": "French video not made this round",
+    "note": "deferred from A4-d2 to A4-g, which made no French video"
+  },
+  "TC-485": {
+    "label": "Server-unreachable request can't be sent",
+    "note": "Wi-Fi off is caught client-side (「You're offline…」), nothing reaches the server"
+  },
+  "TC-224": {
+    "group": "need:chat-count",
+    "note": "A4-j fresh install done, but Stage shows no daily chat count and no limit dialog (limit 9999)"
+  }
+}

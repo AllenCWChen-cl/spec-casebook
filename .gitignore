@@ -55,3 +55,6 @@ library/*/*/coverage.html
 # both stay local (user, 2026-10-28: keep the repo lean). Pages committed before this rule stay tracked.
 library/*/*/ebugs/*/*_eBug_review_*.html
 library/*/*/runs/plan-server*.log
+# eBug filing staging folders are regenerated copies of the drafts' bodies and attachments (drafts_to_bodies.py)
+library/*/*/ebugs/*/upload/
+library/*/*/ebugs/*/upload_filing/

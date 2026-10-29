@@ -1,0 +1,34 @@
+# ISS-AMDA-51 Generate all for two characters, one TextToImage failure (error_code=4000) and the refund
+# PowerDirector Mobile for Android 16.8.0 (2610212), TR261021-0082, Stage server, Sony Xperia 10 III / Android 12, account Free. Excerpt of the app's logcat (captured per run segment; the release build writes no readable app log).
+# Lines about turns, decisions, charges (receipts; balance shown only when it changes), failures, template mapping,
+# pushes and turn ends in the windows below; member tokens dropped, URL queries cut at '?'.
+
+## TC-042 Generate all 19:13:13 (2026-10-28 19:13:10–19:14:00; logs/A4-b1-20261028-192328/logcat-live.txt)
+2026-10-28 19:13:15.464 MiniDrama Log: [TURN] turn_complete: final_state=complete
+2026-10-28 19:13:15.484 MiniDrama Log: [DECISION] pre-approved 'character': {IMAGE=2, VOICE=2}
+2026-10-28 19:13:15.487 MiniDramaPerf: t20 +2.13s                        host   turn          turn_end                       superseded
+2026-10-28 19:13:15.490 MiniDrama Log: [USER] AnswerCharacterNotReady
+2026-10-28 19:13:22.791 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-28 19:13:22.796 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-28 19:13:22.799 MiniDrama Log: [DECISION] allowing 'TextToSpeech' x1 (already approved)
+2026-10-28 19:13:22.803 MiniDrama Log: [DECISION] allowing 'TextToSpeech' x1 (already approved)
+2026-10-28 19:13:24.058 CreditSystemManager: totalRemain=17993
+2026-10-28 19:13:26.677 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…tts_4 consumeTaskId=91663601 files=1
+2026-10-28 19:13:27.195 CreditSystemManager: totalRemain=17992
+2026-10-28 19:13:27.604 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…tts_2 consumeTaskId=91663602 files=1
+2026-10-28 19:13:28.010 CreditSystemManager: totalRemain=17991
+2026-10-28 19:13:28.629 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_1 consumeTaskId=91663604 files=1
+2026-10-28 19:13:29.101 CreditSystemManager: totalRemain=17985
+2026-10-28 19:13:29.221 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_3 consumeTaskId=91663605 files=1
+2026-10-28 19:13:31.324 MiniDrama Log: [TOOL] MyCreation receipt completed call=…tts_4
+2026-10-28 19:13:32.194 MiniDrama Log: [TOOL] MyCreation receipt completed call=…tts_2
+2026-10-28 19:13:45.261 MiniDramaFail: [TextToImage] generation_failed: Others | detail=tti=task_end status=Error error_code=4000
+2026-10-28 19:13:45.266 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_1
+2026-10-28 19:13:45.682 CreditSystemManager: totalRemain=17988
+2026-10-28 19:13:46.608 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_3
+2026-10-28 19:13:46.671 MiniDrama Log: [TURN] turn_complete: final_state=complete
+2026-10-28 19:13:46.675 MiniDrama Log: [TURN] failure: agent_tool_dispatch('TextToImage') failed: generation_failed - Others
+2026-10-28 19:13:46.675 MiniDramaFail: [engine] target=char_48a1821b | tool=GPTImage2 | agent_tool_dispatch('TextToImage') failed: generation_failed - Others
+2026-10-28 19:13:46.688 MiniDramaFail: [turn] {"error_message":"","status_code":0} | agent_tool_dispatch('TextToImage') failed: generation_failed - Others
+2026-10-28 19:13:46.728 MiniDramaPerf: t21 +31.2s                        host   turn          turn_end                       complete stage=storyboard→character
+2026-10-28 19:13:46.728 MiniDramaPerf: t21 +31.2s                        host   ui            ui_rendered

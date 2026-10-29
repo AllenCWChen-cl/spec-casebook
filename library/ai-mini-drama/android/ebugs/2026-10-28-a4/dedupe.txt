@@ -1,0 +1,257 @@
+Dedupe per OS (user, 2026-10-28) — AI Mini Drama Android, phase A4 (final, A4-j included), 16.8.0 (2610212). Read-only; nothing filed, commented or reopened.
+Pool: ecl_query.py bugs --product "PowerDirector Mobile for Android" --text "Mini Drama" (348 tickets, read 2026-10-29, incl. the 40 A2 bugs DRA262610P0324–P0363 and P0364–P0376 filed since);
+ecl_query.py dedupe upload/bodies.json --product "PowerDirector Mobile for Android" --limit 1000 for the 13 new entries (output judged below). iOS tickets never make a duplicate.
+Closed-ticket rule (user, 2026-10-28): a same-OS ticket that is Close while the bug is back stays a new entry (ISS-AMDA-50 ≈ DRA262610-0061). Tickets RD declined (Cancelled, NAB, NotReproducible, Won't Fix) are treated as not 'back' and stay here — see the flagged lines.
+
+== Not listed: Fail rows that repeat an existing Android ticket (no card, no recheck row) ==
+DRA262610-0015 [NewCreated] [AIFound] AI Mini Drama: Create my character "AI Suggestion" copies the outline role line instead of describin
+    TC-407: AI Suggestion copies the role line
+DRA262610-0019 [Close] [AIFound][UX] AI Mini Drama: Ethnicity options in character filter do not match Create my character  ⚑ closed/declined status — see note
+    TC-289: see HELD: result conflicts with TC-288
+DRA262610-0024 [NewCreated] AI Mini Drama (Create my character): AI Mini Drama generates a male-looking character when Gender is set to Fe
+    TC-408: Female setting gives a man
+DRA262610-0032 [Assigned] [AIFound] AI Mini Drama: Generate all blocks the screen for 12-14 minutes with no cancel / DRA262610P0302 [NewCreated] [AIFound][UX] AI Mini Drama: Generate all says it takes about 1 minute but takes over 4 minutes
+    TC-170: ~55 s cast-confirm wait
+DRA262610-0045 [NewCreated] [AIFound][UX] AI Mini Drama: Unchecked My characters only checkbox has a gray outline
+    TC-410: unchecked checkbox grey
+DRA262610-0046 [NewCreated] [AIFound][UX] AI Mini Drama: Delete confirmation does not name the selected drama
+    TC-111: delete body has no title
+DRA262610-0049 [TRCreated] [AIFound][UX] AI Mini Drama: Stopping outline generation removes progress without explanatory feedback
+    TC-153: outline Stop silent
+DRA262610-0049 [TRCreated] [AIFound][UX] AI Mini Drama: Stopping outline generation removes progress without explanatory feedback / DRA262610P0348 [Assigned] [AIAgent] AI Mini Drama: Chat loses earlier messages and cards after a reopen, a Stop or a resume
+    TC-155: revision Stop silent
+DRA262610-0050 [RDResolved] [AIFound][UI] AI Mini Drama: English storyboard dialogue uses Chinese corner quotes
+    TC-282: English scripts use 「」
+DRA262610-0057 [TRCreated] [AIFound][UX] AI Mini Drama: Paid storyboard Stop gives no cancellation or credit explanation
+    TC-156: storyboard Stop; charges after the cancel
+DRA262610P0047 [NewCreated] [AIFound][UX] AI Mini Drama: Renaming a drama does not move it to the top of History
+    TC-108: rename keeps the place
+DRA262610P0063 [NeedCodeReview] [UI] AI Mini Drama: Prompt question disappears from chat history after tapping Continue
+    TC-414: format question gone after Generate
+DRA262610P0065 [NewCreated] [AIAgent][UX] AI Mini Drama: Template rows lack a cue to discover more items by swiping
+    TC-415: no cue for more templates
+DRA262610P0069 [NAB] [AIFound] AI Mini Drama: Re-entering Full Edit creates a new project instead of reopening the edited one  ⚑ closed/declined status — see note
+    TC-417: Full Edit re-entry makes a new project (status NAB)
+DRA262610P0071 [ProposeNAB] [AIFound][UX] AI Mini Drama: Export Full Video leaves out the text, sticker and filter added in Full Edit
+    TC-418: Full Edit text missing from the export
+DRA262610P0072 [NewCreated] [AIFound][UX] AI Mini Drama: Chat text scrolls under the Back, credit and History buttons
+    TC-419: text behind the header
+DRA262610P0077 [Assigned] [AIFound][UX] AI Mini Drama: Leaving right after Generate storyboard shows no 'Stop and lose your credits?' wa
+    TC-061: storyboard stage ① exits
+    TC-062: storyboard stage ① exits
+    TC-063: storyboard stage ① exits
+    TC-398: storyboard stage ① exits
+    TC-399: storyboard stage ① exits
+    TC-294: chat update stage ① Back
+DRA262610P0077 [Assigned] [AIFound][UX] AI Mini Drama: Leaving right after Generate storyboard shows no 'Stop and lose your credits?' wa / DRA262610P0195 [NewCreated] [AIFound][UX] AI Mini Drama: History omits active storyboard processing state / DRA262610P0116 [Assigned] [AIAgent] AI Mini Drama: History does not identify a task that is still generating
+    TC-359: stage ① exits; History state
+DRA262610P0083 [NewCreated] [AIFound][UX] AI Mini Drama: Scene clips are auto-saved to Movies with internal file names / DRA262610P0276 [NewCreated] [AIFound][UX] AI Mini Drama: Result card download saves two raw 15-sec clips without captions
+    TC-422: downloads named reftovideo_…
+    TC-090: downloaded clips without captions
+DRA262610P0084 [NewCreated] [AIFound][UX] AI Mini Drama: Full Edit marks the drama's own captions as Pro, blocking free Export
+    TC-423: Full Edit Export asks Pro for captions
+DRA262610P0127 [Cancelled] [AIAgent][UI] AI Mini Drama: The 1000-character idea limit has no visible warning  ⚑ closed/declined status — see note
+    TC-015: no counter / inline 1,000-character message
+    TC-016: no inline limit message
+    TC-017: no counter
+DRA262610P0134 [Assigned] [AIAgent] AI Mini Drama: Storyboard image updates use a generic in-place regeneration flow
+    TC-385: no per-scene skeletons
+DRA262610P0134 [Assigned] [AIAgent] AI Mini Drama: Storyboard image updates use a generic in-place regeneration flow / DRA262610P0199 [Assigned] [AIFound] AI Mini Drama: Storyboard regeneration ignores the requested scene image change
+    TC-073: image change not applied
+DRA262610P0135 [RDResolved] [AIAgent] AI Mini Drama: AI Suggestion fills only the description and leaves required attributes unset
+    TC-126: AI Suggestion = role line, attributes unset
+DRA262610P0147 [NewCreated] [AIFound][UX] AI Mini Drama: Create my character cannot be closed or stopped while Generating
+    TC-383: outside tap while generating does nothing
+DRA262610P0156 [NewCreated] [Quality] AI Mini Drama: Generated video contains illogical actions and scene continuity issues / DRA262610P0154 [Assigned] [Quality] AI Mini Drama: Male character's outfit changes unexpectedly during the video
+    TC-436: outfit continuity in the video
+DRA262610P0159 [ProposeNAB] [AI Agent] AI Mini Drama: "Create the full episode" shows 60 sec instead of 90 sec in AI Mini Drama
+    TC-086: full offer 60 sec
+DRA262610P0169 [RDResolved] [AIFound][UI] AI Mini Drama: Storyboard Preview captions are split in the middle of a word
+    TC-443: Chinese preview captions split
+DRA262610P0174 [Assigned] [AIFound][UX] AI Mini Drama: Assistant says the storyboard is created before Create storyboard is tapped
+    TC-044: assistant claims a storyboard
+    TC-447: template replies claim a finished storyboard
+DRA262610P0178 [RDResolved] [UI] AI Mini Drama (Custom topic): Remove the redundant "Ready to create your characters?" header
+    TC-448: two headers over the slots
+DRA262610P0184 [Assigned] [AIFound] AI Mini Drama: Leaving a template chat before the outline shows no confirm and still saves it
+    TC-452: template chat leaves with no dialog and is saved
+DRA262610P0198 [Assigned] [AIFound] AI Mini Drama: Storyboard credit rate differs from the article expectation
+    TC-060: 3 credits per image
+    TC-070: ◆3 not ◆6
+    TC-072: ◆3 per image
+DRA262610P0199 [Assigned] [AIFound] AI Mini Drama: Storyboard regeneration ignores the requested scene image change
+    TC-458: image change not applied
+DRA262610P0199 [Assigned] [AIFound] AI Mini Drama: Storyboard regeneration ignores the requested scene image change / DRA262610P0027 [Propose Wont Fix] [AIFound][UX] AI Mini Drama: Storyboard Preview stays "unavailable" even after the missing scene image is rege
+    TC-074: no new TTS / preview
+DRA262610P0200 [NewCreated] [AIFound] AI Mini Drama (JP, The Dog Who Remembered Her): Shiro has no preset reference image
+    TC-459: JP Dog: Shiro dropped
+DRA262610P0202 [NewCreated] [AIFound] AI Mini Drama (US, Glad We Came): Lily reference conflicts with the script appearance
+    TC-461: Glad We Came looks vs outline
+DRA262610P0203 [NewCreated] [AIFound] AI Mini Drama (US, The Dog Who Remembered Her): Murphy has no preset reference image
+    TC-462: EN Dog: Murphy dropped, no cast
+DRA262610P0209 [NewCreated] [AIFound][UX] AI Mini Drama: Message sent during the format card discards it and applies default settings
+    TC-468: message during the format card applies defaults
+DRA262610P0210 [NeedNewModule] [AIFound] AI Mini Drama: Reference-photo character ignores Age while the chip still shows it
+    TC-469: photo overrides Age
+DRA262610P0211 [NewCreated] [AIFound][UX] AI Mini Drama: Send button stays Stop during a job, so sending cancels the job
+    TC-470: send button stays Stop
+DRA262610P0213 [NewCreated] [AIFound][UX] AI Mini Drama: After stopping the outline, the chat shows no stopped state and no retry
+    TC-471: no stopped note / Try again
+DRA262610P0222 [Assigned] [AIFound] AI Mini Drama: Re-offered video settings card lacks model and quotes 120 for a 60 job
+    TC-079: no 「Model • Seedance」 row
+DRA262610P0224 [NewCreated] [AIFound][UX] AI Mini Drama: Choose Character accepts a gender-mismatched character without warning
+    TC-477: no gender-mismatch warning
+DRA262610P0225 [NewCreated] [AIFound][UX] AI Mini Drama: Create my character leaves Gender and Age empty despite the outline
+    TC-478: nothing prefilled from the outline (PM)
+DRA262610P0227 [NewCreated] [AIFound][UX] AI Mini Drama: Preview and full-episode cards look identical, no label or length
+    TC-479: no card label; preview card replaced (PM)
+DRA262610P0229 [NewCreated] [AIFound][UX] AI Mini Drama: Add New character regenerates immediately, with no way to say who to add
+    TC-480: Add New regenerates at once
+DRA262610P0230 [NewCreated] [AIFound][UX] AI Mini Drama: Mini Drama result player has no progress bar or time
+    TC-481: no progress bar in the player
+DRA262610P0236 [NewCreated] [AIFound][UX] AI Mini Drama: Same library look can be assigned to two roles without any warning
+    TC-487: same look for two roles, no warning
+DRA262610P0237 [NewCreated] [AIFound][UX] AI Mini Drama (Custom): Format card always resets to English and captions on
+    TC-488: format card resets to English + captions
+DRA262610P0240 [NeedCodeReview] [AIFound] AI Mini Drama: Next episode of a No-captions drama is generated with burned-in captions
+    TC-490: next episode burns in captions
+DRA262610P0244 [RDResolved] [AIFound][UI] AI Mini Drama: Video and storyboard captions break mid-word or leave a lone word on line 2
+    TC-492: Chinese caption pages split words
+DRA262610P0254 [NewCreated] [AIFound][UX] AI Mini Drama: Scripted lines, scene count and dialect requests change without notice
+    TC-497: quoted lines / scene count dropped
+DRA262610P0257 [RDResolved] [AIFound] AI Mini Drama: Failed character says credits refunded but the 4 credits are kept
+    TC-500: failed character's Text to Speech −1 not refunded
+DRA262610P0262 [NeedCodeReview] [AIAgent] AI Mini Drama: X closes a completed character without discard confirmation
+    TC-340: no Discard dialog
+DRA262610P0268 [Assigned] [AIFound] AI Mini Drama: Template chat stops after the outline with no Create storyboard card
+    TC-503: template chat stops after the outline
+DRA262610P0273 [Assigned] [AIFound] AI Mini Drama: Credit Details records only half of the video generation charge
+    TC-504: Credit Details −60 for a −120 video
+DRA262610P0274 [NewCreated] [AIFound] AI Mini Drama: Best (Seedance 2.5) and Standard (Seedance 2.0) quote the same credits
+    TC-080: Best priced as Standard
+DRA262610P0286 [NeedCodeReview] [AIFound][UI] AI Mini Drama: Player preview and the clip strip below show different clips
+    TC-506: player ≠ highlighted clip
+DRA262610P0288 [Assigned] [AIFound] AI Mini Drama: End of long captions is dropped (Chinese) or flashes for 0.6 s (Spanish)
+    TC-507: end of a long Chinese line dropped
+DRA262610P0290 [QA Propose Wont Fix] [AIFound][UX] AI Mini Drama: Character description shows story role only, not outfit, hair or accessories
+    TC-508: descriptions are role-only
+DRA262610P0297 [NeedCodeReview] [UI] AI Mini Drama: Clip strip does not scroll with playback, so the last playing clip stays off screen
+    TC-510: strip does not follow
+DRA262610P0324 [Assigned] [AIAgent] AI Mini Drama: Surprise me appends the same inspiration on every tap
+    TC-014: Surprise me appends the same inspiration
+DRA262610P0325 [NewCreated] [AIAgent][UI] AI Mini Drama: First outline card is titled 「Story Outline Result」
+    TC-024: first outline card title
+DRA262610P0326 [Assigned] [AIAgent][UI] AI Mini Drama: Character filter lists 「Other」 twice under Gender
+    TC-036: Other twice under Gender
+DRA262610P0327 [Assigned] [AIAgent] AI Mini Drama: Character generation is priced at 4 credits instead of 6
+    TC-039: ◆4 price on the sheet (subtitle: ISS-AMDA-50)
+    TC-040: ◆4 not ◆6
+    TC-047: ◆4 not ◆6
+DRA262610P0328 [Assigned] [AIAgent][UI] AI Mini Drama: Update characters card shows no character count
+    TC-045: no character count
+    TC-350: no 「• 2 characters」
+DRA262610P0329 [Assigned] [AIAgent] AI Mini Drama: X on 「Your characters are ready」 still applies the looks and commits the cast
+    TC-121: X on the ready sheet applies the looks
+    TC-527: system Back on the ready sheet applies the looks, as X
+DRA262610P0330 [Assigned] [AIAgent] AI Mini Drama: Leave anyway drops finished character looks but keeps their credits
+    TC-337: Leave anyway drops paid looks
+DRA262610P0331 [Assigned] [AIAgent][UI] AI Mini Drama: Asking to change a character shows a different question and a single chip
+    TC-348: other question, one chip
+DRA262610P0332 [Assigned] [AIAgent] AI Mini Drama: A typed character name does not lead to the Update characters card
+    TC-429: chat request gives no Update characters card
+DRA262610P0333 [Assigned] [AIAgent][UI] AI Mini Drama: Character update shows other progress and result messages than the spec
+    TC-349: update messages
+    TC-352: update result copy
+DRA262610P0334 [Assigned] [AIAgent] AI Mini Drama: Back during a chat character update leaves with no stop dialog
+    TC-351: Back during an update
+DRA262610P0335 [Assigned] [AIAgent] AI Mini Drama: Expanded description editor cuts text to 1,000 characters and writes it back
+    TC-051: editor cuts to 1,000
+DRA262610P0336 [Assigned] [AIAgent] AI Mini Drama: Dragging inside the description box opens the editor instead of scrolling the text
+    TC-125: drag opens the editor
+DRA262610P0337 [NeedCodeReview] [AIAgent] AI Mini Drama: Closing a generated character with X, swipe down or Back saves it to Mine anyway / DRA262610P0262 [NeedCodeReview] [AIAgent] AI Mini Drama: X closes a completed character without discard confirmation
+    TC-057: X saves without dialog
+    TC-134: no Discard dialog
+    TC-339: no Discard dialog
+    TC-342: no Discard dialog
+    TC-401: no Discard dialog
+DRA262610P0338 [NeedCodeReview] [AIAgent][UI] AI Mini Drama: Generated character page has no Discard button
+    TC-341: no Discard button
+DRA262610P0339 [Assigned] [AIAgent][UI] AI Mini Drama: Delete character dialog body differs from the spec text
+    TC-058: delete dialog copy
+DRA262610P0340 [Assigned] [AIAgent] AI Mini Drama: Storyboard and video generation skip the 10/22 stage messages and charge per image / DRA262610P0122 [Propose Wont Fix] [AIAgent][UI] AI Mini Drama: Storyboard confirmation bubble shows the wrong text / DRA262610P0197 [NewCreated] [AIFound][UX] AI Mini Drama: Create storyboard message remains after storyboard generation succeeds
+    TC-377: stage copy, user bubble
+DRA262610P0340 [Assigned] [AIAgent] AI Mini Drama: Storyboard and video generation skip the 10/22 stage messages and charge per image / DRA262610P0226 [NewCreated] [AIFound][UX] AI Mini Drama: Pending video shows Here's your drama. over an empty card, no progress
+    TC-405: no in-place card / 「Making your video…」
+DRA262610P0341 [Assigned] [AIAgent] AI Mini Drama: Stop button stays in the input bar after Generate (10/22: only the mic)
+    TC-512: ■ stop button
+    TC-157: video Stop silent; no Stop in stage ②
+DRA262610P0342 [Assigned] [AIAgent] AI Mini Drama: Video stage ①: exits leave with no 「Leave while we're preparing?」 dialog
+    TC-515: video stage ① exits
+    TC-516: video stage ① exits
+DRA262610P0343 [Assigned] [AIAgent] AI Mini Drama: Storyboard stage ②: Back still asks 「Stop and lose your credits?」
+    TC-513: stage ② 「Stop and lose your credits?」
+DRA262610P0344 [Assigned] [AIAgent] AI Mini Drama: Storyboard stops when the app is swiped away and resumes only on reopen
+    TC-514: storyboard resumes only on reopen
+DRA262610P0346 [Assigned] [AIAgent] AI Mini Drama: Storyboard and video dramas reopen at the outline, not their latest stage / DRA262610P0347 [Assigned] [AIAgent] AI Mini Drama: Reopened dramas lose the confirmed cast and the characters card
+    TC-113: chats reopen at the top
+DRA262610P0348 [Assigned] [AIAgent] AI Mini Drama: Chat loses earlier messages and cards after a reopen, a Stop or a resume
+    TC-163: revision turn vanishes after a reopen
+DRA262610P0349 [Assigned] [AIAgent][UI] AI Mini Drama: Scroll-to-bottom button sits at the bottom centre instead of the bottom right
+    TC-374: ↓ centred
+DRA262610P0350 [Assigned] [AIAgent] AI Mini Drama: Sent message is not moved to the top and the view follows the reply
+    TC-344: view follows the reply
+DRA262610P0351 [Assigned] [AIAgent] AI Mini Drama: Returning from History, Choose Character or Full Edit keeps the old scroll position
+    TC-101: chat keeps the scroll position
+    TC-102: chat keeps the scroll position
+    TC-311: chat keeps the position after Full Edit
+DRA262610P0352 [Assigned] [AIAgent][UI] AI Mini Drama: History thumbnail shows a character look instead of the first storyboard frame / DRA262610-0063 [NeedCodeReview] [AIFound][UX] AI Mini Drama: Template dramas get titles that differ from the template name in history
+    TC-106: template drama title / thumbnail
+DRA262610P0354 [Assigned] [AIAgent][UI] AI Mini Drama: Video and storyboard cards show no 「You'll have N left」 line under Generate
+    TC-115: no 「You'll have N left」
+DRA262610P0358 [Assigned] [AIAgent] AI Mini Drama: Renaming a drama during a video job: the push uses the old name and no toast shows
+    TC-308: push uses the old name
+DRA262610P0359 [NeedCodeReview] [AIAgent] AI Mini Drama: Leaving the export page asks to leave and cancels the export
+    TC-517: Back while producing asks to leave
+DRA262610P0360 [NeedCodeReview] [AIAgent][UI] AI Mini Drama: Export producing and done pages show another drama's thumbnail / DRA262610P0243 [NeedCodeReview] [AIAgent] AI Mini Drama(Export): Show export panel after tapping "Export Full Video" / DRA262610P0219 [Assigned] [AIFound] AI Mini Drama: Export Full Video shows the preview's 51.6 MB estimate for the 90 s full episode
+    TC-343: export sheet + producing page
+DRA262610P0361 [Assigned] [AIAgent] AI Mini Drama: Generation waits exceed 10 seconds with only Stop or leaving possible
+    TC-169: ~68 s outline wait
+    TC-171: ~41 s revision wait
+    TC-172: ~75 s storyboard wait
+    TC-173: ~160 s video prep wait
+DRA262610P0362 [Assigned] [AIAgent] AI Mini Drama: First video on a fresh install skips the 「Get notified」 pre-prompt
+    TC-081: no 「Get notified」 pre-prompt
+    TC-303: (A4-j, fresh install #2) no 「Get notified」 pre-prompt on the first video
+    TC-304: (A4-j, fresh install #3) no 「Get notified」 pre-prompt on the first video
+DRA262610P0368 [Assigned] [AIAgent] AI Mini Drama: Tapping the video-ready push opens History instead of the drama's chat
+    TC-307: push opens History
+
+Flagged:
+  DRA262610P0127 (Cancelled) — TC-015/016/017: no counter / inline 1,000-character message. RD cancelled it; not fixed-and-back, so not refiled. User may decide to refile against the Design string.
+  DRA262610P0069 (NAB) — TC-417: Full Edit re-entry makes a new project. Declined; not refiled.
+  DRA262610-0019 (Close) — TC-289: held as a result conflict (TC-288 found White in the filter); if White is really missing, this becomes a closed-ticket-is-back entry.
+  DRA262610-0061 (Close) — TC-039 subtitle: bug back → new entry ISS-AMDA-50 naming it (price part stays DRA262610P0327).
+  DRA262610-0028 (NotReproducible) — TC-500 refund now reproduces (Text to Speech −1 kept); the open DRA262610P0257 covers it, so not refiled.
+
+== New entries: dedupe candidates judged (none is the same defect) ==
+ISS-AMDA-47 More ideas chip: candidates share only 'chat shows' / 'more' (P0267, P0213, -0030, P0316, P0095).
+ISS-AMDA-48 credit pill: DRA262610-0037 (Close) is the dialog on an EMPTY chat; P0334 is a character update. Not the same.
+ISS-AMDA-49 cut-off refusal: only P0372 (long names cut off). DRA262610P0228 (content check order) is related, not the same.
+ISS-AMDA-50 plural subtitle: DRA262610-0061 (Close) — same text, bug back (closed-ticket rule) → entry naming it. P0113 / P0369 are other sheet issues.
+ISS-AMDA-51 partial character failure: P0365 (Assigned, AIAgent, 10/28 — slots left empty though images were made), P0257 (refund), -0028 (refund, NotReproducible), -0032 / P0302 (waits): none is the dialog copy or the missing 「!」.
+ISS-AMDA-52 filter empty state: filter tickets -0019 / -0017 / P0326 / P0284 / -0020 / -0018 are about options and labels, not the empty result.
+ISS-AMDA-53 album-list Back: P0175 / -0039 / -0031 (Close) are other Back paths; -0059 is the permission notice.
+ISS-AMDA-54 preview Back: -0039 (Close) is Back in the description editor; P0353 / P0351 / P0224 other Choose Character issues.
+ISS-AMDA-55 failed image update: P0073 (Close — no update card), P0238 (first scene image failure), P0355 / P0333 (update copy): not the silent failure with no refund.
+ISS-AMDA-56 Manage-mode Back: -0031 (Close) is Back on the landing; P0368 is the push.
+ISS-AMDA-57 title change: P0101 (Close — Full Edit export title), P0255 (user title replaced): not the same.
+ISS-AMDA-58 export-sheet Back: P0070 (Close, Full Editor), P0243 / P0219 (the sheet), P0192, P0071: not Back.
+ISS-AMDA-59 Stop shows error: only P0122 (bubble copy, declined).
+
+## Re-dedupe 2026-10-29 — F-9 rewrite only (ISS-AMDA-55, TC-293), Android pool, read-only
+New Short Description: "Failed scene images in a chat update show no 「!」 and keep their 6 credits".
+ecl_query.py dedupe, PowerDirector Mobile for Android, 200 candidates. Read: DRA262610P0311 (Assigned — outfit edit reply claims
+updated visuals but scene images are never redrawn; no failed generation, no charge), P0266 (video clip shown failed+refunded but
+succeeded), P0150 (video failure copy says Edit), P0267 (ready notification with a failed scene), P0232 (failed video clips keep
+credits), P0238 (first-time scene image failure says busy). None is a failed chat image update with no 「!」 and no refund: not a
+duplicate; P0311 named as related in the QA note.

@@ -1,0 +1,35 @@
+# ISS-AMDA-55 Chat image update ◆12 during a Wi-Fi drop: Location images complete, both main images fail (TextToImage / EditImageGPT2), no refund
+# PowerDirector Mobile for Android 16.8.0 (2610212), TR261021-0082, Stage server, Sony Xperia 10 III / Android 12, account Free. Excerpt of the app's logcat (captured per run segment; the release build writes no readable app log).
+# Lines about turns, decisions, charges (receipts; balance shown only when it changes), failures, template mapping,
+# pushes and turn ends in the windows below; member tokens dropped, URL queries cut at '?'.
+
+## TC-293 Generate 22:53:41, reopen 22:57 (2026-10-28 22:53:35–22:57:40; logs/A4-d2-20261028-225738/logcat-live.txt)
+2026-10-28 22:53:39.975 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-28 22:53:39.986 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-28 22:53:40.719 CreditSystemManager: totalRemain=17717
+2026-10-28 22:53:43.101 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…env_img_1 consumeTaskId=91664068 files=1
+2026-10-28 22:53:43.512 CreditSystemManager: totalRemain=17714
+2026-10-28 22:53:44.532 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…env_img_2 consumeTaskId=91664069 files=1
+2026-10-28 22:53:44.807 CreditSystemManager: totalRemain=17711
+2026-10-28 22:54:07.356 MiniDrama Log: [TOOL] MyCreation receipt completed call=…env_img_2
+2026-10-28 22:54:10.703 MiniDrama Log: [TOOL] MyCreation receipt completed call=…env_img_1
+2026-10-28 22:54:10.775 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-28 22:54:10.779 MiniDrama Log: [TOOL] tool_dispatch: TextToImage args={"aspect_ratio":"9:16","output_format":"png","prompt":"Image 1 = the current keyframe\nImage 2 = Lauren Hayes\nImage 3 = Ryan Cole\nImage 4 = Client\nImage 5 = set: Client Meeting Room\n\nPreserve the exact composition, camera angle, positions, and dramatic tension from Image 1.\n\nUpdate character appearances to strictly align with their p…
+2026-10-28 22:54:10.782 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-28 22:54:10.790 MiniDrama Log: [EVENT] {"args":{"blueprint_path":"/data/user/0/com.cyberlink.powerdirector.DRA140225_01/files/mini_drama/sessions/261028_220238_ddc7925e/host_inputs/blueprint.json","failures":[],"media_results":[{"file":[{"mime":"image/png","path":"/data/user/0/com.cyberlink.powerdirector.DRA140225_01/files/mini_drama/sessions/261028_220238_ddc7925e/media/out_261028_220238_ddc7925e_t7_i1_d1_ai…
+2026-10-28 22:54:10.796 MiniDrama Log: [EVENT] {"args":{"blueprint_path":"/data/user/0/com.cyberlink.powerdirector.DRA140225_01/files/mini_drama/sessions/261028_220238_ddc7925e/host_inputs/blueprint.json","failures":[],"media_results":[{"file":[{"mime":"image/png","path":"/data/user/0/com.cyberlink.powerdirector.DRA140225_01/files/mini_drama/sessions/261028_220238_ddc7925e/media/out_261028_220238_ddc7925e_t7_i1_d1_ai…
+2026-10-28 22:54:16.584 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_2 consumeTaskId=91664070 files=1
+2026-10-28 22:54:17.088 CreditSystemManager: totalRemain=17705
+2026-10-28 22:54:17.101 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_1 consumeTaskId=91664071 files=1
+2026-10-28 22:54:32.416 MiniDramaFail: [TextToImage] generation_failed: Others | detail=tti=query_status_failed type=Others
+2026-10-28 22:54:32.418 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_2
+2026-10-28 22:54:32.856 MiniDramaFail: [TextToImage] generation_failed: Others | detail=tti=query_status_failed type=Others
+2026-10-28 22:54:32.860 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_1
+2026-10-28 22:54:32.916 MiniDrama Log: [EVENT] {"args":{"blueprint_path":"/data/user/0/com.cyberlink.powerdirector.DRA140225_01/files/mini_drama/sessions/261028_220238_ddc7925e/host_inputs/blueprint.json","failures":[],"media_results":[{"error":"agent_tool_dispatch('TextToImage') failed: generation_failed - Others","ok":false},{"error":"agent_tool_dispatch('TextToImage') failed: generation_failed - Others","ok":false…
+2026-10-28 22:54:32.917 MiniDrama Log: [EVENT] {"args":{"blueprint_path":"/data/user/0/com.cyberlink.powerdirector.DRA140225_01/files/mini_drama/sessions/261028_220238_ddc7925e/host_inputs/blueprint.json","failures":[],"media_results":[{"error":"agent_tool_dispatch('TextToImage') failed: generation_failed - Others","ok":false},{"error":"agent_tool_dispatch('TextToImage') failed: generation_failed - Others","ok":false…
+2026-10-28 22:54:32.953 MiniDrama Log: [TURN] turn_complete: final_state=complete
+2026-10-28 22:54:32.972 MiniDramaFail: [engine] target=beat_00c62024 | tool=EditImageGPT2 | agent_tool_dispatch('TextToImage') failed: generation_failed - Others
+2026-10-28 22:54:32.983 MiniDramaFail: [engine] target=beat_3deb8b06 | tool=EditImageGPT2 | agent_tool_dispatch('TextToImage') failed: generation_failed - Others
+2026-10-28 22:54:33.043 MiniDramaPerf: t46 +66.0s                        host   turn          turn_end                       complete stage=storyboard→beat
+2026-10-28 22:54:33.043 MiniDramaPerf: t46 +66.0s                        host   ui            ui_rendered
+2026-10-28 22:56:17.073 MiniDrama Log: [SYS] restored session 261028_221243_0f2694b3 (chars=3, shots=6)

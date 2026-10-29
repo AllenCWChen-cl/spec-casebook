@@ -1,0 +1,31 @@
+20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md
+  13 entries · 31 images · 14 Spec Link lines · 0/0 ▲ rows · max ShortDesc 120
+FAILED:
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e1 (ISS-AMDA-47): links 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Chat result states (top mockup group) board' but Description never names that sheet in full (ambiguous=True)
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e1: unknown sheet 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Chat result states (top mockup group) board'
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e2 (ISS-AMDA-48): links 'AI Mini Drama Design spec, 1016_Chat navigation frame' but Description never names that sheet in full (ambiguous=True)
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e2: unknown sheet 'AI Mini Drama Design spec, 1016_Chat navigation frame'
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e3 (ISS-AMDA-49): links 'AI Mini Drama Design spec, Extra board board' but Description never names that sheet in full (ambiguous=True)
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e3: unknown sheet 'AI Mini Drama Design spec, Extra board board'
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e4 (ISS-AMDA-50): links 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Main flow board' but Description never names that sheet in full (ambiguous=True)
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e4: unknown sheet 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Main flow board'
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e5 (ISS-AMDA-51): links 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 3 board' but Description never names that sheet in full (ambiguous=True)
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e5: unknown sheet 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 3 board'
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e6 (ISS-AMDA-52): links 'AI Mini Drama Design spec, Characters: Flow, Create my character, Filter, Error board' but Description never names that sheet in full (ambiguous=True)
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e6: unknown sheet 'AI Mini Drama Design spec, Characters: Flow, Create my character, Filter, Error board'
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e7 (ISS-AMDA-53): links 'AI Mini Drama Design spec, Characters: Flow, Create my character, Filter, Error board' but Description never names that sheet in full (ambiguous=True)
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e7: unknown sheet 'AI Mini Drama Design spec, Characters: Flow, Create my character, Filter, Error board'
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e8 (ISS-AMDA-54): links 'AI Mini Drama Design spec, flow arrow 2811-90592 (R-120)' but Description never names that sheet in full (ambiguous=True)
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e8: unknown sheet 'AI Mini Drama Design spec, flow arrow 2811-90592 (R-120)'
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e8 (ISS-AMDA-54): links 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 11 (new 10/21) board §13.23 (Android back on the character result)' but Description never names that sheet in full (ambiguous=True)
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e8: unknown sheet 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 11 (new 10/21) board §13.23 (Android back on the character result)'
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e9 (ISS-AMDA-55): links 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 3 board J5' but Description never names that sheet in full (ambiguous=True)
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e9: unknown sheet 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 3 board J5'
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e10 (ISS-AMDA-56): links 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 4 board' but Description never names that sheet in full (ambiguous=True)
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e10: unknown sheet 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 4 board'
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e11 (ISS-AMDA-57): links 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 4 board Bug 0014' but Description never names that sheet in full (ambiguous=True)
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e11: unknown sheet 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 4 board Bug 0014'
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e12 (ISS-AMDA-58): links 'AI Mini Drama PM spec, Figma 10/22 update (Export Full Video states)' but Description never names that sheet in full (ambiguous=True)
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e12: unknown sheet 'AI Mini Drama PM spec, Figma 10/22 update (Export Full Video states)'
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e13 (ISS-AMDA-59): links 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Main flow board' but Description never names that sheet in full (ambiguous=True)
+  20261028_eBug_drafts_AI-Mini-Drama-A4_16.8.0.md e13: unknown sheet 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Main flow board'

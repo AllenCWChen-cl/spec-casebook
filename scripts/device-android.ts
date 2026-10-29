@@ -386,6 +386,7 @@ switch (cmd) {
   case 'hidekb': await s('POST', '/appium/device/hide_keyboard', {}).catch(() => {}); console.log('keyboard hidden'); break;
   case 'type': await mobile('type', { text: rest.join(' ') }); console.log('typed'); break;
   case 'back': await mobile('pressKey', { keycode: 4 }); console.log('back'); break;
+  case 'home': await mobile('pressKey', { keycode: 3 }); console.log('home'); break;
   case 'launch': {
     const li = rest.indexOf('--lang');
     if (li >= 0) {
@@ -399,6 +400,7 @@ switch (cmd) {
     console.log(li >= 0 ? `launched in ${rest[li + 1]}` : 'launched'); break;
   }
   case 'terminate': await mobile('terminateApp', { appId: PKG }); console.log('terminated'); break;
+  case 'activate': await mobile('activateApp', { appId: PKG }); console.log('activated (no restart)'); break;
   case 'appstate': console.log(JSON.stringify((await mobile('queryAppState', { appId: PKG })).value)); break;
   case 'build': {
     const d = sh(`dumpsys package ${PKG} | grep -E "versionName=|versionCode=|lastUpdateTime=" | head -3`);

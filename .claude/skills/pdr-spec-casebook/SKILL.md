@@ -832,7 +832,7 @@ HQ61563393, Android 12, 1080 × 2520; setup in README › Android phone setup; s
   offline cases: `wifi off|on|status` (refuses unless adb sees the phone over USB). App language: `launch --lang` needs
   Android 13; on this Android 12 phone it stops, so language cases need the user to change the system language or are
   Blocked `--as test-data`. Light/Dark (`appearance`), Pink (`pink …`), `ledger` and `install-wda` have no Android
-  version yet. `back` is the system Back: on Android it is a spec exit path, so test it wherever a page can be left.
+  version yet. `back` is the system Back: on Android it is a spec exit path, so test it wherever a page can be left. `home` presses the device Home key; `activate` brings PowerDirector back to the front without restarting it — use it to *return* after Home, since `launch` force-stops the app first (2026-10-29, A4-h).
   `build` prints versionName / versionCode (the run's build check).
 - **Logs (rule 7 on Android).** The app logs verbosely to logcat (tags such as `CreditSystemManager`,
   `SplashActivity`); its files are not readable over adb (release build, not debuggable) and it writes no log folder on

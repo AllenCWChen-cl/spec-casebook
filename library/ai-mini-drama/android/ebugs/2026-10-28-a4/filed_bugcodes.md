@@ -1,0 +1,29 @@
+# AI Mini Drama Android — A4 (table v3) eBugs filed 2026-10-29
+
+Creator ETHAN_HSU (read back on every bug) · method API (create + attachment upload) · source tag [AIAgent] · TR [TR261021-0082](https://ecl.cyberlink.com/IF3/tr/BPM/FormView/TR261021-0082) · 16.8.0 build 2610212 · Stage server · template Generic v16.8 (22939), PowerDirector Mobile for Android · due 2026-11-05 · decisions: `decisions.md` (F-9 rewrite note under the table; applied through `decisions-filing.md`)
+
+**TR build field:** the TR261021-0082 header (read-only, 2026-10-29) is titled 「16.8.0.2610212 (Deluxe)」 while its Build field reads 「16.8.0.2610171」 — the same as at A2, where the user confirmed 2610212. Findings were verified on 2610212; every bug is filed with Version 16.8.0 / Build 2610212.
+
+| F | BugCode | ISS | Sev | Belong | Type | Attachments | Short Description |
+|---|---|---|---|---|---|---|---|
+| F-1 | [DRA262610P0380](https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0380) | ISS-AMDA-47 | 3 | RD | UI | 2 | PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Chat shows no 「More ideas +」 chip once it has content |
+| F-2 | [DRA262610P0381](https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0381) | ISS-AMDA-48 | 3 | RD | Functional | 3 | PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Credit pill leaves a generating outline with no 「Leave this chat?」 dialog |
+| F-3 | [DRA262610P0382](https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0382) | ISS-AMDA-49 | 2 | RD | Functional | 2 | PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Policy-refused idea gets a cut-off 「I cannot」 reply, not the terms message |
+| F-4 | [DRA262610P0383](https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0383) | ISS-AMDA-50 | 3 | RD | UI | 1 | PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: 「Finish your characters」 plural subtitle differs from the spec |
+| F-5 | [DRA262610P0384](https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0384) | ISS-AMDA-51 | 2 | RD | Functional | 4 | PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Generate all with one failed character shows the single error and no 「!」 |
+| F-6 | [DRA262610P0385](https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0385) | ISS-AMDA-52 | 2 | RD | UI | 2 | PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Character filter with no match shows a blank grid and no empty-state message |
+| F-7 | [DRA262610P0386](https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0386) | ISS-AMDA-53 | 2 | RD | Functional | 2 | PDR-A 16.8.0 - [AIAgent] AI Mini Drama: System Back on the Add Media album list closes the whole picker |
+| F-8 | [DRA262610P0387](https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0387) | ISS-AMDA-54 | 2 | RD | Functional | 2 | PDR-A 16.8.0 - [AIAgent] AI Mini Drama: System Back on the enlarged character preview closes Choose Character |
+| F-9 | [DRA262610P0388](https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0388) | ISS-AMDA-55 | 2 | RD | Functional | 4 | PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Failed scene images in a chat update show no 「!」 and keep their 6 credits |
+| F-10 | [DRA262610P0389](https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0389) | ISS-AMDA-56 | 2 | RD | Functional | 2 | PDR-A 16.8.0 - [AIAgent] AI Mini Drama: System Back in History Manage mode leaves History instead of exiting Manage |
+| F-11 | [DRA262610P0390](https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0390) | ISS-AMDA-57 | 2 | RD | Functional | 2 | PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Asking Iris to change the story title does not rename the drama in History |
+| F-12 | [DRA262610P0391](https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0391) | ISS-AMDA-58 | 2 | RD | Functional | 2 | PDR-A 16.8.0 - [AIAgent] AI Mini Drama: System Back on the Export Full Video sheet also closes the result page |
+| F-13 | [DRA262610P0392](https://ecl.cyberlink.com/IF3/ebug/BPM/FormView/DRA262610P0392) | ISS-AMDA-59 | 2 | RD | Functional | 3 | PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Stopping the cast confirmation shows 「Something went wrong on my end」 |
+
+Read back (export-filing + check against `decisions-filing.md` and `upload_filing/bodies.json`, `readback.log`): Short Description, Creator, severity, BugBelong, TR, version, build, Description and every attachment name on the page (UploadFiles) match for all 13 bugs; status NewCreated. 31 files uploaded (27 frames, 4 logcat excerpts, token-checked), no video. 21 frames carry a red 5px box on the problem area (`upload/boxes.json`, `make_filing_sheets.py --no-sheet` into `upload_filing/`); 6 are deliberate before / control frames left unboxed: amda48_new_chat_dialog, amda53_album_list, amda54_preview, amda56_manage_mode, amda58_export_sheet, amda59_thinking.
+
+Decisions applied as given (Sev / Belong / Type / Short Description per row). F-9 (ISS-AMDA-55) was held by the reviewer ("The image looks like they succeeded?"); the evidence shows the failure, so it was rewritten to match it (Location images updated, both main scene images failed per logcat, Iris claims success with no 「!」 / message / Edit, the 6 credits of the failed images not refunded; Iris's success-claim frame added) and filed, as the note asked.
+
+Dedupe: the 12 unchanged entries keep the 2026-10-28 Android-only dedupe (`dedupe.txt`); the rewritten F-9 was re-deduped read-only on 2026-10-29 (Android pool; closest DRA262610P0311 is a different defect, named as related in the QA note). `create` also ran its live exact-Short-Description search. DRA262610P0127 and DRA262610P0069 were not refiled; no existing ticket was commented on, reopened or touched.
+
+Files: `create.log`, `upload.log`, `upload_plan.txt`, `readback.log`, `upload_filing/filed_formcodes.json`, `filed_bugcodes.json`, review page `20261028_eBug_review_AI-Mini-Drama-A4_16.8.0.html` (rebuilt with the BugCodes).
