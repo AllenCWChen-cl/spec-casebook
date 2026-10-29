@@ -368,7 +368,7 @@ The Design PDF of this set stops at the 1014 updates. Figma (file dZk5HLzZTdcZwW
   「Seedance 2.5 · Sharper motion and richer detail」, 「Length」 Preview · 30 sec / Full Video · 90 sec. Older than
   PM 10/21; the casebook keeps the PM 10/16 labels (R-253, REQ-026, REQ-029).
 
-## PM — Figma only, newer than the PM PDF (read 2026-10-28 through Figma MCP as qa1, REQ-042)
+## PM — Figma only, newer than the PM PDF (read 2026-10-28 through Figma MCP as qa1, REQ-052)
 The PM PDF of this set (10/21) stops at the 10/21 update. The PM Figma file (44RyrcOcWi2MvhGci9bO5F, page 「🆕 Spec
 with jau proposal」) has two 10/22 frames below it; screenshots `figma/pm-1022-export.png` and
 `figma/pm-1022-leave.png` (local only), inventory boards `pm-1022-export` / `pm-1022-leave`. **Not yet in

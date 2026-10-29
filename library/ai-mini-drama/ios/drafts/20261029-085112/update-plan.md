@@ -4,12 +4,12 @@
 - Unchanged: the same spec set (specs/2026-10-21-2: AI Mini Drama - Design Spec.pdf, PDRM MX.pdf, AI Mini Drama -
   PM Spec 20261021.pdf). New in this draft: the two PM Figma frames dated 10/22 the PM PDF lacks (4418:2, 4422:2;
   board-notes 「PM — Figma only, newer than the PM PDF」, read 2026-10-28 as qa1) and the PM / MX Figma inventory
-  (REQ-042). No longer supplied: none.
+  (REQ-052). No longer supplied: none.
 - Section A (this part): the PM 10/22 frames. Later sections append the PM / MX flow arrows and the control trace.
 
-- Section B: the 121 PM / MX Figma flow arrows of the inventory (REQ-042), read from their screen sheets and board transcriptions.
+- Section B: the 121 PM / MX Figma flow arrows of the inventory (REQ-052), read from their screen sheets and board transcriptions.
 
-- Section C: the control trace of the PM / MX inventory groups (REQ-042, `control-trace.json`).
+- Section C: the control trace of the PM / MX inventory groups (REQ-052, `control-trace.json`).
 
 ## Requirement changes
 The 10/22 frames are newer than the 10/21 PM PDF and the Design frames, so they win where they differ (AGENTS.md).
@@ -37,10 +37,10 @@ The 10/22 frames are newer than the 10/21 PM PDF and the Design frames, so they 
 Grids updated: Job states (Storyboard, Chat image update, Scene video, Video regeneration, Full video, Download / export),
 Exit × stage (storyboard, storyboard update in chat and video each split into phase ① and phase ②; new 「Exporting Full
 Video」 row), Hidden clauses (R-051, R-071, R-333 – R-338), Variants (R-051 / R-071 dialog bodies, R-332 × 4, R-335 × 2,
-R-336 × 2), Request ledger coverage (REQ-042).
+R-336 × 2), Request ledger coverage (REQ-052).
 
-### Section B — PM / MX flow arrows (REQ-042)
-New section 「Added 2026-10-29 — PM / MX Figma arrows (REQ-042)」: R-341 – R-455, one per arrow that is a flow (115 of 121).
+### Section B — PM / MX flow arrows (REQ-052)
+New section 「Added 2026-10-29 — PM / MX Figma arrows (REQ-052)」: R-341 – R-455, one per arrow that is a flow (115 of 121).
 
 | Requirement | Change | Before | After |
 |---|---|---|---|
@@ -49,8 +49,8 @@ New section 「Added 2026-10-29 — PM / MX Figma arrows (REQ-042)」: R-341 –
 | Q-24 – Q-27 | new | — | see Questions for PM |
 | arrows.json | changed | 121 figma-inventory entries with an empty `expected` | `expected` filled for the 115 flows; `not_flow` with the reason on 6 |
 
-### Section C — PM / MX controls (REQ-042)
-New section 「Added 2026-10-29 — PM / MX controls (REQ-042)」 → 「### Controls (REQ-042)」: rules a PM or MX frame states that no requirement had.
+### Section C — PM / MX controls (REQ-052)
+New section 「Added 2026-10-29 — PM / MX controls (REQ-052)」 → 「### Controls (REQ-052)」: rules a PM or MX frame states that no requirement had.
 
 | Requirement | Change | Before | After |
 |---|---|---|---|
@@ -115,7 +115,7 @@ Pro+ (n/a: not sent to the page).
   - TC-058 (R-357): 「Cancel」 on 「Delete this character?」 keeps the character
 - Removed: none. Unchanged after Section B: 377
 
-### Section C — PM / MX controls (REQ-042)
+### Section C — PM / MX controls (REQ-052)
 Control trace: 363 groups, 216 PM / MX. The 135 untraced PM / MX groups → 108 pressed (86 by existing rows as they are, 22 by
 the new or modified rows below), 27 n/a. The 81 automatic PM / MX traces (`how: arrow` / `label`) were checked: 54 correct, 27
 corrected (17 named no row that presses the control, e.g. 「Terms of Service」 → TC-067's 4xx-dialog link, 「Submit」 → TC-338's
@@ -143,7 +143,7 @@ K-7ad090 (Age) dismissed by TC-127 (✓ closes the keypad) and K-1763eb (rename 
 - Removed: none. Unchanged after Section C: 369
 
 ## Found by the analysis
-- PM Figma 10/22 frames (board-notes, REQ-042): 4422:2 → R-051, R-052, R-071, R-158, R-262, R-264 changed, R-332 – R-336
+- PM Figma 10/22 frames (board-notes, REQ-052): 4422:2 → R-051, R-052, R-071, R-158, R-262, R-264 changed, R-332 – R-336
   new; 4418:2 → R-249 changed, R-337 – R-340 new.
 - R-052 is not in board-notes' proposal but its rule (reopen stops at the offer, Generate charges again) conflicts with
   the 10/22 restart rule, so it is replaced (R-335, R-336) and TC-063 changed.
@@ -155,7 +155,7 @@ K-7ad090 (Age) dismissed by TC-127 (✓ closes the keypad) and K-1763eb (rename 
   TC-409, TC-410) and the phase ② swipe (TC-404 / TC-411); R-332 per generation (TC-156, TC-157, TC-405, TC-412).
 - Pass 8 exit × stage: storyboard, storyboard update in chat and video split into phase ① and ② rows.
 
-- Section B, PM / MX flow arrows (REQ-042): 121 arrows → 98 walked by existing rows (R-358 – R-455), 17 needing a row
+- Section B, PM / MX flow arrows (REQ-052): 121 arrows → 98 walked by existing rows (R-358 – R-455), 17 needing a row
   (R-341 – R-357, all by modifying an existing row), 6 not flows (`not_flow` in arrows.json).
 - Arrows that repeat a Design flow but draw older copy keep the Design (or newer PM 10/22) copy in the requirement and say so:
   「Discard character changes?」 (PM) vs 「Leave without finishing?」 (Design, R-032); the PM character 「Confirm」 vs the Design
@@ -165,7 +165,7 @@ K-7ad090 (Age) dismissed by TC-127 (✓ closes the keypad) and K-1763eb (rename 
   showed that no row opened the failed scene from the chat; and three PM dialogs (multi-person, no person, public figure) had a
   「Use another photo」 button no row pressed.
 
-- Section C, PM / MX control trace (REQ-042): R-456 – R-462 were found by pressing what the PM / MX frames draw: the feature
+- Section C, PM / MX control trace (REQ-052): R-456 – R-462 were found by pressing what the PM / MX frames draw: the feature
   intro, the subscription page, the preview card's 「Create video」, Send Feedback, the disabled 「generating...」, the scene-video
   expand icon and the result page's ▶. Label traces that only quoted the text: 27 corrected (see Case changes).
 - Inventory fixes to make later (inventory-overrides.json, not edited in this section):

@@ -243,7 +243,7 @@ and look at the tile images where layout, arrows or states matter.**
    newer than the PDF (`figma-frames.json`, e.g. MX and 1016 on 2026-10-28) is cut from a saved Figma screenshot
    (`get_screenshot` of the board → `extracted/figma/<board>.png`), never from the stale PDF. Figma access: the Design file through the qa-dm
    account's Dev seat; the PM and MX files need the qa1 account (qa-dm only has a View seat on PM). **PM and MX get the
-   same inventory (user, 2026-10-28, REQ-042)**: every Figma file of the spec set is read, not only Design. Their
+   same inventory (user, 2026-10-28, REQ-052)**: every Figma file of the spec set is read, not only Design. Their
    phones and arrows lie loose in one page or frame, so their boards are **regions** (`__BOARDS__` entry `{ name,
    parent, box }`, named after the PDF board id: `pm-main-flow`, `mx-a-left`) or dated update frames named the same
    way (`{ id, name }`); only the current MX section is read (superseded versions stay out). Their PDF offset is

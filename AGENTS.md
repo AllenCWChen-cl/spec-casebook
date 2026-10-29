@@ -77,7 +77,7 @@ to a personal memory store; feature-specific run details go in the skills or the
   checked on the same screen, and each analysis ends with a check of the row and run order. The next round's phase
   lists added and changed rows in their stage segments (`"round": true`), never only as an appended phase.
 - **Every control pressed, every arrow walked (user, 2026-10-28, REQ-038).** Every tappable element the Design,
-  PM and MX Figma files draw is tested (PM and MX added 2026-10-28, REQ-042): the Figma inventory (`scripts/figma/inventory.js` → `scripts/inventory.ts`) lists screens, controls
+  PM and MX Figma files draw is tested (PM and MX added 2026-10-28, REQ-052): the Figma inventory (`scripts/figma/inventory.js` → `scripts/inventory.ts`) lists screens, controls
   and arrows, counting each button once however many screens show it and each choice list once;
   `control-trace.json` names the row that presses each control (inputs also the row that dismisses them);
   each run aims to press all of them, and `scripts/coverage-page.ts` shows counts and the boards marked with tap
