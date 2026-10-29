@@ -16,6 +16,11 @@ two differ).
 - Each feature lives in `library/<product>/<feature>/` (see its generated `README.md`): `specs/<date>/` holds every spec set
   received (original files git-ignored; `spec-set.json` and `extracted/` text kept), and `ios/` / `android/` hold
   the platform tables. Never put spec files anywhere else.
+- **Old layout (2026-10-29).** The library was `library/<feature>/` before 2026-10-29. If a checkout still has a
+  folder straight under `library/` that holds `ios/`, `android/` or `specs/` (e.g. `library/ai-mini-drama/`), it is a
+  pre-move checkout's local files: before any other work, tell the user and move them as README › *Moving a checkout
+  from the old layout* says (`rsync` into `library/<product>/<feature>/`, then remove the old folder), and have them
+  restart any review or pages server with the new ID.
 - The review server (`scripts/review.ts`) and the page server (`scripts/pages.ts`: review, plan and coverage on one
   address) are local processes the user may be using; do not stop them unless asked.
 
@@ -77,6 +82,11 @@ lines; put the full rule in the skill or reference file that applies it and poin
 - **Live pages (user, 2026-10-28).** `scripts/pages.ts` serves Cases, Progress, Results and Coverage with one shared
   tab bar holding the only language switch. `+ Add case` takes free text; the agent turns open notes into rows
   (`SKILL.md` step 4, New-case notes).
+- **Never uninstall PowerDirector on the QA iPhone (user, 2026-10-29, until lifted).** The build cannot be installed
+  again for now, so no command may uninstall or reinstall it: `app-setup.ts reinstall` / `fresh` and every
+  fresh-install case are off; those cases are recorded Blocked `--as test-data` ("PowerDirector cannot be reinstalled
+  on the QA iPhone"). `app-setup.ts` refuses to uninstall unless `CASEBOOK_ALLOW_REINSTALL=1`, which only the
+  user lifting this rule allows. WDA is never uninstalled either (below).
 - **On the phone (2026-10-21/27).** Wi-Fi may be toggled for offline cases once the phone is on USB (other system
   settings need the user's go-ahead); rows are reached only with `scrollto` / `pink`; Auto-Lock Never, `device.ts
   restart` at every segment, never uninstall WDA; exit 75 = BLOCKER, pushed to the user (`run.md` steps 1, 3, 4).

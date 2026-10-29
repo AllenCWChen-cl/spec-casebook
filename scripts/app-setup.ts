@@ -122,6 +122,9 @@ switch (cmd) {
     const [version, build] = rest;
     if (!version || !build) throw new Error('reinstall <version> <build>, e.g. reinstall 16.9.0 189631');
     const checkOnly = rest.includes('--check-only');
+    // AGENTS.md (user, 2026-10-29): the app cannot be installed again for now, so uninstalling it is off unless the
+    // user lifts that rule and the brief sets CASEBOOK_ALLOW_REINSTALL=1.
+    if (!checkOnly && process.env.CASEBOOK_ALLOW_REINSTALL !== '1') throw new Error(`Refusing to uninstall ${APP_NAME}: it cannot be installed again for now (AGENTS.md, "Never uninstall PowerDirector"). Record fresh-install cases Blocked --as test-data.`);
     console.log('before:', JSON.stringify(await installed()));
     if (!checkOnly) {
       if (await mobile('isAppInstalled', { bundleId: APP })) { await mobile('removeApp', { bundleId: APP }); await sleep(3); }

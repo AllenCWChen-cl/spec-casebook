@@ -319,10 +319,11 @@ the two sign-ins. These are done once per machine, in the terminal version of Cl
 from the desktop app's Terminal panel on 2026-10-29). The desktop app's agent can start it for you: ask it to "sign in the Figma
 servers", and it opens a Terminal panel tab running `claude` in this folder; you do steps 2–5 in that tab.
 
-1. Turn off the claude.ai **Figma connector** for Claude Code sessions in this folder (the composer's
-   **+ → Connectors** menu). If it stays on, the agent sees a third set of Figma tools signed in to whichever
-   account the connector uses. That switch is also the default for new sessions in other folders, so turn it back on
-   there if you use it elsewhere.
+1. Keep the claude.ai **Figma connector** out of this folder, or the agent sees a third set of Figma tools signed in
+   to whichever account the connector uses. Terminal and IDE sessions: the repo's `.claude/settings.json` blocks it
+   (`deniedMcpServers`), nothing to do; `/mcp` should not list "claude.ai Figma". Desktop app (Code tab): repo
+   settings do not reach it and the composer's **+ → Connectors** switch lasts only for that chat, so disconnect
+   Figma at claude.ai › Settings › Connectors (this turns it off for your whole account).
 2. Start `claude` in a terminal in this folder. With only the desktop app installed, the CLI is inside it:
 
    ```bash

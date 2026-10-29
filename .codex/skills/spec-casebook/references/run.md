@@ -76,7 +76,9 @@ refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows
 - **Resuming** (after a reset, a usage-limit stop or a crash) starts with `device.ts <run dir> status` and
   `run-log.ts <run dir> next`, then a screenshot to confirm the phone matches the last checkpoint. Never redo recorded
   cases; Inconclusive ones are re-run from the recovery queue at the end of their segment.
-- **Fresh-install cases (user, 2026-10-19).** A case whose expected result depends on a first launch or empty local
+- **Fresh-install cases (user, 2026-10-19). Off on the QA iPhone since 2026-10-29:** PowerDirector cannot be
+  installed again there, so never uninstall it (AGENTS.md); record these cases Blocked `--as test-data` until the
+  user lifts that rule. A case whose expected result depends on a first launch or empty local
   data (first-time hints and bubbles, empty History, on-device counters, first-use offers) reinstalls as its own
   first step: its Precondition starts with 「Fresh install (part of this case)」, and every such case reinstalls again,
   even right after another. They go in their phase's last segment (`Fresh install`). One command (pull the logs
