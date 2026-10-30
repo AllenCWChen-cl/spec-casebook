@@ -349,7 +349,7 @@ and the Main flow have only OCR differences: no rule changed. Real changes:
 ## Design — Figma only, newer than the Design PDF (read 2026-10-22 through Figma MCP, REQ-029 / REQ-030)
 The Design PDF of this set stops at the 1014 updates. Figma (file dZk5HLzZTdcZwWwvN9aZfZ, page UI_26.10GM) has three
 1016 frames the PDF lacks; `figma-frames.json` lists every dated label and where it was read. Screenshots are in
-`figma/` (local only).
+`figma/` (committed, listed in `figma/shots.json`: `1016-chat-navigation.png`, `mx-4847.png`, `video-1016.png`).
 - **1016_Chat navigation** (4858:34930): 「Chat 上方入口（任何階段都適用）」— the top exits in every stage: ① ← / system
   back → AI Mini Drama home · ② New chat → a new room · ③ Credit pill → My Credits · ④ History → Recent Task. Each
   shows 「Leave this chat?」 with Leave anyway / Stay (Stay closes the dialog). Body A (progress would be lost: outline
@@ -375,7 +375,7 @@ The Design PDF of this set stops at the 1014 updates. Figma (file dZk5HLzZTdcZwW
 ## PM — Figma only, newer than PM Spec 20261021 (read 2026-10-27 through Figma MCP, REQ-030)
 PM file 44RyrcOcWi2MvhGci9bO5F, page 「🆕 Spec with jau proposal」 (2016:2), listed 2026-10-27: every dated label up to
 10/21 is in the PM PDF of this set; two 10/22 boards are only in Figma. Screenshots `figma/pm-1022-export.png`,
-`figma/pm-1022-two-stage.png` (local only). (The older 「Spec」 page 307:2 could not be listed: the MCP response broke
+`figma/pm-1022-leave.png` (committed, listed in `figma/shots.json`). (The older 「Spec」 page 307:2 could not be listed: the MCP response broke
 off; the PDF of this set is page 2016:2.)
 - **10/22 update — Export Full Video 匯出中狀態** (4418:2, flag 「10/22 update：Export Full Video 匯出中各元件狀態」;
   §8, Jane's question, comment #245 「改成中間 loading」). While exporting from the result page:
