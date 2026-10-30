@@ -52,6 +52,7 @@ library/*/*/*/runs/*/logs/
 library/*/*/*/runs/*/.session
 library/*/*/*/runs/*/.case
 library/*/*/*/runs/*/.window
+library/*/*/*/runs/*/.devices.json
 # Full pulled app logs attached to eBugs (may hold tokens) stay local; excerpts in ebugs/*/logs are checked first
 library/*/*/*/ebugs/*/full_logs/
 
