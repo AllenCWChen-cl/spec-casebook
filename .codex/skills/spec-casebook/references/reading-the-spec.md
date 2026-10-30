@@ -88,7 +88,8 @@ and look at the tile images where layout, arrows or states matter.**
      MX files through `figma-pm` (qa1; qa-dm only has a View seat on PM). Both are in the repo's `.mcp.json` (Codex:
      same names under `mcp_servers`). `whoami` on the server before its first read; stop for the user if it names the
      wrong account. If a server is absent, pending approval, needs auth or names the wrong account, never read through
-     another Figma tool: open a Terminal panel tab running the `claude` CLI in the repo, have the user approve and
+     another Figma tool: offer the sign-in or **PDF-only** (*No Figma access* below). For the sign-in, open a Terminal
+     panel tab running the `claude` CLI in the repo, have the user approve and
      Authenticate each server through `/mcp` (qa-dm for `figma-design`, then qa1 for `figma-pm`), confirm with the
      headless `claude -p … whoami` check (README Setup 5), and continue in a new session or subagent (one opened
      before the approval cannot see the servers).
@@ -156,3 +157,27 @@ and look at the tile images where layout, arrows or states matter.**
      spec content (step 9, *Follow every link*), so a board holding only a link shows every linked item marked. Board
      images come from each file's PDF (`coverage-page.ts --render`, no Figma call; pdf point = figma point +
      `files.<key>.pdf.offset`).
+
+## No Figma access (PDF-only, user, 2026-10-30)
+
+Only a few machines hold the two Figma sign-ins, and the quota is small, so Figma is not a gate: an analysis can run
+from the PDFs alone and be caught up later on a machine that has the logins. PDF-only is less exact (a PDF can lag the
+Figma file by days, and the control list is read by eye instead of from layers), so say so to the user when offering it.
+
+- **Start.** Write `specs/<date>/extracted/figma-pending.json`:
+  `{ "since": "<date>", "reason": "<no links | figma-pm signed out | …>", "links": { "design": "<url or null>", "pm": …, "mx": … }, "owed": ["step 8", "step 10"] }`.
+  `check.ts` warns with it on every check (in place of the "No figma-frames.json" warning); it is not an error.
+- **Steps 1–7 and 9** run as written: they work from the PDF tiles. A link that is a Figma file (step 9) is a `Q-n`
+  noting it waits for Figma access.
+- **Step 8** is skipped; add an Open question 「Figma not compared with the PDF: frames newer than the export may be
+  missing」.
+- **Step 10 from the PDF.** While reading each board (step 4), list every tappable element the mockups draw in
+  `board-notes.md` under 「Controls (PDF-read)」, per screen (label or icon name, what it does), and every arrow in
+  `arrows.json` as step 7 says (node = the board id plus a counter, e.g. `pm-main-flow-a3`, when the PDF carries no
+  Figma link). Write rows that press them as usual. With no `inventory.json` there is no `control-trace.json` and the
+  coverage page shows board images only; that is the owed part.
+- **Catching up** (a machine where both `whoami` are right, on the user's yes; SKILL.md step 0). Run steps 8 and 10 on
+  the same spec set as written, then compare: frames the PDF lacked and controls or arrows the PDF read missed or got
+  wrong go through the update plan (SKILL.md step 3) into a draft, `controls.ts` traces every control, and the
+  review follows. Then delete `figma-pending.json` and replace the PDF-only Open question with what was found; commit
+  the Figma reads as step 10 says.

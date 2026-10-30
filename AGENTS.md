@@ -75,7 +75,8 @@ lines; put the full rule in the skill or reference file that applies it and poin
   and MX only through `figma-pm` (qa1@cyberlink.com); never swap accounts by hand or use a claude.ai Figma connector (`.claude/settings.json` blocks it for terminal and IDE
   sessions; desktop app users disconnect it at claude.ai › Settings › Connectors);
   `whoami` before a read. Sign-ins are the user's: the agent opens a Terminal tab with `claude` and walks them through
-  README Setup 5. Quota is small: bulk reads per board group, changes found by fingerprint (`figma-check.ts`), every
+  README Setup 5. Figma is not a gate (user, 2026-10-30): without the sign-ins an analysis runs **PDF-only**
+  (`extracted/figma-pending.json`) and a machine with them catches up later (`reading-the-spec.md`, *No Figma access*). Quota is small: bulk reads per board group, changes found by fingerprint (`figma-check.ts`), every
   read committed (`reading-the-spec.md` step 10).
 - **Phone fixtures (2026-10-27).** What a run needs on the phone or account is in
   `library/<product>/<feature>/<platform>/fixtures.md`.

@@ -6,7 +6,8 @@
 // - every open "table" entry of library/<product>/<feature>/requests.md for this platform is cited in requirements.md;
 // - the "Job states", "Exit × stage" and "Error classes" grids in requirements.md have no empty cell and name only
 //   existing, active rows (the last two from 2026-10-22, REQ-030);
-// - every dated frame in specs/<set>/extracted/figma-frames.json says where it was read (REQ-030);
+// - every dated frame in specs/<set>/extracted/figma-frames.json says where it was read (REQ-030); a PDF-only analysis
+//   (extracted/figma-pending.json, 2026-10-30) is a warning naming the Figma reads still owed;
 // - a draft traces every annotation block (annotation-trace.json) and has the "Hidden clauses" and "Variants" grids
 //   for the requirements that need them (user, 2026-10-22, REQ-032);
 import { existsSync, readFileSync } from 'node:fs';
@@ -111,7 +112,12 @@ if (reqText && reqIds) {
 
   // Figma dated frames (Reading the spec, step 8): each one says where it was read.
   const figmaPath = specFolder ? join(featureDir(feature), specFolder, 'extracted', 'figma-frames.json') : '';
-  if (figmaPath && existsSync(figmaPath)) {
+  const pendingPath = specFolder ? join(featureDir(feature), specFolder, 'extracted', 'figma-pending.json') : '';
+  if (pendingPath && existsSync(pendingPath)) {
+    // PDF-only analysis (Reading the spec, "No Figma access"): the Figma reads are owed, not skipped
+    const p: { since?: string; reason?: string; owed?: string[] } = JSON.parse(readFileSync(pendingPath, 'utf8'));
+    warnings.push(`PDF-only analysis since ${p.since ?? '?'} (${p.reason ?? 'no Figma access'}): Figma reads owed: ${(p.owed ?? []).join(', ') || 'steps 8 and 10'} (figma-pending.json)`);
+  } else if (figmaPath && existsSync(figmaPath)) {
     const frames: { label: string; read?: string }[] = JSON.parse(readFileSync(figmaPath, 'utf8')).frames ?? [];
     const unread = frames.filter(f => !f.read?.trim()).map(f => f.label);
     if (unread.length) errors.push(`Figma dated frames not read yet: ${unread.join(', ')} (figma-frames.json)`);

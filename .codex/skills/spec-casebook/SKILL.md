@@ -58,10 +58,12 @@ that showed it). No comparison runs during an analysis or before a proposal.
 `node scripts/status.ts` lists, plus "a new feature"), then which platform when the feature has both. Then:
 1. **No spec files or Figma links yet** (a new feature, or no spec set with a `figma-frames.json` `files` entry):
    ask for the spec files (PM / Design / MX PDFs) and the Figma links before anything else, and continue with
-   step 1 once they arrive.
+   step 1 once they arrive. The PDFs are enough to start (user, 2026-10-30): when there are no links, or this machine
+   has no signed-in `figma-design` / `figma-pm`, ask once whether to sign in now or go **PDF-only**
+   (`references/reading-the-spec.md`, *No Figma access*), and on PDF-only go on without Figma.
 2. **Links already there:** check Figma for changes without asking, at the cost of one small call per Figma file
-   (never a re-read of every group): `whoami` on `figma-design` and `figma-pm` (stop for the user on a wrong or
-   signed-out account, `references/reading-the-spec.md` step 10), then `node scripts/figma-check.ts <feature>`. It writes one check
+   (never a re-read of every group): `whoami` on `figma-design` and `figma-pm` (on a wrong or signed-out account,
+   offer the sign-in of `references/reading-the-spec.md` step 10 or PDF-only, as in 1), then `node scripts/figma-check.ts <feature>`. It writes one check
    call per file (`extracted/figma-check/<role>.js`). Pass each as `code` to `use_figma` on the server it names and
    save the reply verbatim as `figma-check/<role>.json`. Then run `node scripts/figma-check.ts <feature> --compare`.
    Also ask whether new PDF exports arrived since the newest spec set (a PDF cannot be checked from here).
@@ -70,6 +72,9 @@ that showed it). No comparison runs during an analysis or before a proposal.
      listed screenshots, then `inventory.ts --sync-arrows` and `figma-check.ts` again (it takes the new hashes from
      the re-read groups). Go on to step 3 (changed spec → update plan, draft, `check.ts`) and step 4 (review).
    - `FIGMA: UNCHANGED` and no new PDFs: the approved table stands; skip to the run.
+   - **A spec set with `extracted/figma-pending.json`** (analysed PDF-only) on a machine where both `whoami` are
+     right: tell the user the Figma reads it owes and, on their yes, do them (*No Figma access* › *Catching up*)
+     before the run; they may change the table, so a draft and review follow.
    After the review is saved (or with nothing changed), continue to the **on-device run** of the approved table:
    the next round in `phases.json` (rows a draft added or changed first, REQ-033), orchestrated segment by segment
    (`references/run.md`, "Keep going without asking"). Check the phone and `fixtures.md` first; a missing phone or fixture

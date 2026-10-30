@@ -93,7 +93,9 @@ and return, waits), which apply to every job.
    its rows. `check.ts` fails a requirement naming two or more tiers, or "each tier / model / language", that lacks a
    line per variant.
 
-11. **Every control (user, 2026-10-28, REQ-038).** After the rows are written, run `node scripts/controls.ts <feature>
+11. **Every control (user, 2026-10-28, REQ-038).** A PDF-only analysis has no `inventory.json`: trace the 「Controls
+   (PDF-read)」 lists of `board-notes.md` to rows by hand and leave this pass owed (`reading-the-spec.md`, *No Figma
+   access*). After the rows are written, run `node scripts/controls.ts <feature>
    <platform> --draft <id>`: it lists every control group of `inventory.json` for the platform in
    `<draft>/control-trace.json` and fills what the table already shows (`how: arrow` = the control starts an arrow
    whose requirement has rows; `how: label` = a row's Action quotes its label). Trace every other entry: `press` =
