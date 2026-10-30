@@ -22,5 +22,327 @@
     "group": "q3",
     "hash": "7b09fb3b",
     "captured_at": "2026-10-29T07:34:50.664Z"
+  },
+  "main-flow.png": {
+    "board": "2778:127318",
+    "group": "d1",
+    "hash": "881be2b3",
+    "captured_at": "2026-10-30T06:29:40.074Z"
+  },
+  "ai-mini-drama-home-page.png": {
+    "board": "2566:114674",
+    "group": "d1",
+    "hash": "33709a6c",
+    "captured_at": "2026-10-30T06:29:40.442Z"
+  },
+  "input-text.png": {
+    "board": "2824:129435",
+    "group": "d1",
+    "hash": "795cf8f1",
+    "captured_at": "2026-10-30T06:29:40.848Z"
+  },
+  "template-detail.png": {
+    "board": "2566:113114",
+    "group": "d1",
+    "hash": "8be39f5e",
+    "captured_at": "2026-10-30T06:29:41.412Z"
+  },
+  "choose-character.png": {
+    "board": "2811:89056",
+    "group": "d2",
+    "hash": "d842edfd",
+    "captured_at": "2026-10-30T06:29:43.496Z"
+  },
+  "storyboard.png": {
+    "board": "2820:113353",
+    "group": "d2",
+    "hash": "8338cd71",
+    "captured_at": "2026-10-30T06:29:44.642Z"
+  },
+  "video.png": {
+    "board": "2820:113981",
+    "group": "d3",
+    "hash": "4ce7e0a7",
+    "captured_at": "2026-10-30T06:29:45.678Z"
+  },
+  "recent-task.png": {
+    "board": "2820:123194",
+    "group": "d3",
+    "hash": "942535c9",
+    "captured_at": "2026-10-30T06:29:46.532Z"
+  },
+  "1005-chat.png": {
+    "board": "3946:68005",
+    "group": "d3",
+    "hash": "c3795a69",
+    "captured_at": "2026-10-30T06:29:46.829Z"
+  },
+  "pm-update-11.png": {
+    "board": "4294:25661",
+    "group": "p4k",
+    "hash": "23faa11d",
+    "captured_at": "2026-10-30T06:37:05.560Z"
+  },
+  "pm-update-10.png": {
+    "board": "4198:25563",
+    "group": "q1",
+    "hash": "cbcbbe04",
+    "captured_at": "2026-10-30T06:37:05.793Z"
+  },
+  "pm-update-7.png": {
+    "board": "3746:20983",
+    "group": "q2",
+    "hash": "1c87f767",
+    "captured_at": "2026-10-30T06:37:06.097Z"
+  },
+  "pm-update-8.png": {
+    "board": "3980:60752",
+    "group": "q2",
+    "hash": "edf9a1c7",
+    "captured_at": "2026-10-30T06:37:06.321Z"
+  },
+  "pm-update-4.png": {
+    "board": "3178:18073",
+    "group": "q4",
+    "hash": "64533815",
+    "captured_at": "2026-10-30T06:37:06.623Z"
+  },
+  "pm-0930-updates.png": {
+    "board": "3025:13117",
+    "group": "q4",
+    "hash": "d33d80e0",
+    "captured_at": "2026-10-30T06:37:06.905Z"
+  },
+  "pm-0930-updates-2.png": {
+    "board": "3037:13394",
+    "group": "q5",
+    "hash": "cbd8724e",
+    "captured_at": "2026-10-30T06:37:07.217Z"
+  },
+  "pm-update-6.png": {
+    "board": "3573:20319",
+    "group": "q7",
+    "hash": "fb36933d",
+    "captured_at": "2026-10-30T06:37:07.700Z"
+  },
+  "pm-update-5.png": {
+    "board": "3325:18429",
+    "group": "q8",
+    "hash": "a61caebd",
+    "captured_at": "2026-10-30T06:37:08.164Z"
+  },
+  "pm-main-flow.png": {
+    "board": "2419:20605/pm-main-flow",
+    "group": null,
+    "hash": null,
+    "captured_at": "2026-10-30T06:37:09.123Z",
+    "box": [
+      16038,
+      -5539,
+      9700,
+      9122
+    ],
+    "tiles": {
+      "2419:20605/pm-main-flow-11": "d45d289d",
+      "2419:20605/pm-main-flow-12": "36cc8abe",
+      "2419:20605/pm-main-flow-13": "03d0abf1",
+      "2419:20605/pm-main-flow-14": "811c9dc5",
+      "2419:20605/pm-main-flow-21": "1b94e463",
+      "2419:20605/pm-main-flow-22": "5780de56",
+      "2419:20605/pm-main-flow-23": "391ebf04",
+      "2419:20605/pm-main-flow-24": "f6498c69",
+      "2419:20605/pm-main-flow-31": "811c9dc5",
+      "2419:20605/pm-main-flow-32": "d81ea5c6",
+      "2419:20605/pm-main-flow-33": "820b122f",
+      "2419:20605/pm-main-flow-34": "b2c3c101"
+    }
+  },
+  "pm-error-handling.png": {
+    "board": "2419:20605/pm-error-handling",
+    "group": null,
+    "hash": null,
+    "captured_at": "2026-10-30T06:37:09.749Z",
+    "box": [
+      26288,
+      -5639,
+      6900,
+      8922
+    ],
+    "tiles": {
+      "2419:20605/pm-error-handling-a": "e4be5faa",
+      "2419:20605/pm-error-handling-b": "a8532af2",
+      "2419:20605/pm-error-handling-c": "28c88ef5"
+    }
+  },
+  "pm-top-mockups.png": {
+    "board": "2016:2/pm-top-mockups",
+    "group": "q11",
+    "hash": "ebd13d59",
+    "captured_at": "2026-10-30T06:37:10.017Z",
+    "box": [
+      30138,
+      -11139,
+      3100,
+      4950
+    ]
+  },
+  "pm-1002-update.png": {
+    "board": "3130:14228/pm-1002-update",
+    "group": null,
+    "hash": null,
+    "captured_at": "2026-10-30T06:37:10.800Z",
+    "box": [
+      30038,
+      3533,
+      6950,
+      3450
+    ],
+    "tiles": {
+      "3130:14228/pm-1002-update-a": "6361b5eb",
+      "3130:14228/pm-1002-update-b": "07cd92fc",
+      "3130:14228/pm-1002-update-c": "7c5f0bdc"
+    }
+  },
+  "pm-update-3.png": {
+    "board": "3153:16326/pm-update-3",
+    "group": null,
+    "hash": null,
+    "captured_at": "2026-10-30T06:37:11.339Z",
+    "box": [
+      30038,
+      6833,
+      6400,
+      2450
+    ],
+    "tiles": {
+      "3153:16326/pm-update-3-a": "b1e7ed78",
+      "3153:16326/pm-update-3-b": "6e76044c",
+      "3153:16326/pm-update-3-c": "50a95ff1"
+    }
+  },
+  "pm-update-9.png": {
+    "board": "4012:21397/pm-update-9",
+    "group": null,
+    "hash": null,
+    "captured_at": "2026-10-30T06:37:11.695Z",
+    "box": [
+      30038,
+      17333,
+      2950,
+      2450
+    ],
+    "tiles": {
+      "4012:21397/pm-update-9-a-1": "d316c7d0",
+      "4012:21397/pm-update-9-a-2": "78b31356",
+      "4012:21397/pm-update-9-b": "6553f18f"
+    }
+  },
+  "mx-a-left.png": {
+    "board": "989:1141/mx-a-left",
+    "group": "m1",
+    "hash": "8720fcb0",
+    "captured_at": "2026-10-30T06:37:12.746Z",
+    "box": [
+      4822,
+      3638,
+      4840,
+      10203
+    ]
+  },
+  "mx-a-mid.png": {
+    "board": "989:1141/mx-a-mid",
+    "group": "m2",
+    "hash": "8a100e23",
+    "captured_at": "2026-10-30T06:37:14.047Z",
+    "box": [
+      9662,
+      3638,
+      5500,
+      10203
+    ]
+  },
+  "mx-a-right.png": {
+    "board": "989:1141/mx-a-right",
+    "group": "m2",
+    "hash": "ebd80ff7",
+    "captured_at": "2026-10-30T06:37:14.769Z",
+    "box": [
+      15162,
+      3638,
+      4658,
+      10203
+    ]
+  },
+  "mx-b-left.png": {
+    "board": "1560:10460/mx-b-left",
+    "group": "mxb",
+    "hash": "3723d177",
+    "captured_at": "2026-10-30T06:37:15.780Z",
+    "box": [
+      4822,
+      18181,
+      4840,
+      10203
+    ]
+  },
+  "mx-b-mid.png": {
+    "board": "1560:10460/mx-b-mid",
+    "group": "mxb",
+    "hash": "f7a7dfc9",
+    "captured_at": "2026-10-30T06:37:17.036Z",
+    "box": [
+      9662,
+      18181,
+      5838,
+      10203
+    ]
+  },
+  "mx-b-right.png": {
+    "board": "1560:10460/mx-b-right",
+    "group": "mxb",
+    "hash": "dc9ad75c",
+    "captured_at": "2026-10-30T06:37:17.809Z",
+    "box": [
+      15500,
+      18181,
+      4320,
+      10203
+    ]
+  },
+  "mx-c-left.png": {
+    "board": "1169:5937/mx-c-left",
+    "group": "mxc",
+    "hash": "3e06b84d",
+    "captured_at": "2026-10-30T06:37:18.669Z",
+    "box": [
+      4822,
+      28974,
+      3828,
+      10203
+    ]
+  },
+  "mx-c-mid.png": {
+    "board": "1169:5937/mx-c-mid",
+    "group": "mxc",
+    "hash": "444a2779",
+    "captured_at": "2026-10-30T06:37:20.003Z",
+    "box": [
+      8650,
+      28974,
+      5850,
+      10203
+    ]
+  },
+  "mx-c-right.png": {
+    "board": "1169:5937/mx-c-right",
+    "group": "mxc",
+    "hash": "327d19cf",
+    "captured_at": "2026-10-30T06:37:20.886Z",
+    "box": [
+      14500,
+      28974,
+      5320,
+      10203
+    ]
   }
 }

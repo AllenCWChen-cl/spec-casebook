@@ -11,7 +11,10 @@
 //                     the groups to re-read (their calls are written as figma-check/reread-<group>.js), the new
 //                     boards and the screenshots to re-capture; exit 0 unchanged, 10 changed
 //   --ack <id,…>      new boards that are not part of the spec (scratch frames): stop reporting them
-//   --shot <png> <board id>   shrinks a saved board screenshot (extracted/figma/<png>) to 256 colours and records it
+//   --shot <png> <board id> [--box x,y,w,h] [--tiles id,…]   shrinks a saved board screenshot (extracted/figma/<png>)
+//                     to 256 colours and records it; --box is the canvas box the image covers when it is not exactly
+//                     the board node (a board cut out of a larger frame, at any scale), --tiles the boards it was
+//                     joined from (PM and MX sections read as tiles): a change to any of them re-captures it
 //                     with the board's current hash
 //   --prune [--dry-run]       deletes screenshots in extracted/figma/ that shots.json does not list (or every one when
 //                     the set is SUPERSEDED), so a re-captured board leaves one file, never an old copy beside it
@@ -23,7 +26,7 @@ import { arg, assertIds, featureDir, ROOT, writeJson } from './lib/library.ts';
 import { listSpecSets } from './lib/specs.ts';
 
 const [feature, maybeSet] = process.argv.slice(2);
-if (!feature) { console.error('Usage: node scripts/figma-check.ts <product>/<feature> [<spec-set folder>] [--compare | --ack <ids> | --shot <png> <board> | --prune]'); process.exit(2); }
+if (!feature) { console.error('Usage: node scripts/figma-check.ts <product>/<feature> [<spec-set folder>] [--compare | --ack <ids> | --shot <png> <board> [--box x,y,w,h] [--tiles ids] | --prune]'); process.exit(2); }
 assertIds(feature, 'ios');
 const specs = join(featureDir(feature), 'specs');
 const hasGroups = (set: string) => existsSync(join(specs, set, 'extracted')) && readdirSync(join(specs, set, 'extracted')).some(f => /^figma-inventory-.+\.json$/.test(f));
@@ -85,7 +88,10 @@ im = Image.open(sys.argv[1]); a = im.getchannel('A').getextrema()[0] if im.mode 
 if im.mode != 'P': (im.convert('RGBA') if a < 255 else im.convert('RGB')).quantize(256, method=Image.Quantize.FASTOCTREE, dither=Image.Dither.NONE).save(sys.argv[1], optimize=True)`, join(shotDir, png)], { encoding: 'utf8' });
   if (q.status !== 0) console.log(`${png}: not shrunk (python3 with Pillow needed: pip3 install pillow)`);
   else console.log(`${png}: ${Math.round(before / 1024)} KB → ${Math.round(statSync(join(shotDir, png)).size / 1024)} KB`);
-  shots[png] = { board: id, group: groupOf.get(id) ?? null, hash: store.boards[id]?.hash ?? null, captured_at: new Date().toISOString() };
+  const box = arg('box')?.split(',').map(Number), tiles = arg('tiles')?.split(',').filter(Boolean);
+  if (box && (box.length !== 4 || box.some(n => !Number.isFinite(n)))) { console.error('--box x,y,w,h (canvas points)'); process.exit(2); }
+  shots[png] = { board: id, group: groupOf.get(id) ?? null, hash: store.boards[id]?.hash ?? null, captured_at: new Date().toISOString(),
+    ...(box ? { box } : {}), ...(tiles ? { tiles: Object.fromEntries(tiles.map(t => [t, store.boards[t]?.hash ?? null])) } : {}) };
   writeJson(shotsPath, shots); console.log(`${png}: recorded for board ${id} (hash ${shots[png].hash ?? 'none yet'})`);
 } else if (has('prune')) {
   const superseded = existsSync(join(specs, set, 'SUPERSEDED.md'));
@@ -124,7 +130,8 @@ if im.mode != 'P': (im.convert('RGBA') if a < 255 else im.convert('RGB')).quanti
   }
   for (const [png, s] of Object.entries<any>(shots)) {
     const b = store.boards[s.board];
-    if (b?.changed || (s.hash && b && s.hash !== b.hash)) report.shots.push({ png, board: s.board });
+    const tileChanged = Object.entries<any>(s.tiles ?? {}).some(([t, h]) => store.boards[t]?.changed || (h && store.boards[t] && h !== store.boards[t].hash));
+    if (b?.changed || (s.hash && b && s.hash !== b.hash) || tileChanged) report.shots.push({ png, board: s.board });
   }
   const orphans = existsSync(shotDir) ? readdirSync(shotDir).filter(f => /\.(png|jpe?g)$/i.test(f) && !shots[f]) : [];
   save(); writeJson(join(ex, 'figma-check.json'), report);

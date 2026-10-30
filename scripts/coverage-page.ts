@@ -16,6 +16,9 @@
 // --render draws the board images from the Design, PM and MX PDFs (no Figma call) into specs/<set>/extracted/coverage/
 // (local only), each board grown to hold the screens that hang over its edge; <board>.json keeps the box drawn.
 // --render-spec pm,mx limits --render to those specs (the PM page is large: ~20 s a board).
+// Board images (user, 2026-10-30): every board's Figma screenshot is committed (extracted/figma/<board>.png, listed in
+// shots.json, re-captured when figma-check.ts --compare names it), so any checkout shows the current Figma boards with
+// no spec PDFs and no --render. A local render is used only for a board with no screenshot.
 // --serve [port] [--lan] keeps the page up (default http://127.0.0.1:4391/), rebuilt from the files at most every 30 s
 // so new run results and taps show up; --lan binds 0.0.0.0 so other computers on the network can open it (no auth:
 // anyone on the LAN can read it). scripts/pages.ts serves it next to the review and plan pages, with links between them.
@@ -62,7 +65,10 @@ async function serveMode(): Promise<never> {
       if (f) {
         const p = join(ROOT, decodeURIComponent(f[1])), type = /\.png$/i.test(p) ? 'image/png' : /\.jpe?g$/i.test(p) ? 'image/jpeg' : '';
         if (type && relative(join(ROOT, 'library'), p).split(/[\\/]/)[0] !== '..' && existsSync(p)) {
-          res.writeHead(200, { 'content-type': type, 'cache-control': 'max-age=300' }); res.end(readFileSync(p)); return; }
+          // revalidated on every load: a board is re-rendered (or a new Figma shot pulled) under the same name
+          const mod = new Date(Math.floor(statSync(p).mtimeMs / 1000) * 1000).toUTCString();
+          if (req.headers['if-modified-since'] === mod) { res.writeHead(304); res.end(); return; }
+          res.writeHead(200, { 'content-type': type, 'cache-control': 'no-cache', 'last-modified': mod }); res.end(readFileSync(p)); return; }
       }
       res.writeHead(404); res.end('Not found');
     } catch (e: any) { res.writeHead(500, { 'content-type': 'text/plain' }); res.end(String(e?.message ?? e)); }
@@ -100,11 +106,11 @@ const rel = (p: string) => files ? `files/${encodeURI(relative(ROOT, p).split('\
 const link = process.argv.includes('--link');
 const embed = (p: string) => link || files ? rel(p) : `data:image/${p.endsWith('.png') ? 'png' : 'jpeg'};base64,${readFileSync(p).toString('base64')}`;
 
-// Board images from the spec PDFs (pdf point = figma point + offset), cached; a board the PDF lacks stays blank.
+// Board images: the committed Figma screenshots (shots.json gives the canvas box of a board cut out of a frame); a
+// board with none falls back to a local render from the spec PDFs (pdf point = figma point + offset), if one exists.
 const imgDir = join(ex, 'coverage');
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-// boards the PDF lacks (figma-frames.json: in_pdf false) get their image from Figma get_screenshot when quota allows,
-// saved as the same <board>.jpg
+const shots: Record<string, { box?: number[] }> = existsSync(join(ex, 'figma', 'shots.json')) ? JSON.parse(readFileSync(join(ex, 'figma', 'shots.json'), 'utf8')) : {};
 const frames = existsSync(join(ex, 'figma-frames.json')) ? JSON.parse(readFileSync(join(ex, 'figma-frames.json'), 'utf8')) : {};
 const figmaOnly = new Set((frames.frames ?? []).filter((fr: any) => fr.in_pdf === false).flatMap((fr: any) => [fr.node, fr.frame].filter(Boolean)));
 // which spec each Figma file is (pm / design / mx): figma-frames.json names the file keys, else the PDF it lines up with
@@ -156,14 +162,11 @@ for (const [key, f] of Object.entries<any>(inv.files)) for (const [name, b] of O
   const spec = specOf(key), img = join(imgDir, `${spec === 'design' ? '' : `${spec}-board-`}${slug(name)}.jpg`), pdfLacks = figmaOnly.has(b.id);
   const box = union(b.box, screensOf.get(name) ?? []);
   // a saved Figma screenshot (extracted/figma/<board>.png) is current; the PDF can lag the Figma file
-  const shotPng = join(ex, 'figma', `${slug(name)}.png`);
-  if (render && existsSync(shotPng)) {
-    mkdirSync(imgDir, { recursive: true });
-    spawnSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '75', '-Z', String(Math.round(Math.max(...b.box.slice(2)) * scale)), shotPng, '--out', img], { stdio: 'ignore' });
-    saveImgBox(img, b.box);
-  } else if (render && f.pdf && !pdfLacks && (!renderSpecs || renderSpecs.includes(spec))) queue(join(specDir, f.pdf.name), img, [box[0] + f.pdf.offset[0], box[1] + f.pdf.offset[1], box[2], box[3]], box);
-  boards.push({ name, file: key, spec, id: b.id, box, imgPath: img,
-    note: pdfLacks ? `Figma-only board: save a Figma get_screenshot of node ${b.id} as ${relative(ROOT, img)}` : 'No render yet: run with --render' });
+  // the committed screenshot covers the board node, or the canvas box shots.json records (a board cut out of a frame)
+  const png = `${slug(name)}.png`, shotPng = join(ex, 'figma', png), shot = existsSync(shotPng) ? shots[png] ?? {} : null;
+  if (render && !shot && f.pdf && !pdfLacks && (!renderSpecs || renderSpecs.includes(spec))) queue(join(specDir, f.pdf.name), img, [box[0] + f.pdf.offset[0], box[1] + f.pdf.offset[1], box[2], box[3]], box);
+  boards.push({ name, file: key, spec, id: b.id, box, imgPath: shot ? shotPng : img, ...(shot ? { imgBox: shot.box ?? b.box } : {}),
+    note: `No Figma screenshot yet: capture node ${b.id} as ${relative(ROOT, shotPng)} and record it with figma-check.ts --shot${pdfLacks ? '' : ' (or run --render to draw it from the spec PDF on this computer)'}` });
 }
 // Spec regions no Figma board lies in (the PM and MX PDFs): boards of their own in PDF points, image only.
 const specOfPdf = (pdf: string) => /\bMX\b/i.test(pdf) ? 'mx' : /\bPM\b/i.test(pdf) ? 'pm' : 'design';
@@ -206,8 +209,8 @@ const titled = boards.map(regionTitle);
 for (const [i, b] of boards.entries()) if (titled[i]) b.title = titled.filter(x => x === titled[i]).length > 1 ? `${titled[i]} (${b.name})` : titled[i];
 for (const b of boards) {
   const has = existsSync(b.imgPath);
-  Object.assign(b, { img: has ? embed(b.imgPath) : '', img_box: has ? imgBoxOf(b.imgPath, b.box) : null, note: has ? '' : b.note });
-  delete b.imgPath;
+  Object.assign(b, { img: has ? embed(b.imgPath) : '', img_box: has ? b.imgBox ?? imgBoxOf(b.imgPath, b.box) : null, note: has ? '' : b.note });
+  delete b.imgPath; delete b.imgBox;
 }
 
 // Latest result per case and the tap log of each run.
@@ -277,6 +280,15 @@ const unmatchedView = unmatched.map(u => ({ ...tapView(u.tap), best: u.tie ? `ti
 
 // Flow arrows: walked when a row of their requirement ran.
 const reqRows = requirementRows(rows, req);
+// a requirement marked NOT TESTABLE (n/a on this platform, or held) with no row is excluded with its reason, as
+// check.ts lets it go without a row; a requirement with no row and no such mark is missing, never "planned"
+// (the reason is the sentence holding the mark)
+const untestable = (rid: string) => {
+  const line = req.split('\n').find(l => l.startsWith(`- ${rid} `)) ?? '';
+  if (!/NOT TESTABLE/.test(line)) return '';
+  const text = line.replace(/^- R-\d+ (\[[^\]]*\]\s*)?/, '');
+  return (text.split(/(?<=\.) (?=[A-Z「])/).find(s => s.includes('NOT TESTABLE')) ?? text).slice(0, 300);
+};
 const listed = existsSync(join(ex, 'arrows.json')) ? JSON.parse(readFileSync(join(ex, 'arrows.json'), 'utf8')).arrows : [];
 const edgeOf = new Map(listed.map((a: any) => [a.node, a]));
 const groupOfCtl = new Map(groups.flatMap(g => trace.find(e => e.group === g.group).controls.map((id: string) => [id, g])));
@@ -284,8 +296,8 @@ const arrows = inv.arrows.filter((a: any) => !a.duplicate_of && a.kind !== 'poin
   const rid = arrowRequirement(req, a.id), rs = rid ? reqRows(rid) : [];
   const src: any = a.src ? groupOfCtl.get(a.src) : null;
   // an arrow arrows.json marks not_flow (a superseded version's arrow, an annotation pointer) is drawn as excluded
-  const na = (edgeOf.get(a.id) as any)?.not_flow;
-  const status = na && !rid ? 'na' : !rid ? 'none' : (assigned.get(src?.group) ?? []).some(h => rs.includes(h.tap.case)) ? 'proof' : rs.some(ran) ? 'ran'
+  const na = (edgeOf.get(a.id) as any)?.not_flow || (rid && !rs.length ? untestable(rid) : '');
+  const status = na && !rs.length ? 'na' : !rid || !rs.length ? 'none' : (assigned.get(src?.group) ?? []).some(h => rs.includes(h.tap.case)) ? 'proof' : rs.some(ran) ? 'ran'
     : rs.some(id => result.get(id)?.result === 'Blocked') ? 'blocked' : 'notrun';
   return { id: a.id, board: a.board, points: a.points, kind: a.kind, req: rid ?? '', rows: rs, status, fail: rs.some(id => result.get(id)?.result === 'Fail'),
     edge: (edgeOf.get(a.id) as any)?.edge ?? a.name, src: src?.group ?? '', na: na ?? '' };
@@ -313,7 +325,7 @@ const notes = blocks.flatMap(bk => {
   // a linked-table variant names its own row ("R-463 (TC-231)"); other blocks take every row of their requirements
   const own = /^R-/.test(bk.trace) ? bk.trace.match(/\bTC-\d+\b/g) ?? [] : [];
   const rs = own.length ? [...new Set<string>(own)] : [...new Set(reqIds.flatMap(rid => reqRows(rid)))];
-  const status = !bk.trace ? 'none' : !reqIds.length ? 'na' : rs.some(ran) ? 'ran' : rs.some(id => result.get(id)?.result === 'Blocked') ? 'blocked' : rs.length ? 'notrun' : 'none';
+  const status = !bk.trace ? 'none' : !reqIds.length ? 'na' : rs.some(ran) ? 'ran' : rs.some(id => result.get(id)?.result === 'Blocked') ? 'blocked' : rs.length ? 'notrun' : reqIds.every(untestable) ? 'na' : 'none';
   return [{ id: bk.id, board: b.name, x, y, text: bk.text, trace: bk.trace, link: bk.link ?? '',
     ...(linkInfo.has(bk.id) ? (({ label, link_i, link_label }) => ({ label, link_i, link_label, link_at: [x, y - LINK_STEP * (link_i + 1)] }))(linkInfo.get(bk.id)!) : {}), reqs: reqIds, rows: rs, status, fail: rs.some(id => result.get(id)?.result === 'Fail') }];
 });

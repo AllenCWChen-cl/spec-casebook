@@ -494,9 +494,10 @@ should not be left running for a draft that is already saved: saving from it aga
 
 Without `--serve`, `coverage-page.ts` writes `library/<product>/<feature>/<platform>/coverage.html`, a single file with the
 board images embedded that opens anywhere (local only, not committed); its case IDs link to `cases.html` beside it,
-and `cases.html` links back. `--render` draws the board images from the Design PDF, and the PM and MX spec regions
-from their PDFs, first (a few minutes per board); `--runs <folders>` limits it to one run, to see whether that run pressed
-everything.
+and `cases.html` links back. The board images are the Figma screenshots committed in `specs/<set>/extracted/figma/`
+(one per board, kept current by `figma-check.ts`), so every checkout shows them without the spec PDFs. `--render`
+draws a board that has no screenshot from its spec PDF on this computer (a few minutes per board); `--runs <folders>`
+limits the page to one run, to see whether that run pressed everything.
 
 ## Repository layout
 
@@ -636,8 +637,9 @@ All scripts run from the repository root with `node scripts/<name>.ts`. In the u
   renders. Results, reports and eBug drafts keep the file names that point at them. The eBug review pages are
   committed with their images embedded.
 - **Coverage and review images**: `coverage.html` (it embeds the board renders), the board renders in
-  `extracted/coverage/`, the review sheets in `extracted/inventory-sheets/` and the Figma screenshots in
-  `extracted/figma/`. The inventory, overrides, reviews and control traces are committed, so the page can be rebuilt.
+  `extracted/coverage/` and the review sheets in `extracted/inventory-sheets/`. The board screenshots in
+  `extracted/figma/` (listed in `shots.json`) are the exception: committed, so no one spends Figma quota on them
+  again and every checkout shows the boards. The inventory, overrides, reviews and control traces are committed, so the page can be rebuilt.
 - **Pulled app logs, Appium session files and full eBug logs** (they can hold tokens). The checked log excerpts
   attached to eBugs are committed.
 - `node_modules/`, Python caches and patch leftovers.

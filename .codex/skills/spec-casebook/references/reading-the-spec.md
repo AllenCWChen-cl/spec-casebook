@@ -150,13 +150,23 @@ and look at the tile images where layout, arrows or states matter.**
      3 with Pillow). Re-capture only when `--compare` lists the board, overwriting the same file, never a copy beside
      it. `figma-check.ts --prune` deletes every image `shots.json` does not list and the screenshots of a superseded
      spec set (`SUPERSEDED.md`); commit the deletion. Never commit other images (renders, tiles, run screenshots).
+     **Every board the coverage page shows has one (user, 2026-10-30)**, so any checkout shows the current Figma
+     boards with no spec PDFs and no `--render` (the PDFs lag Figma and are not in git). Capture right after the
+     board's inventory read (Design with `figma-design`, PM and MX with `figma-pm`), readable: `maxDimension` = the
+     node's longer side (1:1) up to 20000, and never below 0.5 px per point. A board joined from tiles or cut out of a
+     frame (id `<node>/<name>`: PM main flow, error handling, top mockups, the MX sections) is no Figma node: capture
+     `<node>` (a page or section; a section render has a 40-pt margin round it), cut the board's box out with
+     `node scripts/figma-cut.ts <png> --box x,y,w,h --src <shot>@x,y,scale …` (a 1:1 child pasted over a smaller
+     frame shot where one covers the box — check it is not only a background panel), and record it with
+     `--shot <png> <board id> --box x,y,w,h --tiles <tile ids>` so a change to any tile re-captures it. Look at a crop
+     of each image at full size before committing it.
    - **Everything is marked (user, 2026-10-29).** Every board the coverage page shows has all it draws marked: its
      screens, controls and arrows, and every annotation block as a note (state from the rows of its requirements;
      label / ui / older / Q-n traces show as Excluded). A bare spec region or a board with nothing marked is a gap of
      the analysis: inventory it, trace its notes, or give its content a requirement. A linked document on a board is
      spec content (step 9, *Follow every link*), so a board holding only a link shows every linked item marked. Board
-     images come from each file's PDF (`coverage-page.ts --render`, no Figma call; pdf point = figma point +
-     `files.<key>.pdf.offset`).
+     images are the committed screenshots (above); `coverage-page.ts --render` (local, from the spec PDFs; pdf point
+     = figma point + `files.<key>.pdf.offset`) only fills a board that has none, e.g. in a PDF-only analysis.
 
 ## No Figma access (PDF-only, user, 2026-10-30)
 

@@ -172,7 +172,10 @@ server.on('listening', () => {
   console.log(`Casebook pages for ${feature} / ${platform}: http://127.0.0.1:${port}/  — Ctrl+C to stop`);
   for (const p of pages) console.log(`  ${p.port ? `/${p.path}/`.padEnd(12) : '(off)'.padEnd(12)} ${p.label}${p.error ? ` — ${p.error}` : ''}`);
   if (!lan) return;
-  for (const ifs of Object.values(networkInterfaces())) for (const i of ifs ?? []) if (i.family === 'IPv4' && !i.internal) console.log(`  LAN: http://${i.address}:${port}/`);
+  // one address per network this computer is on (Wi-Fi and Ethernet are often different subnets): the other computer
+  // opens the one on its own network; a self-assigned 169.254 address is no network
+  for (const [name, ifs] of Object.entries(networkInterfaces())) for (const i of ifs ?? []) if (i.family === 'IPv4' && !i.internal && !i.address.startsWith('169.254.'))
+    console.log(`  LAN: http://${i.address}:${port}/`.padEnd(36) + ` (${name}, for computers on ${i.cidr ?? i.address})`);
   console.log('  Warning: --lan has no auth; anyone on this network can read the pages. Review Save is accepted from this computer only.');
 });
 server.listen(port, host);
