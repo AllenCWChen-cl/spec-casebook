@@ -12,6 +12,11 @@ adb serial HQ61563393, Android 12, 1080 × 2520; setup in README › Android pho
   flags`; `id` takes a resource-id (short or `<pkg>:id/…`), `lbl` / `tapif` / `waitfor` match text or content-desc.
   PowerDirector's accessibility ids are content-descs starting `[AID]` (e.g. `[AID]IAP_Back`). Recipes go in
   `library/<product>/<feature>/android/recipes/`.
+- **Drags taken as taps (2026-10-30, REQ-066).** `drag` (one Appium action) and `adb input swipe` reach some views as a
+  tap: the AI Mini Drama description box opened its editor instead of scrolling. Use `fingerdrag X1 Y1 X2 Y2 [steps]`
+  (adb `input motionevent` DOWN, moves ~100 ms apart, UP) for text that scrolls inside its own box, and before
+  filing a 「drag does X」 bug retry it with `fingerdrag`. `setval` is setText, not a paste: it skips the field's
+  paste limit, so an over-limit paste is checked by hand.
 - **iOS rule → Android command.** Segment start: `restart` (fresh UiAutomator2 server, PowerDirector in front). Keep
   the phone awake: the user turns on Developer options › Stay awake (or the longest Screen timeout) and uses no PIN
   lock. Rows in a list: `scrollto` (it also prints a row's switch state, `| row Switch on at X,Y`). Pages opened as

@@ -27,6 +27,8 @@
 //   burst X Y [n]             n rapid taps (default 10) in one touch action
 //   id NAME | lbl TEXT        tap element by resource-id / first element whose text or content-desc contains TEXT
 //   drag X1 Y1 X2 Y2 [ms]     finger drag
+//   fingerdrag X1 Y1 X2 Y2 [steps]  drag sent as adb `input motionevent` DOWN, STEPS moves (default 10), UP: use it
+//                             when `drag` is taken as a tap (text that scrolls inside its own box)
 //   pinch X Y FROM TO [ms]    two fingers on a horizontal line through (X, Y), FROM → TO pixels apart (TO > FROM zooms in)
 //   scrollto TEXT [X TOP BOTTOM]  scroll the list under column X until the element whose text or content-desc is exactly
 //                             TEXT sits between TOP and BOTTOM, then print its line (plus the row's switch state when the
@@ -338,6 +340,18 @@ switch (cmd) {
     await pointer([{ type: 'pointerMove', duration: 0, x: x1, y: y1 }, { type: 'pointerDown', button: 0 }, { type: 'pause', duration: 120 },
       { type: 'pointerMove', duration: ms || 500, x: x2, y: y2 }, { type: 'pointerUp', button: 0 }]);
     console.log('dragged'); break;
+  }
+  case 'fingerdrag': {
+    // One `input motionevent` per step (~100 ms apart) reads as a real finger; Appium's one-shot drag and `input swipe`
+    // are taken as taps by some views (AI Mini Drama description box opened its editor instead of scrolling, 2026-10-30).
+    const [x1, y1, x2, y2, n] = rest.map(Number);
+    const steps = Math.max(2, n || 10);
+    const moves = Array.from({ length: steps }, (_, i) => {
+      const t = (i + 1) / steps;
+      return `input motionevent MOVE ${Math.round(x1 + (x2 - x1) * t)} ${Math.round(y1 + (y2 - y1) * t)}`;
+    });
+    sh([`input motionevent DOWN ${x1} ${y1}`, ...moves, `input motionevent UP ${x2} ${y2}`].join('; '));
+    console.log('finger-dragged', steps, 'steps'); break;
   }
   case 'pinch': {
     const [x, y, from, to, ms] = rest.map(Number);
