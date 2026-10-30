@@ -1,0 +1,295 @@
+Dedupe per OS (user, 2026-10-28) — AI Mini Drama Android, phase A7 (final: all 501 cases incl. A7-j and the deferred cases), 16.8.0 (2610212). Read-only; nothing filed, commented or reopened.
+Pool: ecl_query.py bugs --product "PowerDirector Mobile for Android" --text "Mini Drama" (381 tickets, read 2026-10-30, incl. the A2 bugs DRA262610P0324–P0363, the A4 bugs DRA262610P0380–P0392 and P0393–P0409 filed since);
+ecl_query.py dedupe upload/bodies.json --product "PowerDirector Mobile for Android" --limit 1000 for the 11 new entries (judged below; re-run 2026-10-30 after A7-j for ISS-AMDA-67…70). iOS tickets never make a duplicate.
+Closed-ticket rule (user, 2026-10-28): a same-OS ticket that is Close while the bug is back stays a new entry (ISS-AMDA-62 ≈ DRA262610P0212, ISS-AMDA-65 ≈ DRA262610-0041). Tickets RD declined (Cancelled, NAB, ProposeNAB, NotReproducible, Won't Fix) are treated as not 'back' and stay here — flagged ⚑.
+
+== Not listed: Fail rows and observations that repeat an existing Android ticket (no card, no recheck row) ==
+DRA262610-0015 [NewCreated] Create my character "AI Suggestion" copies the outline role line instead of describing appearance
+    TC-407: AI Suggestion copies the role line
+DRA262610-0024 [NewCreated] (Create my character): AI Mini Drama generates a male-looking character when Gender is set to Female
+    TC-408: Female setting gives a man
+DRA262610-0032 [Assigned] Generate all blocks the screen for 12-14 minutes with no cancel / DRA262610P0302 [NewCreated] Generate all says it takes about 1 minute but takes over 4 minutes
+    TC-170: ~55 s cast-confirm wait
+DRA262610-0045 [NewCreated] Unchecked My characters only checkbox has a gray outline
+    TC-410: unchecked checkbox grey
+DRA262610-0046 [NewCreated] Delete confirmation does not name the selected drama
+    TC-111: delete body has no title
+DRA262610-0049 [TRCreated] Stopping outline generation removes progress without explanatory feedback
+    TC-153: outline Stop silent
+DRA262610-0049 [TRCreated] Stopping outline generation removes progress without explanatory feedback / DRA262610P0348 [Assigned] Chat loses earlier messages and cards after a reopen, a Stop or a resume
+    TC-155: revision Stop silent
+DRA262610-0050 [TRCreated] English storyboard dialogue uses Chinese corner quotes
+    TC-282: English scripts use 「」
+DRA262610-0059 [ProposeNAB] Add Media permission notice cannot be closed after denying access  ⚑ closed/declined status — kept as duplicate (A4 practice)
+    TC-412: permission notice loops after Don't allow; back / ‹ dead (ProposeNAB ⚑ kept as duplicate, A4 practice)
+DRA262610P0026 [NewCreated] Video generation stops while the user is in another feature and restarts on return / DRA262610P0344 [Assigned] Storyboard stops when the app is swiped away and resumes only on reopen
+    O-16: leaving in stage ① parks the job until reopened
+DRA262610P0047 [NewCreated] Renaming a drama does not move it to the top of History
+    TC-108: rename keeps the place
+DRA262610P0063 [NeedCodeReview] Prompt question disappears from chat history after tapping Continue
+    TC-414: format question gone after Generate
+DRA262610P0065 [NewCreated] Template rows lack a cue to discover more items by swiping
+    TC-415: no cue for more templates
+DRA262610P0069 [NAB] Re-entering Full Edit creates a new project instead of reopening the edited one  ⚑ closed/declined status — kept as duplicate (A4 practice)
+    TC-417: Full Edit re-entry makes a new project (status NAB)
+DRA262610P0071 [ProposeNAB] Export Full Video leaves out the text, sticker and filter added in Full Edit  ⚑ closed/declined status — kept as duplicate (A4 practice)
+    TC-418: Full Edit text missing from the export
+DRA262610P0072 [NewCreated] Chat text scrolls under the Back, credit and History buttons
+    TC-419: text behind the header
+DRA262610P0077 [Assigned] Leaving right after Generate storyboard shows no 'Stop and lose your credits?' warning
+    TC-061: storyboard stage ① exits
+    TC-062: storyboard stage ① exits
+    TC-063: storyboard stage ① exits
+    TC-398: storyboard stage ① exits
+    TC-399: storyboard stage ① exits
+    TC-294: chat update stage ① Back
+    O-4: leaving within the first second after Generate gives no dialog
+DRA262610P0077 [Assigned] Leaving right after Generate storyboard shows no 'Stop and lose your credits?' warning / DRA262610P0195 [NewCreated] History omits active storyboard processing state / DRA262610P0116 [Assigned] History does not identify a task that is still generating
+    TC-359: stage ① exits; History state
+DRA262610P0083 [NewCreated] Scene clips are auto-saved to Movies with internal file names / DRA262610P0276 [NewCreated] Result card download saves two raw 15-sec clips without captions
+    TC-422: downloads named reftovideo_…
+    TC-090: downloaded clips without captions
+DRA262610P0084 [NewCreated] Full Edit marks the drama's own captions as Pro, blocking free Export
+    TC-423: Full Edit Export asks Pro for captions
+DRA262610P0093 [NewCreated] Outline and scene titles are generated in English when Japanese is selected / DRA262610P0369 [Assigned] Unset-character lead has no break between its sentences: 「set yetThey need」 / DRA262610P0256 [TRCreated] Count strings use plural for one ("1 scenes", "1 characters")
+    O-20: Japanese picks give English outlines; 「1 characters isn't set yetThey need」
+DRA262610P0123 [NewCreated] Offline Regenerate Image reports service busy instead of a network problem
+    TC-428: offline Regenerate says service busy (debug toast: ISS-AMDA-62)
+    O-7: offline messages differ by entry point (debug toast: ISS-AMDA-62)
+DRA262610P0127 [Cancelled] The 1000-character idea limit has no visible warning  ⚑ closed/declined status — kept as duplicate (A4 practice)
+    TC-015: no counter / inline 1,000-character message
+    TC-016: no inline limit message
+    TC-017: no counter
+DRA262610P0134 [Assigned] Storyboard image updates use a generic in-place regeneration flow
+    TC-385: no per-scene skeletons
+DRA262610P0134 [Assigned] Storyboard image updates use a generic in-place regeneration flow / DRA262610P0199 [Assigned] Storyboard regeneration ignores the requested scene image change
+    TC-073: image change not applied
+DRA262610P0135 [TRCreated] AI Suggestion fills only the description and leaves required attributes unset
+    TC-126: AI Suggestion = role line, attributes unset
+DRA262610P0147 [NewCreated] Create my character cannot be closed or stopped while Generating
+    TC-383: outside tap while generating does nothing
+DRA262610P0159 [ProposeNAB] "Create the full episode" shows 60 sec instead of 90 sec in AI Mini Drama  ⚑ closed/declined status — kept as duplicate (A4 practice)
+    TC-086: full offer 60 sec
+    O-12: offer (60 sec) is the remaining length
+DRA262610P0169 [TRCreated] Storyboard Preview captions are split in the middle of a word
+    TC-443: Chinese preview captions split
+DRA262610P0174 [Assigned] Assistant says the storyboard is created before Create storyboard is tapped
+    TC-447: template replies claim a finished storyboard
+DRA262610P0178 [Close] (Custom topic): Remove the redundant "Ready to create your characters?" header  ⚑ closed/declined status — kept as duplicate (A4 practice)
+    TC-448: two headers over the slots
+DRA262610P0184 [Assigned] Leaving a template chat before the outline shows no confirm and still saves it
+    TC-452: template chat leaves with no dialog and is saved
+DRA262610P0198 [Assigned] Storyboard credit rate differs from the article expectation
+    TC-060: 3 credits per image
+    TC-070: ◆3 not ◆6
+    TC-072: ◆3 per image
+    TC-292: Regenerate Image ◆3 (+TTS ◆1) vs ◆6
+    TC-356: storyboard ◆3 per image vs ◆6
+DRA262610P0199 [Assigned] Storyboard regeneration ignores the requested scene image change
+    TC-458: image change not applied
+DRA262610P0199 [Assigned] Storyboard regeneration ignores the requested scene image change / DRA262610P0027 [Propose Wont Fix] Storyboard Preview stays "unavailable" even after the missing scene image is regenerated  ⚑ closed/declined status — kept as duplicate (A4 practice)
+    TC-074: no new TTS / preview
+DRA262610P0200 [NewCreated] (JP, The Dog Who Remembered Her): Shiro has no preset reference image
+    TC-459: JP Dog: Shiro dropped
+DRA262610P0202 [NewCreated] (US, Glad We Came): Lily reference conflicts with the script appearance
+    TC-461: Glad We Came looks vs outline
+DRA262610P0203 [NewCreated] (US, The Dog Who Remembered Her): Murphy has no preset reference image
+    TC-462: EN Dog: Murphy dropped, no cast
+DRA262610P0209 [NewCreated] Message sent during the format card discards it and applies default settings
+    TC-468: message during the format card applies defaults
+DRA262610P0210 [NeedNewModule] Reference-photo character ignores Age while the chip still shows it
+    TC-469: photo overrides Age
+DRA262610P0211 [NewCreated] Send button stays Stop during a job, so sending cancels the job
+    TC-470: send button stays Stop
+DRA262610P0213 [NewCreated] After stopping the outline, the chat shows no stopped state and no retry
+    TC-471: no stopped note / Try again
+DRA262610P0222 [Assigned] Re-offered video settings card lacks model and quotes 120 for a 60 job
+    TC-079: no 「Model • Seedance」 row
+DRA262610P0224 [NewCreated] Choose Character accepts a gender-mismatched character without warning
+    TC-477: no gender-mismatch warning
+DRA262610P0225 [NewCreated] Create my character leaves Gender and Age empty despite the outline
+    TC-478: nothing prefilled from the outline (PM)
+DRA262610P0227 [NewCreated] Preview and full-episode cards look identical, no label or length
+    TC-479: no card label; preview card replaced (PM)
+DRA262610P0229 [NewCreated] Add New character regenerates immediately, with no way to say who to add
+    TC-480: Add New regenerates at once
+DRA262610P0230 [NewCreated] Mini Drama result player has no progress bar or time
+    TC-481: no progress bar in the player
+DRA262610P0236 [NewCreated] Same library look can be assigned to two roles without any warning
+    TC-487: same look for two roles, no warning
+DRA262610P0237 [NewCreated] (Custom): Format card always resets to English and captions on
+    TC-488: format card resets to English + captions
+DRA262610P0240 [NeedCodeReview] Next episode of a No-captions drama is generated with burned-in captions
+    TC-490: next episode burns in captions
+DRA262610P0241 [NewCreated] PDR-A 16.8.0 - [UX] AI MIni Drama(Stroyboard): Cannot regenerate multiple failed Stroyboards at the same time / DRA262610P0107 [NewCreated] Failed scene images can only be retried one scene at a time
+    TC-491: one failed scene regenerates at a time (PM ruling pending)
+DRA262610P0244 [TRCreated] Video and storyboard captions break mid-word or leave a lone word on line 2
+    TC-492: Chinese caption pages split words
+DRA262610P0254 [NewCreated] Scripted lines, scene count and dialect requests change without notice
+    TC-497: quoted lines / scene count dropped
+DRA262610P0255 [NewCreated] User-given title is replaced by an AI title; request to keep it ignored
+    TC-498: script title replaced, keep request ignored
+DRA262610P0258 [RDResolved] (Chat): Video settings and agent cards stay English in Traditional Chinese / DRA262610P0284 [NewCreated] Character filter Gender and Ethnicity options stay English in Japanese / DRA262610P0248 [Propose Wont Fix] Assistant replies switch between English and the video language  ⚑ closed/declined status — kept as duplicate (A4 practice)
+    TC-406: video settings + Create storyboard cards, agent status, filter options, English replies (ISS-AMDA-68 / 69 / 70)
+DRA262610P0258 [RDResolved] (Chat): Video settings and agent cards stay English in Traditional Chinese / DRA262610P0284 [NewCreated] Character filter Gender and Ethnicity options stay English in Japanese / DRA262610P0289 [NewCreated] Idea suggestion chips stay English in the Japanese app / DRA262610P0093 [NewCreated] Outline and scene titles are generated in English when Japanese is selected
+    TC-277: video settings + Create storyboard cards, filter options, chips, English outline (headers: ISS-AMDA-68; times: ISS-AMDA-70)
+DRA262610P0258 [RDResolved] (Chat): Video settings and agent cards stay English in Traditional Chinese / DRA262610P0284 [NewCreated] Character filter Gender and Ethnicity options stay English in Japanese / DRA262610P0326 [Assigned] Character filter lists 「Other」 twice under Gender / DRA262610P0248 [Propose Wont Fix] Assistant replies switch between English and the video language  ⚑ closed/declined status — kept as duplicate (A4 practice)
+    TC-276: video settings + Create storyboard cards, agent status, filter options, Other twice, English replies (headers / names: ISS-AMDA-68; times: ISS-AMDA-70)
+DRA262610P0262 [NeedCodeReview] X closes a completed character without discard confirmation
+    TC-340: no Discard dialog
+DRA262610P0268 [Assigned] Template chat stops after the outline with no Create storyboard card
+    TC-503: template chat stops after the outline
+DRA262610P0273 [Assigned] Credit Details records only half of the video generation charge
+    TC-504: Credit Details −60 for a −120 video
+DRA262610P0274 [NewCreated] Best (Seedance 2.5) and Standard (Seedance 2.0) quote the same credits
+    TC-080: Best priced as Standard (rates: ISS-AMDA-61)
+DRA262610P0285 [Propose Postpone] Story Outline is rewritten without notice after characters are confirmed
+    TC-505: outline rewritten without notice after ✓ (Propose Postpone)
+DRA262610P0288 [NeedCodeReview] End of long captions is dropped (Chinese) or flashes for 0.6 s (Spanish)
+    TC-507: end of a long Chinese line dropped
+DRA262610P0290 [QA Propose Wont Fix] Character description shows story role only, not outfit, hair or accessories
+    TC-508: descriptions are role-only
+DRA262610P0297 [NeedCodeReview] Clip strip does not scroll with playback, so the last playing clip stays off screen
+    TC-510: strip does not follow
+DRA262610P0324 [ProposeNAB] Surprise me appends the same inspiration on every tap  ⚑ closed/declined status — kept as duplicate (A4 practice)
+    TC-014: Surprise me appends the same inspiration
+DRA262610P0325 [NewCreated] First outline card is titled 「Story Outline Result」
+    TC-024: first outline card title
+DRA262610P0326 [Assigned] Character filter lists 「Other」 twice under Gender
+    TC-036: Other twice under Gender
+DRA262610P0327 [Assigned] Character generation is priced at 4 credits instead of 6
+    TC-040: ◆4 not ◆6
+    TC-047: ◆4 not ◆6
+DRA262610P0327 [Assigned] Character generation is priced at 4 credits instead of 6 / DRA262610P0198 [Assigned] Storyboard credit rate differs from the article expectation
+    TC-230: character ◆4 and storyboard ◆3 per image (video part: ISS-AMDA-61)
+DRA262610P0328 [Assigned] Update characters card shows no character count
+    TC-045: no character count
+    TC-350: no 「• 2 characters」 label (charge: ISS-AMDA-66)
+DRA262610P0329 [Assigned] X on 「Your characters are ready」 still applies the looks and commits the cast
+    TC-121: X on the ready sheet applies the looks
+    TC-527: system Back on the ready sheet applies the looks, as X
+DRA262610P0331 [Assigned] Asking to change a character shows a different question and a single chip
+    TC-348: other question, one chip
+DRA262610P0332 [NeedCodeReview] A typed character name does not lead to the Update characters card
+    TC-429: chat request gives no Update characters card
+    TC-391: typed name gets another question, no Update card
+DRA262610P0333 [Assigned] Character update shows other progress and result messages than the spec
+    TC-349: update messages
+    TC-352: update result copy
+DRA262610P0334 [Assigned] Back during a chat character update leaves with no stop dialog
+    TC-351: Back during an update
+DRA262610P0335 [Assigned] Expanded description editor cuts text to 1,000 characters and writes it back
+    TC-051: editor cuts to 1,000
+DRA262610P0336 [Assigned] Dragging inside the description box opens the editor instead of scrolling the text
+    TC-125: drag opens the editor
+DRA262610P0337 [NeedCodeReview] Closing a generated character with X, swipe down or Back saves it to Mine anyway / DRA262610P0262 [NeedCodeReview] X closes a completed character without discard confirmation
+    TC-057: X saves without dialog
+    TC-134: no Discard dialog
+    TC-339: no Discard dialog
+    TC-342: no Discard dialog
+    TC-401: no Discard dialog
+DRA262610P0338 [NeedCodeReview] Generated character page has no Discard button
+    TC-341: no Discard button
+DRA262610P0339 [Assigned] Delete character dialog body differs from the spec text
+    TC-058: delete dialog copy
+DRA262610P0340 [Assigned] Storyboard and video generation skip the 10/22 stage messages and charge per image / DRA262610P0122 [Propose Wont Fix] Storyboard confirmation bubble shows the wrong text / DRA262610P0197 [NewCreated] Create storyboard message remains after storyboard generation succeeds  ⚑ closed/declined status — kept as duplicate (A4 practice)
+    TC-377: stage copy, user bubble
+DRA262610P0340 [Assigned] Storyboard and video generation skip the 10/22 stage messages and charge per image / DRA262610P0226 [NewCreated] Pending video shows Here's your drama. over an empty card, no progress
+    TC-405: no in-place card / 「Making your video…」
+DRA262610P0341 [Assigned] Stop button stays in the input bar after Generate (10/22: only the mic)
+    TC-512: ■ stop button
+    TC-157: video Stop silent; no Stop in stage ②
+    TC-536: ■ stop in the input bar during a scene-image update
+    TC-540: ■ stop in the input bar during a video regeneration
+DRA262610P0342 [Assigned] Video stage ①: exits leave with no 「Leave while we're preparing?」 dialog
+    TC-515: video stage ① exits
+    TC-516: video stage ① exits
+DRA262610P0343 [Assigned] Storyboard stage ②: Back still asks 「Stop and lose your credits?」
+    TC-513: stage ② 「Stop and lose your credits?」
+    TC-535: storyboard stage ② exits ask 「Stop and lose your credits?」
+    TC-164: running storyboard can only be left by stopping it
+DRA262610P0343 [Assigned] Storyboard stage ②: Back still asks 「Stop and lose your credits?」 / DRA262610P0199 [Assigned] Storyboard regeneration ignores the requested scene image change
+    TC-537: stage ② Back asks Stop; requested change not applied
+DRA262610P0343 [Assigned] Storyboard stage ②: Back still asks 「Stop and lose your credits?」 / DRA262610P0359 [NeedCodeReview] Leaving the export page asks to leave and cancels the export
+    O-19: guarded stages can only be left by stopping (character case held as TC-161)
+DRA262610P0344 [Assigned] Storyboard stops when the app is swiped away and resumes only on reopen
+    TC-514: storyboard resumes only on reopen
+    O-5: storyboard resumes only when reopened after a swipe-away
+DRA262610P0346 [Assigned] Storyboard and video dramas reopen at the outline, not their latest stage / DRA262610P0347 [Assigned] Reopened dramas lose the confirmed cast and the characters card
+    TC-113: chats reopen at the top
+DRA262610P0349 [NeedCodeReview] Scroll-to-bottom button sits at the bottom centre instead of the bottom right
+    TC-374: ↓ centred
+DRA262610P0350 [Assigned] Sent message is not moved to the top and the view follows the reply
+    TC-344: view follows the reply
+    O-10: view jumps to the outline after Send
+DRA262610P0351 [Assigned] Returning from History, Choose Character or Full Edit keeps the old scroll position
+    TC-101: chat keeps the scroll position
+    TC-102: chat keeps the scroll position
+    TC-311: chat keeps the position after Full Edit
+DRA262610P0354 [Assigned] Video and storyboard cards show no 「You'll have N left」 line under Generate
+    TC-115: no 「You'll have N left」
+DRA262610P0355 [Assigned] Scene video update shows no Updating line and appends a new card
+    TC-144: no Updating line; skeleton card at the bottom
+    TC-145: new result card appended, old one kept
+DRA262610P0358 [Assigned] Renaming a drama during a video job: the push uses the old name and no toast shows
+    TC-308: push uses the old name
+DRA262610P0359 [NeedCodeReview] Leaving the export page asks to leave and cancels the export
+    TC-517: Back while producing asks to leave
+    TC-168: export can only be left by stopping it
+DRA262610P0360 [NeedCodeReview] Export producing and done pages show another drama's thumbnail / DRA262610P0243 [NeedCodeReview] (Export): Show export panel after tapping "Export Full Video" / DRA262610P0219 [Assigned] Export Full Video shows the preview's 51.6 MB estimate for the 90 s full episode
+    TC-343: export sheet + producing page
+DRA262610P0361 [Assigned] Generation waits exceed 10 seconds with only Stop or leaving possible
+    TC-169: ~68 s outline wait
+    TC-171: ~41 s revision wait
+    TC-172: ~75 s storyboard wait
+    TC-173: ~160 s video prep wait
+    TC-174: ~119 s export wait (A2 filed the waits as ISS-AMDA-43)
+DRA262610P0362 [Assigned] First video on a fresh install skips the 「Get notified」 pre-prompt
+    TC-081: no 「Get notified」 pre-prompt
+    TC-303: fresh install #2: no 「Get notified」 pre-prompt on the first video, so Notify me could not be tried
+    TC-304: fresh install #3: no 「Get notified」 pre-prompt on the first video, so system Back / Not now could not be tried
+DRA262610P0366 [Assigned] Character change in chat replaces the portrait on the earlier outline card / DRA262610P0333 [Assigned] Character update shows other progress and result messages than the spec
+    TC-046: older outline card gets the new portrait; no 「Here's your updated cast.」
+DRA262610P0368 [Assigned] Tapping the video-ready push opens History instead of the drama's chat
+    TC-307: push opens History (per-clip pushes: ISS-AMDA-63)
+DRA262610P0372 [NeedCodeReview] long names in Characters Result are cut off with an ellipsis / DRA262610-0050 [TRCreated] English storyboard dialogue uses Chinese corner quotes / DRA262610P0325 [NewCreated] First outline card is titled 「Story Outline Result」
+    TC-275: name cut with an ellipsis, 「」 quotes, header (debug toast: ISS-AMDA-62)
+DRA262610P0379 [Assigned] "is ready" banner appears while that drama's video is still generating
+    TC-085: 「is ready」 banner while the full episode is still generating
+DRA262610P0380 [Assigned] Chat shows no 「More ideas +」 chip once it has content
+    TC-019: filed from A4
+DRA262610P0381 [Assigned] Credit pill leaves a generating outline with no 「Leave this chat?」 dialog
+    TC-357: filed from A4
+    TC-358: filed from A4
+DRA262610P0382 [Assigned] Policy-refused idea gets a cut-off 「I cannot」 reply, not the terms message
+    TC-031: filed from A4
+DRA262610P0383 [NewCreated] 「Finish your characters」 plural subtitle differs from the spec / DRA262610P0327 [Assigned] Character generation is priced at 4 credits instead of 6
+    TC-039: plural subtitle (filed from A4) and ◆4 price
+DRA262610P0385 [Assigned] Character filter with no match shows a blank grid and no empty-state message
+    TC-288: filed from A4
+DRA262610P0386 [NeedCodeReview] System Back on the Add Media album list closes the whole picker
+    TC-525: filed from A4
+DRA262610P0387 [Assigned] System Back on the enlarged character preview closes Choose Character
+    TC-135: filed from A4
+DRA262610P0388 [Assigned] Failed scene images in a chat update show no 「!」 and keep their 6 credits
+    TC-293: filed from A4
+DRA262610P0389 [NeedCodeReview] System Back in History Manage mode leaves History instead of exiting Manage
+    TC-112: filed from A4
+DRA262610P0390 [Assigned] Asking Iris to change the story title does not rename the drama in History
+    TC-318: filed from A4
+DRA262610P0391 [NeedCodeReview] System Back on the Export Full Video sheet also closes the result page
+    TC-533: filed from A4
+
+== New entries: dedupe candidates judged (Android pool) ==
+ISS-AMDA-60 (TC-465, O-6) — closest DRA262610P0308 [Assigned] 5 of 6 storyboard images fail, Credit Details shows only 2 refunds: same symptom family, but that is a server failure with partial refunds; here the failures are the client's query_status_failed during a Wi-Fi drop, none refunded, receipts marked completed, and the same run's server 4000 failure WAS refunded. Kept as its own entry (orchestrator brief); the card names P0308 so the reviewer can hold it. P0388 / P0232: other paths (chat update / video clips).
+ISS-AMDA-61 (TC-080, TC-230, O-17) — no ticket on the video rates vs the charging sheet; DRA262610P0274 (Best = Standard) and P0032 (Cancelled, 480p action id) named as related.
+ISS-AMDA-62 (TC-428, TC-275, O-2) — DRA262610P0212 [Close] raw 「MiniDrama FAIL」 toast after stopping the outline: closed and back on the scene-regenerate path → new entry naming it.
+ISS-AMDA-63 (TC-307, O-11) — P0368 (tap opens History), P0379 (banner early), P0267 / P0250 (push while failed / late): none covers one push per clip. New.
+ISS-AMDA-64 (TC-312) — P0335 (character description editor writes back), P0127 [Cancelled] (idea input warning), P0149 [Close] (layout): different inputs or defects. New.
+ISS-AMDA-65 (TC-438) — DRA262610-0041 [Close, fixed in 2610212] same character changes face across clips: back on 2610212 → new entry naming it; P0161 [ProposeNAB] is the Three Kingdoms B/C image swap.
+ISS-AMDA-66 (TC-350) — no ticket on a 2-character update regenerating and charging 3; P0328 (no count label) stays the TC-350 duplicate for the label part.
+ISS-AMDA-67 (TC-541, O-23) — no likely duplicate: no intro / demo-page ticket in the Android pool.
+ISS-AMDA-68 (TC-276, TC-277, TC-406) — candidates P0258 [RDResolved] (video settings and agent cards, zh-Hant), P0289 (chips, ja), P0284 (filter options, ja): other strings, kept as the duplicates of those parts above. P0040 [RDResolved, 2610081] (Mini Drama screens stay English) is broad; category headers and zh / fr template names are not named by any ticket → new, P0040 named as related (reviewer may hold).
+ISS-AMDA-69 (TC-406) — no likely duplicate (P0251 French 「」 quotes [Propose Wont Fix], P0039 French caption wrap [Close] are other defects).
+ISS-AMDA-70 (TC-276, TC-277, TC-406) — DRA262610P0097 [Close] Japanese History 「12:38 午前」: closed, time still not in the app language's format → new entry naming it.
+TC-081 / TC-303 / TC-304 (A7-j) — DRA262610P0362 [Assigned] no 「Get notified」 pre-prompt on a fresh install: same → dedupe only. TC-412 — DRA262610-0059 [ProposeNAB] permission notice cannot be closed: same, declined ⚑ → dedupe only.

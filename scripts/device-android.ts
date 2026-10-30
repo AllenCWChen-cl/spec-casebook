@@ -36,10 +36,11 @@
 //   hidekb                    dismiss the software keyboard
 //   clear NAME                clear the field with resource-id NAME
 //   setval NAME TEXT          clear then set the field's text in one call (fast for long strings)
-//   launch [--lang en|zh-Hant|ja] | terminate
-//                             relaunch / stop the app. --lang needs per-app languages (Android 13+); on Android 12
-//                             (the XQ-BT52) it stops with a note: the app language then follows the system language,
-//                             a system setting only the user changes
+//   launch [--lang en|zh-Hant|ja|fr] | terminate
+//                             relaunch / stop the app. --lang: per-app language on Android 13+; below that (the XQ-BT52,
+//                             Android 12) the system locale through the Appium Settings helper, no Settings UI. A plain
+//                             launch puts the original language back (as on iOS)
+//   locale [status|reset|TAG] show / restore / set the language without relaunching (same mechanism as launch --lang)
 //   appstate                  0 not installed · 1 not running · 3 background · 4 foreground
 //   back                      system Back (KEYCODE_BACK): a spec exit path on Android, test it like any other button
 //   wifi on|off|status        Wi-Fi through adb (`cmd wifi set-wifi-enabled`); refuses unless adb sees the phone over
@@ -107,6 +108,35 @@ function adbDevices() {
 const adb = (args: string[], opts: { timeout?: number } = {}) =>
   execFileSync(ADB, ['-s', serial(), ...args], { encoding: 'utf8', timeout: opts.timeout ?? 60_000, maxBuffer: 256 * 1024 * 1024 });
 const sh = (line: string) => adb(['shell', line]);
+
+// App language (user, 2026-10-30). Android 13+ has per-app languages (`cmd locale set-app-locales`). Below that the app
+// follows the system locale, which the Appium Settings helper (io.appium.settings, installed by UiAutomator2 with
+// CHANGE_CONFIGURATION granted) switches by broadcast, without the Settings UI. The first change saves the original
+// locale in <run dir>/.locale-orig; `launch` without --lang and `locale reset` put it back.
+const LOCALE_ORIG = join(runDir, '.locale-orig');
+const COUNTRY: Record<string, string> = { en: 'US', ja: 'JP', fr: 'FR', de: 'DE', ko: 'KR', es: 'ES', it: 'IT', pt: 'BR', zh: 'TW' };
+const sysLocale = () => sh('getprop persist.sys.locale').trim() || sh('getprop ro.product.locale').trim();
+function broadcastLocale(tag: string) {
+  const parts = tag.replace(/_/g, '-').split('-');
+  const lang = parts[0].toLowerCase();
+  const script = parts.find(p => p.length === 4);
+  const country = parts.slice(1).find(p => p.length === 2)?.toUpperCase() ?? (lang === 'zh' && script === 'Hans' ? 'CN' : COUNTRY[lang]);
+  if (!country) throw new Error(`locale: no default region for "${lang}"; give one, e.g. ${lang}-XX`);
+  const out = sh(`am broadcast -a io.appium.settings.locale -n io.appium.settings/.receivers.LocaleSettingReceiver --es lang ${lang} --es country ${country}${script ? ` --es script ${script}` : ''}`);
+  if (!/result=-1/.test(out)) throw new Error(`locale: the Appium Settings helper did not take ${tag} (${out.trim().split('\n').pop()}); is io.appium.settings installed?`);
+}
+function setLanguage(tag: string) {
+  if (!tag) throw new Error('language tag needed, e.g. en, zh-Hant, ja, fr');
+  if (+sh('getprop ro.build.version.sdk').trim() >= 33) { sh(`cmd locale set-app-locales ${PKG} --locales ${tag}`); return; }
+  if (!existsSync(LOCALE_ORIG)) writeFileSync(LOCALE_ORIG, sysLocale() + '\n');
+  broadcastLocale(tag);
+}
+function restoreLocale() {
+  if (+sh('getprop ro.build.version.sdk').trim() >= 33) { sh(`cmd locale set-app-locales ${PKG} --locales ""`); return; }
+  if (!existsSync(LOCALE_ORIG)) return;
+  broadcastLocale(readFileSync(LOCALE_ORIG, 'utf8').trim());
+  unlinkSync(LOCALE_ORIG);
+}
 
 function blocker(why: string): never {
   console.error(`BLOCKER (device): ${why}\nOn the phone: unlock it (swipe/PIN), keep it on the USB cable, and if it asks "Allow USB debugging?" tick Always allow and tap Allow. Then: node scripts/device-android.ts <run dir> restart`);
@@ -376,15 +406,18 @@ switch (cmd) {
   case 'home': await mobile('pressKey', { keycode: 3 }); console.log('home'); break;
   case 'launch': {
     const li = rest.indexOf('--lang');
-    if (li >= 0) {
-      // Per-app language exists from Android 13 (API 33): `cmd locale set-app-locales` changes only this app.
-      const lang = rest[li + 1]; const sdk = +sh('getprop ro.build.version.sdk').trim();
-      if (sdk < 33) throw new Error(`launch --lang: Android API ${sdk} has no per-app language; the app follows the system language here, which only the user changes (Settings › System › Languages). Record the case Blocked --as test-data unless the user switches it.`);
-      sh(`cmd locale set-app-locales ${PKG} --locales ${lang}`);
-    }
+    if (li >= 0) setLanguage(rest[li + 1]);
+    else restoreLocale();
     await mobile('terminateApp', { appId: PKG }).catch(() => {});
     await mobile('activateApp', { appId: PKG });
     console.log(li >= 0 ? `launched in ${rest[li + 1]}` : 'launched'); break;
+  }
+  case 'locale': {
+    const a = rest[0] ?? 'status';
+    if (a === 'status') console.log(`system locale ${sysLocale()}${existsSync(LOCALE_ORIG) ? ` (changed by a run; original ${readFileSync(LOCALE_ORIG, 'utf8').trim()})` : ''}`);
+    else if (a === 'reset') { restoreLocale(); console.log(`system locale ${sysLocale()}`); }
+    else { setLanguage(a); console.log(`language ${a} (system locale ${sysLocale()})`); }
+    break;
   }
   case 'terminate': await mobile('terminateApp', { appId: PKG }); console.log('terminated'); break;
   case 'activate': await mobile('activateApp', { appId: PKG }); console.log('activated (no restart)'); break;

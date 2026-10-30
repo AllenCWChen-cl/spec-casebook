@@ -1,0 +1,13 @@
+# ISS-AMDA-65 Full episode clips: the shot prompt asks for Jenna's face to stay fixed
+# PowerDirector Mobile for Android 16.8.0 (2610212), TR261021-0082, Stage server, Sony Xperia 10 III / Android 12, account Free. Excerpt of the app's logcat (captured per run segment; the release build writes no readable app log).
+# Lines about turns, decisions, charges (receipts; balance shown only when it changes), failures, template mapping,
+# pushes and turn ends in the windows below; member tokens dropped, URL queries cut at '?'.
+
+## Hidden Identity full episode dispatch (2026-10-29 23:35:05–23:35:15; logs/A7-g2-20261030-001405/logcat-live.txt)
+2026-10-29 23:35:10.047 MiniDrama Log: [DECISION] allowing 'RefToVideo' x1 (already approved)
+2026-10-29 23:35:10.063 MiniDrama Log: [DECISION] allowing 'RefToVideo' x1 (already approved)
+2026-10-29 23:35:10.070 MiniDrama Log: JENNA's face, build, hair, and chef workwear remain fixed across all cuts. NOAH's face, build, hair, and three-piece suit remain fixed across all cuts. The radio remains stationary on the crate. Clean frame, the image carries no subtitles, captions, speech bubbles or watermark.
+2026-10-29 23:35:10.070 MiniDrama Log: [DECISION] allowing 'RefToVideo' x1 (already approved)
+2026-10-29 23:35:10.077 MiniDrama Log: [DECISION] allowing 'RefToVideo' x1 (already approved)
+2026-10-29 23:35:10.693 CreditSystemManager: totalRemain=13826
+2026-10-29 23:35:13.651 CreditSystemManager: totalRemain=13706

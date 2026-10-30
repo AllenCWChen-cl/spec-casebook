@@ -1,0 +1,51 @@
+# ISS-AMDA-60 Storyboard ◆34 with a Wi-Fi drop: 5 scene images charged ◆3, then failed (query_status_failed); no refund afterwards
+# PowerDirector Mobile for Android 16.8.0 (2610212), TR261021-0082, Stage server, Sony Xperia 10 III / Android 12, account Free. Excerpt of the app's logcat (captured per run segment; the release build writes no readable app log).
+# Lines about turns, decisions, charges (receipts; balance shown only when it changes), failures, template mapping,
+# pushes and turn ends in the windows below; member tokens dropped, URL queries cut at '?'.
+
+## charges and failures, Generate ~20:09:05 (2026-10-29 20:09:10–20:09:30; logs/A7-d2-20261029-204134/logcat-live.txt)
+2026-10-29 20:09:15.430 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_3 consumeTaskId=91667000 files=1
+2026-10-29 20:09:15.686 CreditSystemManager: totalRemain=14787
+2026-10-29 20:09:18.751 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_5 consumeTaskId=91667001 files=1
+2026-10-29 20:09:18.996 CreditSystemManager: totalRemain=14784
+2026-10-29 20:09:19.422 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_2 consumeTaskId=91667002 files=1
+2026-10-29 20:09:19.669 CreditSystemManager: totalRemain=14781
+2026-10-29 20:09:19.837 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_4 consumeTaskId=91667003 files=1
+2026-10-29 20:09:20.078 CreditSystemManager: totalRemain=14778
+2026-10-29 20:09:20.344 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_1 consumeTaskId=91667004 files=1
+2026-10-29 20:09:20.592 CreditSystemManager: totalRemain=14775
+2026-10-29 20:09:22.557 MiniDramaFail: [TextToImage] generation_failed: Others | detail=tti=query_status_failed type=Others
+2026-10-29 20:09:22.558 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_3
+2026-10-29 20:09:22.618 MiniDrama Log: [DECISION] allowing 'TextToSpeech' x1 (already approved)
+2026-10-29 20:09:22.621 MiniDrama Log: [TOOL] tool_dispatch: TextToSpeech args={"file_format":"mp3","multitexts":[{"language":"en-US","model":"gemini-3.1-flash-tts-preview","prompt":"middle to low, the sound carried in the chest rather than the mouth, a little husky grain to it, fully voiced with no breath escaping around the words，relaxed and certain, telling this to one person across a table, fond of them without m…
+2026-10-29 20:09:22.626 MiniDrama Log: [NARRATION] voice remembered (Zubenelgenubi, en-US)
+2026-10-29 20:09:22.635 MiniDrama Log: [TOOL] TextToSpeech credit check failed: REMAIN_EXPIRED
+2026-10-29 20:09:23.758 MiniDramaFail: [TextToImage] generation_failed: Others | detail=tti=query_status_failed type=Others
+2026-10-29 20:09:23.760 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_5
+2026-10-29 20:09:24.426 MiniDramaFail: [TextToImage] generation_failed: Others | detail=tti=query_status_failed type=Others
+2026-10-29 20:09:24.427 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_2
+2026-10-29 20:09:24.843 MiniDramaFail: [TextToImage] generation_failed: Others | detail=tti=query_status_failed type=Others
+2026-10-29 20:09:24.849 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_4
+2026-10-29 20:09:25.349 MiniDramaFail: [TextToImage] generation_failed: Others | detail=tti=query_status_failed type=Others
+2026-10-29 20:09:25.350 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_1
+2026-10-29 20:09:25.395 MiniDrama Log: [TURN] turn_complete: final_state=complete
+2026-10-29 20:09:25.400 MiniDramaFail: [engine] target=beat_1bcf94cc | tool=EditImageGPT2 | agent_tool_dispatch('TextToImage') failed: generation_failed - Others
+2026-10-29 20:09:25.400 MiniDramaFail: [engine] target=beat_59045a59 | tool=EditImageGPT2 | agent_tool_dispatch('TextToImage') failed: generation_failed - Others
+2026-10-29 20:09:25.400 MiniDramaFail: [engine] target=beat_98fe1f4a | tool=EditImageGPT2 | agent_tool_dispatch('TextToImage') failed: generation_failed - Others
+2026-10-29 20:09:25.400 MiniDramaFail: [engine] target=beat_c69a927f | tool=EditImageGPT2 | agent_tool_dispatch('TextToImage') failed: generation_failed - Others
+2026-10-29 20:09:25.400 MiniDramaFail: [engine] target=beat_dcf4294f | tool=EditImageGPT2 | agent_tool_dispatch('TextToImage') failed: generation_failed - Others
+2026-10-29 20:09:25.400 MiniDramaFail: [engine] target=beat_fd40d2ee | tool=EditImageGPT2 | agent_tool_dispatch('TextToImage') failed: credit_check_failed - CreditRemainExpired
+2026-10-29 20:09:25.400 MiniDramaFail: [engine] target=storyboard | tool=VoiceReference | agent_tool_dispatch('TextToSpeech') failed: credit_check_failed - CreditRemainExpired
+2026-10-29 20:09:25.401 MiniDrama Log: [TURN] failure: agent_tool_dispatch('TextToSpeech') failed: credit_check_failed - CreditRemainExpired
+2026-10-29 20:09:25.427 MiniDramaFail: [storyboard] {"error_message":"","status_code":0} | agent_tool_dispatch('TextToSpeech') failed: credit_check_failed - CreditRemainExpired
+2026-10-29 20:09:25.438 MiniDramaPerf: t51 +160s                         host   ui            ui_rendered
+2026-10-29 20:09:25.439 MiniDramaPerf: t51 +160s                         host   turn          turn_end                       complete stage=storyboard→storyboard
+
+## balance and credit history 20:40 and 20:44 (no returned record) (2026-10-29 20:40:45–20:40:50; logs/A7-d2-20261029-204134/logcat-live.txt)
+2026-10-29 20:40:47.070 CreditSystemManager: totalRemain=14728
+2026-10-29 20:40:49.466 CreditSystemManager: getCreditHistory, gGetMemberUsageResponse: GGetMemberUsageResponse(totalRecord=6620, categoryList=[consume, expired, give_away, purchase, returned], data=[RecordItem(creditUsage=-3, featureId=TextToImage, unit=1, actionId=genimage_1_img_openai_gptimage2.5sunburst_enable_1k_aiminidrama, category=consume, categoryWording=Consume, sid=0d340bc5, createTime=2026-10-29T12:39:16+…
+2026-10-29 20:40:50.446 CreditSystemManager: getCreditHistory, gGetMemberUsageResponse: GGetMemberUsageResponse(totalRecord=6620, categoryList=[consume, expired, give_away, purchase, returned], data=[RecordItem(creditUsage=-3, featureId=TextToImage, unit=1, actionId=genimage_1_img_openai_gptimage2.5sunburst_enable_1k_aiminidrama, category=consume, categoryWording=Consume, sid=d1e166fc, createTime=2026-10-01T11:32:14+…
+
+## credit history re-read at the A7-e start (2026-10-29 20:44:15–20:44:25; logs/A7-e-20261029-214128/logcat-live.txt)
+2026-10-29 20:44:17.284 CreditSystemManager: totalRemain=14728
+2026-10-29 20:44:20.403 CreditSystemManager: getCreditHistory, gGetMemberUsageResponse: GGetMemberUsageResponse(totalRecord=6620, categoryList=[consume, expired, give_away, purchase, returned], data=[RecordItem(creditUsage=-3, featureId=TextToImage, unit=1, actionId=genimage_1_img_openai_gptimage2.5sunburst_enable_1k_aiminidrama, category=consume, categoryWording=Consume, sid=0d340bc5, createTime=2026-10-29T12:39:16+…

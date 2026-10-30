@@ -1,0 +1,15 @@
+# ISS-AMDA-63 Trust Renamed full episode: four FCM pushes, one per clip, before the turn completes
+# PowerDirector Mobile for Android 16.8.0 (2610212), TR261021-0082, Stage server, Sony Xperia 10 III / Android 12, account Free. Excerpt of the app's logcat (captured per run segment; the release build writes no readable app log).
+# Lines about turns, decisions, charges (receipts; balance shown only when it changes), failures, template mapping,
+# pushes and turn ends in the windows below; member tokens dropped, URL queries cut at '?'.
+
+## Generate 01:01:53, Home 01:02:34 (2026-10-30 01:08:50–01:11:20; logs/A7-g3-20261030-015149/logcat-live.txt)
+2026-10-30 01:08:57.711 FcmInstanceIDService: key = Msg, value = "Trust Renamed" is done. Tap to watch it.
+2026-10-30 01:08:57.712 FcmInstanceIDService: key = Title, value = Your drama is ready
+2026-10-30 01:09:17.026 FcmInstanceIDService: key = Msg, value = "Trust Renamed" is done. Tap to watch it.
+2026-10-30 01:09:17.026 FcmInstanceIDService: key = Title, value = Your drama is ready
+2026-10-30 01:10:57.502 FcmInstanceIDService: key = Msg, value = "Trust Renamed" is done. Tap to watch it.
+2026-10-30 01:10:57.502 FcmInstanceIDService: key = Title, value = Your drama is ready
+2026-10-30 01:11:13.769 FcmInstanceIDService: key = Msg, value = "Trust Renamed" is done. Tap to watch it.
+2026-10-30 01:11:13.769 FcmInstanceIDService: key = Title, value = Your drama is ready
+2026-10-30 01:11:16.736 MiniDrama Log: [TURN] turn_complete: final_state=complete

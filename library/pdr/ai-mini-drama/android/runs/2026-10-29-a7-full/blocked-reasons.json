@@ -1,0 +1,138 @@
+{
+  "TC-002": {
+    "label": "CMS content not offered on Stage",
+    "note": "the Home hero never showed the AI Mini Drama banner in 5 relaunches"
+  },
+  "TC-411": {
+    "label": "No stock character the app rejects",
+    "note": "Age 1–5 empty; every stock look tried was accepted"
+  },
+  "TC-337": {
+    "label": "Mixed-progress character sheet not stageable",
+    "note": "Generate all always finished every character together"
+  },
+  "TC-054": {
+    "label": "No public-figure photo on the phone",
+    "note": "needs a celebrity test photo pushed to the phone (fixtures.md)"
+  },
+  "TC-366": {
+    "label": "Crop file in app-private storage",
+    "note": "release build not debuggable; logcat only shows a separate crop file is sent"
+  },
+  "TC-496": {
+    "label": "Needs a French drama with a generated video",
+    "note": "video work scheduled for A7-g; no French video drama made"
+  },
+  "TC-117": {
+    "label": "Daily Free chat allowance not reachable on Stage",
+    "note": "11 counted sends, no limit dialog; Stage limit 9999; no fault switch"
+  },
+  "TC-215": {
+    "label": "Daily Free chat allowance not reachable on Stage",
+    "note": "11 counted sends, no limit dialog; Stage limit 9999; no fault switch"
+  },
+  "TC-219": {
+    "label": "Daily Free chat allowance not reachable on Stage",
+    "note": "11 counted sends, no limit dialog; Stage limit 9999; no fault switch"
+  },
+  "TC-220": {
+    "label": "Daily Free chat allowance not reachable on Stage",
+    "note": "11 counted sends, no limit dialog; Stage limit 9999; no fault switch"
+  },
+  "TC-221": {
+    "label": "Daily Free chat allowance not reachable on Stage",
+    "note": "11 counted sends, no limit dialog; Stage limit 9999; no fault switch"
+  },
+  "TC-091": {
+    "label": "A failed scene clip (none failed in A7; no fault switch on Android 16.8)",
+    "note": "Wi-Fi drops during clips were retried (O-14); Edit / Fix scenes exist only on failed clips"
+  },
+  "TC-483": {
+    "label": "A failed scene clip (none failed in A7; no fault switch on Android 16.8)",
+    "note": "Wi-Fi drops during clips were retried (O-14); Edit / Fix scenes exist only on failed clips"
+  },
+  "TC-092": {
+    "label": "A failed scene clip (none failed in A7; no fault switch on Android 16.8)",
+    "note": "Wi-Fi drops during clips were retried (O-14); Edit / Fix scenes exist only on failed clips"
+  },
+  "TC-093": {
+    "label": "A failed scene clip (none failed in A7; no fault switch on Android 16.8)",
+    "note": "Wi-Fi drops during clips were retried (O-14); Edit / Fix scenes exist only on failed clips"
+  },
+  "TC-096": {
+    "label": "A failed scene clip (none failed in A7; no fault switch on Android 16.8)",
+    "note": "Wi-Fi drops during clips were retried (O-14); Edit / Fix scenes exist only on failed clips"
+  },
+  "TC-146": {
+    "label": "A failed scene clip (none failed in A7; no fault switch on Android 16.8)",
+    "note": "Wi-Fi drops during clips were retried (O-14); Edit / Fix scenes exist only on failed clips"
+  },
+  "TC-147": {
+    "label": "A failed scene clip (none failed in A7; no fault switch on Android 16.8)",
+    "note": "Wi-Fi drops during clips were retried (O-14); Edit / Fix scenes exist only on failed clips"
+  },
+  "TC-148": {
+    "label": "A failed scene clip (none failed in A7; no fault switch on Android 16.8)",
+    "note": "Wi-Fi drops during clips were retried (O-14); Edit / Fix scenes exist only on failed clips"
+  },
+  "TC-531": {
+    "label": "A failed scene clip (none failed in A7; no fault switch on Android 16.8)",
+    "note": "Wi-Fi drops during clips were retried (O-14); Edit / Fix scenes exist only on failed clips"
+  },
+  "TC-149": {
+    "label": "A failed scene clip (none failed in A7; no fault switch on Android 16.8)",
+    "note": "Wi-Fi drops during clips were retried (O-14); Edit / Fix scenes exist only on failed clips"
+  },
+  "TC-150": {
+    "label": "A failed scene clip (none failed in A7; no fault switch on Android 16.8)",
+    "note": "Wi-Fi drops during clips were retried (O-14); Edit / Fix scenes exist only on failed clips"
+  },
+  "TC-314": {
+    "label": "A failed scene clip (none failed in A7; no fault switch on Android 16.8)",
+    "note": "Wi-Fi drops during clips were retried (O-14); Edit / Fix scenes exist only on failed clips"
+  },
+  "TC-315": {
+    "label": "A failed scene clip (none failed in A7; no fault switch on Android 16.8)",
+    "note": "Wi-Fi drops during clips were retried (O-14); Edit / Fix scenes exist only on failed clips"
+  },
+  "TC-316": {
+    "label": "A failed scene clip (none failed in A7; no fault switch on Android 16.8)",
+    "note": "Wi-Fi drops during clips were retried (O-14); Edit / Fix scenes exist only on failed clips"
+  },
+  "TC-296": {
+    "label": "A failed scene clip (none failed in A7; no fault switch on Android 16.8)",
+    "note": "needs a clip that fails; Inject failure status does not exist on Android 16.8"
+  },
+  "TC-305": {
+    "label": "A failed scene clip (none failed in A7; no fault switch on Android 16.8)",
+    "note": "needs a clip that fails; Inject failure status does not exist on Android 16.8"
+  },
+  "TC-485": {
+    "label": "Offline send not reachable",
+    "note": "offline Generate is blocked client-side with 「You're offline…」 before any send"
+  },
+  "TC-467": {
+    "label": "No captioned New Guy's Secret full video",
+    "note": "the only New Guy's Secret full (Hidden Identity) has captions off"
+  },
+  "TC-151": {
+    "label": "No caption failure",
+    "note": "speech-to-text never failed; no STT fault switch on Android 16.8"
+  },
+  "TC-297": {
+    "note": "scene regeneration appended a new result card instead",
+    "group": "upstream"
+  },
+  "TC-306": {
+    "label": "Second finished-video banner not reached",
+    "note": "Close half checked; View half needs another banner"
+  },
+  "TC-518": {
+    "label": "Export is a local flatten",
+    "note": "Wi-Fi off export still saved; save failure not reachable"
+  },
+  "TC-224": {
+    "label": "Daily Free chat allowance not reachable on Stage",
+    "note": "chat count shown nowhere and not logged; Stage limit 9999, so a refill after the reinstall can't be observed"
+  }
+}

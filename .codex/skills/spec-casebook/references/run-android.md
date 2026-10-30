@@ -17,8 +17,11 @@ adb serial HQ61563393, Android 12, 1080 × 2520; setup in README › Android pho
   lock. Rows in a list: `scrollto` (it also prints a row's switch state, `| row Switch on at X,Y`). Pages opened as
   fragments leave the previous page in the source; `els`, `texts`, `waitfor` and `scrollto` drop covered subtrees,
   `source` stays raw. Wi-Fi for offline cases: `wifi off|on|status` (refuses unless adb sees the phone over USB). App
-  language: `launch --lang` needs Android 13, so on this phone language cases need the user to change the system
-  language or are Blocked `--as test-data`. `appearance`, `pink …`, `ledger` and `install-wda` have no Android version
+  language (user, 2026-10-30, REQ-063): `launch --lang en|zh-Hant|ja|fr` runs the app in that language, as on iOS:
+  per-app language on Android 13+, and on this Android 12 phone the system locale switched by the Appium Settings
+  helper (`io.appium.settings`) without the Settings UI. The original is saved in `<run dir>/.locale-orig`; a plain
+  `launch` or `locale reset` restores it (`locale status` shows it), so end every language case with one. Language
+  cases run, never Blocked for the language. `appearance`, `pink …`, `ledger` and `install-wda` have no Android version
   yet. `back` is system Back, a spec exit path: test it wherever a page can be left. `home` presses Home; `activate`
   returns PowerDirector to the front without restarting it (use it after Home: `launch` force-stops the app first,
   2026-10-29). `build` prints versionName / versionCode (the run's build check).

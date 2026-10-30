@@ -1,0 +1,36 @@
+20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md
+  11 entries · 29 images · 17 Spec Link lines · 0/0 ▲ rows · max ShortDesc 123
+FAILED:
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e1 (ISS-AMDA-60): links 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 6 (Error) board' but Description never names that sheet in full (ambiguous=True)
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e1: unknown sheet 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 6 (Error) board'
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e1 (ISS-AMDA-60): links 'AI Mini Drama Design spec, Storyboard board' but Description never names that sheet in full (ambiguous=True)
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e1: unknown sheet 'AI Mini Drama Design spec, Storyboard board'
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e2: unknown sheet 'PDRM MX spec, v1 ③ Credit Charging Table (action id) board (mx-a-right), linked sheet 「AI Mini Drama CMS」 › 「Action ID (not on CMS)」 (2026-10-20)'
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e2 (ISS-AMDA-61): links 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Main flow board' but Description never names that sheet in full (ambiguous=True)
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e2: unknown sheet 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Main flow board'
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e3 (ISS-AMDA-62): links 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 6 (Error) board' but Description never names that sheet in full (ambiguous=True)
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e3: unknown sheet 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 6 (Error) board'
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e3 (ISS-AMDA-62): links 'AI Mini Drama Design spec, Storyboard board' but Description never names that sheet in full (ambiguous=True)
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e3: unknown sheet 'AI Mini Drama Design spec, Storyboard board'
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e4 (ISS-AMDA-63): links 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), 0930 updated board' but Description never names that sheet in full (ambiguous=True)
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e4: unknown sheet 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), 0930 updated board'
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e5 (ISS-AMDA-64): links 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 3 board' but Description never names that sheet in full (ambiguous=True)
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e5: unknown sheet 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 3 board'
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e5 (ISS-AMDA-64): links 'AI Mini Drama Design spec, Storyboard board' but Description never names that sheet in full (ambiguous=True)
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e5: unknown sheet 'AI Mini Drama Design spec, Storyboard board'
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e6 (ISS-AMDA-65): links 'AI Mini Drama PM spec, main flow 「Demo page_Straight video」 frame' but Description never names that sheet in full (ambiguous=True)
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e6: unknown sheet 'AI Mini Drama PM spec, main flow 「Demo page_Straight video」 frame'
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e6 (ISS-AMDA-65): links 'AI Mini Drama Design spec, Video board' but Description never names that sheet in full (ambiguous=True)
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e6: unknown sheet 'AI Mini Drama Design spec, Video board'
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e7 (ISS-AMDA-66): links 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 7 board' but Description never names that sheet in full (ambiguous=True)
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e7: unknown sheet 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 7 board'
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e8 (ISS-AMDA-67): links 'AI Mini Drama PM spec, main flow 「Demo page_Straight video」 frame' but Description never names that sheet in full (ambiguous=True)
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e8: unknown sheet 'AI Mini Drama PM spec, main flow 「Demo page_Straight video」 frame'
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e9 (ISS-AMDA-68): links 'AI Mini Drama Design spec, Main flow board' but Description never names that sheet in full (ambiguous=True)
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e9: unknown sheet 'AI Mini Drama Design spec, Main flow board'
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e9 (ISS-AMDA-68): links 'AI Mini Drama Design spec, Template Detail board' but Description never names that sheet in full (ambiguous=True)
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e9: unknown sheet 'AI Mini Drama Design spec, Template Detail board'
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e10 (ISS-AMDA-69): links 'AI Mini Drama Design spec, Main flow board' but Description never names that sheet in full (ambiguous=True)
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e10: unknown sheet 'AI Mini Drama Design spec, Main flow board'
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e11 (ISS-AMDA-70): links 'AI Mini Drama Design spec, Recent Task board' but Description never names that sheet in full (ambiguous=True)
+  20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e11: unknown sheet 'AI Mini Drama Design spec, Recent Task board'

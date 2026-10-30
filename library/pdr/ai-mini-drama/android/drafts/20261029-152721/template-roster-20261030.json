@@ -1,0 +1,175 @@
+{
+ "captured_at": "2026-10-30",
+ "platform": "android",
+ "build": "16.8.0 (2610212)",
+ "server": "Stage",
+ "locale": "en-US",
+ "source_run": "runs/2026-10-29-a7-full A7-i1 TC-234",
+ "note": "Slugs copied from the iOS roster 2026-10-21 (Android exposes no slug in the UI tree); names and positions read on the device.",
+ "count": 20,
+ "categories": [
+  {
+   "category": "Workplace Romance",
+   "count": 5
+  },
+  {
+   "category": "Fantasy & Destiny",
+   "count": 5
+  },
+  {
+   "category": "Urban Romance",
+   "count": 4
+  },
+  {
+   "category": "Family & Life",
+   "count": 4
+  },
+  {
+   "category": "Animated Stories",
+   "count": 2
+  }
+ ],
+ "templates": [
+  {
+   "k": 1,
+   "category": "Workplace Romance",
+   "position": 1,
+   "slug": "style_aidrama_merger-season",
+   "name": "Merger Season"
+  },
+  {
+   "k": 2,
+   "category": "Workplace Romance",
+   "position": 2,
+   "slug": "style_aidrama_forbidden-office-romance",
+   "name": "Forbidden Office Romance"
+  },
+  {
+   "k": 3,
+   "category": "Workplace Romance",
+   "position": 3,
+   "slug": "style_aidrama_the-new-guys-secret",
+   "name": "The New Guy's Secret"
+  },
+  {
+   "k": 4,
+   "category": "Workplace Romance",
+   "position": 4,
+   "slug": "style_aidrama_the-art-of-falling",
+   "name": "The Art of Falling"
+  },
+  {
+   "k": 5,
+   "category": "Workplace Romance",
+   "position": 5,
+   "slug": "style_aidrama_glad-we-came",
+   "name": "Glad We Came"
+  },
+  {
+   "k": 6,
+   "category": "Fantasy & Destiny",
+   "position": 1,
+   "slug": "style_aidrama_love-unscripted",
+   "name": "Love, Unscripted"
+  },
+  {
+   "k": 7,
+   "category": "Fantasy & Destiny",
+   "position": 2,
+   "slug": "style_aidrama_the-dragons-chosen-bride",
+   "name": "The Dragon's Chosen Bride"
+  },
+  {
+   "k": 8,
+   "category": "Fantasy & Destiny",
+   "position": 3,
+   "slug": "style_aidrama_awakening-the-storm",
+   "name": "Awakening the Storm"
+  },
+  {
+   "k": 9,
+   "category": "Fantasy & Destiny",
+   "position": 4,
+   "slug": "style_aidrama_the-heros-dangerous-heart",
+   "name": "The Hero's Dangerous Heart"
+  },
+  {
+   "k": 10,
+   "category": "Fantasy & Destiny",
+   "position": 5,
+   "slug": "style_aidrama_the-rebel-and-the-valedictorian",
+   "name": "The Rebel and the Valedictorian"
+  },
+  {
+   "k": 11,
+   "category": "Urban Romance",
+   "position": 1,
+   "slug": "style_aidrama_after-closing",
+   "name": "After Closing"
+  },
+  {
+   "k": 12,
+   "category": "Urban Romance",
+   "position": 2,
+   "slug": "style_aidrama_the-fake-engagement",
+   "name": "The Fake Engagement"
+  },
+  {
+   "k": 13,
+   "category": "Urban Romance",
+   "position": 3,
+   "slug": "style_aidrama_the-pop-stars-secret-girlfriend",
+   "name": "The Pop Star's Secret Girlfriend"
+  },
+  {
+   "k": 14,
+   "category": "Urban Romance",
+   "position": 4,
+   "slug": "style_aidrama_the-house-we-both-wanted",
+   "name": "The House We Both Wanted"
+  },
+  {
+   "k": 15,
+   "category": "Family & Life",
+   "position": 1,
+   "slug": "style_aidrama_the-heiress-and-her-protector",
+   "name": "The Heiress and Her Protector"
+  },
+  {
+   "k": 16,
+   "category": "Family & Life",
+   "position": 2,
+   "slug": "style_aidrama_proposal-across-every-lifetime",
+   "name": "Proposal Across Lifetimes",
+   "renamed_from": "Proposal Across Every Lifetime"
+  },
+  {
+   "k": 17,
+   "category": "Family & Life",
+   "position": 3,
+   "slug": "style_aidrama_six-things-you-didnt-know",
+   "name": "Six Things You Didn't Know"
+  },
+  {
+   "k": 18,
+   "category": "Family & Life",
+   "position": 4,
+   "slug": "style_aidrama_the-dog-who-remembered-her",
+   "name": "The Dog Who Remembered Her"
+  },
+  {
+   "k": 19,
+   "category": "Animated Stories",
+   "position": 1,
+   "slug": "style_aidrama_the-ring-he-worked-for",
+   "name": "The Ring He Worked For"
+  },
+  {
+   "k": 20,
+   "category": "Animated Stories",
+   "position": 2,
+   "slug": "style_aidrama_the-beer-heir",
+   "name": "The Beer Heir"
+  }
+ ]
+}

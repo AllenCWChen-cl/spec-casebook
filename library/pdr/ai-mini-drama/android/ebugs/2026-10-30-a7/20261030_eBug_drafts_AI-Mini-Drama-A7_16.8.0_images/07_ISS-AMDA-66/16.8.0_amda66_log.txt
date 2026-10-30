@@ -1,0 +1,31 @@
+# ISS-AMDA-66 Update characters for two named characters: three images and three voices approved and charged
+# PowerDirector Mobile for Android 16.8.0 (2610212), TR261021-0082, Stage server, Sony Xperia 10 III / Android 12, account Free. Excerpt of the app's logcat (captured per run segment; the release build writes no readable app log).
+# Lines about turns, decisions, charges (receipts; balance shown only when it changes), failures, template mapping,
+# pushes and turn ends in the windows below; member tokens dropped, URL queries cut at '?'.
+
+## Trapped Together Generate 17:49:11 (2026-10-29 17:49:05–17:51:00; logs/A7-b2-20261029-180939/logcat-live.txt)
+2026-10-29 17:49:11.613 MiniDrama Log: [DECISION] pre-approved 'character': {IMAGE=3, VOICE=3}
+2026-10-29 17:49:11.619 MiniDrama Log: [USER] AnswerUpdateCharacter
+2026-10-29 17:49:59.718 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-29 17:49:59.725 MiniDrama Log: [DECISION] allowing 'TextToSpeech' x1 (already approved)
+2026-10-29 17:49:59.732 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-29 17:49:59.736 MiniDrama Log: [DECISION] allowing 'TextToSpeech' x1 (already approved)
+2026-10-29 17:49:59.751 MiniDrama Log: [DECISION] allowing 'TextToImage' x1 (already approved)
+2026-10-29 17:49:59.759 MiniDrama Log: [DECISION] allowing 'TextToSpeech' x1 (already approved)
+2026-10-29 17:50:01.531 CreditSystemManager: totalRemain=15019
+2026-10-29 17:50:04.692 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…tts_2 consumeTaskId=91666591 files=1
+2026-10-29 17:50:04.940 CreditSystemManager: totalRemain=15018
+2026-10-29 17:50:08.278 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…tts_4 consumeTaskId=91666592 files=1
+2026-10-29 17:50:08.519 CreditSystemManager: totalRemain=15017
+2026-10-29 17:50:37.011 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_3 consumeTaskId=91666595 files=1
+2026-10-29 17:50:37.276 CreditSystemManager: totalRemain=15014
+2026-10-29 17:50:41.246 MiniDrama Log: [TOOL] MyCreation receipt completed call=…tts_2
+2026-10-29 17:50:41.676 MiniDrama Log: [TOOL] MyCreation receipt completed call=…tts_4
+2026-10-29 17:50:41.710 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_1 consumeTaskId=91666597 files=1
+2026-10-29 17:50:42.121 CreditSystemManager: totalRemain=15011
+2026-10-29 17:50:42.684 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…img_5 consumeTaskId=91666598 files=1
+2026-10-29 17:50:42.922 CreditSystemManager: totalRemain=15008
+2026-10-29 17:50:44.029 MiniDrama Log: [TOOL] MyCreation receipt submitted call=…tts_6 consumeTaskId=91666600 files=1
+2026-10-29 17:50:44.311 CreditSystemManager: totalRemain=15007
+2026-10-29 17:50:49.503 MiniDrama Log: [TOOL] MyCreation receipt completed call=…tts_6
+2026-10-29 17:50:57.808 MiniDrama Log: [TOOL] MyCreation receipt completed call=…img_3

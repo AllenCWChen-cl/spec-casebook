@@ -1,0 +1,30 @@
+2026-10-29T04:48:28.019Z build 
+2026-10-29T05:24:31.643Z build 
+2026-10-29T05:24:39.328Z restart 
+2026-10-29T05:24:46.493Z launch 
+2026-10-29T05:24:47.623Z waitfor AI Mini Drama|Sign in|Get Started --timeout 40
+2026-10-29T05:25:31.706Z shot 
+2026-10-29T05:25:39.621Z tap 136 136
+2026-10-29T05:25:39.949Z waitfor AI Mini Drama --timeout 20
+2026-10-29T05:26:02.519Z shot launcher
+2026-10-29T05:26:08.969Z tap 80 70
+2026-10-29T05:26:09.189Z waitfor AI Mini Drama --timeout 20
+2026-10-29T05:26:10.915Z shot launcher2
+2026-10-29T05:26:18.391Z lbl Mine
+2026-10-29T05:26:20.844Z texts 
+2026-10-30T02:19:05.438Z launch 
+2026-10-30T02:19:05.686Z restart (auto, after: HTTP 404: invalid session id A session is either terminated )
+2026-10-30T02:19:19.976Z texts 
+2026-10-30T02:20:13.692Z locale status 
+2026-10-30T02:20:13.806Z launch --lang zh-Hant 
+2026-10-30T02:20:13.915Z locale status 
+2026-10-30T02:20:20.075Z texts 
+2026-10-30T02:20:20.654Z launch --lang fr
+2026-10-30T02:20:29.505Z texts 
+2026-10-30T02:20:30.690Z launch 
+2026-10-30T02:20:32.673Z locale status
+2026-10-30T02:20:37.439Z launch --lang zh-Hant
+2026-10-30T02:20:39.462Z locale status
+2026-10-30T02:20:45.711Z texts 
+2026-10-30T02:20:47.016Z locale reset
+2026-10-30T02:20:47.555Z launch 

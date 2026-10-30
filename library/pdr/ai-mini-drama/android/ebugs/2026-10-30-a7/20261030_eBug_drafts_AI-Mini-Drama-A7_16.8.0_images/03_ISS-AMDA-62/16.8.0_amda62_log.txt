@@ -1,0 +1,17 @@
+# ISS-AMDA-62 Scene regenerate: cancelled turn (Leave anyway) and offline turn, each followed by the MiniDramaFail toast text
+# PowerDirector Mobile for Android 16.8.0 (2610212), TR261021-0082, Stage server, Sony Xperia 10 III / Android 12, account Free. Excerpt of the app's logcat (captured per run segment; the release build writes no readable app log).
+# Lines about turns, decisions, charges (receipts; balance shown only when it changes), failures, template mapping,
+# pushes and turn ends in the windows below; member tokens dropped, URL queries cut at '?'.
+
+## Leave anyway on Scene 4 regenerate (2026-10-29 19:16:38–19:16:50; logs/A7-d1-20261029-194556/logcat-live.txt)
+2026-10-29 19:16:44.866 MiniDrama Log: [TOOL] MyCreation cancel session=261029_175853_3c59a7a5 calls=0
+2026-10-29 19:16:44.869 MiniDrama Log: [TURN] cancel_turn -> 0
+2026-10-29 19:16:44.960 MiniDrama Log: [TURN] turn failed: final_state=cancelled
+2026-10-29 19:16:44.960 MiniDrama Log: [TURN] turn_complete: final_state=cancelled
+2026-10-29 19:16:44.971 MiniDramaFail: [scene regenerate] turn failed
+
+## Regenerate Image with Wi-Fi off (TC-428) (2026-10-29 20:14:35–20:14:45; logs/A7-d2-20261029-204134/logcat-live.txt)
+2026-10-29 20:14:40.769 MiniDrama Log: [TURN] ERROR -1: HTTP request to cc team gateway failed: Could not establish connection
+2026-10-29 20:14:40.769 MiniDrama Log: [TURN] turn failed: HTTP request to cc team gateway failed: Could not establish connection
+2026-10-29 20:14:40.769 MiniDrama Log: [TURN] turn_complete: final_state=block
+2026-10-29 20:14:40.776 MiniDramaFail: [scene regenerate] shot=beat_1bcf94cc | turn failed
