@@ -139,11 +139,23 @@ refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows
    - `device.ts` recovers once per command when WDA vanishes (restart, re-activate, retry). When WDA cannot launch it
      prints `BLOCKER (device): …` with the fix and exits 75; the segment subagent stops with that line in its reply and
      the orchestrator pushes a notification to the user and waits.
-   - `start` launches the preinstalled WDA (`usePreinstalledWDA`, never uninstalls). If WDA is missing:
-     `device.ts <dir> install-wda` (newest `WebDriverAgentRunner-Runner.app` in DerivedData, QA team LR55RBG94F), then
-     the user trusts the certificate once. The xcodebuild mode (`CASEBOOK_WDA_PREINSTALLED=0`) keeps the signing caps
-     (`xcodeOrgId` LR55RBG94F, `Apple Development`, bundle `com.cyberlinkqa1-4.WebDriverAgentRunner`). Point
-     `APPIUM_LOG` at the Appium log so the BLOCKER names the exact cause.
+   - `start` launches WDA through xcodebuild (signing caps `xcodeOrgId` LR55RBG94F, `Apple Development`, bundle
+     `com.cyberlinkqa1-4.WebDriverAgentRunner`). `CASEBOOK_WDA_PREINSTALLED=1` launches the WDA already on the phone
+     instead (never uninstalls), but on iOS 26.2 it never listened on port 8100 (10/27), so it is not the default.
+     Appium uninstalls WDA after a failed xcodebuild launch. Point `APPIUM_LOG` at the Appium log so the BLOCKER names
+     the exact cause.
+   - **The WDA profile lasts 7 days (2026-10-30).** A team provisioning profile expires a week after the build; then
+     xcodebuild fails (code 65, reported like an untrusted certificate), WDA ends up uninstalled, and the old build
+     cannot go back on ("This provisioning profile has expired"). Before a run, check the expiry of the newest build:
+     `security cms -D -i ~/Library/Developer/Xcode/DerivedData/WebDriverAgent-casebook/Build/Products/Debug-iphoneos/WebDriverAgentRunner-Runner.app/embedded.mobileprovision | plutil -extract ExpirationDate raw -o - -`.
+     Within a day of it, rebuild (renews the profile through the Apple developer account signed in to Xcode; the phone
+     need not be connected), from `~/.appium/node_modules/appium-xcuitest-driver/node_modules/appium-webdriveragent`:
+     `xcodebuild build-for-testing -project WebDriverAgent.xcodeproj -scheme WebDriverAgentRunner -destination
+     'generic/platform=iOS' -allowProvisioningUpdates DEVELOPMENT_TEAM=LR55RBG94F CODE_SIGN_STYLE=Automatic
+     "CODE_SIGN_IDENTITY=Apple Development" PRODUCT_BUNDLE_IDENTIFIER=com.cyberlinkqa1-4.WebDriverAgentRunner
+     -derivedDataPath ~/Library/Developer/Xcode/DerivedData/WebDriverAgent-casebook`. If WDA is missing from the phone,
+     `device.ts <dir> install-wda` installs the newest build (CASEBOOK_UDID set when the run folder has no `.udid`),
+     then the user trusts the certificate once (Settings › General › VPN & Device Management).
    - **Device troubleshooting is not run time.** Debug WDA or the phone in `runs/_wda-debug-<date>/` (no results.csv),
      never in a phase's run folder, whose `activity.log` decides the run's time and tokens; move stray commands out.
 2. `node scripts/run-log.ts <run dir> init <cases.csv> --phase <draft>/phases.json <phase id>`, then record every case
