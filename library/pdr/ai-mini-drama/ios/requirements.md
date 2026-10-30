@@ -380,6 +380,7 @@ Every cell names the rows that check it, or n/a when the spec defines nothing fo
 | REQ-052 PM / MX Figma inventory; PM Figma 10/22 frames (2026-10-29) | R-332 – R-340; changed R-051, R-052, R-071, R-158, R-249, R-262, R-264 |
 | REQ-057 MX ③ Credit Charging Table (linked sheet): discount prices, no discount on regenerate, action ids (2026-10-29) | R-463, R-464, R-465; Q-32, Q-33 |
 | REQ-059 original prices by default, the promotion price held (2026-10-29) | R-040, R-050, R-061, R-069, R-081, R-147, R-254, R-259, R-260, R-463, R-464, R-465; Q-32, Q-33 |
+| REQ-061 Regenerate Clip one at a time (PM §13.25, 2026-10-30) | R-466 |
 
 ## Added 2026-10-21 — PM Spec 20261021 (16:04)
 PM-only rows carry 「PM-only: no Design frame yet (Design 2026-10-19)」 in Notes and change when the Design spec draws them (REQ-024).
@@ -526,6 +527,8 @@ Coverage pass 9: a clause the screen does not show, how a tester observes it, an
 | R-463 | each discounted first generation is charged 2 credits per unit under the `…_aiminidrama_discount` action id | app log after a log pull: the charge's `action_id` and `total_credit`; Mine › Credits › Details: the charged amount | n/a (held until the user says the promotion applies, REQ-059) |
 | R-464 | a regenerate in the discounted session is charged the normal price under the `…_aiminidrama_normal` action id | app log after a log pull: `action_id` and `total_credit`; Mine › Credits › Details: the charged amount | n/a (held until the user says the promotion applies, REQ-059) |
 | R-465 | charges are booked under `…_aiminidrama_normal` (the `_discount` ids are held with the promotion, REQ-059) | app log after a log pull: the `action_id` of each charge (`"feature_id":"TextToImage"` / ReferenceToVideo) | TC-424, TC-421, TC-422, TC-423, TC-425, TC-426, TC-427 |
+| R-466 | the blocked tap sends nothing, charges nothing and keeps the edited prompt | the clip shows no generating state; the credit pill and Mine › Credits › Details before and after; the description text | TC-428, TC-430 |
+| R-466 | the button is back to normal when the regenerating clip ends, also when it fails | the button's opacity and a tap after the clip ends | TC-429 |
 
 ### Variants
 Coverage pass 10: one line per variant the spec names.
@@ -579,6 +582,9 @@ Coverage pass 10: one line per variant the spec names.
 | R-464 | regenerate a scene video | n/a (held until the user says the promotion applies, REQ-059) |
 | R-465 | normal (`_aiminidrama_normal`) | TC-424, TC-421, TC-422, TC-423, TC-425, TC-426, TC-427 |
 | R-465 | discount (`_aiminidrama_discount`) | n/a (held until the user says the promotion applies, REQ-059) |
+| R-466 | entry: Fix Scene › Edit | TC-428 |
+| R-466 | entry: scene edit page | TC-430 |
+| R-466 | the regenerating clip ends: success / failure | TC-429 |
 
 
 ## Added 2026-10-28 — Figma inventory (REQ-038 / REQ-039)
@@ -797,3 +803,10 @@ kept: R-040, R-050, R-061, R-069, R-081, R-254, R-259, R-260, R-450, R-465. Held
 R-464 (no discount on regenerate, which only matters inside the promotion), with the R-147 discount price; TC-231
 is parked (removed) and the other REQ-057 discount rows now check the original price and the `_normal` ids.
 Q-32 is answered.
+
+## Added 2026-10-30 — Regenerate Clip one at a time (REQ-061)
+`figma-check.ts` (2026-10-30) found a PM board no group covered: 「10/29 update — Regenerate Clip 一次只能跑一個（PDR-A 16.8.0
+AI Agent bug）」 (4784:70878, Figma only, newer than PM Spec 20261021; group `u1029`, board-notes 「PM — 10/29 Regenerate
+Clip one at a time」). Its ◆60 is a mock: the regenerate price stays the scene's length × the model's rate (R-081).
+
+- R-466 [PM: 10/29 update §13.25 https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama?node-id=4784-70878; Req: REQ-061] Only one clip regenerates at a time. While a clip regenerates, every other scene's 「Regenerate Clip」 is drawn at 40% opacity but stays tappable (not disabled, so the user learns why); tapping it shows the toast 「Another clip is regenerating. Try again when it's done.」, sends nothing, charges nothing and keeps the prompt the user edited. When the regenerating clip ends (success or failure) the button is back to normal. Applies to every entry that regenerates a single clip (Fix Scene › Edit, the scene edit page). Walked by: TC-428, TC-429, TC-430.

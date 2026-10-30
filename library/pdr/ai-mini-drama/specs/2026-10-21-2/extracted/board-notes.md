@@ -465,3 +465,18 @@ R-051, R-071, R-158, R-249, R-262, R-264 changed, R-052 replaced, R-332 – R-34
   another page; Full Edit, Export and download disabled at 40 %; scene thumbnails switch the preview.
 - New: export failure toast 「Couldn't save your video. Try again.」 with buttons restored; iOS photo access denied →
   toast 「Allow Photos access in Settings to save your video.」
+
+## PM — 10/29 Regenerate Clip one at a time (`pm-1029-regen-clip`, node 4784:70878, §13.25, new)
+Found by `figma-check.ts` on 2026-10-30 (a board no group covered), read the same day through Figma MCP as qa1 (group
+`u1029`, screenshot `figma/pm-1029-regen-clip.png`). Figma only, newer than PM Spec 20261021. Flag 「10/29 update —
+Regenerate Clip 一次只能跑一個（PDR-A 16.8.0 AI Agent bug）」; rules text 「§13.25（10/29，PDR-A 16.8.0 AI Agent bug）」:
+- Only one clip regenerates at a time; two clips cannot regenerate together.
+- While a clip regenerates, every other scene's 「Regenerate Clip」 is drawn at 40% opacity but stays tappable (it is
+  not disabled, or the user would not know why).
+- Tapping it shows the toast 「Another clip is regenerating. Try again when it's done.」: nothing is sent, nothing is
+  charged, and the prompt the user edited is kept.
+- When the regenerating clip ends (success or failure) the button is back to normal.
+- Applies to every entry that regenerates a single clip (Fix Scene › Edit, the scene edit page).
+- Two phones: A 「Scene edit_another clip regenerating (button dimmed)」 and B 「Scene edit_tap Regenerate Clip →
+  toast」, a failed clip (「Couldn't create video」) with its description and 「Regenerate Clip ◆60」. The ◆60 is a mock:
+  the regenerate price is the scene's length × the model's rate (R-081, REQ-059).

@@ -365,6 +365,8 @@ Every cell names the rows that check it, or n/a when the spec defines nothing fo
 | REQ-053 Answers on Android draft 20261029-093927 (2026-10-29): A3 merged into A4; TC-542 / TC-543 second way in; TC-518 un-parked; shared inventory fixes now | phases.json round A4 (A3 `merged_into`); TC-542, TC-543 (second way in kept), TC-518 (un-parked); inventory-overrides.json `drop` (15 icon-in-button controls), `kind` (K-94a3ff → toggle, K-89330d → input), `merge` (cast tabs → K-951b92, composer mic → K-8618a7, PM credit pill → K-87581d); control-trace.json (355 groups pressed or n/a, K-89330d dismissed by TC-127); Character Library 2340:29585 cards stay hidden behind the sheet |
 | REQ-057 MX ③ Credit Charging Table (linked sheet): discount prices, no discount on regenerate, action ids (2026-10-29) | R-479, R-480, R-481; Q-A18, Q-A19 |
 | REQ-059 original prices by default, the promotion price held (2026-10-29) | R-040, R-050, R-061, R-069, R-081, R-147, R-254, R-259, R-260, R-479, R-480, R-481; Q-A18, Q-A19 |
+| REQ-060 new Android spec set specs/2026-10-27 (2026-10-27) | none here: built in its own open draft 20261027-161938 |
+| REQ-061 Regenerate Clip one at a time (PM §13.25, 2026-10-30) | R-482 |
 | REQ-022 Android problem report (16.8.0) as regression leads | R-309: #1, #4, #27, #38, #39, S3 → TC-065, TC-070, TC-138; #2 → TC-067; #3, S2 → TC-091, TC-150; #5, #24, #25, #26, #42 → TC-047, TC-126; #6, S1 → TC-020, TC-021, TC-022; #7 → TC-025; #8, #20, #28, #31, #40, #43, #49, #51, S6 → TC-080, TC-117, TC-215, TC-217; #14, #22, #33 → TC-011, TC-395, TC-398, TC-399; #15, #23, #37, S7 → TC-030, TC-032, TC-300; #16, #18, #32 → TC-089, TC-090, TC-343; #17, #19, #21, #48 → TC-097, TC-143, TC-375; #29 → TC-085, TC-303, TC-307; #30 → TC-045, TC-046; #34 → TC-010; #36, #44, S5 → TC-091, TC-092, TC-093, TC-149; #41 → TC-011; #45 → TC-078; #46, #47 → TC-106, TC-318; #50 → TC-114 |
 | REQ-021 RD build notes, TR261006-0055 (iOS only) | n/a on Android: R-187, R-188, R-189 not testable; their checks stay folded into TC-065, TC-100 |
 | REQ-024 PM-only features are cases | analysis rule (skill pass 7) |
@@ -518,6 +520,8 @@ Coverage pass 9: a clause the screen does not show, how a tester observes it, an
 | R-479 | each discounted first generation is charged 2 credits per unit under the `…_aiminidrama_discount` action id | logcat after pull-logs: the charge line's `action_id` and `total_credit` (credit lines such as `RefToVideo credit action_id=… total_credit=…`); Mine › Credits › Details: the charged amount | n/a (held until the user says the promotion applies, REQ-059) |
 | R-480 | a regenerate in the discounted session is charged the normal price under the `…_aiminidrama_normal` action id | logcat after pull-logs: the charge line's `action_id` and `total_credit` (credit lines such as `RefToVideo credit action_id=… total_credit=…`); Mine › Credits › Details: the charged amount | n/a (held until the user says the promotion applies, REQ-059) |
 | R-481 | charges are booked under `…_aiminidrama_normal` (the `_discount` ids are held with the promotion, REQ-059) | logcat after pull-logs: the `action_id` of each charge (TextToImage / RefToVideo credit lines) | TC-544, TC-545, TC-546, TC-547, TC-548, TC-549, TC-550 |
+| R-482 | the blocked tap sends nothing, charges nothing and keeps the edited prompt | the clip shows no generating state; the credit pill and Mine › Credits › Details before and after; the description text | TC-437, TC-552 |
+| R-482 | the button is back to normal when the regenerating clip ends, also when it fails | the button's opacity and a tap after the clip ends | TC-551 |
 
 ### Variants
 Coverage pass 10: one line per variant the spec names.
@@ -569,6 +573,9 @@ Coverage pass 10: one line per variant the spec names.
 | R-480 | regenerate a scene video | n/a (held until the user says the promotion applies, REQ-059) |
 | R-481 | normal (`_aiminidrama_normal`) | TC-544, TC-545, TC-546, TC-547, TC-548, TC-549, TC-550 |
 | R-481 | discount (`_aiminidrama_discount`) | n/a (held until the user says the promotion applies, REQ-059) |
+| R-482 | entry: Fix Scene › Edit | TC-437 |
+| R-482 | entry: scene edit page | TC-552 |
+| R-482 | the regenerating clip ends: success / failure | TC-551 |
 
 ## Added 2026-10-27 — Android (REQ-042, REQ-022)
 The Android differences the spec states, found by reading every board note for 「Android」, 「system back」 and the
@@ -1003,3 +1010,10 @@ kept: R-040, R-050, R-061, R-069, R-081, R-254, R-259, R-260, R-466, R-481. Held
 R-480 (no discount on regenerate, which only matters inside the promotion), with the R-147 discount price; TC-231
 is parked (removed) and the other REQ-057 discount rows now check the original price and the `_normal` ids.
 Q-A18 is answered.
+
+## Added 2026-10-30 — Regenerate Clip one at a time (REQ-061)
+`figma-check.ts` (2026-10-30) found a PM board no group covered: 「10/29 update — Regenerate Clip 一次只能跑一個（PDR-A 16.8.0
+AI Agent bug）」 (4784:70878, Figma only, newer than PM Spec 20261021; group `u1029`, board-notes 「PM — 10/29 Regenerate
+Clip one at a time」). Its ◆60 is a mock: the regenerate price stays the scene's length × the model's rate (R-081).
+
+- R-482 [PM: 10/29 update §13.25 https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama?node-id=4784-70878; Req: REQ-061] Only one clip regenerates at a time. While a clip regenerates, every other scene's 「Regenerate Clip」 is drawn at 40% opacity but stays tappable (not disabled, so the user learns why); tapping it shows the toast 「Another clip is regenerating. Try again when it's done.」, sends nothing, charges nothing and keeps the prompt the user edited. When the regenerating clip ends (success or failure) the button is back to normal. Applies to every entry that regenerates a single clip (Fix Scene › Edit, the scene edit page). Walked by: TC-437, TC-551, TC-552.

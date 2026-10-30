@@ -77,26 +77,35 @@ a.spec{display:inline-block;margin-top:4px;font:600 .7rem var(--mono);color:var(
 a.spec:hover{background:var(--edit-soft)}
 .xl{display:flex;flex-wrap:wrap;gap:4px}
 tr.focus td{background:var(--edit-soft)} tr.focus td.id{box-shadow:inset 3px 0 0 var(--edit)}
+header .top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.lang{display:inline-flex;border:1px solid rgba(255,255,255,.45);border-radius:999px;overflow:hidden}
+.lang button{font:600 .82rem var(--body);border:0;background:transparent;color:#fff;padding:4px 13px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:#fff;color:var(--head)}
+.lang button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.zh{font-size:.8rem;line-height:1.45;color:var(--muted);padding:2px 4px 0;white-space:pre-wrap;border-left:2px solid var(--edit-soft);margin-left:2px}
+.zh.stale::after{content:attr(data-stale);display:block;font-size:.72rem;color:var(--mod)}
+.reason .zh{font-family:var(--body);margin-top:2px}
+tr.section .zhs{font-weight:500;color:var(--muted);margin-left:6px}
 </style>
 </head>
 <body>
 <header>
-  <h1 id="h"></h1>
+  <div class="top"><h1 id="h"></h1><div class="lang" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">English</button><button type="button" data-l="zh" aria-pressed="false">中文</button></div></div>
   <div class="facts" id="facts"></div>
 </header>
 <main>
-  <details class="panel" id="planBox" hidden><summary>Update plan</summary><div class="md" id="plan"></div></details>
-  <details class="panel" id="reqBox" hidden><summary>Requirements extracted from the spec</summary><div class="md" id="req"></div></details>
+  <details class="panel" id="planBox" hidden><summary data-zh="更新計畫">Update plan</summary><div class="md" id="plan"></div></details>
+  <details class="panel" id="reqBox" hidden><summary data-zh="從 spec 擷取的需求">Requirements extracted from the spec</summary><div class="md" id="req"></div></details>
   <div class="panel bar" id="filters"></div>
-  <div class="panel tablewrap"><table id="tbl"><thead><tr><th>ID</th><th>Precondition</th><th>Action</th><th>Expected Result</th><th>Priority</th><th>Spec Ref</th><th>Notes</th><th id="decHead">Decision</th></tr></thead><tbody></tbody></table></div>
+  <div class="panel tablewrap"><table id="tbl"><thead><tr><th>ID</th><th data-zh="前置條件">Precondition</th><th data-zh="操作">Action</th><th data-zh="預期結果">Expected Result</th><th data-zh="優先度">Priority</th><th data-zh="Spec 出處">Spec Ref</th><th data-zh="備註">Notes</th><th id="decHead" data-zh="決定">Decision</th></tr></thead><tbody></tbody></table></div>
   <p class="note" id="foot"></p>
 </main>
 <footer>
   <span class="counts" id="counts"></span>
   <span style="display:flex;gap:8px;flex-wrap:wrap">
-    <button class="btn" id="copyCsv">Copy final CSV</button>
-    <button class="btn" id="copyDec">Copy decisions</button>
-    <button class="btn primary" id="save">Save as approved table</button>
+    <button class="btn" id="copyCsv" data-zh="複製最終 CSV">Copy final CSV</button>
+    <button class="btn" id="copyDec" data-zh="複製決定清單">Copy decisions</button>
+    <button class="btn primary" id="save" data-zh="存成核准版測試表">Save as approved table</button>
   </span>
 </footer>
 <div id="toast" role="status"></div>
@@ -110,6 +119,13 @@ const REVIEW=D.mode==='review';
 // the other pages: scripts/pages.ts names them (window.CASEBOOK); a static cases.html links to coverage.html beside it
 const PAGES=window.CASEBOOK?.pages??(location.protocol==='file:'?{coverage:'coverage.html'}:{});
 const KEY='casebook:'+D.feature+':'+D.platform+':'+D.draft;
+// Language: the page's own words switch with tx(en,zh) and data-zh; rows stay English (the table's language)
+// and show their Chinese reading from D.zh underneath in 中文 mode.
+const ZH=D.zh||{};
+let LANG='en';try{if(localStorage.getItem('casebook-lang')==='zh')LANG='zh'}catch(e){}
+const tx=(en,zh)=>LANG==='zh'?zh:en;
+const WORD={new:'新增',modified:'修改',removed:'移除',unchanged:'未變',kept:'保留',edited:'已編輯',added:'已新增',deleted:'刪除'};
+const word=w=>tx(w,WORD[w]||w);
 // state: each row keeps its original values, current values, and the decision (keep/delete)
 let rows=D.rows.map((r,i)=>({orig:{...r},cur:{...r},dec:r.Change==='removed'?'delete':'keep',added:false,i}));
 // new-case notes (user, 2026-10-28): + Add case opens a free-text box under the section header instead of a blank row;
@@ -141,67 +157,89 @@ function md(src){
 }
 function header(){
   const plat=D.platform==='ios'?'iOS':'Android';
-  $('#h').textContent=`${D.title} · ${plat} · ${REVIEW?'Cases':'Approved test cases'}`;
+  $('#h').textContent=`${D.title} · ${plat} · ${REVIEW?tx('Cases','案例'):tx('Approved test cases','核准版測試案例')}`;
+  document.title=$('#h').textContent;
   const f=[];
-  if(REVIEW){f.push(`Draft <code>${esc(D.draft)}</code>`);f.push(D.based_on_version?`Updates approved version ${D.based_on_version}`:'No approved table yet');}
-  else f.push(`Version ${D.version} · approved ${esc((D.approved_at||'').slice(0,10))}`);
+  if(REVIEW){f.push(`${tx('Draft','草稿')} <code>${esc(D.draft)}</code>`);f.push(D.based_on_version?tx(`Updates approved version ${D.based_on_version}`,`更新核准版本 ${D.based_on_version}`):tx('No approved table yet','尚無核准版測試表'));}
+  else f.push(tx(`Version ${D.version} · approved ${esc((D.approved_at||'').slice(0,10))}`,`版本 ${D.version} · 核准於 ${esc((D.approved_at||'').slice(0,10))}`));
   f.push(`Spec: ${D.spec_files.map(s=>esc(s.name)).join(', ')}`);
+  if(LANG==='zh'&&!Object.keys(ZH).length)f.push('（這份表還沒有中文譯文，只顯示英文）');
   $('#facts').innerHTML=f.map(x=>`<span>${x}</span>`).join('');
-  if(D.update_plan){$('#planBox').hidden=false;$('#planBox').open=true;$('#plan').innerHTML=md(D.update_plan)}
+  if(D.update_plan){if($('#planBox').hidden)$('#planBox').open=true;$('#planBox').hidden=false;$('#plan').innerHTML=md(D.update_plan)}
   if(D.requirements){$('#reqBox').hidden=false;$('#req').innerHTML=md(D.requirements)}
   if(!REVIEW){document.body.classList.add('view');$('#decHead').hidden=true;$('#copyDec').hidden=true;$('#save').hidden=true}
-  if(REVIEW&&!D.save){$('#save').disabled=true;$('#save').title='Open this page through scripts/review.ts to save.'}
-  $('#foot').textContent=REVIEW?'Edits and new-case notes are kept in this browser until you save. Save writes the approved CSV, keeps the previous version in history/, regenerates the Excel and HTML views, and hands new-case notes to the agent for the next draft.':'Read-only view generated from cases.csv.';
+  if(REVIEW&&!D.save){$('#save').disabled=true;$('#save').title=tx('Open this page through scripts/review.ts to save.','請透過 scripts/review.ts 開啟此頁才能存檔。')}
+  $('#foot').textContent=REVIEW?tx('Edits and new-case notes are kept in this browser until you save. Save writes the approved CSV, keeps the previous version in history/, regenerates the Excel and HTML views, and hands new-case notes to the agent for the next draft. Edit the English text; the Chinese is a reading aid.','修改與新案例筆記會先存在這個瀏覽器，直到你按存檔。存檔會寫入核准版 CSV、把前一版留在 history/、重新產生 Excel 與 HTML，並把新案例筆記交給 agent 用於下一版草稿。請修改英文內容，中文僅供閱讀參考。'):tx('Read-only view generated from cases.csv.','由 cases.csv 產生的唯讀檢視。');
 }
+// Fixed text carries its Chinese in data-zh; the English is kept in data-en the first time it is swapped.
+function applyStatic(){
+  document.querySelectorAll('[data-zh]').forEach(el=>{if(el.dataset.en==null)el.dataset.en=el.innerHTML;el.innerHTML=LANG==='zh'?el.dataset.zh:el.dataset.en});
+  document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.l===LANG)));
+  document.documentElement.lang=LANG==='zh'?'zh-Hant':'en';
+}
+function setLang(l){LANG=l;try{localStorage.setItem('casebook-lang',l)}catch(e){}applyStatic();header();filters();body();counts()}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
 function filters(){
   const cnt=(k,v)=>rows.filter(r=>k==='change'?(r.cur.Change||'')===v:state(r)===v).length;
   const changes=['new','modified','removed','unchanged'].filter(v=>cnt('change',v));
   const states=['kept','edited','added','deleted'];
-  let h=`<input type="search" id="q" placeholder="Search ID or text" value="${esc(F.q)}"><select id="sec"><option value="">All sections (${rows.length})</option>${sections().map(s=>`<option${F.section===s?' selected':''}>${esc(s)}</option>`).join('')}</select>`;
-  if(changes.length){h+=`<span class="sep"></span>`+[['','All changes'],...changes.map(c=>[c,c])].map(([v,l])=>`<button class="chip" data-k="change" data-v="${v}" aria-pressed="${F.change===v}">${l}${v?` <b>${cnt('change',v)}</b>`:''}</button>`).join('')}
-  if(REVIEW)h+=`<span class="sep"></span>`+[['','Any decision'],...states.map(s=>[s,s])].map(([v,l])=>`<button class="chip" data-k="state" data-v="${v}" aria-pressed="${F.state===v}">${l}${v?` <b>${cnt('state',v)}</b>`:''}</button>`).join('');
+  let h=`<input type="search" id="q" placeholder="${tx('Search ID or text','搜尋 ID 或文字（中英皆可）')}" value="${esc(F.q)}"><select id="sec"><option value="">${tx('All sections','所有區塊')} (${rows.length})</option>${sections().map(s=>`<option value="${esc(s)}"${F.section===s?' selected':''}>${esc(secLabel(s))}</option>`).join('')}</select>`;
+  if(changes.length){h+=`<span class="sep"></span>`+[['',tx('All changes','所有變更')],...changes.map(c=>[c,word(c)])].map(([v,l])=>`<button class="chip" data-k="change" data-v="${v}" aria-pressed="${F.change===v}">${l}${v?` <b>${cnt('change',v)}</b>`:''}</button>`).join('')}
+  if(REVIEW)h+=`<span class="sep"></span>`+[['',tx('Any decision','所有決定')],...states.map(s=>[s,word(s)])].map(([v,l])=>`<button class="chip" data-k="state" data-v="${v}" aria-pressed="${F.state===v}">${l}${v?` <b>${cnt('state',v)}</b>`:''}</button>`).join('');
   $('#filters').innerHTML=h;
   $('#q').oninput=e=>{F.q=e.target.value;body()};
   $('#sec').onchange=e=>{F.section=e.target.value;body()};
   $('#filters').querySelectorAll('.chip').forEach(b=>b.onclick=()=>{F[b.dataset.k]=b.dataset.v;filters();body()});
 }
 function visible(r){
-  const t=(r.cur.ID+' '+FIELDS.map(f=>r.cur[f]).join(' ')).toLowerCase();
+  const z=ZH[r.cur.ID]||{};
+  const t=(r.cur.ID+' '+FIELDS.map(f=>r.cur[f]).join(' ')+' '+Object.values(z).join(' ')).toLowerCase();
   return (!F.q||t.includes(F.q.toLowerCase()))&&(!F.section||(r.cur.Section||'(no section)')===F.section)&&(!F.change||(r.cur.Change||'')===F.change)&&(!F.state||state(r)===F.state);
 }
 function cell(r,f){
   const prev=D.previous[r.cur.ID];
   const was=prev&&r.cur.Change==='modified'&&(prev[f]??'')!==(r.orig[f]??'')?`<div class="was">${esc(prev[f])}</div>`:'';
-  return `<td><textarea data-id="${esc(r.cur.ID)}" data-f="${f}" rows="2">${esc(r.cur[f])}</textarea>${was}</td>`;
+  return `<td><textarea data-id="${esc(r.cur.ID)}" data-f="${f}" rows="2">${esc(r.cur[f])}</textarea>${zhLine(r,f)}${was}</td>`;
 }
+// The Chinese reading under a field, in 中文 mode only; flagged when the English was edited after translation.
+function zhLine(r,f){
+  const z=LANG==='zh'&&ZH[r.cur.ID]?.[f];
+  if(!z)return '';
+  const stale=!r.added&&(r.cur[f]??'')!==(r.orig[f]??'');
+  return `<div class="zh${stale?' stale':''}" data-stale="英文已修改，此譯文為修改前的內容">${esc(z)}</div>`;
+}
+// A section's Chinese name is taken from any row of that section.
+function secZh(s){const r=rows.find(x=>(x.cur.Section||'(no section)')===s&&ZH[x.cur.ID]?.Section);return r?ZH[r.cur.ID].Section:''}
+const secLabel=s=>LANG==='zh'&&secZh(s)?`${s} · ${secZh(s)}`:s;
 function idCell(r){
   const st=state(r),ch=r.cur.Change;
-  const badges=[ch&&ch!=='unchanged'?`<span class="badge b-${ch}">${ch}</span>`:'',REVIEW&&st!=='kept'?`<span class="badge b-${st==='deleted'?'removed':st}">${st}</span>`:''].join(' ');
+  const badges=[ch&&ch!=='unchanged'?`<span class="badge b-${ch}">${word(ch)}</span>`:'',REVIEW&&st!=='kept'?`<span class="badge b-${st==='deleted'?'removed':st}">${word(st)}</span>`:''].join(' ');
   // opens the coverage page on this case: its requirements, the spec boards they come from, the controls it presses
   // and the run plan on it: the segment that runs it and its latest result
   const links=r.added?[]:[PAGES.coverage&&`<a class="spec" href="${esc(PAGES.coverage)}#case=${encodeURIComponent(r.cur.ID)}" title="Coverage: where in the spec this case comes from and the controls it presses">Coverage →</a>`,
     PAGES.plan&&`<a class="spec" href="${esc(PAGES.plan)}#case=${encodeURIComponent(r.cur.ID)}" title="Progress: the segment that runs this case and its latest result">Progress →</a>`,
     PAGES.results&&`<a class="spec" href="${esc(PAGES.results)}#case=${encodeURIComponent(r.cur.ID)}" title="Results: what each run found, with screenshots">Results →</a>`].filter(Boolean);
   const spec=links.length?`<div class="xl">${links.join('')}</div>`:'';
-  return `${esc(r.cur.ID)}<div>${badges}</div>${spec}${r.cur['Change Reason']?`<div class="reason">${esc(r.cur['Change Reason'])}</div>`:''}`;
+  const zr=LANG==='zh'&&ZH[r.cur.ID]?.['Change Reason'];
+  return `${esc(r.cur.ID)}<div>${badges}</div>${spec}${r.cur['Change Reason']?`<div class="reason">${esc(r.cur['Change Reason'])}${zr?`<div class="zh">${esc(zr)}</div>`:''}</div>`:''}`;
 }
 function body(){
   const tb=$('#tbl tbody');let h='';
   for(const s of sections()){
     const rs=rows.filter(r=>(r.cur.Section||'(no section)')===s&&visible(r));
     if(!rs.length)continue;
-    h+=`<tr class="section"><td colspan="8">${esc(s)} <span class="note">(${rs.length})</span>${REVIEW?`<button class="add" data-sec="${esc(s)}" title="Describe new cases in your own words; they become rows in the next draft">+ Add case</button>`:''}</td></tr>`;
-    for(const n of notes.filter(n=>n.section===s))h+=`<tr class="newcase"><td colspan="8"><div class="nh"><b>New case notes</b><span>Write what to test in your own words, one case or several. After Save or Copy decisions, the agent places each case in the right section, fills in the columns and proposes the next draft.</span><button class="add" data-del="${esc(n.id)}">Remove</button></div><textarea class="big" data-note="${esc(n.id)}" placeholder="e.g. Tap the credit pill while the outline is generating: a leave dialog should appear, and leaving keeps the chat">${esc(n.text)}</textarea></td></tr>`;
+    h+=`<tr class="section"><td colspan="8">${esc(s)}${LANG==='zh'&&secZh(s)?`<span class="zhs">${esc(secZh(s))}</span>`:''} <span class="note">(${rs.length})</span>${REVIEW?`<button class="add" data-sec="${esc(s)}" title="${tx('Describe new cases in your own words; they become rows in the next draft','用自己的話描述新案例，下一版草稿會把它們變成表格列')}">${tx('+ Add case','+ 新增案例')}</button>`:''}</td></tr>`;
+    for(const n of notes.filter(n=>n.section===s))h+=`<tr class="newcase"><td colspan="8"><div class="nh"><b>${tx('New case notes','新案例筆記')}</b><span>${tx('Write what to test in your own words, one case or several. After Save or Copy decisions, the agent places each case in the right section, fills in the columns and proposes the next draft.','用自己的話寫下要測什麼，一個或多個案例皆可。按存檔或複製決定後，agent 會把每個案例放到正確區塊、填好欄位並提出下一版草稿。')}</span><button class="add" data-del="${esc(n.id)}">${tx('Remove','移除')}</button></div><textarea class="big" data-note="${esc(n.id)}" placeholder="e.g. Tap the credit pill while the outline is generating: a leave dialog should appear, and leaving keeps the chat">${esc(n.text)}</textarea></td></tr>`;
     for(const r of rs){
       const st=state(r);
       h+=`<tr data-row="${esc(r.cur.ID)}" class="${st==='deleted'?'deleted':''}${r.cur.ID===focusId?' focus':''}"><td class="id">${idCell(r)}</td>
       ${cell(r,'Precondition')}${cell(r,'Action')}${cell(r,'Expected Result')}
       <td><select data-id="${esc(r.cur.ID)}" data-f="Priority" ${REVIEW?'':'disabled'}>${['','P1','P2','P3'].map(p=>`<option${(r.cur.Priority||'')===p?' selected':''}>${p}</option>`).join('')}</select></td>
       ${cell(r,'Spec Ref')}${cell(r,'Notes')}
-      ${REVIEW?`<td class="dec"><span class="seg"><button class="k" data-id="${esc(r.cur.ID)}" data-d="keep" aria-pressed="${r.dec==='keep'}">Keep</button><button class="d" data-id="${esc(r.cur.ID)}" data-d="delete" aria-pressed="${r.dec==='delete'}">Delete</button></span></td>`:''}</tr>`;
+      ${REVIEW?`<td class="dec"><span class="seg"><button class="k" data-id="${esc(r.cur.ID)}" data-d="keep" aria-pressed="${r.dec==='keep'}">${tx('Keep','保留')}</button><button class="d" data-id="${esc(r.cur.ID)}" data-d="delete" aria-pressed="${r.dec==='delete'}">${tx('Delete','刪除')}</button></span></td>`:''}</tr>`;
     }
   }
-  tb.innerHTML=h||`<tr><td colspan="8" class="note">No cases match these filters.</td></tr>`;
+  tb.innerHTML=h||`<tr><td colspan="8" class="note">${tx('No cases match these filters.','沒有符合篩選條件的案例。')}</td></tr>`;
   const find=id=>rows.find(r=>r.cur.ID===id);
   tb.querySelectorAll('textarea[data-note]').forEach(el=>el.oninput=()=>{notes.find(n=>n.id===el.dataset.note).text=el.value;persist();counts()});
   tb.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{const n=notes.find(n=>n.id===b.dataset.del);if(n.text.trim()&&!confirm('Remove this note and its text?'))return;notes=notes.filter(x=>x!==n);persist();body();counts()});
@@ -216,7 +254,7 @@ function counts(){
   const c=s=>rows.filter(r=>state(r)===s).length;
   const fin=rows.filter(r=>r.dec!=='delete').length;
   const nn=liveNotes().length;
-  $('#counts').innerHTML=REVIEW?`<b>${fin}</b> cases in the final table · kept ${c('kept')} · edited ${c('edited')} · added ${c('added')} · deleted ${c('deleted')}${nn?` · <b>${nn}</b> new-case note${nn>1?'s':''} for the next draft`:''}`:`<b>${rows.length}</b> cases`;
+  $('#counts').innerHTML=REVIEW?tx(`<b>${fin}</b> cases in the final table · kept ${c('kept')} · edited ${c('edited')} · added ${c('added')} · deleted ${c('deleted')}${nn?` · <b>${nn}</b> new-case note${nn>1?'s':''} for the next draft`:''}`,`最終測試表 <b>${fin}</b> 筆 · 保留 ${c('kept')} · 已編輯 ${c('edited')} · 已新增 ${c('added')} · 刪除 ${c('deleted')}${nn?` · 下一版草稿的新案例筆記 <b>${nn}</b> 則`:''}`):tx(`<b>${rows.length}</b> cases`,`<b>${rows.length}</b> 筆案例`);
 }
 const COLS=['ID','Section','Precondition','Action','Expected Result','Priority','Spec Ref','Notes'];
 const q=v=>/[",\r\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;
@@ -243,19 +281,19 @@ function decisionText(){
     for(const n of ns)L.push(`NOTE ${n.id} [typed under: ${n.section}]`,...n.text.trim().split(/\r?\n/).map(l=>'  '+l));}
   return L.join('\n');
 }
-async function copy(text,label){try{await navigator.clipboard.writeText(text);toast(label+' copied.')}catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast(label+' copied.')}catch(_){toast('Copy failed; select the text manually.')}ta.remove()}}
-$('#copyCsv').onclick=()=>{copy(csv(),'Final CSV');if(liveNotes().length)setTimeout(()=>toast('Final CSV copied. New-case notes are not rows yet: use Copy decisions or Save to hand them over.'),50)};
-$('#copyDec').onclick=()=>copy(decisionText(),'Decisions');
+async function copy(text,label){const ok=tx(label+' copied.','已複製'+label+'。');try{await navigator.clipboard.writeText(text);toast(ok)}catch(e){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast(ok)}catch(_){toast(tx('Copy failed; select the text manually.','複製失敗，請手動選取文字。'))}ta.remove()}}
+$('#copyCsv').onclick=()=>{copy(csv(),tx('Final CSV','最終 CSV'));if(liveNotes().length)setTimeout(()=>toast(tx('Final CSV copied. New-case notes are not rows yet: use Copy decisions or Save to hand them over.','已複製最終 CSV。新案例筆記還不是表格列：請用「複製決定」或存檔交給 agent。')),50)};
+$('#copyDec').onclick=()=>copy(decisionText(),tx('Decisions','決定清單'));
 $('#save').onclick=async()=>{
   const empty=finalRows().filter(r=>!r.Action||!r['Expected Result']);
-  if(empty.length){toast(`Fill in Action and Expected Result for ${empty.map(r=>r.ID).join(', ')} before saving.`);return}
+  if(empty.length){toast(tx(`Fill in Action and Expected Result for ${empty.map(r=>r.ID).join(', ')} before saving.`,`存檔前請填寫 ${empty.map(r=>r.ID).join(', ')} 的操作與預期結果。`));return}
   $('#save').disabled=true;
   try{const res=await fetch('save',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({rows:finalRows(),decisions:decisions(),summary:decisionText(),notes:liveNotes()})});
     const j=await res.json();if(!res.ok)throw new Error(j.error||res.statusText);
     try{localStorage.removeItem(KEY)}catch(e){}
     const nn=liveNotes().length;notes=[];body();counts();
-    toast(`Saved as approved version ${j.version}: ${j.cases} cases. ${j.csv}`+(nn?` · ${nn} new-case note${nn>1?'s':''} saved to ${j.notes_file}: ask the agent to turn them into the next draft.`:''));
-  }catch(e){toast('Save failed: '+e.message)}finally{$('#save').disabled=false}
+    toast(tx(`Saved as approved version ${j.version}: ${j.cases} cases. ${j.csv}`+(nn?` · ${nn} new-case note${nn>1?'s':''} saved to ${j.notes_file}: ask the agent to turn them into the next draft.`:''),`已存成核准版本 ${j.version}：${j.cases} 筆案例。${j.csv}`+(nn?` · ${nn} 則新案例筆記已存到 ${j.notes_file}：請 agent 把它們做成下一版草稿。`:'')));
+  }catch(e){toast(tx('Save failed: ','存檔失敗：')+e.message)}finally{$('#save').disabled=false}
 };
 // #TC-012 (a link from the coverage page): show that row, clearing filters that hide it
 let focusId='';
@@ -265,7 +303,7 @@ function focusRow(){
   document.querySelector(`tr[data-row="${CSS.escape(id)}"]`)?.scrollIntoView({block:'center'});
 }
 addEventListener('hashchange',focusRow);
-header();filters();body();counts();focusRow();
+applyStatic();header();filters();body();counts();focusRow();
 </script>
 </body>
 </html>

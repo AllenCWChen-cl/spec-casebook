@@ -21,6 +21,7 @@
     { "label": "1016_add seedance 2.5", "node": "4847:34140", "frame": "2824:130034", "in_pdf": false, "read": "figma: board-notes 「Design — Figma only」 (PM 10/21 governs the labels, REQ-029; R-253 unchanged)" },
     { "label": "1016_Chat navigation", "node": "4858:34930", "in_pdf": false, "read": "figma: board-notes 「Design — Figma only」 (R-261 – R-264)" },
     { "label": "10/22 update — Export Full Video 匯出中狀態", "node": "4418:2", "flag": "4418:30", "file": "pm", "in_pdf": false, "read": "figma: board-notes 「PM — Figma only」 (changes R-249; iOS v9: R-249 changed, R-337 – R-340)" },
-    { "label": "10/22 update — Generate Video 後、影片送出前離開 (§13.24 Storyboard／Video 兩階段)", "node": "4422:2", "flag": "4422:16", "file": "pm", "in_pdf": false, "read": "figma: board-notes 「PM — Figma only」 (replaces R-051/R-158/R-262/R-307 storyboard parts; adds stage-① dialog before R-264/R-071/R-308; R-279 charge moment; iOS v9: R-051, R-071, R-158, R-262, R-264 changed, R-052 replaced, R-332 – R-336)" }
+    { "label": "10/22 update — Generate Video 後、影片送出前離開 (§13.24 Storyboard／Video 兩階段)", "node": "4422:2", "flag": "4422:16", "file": "pm", "in_pdf": false, "read": "figma: board-notes 「PM — Figma only」 (replaces R-051/R-158/R-262/R-307 storyboard parts; adds stage-① dialog before R-264/R-071/R-308; R-279 charge moment; iOS v9: R-051, R-071, R-158, R-262, R-264 changed, R-052 replaced, R-332 – R-336)" },
+    { "label": "10/29 update — Regenerate Clip 一次只能跑一個 (§13.25, PDR-A 16.8.0 AI Agent bug)", "node": "4784:70878", "file": "pm", "in_pdf": false, "read": "figma: board-notes 「PM — 10/29 Regenerate Clip one at a time」 (2026-10-30, REQ-061; Android R-482, iOS R-466)" }
   ]
 }

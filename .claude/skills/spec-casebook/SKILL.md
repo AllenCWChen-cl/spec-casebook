@@ -156,6 +156,11 @@ and the pass / fail / block reason, and Save works only on this computer:
   `+ Add case` opens a free-text box under that section's header (user, 2026-10-28), not a blank row: the reviewer
   describes the case in their own words. Modified rows show the previous text struck through.
 - **Copy decisions** copies a short change list to paste into the chat; **Copy final CSV** copies the whole table.
+- **English / 中文 (user, 2026-10-29).** A toggle in the header switches the page's own words; rows stay English and,
+  in 中文, show their Chinese reading under each field from `draft.zh.json` in the draft folder (`{ "<ID>": { "<field>":
+  "<Chinese>" } }`; quoted app strings 「…」 stay English). Write it for every draft (parallel subagents for large
+  tables, one Chinese name per Section); Save copies it to `cases.zh.json`, which `cases.html` uses. Edits are made
+  in English; a field edited after translation marks its Chinese as stale.
 - **Save as approved table** writes `cases.csv`, archives the previous version to `history/v<N>.csv`
   (+ its requirements), updates `manifest.json`, and regenerates `cases.xlsx` / `cases.html`. Saving again from
   the same draft overwrites that same version.

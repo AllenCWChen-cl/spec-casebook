@@ -1,0 +1,2890 @@
+{
+ "TC-001": {
+  "Section": "進入與首頁",
+  "Precondition": "App 在 Home (Launcher)",
+  "Action": "點選「AI Mini Drama」捷徑",
+  "Expected Result": "開啟 AI Mini Drama 首頁"
+ },
+ "TC-418": {
+  "Section": "進入與首頁",
+  "Precondition": "App 在 Home（Launcher）；此安裝上 AI Mini Drama 的介紹尚未以 「Don't show again」 關閉",
+  "Action": "1. 點「AI Mini Drama」捷徑。2. 在介紹頁點音量圖示兩次。3. 點 ‹。4. 再點捷徑，勾選「Don't show again」並點「Try It Now」。5. 回到 Launcher 再點一次捷徑",
+  "Expected Result": "介紹頁顯示「AI Mini Drama」/「Turn your idea into a video—same characters, same voices, every scene.」，附播放中的示範影片、「Don't show again」與「Try It Now」；每點一次音量圖示就關閉聲音再開啟；‹ 回到 Launcher；「Try It Now」開啟 AI Mini Drama 首頁；勾選「Don't show again」後，捷徑直接開啟首頁而沒有介紹頁",
+  "Notes": "PM-only：尚無 Design frame（PM 主流程 2283:10856「Demo page_Straight video」）。Design 的捷徑箭頭直接到首頁（R-190）；若沒有出現介紹頁，請記錄（Q-29）"
+ },
+ "TC-002": {
+  "Section": "進入與首頁",
+  "Precondition": "App 在 Home；主視覺橫幅輪播中",
+  "Action": "等待「AI Mini Drama with Seedance 2.0 >」橫幅出現並點選",
+  "Expected Result": "開啟 AI Mini Drama 首頁",
+  "Notes": "橫幅輪播由 CMS 控制；若一直沒出現則為 Blocked"
+ },
+ "TC-003": {
+  "Section": "進入與首頁",
+  "Precondition": "已開啟 AI Mini Drama 首頁",
+  "Action": "查看首頁",
+  "Expected Result": "顯示「Hi, I'm your」「AI Drama Assistant」、「Describe your idea and watch it come to life as a short drama.」、「Create Your Drama」、「Start from a template」與「More」及範本格；標題列有返回、點數膠囊與 History；每個範本縮圖為該範本的海報靜態圖",
+  "Notes": "回歸 DRI261893-0051 (Assigned, untagged)：「Hi, I'm your」文字有陰影 — 此單也在此重新檢查。Q-18：首日範本是否只有 US 與 JP？"
+ },
+ "TC-004": {
+  "Section": "進入與首頁",
+  "Precondition": "已開啟首頁；有 6 個以上範本",
+  "Action": "檢查範本列標題",
+  "Expected Result": "「More」顯示在「Start from a template」旁",
+  "Notes": "少於 6 個的分支需要伺服器設定"
+ },
+ "TC-005": {
+  "Section": "進入與首頁",
+  "Precondition": "已開啟首頁",
+  "Action": "比對點數膠囊與 Mine → credits",
+  "Expected Result": "膠囊顯示目前的點數餘額",
+  "Notes": "回歸 DRI261894-0001 (RDResolved, AIAgent)：扣點後範本預覽顯示過期的點數餘額 — 此單也在此重新檢查"
+ },
+ "TC-006": {
+  "Section": "範本",
+  "Precondition": "已開啟首頁",
+  "Action": "點選「More」",
+  "Expected Result": "開啟全部分類頁：各分類有圖示與名稱 (Office Romance, Fantasy World, Urban Romance, Family & Life, Animated Stories)，每個分類為一列附名稱的封面"
+ },
+ "TC-007": {
+  "Section": "範本",
+  "Precondition": "已開啟首頁",
+  "Action": "點選一個範本封面",
+  "Expected Result": "開啟範本詳情；範本影片自動播放且有聲音；顯示「Make my version」"
+ },
+ "TC-008": {
+  "Section": "範本",
+  "Precondition": "範本詳情播放中",
+  "Action": "點影片；點 ▶；然後點音量圖示兩次",
+  "Expected Result": "第一次點擊暫停影片（暫停且音量關閉狀態）；▶ 恢復播放；每點一次音量圖示會關閉再開啟聲音，圖示隨之變化（volume off / volume on）"
+ },
+ "TC-009": {
+  "Section": "範本",
+  "Precondition": "已開啟範本詳情",
+  "Action": "點選「Make my version」",
+  "Expected Result": "為該範本開始聊天，並在產生任何大綱之前詢問「What format would you like for your video?」"
+ },
+ "TC-010": {
+  "Section": "範本",
+  "Precondition": "已開啟全部分類頁",
+  "Action": "閱讀每個範本名稱",
+  "Expected Result": "名稱拼寫正確，例如「Six Things You Didn't Know」含撇號",
+  "Notes": "Q-1：設計檔本身漏了撇號；回歸 DRI261893-0158 (NewCreated, AIAgent)：範本標題 \"Six Things You Didnt Know\" 缺少撇號 — 此單也在此重新檢查"
+ },
+ "TC-011": {
+  "Section": "點子輸入",
+  "Precondition": "已開啟首頁",
+  "Action": "點選「Create Your Drama」",
+  "Expected Result": "開啟空白聊天，輸入框提示文字為「Enter your idea to create drama」，並有麥克風按鈕"
+ },
+ "TC-399": {
+  "Section": "點子輸入",
+  "Precondition": "空白聊天（TC-011 之後）",
+  "Action": "不說話點麥克風按鈕；然後再點一次（或其取消控制）停止",
+  "Expected Result": "語音輸入開始：顯示聆聽狀態（首次使用時 iOS 會先詢問麥克風或語音辨識權限）；停止後輸入框保持空白，輸入列可供打字",
+  "Notes": "不需要說話：Appium 無法讓手機收到語音，因此轉錄由 TC-191 涵蓋。iOS 權限提示屬系統設定：記錄下來並先詢問使用者再回答"
+ },
+ "TC-012": {
+  "Section": "點子輸入",
+  "Precondition": "空白聊天，輸入框已取得焦點",
+  "Action": "查看輸入框上方",
+  "Expected Result": "顯示「Surprise me」與兩個靈感 chip"
+ },
+ "TC-013": {
+  "Section": "點子輸入",
+  "Precondition": "空白聊天，有靈感 chip",
+  "Action": "點選一個靈感 chip",
+  "Expected Result": "chip 文字放入輸入框 (不送出)"
+ },
+ "TC-014": {
+  "Section": "點子輸入",
+  "Precondition": "空白聊天",
+  "Action": "點選「Surprise me」兩次",
+  "Expected Result": "第一次點選以一則靈感填入輸入框；第二次點選將另一則靈感附加在既有文字之後，而非取代",
+  "Notes": "回歸 DRI261893-0124 (NewCreated, AIAgent) — 與 TC-014 的附加規則 (DRI261895P0023) 衝突；對照目前規格重新檢查：Surprise me 在同一次首頁停留期間會更換建議 — 此單也在此重新檢查；回歸 DRI261895P0023 (NewCreated, AIAgent)：Surprise me 取代輸入框內容而非附加建議 — 此單也在此重新檢查"
+ },
+ "TC-380": {
+  "Section": "點子輸入",
+  "Precondition": "空白聊天；記下兩個靈感 chip",
+  "Action": "點選「Surprise me」五次，每次都清空輸入框",
+  "Expected Result": "沒有任何一次選出的內容與那兩個 chip 的字串相同",
+  "Notes": "10 則一組 (R-014)"
+ },
+ "TC-015": {
+  "Section": "點子輸入",
+  "Precondition": "空白聊天",
+  "Action": "將 1,050 字元的文字貼到輸入框",
+  "Expected Result": "輸入框保留前 1,000 個字元；計數器顯示紅色「1000/1000」；顯示「You've reached the 1,000-character limit.」",
+  "Notes": "Q-2"
+ },
+ "TC-016": {
+  "Section": "點子輸入",
+  "Precondition": "輸入框已達 1,000 字元",
+  "Action": "再輸入一個字元",
+  "Expected Result": "不會新增任何字元；上限訊息持續顯示"
+ },
+ "TC-017": {
+  "Section": "點子輸入",
+  "Precondition": "輸入框已達 1,000 字元",
+  "Action": "刪除一個字元",
+  "Expected Result": "計數器不再是紅色，上限訊息消失"
+ },
+ "TC-018": {
+  "Section": "點子輸入",
+  "Precondition": "輸入框約 400 字元",
+  "Action": "收起鍵盤",
+  "Expected Result": "輸入框收合為最多 3 行"
+ },
+ "TC-372": {
+  "Section": "點子輸入",
+  "Precondition": "空白聊天，鍵盤已開啟",
+  "Action": "持續輸入直到文字超過輸入框的最大高度",
+  "Expected Result": "輸入框隨文字增高至最大高度；更多文字在框內捲動，且不遮住其他控制項"
+ },
+ "TC-373": {
+  "Section": "點子輸入",
+  "Precondition": "聊天中已有大綱，鍵盤已開啟",
+  "Action": "持續輸入直到文字超過輸入框的最大高度",
+  "Expected Result": "輸入框隨文字增高至最大高度；更多文字在框內捲動，且不遮住其他控制項"
+ },
+ "TC-019": {
+  "Section": "點子輸入",
+  "Precondition": "聊天中至少有一則訊息",
+  "Action": "查看輸入框上方，然後點 「More ideas +」",
+  "Expected Result": "顯示 「More ideas +」 chip；點擊後為輸入提供更多故事靈感（記錄出現的內容，Q-19）"
+ },
+ "TC-020": {
+  "Section": "格式卡片",
+  "Precondition": "空白聊天",
+  "Action": "送出一個點子 (例如「A barista and a regular fall in love over a lost umbrella」)",
+  "Expected Result": "助理詢問「What format would you like for your video?」，包含 1. Video language (English, Spanish, French, German, Japanese, Korean, Chinese) 與 2. Captions (「Yes, include captions」/「No captions」)；沒有畫面比例的問題",
+  "Notes": "回歸 DRI261893-0118 (NewCreated, AIAgent) — 設計優先：目前的格式卡片沒有畫面比例選項 (TC-020)；重新檢查前先確認。：格式設定沒有畫面比例選擇 — 此單也在此重新檢查"
+ },
+ "TC-021": {
+  "Section": "格式卡片",
+  "Precondition": "已顯示格式卡片",
+  "Action": "點選另一個語言，再點選另一個字幕選項",
+  "Expected Result": "每組只會選取一個選項"
+ },
+ "TC-022": {
+  "Section": "格式卡片",
+  "Precondition": "已顯示格式卡片",
+  "Action": "點選卡片上的按鈕",
+  "Expected Result": "卡片被使用者氣泡取代「1. Video language: <x> / 2. Captions: <Yes|No>」",
+  "Notes": "回歸 DRI261893-0011 (QANeedRework, AIFound)：格式卡片按鈕顯示 \"Continue\"，而非規格指定的 \"Generate\" — 此單也在此重新檢查"
+ },
+ "TC-381": {
+  "Section": "格式卡片",
+  "Precondition": "空白聊天",
+  "Action": "輸入一個點子但不送出並點選返回；開啟新聊天，送出一個點子並在格式卡片點選返回；開啟 History",
+  "Expected Result": "每次返回都回到 AI Mini Drama 首頁且不出現對話框；History 沒有這兩個聊天的紀錄"
+ },
+ "TC-023": {
+  "Section": "故事大綱",
+  "Precondition": "已確認格式",
+  "Action": "在大綱產生期間觀察聊天",
+  "Expected Result": "顯示狀態文字，例如「I'll create a story outline - give me a moment...」/「Writing your story...」"
+ },
+ "TC-024": {
+  "Section": "故事大綱",
+  "Precondition": "大綱已產生",
+  "Action": "閱讀結果",
+  "Expected Result": "「Story Outline & Characters Result」卡片顯示 Story Outline 與「Possible Characters:」，每個角色有描述，並有一列角色欄位"
+ },
+ "TC-025": {
+  "Section": "故事大綱",
+  "Precondition": "大綱產生中",
+  "Action": "點 Back",
+  "Expected Result": "「Leave this chat?」/「Your story outline isn't ready yet, so this chat won't be saved.」，附「Leave anyway」與「Stay」"
+ },
+ "TC-026": {
+  "Section": "故事大綱",
+  "Precondition": "大綱產生中",
+  "Action": "點選 History (右上角)",
+  "Expected Result": "出現相同的「Leave this chat?」對話框",
+  "Notes": "回歸 DRI261894P0049 (NewCreated, AIFound)：離開保護只在 History 圖示出現、返回鍵不會，且說工作會停止 — 此單也在此重新檢查"
+ },
+ "TC-027": {
+  "Section": "故事大綱",
+  "Precondition": "已顯示 Leave this chat?",
+  "Action": "點選「Stay」",
+  "Expected Result": "對話框關閉；聊天保留且大綱仍會送達"
+ },
+ "TC-028": {
+  "Section": "故事大綱",
+  "Precondition": "已顯示 Leave this chat?",
+  "Action": "點選「Leave anyway」，然後開啟 History",
+  "Expected Result": "聊天關閉；History 中沒有此點子的紀錄"
+ },
+ "TC-394": {
+  "Section": "故事大綱",
+  "Precondition": "為新點子產生大綱中",
+  "Action": "點 Back，然後「Leave anyway」",
+  "Expected Result": "聊天關閉並開啟 AI Mini Drama 首頁（「Hi, I'm your AI Drama Assistant」、「Create Your Drama」、「Start from a template」）",
+  "Notes": "首頁來自 Design 1016_Chat navigation ①（流程箭頭 4877-33087）；對話框文字來自 PM 10/21（REQ-029）。TC-028 檢查 History 不保留任何內容"
+ },
+ "TC-357": {
+  "Section": "故事大綱",
+  "Precondition": "大綱產生中",
+  "Action": "點選 New chat，然後點「Stay」；點選點數膠囊，然後點「Stay」",
+  "Expected Result": "每次點選都顯示「Leave this chat?」/「Your story outline isn't ready yet, so this chat won't be saved.」，附 Leave anyway / Stay；Stay 關閉對話框，聊天保留且大綱仍會送達",
+  "Notes": "離開路徑來自 Design 1016_Chat navigation；對話框文案來自 PM 10/21，較新 (REQ-029)。TC-025 – TC-028 涵蓋返回與 History"
+ },
+ "TC-358": {
+  "Section": "故事大綱",
+  "Precondition": "為新點子產生大綱中",
+  "Action": "點選點數膠囊，然後點「Leave anyway」；再開啟 History",
+  "Expected Result": "開啟 My Credits；History 沒有此點子的紀錄",
+  "Notes": "首頁來自 Design 1016_Chat navigation (REQ-029)"
+ },
+ "TC-398": {
+  "Section": "點數與額度",
+  "Precondition": "免費方案；從聊天的點數 pill 開啟 My Credits（TC-358 之後，或之後任一階段的 pill）",
+  "Action": "點「Buy More」，然後返回；點「Subscribe Now」，然後不訂閱直接返回；點「Claim」",
+  "Expected Result": "「Buy More」開啟點數購買頁；「Subscribe Now」開啟 Pro+ 訂閱頁；「Claim」將今日的免費點數加入餘額，且 24 小時後才能再次使用",
+  "Notes": "Design 1016_Chat navigation「Credit page_free」（Figma 4858:35398）。不要購買或訂閱。共用帳號每 24 小時只能 Claim 一次：若今天已領過，記錄停用狀態"
+ },
+ "TC-395": {
+  "Section": "故事大綱",
+  "Precondition": "為新點子產生大綱中",
+  "Action": "點 History，然後點 「Leave anyway」",
+  "Expected Result": "聊天關閉並開啟 Recent Task；列表中沒有此想法的項目",
+  "Notes": "首頁來自 Design 1016_Chat navigation ④（流程箭頭 4877-33081）；對話框文字來自 PM 10/21（REQ-029）"
+ },
+ "TC-396": {
+  "Section": "故事大綱",
+  "Precondition": "為新點子產生大綱中",
+  "Action": "點 New chat，然後點 「Leave anyway」",
+  "Expected Result": "聊天關閉並開啟新的空白聊天（「Hi, I'm your AI Drama Assistant」、「Surprise me」、想法建議、空的輸入區）；被放棄的想法不在 History 中",
+  "Notes": "首頁來自 Design 1016_Chat navigation ②（流程箭頭 4877-33083）；對話框文字來自 PM 10/21（REQ-029）。TC-200 重測相關的單"
+ },
+ "TC-386": {
+  "Section": "故事大綱",
+  "Precondition": "為新點子產生大綱中",
+  "Action": "將 App 滑掉，重新開啟並開啟 History",
+  "Expected Result": "History 沒有該點子的紀錄"
+ },
+ "TC-029": {
+  "Section": "故事大綱",
+  "Precondition": "大綱已完成",
+  "Action": "點 Back，再從 History 重新開啟該短劇",
+  "Expected Result": "離開時不出現對話框；該 drama 在 History 中，並重新開啟於大綱步驟"
+ },
+ "TC-360": {
+  "Section": "故事大綱",
+  "Precondition": "大綱已完成，沒有任何產生中的工作",
+  "Action": "點選 History；重新開啟該 drama；點選點數膠囊；返回；點選 New chat",
+  "Expected Result": "每次都不出現對話框；History 開啟 Recent Task 並列出此 drama，點數膠囊開啟 My Credits，New chat 開啟新的空白聊天",
+  "Notes": "PM：已儲存的聊天離開時不出現對話框；Design 1016 顯示「Leave this chat?」但較舊 (REQ-029)。TC-029 涵蓋返回"
+ },
+ "TC-030": {
+  "Section": "故事大綱",
+  "Action": "送出一個點子並確認格式",
+  "Expected Result": "助理說「Something went wrong on my end. Let's try that again.」並附「Try again」；Try again 以相同的點子與格式重新送出",
+  "Notes": "需要故障注入",
+  "Precondition": "大綱請求以 5xxx 失敗（Pink：Fail every call）"
+ },
+ "TC-031": {
+  "Section": "故事大綱",
+  "Precondition": "大綱請求以 4xxx 失敗",
+  "Action": "送出違反政策的點子",
+  "Expected Result": "助理說「I couldn't write a story from this idea. It may not meet our terms of service. Try describing it a different way.」，沒有按鈕；會產生新點子且不再顯示格式卡片",
+  "Notes": "審核觸發條件可能無法重現"
+ },
+ "TC-032": {
+  "Section": "故事大綱",
+  "Precondition": "裝置離線 (Wi-Fi 與行動網路皆關閉)",
+  "Action": "送出一個點子",
+  "Expected Result": "顯示「You're offline. Check your connection and try again.」；未送出任何內容 (log 中沒有請求)，也沒有扣點 (Credit Details)"
+ },
+ "TC-387": {
+  "Section": "故事大綱",
+  "Precondition": "大綱已完成；Wi-Fi 關閉且無行動網路 (先確認 Appium 透過 USB 連線)",
+  "Action": "送出一則聊天訊息",
+  "Expected Result": "顯示 toast「You're offline. Check your connection and try again.」，而非 AI 訊息；未送出任何內容 (log 中沒有請求)，也沒有扣任何點數",
+  "Notes": "真實斷網 (REQ-020)；結束後立即重新開啟 Wi-Fi"
+ },
+ "TC-033": {
+  "Section": "角色",
+  "Precondition": "大綱中有尚未設定的角色",
+  "Action": "點選一個角色欄位",
+  "Expected Result": "開啟「Change Characters」，含角色分頁、「Character Library」(「Create my character」圖塊、資料庫卡片、「My character」標籤) 與篩選圖示；尚無造型的欄位顯示預設預留圖",
+  "Notes": "設計將資料庫標籤畫為「Mine」(R-269)；記錄實際顯示哪個標籤"
+ },
+ "TC-034": {
+  "Section": "角色",
+  "Precondition": "此帳號首次使用 AI Mini Drama (全新安裝或新帳號)；已開啟 Change Characters，尚未設定任何角色",
+  "Action": "為第一個角色挑選造型",
+  "Expected Result": "提示「Tap to choose a look for {name}」指向下一個未設定的欄位 (先往右)",
+  "Notes": "此提示每位使用者只顯示一次 (PM §13.1)；TC-346 檢查它不會再出現"
+ },
+ "TC-035": {
+  "Section": "角色",
+  "Precondition": "已顯示提示",
+  "Action": "等待 5 秒，不點選",
+  "Expected Result": "提示消失",
+  "Notes": "需要此提示（每位使用者僅在首次使用時顯示）：與 TC-034 一起執行"
+ },
+ "TC-036": {
+  "Section": "角色",
+  "Precondition": "已開啟 Change Characters",
+  "Action": "開啟篩選，選 Gender 與 Ethnicity 並套用；點 Gender 標籤上的 ×；然後點篩選圖示",
+  "Expected Result": "角色庫只顯示符合的角色；已選的篩選以可移除的標籤顯示，篩選圖示顯示勾號；× 移除該篩選與其標籤，列表變寬；篩選圖示重新開啟 Filter 面板，其餘的選擇仍為選取狀態"
+ },
+ "TC-371": {
+  "Section": "角色",
+  "Precondition": "已開啟 Change Characters › Filter",
+  "Action": "拖曳 Age 滑桿把手",
+  "Expected Result": "拖曳時，把手目前的值 (例如「26」) 顯示在其上方"
+ },
+ "TC-037": {
+  "Section": "角色",
+  "Precondition": "已開啟 Change Characters，有新的未儲存選擇",
+  "Action": "點選 X",
+  "Expected Result": "「Leave without finishing?」/「If you leave now, your picks won't be saved.」，附「Leave」與「Keep choosing」",
+  "Notes": "設計優先於 PM (使用者規則 2026-10-19)。PM 主流程為「Discard character changes?」 / Discard / Keep Editing。"
+ },
+ "TC-038": {
+  "Section": "角色",
+  "Precondition": "已顯示 Leave without finishing?",
+  "Action": "點選「Keep choosing」，然後再點 X 並點「Leave」",
+  "Expected Result": "Keep choosing 保留所選內容；Leave 關閉且不儲存所選內容",
+  "Notes": "設計優先於 PM (使用者規則 2026-10-19)。PM 標籤：Keep Editing / Discard。"
+ },
+ "TC-039": {
+  "Section": "角色",
+  "Precondition": "大綱有 2 個以上未設定的角色",
+  "Action": "開啟 Change Characters 並在未設定的情況下點選 ✓",
+  "Expected Result": "顯示面板「Finish your characters ⓘ」，含「{n} characters aren't set yet」/「Add a look to continue.」、未設定的欄位、「Generate all ◆6×n」與「You have {n} credits left」",
+  "Notes": "設計優先於 PM (使用者規則 2026-10-19)。PM：「They need a look before you can continue.」、Generate with AI、Choose myself。；回歸 DRI261896P0005 (RDResolved, AIFound)：Finish your characters 面板縮圖缺少白色背景 — 此單也在此重新檢查"
+ },
+ "TC-040": {
+  "Section": "角色",
+  "Precondition": "剛好有 1 個未設定的角色",
+  "Action": "在 Change Characters 點選 ✓",
+  "Expected Result": "單數形「1 character isn't set yet」/「Add a look to continue.」，附「Generate ◆6」",
+  "Notes": "單複數文法。設計優先於 PM (使用者規則 2026-10-19)。PM：「It needs a look before you can continue.」 / Generate with AI。；回歸 DRI261896P0016 (NewCreated, AIFound)：範本聊天顯示 \"1 characters isn't set yetThey need a look…\" — 此單也在此重新檢查"
+ },
+ "TC-041": {
+  "Section": "角色",
+  "Precondition": "已顯示未設定角色的面板",
+  "Notes": "設計優先於 PM (使用者規則 2026-10-19)。PM：「{n} characters are all set!」。",
+  "Action": "點 「Generate all」，等待，然後點 「Confirm」",
+  "Expected Result": "「Creating {n} characters...」 附 「This usually takes about 1 minute.」，然後 「Your characters are ready」/「Tap Confirm to continue.」 附 「Confirm」；「Confirm」 關閉面板並回到聊天，顯示完成的角色陣容"
+ },
+ "TC-042": {
+  "Section": "角色",
+  "Action": "為多個角色點選「Generate with AI」",
+  "Expected Result": "成功的會被套用；失敗的欄位顯示「!」並退點；「Couldn't create some images」/「{n} characters couldn't be created. Your credits have been refunded. Tap a character to try again.」",
+  "Precondition": "以 Generate with AI 產生，部分角色失敗（Pink：Trip image moderation）",
+  "Notes": "需要故障注入；回歸 DRI261894P0006（RDResolved、untagged）：要求 AI 一次產生多個角色時，全部在單一請求中產生失敗——也在此重測該單"
+ },
+ "TC-384": {
+  "Section": "角色",
+  "Precondition": "部分角色失敗 (TC-042)；已顯示「Couldn't create some images」",
+  "Action": "關閉對話框，點選失敗的「!」角色，然後嘗試繼續故事",
+  "Expected Result": "「{n} characters aren't set yet」列出帶「!」的失敗角色；點選會在該角色上開啟 Character Library (重新產生或挑選造型)；在每個角色都設定完成前，故事無法繼續",
+  "Notes": "需要故障注入 (Pink › Trip image moderation；記錄所用開關)"
+ },
+ "TC-043": {
+  "Section": "角色",
+  "Precondition": "單一角色產生失敗",
+  "Action": "產生一個角色",
+  "Expected Result": "「Couldn't create image」/「We couldn't create this character. Your credits have been refunded. Try again.」，附「Got it」；Got it 開啟 Choose Character 並選取失敗角色的欄位，且已成功的角色會被套用",
+  "Notes": "需要故障注入"
+ },
+ "TC-044": {
+  "Section": "角色",
+  "Precondition": "每個角色都已設定",
+  "Action": "確認角色陣容",
+  "Expected Result": "助理：「The characters look great! Ready to create the storyboard?」，附 Create storyboard 卡片，顯示價格與 Generate",
+  "Notes": "回歸 DRI261894P0013 (NeedMoreInfo, AIFound)：要求重新產生尚不存在的分鏡，且價格改變 — 此單也在此重新檢查"
+ },
+ "TC-045": {
+  "Section": "角色",
+  "Precondition": "角色陣容已設定，分鏡尚未開始",
+  "Action": "在聊天中明確要求更改某個角色的造型 (例如「Make The Manager a woman in her 40s」)",
+  "Notes": "PM 10/16 比設計畫面新，設計畫面仍顯示舊版；使用者 2026-10-22 (REQ-026)：測試 PM 版本 (設計 1014 畫為「Character looks aren't updated automatically…」)",
+  "Expected Result": "不先提問；「Ready to update your characters?」附卡片「Update characters • 1 character • ◆{price} • Generate」，價格為一次角色產生（◆6）"
+ },
+ "TC-046": {
+  "Section": "角色",
+  "Precondition": "在聊天中更改角色之後",
+  "Action": "向上捲動到先前的大綱卡片",
+  "Expected Result": "較舊的 Story Outline & Characters 卡片沒有切換圖示並保留舊圖片；只顯示最新的動作卡片",
+  "Notes": "PM 10/16 第 7 板與 PM 10/20 §13.2 ③ (新結果絕不寫回先前的訊息；使用者 2026-10-22，Q-17)"
+ },
+ "TC-047": {
+  "Section": "建立我的角色",
+  "Precondition": "已開啟 Change Characters",
+  "Action": "點選「Create my character」",
+  "Expected Result": "「Create my character ⓘ」顯示正面/側面/背面提示、「Tell us what {name} looks like - the more detail, the better.」、描述 (0/1000、AI Suggestion、Clear)、Gender*、Ethnicity*、Age*、Reference (選填) 與 Generate ◆6",
+  "Notes": "設計優先於 PM (使用者規則 2026-10-19)。PM：標題為 Make your character，Generate ◆7。；回歸 DRI261894P0009 (RDResolved, AIFound)：Create my character 標題寫成 \"what <name> look like\" (應為 looks) — 此單也在此重新檢查"
+ },
+ "TC-048": {
+  "Section": "建立我的角色",
+  "Precondition": "已開啟 Make your character",
+  "Action": "只輸入描述與必填屬性，點選 Generate",
+  "Expected Result": "開始產生 (不需要照片)"
+ },
+ "TC-049": {
+  "Section": "建立我的角色",
+  "Precondition": "已開啟 Make your character",
+  "Action": "只新增參考照片與必填屬性，點選 Generate",
+  "Expected Result": "開始產生 (不需要描述)"
+ },
+ "TC-050": {
+  "Section": "建立我的角色",
+  "Precondition": "已開啟 Make your character",
+  "Action": "輸入描述，Gender 留空",
+  "Expected Result": "在 Gender、Ethnicity 與 Age 全部設定前，Generate 保持停用"
+ },
+ "TC-051": {
+  "Section": "建立我的角色",
+  "Precondition": "已開啟 Make your character",
+  "Action": "將 1,050 個字元貼到描述欄",
+  "Expected Result": "保留全部 1,050 個字元；計數器顯示紅色「1050/1000」，並顯示「You've reached the 1,000-character limit.」(在欄位與展開的編輯器中皆是)；Generate 停用",
+  "Notes": "設計 1005_Update \"Exceed word limit\" (比 10/2 的 PM §13.11 新，該版本在 1,000 處截斷文字)；點子、場景與場景影片輸入仍沿用 PM 規則 (沒有更新的設計畫面)"
+ },
+ "TC-052": {
+  "Section": "建立我的角色",
+  "Precondition": "已開啟 Make your character",
+  "Action": "加入一張有三個人的照片，確認尚未顯示警告，然後點 Generate；點 「Use another photo」",
+  "Expected Result": "加入照片時沒有警告；Generate 之後出現 「More than one person detected」/「For the best result, use a photo with just one person.」 附 「Generate anyway」 與 「Use another photo」；「Use another photo」 關閉警告並開啟 Add Media（Select Media）以選擇另一張照片",
+  "Notes": "「PM-only: no Design frame yet」 用於 「Use another photo」 → Add Media（PM 主流程 2611-27730）"
+ },
+ "TC-053": {
+  "Section": "建立我的角色",
+  "Precondition": "已開啟 Make your character",
+  "Action": "上傳一張沒有人的照片並點 Generate；點 「Use another photo」",
+  "Expected Result": "「No person detected」/「Results may not turn out well. Want to try anyway?」 附 「Generate anyway」 與 「Use another photo」；「Use another photo」 關閉它並開啟 Add Media（Select Media）以選擇另一張照片",
+  "Notes": "「PM-only: no Design frame yet」對應「Use another photo」→ Add Media（PM 主流程 2611-28043）"
+ },
+ "TC-054": {
+  "Section": "建立我的角色",
+  "Precondition": "已開啟 Make your character",
+  "Action": "上傳知名公眾人物的照片並點 Generate；點 「Use another photo」",
+  "Expected Result": "「This photo can't be used」/「It looks like a real public figure. Please try another photo.」，且產生被擋下；「Use another photo」關閉並開啟 Add Media (Select Media) 以選擇另一張照片",
+  "Notes": "裝置上需要名人測試照片。「Use another photo」→ Add Media 為 「PM-only: no Design frame yet」（PM 主流程 2611-27729）"
+ },
+ "TC-055": {
+  "Section": "建立我的角色",
+  "Precondition": "Make your character 已輸入文字",
+  "Action": "點選 X",
+  "Expected Result": "「Discard this character?」/「What you've entered won't be saved.」，附 Discard / Keep editing",
+  "Notes": "回歸 DRI261894P0039 (RDResolved, AIFound)：關閉 Create my character 會在未確認的情況下捨棄所有輸入 — 此單也在此重新檢查"
+ },
+ "TC-056": {
+  "Section": "建立我的角色",
+  "Precondition": "Make your character 為空",
+  "Action": "點選 X",
+  "Expected Result": "直接關閉，不出現對話框"
+ },
+ "TC-057": {
+  "Section": "建立我的角色",
+  "Precondition": "角色已產生",
+  "Action": "在已產生的角色上點選 X",
+  "Expected Result": "「Discard this character?」/「It won't be saved, and the credits you spent won't be refunded.」，附「Keep」與「Discard」(紅色)",
+  "Notes": "原本：X 也會儲存角色 (主流程備註 \"confirm or tap X 都會存\")，10/21 已取代；DRI261896P0037"
+ },
+ "TC-058": {
+  "Section": "建立我的角色",
+  "Precondition": "資料庫中有使用者角色",
+  "Action": "開啟其 ⋮ 選單並點 Delete；然後點「Cancel」",
+  "Expected Result": "「Delete this character?」/「This character will be permanently deleted and can't be recovered.」，附 Cancel / Delete；「Cancel」關閉對話框，角色留在角色庫",
+  "Notes": "「PM-only: no Design frame yet」對應「Cancel」→ Character Library（PM 主流程 2613-28739）"
+ },
+ "TC-059": {
+  "Section": "建立我的角色",
+  "Precondition": "已開啟資料庫",
+  "Action": "開啟 CyberLink 內建角色的選單",
+  "Expected Result": "沒有 Delete 選項"
+ },
+ "TC-060": {
+  "Section": "分鏡",
+  "Precondition": "已顯示 Create storyboard 卡片",
+  "Action": "點 Generate",
+  "Expected Result": "定價時顯示「Thinking...」，接著產生分鏡，扣除的點數與顯示的價格相符；Mine › Credits › Details 記為 Text to Image 列（每張場景圖 6 點數）和一筆 Text to Speech 列，合計等於該價格",
+  "Notes": "原價來自 MX ③ 收費表 「AI Mini Drama CMS」 › 「Action ID (not on CMS)」（2026-10-20）；預設使用原價，促銷價待使用者表示適用後才採用（使用者 2026-10-29，REQ-059）。"
+ },
+ "TC-377": {
+  "Section": "分鏡",
+  "Precondition": "已顯示「Create storyboard」卡片；已讀取點數膠囊",
+  "Action": "點 Generate",
+  "Expected Result": "卡片原地變成標題為「Preparing your scenes...」的骨架，且不新增使用者氣泡；顯示「Preparing your scenes...」期間點數標示不變；轉為「Creating your storyboard...」時，點數標示扣除卡片上顯示的價格",
+  "Notes": "PM Figma 10/22（4422:2）：收費移到階段 ② 開始時（待 RD 確認，Q-20）；其示意圖也畫了「Yes, create storyboard」使用者氣泡（Q-23）"
+ },
+ "TC-061": {
+  "Section": "分鏡",
+  "Action": "點 Back",
+  "Precondition": "分鏡階段 ①：已點「Create storyboard」上的 Generate；卡片顯示「Preparing your scenes...」骨架",
+  "Expected Result": "「Leave while we're preparing?」/「Your storyboard will start soon. If you leave now, we'll have to prepare it again when you come back.」，附 「Stay」 與紅色 「Leave anyway」；不出現 「Stop and lose your credits?」",
+  "Notes": "PM Figma 10/22 (4422:2) 比 PM 10/21 §13.6 與 Design 1016 畫面新（以新的為準）"
+ },
+ "TC-062": {
+  "Section": "分鏡",
+  "Action": "點選「Stay」",
+  "Precondition": "已顯示 「Leave while we're preparing?」 (TC-061)",
+  "Expected Result": "對話框關閉並停留在聊天；卡片繼續進行到 「Creating your storyboard...」，分鏡完成",
+  "Notes": "PM Figma 10/22 (4422:2) 比 PM 10/21 §13.6 與 Design 1016 畫面新（以新的為準）"
+ },
+ "TC-359": {
+  "Section": "分鏡",
+  "Precondition": "分鏡階段 ①：卡片顯示 「Preparing your scenes...」",
+  "Action": "點 History，再點 「Stay」；點 New chat，再點 「Stay」；點點數標籤，再點 「Leave anyway」",
+  "Expected Result": "每次點擊都顯示 「Leave while we're preparing?」/「Your storyboard will start soon. If you leave now, we'll have to prepare it again when you come back.」，附 「Stay」 / 「Leave anyway」；Stay 讓聊天繼續準備；Leave anyway 開啟 My Credits",
+  "Notes": "PM Figma 10/22 (4422:2) 比 PM 10/21 §13.6 與 Design 1016 畫面新（以新的為準）。TC-061 涵蓋 Back"
+ },
+ "TC-401": {
+  "Section": "分鏡",
+  "Action": "點 Back",
+  "Precondition": "分鏡階段 ②：卡片顯示 「Creating your storyboard...」",
+  "Expected Result": "無對話框；顯示 toast 「We'll keep making your storyboard. Find it in History.」，並開啟 AI Mini Drama 首頁；從 History 重新開啟該短劇，分鏡已完成或仍在產生中",
+  "Notes": "PM Figma 10/22 (4422:2)；僅 PM：尚無 Design 畫面"
+ },
+ "TC-402": {
+  "Section": "分鏡",
+  "Action": "點選 History；重新開啟該 drama；點選點數膠囊；返回；點選 New chat",
+  "Precondition": "分鏡階段 ②：卡片顯示 「Creating your storyboard...」",
+  "Expected Result": "每次皆無對話框；離開時顯示 「We'll keep making your storyboard. Find it in History.」；依序開啟 Recent Task、My Credits 與新的空白聊天；分鏡持續產生",
+  "Notes": "PM Figma 10/22 (4422:2)；僅 PM：尚無 Design 畫面。TC-401 涵蓋 Back"
+ },
+ "TC-063": {
+  "Section": "分鏡",
+  "Precondition": "分鏡階段 ①：卡片顯示 「Preparing your scenes...」；已讀取 Credit Details",
+  "Action": "點 Back、「Leave anyway」，然後從 History 重新開啟該短劇並等待",
+  "Expected Result": "聊天自行重新開始準備（「Preparing your scenes...」，接著 「Creating your storyboard...」），不需再點 Generate，分鏡完成；Mine › Credits › Details 只記一次此分鏡的扣點",
+  "Notes": "PM Figma 10/22 (4422:2)；RD 待確認重新開始的行為 (Q-20)。原為：重新開啟後停在分鏡提供畫面，Generate 會再次扣點 (R-052)"
+ },
+ "TC-403": {
+  "Section": "分鏡",
+  "Precondition": "分鏡階段 ①：卡片顯示 「Preparing your scenes...」；已讀取 Credit Details",
+  "Action": "將 app 滑掉，重新開啟 PowerDirector 並從 History 開啟該短劇",
+  "Expected Result": "聊天自行重新開始準備（「Preparing your scenes...」），不需再點 Generate，分鏡完成；Mine › Credits › Details 只記一次此分鏡的扣點",
+  "Notes": "PM Figma 10/22 (4422:2)；僅 PM：尚無 Design 畫面。RD 待確認重新開始的行為 (Q-20)。TC-063 涵蓋 Leave anyway"
+ },
+ "TC-404": {
+  "Section": "分鏡",
+  "Precondition": "分鏡階段 ②：卡片顯示 「Creating your storyboard...」；已讀取 Credit Details",
+  "Action": "將 app 滑掉，等待 2 分鐘，重新開啟 PowerDirector 並從 History 開啟該短劇",
+  "Expected Result": "分鏡已在背景完成：聊天顯示 「Here's your storyboard」，附 Storyboard Result 與 Storyboard Preview 卡片；Credit Details 只記一次",
+  "Notes": "PM Figma 10/22 (4422:2)；僅 PM：尚無 Design 畫面。RD 待確認分鏡階段 ② 會在背景完成 (Q-20)"
+ },
+ "TC-064": {
+  "Section": "分鏡",
+  "Precondition": "分鏡已完成",
+  "Action": "閱讀聊天",
+  "Expected Result": "「Here's your storyboard」、Storyboard Result 卡片 (場景卡片含 9:16 縮圖、「View more >」) 與 Storyboard Preview 卡片；Storyboard Preview 卡片隨分鏡一起出現，本身沒有產生中狀態",
+  "Notes": "回歸 DRI261893-0145 (BugNeedReview, AIAgent)：分鏡腳本在第一行與最後一行裁掉第一個字形的左緣 — 此單也在此重新檢查；回歸 DRI261895P0035 (RDResolved, AIAgent)：Scene 與 Location 圖片產生一律失敗 — 此單也在此重新檢查"
+ },
+ "TC-065": {
+  "Section": "分鏡",
+  "Precondition": "Storyboard Result 已顯示",
+  "Action": "點選「View more >」，然後使用 ‹ ›",
+  "Expected Result": "開啟場景詳情，含 X、「Scene N」、主圖、Location 列、標題與完整腳本；‹ › 可在場景間切換；第一行與最後一行腳本顯示完整字元 (沒有被裁切)"
+ },
+ "TC-066": {
+  "Section": "分鏡",
+  "Precondition": "已開啟場景詳情",
+  "Notes": "PM (pm-update-6) 畫出主圖下方有標示「Location」的列；以設計為準。回歸 DRI261895P0026 (NewCreated, AIAgent) — 設計優先：設計將 location 與 scene 圖片並排顯示且沒有 Location 標籤 (TC-066)；此單的 PM 版面不是預期結果。：場景詳情缺少 Location 縮圖與標籤 — 此單也在此重新檢查",
+  "Action": "點 Location 縮圖，再點場景主圖",
+  "Expected Result": "兩次點擊都沒有反應（不放大、沒有重新產生選項）；Location 圖片如 Design 畫面般位於場景主圖旁，沒有 「Location」 標籤"
+ },
+ "TC-389": {
+  "Section": "分鏡",
+  "Expected Result": "Location 縮圖先顯示骨架畫面，然後在主圖完成前顯示 location 圖片；主圖保持其寬度",
+  "Precondition": "開啟場景詳情（Scene edit page），而該場景的 Location 圖片仍在產生中：場景已從 Edit 重新產生 (TC-070) 或透過 Iris 更新 (TC-073)",
+  "Action": "觀察主圖下的 Location 縮圖，直到兩張圖都完成",
+  "Notes": "PM 10/14 board 6 「10/12 update - Scene 編輯頁的「地點圖片」」：此規則只適用於 Scene edit page。聊天中的分鏡卡片顯示一個骨架載入（Design），不是這一列；若其 Location 產生期間無法開啟任何場景詳情，記為 Blocked (test-data)，不是其他畫面上的發現（Android DRA262610P0345 就是因誤讀而開的；PDRA 2026-10-29, REQ-055）。TC-066 註明 Design 沒有畫 「Location」 標籤"
+ },
+ "TC-390": {
+  "Section": "分鏡",
+  "Action": "開啟該場景詳情",
+  "Expected Result": "主圖顯示其錯誤卡片；Location 縮圖顯示粉紅色失敗圖示與「Location • Failed」；Edit 提供以 2 張圖重新產生兩者 (TC-070)",
+  "Precondition": "場景的地點圖與主圖皆失敗（Pink › Trip image moderation；記錄所用開關）"
+ },
+ "TC-067": {
+  "Section": "分鏡",
+  "Precondition": "場景圖片以 4xx 失敗",
+  "Notes": "需要失敗的場景 (故障注入)。設計優先於 PM (使用者規則 2026-10-19)。設計 1012 畫面使用此卡片內文；PM 10/14 的 4xx 為「Try editing the description…」文案。設計顯示兩種 ⓘ 對話框變體。；回歸 DRI261894P0031 (Assigned, AIFound)：失敗的場景圖片寫「service is busy」，但其 ⓘ 卻怪罪服務條款 — 此單也在此重新檢查",
+  "Action": "開啟該場景並點 ⓘ；在對話框中點 「terms of service」，返回後點 「Got it」",
+  "Expected Result": "卡片 「Couldn't create image ⓘ」/「Your credits have been refunded. The service is busy — try again later.」，附 Edit；ⓘ 對話框 「Couldn't generate this image」，附服務條款文字與 Got it；錯誤內容保持在 9:16 畫面內，文字依寬度換行；對話框中的 「terms of service」 開啟服務條款，「Got it」 關閉對話框"
+ },
+ "TC-068": {
+  "Section": "分鏡",
+  "Precondition": "場景圖片以 5xx 失敗",
+  "Action": "開啟該場景",
+  "Expected Result": "「Couldn't create image」/「Your credits have been refunded. The service is busy - try again later.」，附「Edit」且沒有 ⓘ",
+  "Notes": "需要故障注入"
+ },
+ "TC-069": {
+  "Section": "分鏡",
+  "Precondition": "分鏡中有失敗的場景",
+  "Notes": "需要失敗的場景；回歸 DRI261894P0001 (RDResolved, untagged)：部分分鏡產生失敗，點進去後沒有重新整理選項。 — 此單也在此重新檢查",
+  "Action": "查看 Storyboard Result，然後點失敗場景縮圖上的 ⟳",
+  "Expected Result": "失敗的縮圖只顯示 ⟳ 圖示，沒有 「Regenerate」 文字；點 ⟳ 開啟該場景詳情，含 「Couldn't create image」、退款文字和 「Edit」"
+ },
+ "TC-070": {
+  "Section": "分鏡",
+  "Precondition": "已開啟失敗的場景",
+  "Action": "點選 Edit，修改描述，點選 Done",
+  "Expected Result": "描述編輯器含 x/1000 計數器；Regenerate Image ◆6 (兩者都失敗時為 ◆12，並附註「The location and scene image will both be regenerated (2 images).」)",
+  "Notes": "需要失敗的場景；回歸 DRI261894P0032 (RDResolved, AIFound)：場景編輯的垃圾桶在未確認下清除腳本，且允許重新產生空內容 — 此單也在此重新檢查"
+ },
+ "TC-378": {
+  "Section": "分鏡",
+  "Precondition": "場景詳情中的場景圖片重新產生中 (TC-070 之後)",
+  "Action": "點選 X，然後點「Keep Generating」；再點 X，然後點「Leave anyway」",
+  "Expected Result": "每次點 X 都顯示「Stop and lose your credits?」/「This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded.」，附 Leave anyway / Keep Generating；Keep Generating 繼續產生；Leave anyway 停止產生，且 Credit Details 中沒有退點",
+  "Notes": "PM 1002 畫面標示為 新增；Job states 表格中此工作原為「no Stop」"
+ },
+ "TC-071": {
+  "Section": "分鏡",
+  "Precondition": "已點選 Regenerate Image",
+  "Action": "觀察該場景",
+  "Expected Result": "圖片區域顯示骨架畫面，直到新圖片送達"
+ },
+ "TC-397": {
+  "Section": "分鏡",
+  "Precondition": "場景的 Location 與場景圖皆失敗（Pink › Trip image moderation；記錄所用開關）；已在其場景詳細頁點過 「Regenerate Image」 ◆12（接在 TC-070 之後）",
+  "Action": "停留在場景詳情，直到產生結束",
+  "Expected Result": "骨架被新的 Location 和場景圖片並排取代；「Couldn't create image」卡片和 「Edit」 消失；標題和完整腳本保留",
+  "Notes": "Design Storyboard Error 「生成」 → 結果畫面（流程箭頭 4299-168964）。若測試資料只讓主圖失敗，記為 Blocked (test-data)；該情況由 TC-292 涵蓋"
+ },
+ "TC-072": {
+  "Section": "分鏡",
+  "Precondition": "分鏡已完成",
+  "Action": "在聊天中說「Update the image for Scene 2 to show rain」",
+  "Notes": "PM 10/20：腳本與圖片變更都使用 Create storyboard 卡片；DRI261895P0025 要求使用舊的 \"Update storyboard images\" 標籤；回歸 DRI261895P0025 (NewCreated, AIAgent)：分鏡修改提案被誤標為 Create storyboard — 此單也在此重新檢查",
+  "Expected Result": "Iris 回覆 「Create storyboard」 卡片，附價格（每張圖 6 點數）和 Generate"
+ },
+ "TC-385": {
+  "Section": "分鏡",
+  "Precondition": "已顯示 TC-072 的「Create storyboard」卡片",
+  "Action": "點選 Generate 並觀察分鏡",
+  "Expected Result": "只有被修改的場景與 Storyboard Preview 顯示骨架畫面；其他場景維持原樣"
+ },
+ "TC-073": {
+  "Section": "分鏡",
+  "Precondition": "要求 Iris 更新場景圖片後，已顯示「Create storyboard」卡片",
+  "Action": "點 Generate",
+  "Expected Result": "卡片消失；底部出現新的分鏡卡片，被修改的場景與預覽先顯示骨架畫面，然後顯示新圖片；上方先前的分鏡卡片保持原樣",
+  "Notes": "回歸 DRI261896P0013 (NewCreated, AIFound)：重新產生的分鏡寫在修改請求之上，而非之後 — 此單也在此重新檢查；回歸 DRI261896P0014 (NewCreated, AIFound)：分鏡重新產生期間，預覽顯示 \"videos are being generated\" — 此單也在此重新檢查"
+ },
+ "TC-405": {
+  "Section": "分鏡",
+  "Precondition": "剛在場景圖片更新的 「Create storyboard」 卡片上點了 Generate (TC-073)",
+  "Action": "更新進行中時查看輸入框",
+  "Expected Result": "輸入框只顯示麥克風；更新完成前不出現 ■ 停止按鈕或其他停止控制",
+  "Notes": "PM Figma 10/22 (4422:2)；僅 PM：尚無 Design 畫面"
+ },
+ "TC-074": {
+  "Section": "分鏡",
+  "Precondition": "分鏡圖片更新之後",
+  "Action": "播放 Storyboard Preview；然後取得 log",
+  "Expected Result": "預覽反映更新後的圖片 (TTS/animatic 已重新產生)；log 顯示圖片更新後有新的 TextToSpeech 呼叫"
+ },
+ "TC-075": {
+  "Section": "分鏡預覽",
+  "Precondition": "分鏡已完成",
+  "Action": "查看 Storyboard Preview 卡片，然後播放；點 ⏸，再點 ▶，然後將拖曳條拖到約中間",
+  "Expected Result": "卡片顯示標題、時長與 「See your story as pictures with a voice telling it. The real video comes next.」；播放時為有旁白的投影片；播放器顯示 X、⏸、拖曳條與時間（例如 「00:40/01:30」）；⏸ 暫停、▶ 繼續播放投影片；拖曳拖曳條會跳到該時間點且時間隨之更新"
+ },
+ "TC-076": {
+  "Section": "分鏡預覽",
+  "Precondition": "以 「No captions」 建立的 drama",
+  "Action": "播放 Storyboard Preview",
+  "Expected Result": "預覽仍有字幕"
+ },
+ "TC-077": {
+  "Section": "分鏡預覽",
+  "Precondition": "分鏡缺少場景圖片",
+  "Action": "查看 Storyboard Preview 卡片",
+  "Expected Result": "「Storyboard preview unavailable. Complete the image generation above first to view the preview.」且沒有產生按鈕",
+  "Notes": "需要失敗的場景"
+ },
+ "TC-078": {
+  "Section": "分鏡預覽",
+  "Precondition": "Storyboard 預覽產生失敗",
+  "Action": "查看卡片",
+  "Expected Result": "「Couldn't create the storyboard preview. Your credits have been refunded. Try again.」，附 Retry",
+  "Notes": "需要故障注入"
+ },
+ "TC-079": {
+  "Section": "影片",
+  "Precondition": "分鏡已完成；顯示 Storyboard Preview 卡片",
+  "Action": "點 Storyboard Preview 卡片上的 「Create video」（記錄卡片是否有此按鈕，Q-30），然後查看影片設定卡片",
+  "Expected Result": "「Create video」 新增氣泡 「Create video」，接著出現影片設定卡片；「Choose your video settings」，附 「Model • Seedance」 與 Best / Standard / Fast 控制（Best 無 NEW 標籤）；選 Best 時副標為 「Seedance 2.5 • Sharper motion and richer detail」；Video length 為 Preview • 30 sec / Full Video；Generate Video 附價格",
+  "Notes": "PM 10/16 比 Design 畫面新，Design 仍顯示舊版；使用者 2026-10-22 (REQ-026)：測 PM 版本（Design 畫的是 Seedance 2.0 / 2.0 Mini）。預設模型待定（PM mock 顯示 Best）；記錄選取的是哪一個。僅 PM：預覽卡片上的 「Create video」 尚無 Design 畫面（PM 主流程 2186:7485）；Design 卡片沒有此按鈕 (Q-30)"
+ },
+ "TC-080": {
+  "Section": "影片",
+  "Precondition": "顯示影片設定",
+  "Action": "在 Preview • 30 sec 下切換 Best、Standard、Fast，再用 Full Video 重做一次",
+  "Expected Result": "Preview • 30 sec 需 ◆180 (Best)、◆390 (Standard)、◆120 (Fast)；Full Video 依長度每秒 6 / 13 / 4 點數（90 sec 為 ◆540 / ◆1170 / ◆360）；價格立即更新",
+  "Notes": "PM 10/16 比 Design 畫面新，Design 仍顯示舊版；使用者 2026-10-22 (REQ-026)：測 PM 版本。點數數字為準"
+ },
+ "TC-081": {
+  "Section": "影片",
+  "Precondition": "此安裝首次產生影片",
+  "Action": "點 Generate Video",
+  "Expected Result": "「Get notified when your video is ready?」/「Videos take a few minutes. We'll let you know as soon as yours is done.」，附 「Notify me」/「Not now」",
+  "Notes": "僅第一支影片才出現；可能已被關閉；Regression DRI261895P0022 (NewCreated, AIAgent)：首次產生影片時缺少必要的通知預告提示 — 此處也一併複測此單"
+ },
+ "TC-406": {
+  "Section": "影片",
+  "Precondition": "已顯示影片設定卡片（通知提示已回應）；已讀取點數膠囊",
+  "Action": "點 Generate Video，觀察卡片與點數膠囊直到影片開始",
+  "Expected Result": "影片設定卡片就地變成標題為 「Advancing the mini drama production.」 的骨架，點數膠囊不變；卡片顯示 「Making your video...」 時，點數膠囊減少卡片上顯示的價格",
+  "Notes": "PM Figma 10/22 (4422:2)；僅 PM：尚無 Design 畫面。扣點移到階段 ② 開始時（RD 待確認，Q-20）"
+ },
+ "TC-407": {
+  "Section": "影片",
+  "Action": "點返回，再點 「Stay」",
+  "Precondition": "影片階段 ①：卡片顯示 「Advancing the mini drama production.」",
+  "Expected Result": "「Leave while we're preparing?」/「Your video will start soon. If you leave now, we'll have to prepare it again when you come back.」，附 「Stay」 與紅色 「Leave anyway」；Stay 關閉對話框，聊天保持，卡片繼續進行到 「Making your video...」",
+  "Notes": "PM Figma 10/22 (4422:2)；僅 PM：尚無 Design 畫面"
+ },
+ "TC-408": {
+  "Section": "影片",
+  "Precondition": "影片階段 ①：卡片顯示 「Advancing the mini drama production.」",
+  "Action": "點 History，再點 「Stay」；點 New chat，再點 「Stay」；點點數標籤，再點 「Leave anyway」",
+  "Expected Result": "每次點擊都顯示 「Leave while we're preparing?」，內文為影片版本，附 「Stay」 / 「Leave anyway」；Stay 讓聊天繼續準備；Leave anyway 開啟 My Credits",
+  "Notes": "PM Figma 10/22 (4422:2)；僅 PM：尚無 Design 畫面。TC-407 涵蓋 Back"
+ },
+ "TC-409": {
+  "Section": "影片",
+  "Precondition": "影片階段 ①：卡片顯示 「Advancing the mini drama production.」；已讀取 Credit Details",
+  "Action": "點 Back、「Leave anyway」，然後從 History 重新開啟該短劇並等待",
+  "Expected Result": "聊天自行重新開始準備（「Advancing the mini drama production.」，接著 「Making your video...」），不需再點 Generate Video；Mine › Credits › Details 只記一次此影片的扣點",
+  "Notes": "PM Figma 10/22 (4422:2)；僅 PM：尚無 Design 畫面。RD 待確認重新開始的行為 (Q-20)"
+ },
+ "TC-410": {
+  "Section": "影片",
+  "Precondition": "影片階段 ①：卡片顯示 「Advancing the mini drama production.」；已讀取 Credit Details",
+  "Action": "將 app 送到背景（Home），等待 30 秒，然後回到 PowerDirector",
+  "Expected Result": "回到聊天後，準備自行重新開始（或仍在進行）並到達 「Making your video...」，不需再點 Generate Video；Credit Details 只記一次此影片的扣點",
+  "Notes": "PM Figma 10/22 (4422:2)；僅 PM：尚無 Design 畫面。RD 待確認重新開始的行為 (Q-20)"
+ },
+ "TC-082": {
+  "Section": "影片",
+  "Action": "點 Back",
+  "Expected Result": "Toast 「We'll keep making your video. Find it in History.」；沒有停止對話框；影片持續產生",
+  "Precondition": "影片階段 ②：卡片顯示 「Making your video...」",
+  "Notes": "PM Figma 10/22 (4422:2) 比 PM 10/21 §13.6 與 Design 1016 畫面新（以新的為準）"
+ },
+ "TC-361": {
+  "Section": "影片",
+  "Action": "點選 History；重新開啟該 drama；點選點數膠囊；返回；點選 New chat",
+  "Precondition": "影片階段 ②：卡片顯示 「Making your video...」",
+  "Expected Result": "每次都沒有對話框；離開時顯示 「We'll keep making your video. Find it in History.」；依序開啟 Recent Task、My Credits 和新的空白聊天；影片持續產生",
+  "Notes": "PM Figma 10/22 (4422:2) 比 PM 10/21 §13.6 與 Design 1016 畫面新（以新的為準）。TC-082 涵蓋 Back"
+ },
+ "TC-411": {
+  "Section": "影片",
+  "Precondition": "影片階段 ②：卡片顯示 「Making your video...」；已讀取 Credit Details",
+  "Action": "將 app 滑掉，等待 5 分鐘，重新開啟 PowerDirector 並從 History 開啟該短劇",
+  "Expected Result": "影片持續進行：History 顯示處理中或已完成，完成後聊天顯示 「Here's your drama.」 與該影片；Credit Details 只記一次",
+  "Notes": "PM Figma 10/22 (4422:2)；僅 PM：尚無 Design 畫面"
+ },
+ "TC-083": {
+  "Section": "影片",
+  "Action": "離開後查看 History 按鈕下方",
+  "Expected Result": "藍色氣泡 「Find your video here in History.」；點任意處即關閉",
+  "Notes": "自己的全新安裝；在 P1-h 區段執行。僅第一次",
+  "Precondition": "全新安裝（屬於此案例的一部分）：解除安裝 PowerDirector，重新安裝受測 build，還原 Developer Server，登入，設定方案，開啟 Log stage timings 與 Write Log；然後：首次在影片產生的階段 ②（「Making your video...」）離開"
+ },
+ "TC-084": {
+  "Section": "影片",
+  "Precondition": "影片產生中",
+  "Action": "開啟 History",
+  "Expected Result": "卡片顯示 「processing..」，沒有進度條"
+ },
+ "TC-085": {
+  "Section": "影片",
+  "Precondition": "影片產生中，使用者在 App 的其他頁面",
+  "Action": "在其他頁面等待影片完成",
+  "Expected Result": "Toast 「Good news! Your \"{Drama title}\" is ready. Tap here to view your results.」，附 Close / View"
+ },
+ "TC-086": {
+  "Section": "影片",
+  "Precondition": "預覽影片已完成",
+  "Action": "閱讀聊天",
+  "Expected Result": "「Here's your drama.」 與影片卡片，接著 「Looking good! Ready for the full video?」，附 「Create the full episode (90 sec)」 與價格",
+  "Notes": "Regression DRI261894P0016 (NewCreated, AIFound)：付費預覽被當成完成的 drama，之後才賣完整集 — 此處也一併複測此單；Regression DRI261894P0035 (RDResolved, AIFound)：Video Generate 沒有產生影片，聊天直接跳到完整集提供 — 此處也一併複測此單；Regression DRI261894P0051 (NewCreated, AIFound)：設定卡提供 75/90 秒完整影片，但之後的提供卻是 60 sec — 此處也一併複測此單；Regression DRI261896P0020 (NeedMoreInfo, AIFound)：最終 drama 影片產生一律失敗並顯示 \"1 clip couldn't be generated\" — 此處也一併複測此單"
+ },
+ "TC-087": {
+  "Section": "影片",
+  "Precondition": "完整影片已完成",
+  "Action": "閱讀聊天",
+  "Expected Result": "「Ready for the next episode?」，附 「Create Next Episode」",
+  "Notes": "需要先產生完整影片"
+ },
+ "TC-088": {
+  "Section": "影片",
+  "Precondition": "影片已完成",
+  "Action": "開啟結果並點 Full Edit，然後返回並點 Export Full Video",
+  "Expected Result": "Full Edit 每個場景顯示一個片段；Export Full Video 產出一支合併後的影片",
+  "Notes": "Regression DRI261896P0015 (NewCreated, AIFound)：drama 自帶的字幕被視為付費功能，導致 Full Edit 擋住 Free 匯出 — 此處也一併複測此單"
+ },
+ "TC-382": {
+  "Section": "影片",
+  "Precondition": "影片已完成，結果頁已開啟",
+  "Action": "點第三個場景的縮圖",
+  "Expected Result": "播放器跳到該場景"
+ },
+ "TC-089": {
+  "Section": "影片",
+  "Precondition": "影片已完成",
+  "Action": "點影片上的下載按鈕",
+  "Expected Result": "沒有對話框；按鈕顯示轉圈，然後 toast 「Saved to your device.」",
+  "Notes": "Regression DRI261895P0027 (NewCreated, AIAgent)：影片儲存成功時顯示過時的 Saved to Photos 文案 — 此處也一併複測此單"
+ },
+ "TC-090": {
+  "Section": "影片",
+  "Precondition": "影片以開啟字幕製作並已下載",
+  "Expected Result": "可看到字幕",
+  "Action": "在 Photos 中播放下載的影片"
+ },
+ "TC-091": {
+  "Section": "影片錯誤",
+  "Precondition": "影片有失敗的場景",
+  "Action": "閱讀聊天與影片卡片",
+  "Expected Result": "「{n} scenes couldn't be generated. Your credits have been refunded. Tap Edit to regenerate, or tell me what to change.」 與 「Fix these issues to export your drama.」，附 「Fix scenes」；「Here's your drama.」 影片卡片沒有下載圖示",
+  "Notes": "需要場景影片失敗；Regression DRI261893-0064 (Assigned, untagged)：部分片段產生失敗時，結果頁也不顯示成功的片段 — 此處也一併複測此單"
+ },
+ "TC-376": {
+  "Section": "影片錯誤",
+  "Precondition": "影片有失敗的場景",
+  "Action": "點聊天失敗訊息中的 「Edit」",
+  "Expected Result": "失敗訊息為紅字並附 「Edit」；Edit 會在第一個失敗的場景開啟 Full Edit",
+  "Notes": "需要場景影片失敗（Pink › Inject failure status；記錄所用開關）"
+ },
+ "TC-092": {
+  "Section": "影片錯誤",
+  "Precondition": "場景影片失敗",
+  "Action": "點 Retry；若再次失敗則點 Edit",
+  "Notes": "需要場景影片失敗",
+  "Expected Result": "「Couldn't create scene」/「Something went wrong. Give it another try.」 附 Retry；之後 「Retrying didn't work. Try a different description.」 附 Edit → 編輯器 → Regenerate scene，價格為場景長度 × drama 模型費率（每秒 13 Seedance 2.0、4 Seedance 2.0 Mini、6 Seedance 2.5；15 s 場景 → ◆195 / ◆60 / ◆90）"
+ },
+ "TC-362": {
+  "Section": "影片錯誤",
+  "Action": "查看失敗的片段，再點 ⓘ",
+  "Expected Result": "片段卡片顯示 「Couldn't create video ⓘ」 與退款文字；ⓘ 開啟 「Couldn't generate this video」/「Your credits have been refunded. The description may not meet our terms of service, such as violence, NSFW content, or content involving minors. Edit the description to try again.」，附 Got it；在 Full Edit 中，錯誤文字留在預覽框內並依其寬度換行",
+  "Precondition": "有一個場景片段以 4xxx 失敗（Pink › Inject failure status = moderation_blocked，該 beat；記錄所用開關）",
+  "Notes": "PM 錯誤看板，10/13 更新。卡片文字：§13.7 文案表為 「Couldn't create video. The description may not meet our terms of service. Your credits have been refunded. Edit the description and try again.」；記錄實際顯示哪一個"
+ },
+ "TC-363": {
+  "Section": "影片錯誤",
+  "Action": "查看失敗的片段並點 ⓘ 應在的位置",
+  "Expected Result": "片段卡片顯示 「Couldn't create video」 與退款文字及 「Edit」，沒有 ⓘ；不會開啟對話框",
+  "Precondition": "有一個場景片段以 5xxx 失敗（Pink › Inject failure status = tool_error，該 beat；記錄所用開關）",
+  "Notes": "PM 錯誤看板，10/13 更新（5xxx 卡片不顯示 ⓘ）。§13.7 卡片文字：「Couldn't create video. Our service is busy right now. Your credits have been refunded. Try again later.」"
+ },
+ "TC-093": {
+  "Section": "影片錯誤",
+  "Notes": "需要場景影片失敗",
+  "Precondition": "影片有失敗的場景片段；聊天在影片卡下方顯示場景失敗訊息",
+  "Action": "點聊天中的影片卡，然後在結果頁查看失敗的片段",
+  "Expected Result": "結果頁開啟（Full Edit、Export Full Video、每個場景一張縮圖）並停在失敗的場景，顯示其錯誤卡（第一次失敗為 「Retry」，審核失敗或重試失敗後為 「Edit」）；失敗片段預設 15 s 且沒有下載圖示"
+ },
+ "TC-094": {
+  "Section": "影片錯誤",
+  "Precondition": "整支影片失敗",
+  "Action": "閱讀聊天",
+  "Expected Result": "「Something went wrong on my end.」 與 「Video couldn't be created. Try creating your video again.」，附 Try again",
+  "Notes": "需要故障注入"
+ },
+ "TC-095": {
+  "Section": "影片錯誤",
+  "Precondition": "影片上傳失敗 (6xxx)",
+  "Action": "閱讀影片卡片",
+  "Expected Result": "「Your video didn't finish saving. Tap Retry - you won't be charged again.」，附 Retry",
+  "Notes": "需要故障注入"
+ },
+ "TC-379": {
+  "Section": "影片錯誤",
+  "Precondition": "影片上傳以 6xxx 失敗超過 3 小時（TC-095 之後離開該 drama，於本次執行稍後再回來）",
+  "Action": "重新開啟該 drama，閱讀影片卡片，再開啟 Mine › Credits › Details",
+  "Expected Result": "「We couldn't finish this video. Your credits have been refunded. Edit the description and try again.」，附 「Edit」；Credit Details 顯示退款列",
+  "Notes": "需要故障注入 (6xxx)；3 小時的等待與本次其餘執行並行"
+ },
+ "TC-096": {
+  "Section": "影片錯誤",
+  "Precondition": "影片重新產生中",
+  "Action": "播放舊版本，點其下載圖示；然後開啟結果頁，在場景仍顯示 「generating...」 時點 「Export Full Video」",
+  "Expected Result": "播放的是舊版；點下載顯示 toast 「Your video is still updating. Try again when it's done.」；「Export Full Video」 不會開始匯出，並以帶圖示的 toast 說明原因（記錄其文案，Q-24）；完成後顯示 「Your video has been updated.」",
+  "Notes": "回歸 DRI261895P0028 (Assigned, AIAgent)：重新產生期間 Play 與 Download 仍可使用 — 也在此重新檢查該單。PM 畫面未給 toast 文案 (Q-24)"
+ },
+ "TC-097": {
+  "Section": "字幕",
+  "Precondition": "以 「No captions」 建立的 drama",
+  "Action": "播放完成的影片",
+  "Expected Result": "不顯示字幕"
+ },
+ "TC-364": {
+  "Section": "字幕",
+  "Precondition": "以 「No captions」 建立的 drama；Log stage timings 開啟",
+  "Action": "產生完整影片；完成後取出 log 並閱讀此影片的 tool call",
+  "Expected Result": "影片沒有字幕，且 log 顯示此影片沒有 speech-to-text (STT) 呼叫",
+  "Notes": "PM §13.13 (10/6)：「user 選 No captions 時不跑STT」。TC-097 檢查影片；本列檢查 STT 沒有執行。若有字幕的影片也沒有任何 log 行標示 STT，記錄 Blocked (observability) 並詢問 RD 哪一行可用。Spec agent 1012-PM-CAPTIONS-NO-STT (REQ-031)"
+ },
+ "TC-098": {
+  "Section": "字幕",
+  "Precondition": "字幕產生失敗",
+  "Action": "閱讀影片卡片並點 Try again",
+  "Expected Result": "整支影片沒有字幕；「Captions couldn't be added. Try again」；Try again 顯示 「Adding captions…」",
+  "Notes": "需要故障注入"
+ },
+ "TC-365": {
+  "Section": "字幕",
+  "Precondition": "只有部分段落字幕失敗（「Captions couldn't be added. Try again」）；Log stage timings 開啟",
+  "Action": "點 Try again；字幕出現後，取出 log 並比較重試前後的 STT 呼叫",
+  "Expected Result": "重試只會重新送出失敗的段落做 STT；所有段落都成功後字幕才一次全部出現",
+  "Notes": "PM §13.13 (10/6)：「只重跑失敗的段落，全部成功才把字幕一次放上去」。沒有任何故障開關能讓 STT 失敗 (TC-298) → 在 RD 提供測試條件之前標為 Blocked (observability)。Spec agent 1012-PM-CAPTION-RETRY-SEGMENTS (REQ-031)"
+ },
+ "TC-099": {
+  "Section": "字幕",
+  "Precondition": "以字幕建立的 drama",
+  "Action": "播放完成的影片",
+  "Expected Result": "對白顯示字幕"
+ },
+ "TC-100": {
+  "Section": "聊天行為",
+  "Precondition": "長聊天，已往上捲動",
+  "Action": "等待新的助理訊息，再等待螢幕上方的卡片被重建（例如分鏡圖片更新）",
+  "Expected Result": "聊天不會跳動；出現 ↓ 按鈕（無未讀數）；點它會捲到底部並隱藏按鈕"
+ },
+ "TC-374": {
+  "Section": "聊天行為",
+  "Precondition": "聊天長達數個畫面，位於底部",
+  "Action": "往上捲到較早的訊息，再點 ↓",
+  "Expected Result": "往上捲動時 ↓ 顯示於右下角；點它會捲到最新訊息並隱藏按鈕"
+ },
+ "TC-101": {
+  "Section": "聊天行為",
+  "Precondition": "聊天捲動到較早的訊息",
+  "Action": "開啟 History，再回來",
+  "Expected Result": "聊天開在底部（最新訊息）",
+  "Notes": "PM 10/20 §13.2 取代了 \"keeps the position the user left\""
+ },
+ "TC-102": {
+  "Section": "聊天行為",
+  "Precondition": "聊天捲動到較早的訊息",
+  "Action": "開啟 Change Characters，再關閉",
+  "Expected Result": "聊天開在底部（最新訊息）",
+  "Notes": "PM 10/20 §13.2 取代了 \"keeps the position the user left\"；Regression DRI261896P0029 (Assigned, AIAgent)：從 Full Edit 返回後遺失先前的聊天位置 — 此處也一併複測此單"
+ },
+ "TC-103": {
+  "Section": "聊天行為",
+  "Precondition": "分鏡提供之後更換了角色",
+  "Action": "閱讀助理提示",
+  "Expected Result": "文案符合規格文案清單，例如 「Characters updated! Regenerate the storyboard to match?」"
+ },
+ "TC-104": {
+  "Section": "歷史記錄",
+  "Action": "開啟 History",
+  "Expected Result": "「No dramas yet」/「Start a story with AI. Every drama you create will be saved here.」",
+  "Notes": "自己的全新安裝；在 P1-h 區段執行。重新安裝會清空 History（本機資料）",
+  "Precondition": "全新安裝（屬於此案例的一部分）：解除安裝 PowerDirector，重新安裝受測 build，還原 Developer Server，登入，設定方案，開啟 Log stage timings 與 Write Log；然後：沒有已儲存的短劇（或已全部刪除）"
+ },
+ "TC-105": {
+  "Section": "歷史記錄",
+  "Action": "開啟 History，點提示外面",
+  "Expected Result": "出現提示 「To keep the file lightweight, we kept only the generated story outline, images and videos.」，點外面即關閉",
+  "Notes": "自己的全新安裝；在 P1-h 區段執行。Regression DRI261893-0013 (Assigned, AIFound)：History 提示點外面無法關閉且遮住第一張卡片的日期 — 此處也一併複測此單；Regression DRI261896P0026 (RDResolved, AIAgent)：點外面無法關閉 History 提示 — 此處也一併複測此單",
+  "Precondition": "全新安裝（屬於此案例的一部分）：解除安裝 PowerDirector，重新安裝受測 build，還原 Developer Server，登入，設定方案，開啟 Log stage timings 與 Write Log；然後：此次安裝首次進入 History"
+ },
+ "TC-106": {
+  "Section": "歷史記錄",
+  "Precondition": "History 有 drama",
+  "Action": "閱讀一張卡片，然後點 「New Chat」",
+  "Expected Result": "縮圖（有分鏡時為第一格分鏡畫面）、日期與時間、Iris 產生的 drama 標題、大小、附 Rename 與 Delete 的 ⋮ 選單；右下角的 「New Chat」 開啟新的空白聊天"
+ },
+ "TC-107": {
+  "Section": "歷史記錄",
+  "Precondition": "History 有 2 個以上 drama",
+  "Action": "開啟較舊的 drama，捲動、播放與下載但不編輯，然後返回",
+  "Expected Result": "順序、時間與大小都沒有改變",
+  "Notes": "Regression DRI261893-0015 (Assigned, AIFound)：只是開啟任務就會移到 History 最上方並改變其大小 — 此處也一併複測此單"
+ },
+ "TC-108": {
+  "Section": "歷史記錄",
+  "Precondition": "History 有 2 個以上 drama",
+  "Action": "重新命名較舊的 drama",
+  "Expected Result": "它移到最上方且時間更新"
+ },
+ "TC-109": {
+  "Section": "歷史記錄",
+  "Precondition": "Rename 對話框已開啟",
+  "Action": "清除名稱 / 只輸入空白",
+  "Expected Result": "OK 為停用",
+  "Notes": "Regression DRI261893-0016 (RDResolved, AIFound)：History Rename 在名稱為空時 OK 仍可按且被無聲忽略 — 此處也一併複測此單；Regression DRI261896P0030 (NeedCodeReview, AIAgent)：名稱為空或只有空白時 Rename 的 OK 仍可按 — 此處也一併複測此單"
+ },
+ "TC-110": {
+  "Section": "歷史記錄",
+  "Precondition": "Rename 對話框已開啟",
+  "Action": "輸入 「  New Title  」 並按 OK",
+  "Expected Result": "儲存為 「New Title」（已去除前後空白）"
+ },
+ "TC-111": {
+  "Section": "歷史記錄",
+  "Precondition": "History 中有為本案例建立的一個拋棄式 drama（做到大綱階段即可）",
+  "Action": "對該拋棄式 drama 點 ⋮ → Delete 再點 「Cancel」；然後再次 ⋮ → Delete 並點 「Delete」",
+  "Expected Result": "「Delete this drama?」/「\"{title}\" and its videos will be permanently deleted.」 附 Cancel / Delete；「Cancel」 保留該 drama；「Delete」 將其從 History 移除",
+  "Notes": "只刪除為此案例建立的拋棄式短劇，絕不刪除其他短劇"
+ },
+ "TC-112": {
+  "Section": "歷史記錄",
+  "Precondition": "History 有 3 個 drama",
+  "Action": "Manage → Select All → Delete",
+  "Expected Result": "「Delete 3 dramas?」/「These chats and their videos will be permanently deleted.」；Select All 切換為 Deselect All；Cancel 會離開",
+  "Notes": "只按 Cancel"
+ },
+ "TC-113": {
+  "Section": "歷史記錄",
+  "Precondition": "History 有處於不同階段的 drama",
+  "Action": "逐一重新開啟",
+  "Expected Result": "每一個都在其最新階段重新開啟（大綱 / 角色 / 分鏡 / 影片）",
+  "Notes": "Regression DRI261896P0032 (NeedCodeReview, AIAgent)：已儲存的分鏡聊天重新開啟時不在底部 — 此處也一併複測此單"
+ },
+ "TC-114": {
+  "Section": "點數與額度",
+  "Precondition": "帳號仍有免費分鏡次數",
+  "Action": "查看 「Create storyboard」 卡片；建立一次分鏡，再看下一張卡片",
+  "Notes": "Design 1016_support free trial (Figma 4847:34277)，比 MX 看板的 「Free for your first 3 creations - {n} left.」 畫面更新；PM 沒有不同說法 (REQ-029)。需要有免費次數的帳號 → Blocked",
+  "Expected Result": "分鏡價格（每張場景圖 ◆6 加上 Text to Speech 部分，同 TC-060；Design 畫的是 ◆15）以刪除線顯示並附 「Free • {n} left」，{n} = 剩餘次數；下一張卡少一次"
+ },
+ "TC-356": {
+  "Section": "點數與額度",
+  "Precondition": "免費分鏡次數已用完（共用測試帳號）",
+  "Action": "查看 「Create storyboard」 卡片",
+  "Notes": "Design 1016_support free trial (Figma 4847:34277)",
+  "Expected Result": "只顯示價格（每張場景圖 ◆6 加上 Text to Speech，同 TC-060）：沒有刪除線，也沒有 「Free」"
+ },
+ "TC-115": {
+  "Section": "點數與額度",
+  "Precondition": "點數足夠",
+  "Action": "查看影片設定卡上 Generate 的下方",
+  "Expected Result": "顯示 「You'll have {n} left」 一行，為此動作後的餘額；點 Generate 直接扣款，沒有另外的確認",
+  "Notes": "Design 優先於 PM（使用者規則 2026-10-19）。Design MX 畫面在 Generate 下方顯示 「You'll have 160 left」；PM Q-3 曾要求加 Confirm 步驟。；Regression DRI261893-0130 (NewCreated, AIAgent) — Design 優先：Design 沒有 Consume credits? 卡片；MX 在 Generate 下方顯示 「You'll have N left」 (TC-115)。：角色與分鏡產生略過點數確認卡 — 此處也一併複測此單"
+ },
+ "TC-116": {
+  "Section": "點數與額度",
+  "Precondition": "點數不足",
+  "Action": "點 Generate",
+  "Expected Result": "「Not enough credits」/「{X} credits needed. You have {Y} credits left.」，附 Buy Credits → 「Top up your credits」",
+  "Notes": "需要低餘額帳號；不要購買；Regression DRI261896P0011 (RDResolved, AIFound) — Design 優先：對照 Design MX 影片設定畫面。：影片設定的 Buy Credits 按鈕樣式與餘額行和規格不同 — 此處也一併複測此單"
+ },
+ "TC-117": {
+  "Section": "點數與額度",
+  "Precondition": "免費帳號已達每日聊天上限（Pink：Show Free quota dialog）",
+  "Action": "送出訊息；點 「Upgrade to Premium」；在訂閱頁點 ‹，不訂閱",
+  "Expected Result": "「Daily Free Chat Limit Reached」/「You have used up your AI Mini Drama free chats. To keep chatting, please upgrade to Premium.」，附 Upgrade to Premium；「Upgrade to Premium」 開啟訂閱頁（Pro / Pro+ 分頁、方案比較、「Get 7-Day Free Trial」）；‹ 返回聊天，對話框關閉且訊息未送出"
+ },
+ "TC-419": {
+  "Section": "點數與額度",
+  "Precondition": "免費帳號已達每日聊天上限；已從上限對話框的 「Upgrade to Premium」 開啟訂閱頁（同 TC-117）",
+  "Action": "1. 點 「Pro」，再點 「Pro+」。2. 點 「Monthly」，再點 「Yearly」。3. 點 「Terms of Service」 並返回。4. 點 「Get 7-Day Free Trial」 並取消 App Store 視窗。5. 點 ‹",
+  "Expected Result": "「Pro」 與 「Pro+」 切換顯示的方案且分頁隨之更新；點選的方案卡被選取，一次只選一個；「Terms of Service」 開啟條款頁，返回後回到訂閱頁；「Get 7-Day Free Trial」 開啟 App Store 購買視窗，Cancel 返回訂閱頁且未購買任何項目；‹ 返回聊天且訊息未送出",
+  "Notes": "不要訂閱：一律取消 App Store 視窗。「Privacy Policy」 與 「Restore purchase」 是頁尾的另外兩個連結（MX mx-a-left 1034:39877）"
+ },
+ "TC-118": {
+  "Section": "點數與額度",
+  "Precondition": "Pro+ 帳號已達每日聊天上限（Pink：Show Paid quota dialog）",
+  "Action": "送出一則訊息，然後點 「Continue Tomorrow」",
+  "Expected Result": "「Today's AI Chats Are Used Up」/「They'll refresh tomorrow, and we'll be ready to chat again.」，附 Continue Tomorrow；「Continue Tomorrow」 關閉對話框並返回聊天，訊息未送出",
+  "Notes": "MX 版本 A：Pro 改看到 Free 對話框 (TC-216, R-277)"
+ },
+ "TC-119": {
+  "Section": "角色",
+  "Precondition": "篩選面板已開啟，且已更改 Gender、Ethnicity 與 Age",
+  "Notes": "Figma 流程箭頭 2811-105834",
+  "Action": "勾選 「My characters only」，然後點 「Clear」",
+  "Expected Result": "「My characters only」 顯示勾選；Clear 將所有篩選還原為預設：未選 Gender 或 Ethnicity，Age 1–100，My characters only 關閉"
+ },
+ "TC-120": {
+  "Section": "角色",
+  "Precondition": "Choose Character 已為某個角色欄位開啟並套用篩選",
+  "Action": "點另一個角色欄位",
+  "Expected Result": "標題變成該欄位的 「Choose for {name}」，且篩選重設為預設",
+  "Notes": "Figma 流程箭頭 2811-105838"
+ },
+ "TC-121": {
+  "Section": "角色",
+  "Precondition": "Finish your characters 顯示新產生的造型",
+  "Action": "點面板上的 X",
+  "Expected Result": "面板關閉並回到 Choose Character，且產生的造型不會套用到欄位",
+  "Notes": "Figma 流程箭頭 2811-90144"
+ },
+ "TC-122": {
+  "Section": "建立我的角色",
+  "Precondition": "Create my character 已有一些描述文字",
+  "Action": "點描述上的展開圖示",
+  "Expected Result": "全螢幕描述編輯器開啟，文字相同",
+  "Notes": "Figma 流程箭頭 2811-90585"
+ },
+ "TC-370": {
+  "Section": "建立我的角色",
+  "Precondition": "Create my character 已有一些描述文字",
+  "Action": "點描述文字（不是展開圖示）",
+  "Expected Result": "全螢幕描述編輯器開啟，文字相同"
+ },
+ "TC-123": {
+  "Section": "建立我的角色",
+  "Precondition": "展開的描述編輯器已開啟且文字已編輯",
+  "Action": "點收合圖示",
+  "Expected Result": "編輯器關閉並回到 Create my character，且保留編輯後的文字",
+  "Notes": "Figma 流程箭頭 2811-90145"
+ },
+ "TC-124": {
+  "Section": "建立我的角色",
+  "Precondition": "展開的描述編輯器已開啟且文字已編輯",
+  "Action": "點 「Done」",
+  "Expected Result": "編輯器關閉並回到 Create my character，且保留編輯後的文字",
+  "Notes": "Figma 流程箭頭 2811-90588"
+ },
+ "TC-125": {
+  "Section": "建立我的角色",
+  "Precondition": "描述長度超過可見區域",
+  "Action": "在描述框內拖曳",
+  "Expected Result": "文字在自己的區域內捲動；頁面不會跟著移動",
+  "Notes": "Figma 流程箭頭 2811-90468"
+ },
+ "TC-126": {
+  "Section": "建立我的角色",
+  "Precondition": "Create my character 已開啟，為空",
+  "Action": "點 「AI Suggestion」",
+  "Expected Result": "描述與 Gender、Ethnicity、Age 會依 「Tell us what {name} looks like」 中的角色填入，因此 Generate 變為可用",
+  "Notes": "Figma 流程箭頭 2811-90584；Regression DRI261896P0031 (Assigned, AIAgent)：AI Suggestion 讓必要的角色屬性維持空白 — 由 TC-211 合併"
+ },
+ "TC-127": {
+  "Section": "建立我的角色",
+  "Precondition": "Create my character 已開啟",
+  "Notes": "Figma 流程箭頭 2811-90586",
+  "Action": "點 Age 欄位，輸入 24 並點 ✓；然後點已填的 Age 欄位，改成 30 並點 ✓",
+  "Expected Result": "Age 開啟數字鍵盤（1–100），附輸入列（提示文字 「1-100」）與 ✓；✓ 關閉鍵盤且 Age 顯示 24；已填的欄位重新開啟鍵盤並顯示 24，✓ 儲存 30"
+ },
+ "TC-128": {
+  "Section": "建立我的角色",
+  "Precondition": "Create my character 已開啟",
+  "Action": "點 「Reference (optional)」",
+  "Expected Result": "開啟 Select Media 以選擇參考照片",
+  "Notes": "Figma 流程箭頭 2811-90587"
+ },
+ "TC-400": {
+  "Section": "建立我的角色",
+  "Precondition": "Select Media 從 Reference 開啟（TC-128 之後）",
+  "Action": "點 「Photo」；點 「Recents ▾」 並關閉相簿清單；點素材庫來源分頁（例如 getty images | iStock）再回到 「Recents」；點照片上的放大圖示並關閉預覽；點 「Photo」 旁的滑桿圖示並關閉；點相機圖示並取消",
+  "Expected Result": "「Photo」 維持為選取的媒體類型；「Recents ▾」 開啟相簿清單；素材庫分頁顯示該來源的照片；放大圖示開啟該照片的全尺寸預覽；滑桿圖示開啟選擇器的選項（記錄其顯示內容）；相機圖示開啟相機；每一項都會關閉並回到 Select Media",
+  "Notes": "Design Choose Character 「Add Media」 畫面（這些控制項沒有流程箭頭）。不要匯入素材庫項目。相機權限提示屬系統設定：回答前先詢問使用者"
+ },
+ "TC-129": {
+  "Section": "建立我的角色",
+  "Precondition": "從 Reference 開啟了 Select Media",
+  "Action": "選一張照片",
+  "Expected Result": "Crop 開啟並顯示該照片與 「Drag and pinch to adjust how the clip fits within the frame」",
+  "Notes": "Figma 流程箭頭 2811-90589"
+ },
+ "TC-130": {
+  "Section": "建立我的角色",
+  "Precondition": "Crop 已開啟並有參考照片",
+  "Action": "拖曳照片，再捏合縮放",
+  "Expected Result": "兩種手勢下，照片可見的部分都在框內移動與縮放",
+  "Notes": "Figma 流程箭頭 2837-147745"
+ },
+ "TC-131": {
+  "Section": "建立我的角色",
+  "Precondition": "調整照片後 Crop 仍開啟",
+  "Action": "點 ✓",
+  "Expected Result": "Create my character 顯示依調整後裁切的參考圖",
+  "Notes": "Figma 流程箭頭 2837-147912"
+ },
+ "TC-366": {
+  "Section": "建立我的角色",
+  "Precondition": "Make your character 已開啟；一張邊緣附近有容易辨認物件的參考照片",
+  "Action": "加入照片，在 Crop 中把邊緣的物件裁掉並點 ✓，然後 Generate；之後取出 log 並開啟儲存的參考圖片 (ai-mini-drama-reference-photos)",
+  "Expected Result": "用於角色的參考圖片只顯示裁切後的區域：被裁掉的物件不在其中",
+  "Notes": "PM 主流程備註 「只送 crop 後的圖」（第一次閱讀時遺漏；2026-10-22 經 render 確認）。若取出的 log 沒有參考圖片，記錄 Blocked (observability) 並向 RD 索取上傳的圖片。Spec agent 1012-PM-CROP-UPLOAD (REQ-031)"
+ },
+ "TC-132": {
+  "Section": "建立我的角色",
+  "Precondition": "有效的 Create my character 表單",
+  "Action": "點 Generate 並等待",
+  "Expected Result": "載入狀態被正面/側面/背面三視圖取代，並附 「Save to library」",
+  "Notes": "Figma 流程箭頭 2811-90147；Regression DRI261895P0036 (RDResolved, AIFound)：Create my character 一律失敗並顯示 \"Couldn't create image\" — 此處也一併複測此單"
+ },
+ "TC-133": {
+  "Section": "建立我的角色",
+  "Precondition": "顯示已產生的角色",
+  "Action": "點 「Save to library」",
+  "Expected Result": "角色立即套用到角色欄位並儲存到資料庫，其縮圖左下角顯示 「Mine」 標籤",
+  "Notes": "Figma 流程箭頭 2811-90591。PM mockup 顯示 「My character」；以 Design 為準"
+ },
+ "TC-134": {
+  "Section": "建立我的角色",
+  "Precondition": "顯示已產生的角色",
+  "Action": "點 X，再點對話框中的 「Discard」",
+  "Expected Result": "結果關閉；角色不會套用到角色欄位，也不會儲存到 Mine",
+  "Notes": "PM 10/21 新增 Discard 對話框 (§13.23)；Figma 流程箭頭 2811-90593；Regression DRI261896P0037 (NewCreated, AIFound)：以 X 關閉而未儲存的角色造型仍被加入 Mine — 此處也一併複測此單"
+ },
+ "TC-135": {
+  "Section": "建立我的角色",
+  "Precondition": "角色資料庫已顯示",
+  "Action": "點角色上的放大圖示；開啟 ⋯ 並點 「Download」；再開啟 ⋯，點 「Report」 並退出不送出；然後點 ⓧ",
+  "Expected Result": "開啟該角色的放大預覽；⋯ 列出 「Download」 與 「Report」（自己的角色另有 「Delete」）；Download 將角色圖片存到裝置（記錄任何 toast）；Report 開啟回報流程；ⓧ 關閉預覽並回到角色庫",
+  "Notes": "Figma 流程箭頭 2811-90592。不要送出回報；Photos 權限提示屬系統設定：回答前先詢問使用者"
+ },
+ "TC-136": {
+  "Section": "角色",
+  "Precondition": "Finish your characters，餘額低於 Generate 價格",
+  "Action": "點 Generate / Generate all",
+  "Expected Result": "開啟點數面板而不是產生",
+  "Notes": "Figma 流程箭頭 2811-90216"
+ },
+ "TC-137": {
+  "Section": "建立我的角色",
+  "Precondition": "Create my character 因伺服器錯誤而失敗",
+  "Action": "點 「Got it」",
+  "Expected Result": "回到 Create my character，參考照片與描述仍保持填入",
+  "Notes": "Figma 流程箭頭 3172-66578"
+ },
+ "TC-138": {
+  "Section": "分鏡",
+  "Precondition": "Storyboard Result 已顯示",
+  "Notes": "Figma 流程箭頭 2820-113560",
+  "Action": "點場景卡片的縮圖；關閉場景；然後點卡片的文字（不是 View more）",
+  "Expected Result": "每次點擊都開啟該場景的場景詳情"
+ },
+ "TC-139": {
+  "Section": "分鏡",
+  "Precondition": "Scene detail 有很長的腳本",
+  "Action": "在腳本內拖曳",
+  "Expected Result": "腳本在自己的區域內捲動",
+  "Notes": "Figma 流程箭頭 2820-113559"
+ },
+ "TC-140": {
+  "Section": "分鏡",
+  "Precondition": "失敗場景的描述編輯器已開啟",
+  "Action": "點收合圖示",
+  "Expected Result": "回到重新產生的提供畫面，並保留編輯後的文字",
+  "Notes": "Figma 流程箭頭 3142-70055"
+ },
+ "TC-141": {
+  "Section": "分鏡",
+  "Precondition": "失敗場景的重新產生提供畫面",
+  "Action": "點 「Regenerate Image」",
+  "Expected Result": "場景顯示骨架並重新產生；點數只扣一次",
+  "Notes": "Figma 流程箭頭 3142-70056"
+ },
+ "TC-142": {
+  "Section": "影片",
+  "Precondition": "範本 drama，分鏡已完成",
+  "Action": "產生完整影片並等待",
+  "Expected Result": "「Here's your drama.」 顯示已完成的影片及其 Edit 動作",
+  "Notes": "Figma 流程箭頭 2778-129154"
+ },
+ "TC-143": {
+  "Section": "影片",
+  "Precondition": "聊天中有已完成的影片",
+  "Action": "點影片上的 Play",
+  "Expected Result": "開啟場景影片播放器並開始播放",
+  "Notes": "Figma 流程箭頭 2820-115460"
+ },
+ "TC-375": {
+  "Section": "影片",
+  "Precondition": "場景影片播放器播放中",
+  "Notes": "Design ds-video 備註 「點擊 Preview 暫停」。Spec agent 因規格中沒有而廢除了 TR-VIDEO-TAP-PAUSE-001 (0c7f7e2c)；Design 有寫明",
+  "Action": "點正在播放的影片，然後點 ▶",
+  "Expected Result": "播放暫停且播放按鈕顯示在畫面上；▶ 繼續播放"
+ },
+ "TC-144": {
+  "Section": "影片錯誤",
+  "Precondition": "場景影片重新產生中",
+  "Action": "離開場景編輯器並回到聊天",
+  "Expected Result": "既有影片保留，其卡片下方一行為 「Updating 1 scene... Your video will refresh when it's done.」",
+  "Notes": "Figma 流程箭頭 4006-73627"
+ },
+ "TC-412": {
+  "Section": "影片錯誤",
+  "Precondition": "場景影片重新產生中，已回到聊天（TC-144）",
+  "Action": "重新產生進行中時查看輸入框",
+  "Expected Result": "輸入框只顯示麥克風；影片更新完成前不出現 ■ 停止按鈕或其他停止控制",
+  "Notes": "PM Figma 10/22 (4422:2)；僅 PM：尚無 Design 畫面。重新產生是否也有 「Leave while we're preparing?」 階段見 Q-22"
+ },
+ "TC-145": {
+  "Section": "影片錯誤",
+  "Precondition": "場景影片重新產生中，使用者在聊天",
+  "Action": "等待重新產生完成",
+  "Expected Result": "聊天以更新後的影片取代舊影片",
+  "Notes": "Figma 流程箭頭 4006-73628"
+ },
+ "TC-146": {
+  "Section": "影片錯誤",
+  "Precondition": "影片有失敗的場景片段",
+  "Action": "點失敗片段上的 Edit",
+  "Expected Result": "開啟場景影片描述編輯器",
+  "Notes": "Figma 流程箭頭 2820-116878"
+ },
+ "TC-147": {
+  "Section": "影片錯誤",
+  "Notes": "Figma 流程箭頭 2820-118509",
+  "Precondition": "失敗場景影片的編輯器已開啟（失敗片段上的 Edit，TC-146）",
+  "Action": "點描述上的展開圖示，編輯文字，然後點收合圖示",
+  "Expected Result": "展開圖示以相同文字開啟全螢幕描述編輯器，並有收合圖示與 「Done」；收合圖示回到帶有已編輯文字的重新產生提供畫面"
+ },
+ "TC-148": {
+  "Section": "影片錯誤",
+  "Precondition": "失敗場景影片編輯器已開啟且文字已編輯",
+  "Action": "點 「Done」",
+  "Expected Result": "回到重新產生的提供畫面，並保留編輯後的文字",
+  "Notes": "Figma 流程箭頭 2820-118510"
+ },
+ "TC-149": {
+  "Section": "影片錯誤",
+  "Precondition": "失敗片段的重新產生提供畫面",
+  "Action": "送出重新產生",
+  "Expected Result": "開始為該場景產生片段",
+  "Notes": "Figma 流程箭頭 2820-116880"
+ },
+ "TC-428": {
+  "Precondition": "成片中有兩個失敗的片段（Pink › Inject failure status 套用在兩個場景，之後關閉開關；記錄開關）；Fix scenes 已開啟",
+  "Action": "Edit 失敗片段 A › Done › Regenerate Clip；在片段 A 重新產生期間，Edit 失敗片段 B、修改描述、按 Done；觀察片段 B 的「Regenerate Clip」與點數，再按「Regenerate Clip」",
+  "Expected Result": "片段 A 重新產生期間，片段 B 的「Regenerate Clip」：按鈕以約 40% 透明度顯示但仍可點（沒有 disable）；點下跳 toast 「Another clip is regenerating. Try again when it's done.」；不送出（該片段不進入產生中）、不扣點（點數與 Mine › Credits › Details 不變），編輯過的描述保留",
+  "Section": "影片錯誤",
+  "Notes": "PM §13.25（Figma 4784:70878，10/29 更新，僅 Figma；board-notes 「PM — 10/29 Regenerate Clip one at a time」）。",
+  "Change Reason": "REQ-061：PM §13.25 (10/29)：一次只能重新產生一個片段：第二個 Regenerate Clip 變暗但仍可點，並顯示 toast，不送出、不扣點、提示詞保留 (R-466)"
+ },
+ "TC-429": {
+  "Precondition": "片段 A 重新產生中，片段 B 編輯過的描述在 toast 後仍保留（TC-428）",
+  "Action": "等片段 A 重新產生結束，再按片段 B 的「Regenerate Clip」；再做一次並讓片段 A 的重新產生失敗（Pink › Inject failure status 套用在片段 A 的場景；記錄開關）",
+  "Expected Result": "片段 A 一結束（成功或失敗），片段 B 的「Regenerate Clip」恢復完全不透明；按下以編輯後的描述開始重新產生片段 B，只扣一次點",
+  "Section": "影片錯誤",
+  "Notes": "PM §13.25（Figma 4784:70878，10/29 更新，僅 Figma；board-notes 「PM — 10/29 Regenerate Clip one at a time」）。",
+  "Change Reason": "REQ-061：PM §13.25 (10/29)：一次只能重新產生一個片段：重新產生中的片段結束後（成功或失敗），按鈕恢復正常 (R-466)"
+ },
+ "TC-430": {
+  "Precondition": "成片已完成；某個場景影片正從它的場景編輯器重新產生中（同 TC-144）",
+  "Action": "開另一個場景的編輯頁（場景編輯頁），修改描述，再按它的重新產生按鈕",
+  "Expected Result": "另一個場景的重新產生按鈕：按鈕以約 40% 透明度顯示但仍可點（沒有 disable）；點下跳 toast 「Another clip is regenerating. Try again when it's done.」；不送出（該片段不進入產生中）、不扣點（點數與 Mine › Credits › Details 不變），編輯過的描述保留",
+  "Section": "影片錯誤",
+  "Notes": "PM §13.25（Figma 4784:70878，10/29 更新，僅 Figma；board-notes 「PM — 10/29 Regenerate Clip one at a time」）。此規則涵蓋每個單一片段重新產生入口（Fix Scene › Edit 與場景編輯頁）。",
+  "Change Reason": "REQ-061：PM §13.25 (10/29)：一次只能重新產生一個片段：場景編輯頁的入口以同樣方式被擋下 (R-466)"
+ },
+ "TC-150": {
+  "Section": "影片錯誤",
+  "Precondition": "影片結果有失敗的場景",
+  "Action": "點 「Fix scenes」",
+  "Expected Result": "開啟失敗場景影片的復原畫面",
+  "Notes": "Design 影片看板 (Fix scenes)"
+ },
+ "TC-151": {
+  "Section": "字幕",
+  "Precondition": "字幕重試進行中（「Adding captions…」）",
+  "Action": "等待成功",
+  "Expected Result": "有字幕的影片取代它，且 「Captions couldn't be added」 消失",
+  "Notes": "Figma 流程箭頭 4078-177645"
+ },
+ "TC-152": {
+  "Section": "點數與額度",
+  "Precondition": "重新產生的提供畫面，餘額低於其價格",
+  "Action": "點點數動作",
+  "Expected Result": "開啟儲值面板",
+  "Notes": "Figma 流程箭頭 2831-134024"
+ },
+ "TC-153": {
+  "Section": "中斷",
+  "Precondition": "大綱產生中（可見 Stop）",
+  "Action": "點 Stop",
+  "Expected Result": "會顯示警告或訊息說明什麼將被停止、已花費的點數是否損失；之後該階段停止；Credit Details 保留已停止工作的扣款且沒有退款列（使用者自行 Stop 不退款）",
+  "Notes": "與返回按鈕對話框比較 (TC-025, TC-061)；Regression DRI261893-0128 (NewCreated, AIAgent)：大綱與修改的 Stop 沒有任何說明性回饋 — 此處也一併複測此單"
+ },
+ "TC-154": {
+  "Section": "中斷",
+  "Precondition": "角色產生中（可見 Stop）",
+  "Action": "點 Stop",
+  "Expected Result": "會顯示警告或訊息說明什麼將被停止、已花費的點數是否損失；之後該階段停止；Credit Details 保留已停止工作的扣款且沒有退款列（使用者自行 Stop 不退款）",
+  "Notes": "與返回按鈕對話框比較 (TC-025, TC-061)；Regression DRI261895P0024 (NewCreated, AIAgent)：角色產生沒有可用的 Stop 動作或取消警告 — 此處也一併複測此單"
+ },
+ "TC-155": {
+  "Section": "中斷",
+  "Precondition": "聊天修改產生中（可見 Stop）",
+  "Action": "點 Stop",
+  "Expected Result": "會顯示警告或訊息說明什麼將被停止、已花費的點數是否損失；之後該階段停止；Credit Details 保留已停止工作的扣款且沒有退款列（使用者自行 Stop 不退款）",
+  "Notes": "與返回按鈕對話框比較 (TC-025, TC-061)"
+ },
+ "TC-156": {
+  "Section": "中斷",
+  "Precondition": "已在 「Create storyboard」 點 Generate；分鏡產生中",
+  "Action": "在兩個階段（「Preparing your scenes...」 與 「Creating your storyboard...」）中查看輸入框與聊天",
+  "Expected Result": "輸入框只顯示麥克風：分鏡完成前，聊天中沒有 ■ 停止按鈕，也沒有暫停或停止控制",
+  "Notes": "PM Figma 10/22 (4422:2)：build 在 Generate 後顯示 ■ 停止，必須移除"
+ },
+ "TC-157": {
+  "Section": "中斷",
+  "Precondition": "已點 Generate Video；影片產生中",
+  "Action": "在兩個階段（「Advancing the mini drama production.」 與 「Making your video...」）中查看輸入框與聊天",
+  "Expected Result": "輸入框只顯示麥克風：影片完成前，聊天中沒有 ■ 停止按鈕，也沒有暫停或停止控制",
+  "Notes": "PM Figma 10/22 (4422:2)：build 在 Generate 後顯示 ■ 停止，必須移除"
+ },
+ "TC-158": {
+  "Section": "中斷",
+  "Precondition": "任務處於階段：未送出的想法在輸入區",
+  "Action": "回到 Launcher，再返回 AI Mini Drama（必要時透過 History 回到該任務）",
+  "Expected Result": "該階段顯示同一個任務且可繼續；已儲存的內容不會在沒有訊息的情況下消失"
+ },
+ "TC-159": {
+  "Section": "中斷",
+  "Precondition": "任務處於階段：大綱產生中",
+  "Action": "回到 Launcher，再返回 AI Mini Drama（必要時透過 History 回到該任務）",
+  "Expected Result": "該階段顯示同一個任務且可繼續；已儲存的內容不會在沒有訊息的情況下消失"
+ },
+ "TC-160": {
+  "Section": "中斷",
+  "Precondition": "任務處於階段：大綱已完成",
+  "Action": "回到 Launcher，再返回 AI Mini Drama（必要時透過 History 回到該任務）",
+  "Expected Result": "該階段顯示同一個任務且可繼續；已儲存的內容不會在沒有訊息的情況下消失"
+ },
+ "TC-161": {
+  "Section": "中斷",
+  "Precondition": "任務處於階段：角色產生中",
+  "Action": "回到 Launcher，再返回 AI Mini Drama（必要時透過 History 回到該任務）",
+  "Expected Result": "該階段顯示同一個任務且可繼續；已儲存的內容不會在沒有訊息的情況下消失"
+ },
+ "TC-162": {
+  "Section": "中斷",
+  "Precondition": "任務處於階段：角色已完成",
+  "Action": "回到 Launcher，再返回 AI Mini Drama（必要時透過 History 回到該任務）",
+  "Expected Result": "該階段顯示同一個任務且可繼續；已儲存的內容不會在沒有訊息的情況下消失"
+ },
+ "TC-163": {
+  "Section": "中斷",
+  "Precondition": "任務處於階段：聊天修改產生中",
+  "Action": "回到 Launcher，再返回 AI Mini Drama（必要時透過 History 回到該任務）",
+  "Expected Result": "該階段顯示同一個任務且可繼續；已儲存的內容不會在沒有訊息的情況下消失"
+ },
+ "TC-164": {
+  "Section": "中斷",
+  "Precondition": "任務位於階段：分鏡產生中",
+  "Action": "回到 Launcher，再返回 AI Mini Drama（必要時透過 History 回到該任務）",
+  "Expected Result": "該階段顯示同一個任務且可繼續；已儲存的內容不會在沒有訊息的情況下消失"
+ },
+ "TC-165": {
+  "Section": "中斷",
+  "Precondition": "任務位於階段：分鏡完成",
+  "Action": "回到 Launcher，再返回 AI Mini Drama（必要時透過 History 回到該任務）",
+  "Expected Result": "該階段顯示同一個任務且可繼續；已儲存的內容不會在沒有訊息的情況下消失"
+ },
+ "TC-166": {
+  "Section": "中斷",
+  "Precondition": "任務位於階段：影片產生中",
+  "Action": "回到 Launcher，再返回 AI Mini Drama（必要時透過 History 回到該任務）",
+  "Expected Result": "該階段顯示同一個任務且可繼續；已儲存的內容不會在沒有訊息的情況下消失"
+ },
+ "TC-167": {
+  "Section": "中斷",
+  "Precondition": "任務位於階段：影片完成",
+  "Action": "回到 Launcher，再返回 AI Mini Drama（必要時透過 History 回到該任務）",
+  "Expected Result": "該階段顯示同一個任務且可繼續；已儲存的內容不會在沒有訊息的情況下消失"
+ },
+ "TC-168": {
+  "Section": "中斷",
+  "Precondition": "任務位於階段：影片儲存／匯出中",
+  "Action": "回到 Launcher，再返回 AI Mini Drama（必要時透過 History 回到該任務）",
+  "Expected Result": "該階段顯示同一個任務且可繼續；已儲存的內容不會在沒有訊息的情況下消失"
+ },
+ "TC-169": {
+  "Section": "等待",
+  "Precondition": "大綱已開始",
+  "Action": "計時每一段只能離開、無其他可行操作的時間",
+  "Expected Result": "沒有任何一段在無等待動畫時超過 5 秒，或在有等待動畫時超過 10 秒；記錄最長的一段",
+  "Notes": "請從螢幕錄影記錄時間；Regression DRI261895P0029 (NewCreated, AIAgent)：大綱產生超過十秒仍阻擋有用操作 — 此處一併重測此單"
+ },
+ "TC-170": {
+  "Section": "等待",
+  "Precondition": "角色已開始",
+  "Action": "計時每一段只能離開、無其他可行操作的時間",
+  "Expected Result": "沒有任何一段在無等待動畫時超過 5 秒，或在有等待動畫時超過 10 秒；記錄最長的一段",
+  "Notes": "請從螢幕錄影記錄時間"
+ },
+ "TC-171": {
+  "Section": "等待",
+  "Precondition": "聊天修改已開始",
+  "Action": "計時每一段只能離開、無其他可行操作的時間",
+  "Expected Result": "沒有任何一段在無等待動畫時超過 5 秒，或在有等待動畫時超過 10 秒；記錄最長的一段",
+  "Notes": "請從螢幕錄影記錄時間；Regression DRI261895P0030 (NewCreated, AIAgent)：修改期間超過十秒仍阻擋有用操作 — 此處一併重測此單"
+ },
+ "TC-172": {
+  "Section": "等待",
+  "Precondition": "分鏡已開始",
+  "Action": "計時每一段只能離開、無其他可行操作的時間",
+  "Expected Result": "沒有任何一段在無等待動畫時超過 5 秒，或在有等待動畫時超過 10 秒；記錄最長的一段",
+  "Notes": "請從螢幕錄影記錄時間"
+ },
+ "TC-173": {
+  "Section": "等待",
+  "Precondition": "影片已開始",
+  "Action": "計時每一段只能離開、無其他可行操作的時間",
+  "Expected Result": "沒有任何一段在無等待動畫時超過 5 秒，或在有等待動畫時超過 10 秒；記錄最長的一段",
+  "Notes": "請從螢幕錄影記錄時間；Regression DRI261895P0031 (NewCreated, AIAgent)：影片製作超過十秒仍阻擋有用操作 — 此處一併重測此單"
+ },
+ "TC-174": {
+  "Section": "等待",
+  "Precondition": "儲存／匯出已開始",
+  "Action": "計時每一段只能離開、無其他可行操作的時間",
+  "Expected Result": "沒有任何一段在無等待動畫時超過 5 秒，或在有等待動畫時超過 10 秒；記錄最長的一段",
+  "Notes": "請從螢幕錄影記錄時間"
+ },
+ "TC-175": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261893-0123",
+  "Action": "重現回報的步驟：分鏡場景描述沒有編輯或儲存動作",
+  "Expected Result": "應允許手動編輯場景描述並儲存，不需重新產生圖片。",
+  "Notes": "DRI261893-0123 (NewCreated, AIAgent)"
+ },
+ "TC-176": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261893-0136",
+  "Action": "重現回報的步驟：無法將特定嬰兒範本套用為角色",
+  "Expected Result": "可用的範本應套用到目前選取的具名角色欄位 (contract PDRM-MINIDRAMA-1005-QA-B016)。",
+  "Notes": "DRI261893-0136 (NewCreated, AIAgent)"
+ },
+ "TC-177": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261893-0160",
+  "Action": "重現回報的步驟：快速切換風格時風格卡片閃爍",
+  "Expected Result": "不應閃爍",
+  "Notes": "DRI261893-0160 (RDResolved, untagged)"
+ },
+ "TC-178": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261893-0163",
+  "Action": "重現回報的步驟：成功的分鏡圖片路徑沒有提供版本編輯器",
+  "Expected Result": "成功的場景圖片應提供對應的 PM F69/F73 圖片版本編輯入口及其儲存控制項。",
+  "Notes": "DRI261893-0163 (QANeedRework, AIAgent)"
+ },
+ "TC-179": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261894P0007",
+  "Action": "重現回報的步驟：產生角色圖片或影片時，點數明細顯示「TTS」、「TTI」或「AI Video Generator」，可能讓使用者困惑",
+  "Expected Result": "點數明細應清楚標示這些點數是用於 AI Mini Drama。",
+  "Notes": "DRI261894P0007 (NewCreated, untagged)；回歸 DRI261894P0021 (NewCreated, AIFound)：點數明細將短劇扣點列為 Text to Image / Text to Speech — 也在此重新檢查該單"
+ },
+ "TC-180": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261894P0011",
+  "Action": "重現回報的步驟：Save to library 會將角色存到 Photos 並顯示「Saved to Photos」",
+  "Expected Result": "Save to library 應只將角色加入 App 內的資料庫；存到 Photos 是 Download 的功能。",
+  "Notes": "DRI261894P0011 (RDResolved, AIFound)"
+ },
+ "TC-181": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261894P0024",
+  "Action": "重現回報的步驟：離開時角色尚未設定，聊天卻說角色看起來很棒",
+  "Expected Result": "聊天應持續顯示角色仍需確認。",
+  "Notes": "DRI261894P0024 (RDResolved, AIFound)"
+ },
+ "TC-182": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261894P0025",
+  "Action": "重現回報的步驟：原始的內部錯誤字串以 toast 顯示給使用者",
+  "Expected Result": "錯誤應顯示面向使用者的訊息並說明下一步該做什麼；內部字串只應出現在 log。",
+  "Notes": "DRI261894P0025 (RDResolved, AIFound)"
+ },
+ "TC-183": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261894P0034",
+  "Action": "重現回報的步驟：展開的文字編輯器邊框顯示為亮白線，與深色主題不符",
+  "Expected Result": "邊框應使用設計稿中的深色主題灰色描邊。",
+  "Notes": "DRI261894P0034 (RDResolved, untagged)"
+ },
+ "TC-184": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261894P0036",
+  "Action": "重現回報的步驟：步驟失敗後，聊天沒有下一步、卡片或重試",
+  "Expected Result": "步驟失敗時應顯示含重試的錯誤，並保留最後一張提示卡片。",
+  "Notes": "DRI261894P0036 (Assigned, AIFound)"
+ },
+ "TC-185": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261894P0042",
+  "Action": "重現回報的步驟：VoiceOver 對 Back、History、X 和勾選按鈕唸出圖片 ID 或什麼都沒唸",
+  "Expected Result": "每個按鈕都應以有意義的標籤朗讀，例如「Back」、「History」、「Close」、「Done」。",
+  "Notes": "DRI261894P0042 (Assigned, AIFound)"
+ },
+ "TC-186": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261894P0043",
+  "Action": "重現回報的步驟：從空聊天返回仍會詢問「Leave this chat?」",
+  "Expected Result": "從空聊天返回應直接離開，不出現對話框。",
+  "Notes": "DRI261894P0043 (Assigned, AIFound)"
+ },
+ "TC-187": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261894P0046",
+  "Action": "重現回報的步驟：透過聊天更換語言後，大綱與場景標題仍維持舊語言",
+  "Expected Result": "更換語言後，大綱、場景標題、腳本與字幕都應使用新語言。",
+  "Notes": "DRI261894P0046 (RDResolved, AIFound)"
+ },
+ "TC-188": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261894P0048",
+  "Action": "重現回報的步驟：要求變更場景數量或視覺風格時，靜默未套用",
+  "Expected Result": "該要求應套用到大綱與分鏡，或由助理說明無法辦到。",
+  "Notes": "DRI261894P0048 (RDResolved, AIFound)"
+ },
+ "TC-189": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261894P0050",
+  "Action": "重現回報的步驟：助理對問題或不支援的要求沒有回覆",
+  "Expected Result": "助理應以一行回覆，例如說明該選項無法使用。",
+  "Notes": "DRI261894P0050 (NewCreated, AIFound)"
+ },
+ "TC-190": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261894P0052",
+  "Action": "重現回報的步驟：同一部短劇的完整集數價格從 240 點變成 376 點",
+  "Expected Result": "同一部短劇無論在哪裡提供，完整集數價格都應相同。",
+  "Notes": "DRI261894P0052 (Assigned, AIFound)"
+ },
+ "TC-191": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261895P0002",
+  "Action": "重現回報的步驟：在聊天框使用語音轉文字沒有顯示任何文字。",
+  "Expected Result": "在聊天框使用語音轉文字應能轉換語音並正確顯示文字。",
+  "Notes": "DRI261895P0002 (RDResolved, untagged)"
+ },
+ "TC-192": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261895P0003",
+  "Action": "重現回報的步驟：日文版「The Beer Heir」只顯示「Server is busy」；沒有大綱或角色肖像",
+  "Expected Result": "日文的大綱與角色應能建立，如同英文及其他範本。",
+  "Notes": "DRI261895P0003 (RDResolved, AIFound)"
+ },
+ "TC-193": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261895P0004",
+  "Action": "重現回報的步驟：推動劇情的寵物從未被提供為角色",
+  "Expected Result": "推動劇情的寵物應有角色欄位，如同 AI Mini Drama - PM Spec 中的動物。",
+  "Notes": "DRI261895P0004 (NewCreated, AIFound)"
+ },
+ "TC-194": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261895P0005",
+  "Action": "重現回報的步驟：「Add New」新增了一個虛構角色，且沒有出現在任何場景",
+  "Expected Result": "Add New 應詢問要新增誰，或新增故事實際用到的角色。",
+  "Notes": "DRI261895P0005 (NewCreated, AIFound)"
+ },
+ "TC-195": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261895P0007",
+  "Action": "重現回報的步驟：聊天修改場景後，影片只算繪被修改的場景",
+  "Expected Result": "預覽應從 Scene 1 開始並包含已修改的場景，如同未修改時一樣。",
+  "Notes": "DRI261895P0007 (RDResolved, AIFound)"
+ },
+ "TC-196": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261895P0033",
+  "Action": "重現回報的步驟：等待 AI 回應時出現「Sever is busy. Please try again later.」錯誤訊息。",
+  "Expected Result": "AI 回應應能成功載入，不顯示伺服器忙碌錯誤。",
+  "Notes": "DRI261895P0033 (RDResolved, AIFound)"
+ },
+ "TC-197": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261895P0034",
+  "Action": "重現回報的步驟：選完角色後，修改過的故事大綱沒有再次顯示",
+  "Expected Result": "建立分鏡前，應再次顯示修改後的故事大綱（及角色）供確認。",
+  "Notes": "DRI261895P0034 (RDResolved, untagged)"
+ },
+ "TC-198": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261896P0006",
+  "Action": "重現回報的步驟：載入佔位動畫在 Light mode 下幾乎看不見",
+  "Expected Result": "載入動畫在 Light mode 下應清楚可見，如同在 Dark mode 一樣。",
+  "Notes": "DRI261896P0006 (NewCreated, AIFound)"
+ },
+ "TC-199": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261896P0007",
+  "Action": "重現回報的步驟：聊天與提示輸入皆為空時，「New Chat」按鈕仍為啟用",
+  "Expected Result": "沒有聊天記錄或提示輸入時，「New Chat」按鈕應為停用。",
+  "Notes": "DRI261896P0007 (NeedCodeReview, AIFound)"
+ },
+ "TC-200": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261896P0008",
+  "Action": "重現回報的步驟：New Chat 的「Leave anyway」會返回上一頁，而不是清除聊天",
+  "Expected Result": "APP 應停留在目前頁面，只清除目前的提示與聊天。",
+  "Notes": "DRI261896P0008 (NeedCodeReview, AIFound)"
+ },
+ "TC-201": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261896P0009",
+  "Action": "重現回報的步驟：角色輪播缺少可水平捲動的視覺提示",
+  "Expected Result": "水平角色列表應露出下一張螢幕外卡片的一部分，提示可水平捲動看到更多內容，與 Design Spec 一致。",
+  "Notes": "DRI261896P0009 (NeedCodeReview, untagged)"
+ },
+ "TC-202": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261896P0010",
+  "Action": "重現回報的步驟：購買點數後，Create my character 仍顯示 0 點",
+  "Expected Result": "購買完成後，表單應立即顯示新的餘額。",
+  "Notes": "DRI261896P0010 (NeedCodeReview, AIFound)"
+ },
+ "TC-203": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261896P0012",
+  "Action": "重現回報的步驟：分鏡場景文字無法選取或複製",
+  "Expected Result": "場景文字應可選取與複製，如同聊天中的文字。",
+  "Notes": "DRI261896P0012 (RDResolved, AIFound)"
+ },
+ "TC-204": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261896P0017",
+  "Action": "重現回報的步驟：Create my character 要求動物角色選擇人類種族",
+  "Expected Result": "動物角色應可在不選人類種族的情況下建立；AI Mini Drama - PM Spec 有動物角色。",
+  "Notes": "DRI261896P0017 (NewCreated, AIFound)"
+ },
+ "TC-205": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261896P0018",
+  "Action": "重現回報的步驟：儘管角色外觀為金色且使用者有要求，場景描述仍將狗維持為白色",
+  "Expected Result": "場景描述應依照角色外觀與使用者的修改要求。",
+  "Notes": "DRI261896P0018 (NeedCodeReview, AIFound)"
+ },
+ "TC-206": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261896P0019",
+  "Action": "重現回報的步驟：修改範本預先指派的角色時失敗，顯示「Server is busy」",
+  "Expected Result": "預先指派的角色應依要求的修改重新產生。",
+  "Notes": "DRI261896P0019 (Assigned, AIFound)"
+ },
+ "TC-207": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261896P0023",
+  "Action": "重現回報的步驟：The Beer Heir 與 The Ring He Worked For 在日文下沒有載入預設角色",
+  "Expected Result": "每個角色欄位應顯示範本角色對應 (JP) 的預設外觀。",
+  "Notes": "DRI261896P0023 (NewCreated, AIFound)"
+ },
+ "TC-208": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261896P0024",
+  "Action": "重現回報的步驟：選完角色後，Story Outline & Characters Result 區塊出現兩次",
+  "Expected Result": "大綱與角色應只顯示一次，或就地更新先前的區塊。",
+  "Notes": "DRI261896P0024 (Assigned, AIFound)"
+ },
+ "TC-209": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261896P0027",
+  "Action": "重現回報的步驟：場景播放在場景邊界繼續播到下一個場景",
+  "Expected Result": "播放應停在所選場景的邊界，並還原 Play 控制項。",
+  "Notes": "DRI261896P0027 (NewCreated, AIAgent)"
+ },
+ "TC-210": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261896P0028",
+  "Action": "重現回報的步驟：在已結束的場景按 Replay 會從第一個場景重新開始",
+  "Expected Result": "Play 應重播目前所選的已結束場景。",
+  "Notes": "DRI261896P0028 (NewCreated, AIAgent)"
+ },
+ "TC-212": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261896P0034",
+  "Action": "重現回報的步驟：預設演員被指派給性別錯誤的角色",
+  "Expected Result": "每個角色應被指派符合 Possible Characters 中所述性別的預設演員。",
+  "Notes": "DRI261896P0034 (NewCreated, untagged)"
+ },
+ "TC-213": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261896P0038",
+  "Action": "重現回報的步驟：格式選定前送出訊息，會跳過語言與字幕步驟",
+  "Expected Result": "如 10.GM 主流程，格式卡片應保留，直到選定影片語言與字幕。",
+  "Notes": "DRI261896P0038 (Assigned, AIFound)"
+ },
+ "TC-214": {
+  "Section": "回歸",
+  "Precondition": "待測版本；步驟與佐證見 DRI261896P0039",
+  "Action": "重現回報的步驟：分鏡之後透過聊天新增的角色，其欄位無法點選",
+  "Expected Result": "點選新角色的欄位應開啟 Choose Character，如同分鏡之前一樣。",
+  "Notes": "DRI261896P0039 (NeedCodeReview, AIFound)"
+ },
+ "TC-215": {
+  "Section": "點數與額度",
+  "Action": "持續傳送聊天直到額度用完，並計算每次傳送",
+  "Expected Result": "第 11 次聊天顯示「Daily Free Chat Limit Reached」及 Upgrade to Premium (TC-117)；記錄次數",
+  "Notes": "規格次數 10 由遠端設定；Developer Server 上限為 9999 時，記為已接受的假設",
+  "Precondition": "方案 Free（Pink › IAP › Status › Free）；每日額度有限"
+ },
+ "TC-216": {
+  "Section": "點數與額度",
+  "Precondition": "Tier Pro",
+  "Action": "送聊天直到額度用完，然後點 「Upgrade to Premium」；在訂閱頁點 「Continue」 並取消 App Store 視窗，然後點 ‹ 不訂閱",
+  "Expected Result": "第 31 次聊天顯示 Premium 上限對話框 「Daily Free Chat Limit Reached」（Pro 版 mockup 標題為 「Free Chat Limit Reached」），附 Upgrade to Premium，而非 「Today's AI Chats Are Used Up」；Upgrade to Premium 開啟 Pro+ 訂閱頁（「PowerDirector Pro+」、「Continue」）；「Continue」 開啟 App Store 購買視窗，Cancel 返回訂閱頁且未購買任何項目；‹ 返回聊天且對話框關閉；記錄次數與標題",
+  "Notes": "規格次數 30；9999 上限 → 已接受的假設。TC-118 為 Pro+ 對話框"
+ },
+ "TC-217": {
+  "Section": "點數與額度",
+  "Action": "持續傳送聊天直到額度用完",
+  "Expected Result": "第 101 次聊天顯示「Today's AI Chats Are Used Up」及 Continue Tomorrow (TC-118)；記錄次數",
+  "Precondition": "方案 Pro+",
+  "Notes": "規格次數 100；9999 上限 → 已接受的假設。有一個 MX mockup 標籤寫 Server Busy；以 Design 的對話框為準"
+ },
+ "TC-218": {
+  "Section": "點數與額度",
+  "Precondition": "任何方案，已知剩餘聊天次數（有限額度）",
+  "Action": "開啟一個範本，然後傳送一則輸入訊息，再點一個任務按鈕（例如 Generate）",
+  "Expected Result": "三者各自剛好使用一次聊天"
+ },
+ "TC-367": {
+  "Section": "點數與額度",
+  "Action": "開啟一個範本，然後傳送一則輸入訊息，再點一個任務按鈕（例如 Generate）",
+  "Precondition": "方案 Pro（Pink › IAP › Status › Pro）；已知剩餘聊天次數（有限額度）",
+  "Expected Result": "三次各剛好用掉一次 Pro 每日聊天次數（額度 30）",
+  "Notes": "MX ① 版本 A。TC-218 對任何方案做同樣檢查；每個方案各有一列 (REQ-031)。9999 Developer Server 上限 → Blocked (chat-count)。Spec agent MX-PRO-SEND-DEBIT-001 (REQ-031)"
+ },
+ "TC-368": {
+  "Section": "點數與額度",
+  "Action": "開啟一個範本，然後傳送一則輸入訊息，再點一個任務按鈕（例如 Generate）",
+  "Notes": "MX ① version A。TC-218 對任何方案執行相同檢查；每個方案各有自己的列 (REQ-031)。9999 Developer Server 上限 → Blocked (chat-count)。Spec agent MX-PROPLUS-SEND-DEBIT-001 (REQ-031)",
+  "Precondition": "方案 Pro+（Pink › IAP › Status › Pro+）；已知剩餘聊天次數（有限額度）",
+  "Expected Result": "三次各剛好用掉一次 Pro+ 每日聊天次數（額度 100）"
+ },
+ "TC-369": {
+  "Section": "點數與額度",
+  "Precondition": "方案 Free；RD 已將 Free 的 Firebase Remote Config 每日聊天額度改掉（例如改為 3）；App 已重新啟動",
+  "Action": "持續傳送聊天直到出現額度對話框，並計算每次傳送",
+  "Expected Result": "額度對話框在第 4 次傳送出現（額度 3），而非規格預設值（第 11 次）",
+  "Notes": "MX ① version A：額度由遠端設定 (Firebase)。規格未說明變更何時生效，因此先重新啟動。需要 RD 變更 Remote Config → Blocked (remote-config)。Spec agent FIXTURE-0924-S002-B016 (REQ-031)"
+ },
+ "TC-392": {
+  "Section": "點數與額度",
+  "Action": "持續傳送聊天直到出現額度對話框，並計算每次傳送",
+  "Precondition": "Tier Pro；RD 已修改 Pro 的 Remote Config 每日聊天額度（例如改為 3）；App 已重新啟動",
+  "Expected Result": "上限對話框在第 4 次送出時出現（額度 3），而非第 31 次"
+ },
+ "TC-393": {
+  "Section": "點數與額度",
+  "Action": "持續傳送聊天直到出現額度對話框，並計算每次傳送",
+  "Expected Result": "額度對話框在第 4 次傳送出現（額度 3），而非第 101 次",
+  "Precondition": "方案 Pro+；RD 已修改 Pro+ 的 Remote Config 每日聊天額度（例如改為 3）；app 已重新啟動"
+ },
+ "TC-219": {
+  "Section": "點數與額度",
+  "Precondition": "額度已用完，輸入框中有輸入文字",
+  "Action": "傳送，然後以 X 關閉額度對話框",
+  "Expected Result": "聊天維持開啟，且尚未送出的文字仍在輸入框中"
+ },
+ "TC-220": {
+  "Section": "點數與額度",
+  "Precondition": "額度已用完，額度對話框已關閉過一次",
+  "Action": "再次傳送",
+  "Expected Result": "每次傳送都會再次出現額度對話框"
+ },
+ "TC-221": {
+  "Section": "點數與額度",
+  "Precondition": "額度已用完",
+  "Action": "從首頁開啟範本並點 「Make my version」；然後以 ⓧ 關閉限額對話框",
+  "Expected Result": "先開啟範本聊天，然後出現限額對話框；ⓧ 關閉對話框，範本聊天保持開啟且未送出任何內容"
+ },
+ "TC-222": {
+  "Section": "點數與額度",
+  "Expected Result": "回到原本的聊天，並出現 Continue 訊息",
+  "Notes": "需要已驗證可用的 sandbox 訂閱；否則為 Blocked (test-data)",
+  "Precondition": "Tier Free，已顯示限額對話框；沙盒購買已驗證",
+  "Action": "點 Upgrade to Premium 並完成訂閱"
+ },
+ "TC-223": {
+  "Section": "點數與額度",
+  "Precondition": "方案 Free，尚有未使用的免費聊天",
+  "Action": "切換到 Pro，然後計算聊天直到達到限額",
+  "Expected Result": "Pro 額度獨立適用；未使用的 Free 聊天不會累加"
+ },
+ "TC-224": {
+  "Section": "點數與額度",
+  "Action": "刪除並重新安裝 App，登入，開啟 AI Mini Drama",
+  "Expected Result": "每日免費聊天次數恢復為滿額",
+  "Notes": "自行全新安裝；在 segment P1-h 執行。",
+  "Precondition": "全新安裝（屬於此案例的一部分）：解除安裝 PowerDirector，重新安裝受測 build，還原 Developer Server，登入，設定方案，開啟 Log stage timings 與 Write Log；方案 Free；重新安裝前先用掉一些聊天次數並記下數量"
+ },
+ "TC-225": {
+  "Section": "點數與額度",
+  "Notes": "Design 在點數不足卡片上顯示 Buy Credits (TC-116)",
+  "Precondition": "方案 Pro 或 Pro+，餘額低於下一個動作的價格",
+  "Action": "查看扣點卡片，然後點 Buy Credit；在 「Top up your credits」 點 500 點方案，再點 「Terms of Use」 並返回，再點 「Privacy Policy」 並返回；點 「Buy Credit」 並取消 App Store 視窗（不要購買）",
+  "Expected Result": "卡片提供 Buy Credit；Credit Panel 開啟並選取 2000 點方案；點其他方案則改選該方案（一次只選一個方案）；「Terms of Use」 與 「Privacy Policy」 開啟該頁面，返回後回到面板；面板的 「Buy Credit」 開啟所選方案的 App Store 購買視窗，Cancel 返回面板且未購買任何項目"
+ },
+ "TC-226": {
+  "Section": "點數與額度",
+  "Precondition": "方案 Free，餘額低於下一個動作的價格",
+  "Action": "查看扣點卡片，然後點其按鈕；在訂閱頁點 ‹ 不訂閱",
+  "Expected Result": "卡片提供 Upgrade Now，開啟訂閱頁（Pro / Pro+、「Get 7-Day Free Trial」）；‹ 返回聊天，卡片仍顯示點數不足文案與 Upgrade Now",
+  "Notes": "Design 只畫了 Buy Credits；MX 加上 Free 方案的按鈕。有一個 MX 畫面將 Free 卡片標為 「Buy Credits」 (Q-25)"
+ },
+ "TC-227": {
+  "Section": "點數與額度",
+  "Action": "返回聊天",
+  "Expected Result": "卡片顯示點數足夠的文案及 Generate",
+  "Notes": "需要變更餘額；否則為 Blocked (test-data)",
+  "Precondition": "已顯示點數不足的收費卡片；已儲值點數（沙盒）或已提高餘額"
+ },
+ "TC-228": {
+  "Section": "點數與額度",
+  "Action": "返回該卡片",
+  "Expected Result": "在扣點之前會再次確認扣點",
+  "Notes": "需要 sandbox 購買；否則為 Blocked (test-data)",
+  "Precondition": "剛從點數不足卡片購買點數（沙盒）"
+ },
+ "TC-229": {
+  "Section": "點數與額度",
+  "Action": "查看新短劇中每張動作卡片的價格",
+  "Precondition": "方案 Pro 或 Pro+",
+  "Expected Result": "收費頁的完整（原始）價格：每張角色圖片 ◆6、每張分鏡場景圖片 ◆6（另加 Text to Speech）、Seedance 2.0 每秒 13 點、Seedance 2.0 Mini 每秒 4 點（Seedance 2.5 為 6，PM 10/16）；不顯示點數折扣",
+  "Notes": "原價來自 MX ③ 收費表 「AI Mini Drama CMS」 › 「Action ID (not on CMS)」（2026-10-20）；預設使用原價，促銷價待使用者表示適用後才採用（使用者 2026-10-29，REQ-059）。"
+ },
+ "TC-424": {
+  "Section": "點數與額度",
+  "Precondition": "方案 Pro 或 Pro+；Log stage timings ON",
+  "Action": "為新短劇產生角色（在角色卡片上點 Generate），然後取得 log 並讀取扣點",
+  "Expected Result": "角色扣點記在 `genimage_1_img_openai_gptimage2_<none|enable>_1K_aiminidrama_normal` 之下（log `action_id`）；其 `total_credit` 為 ◆6 × 圖片數，與 Mine › Credits › Details 顯示的金額相同",
+  "Notes": "原價來自 MX ③ 扣點表 「AI Mini Drama CMS」 › 「Action ID (not on CMS)」 (2026-10-20)；預設採用原價，促銷價在使用者說適用之前保留不用（使用者 2026-10-29，REQ-059）。10/19 build 的 log 記為 `…_aiminidrama`，沒有 _normal / _discount 後綴；記錄 build 實際記的內容。"
+ },
+ "TC-230": {
+  "Section": "點數與額度",
+  "Precondition": "方案 Free，從未訂閱，此 session 中也沒有訂閱",
+  "Action": "查看動作卡片價格",
+  "Expected Result": "顯示完整價格；無點數折扣"
+ },
+ "TC-421": {
+  "Section": "點數與額度",
+  "Precondition": "方案 Pro 或 Pro+；角色已完成；Log stage timings ON",
+  "Action": "在 「Create storyboard」 卡片點 Generate；然後取得 log",
+  "Expected Result": "卡片標示分鏡每張場景圖 6 點（另加 Text to Speech，同 TC-060），且扣的就是該金額（Mine › Credits › Details）；log 記在 `genimage_1_img_openai_gptimage2_<none|enable>_1K_aiminidrama_normal` 之下",
+  "Notes": "原價來自 MX ③ 收費表 「AI Mini Drama CMS」 › 「Action ID (not on CMS)」（2026-10-20）；預設使用原價，促銷價待使用者表示適用後才採用（使用者 2026-10-29，REQ-059）。為 TC-231 該輪的折扣列（REQ-057）。"
+ },
+ "TC-422": {
+  "Section": "點數與額度",
+  "Precondition": "方案 Pro 或 Pro+；分鏡已完成；已顯示影片設定卡片；Log stage timings ON",
+  "Action": "選 Standard (Seedance 2.0) 與 Preview 長度，讀取價格，點 Generate；然後取得 log",
+  "Expected Result": "卡片標示影片每秒 13 點（Preview · 30 sec → ◆390），且扣的就是該金額（Mine › Credits › Details）；log 記在 `genvideo_1_sec_bytedance_seedance2.0std_enable_1080p_aiminidrama_normal` 之下",
+  "Notes": "原價來自 MX ③ 收費表 「AI Mini Drama CMS」 › 「Action ID (not on CMS)」（2026-10-20）；預設使用原價，促銷價待使用者表示適用後才採用（使用者 2026-10-29，REQ-059）。為 TC-231 該輪的折扣列（REQ-057）。"
+ },
+ "TC-423": {
+  "Section": "點數與額度",
+  "Precondition": "方案 Pro 或 Pro+；分鏡已完成；已顯示影片設定卡片；Log stage timings ON",
+  "Action": "選 Fast (Seedance 2.0 Mini) 與 Preview 長度，讀取價格，點 Generate；然後取得 log",
+  "Expected Result": "卡片標示影片每秒 4 點（Preview · 30 sec → ◆120），且扣的就是該金額（Mine › Credits › Details）；log 記在 `genvideo_1_sec_bytedance_seedance2.0mini_enable_720p_aiminidrama_normal` 之下",
+  "Notes": "原價來自 MX ③ 收費表 「AI Mini Drama CMS」 › 「Action ID (not on CMS)」（2026-10-20）；預設使用原價，促銷價待使用者表示適用後才採用（使用者 2026-10-29，REQ-059）。為 TC-231 該輪的折扣列（REQ-057）。"
+ },
+ "TC-232": {
+  "Section": "點數與額度",
+  "Precondition": "先前的 session 已獲得折扣",
+  "Action": "開始新聊天（新 session）並查看價格",
+  "Expected Result": "顯示完整價格"
+ },
+ "TC-233": {
+  "Section": "點數與額度",
+  "Precondition": "一部完整短劇已以折扣完成",
+  "Action": "重新產生任何部分",
+  "Expected Result": "以完整價格扣點"
+ },
+ "TC-425": {
+  "Section": "點數與額度",
+  "Precondition": "方案 Pro 或 Pro+；角色已產生；Log stage timings ON",
+  "Action": "重新產生一個角色（請 Iris 改變其外觀，然後在 「Update characters」 卡片點 Generate，同 TC-045）；然後取得 log",
+  "Expected Result": "「Update characters」 卡片每個角色顯示 ◆6，且扣的就是該金額（Mine › Credits › Details）；log 記在 `genimage_1_img_openai_gptimage2_<none|enable>_1K_aiminidrama_normal` 之下",
+  "Notes": "原價來自 MX ③ 收費表 「AI Mini Drama CMS」 › 「Action ID (not on CMS)」（2026-10-20）；預設使用原價，促銷價待使用者表示適用後才採用（使用者 2026-10-29，REQ-059）。為 TC-231 該輪的無折扣重新產生列（REQ-057）。"
+ },
+ "TC-426": {
+  "Section": "點數與額度",
+  "Precondition": "方案 Pro 或 Pro+；分鏡已完成；Log stage timings ON",
+  "Action": "開啟一個場景，點 Edit，修改描述，點 Done 與 「Regenerate Image」（同 TC-070）；然後取得 log",
+  "Expected Result": "「Regenerate Image」 顯示 ◆6（同 TC-070），且扣的就是該金額（Mine › Credits › Details）；log 記在 `genimage_1_img_openai_gptimage2_<none|enable>_1K_aiminidrama_normal` 之下",
+  "Notes": "原價來自 MX ③ 收費表 「AI Mini Drama CMS」 › 「Action ID (not on CMS)」（2026-10-20）；預設使用原價，促銷價待使用者表示適用後才採用（使用者 2026-10-29，REQ-059）。為 TC-231 該輪的無折扣重新產生列（REQ-057）。"
+ },
+ "TC-427": {
+  "Section": "點數與額度",
+  "Precondition": "方案 Pro 或 Pro+；場景影片已完成；Log stage timings ON",
+  "Action": "重新產生一個場景影片（在場景編輯器修改其描述，然後 「Regenerate Video」，同 TC-144）；然後取得 log",
+  "Expected Result": "重新產生顯示並扣除場景長度 × 該短劇模型的費率（Seedance 2.0 每秒 13、Seedance 2.0 Mini 4、Seedance 2.5 6；15 秒場景 → ◆195 / ◆60 / ◆90），且 Mine › Credits › Details 顯示該金額；log 記在該模型的 `genvideo_1_sec_bytedance_seedance2.0<std|mini>_enable_<1080p|720p>_aiminidrama_normal` id 之下",
+  "Notes": "原價來自 MX ③ 收費表 「AI Mini Drama CMS」 › 「Action ID (not on CMS)」（2026-10-20）；預設使用原價，促銷價待使用者表示適用後才採用（使用者 2026-10-29，REQ-059）。為 TC-231 該輪的無折扣重新產生列（REQ-057）。"
+ },
+ "TC-234": {
+  "Section": "範本",
+  "Precondition": "已記錄版本、伺服器與語系；名單檔 template-roster-20261019.json",
+  "Action": "開啟 More，記錄每個分類中的每個範本，將每一列與頁面都捲動到底",
+  "Expected Result": "名單與凍結清單相符：5 個分類共 20 個範本；任何新增、移除或更名的範本都要回報",
+  "Notes": "若版本、伺服器或語系改變，須重新凍結"
+ },
+ "TC-235": {
+  "Section": "範本",
+  "Precondition": "More › Workplace Romance › 第 1 位；點數餘額至少 300 點（見下方停止規則）",
+  "Action": "開啟「Merger Season」：確認封面與標題，播放預覽，然後點 Make my version",
+  "Expected Result": "詳細頁顯示「Merger Season」及其封面與可播放的預覽；Make my version 會開啟從此範本故事開始的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 1/20 (style_aidrama_merger-season)"
+ },
+ "TC-236": {
+  "Section": "範本",
+  "Precondition": "已從「Merger Season」開啟聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 1/20；Seedance 2.0 + 完整集數（user, 2026-10-19）。範本列最後執行；每個流程開始前，若餘額低於 300 點，就停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-237": {
+  "Section": "範本",
+  "Precondition": "More › Workplace Romance › 第 2 位；點數餘額至少 300 點（見下方停止規則）",
+  "Action": "開啟「Forbidden Office Romance」：確認封面與標題，播放預覽，然後點 Make my version",
+  "Expected Result": "詳細頁顯示「Forbidden Office Romance」及其封面與可播放的預覽；Make my version 會開啟從此範本故事開始的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 2/20 (style_aidrama_forbidden-office-romance)"
+ },
+ "TC-238": {
+  "Section": "範本",
+  "Precondition": "已從「Forbidden Office Romance」開啟聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 2/20；Seedance 2.0 + 完整集數（user, 2026-10-19）。範本列最後執行；每個流程開始前，若餘額低於 300 點，就停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-239": {
+  "Section": "範本",
+  "Precondition": "More › Workplace Romance › 第 3 位；點數餘額至少 300 點（見下方停止規則）",
+  "Action": "開啟「The New Guy's Secret」：確認封面與標題，播放預覽，然後點 Make my version",
+  "Expected Result": "詳細頁顯示「The New Guy's Secret」及其封面與可播放的預覽；Make my version 會開啟從此範本故事開始的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 3/20 (style_aidrama_the-new-guys-secret)"
+ },
+ "TC-240": {
+  "Section": "範本",
+  "Precondition": "已從「The New Guy's Secret」開啟聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 3/20；Seedance 2.0 + 完整集數（user, 2026-10-19）。範本列最後執行；每個流程開始前，若餘額低於 300 點，就停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-241": {
+  "Section": "範本",
+  "Precondition": "More › Workplace Romance › 第 4 位；點數餘額至少 300 點（見下方停止規則）",
+  "Action": "開啟「The Art of Falling」：確認封面與標題，播放預覽，然後點 Make my version",
+  "Expected Result": "詳細頁顯示「The Art of Falling」及其封面與可播放的預覽；Make my version 會開啟從此範本故事開始的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 4/20 (style_aidrama_the-art-of-falling)"
+ },
+ "TC-242": {
+  "Section": "範本",
+  "Precondition": "已從「The Art of Falling」開啟聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 4/20；Seedance 2.0 + 完整集數（user, 2026-10-19）。範本列最後執行；每個流程開始前，若餘額低於 300 點，就停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-243": {
+  "Section": "範本",
+  "Precondition": "More › Workplace Romance › 第 5 位；點數餘額至少 300 點（見下方停止規則）",
+  "Action": "開啟「Glad We Came」：確認封面與標題，播放預覽，然後點 Make my version",
+  "Expected Result": "詳細頁顯示「Glad We Came」及其封面與可播放的預覽；Make my version 會開啟從此範本故事開始的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 5/20 (style_aidrama_glad-we-came)"
+ },
+ "TC-244": {
+  "Section": "範本",
+  "Precondition": "已從「Glad We Came」開啟聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 5/20；Seedance 2.0 + 完整集數（user, 2026-10-19）。範本列最後執行；每個流程開始前，若餘額低於 300 點，就停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-245": {
+  "Section": "範本",
+  "Precondition": "More › Fantasy & Destiny › 第 1 位；點數餘額至少 300 點（見下方停止規則）",
+  "Action": "開啟「Love, Unscripted」：確認封面與標題，播放預覽，然後點 Make my version",
+  "Expected Result": "詳細頁顯示「Love, Unscripted」及其封面與可播放的預覽；Make my version 會開啟從此範本故事開始的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 6/20 (style_aidrama_love-unscripted)"
+ },
+ "TC-246": {
+  "Section": "範本",
+  "Precondition": "已從「Love, Unscripted」開啟聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 6/20；Seedance 2.0 + 完整集數（user, 2026-10-19）。範本列最後執行；每個流程開始前，若餘額低於 300 點，就停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-247": {
+  "Section": "範本",
+  "Precondition": "More › Fantasy & Destiny › 第 2 位；點數餘額至少 300 點（見下方停止規則）",
+  "Action": "開啟「The Dragon's Chosen Bride」：確認封面與標題，播放預覽，然後點 Make my version",
+  "Expected Result": "詳細頁顯示「The Dragon's Chosen Bride」及其封面與可播放的預覽；Make my version 會開啟從此範本故事開始的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 7/20 (style_aidrama_the-dragons-chosen-bride)"
+ },
+ "TC-248": {
+  "Section": "範本",
+  "Precondition": "已從「The Dragon's Chosen Bride」開啟聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 7/20；Seedance 2.0 + 完整集數（user, 2026-10-19）。範本列最後執行；每個流程開始前，若餘額低於 300 點，就停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-249": {
+  "Section": "範本",
+  "Precondition": "More › Fantasy & Destiny › 第 3 位；點數餘額至少 300 點（見下方停止規則）",
+  "Action": "開啟「Awakening the Storm」：確認封面與標題，播放預覽，然後點 Make my version",
+  "Expected Result": "詳細頁顯示「Awakening the Storm」及其封面與可播放的預覽；Make my version 會開啟從此範本故事開始的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 8/20 (style_aidrama_awakening-the-storm)"
+ },
+ "TC-250": {
+  "Section": "範本",
+  "Precondition": "已從「Awakening the Storm」開啟聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 8/20；Seedance 2.0 + 完整集數（user, 2026-10-19）。範本列最後執行；每個流程開始前，若餘額低於 300 點，就停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-251": {
+  "Section": "範本",
+  "Precondition": "More › Fantasy & Destiny › 第 4 位；點數餘額至少 300 點（見下方停止規則）",
+  "Action": "開啟「The Hero's Dangerous Heart」：確認封面與標題，播放預覽，然後點 Make my version",
+  "Expected Result": "詳細頁顯示「The Hero's Dangerous Heart」及其封面與可播放的預覽；Make my version 會開啟從此範本故事開始的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 9/20 (style_aidrama_the-heros-dangerous-heart)"
+ },
+ "TC-252": {
+  "Section": "範本",
+  "Precondition": "已從「The Hero's Dangerous Heart」開啟聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 9/20；Seedance 2.0 + 完整集數（user, 2026-10-19）。範本列最後執行；每個流程開始前，若餘額低於 300 點，就停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-253": {
+  "Section": "範本",
+  "Precondition": "More › Fantasy & Destiny › 第 5 位；點數餘額至少 300 點（見下方停止規則）",
+  "Action": "開啟「The Rebel and the Valedictorian」：確認封面與標題，播放預覽，然後點 Make my version",
+  "Expected Result": "詳細頁顯示「The Rebel and the Valedictorian」及其封面與可播放的預覽；Make my version 會開啟從此範本故事開始的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 10/20 (style_aidrama_the-rebel-and-the-valedictorian)"
+ },
+ "TC-254": {
+  "Section": "範本",
+  "Precondition": "已從「The Rebel and the Valedictorian」開啟聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 10/20；Seedance 2.0 + 完整集數（user, 2026-10-19）。範本列最後執行；每個流程開始前，若餘額低於 300 點，就停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-255": {
+  "Section": "範本",
+  "Precondition": "More › Urban Romance › 第 1 位；點數餘額至少 300 點（見下方停止規則）",
+  "Action": "開啟「After Closing」：確認封面與標題，播放預覽，然後點 Make my version",
+  "Expected Result": "詳細頁顯示「After Closing」及其封面與可播放的預覽；Make my version 會開啟從此範本故事開始的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 11/20 (style_aidrama_after-closing)"
+ },
+ "TC-256": {
+  "Section": "範本",
+  "Precondition": "已從「After Closing」開啟聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 11/20；Seedance 2.0 + 完整集數（user, 2026-10-19）。範本列最後執行；每個流程開始前，若餘額低於 300 點，就停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-257": {
+  "Section": "範本",
+  "Precondition": "More › Urban Romance › 第 2 位；點數餘額至少 300 點（見下方停止規則）",
+  "Action": "開啟「The Fake Engagement」：確認封面與標題，播放預覽，然後點 Make my version",
+  "Expected Result": "詳細頁顯示「The Fake Engagement」及其封面與可播放的預覽；Make my version 會開啟從此範本故事開始的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 12/20 (style_aidrama_the-fake-engagement)；Regression DRI261894P0008 (NewCreated, AIFound)：The Fake Engagement 範本使用標題為 Billionaire Romance 的封面圖 — 此處一併重測此單"
+ },
+ "TC-258": {
+  "Section": "範本",
+  "Precondition": "已從「The Fake Engagement」開啟聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 12/20；Seedance 2.0 + 完整集數（user, 2026-10-19）。範本列最後執行；每個流程開始前，若餘額低於 300 點，就停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-259": {
+  "Section": "範本",
+  "Precondition": "More › Urban Romance › 第 3 位；點數餘額至少 300 點（見下方停止規則）",
+  "Action": "開啟「The Pop Star's Secret Girlfriend」：確認封面與標題，播放預覽，然後點 Make my version",
+  "Expected Result": "詳細頁顯示「The Pop Star's Secret Girlfriend」及其封面與可播放的預覽；Make my version 會開啟從此範本故事開始的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 13/20 (style_aidrama_the-pop-stars-secret-girlfriend)"
+ },
+ "TC-260": {
+  "Section": "範本",
+  "Precondition": "已從「The Pop Star's Secret Girlfriend」開啟聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 13/20；Seedance 2.0 + 完整集數（user, 2026-10-19）。範本列最後執行；每個流程開始前，若餘額低於 300 點，就停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-261": {
+  "Section": "範本",
+  "Precondition": "More › Urban Romance › 第 4 位；點數餘額至少 300 點（見下方停止規則）",
+  "Action": "開啟「The House We Both Wanted」：確認封面與標題，播放預覽，然後點 Make my version",
+  "Expected Result": "詳細頁顯示「The House We Both Wanted」及其封面與可播放的預覽；Make my version 會開啟從此範本故事開始的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 14/20 (style_aidrama_the-house-we-both-wanted)"
+ },
+ "TC-262": {
+  "Section": "範本",
+  "Precondition": "已從「The House We Both Wanted」開啟聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 14/20；Seedance 2.0 + 完整集數（user, 2026-10-19）。範本列最後執行；每個流程開始前，若餘額低於 300 點，就停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-263": {
+  "Section": "範本",
+  "Precondition": "More › Family & Life › 第 1 位；點數餘額至少 300 點（見下方停止規則）",
+  "Action": "開啟「The Heiress and Her Protector」：確認封面與標題，播放預覽，然後點 Make my version",
+  "Expected Result": "詳細頁顯示「The Heiress and Her Protector」及其封面與可播放的預覽；Make my version 會開啟從此範本故事開始的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 15/20 (style_aidrama_the-heiress-and-her-protector)"
+ },
+ "TC-264": {
+  "Section": "範本",
+  "Precondition": "從「The Heiress and Her Protector」開始的聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 15/20；Seedance 2.0 + 完整一集（user，2026-10-19）。範本列最後執行；每次流程前若餘額低於 300 點數，停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-265": {
+  "Section": "範本",
+  "Precondition": "More › Family & Life › 第 2 個位置；餘額至少 300 點數（見下方停止規則）",
+  "Action": "開啟「Proposal Across Every Lifetime」：確認封面與標題、播放預覽，再點 Make my version",
+  "Expected Result": "詳情頁顯示「Proposal Across Every Lifetime」及其封面與可播放的預覽；Make my version 會開啟以此範本故事為起點的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 16/20 (style_aidrama_proposal-across-every-lifetime)"
+ },
+ "TC-266": {
+  "Section": "範本",
+  "Precondition": "從「Proposal Across Every Lifetime」開始的聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 16/20；Seedance 2.0 + 完整一集（user，2026-10-19）。範本列最後執行；每次流程前若餘額低於 300 點數，停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-267": {
+  "Section": "範本",
+  "Precondition": "More › Family & Life › 第 3 個位置；餘額至少 300 點數（見下方停止規則）",
+  "Action": "開啟「Six Things You Didn't Know」：確認封面與標題、播放預覽，再點 Make my version",
+  "Expected Result": "詳情頁顯示「Six Things You Didn't Know」及其封面與可播放的預覽；Make my version 會開啟以此範本故事為起點的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 17/20 (style_aidrama_six-things-you-didnt-know)"
+ },
+ "TC-268": {
+  "Section": "範本",
+  "Precondition": "從「Six Things You Didn't Know」開始的聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 17/20；Seedance 2.0 + 完整一集（user，2026-10-19）。範本列最後執行；每次流程前若餘額低於 300 點數，停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-269": {
+  "Section": "範本",
+  "Precondition": "More › Family & Life › 第 4 個位置；餘額至少 300 點數（見下方停止規則）",
+  "Action": "開啟「The Dog Who Remembered Her」：確認封面與標題、播放預覽，再點 Make my version",
+  "Expected Result": "詳情頁顯示「The Dog Who Remembered Her」及其封面與可播放的預覽；Make my version 會開啟以此範本故事為起點的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 18/20 (style_aidrama_the-dog-who-remembered-her)"
+ },
+ "TC-270": {
+  "Section": "範本",
+  "Precondition": "從「The Dog Who Remembered Her」開始的聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 18/20；Seedance 2.0 + 完整一集（user，2026-10-19）。範本列最後執行；每次流程前若餘額低於 300 點數，停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-271": {
+  "Section": "範本",
+  "Precondition": "More › Animated Stories › 第 1 個位置；餘額至少 300 點數（見下方停止規則）",
+  "Action": "開啟「The Ring He Worked For」：確認封面與標題、播放預覽，再點 Make my version",
+  "Expected Result": "詳情頁顯示「The Ring He Worked For」及其封面與可播放的預覽；Make my version 會開啟以此範本故事為起點的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 19/20 (style_aidrama_the-ring-he-worked-for)"
+ },
+ "TC-272": {
+  "Section": "範本",
+  "Precondition": "從「The Ring He Worked For」開始的聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 19/20；Seedance 2.0 + 完整一集（user，2026-10-19）。範本列最後執行；每次流程前若餘額低於 300 點數，停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-273": {
+  "Section": "範本",
+  "Precondition": "More › Animated Stories › 第 2 個位置；餘額至少 300 點數（見下方停止規則）",
+  "Action": "開啟「The Beer Heir」：確認封面與標題、播放預覽，再點 Make my version",
+  "Expected Result": "詳情頁顯示「The Beer Heir」及其封面與可播放的預覽；Make my version 會開啟以此範本故事為起點的聊天（標題與前提和卡片相符）",
+  "Notes": "範本 20/20 (style_aidrama_the-beer-heir)"
+ },
+ "TC-274": {
+  "Section": "範本",
+  "Precondition": "從「The Beer Heir」開始的聊天（上一列）",
+  "Action": "接受大綱、設定角色、產生分鏡 (Storyboard)、選擇 Seedance 2.0、Generate Video（30 秒預覽），再 Create 完整一集（90 秒）",
+  "Expected Result": "每個階段皆順利完成、無錯誤；預覽與完整 90 秒一集都能播放，且呈現此範本的故事；各階段扣除的點數與卡片價格相符",
+  "Notes": "範本 20/20；Seedance 2.0 + 完整一集（user，2026-10-19）。範本列最後執行；每次流程前若餘額低於 300 點數，停止範本列，其餘標為 Not run 並列入報告"
+ },
+ "TC-275": {
+  "Section": "文字",
+  "Action": "造訪每個 AI Mini Drama 頁面、對話框、toast 與狀態",
+  "Expected Result": "無拼字、文法或標點錯誤；無被截斷或未翻譯的字串",
+  "Precondition": "App 語言已透過 iOS Settings › PowerDirector › Language 設為英文 (ENU)"
+ },
+ "TC-276": {
+  "Section": "文字",
+  "Action": "造訪每個 AI Mini Drama 頁面、對話框、toast 與狀態",
+  "Expected Result": "無拼字、文法或標點錯誤；無被截斷或未翻譯的字串",
+  "Precondition": "App 語言已透過 iOS Settings › PowerDirector › Language 設為繁體中文 (CHT)"
+ },
+ "TC-277": {
+  "Section": "文字",
+  "Action": "造訪每個 AI Mini Drama 頁面、對話框、toast 與狀態",
+  "Expected Result": "無拼字、文法或標點錯誤；無被截斷或未翻譯的字串",
+  "Notes": "回歸 DRI261896P0022（Assigned, AIFound）：範本清單中的日文範本名稱被截斷並顯示 \"…\"，請在此一併複查此單",
+  "Precondition": "App 語言已透過 iOS Settings › PowerDirector › Language 設為日文 (JPN)"
+ },
+ "TC-278": {
+  "Section": "文字",
+  "Precondition": "分鏡已完成",
+  "Action": "閱讀每個產生的場景（語言）",
+  "Expected Result": "所有產生的文字皆為格式卡上所選的語言"
+ },
+ "TC-279": {
+  "Section": "文字",
+  "Precondition": "分鏡已完成",
+  "Action": "閱讀每個產生的場景（空白欄位）",
+  "Expected Result": "每個場景都有標題與腳本；無空白或僅有空白字元的欄位"
+ },
+ "TC-280": {
+  "Section": "文字",
+  "Precondition": "分鏡已完成",
+  "Action": "閱讀每個產生的場景（重複）",
+  "Expected Result": "除非故事需要，否則沒有重複的句子或場景"
+ },
+ "TC-281": {
+  "Section": "文字",
+  "Precondition": "分鏡已完成",
+  "Action": "閱讀每個產生的場景（亂碼）",
+  "Expected Result": "沒有編碼錯誤或替代字元"
+ },
+ "TC-282": {
+  "Section": "文字",
+  "Precondition": "分鏡已完成",
+  "Action": "閱讀每個產生的場景（引號）",
+  "Expected Result": "英文輸出使用英文引號，而非「」"
+ },
+ "TC-283": {
+  "Section": "建立我的角色",
+  "Precondition": "資料庫中有一張有辨識度的照片；記下其主體與方向",
+  "Action": "選為 Reference 並確認裁切",
+  "Expected Result": "參考圖預覽顯示同一張照片且方向相同（縮放可接受）"
+ },
+ "TC-284": {
+  "Section": "建立我的角色",
+  "Precondition": "已設定 Description、Gender 與 Age，Ethnicity 為空",
+  "Action": "查看 Generate 與任何提示",
+  "Expected Result": "Generate 為停用；記錄是否有任何回饋說明原因",
+  "Notes": "回歸 DRI261895P0032（NeedCodeReview, AIFound）：缺少角色屬性時 Generate 按鈕停用但沒有明確原因。— 請在此一併複查此單"
+ },
+ "TC-285": {
+  "Section": "建立我的角色",
+  "Precondition": "已設定 Description、Gender 與 Ethnicity，Age 為空",
+  "Action": "查看 Generate 與任何提示",
+  "Expected Result": "Generate 為停用；記錄是否有任何回饋說明原因"
+ },
+ "TC-286": {
+  "Section": "點子輸入",
+  "Precondition": "在想法輸入框與角色描述中輸入長文字",
+  "Action": "比對文字與展開、傳送控制項",
+  "Expected Result": "文字不會跑到相鄰控制項的下方或上方"
+ },
+ "TC-287": {
+  "Section": "建立我的角色",
+  "Precondition": "鍵盤在角色描述上開啟",
+  "Action": "不先關閉鍵盤，以各種方式結束編輯：Done、Generate、點擊外部、Cancel、Return",
+  "Expected Result": "任務繼續進行；不需要額外點一下來關閉鍵盤"
+ },
+ "TC-288": {
+  "Section": "角色",
+  "Precondition": "角色資料庫已開啟",
+  "Action": "開啟篩選並嘗試每個 Ethnicity 值，包含 Southeast Asian 與 Mixed",
+  "Expected Result": "每個值都回傳符合的角色，或在沒有角色時顯示清楚的空狀態"
+ },
+ "TC-289": {
+  "Section": "角色",
+  "Precondition": "已建立一個屬性已知的新 Mine 角色",
+  "Action": "依這些屬性篩選",
+  "Expected Result": "新角色會出現在其各自的屬性之下"
+ },
+ "TC-290": {
+  "Section": "角色",
+  "Precondition": "先前的短劇中已有角色儲存到 Mine",
+  "Action": "開始新短劇並為某個角色位選擇該角色",
+  "Expected Result": "該角色以 Mine 標籤列出，並套用到該角色位"
+ },
+ "TC-291": {
+  "Section": "角色",
+  "Precondition": "卡司中有已產生的角色",
+  "Action": "嘗試從聊天或選擇器重新命名該角色",
+  "Expected Result": "記錄是否存在重新命名的途徑，以及新名稱是否被保留",
+  "Notes": "回歸 DRI261893-0119（NewCreated, AIAgent）：已產生的角色沒有 Rename 途徑 — 請在此一併複查此單"
+ },
+ "TC-292": {
+  "Section": "分鏡",
+  "Action": "點主圖錯誤卡上的 Edit，再點 Regenerate",
+  "Expected Result": "只有主圖重新產生；Location 圖維持原樣；價格為一張圖（◆6）",
+  "Precondition": "場景的主圖失敗而 Location 圖成功（Pink › Trip image moderation；記錄所用開關）",
+  "Notes": "若測試資料讓兩張圖都失敗，記為 Blocked（test-data）；TC-070 涵蓋兩者皆失敗"
+ },
+ "TC-293": {
+  "Section": "分鏡",
+  "Action": "點「Create storyboard」卡上的 Generate 並等待",
+  "Expected Result": "成功的圖片已更新；失敗的場景顯示「!」與「1 image couldn't be updated. Your credits have been refunded. Tap Edit to try again, or tell me what to change.」及 Edit；Credit Details 顯示退款",
+  "Precondition": "分鏡已完成；請 Iris 更新兩張場景圖，其中一張會失敗（Pink › Trip image moderation）"
+ },
+ "TC-294": {
+  "Section": "分鏡",
+  "Action": "點 Back",
+  "Precondition": "請 Iris 更新場景圖後，已在 「Create storyboard」 卡片點 Generate；階段 ①（「Preparing your scenes...」）",
+  "Expected Result": "「Leave while we're preparing?」/「Your storyboard will start soon. If you leave now, we'll have to prepare it again when you come back.」，附 「Stay」 與紅色 「Leave anyway」；不出現 「Stop and lose your credits?」",
+  "Notes": "PM Figma 10/22 (4422:2) 比 PM 10/21 §13.6 與 Design 1016 畫面新（以新的為準）。該畫面以兩階段規則描述聊天中的分鏡更新；其階段 ① 卡片標題未畫出 (Q-22)"
+ },
+ "TC-413": {
+  "Section": "分鏡",
+  "Action": "點 Back，再從 History 重新開啟該短劇",
+  "Precondition": "已在聊天中要求分鏡更新，階段 ②：卡片顯示 「Creating your storyboard...」",
+  "Expected Result": "無對話框；顯示 toast 「We'll keep making your storyboard. Find it in History.」；重新開啟後，更新過的場景圖以新的分鏡訊息出現",
+  "Notes": "PM Figma 10/22 (4422:2)；僅 PM：尚無 Design 畫面"
+ },
+ "TC-295": {
+  "Section": "分鏡",
+  "Action": "點「Create storyboard」上的 Generate 並等待",
+  "Expected Result": "顯示「Something went wrong on my end.」與「ⓘ Storyboard couldn't be created. Try creating your storyboard again.」及 Try again；Try again 會產生分鏡",
+  "Precondition": "分鏡產生會失敗（Pink › Fail turn 於分鏡 turn；記錄所用開關）",
+  "Notes": "任何失敗都要在所有故障開關關閉下重測（團隊偏好）"
+ },
+ "TC-296": {
+  "Section": "影片錯誤",
+  "Action": "等待重新產生結束",
+  "Expected Result": "舊版本保留且可播放；聊天顯示「{n} scenes couldn't be generated. Your credits have been refunded. Tap Edit to regenerate, or tell me what to change.」",
+  "Precondition": "已完成的影片；一次會失敗的場景片段重新產生（Pink › Inject failure status，該 beat）"
+ },
+ "TC-297": {
+  "Section": "影片",
+  "Precondition": "場景影片已重新產生；卡片下方顯示「Your video has been updated.」",
+  "Action": "播放影片；在第二個重新產生的短劇上，離開聊天再回來",
+  "Expected Result": "訊息在開始播放後消失，離開再返回後也消失"
+ },
+ "TC-298": {
+  "Section": "字幕",
+  "Precondition": "顯示「Captions couldn't be added. Try again」；重試將再次失敗",
+  "Action": "點 Try again 並等待",
+  "Expected Result": "顯示「Adding captions…」，然後「Captions couldn't be added. Try again」與 Try again 再次出現；影片仍沒有字幕",
+  "Notes": "目前沒有已知的故障開關可讓語音轉文字 (STT) 失敗；沒有時標為 Blocked (observability)"
+ },
+ "TC-299": {
+  "Section": "分鏡預覽",
+  "Precondition": "分鏡旁白的語音轉文字 (STT) 失敗",
+  "Action": "查看 Storyboard Preview 卡，再點 Retry",
+  "Expected Result": "顯示「ⓘ Storyboard preview unavailable. Try again to generate the preview.」與 Retry；Retry 會建立預覽",
+  "Notes": "TC-078 是 TTS 失敗。目前沒有已知的故障開關可讓 STT 失敗；沒有時標為 Blocked (observability)"
+ },
+ "TC-300": {
+  "Section": "分鏡",
+  "Precondition": "顯示「Create storyboard」卡；Wi-Fi 關閉且無行動網路（先確認 Appium 已透過 USB 連線）",
+  "Action": "點 Generate",
+  "Expected Result": "顯示 toast「You're offline. Check your connection and try again.」；沒有送出任何內容（log 中無請求）也沒有扣點（Credit Details）；卡片保留",
+  "Notes": "真實斷網 (REQ-020)；結束後立即重新開啟 Wi-Fi"
+ },
+ "TC-301": {
+  "Section": "故事大綱",
+  "Precondition": "大綱產生中；產生過程中關閉 Wi-Fi（先確認 Appium 已透過 USB 連線）",
+  "Action": "重新開啟 Wi-Fi 並等待",
+  "Expected Result": "聊天顯示 Try again，而不是自行恢復；網路恢復後，Try again 會帶出大綱；不會再次顯示格式卡",
+  "Notes": "真實斷網 (REQ-020)。建置備註 TR261006-0055 OUTLINE-NO-FORMAT-RETURN。PM 10/6 (pm-update-5) 比 09/30 的自動恢復 (R-165, REQ-032) 更新"
+ },
+ "TC-302": {
+  "Section": "分鏡",
+  "Precondition": "已在「Create storyboard」上點 Generate；顯示「Thinking...」（計價中）",
+  "Action": "點 Back",
+  "Expected Result": "無對話框；聊天關閉"
+ },
+ "TC-303": {
+  "Section": "影片",
+  "Action": "點 Generate Video，再點「Notify me」",
+  "Notes": "自行全新安裝",
+  "Precondition": "全新安裝（屬於此案例的一部分）：解除安裝 PowerDirector，重新安裝受測 build，還原 Developer Server，登入，設定方案，開啟 Log stage timings 與 Write Log；然後停在影片設定卡片的短劇",
+  "Expected Result": "出現 iOS 通知權限對話框"
+ },
+ "TC-304": {
+  "Section": "影片",
+  "Action": "點 Generate Video，點「Not now」，再開始另一支影片",
+  "Expected Result": "第二支影片不會出現前置提示",
+  "Notes": "自行全新安裝",
+  "Precondition": "全新安裝（屬於此案例的一部分）：解除安裝 PowerDirector，重新安裝受測 build，還原 Developer Server，登入，設定方案，開啟 Log stage timings 與 Write Log；然後停在影片設定卡片的短劇"
+ },
+ "TC-305": {
+  "Section": "影片",
+  "Action": "等到影片結束",
+  "Expected Result": "不會出現「Good news!」toast",
+  "Precondition": "影片產生中，其中一個場景設為失敗（Pink › Inject failure status）；使用者在 app 的另一個頁面"
+ },
+ "TC-388": {
+  "Section": "影片",
+  "Action": "等到重試成功且每個場景都完成",
+  "Expected Result": "整支影片完成時出現一次「Good news!」toast（與推播），更早時不會出現",
+  "Precondition": "影片產生中，其中一個場景設為以 6xxx 失敗並自動重試（Pink › Inject failure status；記錄所用開關）；使用者在另一個頁面",
+  "Notes": "若沒有任何開關能產生自動重試的 6xxx，記為 Blocked（observability）"
+ },
+ "TC-306": {
+  "Section": "影片",
+  "Precondition": "在其他頁面顯示「Good news! Your \"{Drama title}\" is ready.」toast",
+  "Action": "點「Close」；下一支完成的影片點「View」",
+  "Expected Result": "Close 會關閉 toast 並停留在目前頁面；View 會開啟 History"
+ },
+ "TC-307": {
+  "Section": "影片",
+  "Precondition": "已允許通知；影片產生中；App 已切到背景",
+  "Action": "等待影片完成，再點推播",
+  "Expected Result": "一則推播「Your drama is ready」/「\"{Drama title}\" is done. Tap to watch it.」；點擊後開啟該聊天並停在影片卡"
+ },
+ "TC-308": {
+  "Section": "歷史記錄",
+  "Precondition": "影片產生期間在 History 重新命名短劇",
+  "Action": "在其他頁面等待影片完成，再讓第二支影片在 App 於背景時完成",
+  "Expected Result": "toast 與推播使用新名稱"
+ },
+ "TC-309": {
+  "Section": "角色",
+  "Precondition": "Change Characters 中顯示提示「Tap to choose a look for {name}」",
+  "Action": "點與提示所指不同的角色位",
+  "Expected Result": "提示消失",
+  "Notes": "需要此提示（每位使用者僅在首次使用時顯示）：與 TC-034 一起執行"
+ },
+ "TC-310": {
+  "Section": "角色",
+  "Precondition": "每個卡司角色位都已有造型",
+  "Action": "點大綱卡片中某角色的 ⟳ 切換圖示並更換該造型",
+  "Expected Result": "⟳ 圖示開啟該角色的 Change Characters；不出現 「Tap to choose a look for…」 提示"
+ },
+ "TC-311": {
+  "Section": "聊天行為",
+  "Precondition": "已完成的影片；聊天捲動到較早的卡片",
+  "Action": "開啟 Full Edit，再回到聊天",
+  "Expected Result": "聊天開在底部（最新訊息）",
+  "Notes": "PM 10/20 §13.2 取代了「保留使用者離開時的位置」；TC-101/102 涵蓋 History 與 Change Characters"
+ },
+ "TC-312": {
+  "Section": "分鏡",
+  "Precondition": "場景描述編輯器已開啟（在失敗的場景上點 Edit）",
+  "Action": "輸入到上限，再貼上更多文字",
+  "Expected Result": "文字停在 1,000 字元；計數器顯示紅色「1000/1000」；「You've reached the 1,000-character limit.」"
+ },
+ "TC-313": {
+  "Section": "分鏡",
+  "Precondition": "場景描述編輯器已開啟（在失敗的場景上點 Edit），文字為 1,000 字元並顯示上限訊息",
+  "Action": "刪除一個字元",
+  "Expected Result": "計數器不再是紅色，訊息消失"
+ },
+ "TC-314": {
+  "Section": "影片錯誤",
+  "Precondition": "場景影片描述編輯器已開啟（在失敗的片段上點 Edit）",
+  "Action": "輸入到上限，再貼上更多文字",
+  "Expected Result": "文字停在 1,000 字元；計數器顯示紅色「1000/1000」；「You've reached the 1,000-character limit.」"
+ },
+ "TC-315": {
+  "Section": "影片錯誤",
+  "Precondition": "場景影片描述編輯器已開啟（在失敗的片段上點 Edit），文字為 1,000 字元並顯示上限訊息",
+  "Action": "刪除一個字元",
+  "Expected Result": "計數器不再是紅色，訊息消失"
+ },
+ "TC-316": {
+  "Section": "影片錯誤",
+  "Precondition": "場景影片描述編輯器已開啟（在失敗的片段上點 Edit）",
+  "Action": "閱讀描述與按鈕",
+  "Notes": "PM 將按鈕標為「Regenerate Video ◆30」；以 Design 為準",
+  "Expected Result": "純文字可編輯，分為四個區塊，標題為「Cinematic Style」、「Scene」、「Motion」、「Camera」，各一段；下方有「Regenerate scene ◆{price}」，{price} = 該場景長度 × 該短劇模型的費率（Seedance 2.0 每秒 13，Seedance 2.0 Mini 為 4，Seedance 2.5 為 6；15 秒的場景 → ◆195 / ◆60 / ◆90）"
+ },
+ "TC-317": {
+  "Section": "建立我的角色",
+  "Precondition": "Create my character 已加入參考照片",
+  "Action": "再點 Reference 並選另一張照片",
+  "Expected Result": "新照片取代舊照片；只顯示一張參考照片"
+ },
+ "TC-318": {
+  "Section": "歷史記錄",
+  "Precondition": "短劇從未重新命名",
+  "Action": "請 Iris 在聊天中更改故事標題，再開啟 History",
+  "Expected Result": "卡片顯示新的短劇標題"
+ },
+ "TC-319": {
+  "Section": "歷史記錄",
+  "Precondition": "使用者已在 History 重新命名短劇",
+  "Action": "請 Iris 在聊天中更改故事標題，再開啟 History",
+  "Expected Result": "卡片保留使用者取的名稱"
+ },
+ "TC-320": {
+  "Section": "歷史記錄",
+  "Precondition": "短劇儲存在大綱階段（尚無分鏡）",
+  "Action": "開啟 History",
+  "Expected Result": "其卡片顯示預設縮圖",
+  "Notes": "分鏡畫面請見 TC-106"
+ },
+ "TC-321": {
+  "Section": "影片",
+  "Precondition": "完整影片已完成；顯示「Ready for the next episode?」",
+  "Action": "點「Create Next Episode」",
+  "Expected Result": "新的一集從這部短劇的故事開始（記錄開啟了什麼）；第一部短劇保留在 History 中不變",
+  "Notes": "Design 沒有畫出目的地；較舊的 PM 畫面會開始新的大綱並保留第 1 集。若不同，提出處置問題"
+ },
+ "TC-322": {
+  "Section": "中斷",
+  "Precondition": "大綱或聊天修改已用 Stop 停止",
+  "Action": "傳訊息請 Iris 繼續故事",
+  "Expected Result": "故事從上次儲存的階段繼續；已完成的內容不會遺失",
+  "Notes": "同事的方向；規格未提及。若無法繼續，處置為 spec-addition"
+ },
+ "TC-323": {
+  "Section": "點數與額度",
+  "Precondition": "從未使用過 AI Mini Drama 的帳號",
+  "Action": "建立角色、分鏡與影片，再嘗試 AI Mini Drama 以外的點數功能",
+  "Expected Result": "免費試用點數只發放一次，用於 AI Mini Drama 的這三個步驟；其他地方不會提供；用完後改扣自有點數"
+ },
+ "TC-324": {
+  "Section": "點數與額度",
+  "Precondition": "處於首次免費使用期間的帳號",
+  "Action": "開啟圖片產生步驟與影片設定卡",
+  "Expected Result": "模型為預設且無法更改"
+ },
+ "TC-325": {
+  "Section": "聊天行為",
+  "Precondition": "聊天中有回覆正在產生",
+  "Action": "依序執行：(1) 傳送，在回覆時點 Stop；(2) Stop、編輯輸入、傳送、Stop；(3) Stop、Back、從 History 重新開啟聊天；(4) 回覆時按 Back、返回、Stop",
+  "Expected Result": "App 不會當機或重新啟動；每個流程後聊天都可正常使用"
+ },
+ "TC-326": {
+  "Section": "角色",
+  "Precondition": "Change Characters 已開啟在內建角色範本上",
+  "Action": "連續點幾個範本",
+  "Expected Result": "其他縮圖保持可見；選取另一個時沒有任何縮圖變空白或閃爍",
+  "Notes": "錄製畫面 (Appium) 以捕捉短暫的空白"
+ },
+ "TC-327": {
+  "Section": "歷史記錄",
+  "Precondition": "History 已開啟",
+  "Action": "點 ⓘ 按鈕",
+  "Expected Result": "資訊氣泡開啟，箭頭指向 ⓘ 按鈕，且完整顯示在螢幕內",
+  "Notes": "文字與點擊外部由 TC-105 涵蓋"
+ },
+ "TC-328": {
+  "Section": "範本",
+  "Precondition": "More 頁面已開啟",
+  "Action": "查看每個分類標題",
+  "Expected Result": "每個分類依 Design 顯示各自的圖示，而非重複同一個圖示"
+ },
+ "TC-329": {
+  "Section": "Build 檢查",
+  "Precondition": "卡司中每個角色都有造型",
+  "Action": "請 Iris 重新產生所有角色，回答任何問題，再點 Generate",
+  "Expected Result": "出現有價格的「Create characters」提案（而非空的選擇器）；Generate 完成並帶出新造型，只扣一次點數",
+  "Notes": "在兩個建置上通過後移除"
+ },
+ "TC-330": {
+  "Section": "Build 檢查",
+  "Precondition": "字幕失敗的影片",
+  "Action": "開啟某個場景的詳細資料並播放其場景影片",
+  "Expected Result": "場景詳細資料中沒有缺少字幕的標記或字幕錯誤卡；場景影片可播放且沒有錯誤覆蓋層",
+  "Notes": "在兩個建置上通過後移除"
+ },
+ "TC-331": {
+  "Section": "Build 檢查",
+  "Precondition": "影片已完成；Appium 已確認透過 USB 連線",
+  "Action": "點下載，在完成前關閉 Wi-Fi，再重新開啟，然後再點一次下載",
+  "Expected Result": "第一次嘗試以錯誤結束其轉圈；第二次顯示轉圈，然後「Saved to your device.」",
+  "Notes": "真實斷網 (REQ-020)。在兩個建置上通過後移除"
+ },
+ "TC-332": {
+  "Section": "建立我的角色",
+  "Precondition": "有效的 Create my character 表單",
+  "Notes": "僅 PM：尚無 Design 畫面（Design 2026-10-19）",
+  "Action": "點 Generate，觀察產生中的畫面並點變暗的「generating...」按鈕",
+  "Expected Result": "屬性標籤下方有「This usually takes about 1 minute.」；X 保持可用；Generating 按鈕下方有「Cancel」；「generating...」呈暗色，點它沒有反應"
+ },
+ "TC-333": {
+  "Section": "建立我的角色",
+  "Precondition": "角色產生中",
+  "Action": "點「Cancel」，再點「Leave anyway」",
+  "Expected Result": "顯示「Stop and lose your credits?」/「This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded.」；Leave anyway 會停止產生；Credit Details 保留扣款且沒有退款列",
+  "Notes": "僅 PM：尚無 Design 畫面（Design 2026-10-19）"
+ },
+ "TC-334": {
+  "Section": "建立我的角色",
+  "Precondition": "角色產生中",
+  "Action": "點 X，再點「Keep Generating」",
+  "Expected Result": "出現相同的對話框；Keep Generating 會關閉它且角色完成產生",
+  "Notes": "僅 PM：尚無 Design 畫面（Design 2026-10-19）"
+ },
+ "TC-383": {
+  "Section": "建立我的角色",
+  "Precondition": "角色產生中",
+  "Action": "點選面板外的深色區域，再點「Keep Generating」",
+  "Expected Result": "與點 X 時相同，出現「Stop and lose your credits?」；Keep Generating 會關閉它且角色完成產生"
+ },
+ "TC-335": {
+  "Section": "建立我的角色",
+  "Precondition": "角色產生超過 5 分鐘仍未完成",
+  "Action": "等待對話框出現，再點「Close」",
+  "Expected Result": "顯示「We couldn't create your character」/「This is taking longer than expected. Send us feedback and our support team will check your credits.」及 Close / Send Feedback；Close 返回 Make your character 且描述與設定保留；Send Feedback 是藍色主要按鈕",
+  "Notes": "僅 PM：尚無 Design 畫面（Design 2026-10-19）"
+ },
+ "TC-336": {
+  "Section": "建立我的角色",
+  "Precondition": "顯示逾時對話框",
+  "Action": "點「Send Feedback」並閱讀表單（不要送出）",
+  "Expected Result": "Feedback 開在「AI Issues」，AI Feature Name 為「AI Mini Drama • Character generation」，問題為「My character took too long to generate and didn't finish, but my credits were used. Please help me check. Time: {date & time}」，描述作為提示詞，且已填入 e-mail；不顯示 task ID 欄位",
+  "Notes": "僅 PM：尚無 Design 畫面（Design 2026-10-19）。未登入的分支（沒有 e-mail）不執行：測試帳號已登入"
+ },
+ "TC-420": {
+  "Section": "建立我的角色",
+  "Precondition": "已從逾時對話框開啟 Send Feedback 並停在 「AI Issues」，內容已預填 (TC-336)",
+  "Action": "1. 點 「General」，再點 「AI Issues」。2. 點 「What Prompt did you use?」，加一個字，然後點欄位外。3. 清空電子郵件欄位並點 「Submit」；然後重新輸入電子郵件並點欄位外。4. 點新增圖片的方塊並取消選擇器。5. 點 「Privacy Policy」 並返回。6. 點 ‹",
+  "Expected Result": "「General」 顯示一般表單，「AI Issues」 再次顯示 AI 表單（記錄預填文字是否保留）；新增的字顯示在欄位中，點欄位外會關閉鍵盤；電子郵件為空時 「Submit」 變暗且不送出；新增圖片方塊開啟照片選擇器；「Privacy Policy」 開啟隱私頁，返回後回到表單；‹ 關閉 Send Feedback 且不送出",
+  "Notes": "僅 PM：尚無 Design 畫面（PM 主流程 2613:28618，更新 9 4012:23497）。絕不點已啟用的 「Submit」：它會真的向 CyberLink 支援送出回報"
+ },
+ "TC-337": {
+  "Section": "角色",
+  "Precondition": "Finish your characters 中有兩個角色產生中，一個已完成",
+  "Action": "點「Cancel」，再點「Leave anyway」",
+  "Expected Result": "出現「Stop and lose your credits?」；已完成的角色保留，未完成的停止；Credit Details 中沒有它的退款",
+  "Notes": "僅 PM：尚無 Design 畫面（Design 2026-10-19）。TC-041 涵蓋產生中的標題與完成文案"
+ },
+ "TC-338": {
+  "Section": "角色",
+  "Precondition": "Finish your characters 產生超過 5 分鐘仍未完成",
+  "Action": "等待對話框出現，再點「Send Feedback」（不要送出）",
+  "Expected Result": "顯示「We couldn't create your characters」及 Close / Send Feedback；feedback 的問題中註明角色數量",
+  "Notes": "僅 PM：尚無 Design 畫面（Design 2026-10-19）"
+ },
+ "TC-339": {
+  "Section": "建立我的角色",
+  "Precondition": "角色位原本已有造型；已為其產生新角色",
+  "Action": "點 X，再點「Discard」",
+  "Expected Result": "結果關閉；角色位保留先前的造型；新角色不在 Mine 中",
+  "Notes": "僅 PM：尚無 Design 畫面（Design 2026-10-19）。空的角色位由 TC-134 涵蓋"
+ },
+ "TC-340": {
+  "Section": "建立我的角色",
+  "Precondition": "顯示「Discard this character?」",
+  "Action": "點「Keep」",
+  "Expected Result": "對話框關閉，已產生的角色留在畫面上",
+  "Notes": "僅 PM：尚無 Design 畫面（Design 2026-10-19）"
+ },
+ "TC-341": {
+  "Section": "建立我的角色",
+  "Precondition": "顯示已產生的角色",
+  "Action": "點頁面上的「Discard」按鈕",
+  "Expected Result": "結果立即關閉且沒有對話框；角色未儲存到 Mine，也未套用",
+  "Notes": "僅 PM：尚無 Design 畫面（Design 2026-10-19）"
+ },
+ "TC-342": {
+  "Section": "建立我的角色",
+  "Precondition": "顯示已產生的角色",
+  "Action": "將結果向下滑動",
+  "Expected Result": "與 X 相同：出現「Discard this character?」",
+  "Notes": "僅 PM：尚無 Design 畫面（Design 2026-10-19）"
+ },
+ "TC-343": {
+  "Section": "影片",
+  "Precondition": "完整影片已完成",
+  "Action": "點 「Export Full Video」；匯出期間查看預覽，並點 「Full Edit」、「Export Full Video」 與預覽右下角的下載圖示；然後等待",
+  "Expected Result": "無對話框；預覽中央顯示轉圈，播放鈕隱藏且影片暫停；「Full Edit」、「Export Full Video」（標籤不變）與下載圖示變暗且無作用；完成時轉圈消失，播放鈕與三個控制項恢復，toast 顯示 「Saved to Photos.」，且合併後的影片在 Photos 中",
+  "Notes": "PM Figma 10/22 (4418:2)；僅 PM：尚無 Design 畫面"
+ },
+ "TC-414": {
+  "Section": "影片",
+  "Precondition": "Export Full Video 進行中（預覽上有轉圈）",
+  "Action": "點第二個場景的縮圖，然後等待匯出結束",
+  "Expected Result": "預覽切換到該場景且匯出繼續；顯示 「Saved to Photos.」，Photos 中存的是整部短劇，而非該場景",
+  "Notes": "PM Figma 10/22 (4418:2)；僅 PM：尚無 Design 畫面"
+ },
+ "TC-415": {
+  "Section": "影片",
+  "Precondition": "Export Full Video 進行中（預覽上有轉圈）",
+  "Action": "點 Back 並停留在聊天頁直到匯出結束",
+  "Expected Result": "匯出期間 Back 可用；匯出完成時聊天頁顯示 toast 「Saved to Photos.」，且合併後的影片在 Photos 中",
+  "Notes": "PM Figma 10/22 (4418:2)；僅 PM：尚無 Design 畫面。RD 待確認離開後匯出會繼續；否則 Back 會詢問 「Stop exporting?」 (Q-21)"
+ },
+ "TC-416": {
+  "Section": "影片",
+  "Precondition": "完整影片已完成，已開啟結果頁；已確認 Appium 連接 USB",
+  "Action": "點 「Export Full Video」，在完成前關閉 Wi-Fi，讀取結果，再開啟 Wi-Fi 並再次點 「Export Full Video」",
+  "Expected Result": "第一次匯出以 toast 「Couldn't save your video. Try again.」 結束；轉圈消失，Back、「Full Edit」、「Export Full Video」、下載圖示、播放與縮圖都恢復可用；第二次匯出成功儲存（「Saved to Photos.」）",
+  "Notes": "PM Figma 10/22 (4418:2)；僅 PM：尚無 Design 畫面。真實斷網 (REQ-020)；之後立即恢復 Wi-Fi。若離線時匯出仍成功，記為 Blocked（需要失敗測試資料）"
+ },
+ "TC-417": {
+  "Section": "影片",
+  "Precondition": "PowerDirector 尚未被詢問 Photos 存取（全新安裝）或已設為 None；完整影片已完成，已開啟結果頁",
+  "Action": "點 「Export Full Video」 並拒絕 Photos 存取",
+  "Expected Result": "首次匯出時 iOS 詢問照片圖庫存取；拒絕後匯出控制項恢復，toast 顯示 「Allow Photos access in Settings to save your video.」",
+  "Notes": "PM Figma 10/22 (4418:2)；僅 PM：尚無 Design 畫面。回答 iOS 提示或更改 Photos 權限屬系統設定：先詢問使用者，並在之後恢復存取"
+ },
+ "TC-344": {
+  "Section": "聊天行為",
+  "Precondition": "有數則訊息的聊天",
+  "Action": "傳送訊息並在回覆產生時觀察",
+  "Expected Result": "傳送的訊息移到螢幕頂端；回覆在下方產生且畫面不會跟著捲動；超出螢幕時出現 ↓，點擊後平順捲到底部"
+ },
+ "TC-345": {
+  "Section": "影片",
+  "Precondition": "分鏡已完成；數一下場景數",
+  "Action": "閱讀影片設定卡上的「Full Video」",
+  "Expected Result": "長度為 15 秒 × 場景數（例如 6 個場景為 90 sec，8 個為 120 sec）",
+  "Notes": "Design 畫面以 90 sec 與 120 sec 為範例；回答 Q-13"
+ },
+ "TC-346": {
+  "Section": "角色",
+  "Precondition": "帳號在先前的短劇中已看過「Tap to choose a look for {name}」提示",
+  "Action": "開始新短劇並為第一個角色選擇造型",
+  "Expected Result": "不會出現提示"
+ },
+ "TC-347": {
+  "Section": "影片",
+  "Precondition": "顯示影片設定卡",
+  "Action": "點 Standard，再點 Fast",
+  "Expected Result": "副標題變為「Seedance 2.0 • Balanced quality for everyday stories」，再變為「Seedance 2.0 Mini • Quicker results, fewer credits」",
+  "Notes": "PM 10/16 比 Design 新 (REQ-026)"
+ },
+ "TC-348": {
+  "Section": "角色",
+  "Precondition": "卡司已設定",
+  "Expected Result": "顯示「Sure! Which character would you like to change?」及 2–4 個選項標籤；點選標籤會將其作為訊息送出，且標籤消失",
+  "Notes": "PM 10/16 比 Design 新 (REQ-026)",
+  "Action": "在聊天中詢問「Can you change one of the characters to look older?」，然後點角色標籤（例如「The Manager」）"
+ },
+ "TC-391": {
+  "Section": "角色",
+  "Precondition": "Iris 問了「Which character would you like to change?」並附標籤",
+  "Action": "輸入角色名稱並送出，而不是點標籤",
+  "Expected Result": "Iris 將輸入的回答視同點標籤，並提供「Update characters」卡"
+ },
+ "TC-349": {
+  "Section": "角色",
+  "Precondition": "顯示「Update characters • 1 character」卡 (TC-045)",
+  "Action": "點 Generate 並等待",
+  "Expected Result": "卡片消失，Iris 回覆「Working on it...」；然後「Here's your updated cast.」並附新的 Story Outline & Characters 卡顯示新造型，以及「Your characters' looks are updated! Ready to create the storyboard?」與 Create storyboard；Credit Details 顯示卡片價格只扣一次（大綱文字也一併更新）",
+  "Notes": "PM 10/16 比 Design 新 (REQ-026)"
+ },
+ "TC-350": {
+  "Section": "角色",
+  "Precondition": "卡司已設定",
+  "Action": "在聊天中要求更換兩個角色的造型",
+  "Expected Result": "卡片顯示「Update characters • 2 characters」，其價格為單一角色產生的兩倍",
+  "Notes": "PM 10/16 比 Design 新 (REQ-026)。點數數字具有約束力"
+ },
+ "TC-351": {
+  "Section": "角色",
+  "Precondition": "角色更新產生中（「Working on it...」）",
+  "Action": "點 Back",
+  "Expected Result": "顯示「Stop and lose your credits?」/「This is still generating. If you leave now, it'll stop and the credits you've spent won't be refunded.」及 Leave anyway / Keep Generating",
+  "Notes": "PM 10/16 比 Design 新 (REQ-026)"
+ },
+ "TC-352": {
+  "Section": "角色",
+  "Precondition": "分鏡已產生",
+  "Action": "在聊天中要求更換角色的造型，再點卡片上的 Generate",
+  "Expected Result": "相同流程；結束時顯示「Your characters' looks are updated! Ready to create the storyboard?」與有價格的 Create storyboard 卡（新分鏡會再次扣點）",
+  "Notes": "PM 10/16 比 Design 新 (REQ-026)"
+ },
+ "TC-353": {
+  "Section": "角色",
+  "Action": "點 Generate 並等待",
+  "Expected Result": "成功的角色已更新；失敗的顯示「!」且其點數已退款，如 §13.10 (TC-042)",
+  "Notes": "PM 10/16 比 Design 新 (REQ-026)",
+  "Precondition": "兩個角色的更新，其中一個會失敗（Pink › Trip image moderation；記錄所用開關）"
+ },
+ "TC-354": {
+  "Section": "建立我的角色",
+  "Precondition": "角色描述超過 1,000 字元 (TC-051)，必填欄位已設定",
+  "Action": "刪除文字直到少於 1,000 字元",
+  "Expected Result": "計數器不再是紅色，上限訊息消失，且 Generate 變為可用",
+  "Notes": "復原行為依 PM §13.11；Design 畫面只顯示超出上限的狀態"
+ },
+ "TC-355": {
+  "Section": "分鏡預覽",
+  "Precondition": "分鏡已完成但其預覽失敗（如 TC-078）",
+  "Action": "查看 Storyboard Preview 卡下方，再點「Create video anyways」",
+  "Expected Result": "失敗的預覽卡及其 Retry ◆1 下方有「Create video anyways」按鈕；點擊後在沒有預覽的情況下繼續到影片（記錄開啟了什麼，例如「Choose your video settings」）",
+  "Notes": "PM E4 畫面；按鈕通往哪裡未畫出。失敗文案在 TC-078 檢查"
+ }
+}
