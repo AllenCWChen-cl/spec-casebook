@@ -9,7 +9,7 @@ URL queries are cut at '?'.
 import glob, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-REPO = os.path.abspath(os.path.join(HERE, *[".."] * 6))
+REPO = os.path.abspath(os.path.join(HERE, *[".."] * 7))
 RUN = f"{REPO}/library/pdr/ai-mini-drama/android/runs/2026-10-29-a7-full"
 
 KEEP = re.compile(

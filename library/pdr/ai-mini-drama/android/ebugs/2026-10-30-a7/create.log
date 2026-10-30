@@ -1,0 +1,42 @@
+Filing as Creator: ETHAN_HSU
+  Creator verified — last filed DRA262610P0392 on 2026-10-29
+Format check: PDR-A 16.8.0
+⚠ WARN  AI-Mini-Drama-A7-05  Short Description is 121 chars (budget 120)
+⚠ WARN  AI-Mini-Drama-A7-08  Repro Steps do not start with '1. Launch the APP'
+⚠ WARN  AI-Mini-Drama-A7-09  Repro Steps do not start with '1. Launch the APP'
+⚠ WARN  AI-Mini-Drama-A7-10  Short Description is 123 chars (budget 120)
+⚠ WARN  AI-Mini-Drama-A7-10  Repro Steps do not start with '1. Launch the APP'
+⚠ WARN  AI-Mini-Drama-A7-11  Repro Steps do not start with '1. Launch the APP'
+
+11 bug(s) checked — 0 error(s), 6 warning(s)
+Format OK — clear to file.
+
+[AI-Mini-Drama-A7-01] created DRA262610P0415
+  DRA262610P0415  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+[AI-Mini-Drama-A7-02] created DRA262610P0416
+[AI-Mini-Drama-A7-03] created DRA262610P0417
+[AI-Mini-Drama-A7-04] created DRA262610P0418
+[AI-Mini-Drama-A7-05] created DRA262610P0419
+[AI-Mini-Drama-A7-06] created DRA262610P0420
+[AI-Mini-Drama-A7-07] created DRA262610P0421
+[AI-Mini-Drama-A7-08] created DRA262610P0422
+[AI-Mini-Drama-A7-09] created DRA262610P0423
+[AI-Mini-Drama-A7-10] created DRA262610P0424
+[AI-Mini-Drama-A7-11] created DRA262610P0425
+
+created 11 · skipped 0 · failed 0
+
+Read-back (Status: OK is not proof — Version has been seen not to persist):
+  DRA262610P0415  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0416  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0417  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0418  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0419  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0420  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0421  sev 2  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0422  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0423  sev 3  PCDoc  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0424  sev 3  PCDoc  NewCreated  build 2610212  by ETHAN_HSU
+  DRA262610P0425  sev 3  RD  NewCreated  build 2610212  by ETHAN_HSU
+
+Attachments are NOT part of create — upload them with `ecl_if3.py upload <BugCode> <files…>` (SKILL.md → IF3 attachments over the API).

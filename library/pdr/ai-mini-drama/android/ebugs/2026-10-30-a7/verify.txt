@@ -1,5 +1,5 @@
 20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md
-  11 entries · 29 images · 17 Spec Link lines · 0/0 ▲ rows · max ShortDesc 123
+  11 entries · 30 images · 17 Spec Link lines · 0/0 ▲ rows · max ShortDesc 123
 FAILED:
   20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e1 (ISS-AMDA-60): links 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 6 (Error) board' but Description never names that sheet in full (ambiguous=True)
   20261030_eBug_drafts_AI-Mini-Drama-A7_16.8.0.md e1: unknown sheet 'AI Mini Drama PM spec (AI Mini Drama - PM Spec 20261021.pdf), Update board 6 (Error) board'

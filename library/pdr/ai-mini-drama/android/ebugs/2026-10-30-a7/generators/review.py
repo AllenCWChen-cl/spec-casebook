@@ -40,7 +40,7 @@ RELATED = {
  "ISS-AMDA-69": "Read-only ECL dedupe: no likely duplicate (DRA262610P0251 French 「」 quotes, Propose Wont Fix; DRA262610P0039 French caption wrap, Close).",
  "ISS-AMDA-70": "Related, closed: DRA262610P0097 (Close 2026-10-22: Japanese History 「12:38 午前」) — time still not in the app language's format, so a new card naming it (rule of 2026-10-28).",
 }
-DEF = json.loads(subprocess.run(["node", f"{REPO}/scripts/ebug-defaults.ts", "ai-mini-drama", "android", "--json"], capture_output=True, text=True, check=True).stdout)
+DEF = json.loads(subprocess.run(["node", f"{REPO}/scripts/ebug-defaults.ts", "pdr/ai-mini-drama", "android", "--json"], capture_output=True, text=True, check=True).stdout)
 
 
 

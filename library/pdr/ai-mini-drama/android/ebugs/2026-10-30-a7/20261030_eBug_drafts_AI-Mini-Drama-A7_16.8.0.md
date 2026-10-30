@@ -50,7 +50,7 @@ Repro Steps:
 Result:
 5 scene images fail after a charge of 3 each; each says credits were refunded, but none come back after 35 min.
 摘要：5 張場景圖扣點後失敗並顯示已退款，35 分鐘後仍未退回 15 點。
-{16.8.0_amda60_failed_scene_refunded.jpg} {16.8.0_amda60_details_no_return.jpg} {16.8.0_amda60_details_35min_later.jpg} {16.8.0_amda60_log.txt}
+{16.8.0_amda60_failed_scene_refunded.jpg} {16.8.0_amda60_details_2023_no_return.jpg} {16.8.0_amda60_details_2040_no_return.jpg} {16.8.0_amda60_log.txt}
 
 Expect Result:
 Each failed image's 3 credits are returned and Credit Details shows 「Generation failed, credits returned」.
@@ -102,13 +102,13 @@ Repro Steps:
 16. Check the result
 
 Result:
-Preview 30 s: Best 120, Standard 120, Fast 60; Full 90 s: 360 / 360 / 180; charged as shown (4 per second).
+Preview 30 s: Best 120, Standard 120, Fast 60; Full 90 s: 360 / 360 / 180; charged as shown (Standard 4/s, Fast 2/s).
 摘要：試看：120 / 120 / 60；完整：360 / 360 / 180，並依此扣點。
 {16.8.0_amda61_preview_best.jpg} {16.8.0_amda61_preview_standard.jpg} {16.8.0_amda61_preview_fast.jpg} {16.8.0_amda61_full_standard.jpg} {16.8.0_amda61_log.txt}
 
 Expect Result:
-PDRM MX charging sheet: Standard 13 per second (390 / 1170), Fast 4 (120 / 360), Best 6 (180 / 540).
-摘要：應為計費表原價：Standard 每秒 13、Fast 每秒 4、Best 每秒 6 點。
+PDRM MX sheet: Standard 13/s (390 / 1170), Fast 4/s (120 / 360); Best 6/s (180 / 540) per PM 10/16 (no sheet row).
+摘要：計費表：Standard 每秒 13、Fast 每秒 4；Best 依 PM 每秒 6 點（表無此列）。
 
 Note:
 Device: Sony Xperia 10 III (XQ-BT52) / Android 12
@@ -434,7 +434,7 @@ Repro Steps:
 Result:
 Category headers (Workplace Romance…) and template names (Merger Season…) stay English; Japanese names are translated.
 摘要：分類標題與範本名稱（Merger Season 等）仍為英文；日文範本名稱已翻譯。
-{16.8.0_amda68_cht_more.jpg} {16.8.0_amda68_fr_more.jpg} {16.8.0_amda68_ja_headers.jpg}
+{16.8.0_amda68_cht_more.jpg} {16.8.0_amda68_fr_more.jpg} {16.8.0_amda68_ja_headers.jpg} {16.8.0_amda68_fr_landing.jpg}
 
 Expect Result:
 Category headers and template names are shown in the app language (Chinese, Japanese, French).

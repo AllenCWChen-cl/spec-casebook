@@ -124,7 +124,7 @@ E = [
     ("charges and failures, Generate ~20:09:05", "2026-10-29", "20:09:10", "20:09:30"),
     ("balance and credit history 20:40 and 20:44 (no returned record)", "2026-10-29", "20:40:45", "20:40:50", r"getCreditHistory"),
     ("credit history re-read at the A7-e start", "2026-10-29", "20:44:15", "20:44:25", r"getCreditHistory")]),
-  imgs=[("d2-failscene", "amda60_failed_scene_refunded"), ("d2-details2", "amda60_details_no_return"), ("e-refund-details", "amda60_details_35min_later")]),
+  imgs=[("d2-failscene", "amda60_failed_scene_refunded"), ("d2-details1", "amda60_details_2023_no_return"), ("d2-details2", "amda60_details_2040_no_return")]),
 
  dict(iss="ISS-AMDA-61", title="Video prices are below the charging sheet's original prices", cls="Functional", sev=2, owner="RD",
   cases=["TC-080", "TC-230", "O-17"], rep=(3, 3),
@@ -133,10 +133,10 @@ E = [
   steps=APP + ["Tap History", "Tap a drama at 「Choose your video settings」", "Tap Best", "Tap Standard", "Tap Fast",
                "Tap Full Video - 90 sec", "Tap Best", "Tap Standard", "Tap Fast", "Tap Preview - 30 sec", "Tap Standard", "Tap Generate video",
                "Read the balance on the credit pill"],
-  res="Preview 30 s: Best 120, Standard 120, Fast 60; Full 90 s: 360 / 360 / 180; charged as shown (4 per second).",
+  res="Preview 30 s: Best 120, Standard 120, Fast 60; Full 90 s: 360 / 360 / 180; charged as shown (Standard 4/s, Fast 2/s).",
   res_zh="試看：120 / 120 / 60；完整：360 / 360 / 180，並依此扣點。",
-  exp="PDRM MX charging sheet: Standard 13 per second (390 / 1170), Fast 4 (120 / 360), Best 6 (180 / 540).",
-  exp_zh="應為計費表原價：Standard 每秒 13、Fast 每秒 4、Best 每秒 6 點。",
+  exp="PDRM MX sheet: Standard 13/s (390 / 1170), Fast 4/s (120 / 360); Best 6/s (180 / 540) per PM 10/16 (no sheet row).",
+  exp_zh="計費表：Standard 每秒 13、Fast 每秒 4；Best 依 PM 每秒 6 點（表無此列）。",
   links=[MX_LINK, link_for("R-069") or pm("pm-main-flow")],
   rel=["Related: DRA262610P0274 (Best and Standard quote the same credits)", "Related: DRA262610P0032 (Cancelled)"],
   log=("Standard Preview 30 s: two 15-s clips billed at perSecond=4 under the 480p action id", [
@@ -247,7 +247,7 @@ E = [
   exp_zh="分類標題與範本名稱應以 App 語言（中文、日文、法文）顯示。",
   links=[ds("ds-main-flow"), ds("ds-template-detail")],
   rel=["Related: DRA262610P0040 (RDResolved), DRA262610P0258 (RDResolved)"],
-  imgs=[("k-cht-more", "amda68_cht_more"), ("k-fr-more", "amda68_fr_more"), ("k-ja-more1", "amda68_ja_headers")]),
+  imgs=[("k-cht-more", "amda68_cht_more"), ("k-fr-more2", "amda68_fr_more"), ("k-ja-more1", "amda68_ja_headers"), ("k-fr-landing", "amda68_fr_landing")]),
 
  dict(iss="ISS-AMDA-69", title="French copy errors: 「Crédits seront consommés…」 and 「Langage de la vidéo」", cls="UI", sev=3, owner="Doc",
   cases=["TC-406"], rep=(1, 1),

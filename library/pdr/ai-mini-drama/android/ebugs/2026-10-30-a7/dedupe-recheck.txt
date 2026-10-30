@@ -1,0 +1,85 @@
+
+6 of 11 entries have a possible duplicate (overlap >= 34%, or a shared quoted label / rare phrase, marked !). Judge each one yourself — wording varies, so this ranks candidates, it does not decide.
+2 candidate(s) were declined (NAB / Won't Fix / Not Reproducible). Resolve each before filing.
+
+[AI-Mini-Drama-A7-01] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Failed storyboard images claim a refund, but the 15 credits never return
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 25%  OPEN      DRA262610P0308  PDR-A 16.8.0 - AI Mini Drama: 5 of 6 storyboard images fail but Credit Details shows onl
+              shares phrase "storyboard images"
+      38%  OPEN      DRA262610P0388  PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Failed scene images in a chat update show no 「!」
+      38%  OPEN      DRA262610P0232  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Failed host_detached clips keep their credits th
+
+[AI-Mini-Drama-A7-02] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Video is priced below the charging sheet: Standard 30 s is 120 credits, not 390
+      feature='AI Mini Drama'  searched 200 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A7-03] PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Leaving a scene regenerate shows a raw 「MiniDrama FAIL」 debug toast
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 67%  closed    DRA262610P0212  PDR-A 16.8.0 - [AIFound][UI] AI Mini Drama: Stopping the outline shows a raw debug toast
+              shares label "minidrama fail", phrase "debug toast"
+
+[AI-Mini-Drama-A7-04] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: One video sends a 「Your drama is ready」 push per clip, four for one episode
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 36%  OPEN      DRA262610P0368  PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Tapping the video-ready push opens History inste
+              shares phrase "ready push"
+    ! 27%  OPEN      DRA262610P0379  PDR-A 16.8.0 - [AIFound] AI Mini Drama: "is ready" banner appears while that drama's vid
+              shares label "is ready"
+    ! 27%  OPEN      DRA262610P0267  PDR-A 16.8.0 - [AIFound] AI Mini Drama: "Your drama is ready" notification is sent while
+              shares label "your drama is ready"
+    ! 27%  OPEN      DRA262610P0250  PDR-A 16.8.0 - [AIFound] AI Mini Drama: "Your drama is ready" notification arrives late,
+              shares label "your drama is ready"
+    ! 27%  REJECTED  DRA262610P0233  PDR-A 16.8.0 - [AIFound][UI] AI Mini Drama: "is ready" banner names the drama last opene
+              shares label "is ready"
+              ⚠ NotReproducible — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRA262610P0233.
+    ! 27%  OPEN      DRA262610P0226  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Pending video shows Here's your drama. over 
+              shares phrase "your drama"
+    ! 18%  OPEN      DRA262610P0378  PDR-A 16.8.0 - [AIFound] AI Mini Drama: "is ready" banner still appears after the user h
+              shares label "is ready"
+    !  9%  OPEN      DRA262610P0218  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Reference photo crop hint says "clip" instea
+              shares label "clip"
+
+[AI-Mini-Drama-A7-05] PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Scene description editor at 1,000 characters: no red counter or limit message
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 44%  OPEN      DRA262610P0335  PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Expanded description editor cuts text to 1,000 c
+              shares phrase "000 characters", phrase "description editor"
+    ! 22%  OPEN      DRA262610P0403  PDR-A 16.8.0 - [AIFound][UI] AI Mini Drama: Storyboard Result scene description is clipp
+              shares phrase "scene description"
+    ! 22%  REJECTED  DRA262610P0251  PDR-A 16.8.0 - [AIFound][UI] AI Mini Drama: French scene description uses Japanese 「」 qu
+              shares phrase "scene description"
+              ⚠ Propose Wont Fix — RD/PM already declined this. Filing again re-raises that decision: read its status log, and only refile with new grounds (e.g. a newer spec) cited against DRA262610P0251.
+
+[AI-Mini-Drama-A7-06] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: A Mine character's face turns about 25 years younger in the full episode's clips
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 20%  OPEN      DRA262610P0407  PDR-A 16.8.0 - [AIFound][UI] AI Mini Drama: Full-episode card spacing to the text and th
+              shares phrase "full episode"
+    ! 20%  OPEN      DRA262610P0367  PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Picking a Mine character leaves the slot empty w
+              shares phrase "mine character"
+    ! 20%  OPEN      DRA262610P0227  PDR-A 16.8.0 - [AIFound][UX] AI Mini Drama: Preview and full-episode cards look identica
+              shares phrase "full episode"
+    ! 20%  OPEN      DRA262610P0219  PDR-A 16.8.0 - [AIFound] AI Mini Drama: Export Full Video shows the preview's 51.6 MB es
+              shares phrase "full episode"
+
+[AI-Mini-Drama-A7-07] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Asking to update two characters charges for and regenerates three
+      feature='AI Mini Drama'  searched 200 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A7-08] PDR-A 16.8.0 - [AIAgent] AI Mini Drama: A clean install opens the landing page with no intro page
+      feature='AI Mini Drama'  searched 200 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A7-09] PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Template category headers and names stay English in Chinese and French
+      feature='AI Mini Drama'  searched 200 candidate(s)
+    ! 38%  OPEN      DRA262610P0258  PDR-A 16.8.0 - [AIFound][MUI] AI Mini Drama (Chat): Video settings and agent cards stay 
+              shares phrase "stay english"
+    ! 25%  OPEN      DRA262610P0289  PDR-A 16.8.0 - [AIFound][MUI] AI Mini Drama: Idea suggestion chips stay English in the J
+              shares phrase "stay english"
+    ! 25%  OPEN      DRA262610P0284  PDR-A 16.8.0 - [AIFound][MUI] AI Mini Drama: Character filter Gender and Ethnicity optio
+              shares phrase "stay english"
+
+[AI-Mini-Drama-A7-10] PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: French copy: 「Crédits seront consommés」 lacks an article; 「Langage de la vidéo」
+      feature='AI Mini Drama'  searched 200 candidate(s)
+      no likely duplicate
+
+[AI-Mini-Drama-A7-11] PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: History times use the English 「AM」 format in Chinese, Japanese and French
+      feature='AI Mini Drama'  searched 200 candidate(s)
+      no likely duplicate
