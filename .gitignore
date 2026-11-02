@@ -42,6 +42,11 @@ library/*/*/specs/*/extracted/boards/*/
 library/*/*/specs/*/extracted/figma/*
 !library/*/*/specs/*/extracted/figma/*.png
 !library/*/*/specs/*/extracted/figma/shots.json
+# figma-source reads (scripts/figma-source.ts): the use_figma returns and board fingerprints are shared so no one reads
+# an unchanged board again; the rendered calls and the expanded output (and the full-size screenshots) stay local
+!library/*/*/specs/*/extracted/figma-source/
+library/*/*/specs/*/extracted/figma-source/*/calls/
+library/*/*/specs/*/extracted/figma-source/*/out/
 library/*/*/*/drafts/*/server.log
 
 # Run screenshot folders stay local, including the on-screen text dumps saved next to each screenshot

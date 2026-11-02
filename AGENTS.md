@@ -78,6 +78,10 @@ lines; put the full rule in the skill or reference file that applies it and poin
   README Setup 5. Figma is not a gate (user, 2026-10-30): without the sign-ins an analysis runs **PDF-only**
   (`extracted/figma-pending.json`) and a machine with them catches up later (`reading-the-spec.md`, *No Figma access*). Quota is small: bulk reads per board group, changes found by fingerprint (`figma-check.ts`), every
   read committed (`reading-the-spec.md` step 10).
+- **Full Figma data by script (user, 2026-10-30).** When every node's geometry and styling is needed (not just
+  controls and arrows), read it with the `figma-source` skill, on Design Figma links only (never PM or MX): one
+  `use_figma` script per output chunk plus one full-size screenshot per board cropped locally, never per-frame or
+  per-instance MCP reads (`figma-source/SKILL.md`).
 - **Phone fixtures (2026-10-27).** What a run needs on the phone or account is in
   `library/<product>/<feature>/<platform>/fixtures.md`.
 - **Live pages (user, 2026-10-28).** `scripts/pages.ts` serves Cases, Progress, Results and Coverage with one shared
