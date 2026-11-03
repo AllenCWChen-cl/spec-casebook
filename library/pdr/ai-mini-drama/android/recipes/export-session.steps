@@ -1,0 +1,16 @@
+# Export one drama's session (blueprint.json, every blueprint version, host_inputs, engine events, chat history, perf)
+# with the AI Mini Drama debug info (REQ-068), for an eBug that needs the blueprint. Run it when the finding is made:
+# a reinstall or `pm clear` wipes History and the session with it.
+# Starts: the 「Hi, I'm your AI Drama Assistant」 page. Ends: the drama's chat with debug info still ON (turn it off with
+# `back` then `debug-info off` before test cases continue).
+# Charges nothing: opens the drama from History and only reads it.
+# Args: $1 = the drama's title in History (exact), $2 = output folder (default <run dir>/exports/); add --media after
+# the recipe call's args only by editing the last line (media makes the zip much bigger).
+# Written 2026-11-03 on 16.8.0 (2610212), tested on 「Crossed Wires」.
+debug-info on
+id button_mini_drama_home_history
+wait 2
+scrollto "$1"
+tapif "$1"
+wait 4
+debug-export $2

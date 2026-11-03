@@ -48,8 +48,13 @@ adb serial HQ61563393, Android 12, 1080 × 2520; setup in README › Android pho
   toast 「Tap for debug info: ON」; the Create Your Drama page's top bar then turns yellow (like Stage). Tapping the top
   of a chat box (Storyboard Result, Story Outline…) opens a menu whose download button exports the session; the
   popup asks whether to include media (bigger file), EXPORT shows a toast with the path (default under Download).
-  This is how to get a session's `blueprint.json` (the app's private files are not readable over adb): export
-  without media unless the media is needed, then `adb pull` the path the toast names into the eBug batch folder.
+  This is how to get a session's `blueprint.json` (the app's private files are not readable over adb). Scripted
+  (2026-11-03): `debug-info on|off` (from the assistant page; reads the toast), `debug-export [OUT] [--media]` (from a
+  drama chat; pulls the zip the toast names into OUT, default `<run dir>/exports/`), and the recipe
+  `do library/pdr/ai-mini-drama/android/recipes/export-session.steps "<History title>" [OUT]` (assistant page →
+  drama → export). The zip holds `blueprint.json`, `blueprint_versions/V*.json`, `host_inputs/`, `engine_events/`,
+  `chat_history.json`, `perf/`; attach it (or its blueprint) to the eBug batch folder. Export without media unless
+  the media is needed.
   Debug info stays off in test runs unless a case needs it. Export a finding's session when the finding is made,
   before any reinstall or `pm clear`: both wipe History (the A7 blueprints for DRA262610P0420 / P0421 were lost to
   the A7-j reinstalls, 2026-11-03).
