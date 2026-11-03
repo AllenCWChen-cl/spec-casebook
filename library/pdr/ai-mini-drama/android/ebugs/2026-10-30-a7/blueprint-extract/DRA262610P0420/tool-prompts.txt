@@ -1,0 +1,722 @@
+=== 2026-10-29 19:41:33.511 [A7-d1-20261029-194556] TextToImage (from tool_dispatch args)
+SUBJECT
+
+=== 2026-10-29 19:41:59.692 [A7-d1-20261029-194556] TextToImage (from tool_dispatch args, line cut)
+SUBJECT
+
+=== 2026-10-29 19:42:25.972 [A7-d1-20261029-194556] TextToImage (from tool_dispatch args, line cut)
+SUBJECT
+
+=== 2026-10-29 19:42:52.965 [A7-d1-20261029-194556] TextToImage (from tool_dispatch args, line cut)
+SUBJECT
+
+=== 2026-10-29 19:43:20.601 [A7-d1-20261029-194556] TextToImage (from tool_dispatch args)
+Image 1 = Jenna Morales
+
+=== 2026-10-29 19:43:20.602 [A7-d1-20261029-194556] [TOOL] TextToImage style_id=Style_1003_Custom_ChatGPT (engine), version=5, aspect_ratio=9:16, quality=medium, resolution=1K (host fixed), output_format=png, references=3, prompt=Image 1 = Jenna Morales
+Image 2 = Noah Sterling
+Image 3 = set: Warehouse Receiving Floor | Morning
+
+KEYFRAME:
+Jenna stands beside a tall yellow aisle marker on the warehouse floor, turning her head and shoulders back to instruct rookie Noah, who pauses two paces behind her holding a pair of heavy work gloves. Her posture is brisk, observant, and authoritative, while Noah looks toward her with sincere, attentive hesitation.
+
+CHARACTERS / WARDROBE:
+Jenna Morales (Image 1): White double-breasted chef coat over a navy t-shirt, grey trousers, black slip-on shoes.
+Noah Sterling (Image 2): Light grey three-piece suit with matching vest and trousers, white dress shirt, light blue tie, black dress shoes.
+Keep reference clothing where consistent with this scene wardrobe; change only conflicting details.
+
+INTERACTION / BLOCKING:
+Jenna is positioned slightly ahead in the aisle near the yellow marker, turning in three-quarter profile toward Noah. Noah stands approximately two paces back, facing her directly, paused mid-stride with his hands lowered holding his gloves. Clear, direct eyeline between them.
+
+PROPS / STATE:
+Jenna holds a metal clipboard in one hand against her side. Noah holds thick leather work gloves.
+
+CAMERA / COMPOSITION:
+Vertical 9:16 cinematic framing. Full-to-medium-full shot capturing both characters within the depth of the aisle, with Jenna occupying the midground and Noah standing slightly further back. Natural depth emphasizing the receding steel pallet racks behind them, avoiding flat lineup staging.
+
+SET / LIGHTING / STYLE:
+Preserve the actual layout, architecture, racking, materials, object shapes, cool morning skylight illumination, and atmosphere from set (Image 3). Fit the characters naturally into that environment without redesigning major set objects. An unstyled live-action photograph of real people, carrying no rendering signature, with natural skin textures, even realistic detail, and authentic ambient lighting.
+
+DO-NOT-SHOW / NEGATIVE:
+Looking at camera, flat portrait lineup, romantic physical contact, duplicate limbs, floating props, stylized rendering, smoothed skin, incorrect wardrobe.
+
+=== 2026-10-29 19:43:20.606 [A7-d1-20261029-194556] TextToImage (from tool_dispatch args)
+Image 1 = Jenna Morales
+
+=== 2026-10-29 19:43:20.606 [A7-d1-20261029-194556] [TOOL] TextToImage style_id=Style_1003_Custom_ChatGPT (engine), version=5, aspect_ratio=9:16, quality=medium, resolution=1K (host fixed), output_format=png, references=3, prompt=Image 1 = Jenna Morales
+Image 2 = Noah Sterling
+Image 3 = set: Dispatch Office | Noon
+
+KEYFRAME:
+Noah stands beside the grey office desk, lowering his mobile phone discreetly at his side as he gazes across the counter toward Jenna. Jenna stands on the opposite side of the counter, one hand resting firmly on a paper shipping manifest, observing him with guarded, assessing attention under the bright midday glare.
+
+CHARACTERS / WARDROBE:
+Jenna Morales (Image 1): Chef workwear featuring a white double-breasted chef coat over a navy t-shirt, grey trousers, and black slip-on kitchen shoes.
+Noah Sterling (Image 2): Light grey three-piece suit with a matching vest and trousers, white dress shirt, light blue tie, and black dress shoes.
+Keep reference clothing where consistent with this scene wardrobe; change only conflicting details.
+
+INTERACTION / BLOCKING:
+Noah and Jenna are separated by the metal dispatch counter and grey desk. Noah is positioned upright beside the desk, holding his phone down, directing his sincere gaze toward Jenna. Jenna faces across the desk towards Noah, body anchored with one hand flat over the manifest, locked in mutual eye contact filled with quiet tension and guarded curiosity.
+
+PROPS / STATE:
+Noah holds a modern smartphone loosely pointed down at his side. A printed shipping manifest sheet lies flat on the desk counter under Jenna's hand.
+
+CAMERA / COMPOSITION:
+Vertical 9:16 framing. Medium two-shot staged with natural depth across the service counter, capturing both figures in mid-body view. Let the partition window and desk define the midground space without flat frontal lineup, maintaining natural spatial distance between the two characters.
+
+SET / LIGHTING / STYLE:
+Preserve the actual layout, architecture, furniture, materials, object shapes, lighting, and atmosphere from set (Image 3). Fit the characters naturally into that environment without redesigning major set objects. Crisp midday sunlight angles sharply through the window onto the metal desk and linoleum. An unstyled live-action photograph of a real person, carrying no rendering signature a viewer could name. Fully realistic human proportions with ordinary asymmetry left intact. Skin holds its true texture — visible pores, fine vellus hair, uneven tone — neither smoothed nor sharpened. Surfaces show only the sheen that real skin and real cloth have. Detail is moderate and even across the whole frame, resolved everywhere and emphasised nowhere. No line work, no medium texture, no stylisation of form.
+
+DO-NOT-SHOW / NEGATIVE:
+Looking at camera, phone held up to ear, smiling broadly, exaggerated romantic pose, duplicate limbs, floating hands, flat lineup, smooth airbrushed skin, unnatural lighting.
+
+=== 2026-10-29 19:43:20.618 [A7-d1-20261029-194556] TextToImage (from tool_dispatch args)
+Image 1 = Jenna Morales
+
+=== 2026-10-29 19:43:20.619 [A7-d1-20261029-194556] [TOOL] TextToImage style_id=Style_1003_Custom_ChatGPT (engine), version=5, aspect_ratio=9:16, quality=medium, resolution=1K (host fixed), output_format=png, references=3, prompt=Image 1 = Jenna Morales
+Image 2 = Noah Sterling
+Image 3 = set: Warehouse Back Office | Evening
+
+KEYFRAME:
+Inside the dim back office, Jenna Morales sits quietly at the desk looking up at Noah Sterling, her guarded expression softening into newfound respect. Noah leans forward over the desktop toward her, pointing a pen at an open paper ledger, his attention earnest and supportive as they work together late into the evening.
+
+CHARACTERS / WARDROBE:
+Jenna Morales (Image 1): White double-breasted chef coat over a navy t-shirt, grey trousers, black slip-on kitchen shoes.
+Noah Sterling (Image 2): Light grey three-piece suit with a matching vest and trousers, white dress shirt, light blue tie, black dress shoes.
+Keep reference clothing where consistent with this scene wardrobe; change only conflicting details.
+
+INTERACTION / BLOCKING:
+Jenna is seated on one side of the wooden desk, looking across at Noah. Noah is leaned forward on the opposite side of the desk, bending close into the pool of light, gesturing with the pen directly toward a section of the ledger between them. Their proximity is close but professional, with focused mutual attention.
+
+PROPS / STATE:
+An open paper ledger rests flat on the wooden desktop between them. Noah holds a pen poised above the ledger pages. A metal task lamp clamped to the desk edge shines directly onto the papers.
+
+CAMERA / COMPOSITION:
+Vertical 9:16 framing. A medium two-shot capturing both characters across the desk. Frame the intimate workspace in the warm foreground and midground, allowing the dark window and shadowed warehouse behind them to create depth. Maintain natural conversational distance without flattening the staging.
+
+SET / LIGHTING / STYLE:
+Preserve the actual layout, architecture, furniture, materials, object shapes, lighting, and atmosphere from set (Image 3). Fit the characters naturally into that environment without redesigning major set objects. Warm amber task lighting pools on the desk, paper, and their hands and faces, contrasted against the cool twilight gloom visible through the interior office window. An unstyled live-action photograph of real people, carrying no rendering signature a viewer could name. Fully realistic human proportions with ordinary asymmetry left intact. Skin holds its true texture — visible pores, fine vellus hair, uneven tone — neither smoothed nor sharpened. Surfaces show only the sheen that real skin and real cloth have. Detail is moderate and even across the whole frame, resolved everywhere and emphasised nowhere. No line work, no medium texture, no stylisation of form.
+
+DO-NOT-SHOW / NEGATIVE:
+Looking at camera, gestures aimed at viewer, extra characters, incorrect wardrobe, character trait transfer, broken eyeline, warped desk or lamp geometry, floating hands, poster lineup staging, smoothed skin, plastic textures.
+
+=== 2026-10-29 19:43:20.625 [A7-d1-20261029-194556] TextToImage (from tool_dispatch args)
+Image 1 = Jenna Morales
+
+=== 2026-10-29 19:43:20.625 [A7-d1-20261029-194556] [TOOL] TextToImage style_id=Style_1003_Custom_ChatGPT (engine), version=5, aspect_ratio=9:16, quality=medium, resolution=1K (host fixed), output_format=png, references=3, prompt=Image 1 = Jenna Morales
+Image 2 = Noah Sterling
+Image 3 = set: Warehouse Loading Canopy | Night
+
+KEYFRAME:
+Jenna Morales and Noah Sterling stand inches apart under the shelter of the corrugated metal canopy as rain sheets down heavily into the dark asphalt apron just beyond the dock edge. Noah looks directly at Jenna with quiet, searching intensity, silently testing her feelings under his hidden identity, while Jenna holds his gaze with guarded yet undeniable vulnerability, the physical intimacy taut between them.
+
+CHARACTERS / WARDROBE:
+Jenna Morales (Image 1): White double-breasted chef coat over a navy t-shirt, grey trousers, and black slip-on kitchen shoes.
+Noah Sterling (Image 2): Light grey three-piece suit with a matching vest and trousers, white dress shirt, light blue tie, and black dress shoes.
+Keep reference clothing where consistent with this scene wardrobe; change only conflicting details.
+
+INTERACTION / BLOCKING:
+Jenna and Noah stand close together in the sheltered space of the concrete platform, facing each other in intimate proximity. Long, soft shadows stretch along the concrete wall behind them. Neither touches, but their near-contact and focused mutual eyeline convey powerful unspoken romantic tension.
+
+CAMERA / COMPOSITION:
+Vertical 9:16 framing. A medium two-shot capturing both characters from the waist up, positioning them slightly offset in the sheltered depth of the canopy. The dark, rain-streaked exterior lot and the warm interior warehouse spill provide rich depth in the background without pulling focus from their close emotional standoff.
+
+SET / LIGHTING / STYLE:
+Preserve the actual layout, architecture, concrete floor, corrugated canopy, and atmospheric fixtures from set (Image 3). Warm amber light radiates from the bay lantern and open warehouse door, glistening softly across wet surfaces and illuminating the fine mist of rain just outside the canopy while keeping both figures naturally embedded in the warm ambient glow. An unstyled live-action photograph of real people, carrying no rendering signature, with natural skin texture, visible pores, and authentic fabric sheen under ambient illumination.
+
+DO-NOT-SHOW / NEGATIVE:
+Looking at camera, split screen, umbrella, modern umbrella props, exaggerated poses, plastic skin smoothing, illustration, anime styling, duplicate limbs, floating hands, broken eyeline, direct lens gaze, poster lineup staging.
+
+=== 2026-10-29 19:43:20.629 [A7-d1-20261029-194556] TextToImage (from tool_dispatch args)
+Image 1 = Jenna Morales
+
+=== 2026-10-29 19:43:20.630 [A7-d1-20261029-194556] [TOOL] TextToImage style_id=Style_1003_Custom_ChatGPT (engine), version=5, aspect_ratio=9:16, quality=medium, resolution=1K (host fixed), output_format=png, references=4, prompt=Image 1 = Jenna Morales
+Image 2 = Noah Sterling
+Image 3 = Caleb
+Image 4 = set: Staging Area B | Morning
+
+KEYFRAME:
+Noah Sterling stands directly before Jenna Morales in the open staging lane of the warehouse, his hands half-raised in an earnest, hesitant gesture of explanation. Jenna stands facing him, holding her clipboard firmly at her waist, watching him with guarded attention. In the deep background visible between rows of stacked wooden crates, Caleb stands watchful, keeping an eye toward the entrance doors.
+
+CHARACTERS / WARDROBE:
+Jenna Morales (Image 1): White double-breasted chef coat over a navy t-shirt, grey trousers, and black slip-on kitchen shoes.
+Noah Sterling (Image 2): Light grey three-piece suit with a matching vest and trousers, white dress shirt, light blue tie, and black dress shoes.
+Caleb (Image 3): Olive green button-up long-sleeved shirt with rolled sleeves, dark trousers, and white sneakers.
+Keep reference clothing where consistent with this scene wardrobe; change only conflicting details.
+
+INTERACTION / BLOCKING:
+Noah and Jenna face each other closely in the open staging lane, holding mutual eye contact with palpable interpersonal tension. Noah's palms are slightly open toward Jenna in supplication. Jenna remains grounded and composed, her posture upright. Caleb is placed in the background plane, turned slightly toward the background entrance doors, subordinate in scale and focus.
+
+PROPS / STATE:
+Jenna holds a standard warehouse clipboard horizontally in both hands against her waist.
+
+CAMERA / COMPOSITION:
+Vertical 9:16 framing. A medium shot capturing Noah and Jenna in the foreground and midground, composed with layered depth that keeps Caleb clearly positioned further back in the lane between pallet stacks. Natural staging without flat lineups, allowing slight angle and genuine spatial separation.
+
+SET / LIGHTING / STYLE:
+Preserve the actual layout, architecture, furniture, materials, object shapes, lighting, and atmosphere from set (Image 4). Fit the characters naturally into that environment without redesigning major set objects. An unstyled live-action photograph of real people, carrying no rendering signature, with natural skin texture, soft morning warehouse daylight from overhead skylights, and even realistic cloth response.
+
+DO-NOT-SHOW / NEGATIVE:
+Looking at camera, gestures aimed at viewer, Caleb brought into foreground, missing clipboard, wrong wardrobe, flat poster lineup, plastic skin, smoothed textures, duplicate limbs.
+
+=== 2026-10-29 19:44:03.397 [A7-d1-20261029-194556] TextToImage (from tool_dispatch args)
+Image 1 = Jenna Morales
+
+=== 2026-10-29 19:44:03.397 [A7-d1-20261029-194556] [TOOL] TextToImage style_id=Style_1003_Custom_ChatGPT (engine), version=5, aspect_ratio=9:16, quality=medium, resolution=1K (host fixed), output_format=png, references=4, prompt=Image 1 = Jenna Morales
+Image 2 = Noah Sterling
+Image 3 = Richard Sterling
+Image 4 = set: Staging Area B | Morning
+
+KEYFRAME:
+Richard stands tall near the open sliding door, coldly gesturing toward the exit with commanding authority. Noah stands caught frozen in place between his father and Jenna, torn and exposed. Stepping backward across the yellow floor boundary line, Jenna pulls her clipboard tightly against her chest, her expression guarded and wounded as Noah's true status is revealed.
+
+CHARACTERS / WARDROBE:
+Jenna Morales (Image 1): White double-breasted chef coat over a navy t-shirt, grey trousers, and black slip-on kitchen shoes.
+Noah Sterling (Image 2): Light grey three-piece suit with matching vest and trousers, white dress shirt, light blue tie, and black dress shoes.
+Richard Sterling (Image 3): Tailored dark green three-piece suit, crisp white shirt, and champagne silk tie.
+Keep reference clothing where consistent with this scene wardrobe; change only conflicting details.
+
+INTERACTION / BLOCKING:
+Noah is positioned between Richard and Jenna. Richard stands erect near the sliding door, directing an imperious hand gesture toward the doorway. Jenna retreats backward across the yellow painted floor marking, creating emotional and physical distance as she holds her clipboard tightly to her chest. Noah is frozen mid-posture, visibly strained between his father's presence and Jenna stepping away.
+
+PROPS / STATE:
+Jenna clutches a practical warehouse clipboard tightly against her chest with both hands.
+
+CAMERA / COMPOSITION:
+Vertical 9:16 framing. Establish dramatic depth with Jenna in the near-midground stepping back, Noah centered in the middle ground, and Richard authoritative near the door in the background. Maintain readable spatial separation between all three figures without flattening them into a lineup.
+
+SET / LIGHTING / STYLE:
+Preserve the actual layout, architecture, furniture, materials, object shapes, lighting, and atmosphere from set (Image 4). Fit the characters naturally into that environment without redesigning major set objects. An unstyled live-action photograph of real people, carrying no rendering signature a viewer could name. Fully realistic human proportions with ordinary asymmetry left intact. Skin holds its true texture with visible pores and natural tone. Moderate, even detail across the frame.
+
+DO-NOT-SHOW / NEGATIVE:
+Looking at camera, gestures aimed at viewer, poster lineup, flat portrait staging, floating or duplicate limbs, missing yellow floor line, wrong wardrobe, character trait transfer.
+
+=== 2026-10-29 23:21:54.886 [A7-g1-20261029-233008] RefToVideo (from tool_dispatch args, line cut)
+GLOBAL SETUP
+
+=== 2026-10-29 23:21:54.887 [A7-g1-20261029-233008] [TOOL] RefToVideo duration=15, aspect_ratio=9:16, resolution=720p, model=dreamina-seedance-2-0-mini-260615, style_id=(none), audio=native, create_thumbnail=false, images=3, videos=0, audios=1, prompt=GLOBAL SETUP
+JENNA: 75-year-old female, average height, athletic build, structured jawline, sharp dark eyes, expressive eyebrows, chin-length bob of dyed ash grey hair with visible dark roots. Outward focus is practical and strict, under pressure she clips her words and stiffens her jaw, ceiling is she never loses her professional composure.
+NOAH: 30-year-old male, tall athletic build, broad shoulders, strong jawline, wavy styled golden blonde hair. Outward focus is earnest and steady, under pressure he holds eye contact without wavering, ceiling is he never raises his voice.
+CALEB: 30-year-old male, trim athletic build, oval face, warm brown eyes, light stubble, short curly dark hair. Outward focus is warm and observant, under pressure he leans in and lowers his voice, ceiling is he never pushes past a clear boundary.
+RICHARD: 75-year-old male, tall, well-tailored build, sleek silver-grey hair parted to the side, sharp mature contours. Outward focus is absolute authority, under pressure his movements slow down, ceiling is he never raises his voice to command a room.
+Overall mood is grounded and tensely professional, industrial realism.
+
+SCENE CONTEXT
+Morning on the open warehouse receiving floor. Jenna stands screen right facing frame left, holding a clipboard; Noah stands screen left, facing her.
+
+ACTIVE REFERENCES
+@Image 1: JENNA, 75-year-old female, average height, athletic build, structured jawline, sharp dark eyes, expressive eyebrows, chin-length bob of dyed ash grey hair with visible dark roots. 100% matches the reference.
+@Image 2: NOAH, 30-year-old male, tall athletic build, broad shoulders, strong jawline, wavy styled golden blonde hair. 100% matches the reference.
+@Image 3: the environment reference -- this beat's location photographed empty, from a raised three-quarter angle, in 16:9. It is the authority for the set: the architecture, the materials, the fixtures, the furniture, and which wall or side of the room each one stands on. Build the location from it and hold those surfaces and positions steady across every cut. It is NOT a framing reference and NOT a staging reference -- it holds no people and its camera is not this beat's camera. LOCATION MAP, FIRST FRAME / BLOCKING, SHOT PLAN, and CAMERA below govern where the camera sits, how tight it is, and where the cast stands.
+
+WARDROBE
+CUT 1 — JENNA wears a white double-breasted chef coat over a navy t-shirt, grey trousers, and black slip-on kitchen shoes. NOAH wears a light grey three-piece suit with a matching vest and trousers, white dress shirt, light blue tie, and black dress shoes.
+CUT 2 — unchanged
+CUT 3 — unchanged
+CUT 4 — unchanged
+
+LOCATION MAP
+Wide concrete aisle running from foreground depth to background depth. Towering steel shelving flanks the left and right sides. Diffused daylight spills from overhead skylights.
+
+FIRST FRAME / BLOCKING
+Jenna stands anchored in the midground, screen right, body angled slightly toward depth, looking down at a metal clipboard in her hands. Noah steps into the foreground from screen left, stopping two paces away from her, holding a pair of heavy leather work gloves in his right hand.
+
+SHOT PLAN
+CUT 1 — HARD CUT: establishing Jenna's authority and focus.
+CUT 2 — REVERSE CUT: capturing Noah's calm arrival.
+CUT 3 — REVERSE CUT: Jenna's skeptical inspection.
+CUT 4 — REVERSE CUT: Noah's compliance and the start of their walk.
+
+OPTICS
+CUT 1 — MS, 47° FOV, neutral human perspective.
+CUT 2 — MCU, 29° FOV, portrait compression.
+CUT 3 — CU, 29° FOV, concentrated pressure.
+CUT 4 — MS, 47° FOV, observational.
+
+CAMERA
+CUT 1 — static, chest height, operator on the shadow side.
+CUT 2 — slow DOLLY IN, shoulder height, half a metre, motivated by Noah's arrival.
+CUT 3 — static, eye level, tight on Jenna's reaction.
+CUT 4 — DOLLY OUT, tracking backwards as they walk forward toward the lens.
+
+ACTION
+CUT 1 — Jenna drags a pen down the metal clipboard, shifts her weight to her left leg, then lifts her head sharply as footsteps halt nearby. She tilts her chin up and speaks, volume projecting, in native English:「New hire? Keep up or stay off my floor.」lip movement matches the spoken line naturally.
+CUT 2 — Noah brings his feet together, his suit jacket settling over his vest. He raises the leather gloves slightly, holds her gaze steadily, and speaks, volume low, in native English:「Ready when you are. Just tell me where.」lip movement matches the spoken line naturally.
+CUT 3 — Jenna's eyeline drops toward the floor, her brow lowering fractionally. She lifts her gaze back to his face, exhales a single short breath, and speaks, in native English:「We will see how long those clean boots last.」lip movement matches the spoken line naturally.
+CUT 4 — Noah pulls the thick leather glove over his left hand, the leather creaking. He steps forward, closing the distance, and speaks, in native English:「Lead the way.」lip movement matches the spoken line naturally. Jenna turns her back to the camera, the hem of her coat swishing, and walks into frame depth. Noah follows her.
+
+PERFORMANCE
+CUT 1 — Jenna starts focused on her work, brow furrowed. As the footsteps stop, her blink rate increases, her jaw tightens, and she locks eyes with Noah, establishing a hard boundary.
+CUT 2 — Noah starts with a neutral, attentive posture. His chest rises in a steady breath, his shoulders relax, and his eyes lock onto hers with calm sincerity.
+CUT 3 — Jenna's eyes track downward, her lips pressing into a thin line. She brings her gaze back up, her chin lifting in a subtle challenge, nostrils flaring slightly.
+CUT 4 — Noah's jaw remains relaxed. He pulls the glove on with deliberate, unhurried force, his gaze following Jenna as she turns, his expression steady and observant.
+
+PHYSICS
+Heavy leather gloves resist bending, requiring force to pull over knuckles. Jenna's chef coat holds its structure but swings slightly at the hem when she turns.
+
+LIGHTING
+Cool, diffused overhead daylight from the skylights acts as the key. Soft bounce from the concrete floor provides fill. A faint specular catch-light sits in Jenna and Noah's eyes. Shadows fall straight down, preserving texture in the grey suit and white coat without crushing to black.
+
+COLOR GRADE
+Cool industrial palette: brushed steel, pale concrete, crisp white cotton, and light grey wool.
+
+AUDIO
+Use @Audio 1 JENNA.
+Warehouse ambience: distant forklift hum, metal clanking, heavy boots on concrete. Leather creaking as the glove is pulled on.
+
+STYLE
+Photoreal, unstyled live-action photograph. Fully realistic human proportions with ordinary asymmetry intact. Visible pores, fine vellus hair, uneven tone. Moderate and even detail.
+
+OUTPUT SETTINGS
+CUT 1 real-time · CUT 2 real-time · CUT 3 real-time · CUT 4 real-time
+
+POSITIVE LOCKS
+Noah's blonde hair stays neatly styled. Jenna's clipboard stays in her left hand. Screen direction holds: Jenna screen right, Noah screen left.
+Clean frame, the image carries no subtitles, captions, speech bubbles or watermark.
+
+HANDOFF
+CUT 4 exit state: MS, 47° FOV, tracking camera at chest height. Jenna is walking into frame depth, back to the camera. Noah is two paces behind her, also walking into frame depth, wearing a leather glove on his left hand. Cool overhead daylight.
+
+=== 2026-10-29 23:21:54.887 [A7-g1-20261029-233008] RefToVideo (from tool_dispatch args, line cut)
+GLOBAL SETUP
+
+=== 2026-10-29 23:21:54.889 [A7-g1-20261029-233008] [TOOL] RefToVideo duration=15, aspect_ratio=9:16, resolution=720p, model=dreamina-seedance-2-0-mini-260615, style_id=(none), audio=native, create_thumbnail=false, images=3, videos=0, audios=1, prompt=GLOBAL SETUP
+JENNA: 75-year-old female, average height, athletic build, structured jawline, sharp dark eyes, expressive eyebrows, chin-length bob of dyed ash grey hair with visible dark roots. Outward focus is practical and strict, under pressure she clips her words and stiffens her jaw, ceiling is she never loses her professional composure.
+NOAH: 30-year-old male, tall athletic build, broad shoulders, strong jawline, wavy styled golden blonde hair. Outward focus is earnest and steady, under pressure he holds eye contact without wavering, ceiling is he never raises his voice.
+CALEB: 30-year-old male, trim athletic build, oval face, warm brown eyes, light stubble, short curly dark hair. Outward focus is warm and observant, under pressure he leans in and lowers his voice, ceiling is he never pushes past a clear boundary.
+RICHARD: 75-year-old male, tall, well-tailored build, sleek silver-grey hair parted to the side, sharp mature contours. Outward focus is absolute authority, under pressure his movements slow down, ceiling is he never raises his voice to command a room.
+Overall mood is grounded and tensely professional, industrial realism.
+
+SCENE CONTEXT
+Noon inside the glass-partitioned dispatch office. Jenna stands behind a metal desk, facing the camera. Noah stands on the other side of the desk, facing her.
+
+ACTIVE REFERENCES
+@Image 1: JENNA, 75-year-old female, average height, athletic build, structured jawline, sharp dark eyes, expressive eyebrows, chin-length bob of dyed ash grey hair with visible dark roots. 100% matches the reference.
+@Image 2: NOAH, 30-year-old male, tall athletic build, broad shoulders, strong jawline, wavy styled golden blonde hair. 100% matches the reference.
+@Image 3: the environment reference -- this beat's location photographed empty, from a raised three-quarter angle, in 16:9. It is the authority for the set: the architecture, the materials, the fixtures, the furniture, and which wall or side of the room each one stands on. Build the location from it and hold those surfaces and positions steady across every cut. It is NOT a framing reference and NOT a staging reference -- it holds no people and its camera is not this beat's camera. LOCATION MAP, FIRST FRAME / BLOCKING, SHOT PLAN, and CAMERA below govern where the camera sits, how tight it is, and where the cast stands.
+
+WARDROBE
+CUT 1 — JENNA wears a white double-breasted chef coat over a navy t-shirt, grey trousers, and black slip-on kitchen shoes. NOAH wears a light grey three-piece suit with a matching vest and trousers, white dress shirt, light blue tie, and black dress shoes.
+CUT 2 — unchanged
+CUT 3 — unchanged
+CUT 4 — unchanged
+
+LOCATION MAP
+Enclosed office space with a large metal desk in the midground. Behind Jenna is a glass partition looking out onto the warehouse loading bays. Light enters from the loading bay windows.
+
+FIRST FRAME / BLOCKING
+Jenna stands screen right, leaning slightly over the metal desk, a red-stamped bill of lading in her hand. Noah stands screen left, looking down at his mobile phone.
+
+SHOT PLAN
+CUT 1 — HARD CUT: capturing Jenna's urgency.
+CUT 2 — REVERSE CUT: Noah's quick problem-solving.
+CUT 3 — REVERSE CUT: Jenna's growing suspicion.
+CUT 4 — REVERSE CUT: Noah taking charge of the situation.
+
+OPTICS
+CUT 1 — MCU, 29° FOV, portrait compression.
+CUT 2 — CU, 29° FOV, tight on the phone interaction.
+CUT 3 — MCU, 29° FOV, mirroring CUT 1.
+CUT 4 — MS, 47° FOV, observing the spatial relationship.
+
+CAMERA
+CUT 1 — static, chest height, operator on the shadow side.
+CUT 2 — slow DOLLY IN, shoulder height, twenty centimetres, closing in on his confidence.
+CUT 3 — static, eye level, holding Jenna's calculating gaze.
+CUT 4 — DOLLY RIGHT, half a metre, shifting perspective toward the glass partition.
+
+ACTION
+CUT 1 — Jenna drops the red-stamped paper onto the desk with a sharp slap. She taps the paper twice with her index finger and speaks, volume up, line endings clipped, in native English:「Dispatch pulled the refrigerated rig. That clinic shipment spoils in two hours.」lip movement matches the spoken line naturally.
+CUT 2 — Noah's thumb taps rapidly across his phone screen. He slides the phone into his trouser pocket, lifts his chin, and speaks, in native English:「Give me five minutes. I know an independent carrier nearby.」lip movement matches the spoken line naturally.
+CUT 3 — Jenna stops leaning on the desk, straightening her spine. Her eyes narrow as she studies his face, and she says, in native English:「Rookies do not usually have regional carriers on speed dial.」lip movement matches the spoken line naturally.
+CUT 4 — Noah gestures with his open right hand toward the glass partition behind Jenna. He steps toward the door, turning his shoulders, and speaks, in native English:「A truck is turning around right now. Let us move the pallets.」lip movement matches the spoken line naturally.
+
+PERFORMANCE
+CUT 1 — Jenna's shoulders are tight. She starts with a hard exhale, her jaw setting firmly after the paper hits the desk, eyes flashing with frustration.
+CUT 2 — Noah's eyes flick across the screen, brow smooth. As he pockets the phone, his gaze lifts and meets hers, projecting calm assurance, blink rate slow and steady.
+CUT 3 — Jenna's frustration shifts to guarded curiosity. Her head tilts a fraction, her eyelids narrowing, lips pressing together as she evaluates him.
+CUT 4 — Noah's movement is fluid and decisive. He offers a small, reassuring nod, his expression resolute, leaving no room for argument before he moves.
+
+PHYSICS
+The paper lands on the metal desk with a flat, rigid stop. Noah's suit jacket shifts naturally as he pockets the phone, the fabric folding at the elbow.
+
+LIGHTING
+Bright daylight spills through the glass partition from behind Jenna, creating a strong rim light on her hair and shoulders. Soft ambient fill bounces off the pale office walls. Noah is lit by the window light falling across his face from screen right.
+
+COLOR GRADE
+Neutral whites and greys contrasting with the bright exterior daylight and the stark red ink on the paper.
+
+AUDIO
+Use @Audio 1 JENNA.
+Office ambience: muted warehouse noise through the glass. The sharp slap of paper on metal. Faint tapping on a glass phone screen.
+
+STYLE
+Photoreal, unstyled live-action photograph. Fully realistic human proportions with ordinary asymmetry intact. Visible pores, fine vellus hair, uneven tone. Moderate and even detail.
+
+OUTPUT SETTINGS
+CUT 1 real-time · CUT 2 real-time · CUT 3 real-time · CUT 4 real-time
+
+POSITIVE LOCKS
+Noah's blonde hair stays neatly styled. The red-stamped paper stays on the desk. Screen direction holds: Jenna screen right, Noah screen left.
+Clean frame, the image carries no subtitles, captions, speech bubbles or watermark.
+
+=== 2026-10-29 23:35:10.052 [A7-g2-20261030-001405] RefToVideo (from tool_dispatch args, line cut)
+GLOBAL SETUP
+
+=== 2026-10-29 23:35:10.054 [A7-g2-20261030-001405] [TOOL] RefToVideo duration=15, aspect_ratio=9:16, resolution=720p, model=dreamina-seedance-2-0-mini-260615, style_id=(none), audio=native, create_thumbnail=false, images=3, videos=0, audios=1, prompt=GLOBAL SETUP
+PERFORMANCE KEY — JENNA: outwardly gruff and tired, her tell under pressure is a stiffened jaw and avoiding eye contact, her ceiling is a softening of the eyes but never a full smile.
+PERFORMANCE KEY — NOAH: outwardly calm and persistent, his tell is a steady unblinking gaze when serious, his ceiling is a gentle smile while never losing his poised posture.
+Unstyled live-action photograph of a real person, realistic human proportions, skin holds true texture with visible pores and fine vellus hair, detail is moderate and even across the frame, resolved everywhere and emphasised nowhere. No line work, no medium texture, no stylisation of form.
+
+SCENE CONTEXT
+Evening in the warehouse back office. Jenna is attempting to finish inventory alone at her desk, but Noah arrives to share the burden, wearing down her defensive isolation.
+
+ACTIVE REFERENCES
+@Image 1: JENNA, 75-year-old female, athletic build, tired, structured jawline, ash grey bob with dark roots. 100% matches the reference.
+@Image 2: NOAH, 30-year-old male, tall, athletic build, calm, clean-shaven, strong jawline, wavy golden blonde hair. 100% matches the reference.
+@Image 3: the environment reference -- this beat's location photographed empty, from a raised three-quarter angle, in 16:9. It is the authority for the set: the architecture, the materials, the fixtures, the furniture, and which wall or side of the room each one stands on. Build the location from it and hold those surfaces and positions steady across every cut. It is NOT a framing reference and NOT a staging reference -- it holds no people and its camera is not this beat's camera. LOCATION MAP, FIRST FRAME / BLOCKING, SHOT PLAN, and CAMERA below govern where the camera sits, how tight it is, and where the cast stands.
+
+WARDROBE
+CUT 1 — JENNA wears a white double-breasted chef coat over a navy t-shirt, and grey trousers.
+CUT 2 — NOAH wears a light grey three-piece suit with a matching vest and trousers, white dress shirt, and light blue tie.
+CUT 3 — JENNA wears a white double-breasted chef coat over a navy t-shirt, and grey trousers.
+CUT 4 — NOAH wears a light grey three-piece suit with a matching vest and trousers, white dress shirt, and light blue tie.
+
+LOCATION MAP
+A heavy wooden desk sits in the center-right of the room, illuminated by a warm amber desk lamp. A metal chair faces the desk. Behind the desk, a large glass window looks out onto the cold, dimly lit warehouse floor.
+
+FIRST FRAME / BLOCKING
+JENNA is seated at the wooden desk, leaning forward over an open ledger, her head down in the pool of amber light from the desk lamp.
+
+SHOT PLAN
+CUT 1 — HARD CUT: establishing Jenna's fatigue and focus.
+CUT 2 — REVERSE CUT: Noah's arrival and counter-energy.
+CUT 3 — REVERSE CUT: Jenna yielding the space.
+CUT 4 — REVERSE CUT: Noah taking up the task.
+
+OPTICS
+CUT 1 — MS, 47° FOV, slightly high angle, observational.
+CUT 2 — MCU, 47° FOV, eye level, neutral perspective.
+CUT 3 — MCU, 29° FOV, eye level, intimate compression.
+CUT 4 — CU, 29° FOV, low angle, focused presence.
+
+CAMERA
+CUT 1 — slow DOLLY IN towards JENNA's desk, waist height, motivated by her concentration.
+CUT 2 — static, chest height, observing NOAH's seating motion, locked off.
+CUT 3 — slow DOLLY IN, closing the psychological gap between them.
+CUT 4 — static, chest height, locked on NOAH's face.
+
+ACTION
+CUT 1 — JENNA leans her weight onto her forearms over the open ledger, exhales slowly, then lifts her head slightly and speaks, volume low, pacing tired, in native English:「Shift ended hours ago, Noah. Go home.」, lip movement matches the spoken line naturally.
+CUT 2 — NOAH steps into frame from the left, sets a paper cup down on the corner of the wooden desk, lowers himself into the metal chair, leans forward, and speaks, volume steady, in native English:「Two people balance inventory twice as fast.」, lip movement matches the spoken line naturally.
+CUT 3 — JENNA watches the cup land, then pushes the heavy ledger across the desk surface toward the center between them, lifting her gaze to meet his, and speaks, voice dropping softer, in native English:「I am not used to people staying behind to help.」, lip movement matches the spoken line naturally.
+CUT 4 — NOAH reaches out, his fingers closing around a pen on the desk, brings it down to the paper, looks up from the ledger directly into her eyes, and speaks, tone sincere and low, in native English:「You can get used to it. I am not going anywhere.」, lip movement matches the spoken line naturally.
+
+PERFORMANCE
+CUT 1 — JENNA starts with her brow furrowed and eyes tracing the page, eyelids heavy; as she speaks, her jaw sets defensively and her chin lifts a fraction.
+CUT 2 — NOAH's eyes stay locked on JENNA as he sits, his movements fluid and unhurried; his expression shifts from a neutral focus to a gentle, unwavering gaze, his brow smoothing out.
+CUT 3 — JENNA's gaze flickers from the cup to his face, blink rate slowing down; her shoulders drop slightly, abandoning the defensive posture, her lips parting slightly before she speaks.
+CUT 4 — NOAH's eyelids lower briefly as he checks the page, then rise to hold steady eye contact; a tiny twitch of a smile touches the corner of his mouth, his breathing slow and steady.
+
+PHYSICS
+Heavy ledger paper sliding smoothly across varnished wood; suit fabric shifting naturally as NOAH sits in the chair.
+
+LIGHTING
+Amber practical key light from the desk lamp onto the desktop and faces; deep shadows on the back wall; cool blue spill from the warehouse windows in the background acting as a rim light.
+
+COLOR GRADE
+Warm amber core against a cold industrial blue background.
+
+AUDIO
+Use @Audio 1 JENNA.
+Faint warehouse hum in the background, a low fluorescent buzz, the thud of the paper cup, and the slide of the ledger on wood.
+
+STYLE
+Photoreal, filmic contrast, subtle film grain.
+
+OUTPUT SETTINGS
+CUT 1 real-time · CUT 2 real-time · CUT 3 real-time · CUT 4 real-time
+
+POSITIVE LOCKS
+JENNA's identity and wardrobe lock across cuts 1 and 3. NOAH's identity and wardrobe lock across cuts 2 and 4. The paper cup remains on the corner of the desk in all cuts after cut 2. The amber desk lamp remains illuminated in all cuts.
+Clean frame, the image carries no subtitles, captions, speech bubbles or watermark.
+
+=== 2026-10-29 23:35:10.067 [A7-g2-20261030-001405] RefToVideo (from tool_dispatch args, line cut)
+GLOBAL SETUP
+
+=== 2026-10-29 23:35:10.070 [A7-g2-20261030-001405] [TOOL] RefToVideo duration=15, aspect_ratio=9:16, resolution=720p, model=dreamina-seedance-2-0-mini-260615, style_id=(none), audio=native, create_thumbnail=false, images=3, videos=0, audios=1, prompt=GLOBAL SETUP
+JENNA PERFORMANCE KEY: emotion plays inward, tell under pressure is a tightened jaw, ceiling is never losing her practical grounding.
+NOAH PERFORMANCE KEY: emotion plays outward through sincere focus, tell under pressure is a steadying breath, ceiling is never breaking eye contact.
+Location: Warehouse loading canopy, raining. Mood: quiet tension and observant skepticism.
+Picture material is sharp, realistic, and unstyled live-action with visible skin pores and real fabric sheen, lit by a warm practical bulkhead light.
+
+SCENE CONTEXT
+Night at the wet warehouse loading canopy. JENNA stands near a small radio on a crate, while NOAH stands just behind her in the shadows. This is the moment NOAH tests her perspective on the absent executives.
+
+ACTIVE REFERENCES
+@Image 1: JENNA, 75 years old, athletic and practical build, structured jawline, sharp dark eyes, dyed ash grey bob with dark roots. 100% matches the reference.
+@Image 2: NOAH, 30 years old, tall broad-shouldered build, clean-shaven strong jawline, wavy golden blonde hair. 100% matches the reference.
+@Image 3: the environment reference -- this beat's location photographed empty, from a raised three-quarter angle, in 16:9. It is the authority for the set: the architecture, the materials, the fixtures, the furniture, and which wall or side of the room each one stands on. Build the location from it and hold those surfaces and positions steady across every cut. It is NOT a framing reference and NOT a staging reference -- it holds no people and its camera is not this beat's camera. LOCATION MAP, FIRST FRAME / BLOCKING, SHOT PLAN, and CAMERA below govern where the camera sits, how tight it is, and where the cast stands.
+
+WARDROBE
+CUT 1 through CUT 4 — JENNA wears a white double-breasted chef coat over a navy t-shirt, grey trousers, and black slip-on kitchen shoes. NOAH wears a light grey three-piece suit, matching vest and trousers, white dress shirt, light blue tie, and black dress shoes.
+
+LOCATION MAP
+Foreground: wet concrete dock edge with heavy rain pouring off the canopy above. Midground: a dry patch against a cinderblock wall, illuminated by a warm bulkhead light, with a crate and radio. Background: dark, rain-swept yard extending into darkness. Camera sits on the dock surface facing the wall.
+
+FIRST FRAME / BLOCKING
+JENNA stands in the midground, facing slightly left into the dark yard, shoulders relaxed, rain falling inches from her face. NOAH stands slightly behind her right shoulder, half in the shadow of the canopy. Both are already breathing steadily, chest rising, as the rain sheets down beside them.
+
+SHOT PLAN
+CUT 1 — HARD CUT: establishing Jenna's distant gaze.
+CUT 2 — REVERSE CUT: capturing Noah closing the gap.
+CUT 3 — REVERSE CUT: Jenna's reaction and physical turn.
+CUT 4 — REVERSE CUT: Noah's intense, unyielding focus.
+
+OPTICS
+CUT 1 — MS, 47° FOV.
+CUT 2 — MCU, 29° FOV.
+CUT 3 — MCU, 29° FOV.
+CUT 4 — CU, 18° FOV.
+
+CAMERA
+CUT 1 — static, chest height, observing Jenna from a slight profile.
+CUT 2 — slow DOLLY IN, closing slightly on Noah as he steps forward.
+CUT 3 — static, chest height, capturing Jenna's turning motion.
+CUT 4 — slow DOLLY IN, isolating Noah's face and steady gaze.
+
+ACTION
+CUT 1 — Heavy rain pours off the metal canopy in the background. JENNA stares out into the dark yard, chin tilted up, and speaks over the rain, volume steady, in native English: "Sterling's son takes over next month. Another heir who never touched a pallet." lip movement matches the spoken line naturally.
+CUT 2 — NOAH steps forward from the shadow, his shoulder crossing into the warm light. He stops just behind her right shoulder and speaks, tone careful, in native English: "What if he wanted to earn it first? Would that change anything?" lip movement matches the spoken line naturally.
+CUT 3 — JENNA shifts her weight, her right shoulder dropping slightly as she pivots her torso toward him, closing the physical space. She looks at him and speaks, voice dropping to a guarded murmur, in native English: "Men like that live in executive towers. Not down here with us." lip movement matches the spoken line naturally.
+CUT 4 — NOAH holds his ground without stepping backward. He locks eyes directly with her and speaks, quiet but firm, in native English: "Some of them care about what is right in front of them." lip movement matches the spoken line naturally.
+
+PERFORMANCE
+CUT 1 — JENNA's gaze is fixed far away, her eyelids heavy. Her jaw sets tight on the final word, a small breath escaping her parted lips. The edge of her chef coat shifts subtly with the cold draft.
+CUT 2 — NOAH shifts weight from his back foot to his front, chest rising with a slow breath. His eyes trace the back of her head, lids narrowing slightly, before settling into a steady, probing gaze as he asks the question.
+CUT 3 — JENNA's head turns first, followed smoothly by her shoulders. Her eyes narrow as they find his face, a micro-expression of wary skepticism lowering her brow fractionally. Her lips press together for a split second before she delivers her line.
+CUT 4 — NOAH's eyelids barely blink. His jaw muscles flex slightly as he maintains unbroken eye contact, his chin lifting fractionally as he finishes the sentence. His tie shifts gently against his vest with his measured breathing.
+
+PHYSICS
+Heavy water sheets off the metal canopy edge, splashing onto the concrete dock. The air carries a mist from the impact. Clothing stays mostly dry but fabric edges flutter with the subtle wind drafts.
+
+LIGHTING
+Practical bulkhead light from frame right casts warm, hard side-light onto JENNA and NOAH. Fill is soft ambient bounce off the wet concrete. The shadow sides of their faces and garments retain visible texture without crushing to black. Distinct catch-lights shine in their eyes. 3200K white balance.
+
+COLOR GRADE
+Warm amber light against the cold blue tones of the night rain, maintaining true-to-life skin tones.
+
+AUDIO
+Use @Audio 1 JENNA, @Audio 2 NOAH.
+Heavy, continuous rain drumming on corrugated metal, distant static crackles from the radio on the crate, subtle wet footsteps.
+
+STYLE
+Photoreal, unstyled live-action photograph, film grain, subtle camera breathing, muted contrast, fully realistic human proportions.
+
+OUTPUT SETTINGS
+CUT 1 real-time · CUT 2 real-time · CUT 3 real-time · CUT 4 real-time
+
+POSITIVE LOCKS
+JENNA's face, build, hair, and chef workwear remain fixed across all cuts. NOAH's face, build, hair, and three-piece suit remain fixed across all cuts. The radio remains stationary on the crate. Clean frame, the image carries no subtitles, captions, speech bubbles or watermark.
+
+=== 2026-10-29 23:35:10.076 [A7-g2-20261030-001405] RefToVideo (from tool_dispatch args, line cut)
+GLOBAL SETUP
+
+=== 2026-10-29 23:35:10.078 [A7-g2-20261030-001405] [TOOL] RefToVideo duration=15, aspect_ratio=9:16, resolution=720p, model=dreamina-seedance-2-0-mini-260615, style_id=(none), audio=native, create_thumbnail=false, images=4, videos=0, audios=1, prompt=GLOBAL SETUP
+PERFORMANCE KEY — JENNA: outward pragmatism, defensive when vulnerable, physical tells show in her grip on objects; ceiling is sharp dismissal rather than shouting. NOAH: earnest and open, desperate to maintain connection, physically leans in when challenged; ceiling is pleading rather than demanding. RICHARD: absolute authority, immovable posture, controls the room with stillness; ceiling is dry impatience rather than raised voice.
+
+SCENE CONTEXT
+Morning in Staging Area B of the warehouse. Noah stands screen left, back to the camera, hands slightly raised. Jenna stands screen right, facing the camera, holding her clipboard lowered. Cool overhead daylight. 
+
+ACTIVE REFERENCES
+@Image 1: JENNA, athletic and practical build, structured jawline, sharp and observant dark eyes, expressive eyebrows, chin-length bob of dyed ash grey hair with visible dark roots. 100% matches the reference.
+@Image 2: NOAH, tall, athletic, broad-shouldered with an upright posture, symmetrical, clean-shaven, strong jawline with bright, sincere, and curious eyes, wavy, styled golden blonde hair. 100% matches the reference.
+@Image 3: RICHARD, tall, commanding presence, erect posture, well-tailored build, sharp, mature contours, piercing grey eyes, distinguished laugh lines, sleek, silver-grey hair parted neatly to the side. 100% matches the reference.
+@Image 4: the environment reference -- this beat's location photographed empty, from a raised three-quarter angle, in 16:9. It is the authority for the set: the architecture, the materials, the fixtures, the furniture, and which wall or side of the room each one stands on. Build the location from it and hold those surfaces and positions steady across every cut. It is NOT a framing reference and NOT a staging reference -- it holds no people and its camera is not this beat's camera. LOCATION MAP, FIRST FRAME / BLOCKING, SHOT PLAN, and CAMERA below govern where the camera sits, how tight it is, and where the cast stands.
+
+WARDROBE
+CUT 1 — JENNA: white double-breasted chef coat over a navy t-shirt, grey trousers, black slip-on kitchen shoes. NOAH: light grey three-piece suit, matching vest and trousers, white dress shirt, light blue tie, black dress shoes. RICHARD: tailored dark green three-piece suit, crisp white shirt, champagne silk tie.
+CUT 2 — JENNA: identical to CUT 1.
+CUT 3 — NOAH: identical to CUT 1. JENNA: identical to CUT 1.
+CUT 4 — JENNA: identical to CUT 1.
+
+LOCATION MAP
+Polished concrete warehouse floor with painted yellow safety lines. Massive sliding fire doors in the midground background. High ceilings with skylights letting in overhead daylight.
+
+FIRST FRAME / BLOCKING
+NOAH is already standing screen left, back to the camera, hands slightly raised. JENNA is already standing screen right, facing the camera, holding her clipboard lowered. RICHARD is mid-stride in the background between them, pushing through the open sliding fire door and walking directly toward the camera.
+
+SHOT PLAN
+CUT 1 — HARD CUT: establish Richard's entrance disrupting the existing standoff.
+CUT 2 — HARD CUT: punch in on Jenna as the betrayal lands.
+CUT 3 — REVERSE CUT: Noah's desperate attempt to close the gap.
+CUT 4 — REVERSE CUT: Jenna shutting down the interaction and exiting.
+
+OPTICS
+CUT 1 — MS, 47° FOV, deep focus.
+CUT 2 — CU, 29° FOV, shallow depth of field.
+CUT 3 — MCU, 29° FOV, portrait compression.
+CUT 4 — MS, 47° FOV, deep focus.
+
+CAMERA
+CUT 1 — chest height, static, tracking Richard's approach by letting him close the distance into the midground.
+CUT 2 — face height, slow DOLLY IN, ten centimetres, motivated by Jenna's rising shock.
+CUT 3 — chest height, static, holding Noah in frame as Jenna backs away.
+CUT 4 — chest height, static, letting Jenna walk away into frame depth.
+
+ACTION
+CUT 1 — RICHARD strides through the sliding fire door, walking briskly forward. He stops a few metres behind NOAH, stands tall, fixing his gaze squarely on NOAH's back, and speaks, volume projecting across the concrete space, in native English: "That is enough playing on the floor, Noah. The board meeting is waiting." lip movement matches the spoken line naturally.
+CUT 2 — JENNA freezes. Her gaze darts past the lens toward RICHARD, then snaps back to focus on NOAH. She tightens her grip on the clipboard and speaks, her voice hard and edged with disbelief, in native English: "Noah Sterling? The entire time?" lip movement matches the spoken line naturally.
+CUT 3 — NOAH extends his right hand toward her across the gap. He stops his hand mid-motion as JENNA takes a sharp step back, crossing a painted yellow line on the floor. NOAH drops his hand slightly, and speaks, voice urgent and pleading, in native English: "Jenna, listen. Everything between us was real. Let me explain." lip movement matches the spoken line naturally.
+CUT 4 — JENNA presses the clipboard firmly against her chest with both hands. She turns sharply on her heel to the right and walks away into frame depth. As she takes her first steps away, she speaks over her shoulder, tone flat and final, in native English: "Do not touch me, Mr. Sterling." lip movement matches the spoken line naturally.
+
+PERFORMANCE
+CUT 1 — RICHARD: confident, commanding stride, head held high, eyes narrowing slightly as he delivers the line, jaw setting firm. JENNA and NOAH remain frozen in the foreground.
+CUT 2 — JENNA: eyes widen slightly, blink rate drops to zero, her chest rises in a sharp, shallow breath, lips parting slightly before her jaw tightens into a hard line as the realization solidifies.
+CUT 3 — NOAH: brow furrows deeply, eyes softening with panic, a visible swallow before speaking, his extended fingers trembling slightly before dropping. JENNA: rigid posture, stepping back decisively, eyes locked on him with cold rejection.
+CUT 4 — JENNA: jaw clenches shut, eyes dropping away from him as she turns, shoulders stiffening, her grip on the clipboard turning her knuckles pale. NOAH: stands deflated in the background, chin dropping fractionally.
+
+PHYSICS
+The heavy fabric of Richard's suit settles sharply as he comes to a halt. Jenna's chef coat swings outward at the hem obeying momentum as she pivots sharply.
+
+LIGHTING
+Cool overhead daylight pouring through the warehouse skylights. Strong top-down key light, bouncing off the polished concrete to provide soft ambient fill from below. Shadows pool directly under the characters, keeping their faces brightly lit but sterile.
+
+COLOR GRADE
+Industrial and sterile. Concrete greys and cool blues, draining warmth from the scene to emphasize the corporate reality invading the warehouse floor.
+
+AUDIO
+Use @Audio 1 JENNA.
+Warehouse room tone, hum of distant ventilation, crisp echoing footsteps of hard-soled dress shoes on polished concrete.
+
+STYLE
+Photoreal, raw industrial warehouse lighting, neutral film stock, clean and unstylised reality.
+
+OUTPUT SETTINGS
+CUT 1 real-time · CUT 2 real-time · CUT 3 real-time · CUT 4 real-time
+
+POSITIVE LOCKS
+Jenna's clipboard stays in her hands in every cut. The painted yellow floor line remains consistently positioned. Screen direction is maintained throughout.
+Clean frame, the image carries no subtitles, captions, speech bubbles or watermark.
+
+=== 2026-10-29 23:35:10.079 [A7-g2-20261030-001405] RefToVideo (from tool_dispatch args, line cut)
+GLOBAL SETUP
+
+=== 2026-10-29 23:35:10.080 [A7-g2-20261030-001405] [TOOL] RefToVideo duration=15, aspect_ratio=9:16, resolution=720p, model=dreamina-seedance-2-0-mini-260615, style_id=(none), audio=native, create_thumbnail=false, images=4, videos=0, audios=1, prompt=GLOBAL SETUP
+An unstyled live-action photograph of a real person, carrying no rendering signature a viewer could name. Fully realistic human proportions with ordinary asymmetry left intact. Skin holds its true texture — visible pores, fine vellus hair, uneven tone — neither smoothed nor sharpened. Surfaces show only the sheen that real skin and real cloth have. Detail is moderate and even across the whole frame, resolved everywhere and emphasised nowhere. No line work, no medium texture, no stylisation of form.
+PERFORMANCE KEY — JENNA: outward observation, brow furrows under pressure, never raises her voice. NOAH: inward tension, jaw muscle jumps under pressure, never breaks eye contact when sincere. CALEB: outward ease, quick movements under pressure, never loses physical balance.
+
+SCENE CONTEXT
+Morning inside the staging area of a large warehouse. CALEB and NOAH stand near tall wooden crates in the transition aisle, while JENNA stands further back near a sliding steel door.
+
+ACTIVE REFERENCES
+@Image 1: JENNA, 75-year-old female, athletic build, structured jawline, chin-length bob of dyed ash grey hair. 100% matches the reference.
+@Image 2: NOAH, 30-year-old male, tall, broad-shouldered, wavy golden blonde hair. 100% matches the reference.
+@Image 3: CALEB, 30-year-old male, trim athletic build, oval face, short curly dark hair, light stubble. 100% matches the reference.
+@Image 4: the environment reference -- this beat's location photographed empty, from a raised three-quarter angle, in 16:9. It is the authority for the set: the architecture, the materials, the fixtures, the furniture, and which wall or side of the room each one stands on. Build the location from it and hold those surfaces and positions steady across every cut. It is NOT a framing reference and NOT a staging reference -- it holds no people and its camera is not this beat's camera. LOCATION MAP, FIRST FRAME / BLOCKING, SHOT PLAN, and CAMERA below govern where the camera sits, how tight it is, and where the cast stands.
+
+WARDROBE
+CUT 1 — CALEB wears an olive green button-up long-sleeved shirt with rolled sleeves, dark trousers, white sneakers. NOAH wears a light grey three-piece suit, matching vest and trousers, white dress shirt, light blue tie, black dress shoes.
+CUT 2 — NOAH wears the light grey three-piece suit.
+CUT 3 — NOAH wears the light grey three-piece suit. JENNA wears a white double-breasted chef coat over a navy t-shirt, grey trousers, black slip-on kitchen shoes.
+CUT 4 — NOAH wears the light grey three-piece suit.
+CUT 5 — JENNA wears the white chef coat outfit.
+
+LOCATION MAP
+Foreground features tall stacks of wooden shipping crates. The midground contains a wide polished concrete transition aisle marked with painted yellow boundary lines. The deep background holds a large sliding steel door letting in morning light.
+
+FIRST FRAME / BLOCKING
+CALEB and NOAH stand close together next to a tower of wooden crates on the left side of frame. NOAH is mid-stride, turning back, as CALEB's right hand clamps down on his shoulder. JENNA is positioned far in the background by the steel doors, holding a clipboard.
+
+SHOT PLAN
+CUT 1 — HARD CUT: establishing physical urgency between Caleb and Noah.
+CUT 2 — REVERSE CUT: capturing Noah's shift in focus down the aisle.
+CUT 3 — HARD CUT: tracking Noah closing the distance to Jenna.
+CUT 4 — HARD CUT: concentrated pressure as Noah confronts Jenna.
+CUT 5 — REVERSE CUT: Jenna's reaction to the approach.
+
+OPTICS
+CUT 1 — MS, 47° FOV, handheld stability.
+CUT 2 — MCU, 29° FOV, handheld stability.
+CUT 3 — WS, 63° FOV, smooth Steadicam tracking.
+CUT 4 — MCU, 29° FOV, handheld stability.
+CUT 5 — MCU, 29° FOV, handheld stability.
+
+CAMERA
+CUT 1 — Chest height, two metres away, short ARC RIGHT to emphasize the hand on the shoulder.
+CUT 2 — Chest height, slow DOLLY IN slightly as Noah turns his head away.
+CUT 3 — Waist height, TRACKING BACKWARD matching Noah's pace as he marches forward.
+CUT 4 — Eye level, static, holding Noah's tense posture.
+CUT 5 — Eye level, slow DOLLY IN motivated by the clipboard lowering.
+
+ACTION
+CUT 1 — CALEB grips NOAH's shoulder firmly, stopping his forward momentum. CALEB leans in closer, dropping his chin, and speaks fast, volume suppressed, line endings clipped, in native English:「Your father's town car just pulled into bay one. Tell her before he walks in.」lip movement matches the spoken line naturally.
+CUT 2 — NOAH turns his head away from CALEB, gazing past the crate aisle toward the deep background. He pulls in a sharp breath through his nose and answers quickly, volume up, pacing rushed, in native English:「I am telling her right now.」lip movement matches the spoken line naturally. He pushes off his back foot to step forward.
+CUT 3 — NOAH power-walks rapidly across the concrete floor, stepping heavily over the painted yellow line. He decelerates abruptly and plants both feet squarely in front of JENNA, stopping just short of her.
+CUT 4 — NOAH stands breathless in front of the lens. He exhales once, chest dropping, and speaks, pacing breathless, tone raw, in native English:「Jenna, stop for a second. There is something about me you need to know.」lip movement matches the spoken line naturally.
+CUT 5 — JENNA lowers her clipboard slowly to her waist, her gaze dropping down to NOAH's hands at the bottom of frame, then rising steadily back to his face. She speaks calmly, volume moderate, in native English:「Noah? What is going on?」lip movement matches the spoken line naturally.
+
+PERFORMANCE
+CUT 1 — CALEB's brow lowers, eyes locked sharply on NOAH, jaw muscles tightening briefly before he speaks. NOAH's shoulders stiffen under the physical grip, blinking twice rapidly, the suit jacket folding at the shoulder seam.
+CUT 2 — NOAH's eyelids narrow fractionally, focus shifting to the distance. The fabric of his vest pulls tight across his ribs as he twists his torso. He swallows visibly after speaking.
+CUT 3 — NOAH's arms swing with stiff, controlled purpose, his suit jacket catching the air and flaring slightly behind him. JENNA looks up from her writing, her head tilting a fraction as he approaches.
+CUT 4 — NOAH's chest heaves slightly with elevated breathing. His eyelids flutter once before locking onto his target. His jaw sets hard at the end of the line.
+CUT 5 — JENNA's expressive eyebrows draw together, lips parting a few millimetres. Her weight shifts smoothly onto her back foot, fingers gripping the metal clip of the clipboard tighter, knuckles paling slightly.
+
+PHYSICS
+Heavy suit fabric carries momentum, dragging slightly behind the walk. Rubber-soled shoes compress and squeak lightly on the polished concrete floor during fast stops.
+
+LIGHTING
+Morning sunlight spills through overhead skylights, creating sharp diagonal shafts of hard light on the grey concrete. Soft ambient fill bounces upward from the pale wooden crates. Catch-lights reflect brightly in the upper quadrant of the eyes. Key light strikes from the right.
+
+COLOR GRADE
+Industrial cool greys and blues contrasting against the warm yellow painted floor lines and the pale golden tint of the morning sunlight shafts.
+
+AUDIO
+Use @Audio 1 JENNA.
+Warehouse ambience, distant low hum of machinery, rhythmic hollow thumps of footsteps on solid concrete.
+
+STYLE
+Photoreal, sharp cinematic focus, neutral color response, clean lens with no heavy blooming on the highlights.
+
+OUTPUT SETTINGS
+CUT 1 real-time · CUT 2 real-time · CUT 3 real-time · CUT 4 real-time · CUT 5 real-time
+
+POSITIVE LOCKS
+NOAH stays in the light grey suit across all cuts. JENNA stays in the white chef coat outfit across all cuts. Clean frame, the image carries no subtitles, captions, speech bubbles or watermark.
+
+=== 2026-10-30 00:47:48.877 [A7-g3-20261030-015149] TextToImage (from tool_dispatch args)
+Image 1 = Jenna Morales
+
+=== 2026-10-30 00:47:48.882 [A7-g3-20261030-015149] TextToImage (from tool_dispatch args)
+Image 1 = Jenna Morales
+
+=== 2026-10-30 00:47:48.885 [A7-g3-20261030-015149] TextToImage (from tool_dispatch args)
+Image 1 = Jenna Morales
+
+=== 2026-10-30 00:47:48.893 [A7-g3-20261030-015149] TextToImage (from tool_dispatch args)
+Image 1 = Jenna Morales
+
+=== 2026-10-30 00:47:48.906 [A7-g3-20261030-015149] TextToImage (from tool_dispatch args)
+Image 1 = Jenna Morales
+
+=== 2026-10-30 00:48:26.953 [A7-g3-20261030-015149] TextToImage (from tool_dispatch args)
+Image 1 = Jenna Morales
+
+=== 2026-10-30 00:52:15.121 [A7-g3-20261030-015149] RefToVideo (from tool_dispatch args, line cut)
+GLOBAL SETUP
+
+=== 2026-10-30 00:52:15.123 [A7-g3-20261030-015149] RefToVideo (from tool_dispatch args, line cut)
+GLOBAL SETUP
+
+=== 2026-10-30 01:02:59.829 [A7-g3-20261030-015149] RefToVideo (from tool_dispatch args, line cut)
+GLOBAL SETUP
+
+=== 2026-10-30 01:02:59.836 [A7-g3-20261030-015149] RefToVideo (from tool_dispatch args, line cut)
+GLOBAL SETUP
+
+=== 2026-10-30 01:02:59.846 [A7-g3-20261030-015149] RefToVideo (from tool_dispatch args, line cut)
+GLOBAL SETUP
+
+=== 2026-10-30 01:02:59.857 [A7-g3-20261030-015149] RefToVideo (from tool_dispatch args, line cut)
+GLOBAL SETUP

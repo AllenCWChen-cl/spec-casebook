@@ -1,0 +1,1304 @@
+{
+  "": [
+    {
+      "time": "2026-10-29 19:38:09.780",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "firm, practical",
+            "spoken_text": "New hire? Keep up or stay off the floor."
+          },
+          "script": "Jenna checks her clipboard beside the loading bay as footsteps approach along the concrete aisle."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "earnest, humble",
+            "spoken_text": "I'm ready. Just point me where."
+          },
+          "script": "Noah catches up to her pace, holding a pair of heavy work gloves."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "dryly skeptical",
+            "spoken_text": "We'll see how long those clean boots last."
+          },
+          "script": "Jenna turns, looking down at his clean polo and unscratched boots."
+        },
+        {
+          "cut_id": "",
+          "script": "Noah smiles slightly and follows her down the main aisle."
+        }
+      ],
+      "location": "Warehouse Receiving Floor",
+      "preview_narration": "When Noah arrived on Jenna's warehouse floor, he looked entirely out of place.",
+      "seam": "Noah walks behind Jenna down the concrete corridor between tall storage racks.",
+      "time_of_day": "Morning",
+      "title": "The Rookie",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Jenna Morales stands beside a yellow painted aisle marker holding a metal clipboard, turning her head toward Noah Sterling who stands two paces back holding thick leather work gloves. Behind them, high steel industrial racks stretch into the high-ceilinged logistics floor under cool morning skylights.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.780",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "tense, frustrated",
+            "spoken_text": "Dispatch canceled the refrigerated rig. That clinic shipment spoils in two hours."
+          },
+          "script": "Jenna slams a shipping manifest onto the steel counter, staring at the empty loading dock through the glass."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "steady, reassuring",
+            "spoken_text": "Give me five minutes. I know an independent carrier nearby."
+          },
+          "script": "Noah steps up to the counter and pulls his phone from his pocket."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "surprised, cautious",
+            "spoken_text": "Rookies don't usually have regional dispatchers on speed dial."
+          },
+          "script": "Jenna looks at him closely as he finishes dialing and steps toward the door."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "quietly confident",
+            "spoken_text": "A truck is turning around right now. Let's get the pallets prepped."
+          },
+          "script": ""
+        }
+      ],
+      "location": "Dispatch Office",
+      "preview_narration": "Yet when an urgent shipment was stranded, it wasn't an executive who saved it, but Noah's quiet phone call.",
+      "seam": "Jenna and Noah stand opposite each other across the metal desk, exchanging a quiet nod.",
+      "time_of_day": "Noon",
+      "title": "No Special Treatment",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Noah Sterling stands by the office window with his phone lowered at his side, looking across the counter at Jenna Morales, whose hand rests firmly on the white shipment manifest. Noon sunlight cuts through the glass partition, illuminating the dust motes over the grey metal desk.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.780",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "firm, practical",
+            "spoken_text": "New hire? Keep up or stay off the floor."
+          },
+          "script": "Jenna checks her clipboard beside the loading bay as footsteps approach along the concrete aisle."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "earnest, humble",
+            "spoken_text": "I'm ready. Just point me where."
+          },
+          "script": "Noah catches up to her pace, holding a pair of heavy work gloves."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "dryly skeptical",
+            "spoken_text": "We'll see how long those clean boots last."
+          },
+          "script": "Jenna turns, looking down at his clean polo and unscratched boots."
+        },
+        {
+          "cut_id": "",
+          "script": "Noah smiles slightly and follows her down the main aisle."
+        }
+      ],
+      "location": "Warehouse Receiving Floor",
+      "preview_narration": "When Noah arrived on Jenna's warehouse floor, he looked entirely out of place.",
+      "seam": "Noah walks behind Jenna down the concrete corridor between tall storage racks.",
+      "time_of_day": "Morning",
+      "title": "The Rookie",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Jenna Morales stands beside a yellow painted aisle marker holding a metal clipboard, turning her head toward Noah Sterling who stands two paces back holding thick leather work gloves. Behind them, high steel industrial racks stretch into the high-ceilinged logistics floor under cool morning skylights.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.780",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "tense, frustrated",
+            "spoken_text": "Dispatch canceled the refrigerated rig. That clinic shipment spoils in two hours."
+          },
+          "script": "Jenna slams a shipping manifest onto the steel counter, staring at the empty loading dock through the glass."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "steady, reassuring",
+            "spoken_text": "Give me five minutes. I know an independent carrier nearby."
+          },
+          "script": "Noah steps up to the counter and pulls his phone from his pocket."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "surprised, cautious",
+            "spoken_text": "Rookies don't usually have regional dispatchers on speed dial."
+          },
+          "script": "Jenna looks at him closely as he finishes dialing and steps toward the door."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "quietly confident",
+            "spoken_text": "A truck is turning around right now. Let's get the pallets prepped."
+          },
+          "script": ""
+        }
+      ],
+      "location": "Dispatch Office",
+      "preview_narration": "Yet when an urgent shipment was stranded, it wasn't an executive who saved it, but Noah's quiet phone call.",
+      "seam": "Jenna and Noah stand opposite each other across the metal desk, exchanging a quiet nod.",
+      "time_of_day": "Noon",
+      "title": "No Special Treatment",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Noah Sterling stands by the office window with his phone lowered at his side, looking across the counter at Jenna Morales, whose hand rests firmly on the white shipment manifest. Noon sunlight cuts through the glass partition, illuminating the dust motes over the grey metal desk.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.780",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "firm, practical",
+            "spoken_text": "New hire? Keep up or stay off the floor."
+          },
+          "script": "Jenna checks her clipboard beside the loading bay as footsteps approach along the concrete aisle."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "earnest, humble",
+            "spoken_text": "I'm ready. Just point me where."
+          },
+          "script": "Noah catches up to her pace, holding a pair of heavy work gloves."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "dryly skeptical",
+            "spoken_text": "We'll see how long those clean boots last."
+          },
+          "script": "Jenna turns, looking down at his clean polo and unscratched boots."
+        },
+        {
+          "cut_id": "",
+          "script": "Noah smiles slightly and follows her down the main aisle."
+        }
+      ],
+      "location": "Warehouse Receiving Floor",
+      "preview_narration": "When Noah arrived on Jenna's warehouse floor, he looked entirely out of place.",
+      "seam": "Noah walks behind Jenna down the concrete corridor between tall storage racks.",
+      "time_of_day": "Morning",
+      "title": "The Rookie",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Jenna Morales stands beside a yellow painted aisle marker holding a metal clipboard, turning her head toward Noah Sterling who stands two paces back holding thick leather work gloves. Behind them, high steel industrial racks stretch into the high-ceilinged logistics floor under cool morning skylights.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.780",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "tense, frustrated",
+            "spoken_text": "Dispatch canceled the refrigerated rig. That clinic shipment spoils in two hours."
+          },
+          "script": "Jenna slams a shipping manifest onto the steel counter, staring at the empty loading dock through the glass."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "steady, reassuring",
+            "spoken_text": "Give me five minutes. I know an independent carrier nearby."
+          },
+          "script": "Noah steps up to the counter and pulls his phone from his pocket."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "surprised, cautious",
+            "spoken_text": "Rookies don't usually have regional dispatchers on speed dial."
+          },
+          "script": "Jenna looks at him closely as he finishes dialing and steps toward the door."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "quietly confident",
+            "spoken_text": "A truck is turning around right now. Let's get the pallets prepped."
+          },
+          "script": ""
+        }
+      ],
+      "location": "Dispatch Office",
+      "preview_narration": "Yet when an urgent shipment was stranded, it wasn't an executive who saved it, but Noah's quiet phone call.",
+      "seam": "Jenna and Noah stand opposite each other across the metal desk, exchanging a quiet nod.",
+      "time_of_day": "Noon",
+      "title": "No Special Treatment",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Noah Sterling stands by the office window with his phone lowered at his side, looking across the counter at Jenna Morales, whose hand rests firmly on the white shipment manifest. Noon sunlight cuts through the glass partition, illuminating the dust motes over the grey metal desk.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.780",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "firm, practical",
+            "spoken_text": "New hire? Keep up or stay off the floor."
+          },
+          "script": "Jenna checks her clipboard beside the loading bay as footsteps approach along the concrete aisle."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "earnest, humble",
+            "spoken_text": "I'm ready. Just point me where."
+          },
+          "script": "Noah catches up to her pace, holding a pair of heavy work gloves."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "dryly skeptical",
+            "spoken_text": "We'll see how long those clean boots last."
+          },
+          "script": "Jenna turns, looking down at his clean polo and unscratched boots."
+        },
+        {
+          "cut_id": "",
+          "script": "Noah smiles slightly and follows her down the main aisle."
+        }
+      ],
+      "location": "Warehouse Receiving Floor",
+      "preview_narration": "When Noah arrived on Jenna's warehouse floor, he looked entirely out of place.",
+      "seam": "Noah walks behind Jenna down the concrete corridor between tall storage racks.",
+      "time_of_day": "Morning",
+      "title": "The Rookie",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Jenna Morales stands beside a yellow painted aisle marker holding a metal clipboard, turning her head toward Noah Sterling who stands two paces back holding thick leather work gloves. Behind them, high steel industrial racks stretch into the high-ceilinged logistics floor under cool morning skylights.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.780",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "tense, frustrated",
+            "spoken_text": "Dispatch canceled the refrigerated rig. That clinic shipment spoils in two hours."
+          },
+          "script": "Jenna slams a shipping manifest onto the steel counter, staring at the empty loading dock through the glass."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "steady, reassuring",
+            "spoken_text": "Give me five minutes. I know an independent carrier nearby."
+          },
+          "script": "Noah steps up to the counter and pulls his phone from his pocket."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "surprised, cautious",
+            "spoken_text": "Rookies don't usually have regional dispatchers on speed dial."
+          },
+          "script": "Jenna looks at him closely as he finishes dialing and steps toward the door."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "quietly confident",
+            "spoken_text": "A truck is turning around right now. Let's get the pallets prepped."
+          },
+          "script": ""
+        }
+      ],
+      "location": "Dispatch Office",
+      "preview_narration": "Yet when an urgent shipment was stranded, it wasn't an executive who saved it, but Noah's quiet phone call.",
+      "seam": "Jenna and Noah stand opposite each other across the metal desk, exchanging a quiet nod.",
+      "time_of_day": "Noon",
+      "title": "No Special Treatment",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Noah Sterling stands by the office window with his phone lowered at his side, looking across the counter at Jenna Morales, whose hand rests firmly on the white shipment manifest. Noon sunlight cuts through the glass partition, illuminating the dust motes over the grey metal desk.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.789",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "firm, practical",
+            "spoken_text": "New hire? Keep up or stay off the floor."
+          },
+          "script": "Jenna checks her clipboard beside the loading bay as footsteps approach along the concrete aisle."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "earnest, humble",
+            "spoken_text": "I'm ready. Just point me where."
+          },
+          "script": "Noah catches up to her pace, holding a pair of heavy work gloves."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "dryly skeptical",
+            "spoken_text": "We'll see how long those clean boots last."
+          },
+          "script": "Jenna turns, looking down at his clean polo and unscratched boots."
+        },
+        {
+          "cut_id": "",
+          "script": "Noah smiles slightly and follows her down the main aisle."
+        }
+      ],
+      "location": "Warehouse Receiving Floor",
+      "preview_narration": "When Noah arrived on Jenna's warehouse floor, he looked entirely out of place.",
+      "seam": "Noah walks behind Jenna down the concrete corridor between tall storage racks.",
+      "time_of_day": "Morning",
+      "title": "The Rookie",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Jenna Morales stands beside a yellow painted aisle marker holding a metal clipboard, turning her head toward Noah Sterling who stands two paces back holding thick leather work gloves. Behind them, high steel industrial racks stretch into the high-ceilinged logistics floor under cool morning skylights.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.789",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "tense, frustrated",
+            "spoken_text": "Dispatch canceled the refrigerated rig. That clinic shipment spoils in two hours."
+          },
+          "script": "Jenna slams a shipping manifest onto the steel counter, staring at the empty loading dock through the glass."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "steady, reassuring",
+            "spoken_text": "Give me five minutes. I know an independent carrier nearby."
+          },
+          "script": "Noah steps up to the counter and pulls his phone from his pocket."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "surprised, cautious",
+            "spoken_text": "Rookies don't usually have regional dispatchers on speed dial."
+          },
+          "script": "Jenna looks at him closely as he finishes dialing and steps toward the door."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "quietly confident",
+            "spoken_text": "A truck is turning around right now. Let's get the pallets prepped."
+          },
+          "script": ""
+        }
+      ],
+      "location": "Dispatch Office",
+      "preview_narration": "Yet when an urgent shipment was stranded, it wasn't an executive who saved it, but Noah's quiet phone call.",
+      "seam": "Jenna and Noah stand opposite each other across the metal desk, exchanging a quiet nod.",
+      "time_of_day": "Noon",
+      "title": "No Special Treatment",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Noah Sterling stands by the office window with his phone lowered at his side, looking across the counter at Jenna Morales, whose hand rests firmly on the white shipment manifest. Noon sunlight cuts through the glass partition, illuminating the dust motes over the grey metal desk.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.789",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "firm, practical",
+            "spoken_text": "New hire? Keep up or stay off the floor."
+          },
+          "script": "Jenna checks her clipboard beside the loading bay as footsteps approach along the concrete aisle."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "earnest, humble",
+            "spoken_text": "I'm ready. Just point me where."
+          },
+          "script": "Noah catches up to her pace, holding a pair of heavy work gloves."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "dryly skeptical",
+            "spoken_text": "We'll see how long those clean boots last."
+          },
+          "script": "Jenna turns, looking down at his clean polo and unscratched boots."
+        },
+        {
+          "cut_id": "",
+          "script": "Noah smiles slightly and follows her down the main aisle."
+        }
+      ],
+      "location": "Warehouse Receiving Floor",
+      "preview_narration": "When Noah arrived on Jenna's warehouse floor, he looked entirely out of place.",
+      "seam": "Noah walks behind Jenna down the concrete corridor between tall storage racks.",
+      "time_of_day": "Morning",
+      "title": "The Rookie",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Jenna Morales stands beside a yellow painted aisle marker holding a metal clipboard, turning her head toward Noah Sterling who stands two paces back holding thick leather work gloves. Behind them, high steel industrial racks stretch into the high-ceilinged logistics floor under cool morning skylights.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.789",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "tense, frustrated",
+            "spoken_text": "Dispatch canceled the refrigerated rig. That clinic shipment spoils in two hours."
+          },
+          "script": "Jenna slams a shipping manifest onto the steel counter, staring at the empty loading dock through the glass."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "steady, reassuring",
+            "spoken_text": "Give me five minutes. I know an independent carrier nearby."
+          },
+          "script": "Noah steps up to the counter and pulls his phone from his pocket."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "surprised, cautious",
+            "spoken_text": "Rookies don't usually have regional dispatchers on speed dial."
+          },
+          "script": "Jenna looks at him closely as he finishes dialing and steps toward the door."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "quietly confident",
+            "spoken_text": "A truck is turning around right now. Let's get the pallets prepped."
+          },
+          "script": ""
+        }
+      ],
+      "location": "Dispatch Office",
+      "preview_narration": "Yet when an urgent shipment was stranded, it wasn't an executive who saved it, but Noah's quiet phone call.",
+      "seam": "Jenna and Noah stand opposite each other across the metal desk, exchanging a quiet nod.",
+      "time_of_day": "Noon",
+      "title": "No Special Treatment",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Noah Sterling stands by the office window with his phone lowered at his side, looking across the counter at Jenna Morales, whose hand rests firmly on the white shipment manifest. Noon sunlight cuts through the glass partition, illuminating the dust motes over the grey metal desk.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.789",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "firm, practical",
+            "spoken_text": "New hire? Keep up or stay off the floor."
+          },
+          "script": "Jenna checks her clipboard beside the loading bay as footsteps approach along the concrete aisle."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "earnest, humble",
+            "spoken_text": "I'm ready. Just point me where."
+          },
+          "script": "Noah catches up to her pace, holding a pair of heavy work gloves."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "dryly skeptical",
+            "spoken_text": "We'll see how long those clean boots last."
+          },
+          "script": "Jenna turns, looking down at his clean polo and unscratched boots."
+        },
+        {
+          "cut_id": "",
+          "script": "Noah smiles slightly and follows her down the main aisle."
+        }
+      ],
+      "location": "Warehouse Receiving Floor",
+      "preview_narration": "When Noah arrived on Jenna's warehouse floor, he looked entirely out of place.",
+      "seam": "Noah walks behind Jenna down the concrete corridor between tall storage racks.",
+      "time_of_day": "Morning",
+      "title": "The Rookie",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Jenna Morales stands beside a yellow painted aisle marker holding a metal clipboard, turning her head toward Noah Sterling who stands two paces back holding thick leather work gloves. Behind them, high steel industrial racks stretch into the high-ceilinged logistics floor under cool morning skylights.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.789",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "tense, frustrated",
+            "spoken_text": "Dispatch canceled the refrigerated rig. That clinic shipment spoils in two hours."
+          },
+          "script": "Jenna slams a shipping manifest onto the steel counter, staring at the empty loading dock through the glass."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "steady, reassuring",
+            "spoken_text": "Give me five minutes. I know an independent carrier nearby."
+          },
+          "script": "Noah steps up to the counter and pulls his phone from his pocket."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "surprised, cautious",
+            "spoken_text": "Rookies don't usually have regional dispatchers on speed dial."
+          },
+          "script": "Jenna looks at him closely as he finishes dialing and steps toward the door."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "quietly confident",
+            "spoken_text": "A truck is turning around right now. Let's get the pallets prepped."
+          },
+          "script": ""
+        }
+      ],
+      "location": "Dispatch Office",
+      "preview_narration": "Yet when an urgent shipment was stranded, it wasn't an executive who saved it, but Noah's quiet phone call.",
+      "seam": "Jenna and Noah stand opposite each other across the metal desk, exchanging a quiet nod.",
+      "time_of_day": "Noon",
+      "title": "No Special Treatment",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Noah Sterling stands by the office window with his phone lowered at his side, looking across the counter at Jenna Morales, whose hand rests firmly on the white shipment manifest. Noon sunlight cuts through the glass partition, illuminating the dust motes over the grey metal desk.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.789",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "firm, practical",
+            "spoken_text": "New hire? Keep up or stay off the floor."
+          },
+          "script": "Jenna checks her clipboard beside the loading bay as footsteps approach along the concrete aisle."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "earnest, humble",
+            "spoken_text": "I'm ready. Just point me where."
+          },
+          "script": "Noah catches up to her pace, holding a pair of heavy work gloves."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "dryly skeptical",
+            "spoken_text": "We'll see how long those clean boots last."
+          },
+          "script": "Jenna turns, looking down at his clean polo and unscratched boots."
+        },
+        {
+          "cut_id": "",
+          "script": "Noah smiles slightly and follows her down the main aisle."
+        }
+      ],
+      "location": "Warehouse Receiving Floor",
+      "preview_narration": "When Noah arrived on Jenna's warehouse floor, he looked entirely out of place.",
+      "seam": "Noah walks behind Jenna down the concrete corridor between tall storage racks.",
+      "time_of_day": "Morning",
+      "title": "The Rookie",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Jenna Morales stands beside a yellow painted aisle marker holding a metal clipboard, turning her head toward Noah Sterling who stands two paces back holding thick leather work gloves. Behind them, high steel industrial racks stretch into the high-ceilinged logistics floor under cool morning skylights.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.789",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "tense, frustrated",
+            "spoken_text": "Dispatch canceled the refrigerated rig. That clinic shipment spoils in two hours."
+          },
+          "script": "Jenna slams a shipping manifest onto the steel counter, staring at the empty loading dock through the glass."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "steady, reassuring",
+            "spoken_text": "Give me five minutes. I know an independent carrier nearby."
+          },
+          "script": "Noah steps up to the counter and pulls his phone from his pocket."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "surprised, cautious",
+            "spoken_text": "Rookies don't usually have regional dispatchers on speed dial."
+          },
+          "script": "Jenna looks at him closely as he finishes dialing and steps toward the door."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "quietly confident",
+            "spoken_text": "A truck is turning around right now. Let's get the pallets prepped."
+          },
+          "script": ""
+        }
+      ],
+      "location": "Dispatch Office",
+      "preview_narration": "Yet when an urgent shipment was stranded, it wasn't an executive who saved it, but Noah's quiet phone call.",
+      "seam": "Jenna and Noah stand opposite each other across the metal desk, exchanging a quiet nod.",
+      "time_of_day": "Noon",
+      "title": "No Special Treatment",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Noah Sterling stands by the office window with his phone lowered at his side, looking across the counter at Jenna Morales, whose hand rests firmly on the white shipment manifest. Noon sunlight cuts through the glass partition, illuminating the dust motes over the grey metal desk.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.794",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "firm, practical",
+            "spoken_text": "New hire? Keep up or stay off the floor."
+          },
+          "script": "Jenna checks her clipboard beside the loading bay as footsteps approach along the concrete aisle."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "earnest, humble",
+            "spoken_text": "I'm ready. Just point me where."
+          },
+          "script": "Noah catches up to her pace, holding a pair of heavy work gloves."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "dryly skeptical",
+            "spoken_text": "We'll see how long those clean boots last."
+          },
+          "script": "Jenna turns, looking down at his clean polo and unscratched boots."
+        },
+        {
+          "cut_id": "",
+          "script": "Noah smiles slightly and follows her down the main aisle."
+        }
+      ],
+      "location": "Warehouse Receiving Floor",
+      "preview_narration": "When Noah arrived on Jenna's warehouse floor, he looked entirely out of place.",
+      "seam": "Noah walks behind Jenna down the concrete corridor between tall storage racks.",
+      "time_of_day": "Morning",
+      "title": "The Rookie",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Jenna Morales stands beside a yellow painted aisle marker holding a metal clipboard, turning her head toward Noah Sterling who stands two paces back holding thick leather work gloves. Behind them, high steel industrial racks stretch into the high-ceilinged logistics floor under cool morning skylights.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.794",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "tense, frustrated",
+            "spoken_text": "Dispatch canceled the refrigerated rig. That clinic shipment spoils in two hours."
+          },
+          "script": "Jenna slams a shipping manifest onto the steel counter, staring at the empty loading dock through the glass."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "steady, reassuring",
+            "spoken_text": "Give me five minutes. I know an independent carrier nearby."
+          },
+          "script": "Noah steps up to the counter and pulls his phone from his pocket."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "surprised, cautious",
+            "spoken_text": "Rookies don't usually have regional dispatchers on speed dial."
+          },
+          "script": "Jenna looks at him closely as he finishes dialing and steps toward the door."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "quietly confident",
+            "spoken_text": "A truck is turning around right now. Let's get the pallets prepped."
+          },
+          "script": ""
+        }
+      ],
+      "location": "Dispatch Office",
+      "preview_narration": "Yet when an urgent shipment was stranded, it wasn't an executive who saved it, but Noah's quiet phone call.",
+      "seam": "Jenna and Noah stand opposite each other across the metal desk, exchanging a quiet nod.",
+      "time_of_day": "Noon",
+      "title": "No Special Treatment",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Noah Sterling stands by the office window with his phone lowered at his side, looking across the counter at Jenna Morales, whose hand rests firmly on the white shipment manifest. Noon sunlight cuts through the glass partition, illuminating the dust motes over the grey metal desk.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.794",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "firm, practical",
+            "spoken_text": "New hire? Keep up or stay off the floor."
+          },
+          "script": "Jenna checks her clipboard beside the loading bay as footsteps approach along the concrete aisle."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "earnest, humble",
+            "spoken_text": "I'm ready. Just point me where."
+          },
+          "script": "Noah catches up to her pace, holding a pair of heavy work gloves."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "dryly skeptical",
+            "spoken_text": "We'll see how long those clean boots last."
+          },
+          "script": "Jenna turns, looking down at his clean polo and unscratched boots."
+        },
+        {
+          "cut_id": "",
+          "script": "Noah smiles slightly and follows her down the main aisle."
+        }
+      ],
+      "location": "Warehouse Receiving Floor",
+      "preview_narration": "When Noah arrived on Jenna's warehouse floor, he looked entirely out of place.",
+      "seam": "Noah walks behind Jenna down the concrete corridor between tall storage racks.",
+      "time_of_day": "Morning",
+      "title": "The Rookie",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Jenna Morales stands beside a yellow painted aisle marker holding a metal clipboard, turning her head toward Noah Sterling who stands two paces back holding thick leather work gloves. Behind them, high steel industrial racks stretch into the high-ceilinged logistics floor under cool morning skylights.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.794",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "tense, frustrated",
+            "spoken_text": "Dispatch canceled the refrigerated rig. That clinic shipment spoils in two hours."
+          },
+          "script": "Jenna slams a shipping manifest onto the steel counter, staring at the empty loading dock through the glass."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "steady, reassuring",
+            "spoken_text": "Give me five minutes. I know an independent carrier nearby."
+          },
+          "script": "Noah steps up to the counter and pulls his phone from his pocket."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "surprised, cautious",
+            "spoken_text": "Rookies don't usually have regional dispatchers on speed dial."
+          },
+          "script": "Jenna looks at him closely as he finishes dialing and steps toward the door."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "quietly confident",
+            "spoken_text": "A truck is turning around right now. Let's get the pallets prepped."
+          },
+          "script": ""
+        }
+      ],
+      "location": "Dispatch Office",
+      "preview_narration": "Yet when an urgent shipment was stranded, it wasn't an executive who saved it, but Noah's quiet phone call.",
+      "seam": "Jenna and Noah stand opposite each other across the metal desk, exchanging a quiet nod.",
+      "time_of_day": "Noon",
+      "title": "No Special Treatment",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Noah Sterling stands by the office window with his phone lowered at his side, looking across the counter at Jenna Morales, whose hand rests firmly on the white shipment manifest. Noon sunlight cuts through the glass partition, illuminating the dust motes over the grey metal desk.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.794",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "firm, practical",
+            "spoken_text": "New hire? Keep up or stay off the floor."
+          },
+          "script": "Jenna checks her clipboard beside the loading bay as footsteps approach along the concrete aisle."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "earnest, humble",
+            "spoken_text": "I'm ready. Just point me where."
+          },
+          "script": "Noah catches up to her pace, holding a pair of heavy work gloves."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "dryly skeptical",
+            "spoken_text": "We'll see how long those clean boots last."
+          },
+          "script": "Jenna turns, looking down at his clean polo and unscratched boots."
+        },
+        {
+          "cut_id": "",
+          "script": "Noah smiles slightly and follows her down the main aisle."
+        }
+      ],
+      "location": "Warehouse Receiving Floor",
+      "preview_narration": "When Noah arrived on Jenna's warehouse floor, he looked entirely out of place.",
+      "seam": "Noah walks behind Jenna down the concrete corridor between tall storage racks.",
+      "time_of_day": "Morning",
+      "title": "The Rookie",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Jenna Morales stands beside a yellow painted aisle marker holding a metal clipboard, turning her head toward Noah Sterling who stands two paces back holding thick leather work gloves. Behind them, high steel industrial racks stretch into the high-ceilinged logistics floor under cool morning skylights.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.794",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "tense, frustrated",
+            "spoken_text": "Dispatch canceled the refrigerated rig. That clinic shipment spoils in two hours."
+          },
+          "script": "Jenna slams a shipping manifest onto the steel counter, staring at the empty loading dock through the glass."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "steady, reassuring",
+            "spoken_text": "Give me five minutes. I know an independent carrier nearby."
+          },
+          "script": "Noah steps up to the counter and pulls his phone from his pocket."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "surprised, cautious",
+            "spoken_text": "Rookies don't usually have regional dispatchers on speed dial."
+          },
+          "script": "Jenna looks at him closely as he finishes dialing and steps toward the door."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "quietly confident",
+            "spoken_text": "A truck is turning around right now. Let's get the pallets prepped."
+          },
+          "script": ""
+        }
+      ],
+      "location": "Dispatch Office",
+      "preview_narration": "Yet when an urgent shipment was stranded, it wasn't an executive who saved it, but Noah's quiet phone call.",
+      "seam": "Jenna and Noah stand opposite each other across the metal desk, exchanging a quiet nod.",
+      "time_of_day": "Noon",
+      "title": "No Special Treatment",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Noah Sterling stands by the office window with his phone lowered at his side, looking across the counter at Jenna Morales, whose hand rests firmly on the white shipment manifest. Noon sunlight cuts through the glass partition, illuminating the dust motes over the grey metal desk.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.794",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "firm, practical",
+            "spoken_text": "New hire? Keep up or stay off the floor."
+          },
+          "script": "Jenna checks her clipboard beside the loading bay as footsteps approach along the concrete aisle."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "earnest, humble",
+            "spoken_text": "I'm ready. Just point me where."
+          },
+          "script": "Noah catches up to her pace, holding a pair of heavy work gloves."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "dryly skeptical",
+            "spoken_text": "We'll see how long those clean boots last."
+          },
+          "script": "Jenna turns, looking down at his clean polo and unscratched boots."
+        },
+        {
+          "cut_id": "",
+          "script": "Noah smiles slightly and follows her down the main aisle."
+        }
+      ],
+      "location": "Warehouse Receiving Floor",
+      "preview_narration": "When Noah arrived on Jenna's warehouse floor, he looked entirely out of place.",
+      "seam": "Noah walks behind Jenna down the concrete corridor between tall storage racks.",
+      "time_of_day": "Morning",
+      "title": "The Rookie",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Jenna Morales stands beside a yellow painted aisle marker holding a metal clipboard, turning her head toward Noah Sterling who stands two paces back holding thick leather work gloves. Behind them, high steel industrial racks stretch into the high-ceilinged logistics floor under cool morning skylights.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    },
+    {
+      "time": "2026-10-29 19:38:09.794",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "tense, frustrated",
+            "spoken_text": "Dispatch canceled the refrigerated rig. That clinic shipment spoils in two hours."
+          },
+          "script": "Jenna slams a shipping manifest onto the steel counter, staring at the empty loading dock through the glass."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "steady, reassuring",
+            "spoken_text": "Give me five minutes. I know an independent carrier nearby."
+          },
+          "script": "Noah steps up to the counter and pulls his phone from his pocket."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "surprised, cautious",
+            "spoken_text": "Rookies don't usually have regional dispatchers on speed dial."
+          },
+          "script": "Jenna looks at him closely as he finishes dialing and steps toward the door."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "quietly confident",
+            "spoken_text": "A truck is turning around right now. Let's get the pallets prepped."
+          },
+          "script": ""
+        }
+      ],
+      "location": "Dispatch Office",
+      "preview_narration": "Yet when an urgent shipment was stranded, it wasn't an executive who saved it, but Noah's quiet phone call.",
+      "seam": "Jenna and Noah stand opposite each other across the metal desk, exchanging a quiet nod.",
+      "time_of_day": "Noon",
+      "title": "No Special Treatment",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Noah Sterling stands by the office window with his phone lowered at his side, looking across the counter at Jenna Morales, whose hand rests firmly on the white shipment manifest. Noon sunlight cuts through the glass partition, illuminating the dust motes over the grey metal desk.",
+      "wardrobe": "Jenna Morales: Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots | Noah Sterling: Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots"
+    }
+  ],
+  "beat_d9f7e846": [
+    {
+      "time": "2026-10-29 19:39:51.715",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "beat_d9f7e846",
+      "cuts": [
+        {
+          "cut_id": "cut_63b05a09",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "firm, brisk",
+            "spoken_text": "New hire? Keep up or stay off my floor."
+          },
+          "script": "Jenna marks an inventory sheet on her metal clipboard as footsteps stop two paces behind her."
+        },
+        {
+          "cut_id": "cut_d65ae4d6",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "earnest, calm",
+            "spoken_text": "Ready when you are. Just tell me where."
+          },
+          "script": "Noah steps up alongside her, holding heavy leather work gloves in one hand."
+        },
+        {
+          "cut_id": "cut_57aed614",
+          "dialogue": {
+            "speaker_name": "Jenna Morales",
+            "speaker_tone": "dryly skeptical",
+            "spoken_text": "We will see how long those clean boots last."
+          },
+          "script": "Jenna turns and looks down at his clean polo and unscratched boots."
+        },
+        {
+          "cut_id": "cut_2d19d95d",
+          "dialogue": {
+            "speaker_name": "Noah Sterling",
+            "speaker_tone": "quiet, steady",
+            "spoken_text": "Lead the way."
+          },
+          "script": "Noah pulls on the work gloves and follows her toward the pallet rows."
+        }
+      ],
+      "location": "Warehouse Receiving Floor",
+      "preview_narration": "When Noah first walked onto Jenna's busy warehouse floor, everything about him seemed far too polished for hard labor.",
+      "seam": "Noah pulls on his leather work gloves and follows Jenna down the central concrete aisle.",
+      "time_of_day": "Morning",
+      "title": "The Rookie",
+      "used_asset_ids": [
+        "char_jenna_morales",
+        "char_noah_sterling"
+      ],
+      "visual_description": "Jenna Morales stands beside a yellow aisle marker holding a metal clipboard, turning to look at Noah Sterling who stands two paces back holding thick leather work gloves. Behind them, tall steel racking aisles stretch beneath cool morning skylights.",
+      "wardrobe": "Jenna Morales: Chef workwear: white double-breasted chef coat over a navy t-shirt, grey trousers, and black slip-on kitchen shoes | Noah Sterling: Light grey three-piece suit with a matching vest and trousers, white dress shirt, light blue tie, and black dress shoes"
+    },
+    {
+      "time": "2026-10-29 19:40:22.290",
+      "segment": "A7-d1-20261029-194556",
+      "beat_id": "beat_d9f7e846",
+      "title": "The Rookie",
+      "visual_description": "Jenna Morales stands beside a yellow aisle marker holding a metal clipboard, turning to look at Noah Sterling who stands two paces back holding thick leather work gloves. Behind them, tall steel racking aisles stretch beneath cool morning skylights.",
+      "wardrobe": "Jenna Morales: Chef workwear: white double-breasted chef coat over a navy t-shirt, grey trousers, and black slip-on kitchen shoes ｜ Noah Sterling: Light grey three-piece suit with a matching vest and trousers, white dress shirt, light blue tie, and black dress shoes"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "char_jenna_morales": [
+    {
+      "time": "2026-10-29 19:39:13.703",
+      "segment": "A7-d1-20261029-194556",
+      "asset_id": "char_jenna_morales",
+      "name": "Jenna Morales",
+      "age": "75",
+      "gender": "female",
+      "ethnicity": "white",
+      "look": "Average height, athletic and practical build suitable for active warehouse management; Structured jawline, sharp and observant dark eyes, expressive eyebrows; Dark brown hair pulled back into a neat, high ponytail with a few practical loose strands",
+      "default_wardrobe": "Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots",
+      "summary": "Jenna Morales: capable adult warehouse manager who values hard work and distrusts distant executives; direct, observant, and gradually drawn to Noah. Average height, athletic and practical build suitable for active warehouse management, Structured jawline, sharp and observant dark eyes, expressive eyebrows, Dark brown hair pulled back into a neat, high ponytail with a few practical loose strands, Industrial workwear: durable dark canvas utility vest over a grey long-sleeve shirt, fitted jeans, and steel-toed boots. | Appearance: Average height, athletic and practical build suitable for active warehouse management; Structured jawline, sharp and observant dark eyes, expressive eyebrows; Dark brown hair pulled back into a neat, high ponytail with a few practical loose strands"
+    },
+    {
+      "time": "2026-10-29 19:39:20.323",
+      "segment": "A7-d1-20261029-194556",
+      "asset_id": "char_jenna_morales",
+      "default_wardrobe": "Chef workwear: white double-breasted chef coat over a navy t-shirt, grey trousers, and black slip-on kitchen shoes",
+      "look": "Average height, athletic and practical build suitable for active warehouse management; Structured jawline, sharp and observant dark eyes, expressive eyebrows; Chin-length bob of dyed ash grey hair with visible dark roots",
+      "summary": "Jenna Morales: capable adult warehouse manager who values hard work and distrusts distant executives; direct, observant, and gradually drawn to Noah. Average height, athletic and practical build suitable for active warehouse management, Structured jawline, sharp and observant dark eyes, expressive eyebrows, Chin-length bob of dyed ash grey hair with visible dark roots, Chef workwear: white double-breasted chef coat over a navy t-shirt, grey trousers, and black slip-on kitchen shoes. | Appearance: Average height, athletic and practical build suitable for active warehouse management; Structured jawline, sharp and observant dark eyes, expressive eyebrows; Chin-length bob of dyed ash grey hair with visible dark roots"
+    },
+    {
+      "time": "2026-10-29 19:40:22.290",
+      "segment": "A7-d1-20261029-194556",
+      "asset_id": "char_jenna_morales",
+      "name": "Jenna Morales",
+      "summary": "Jenna Morales: capable adult warehouse manager who values hard work and distrusts distant executives; direct, observant, and gradually drawn to Noah. Average height, athletic and practical build suitable for active warehouse management, Structured jawline, sharp and observant dark eyes, expressive eyebrows, Chin-length bob of dyed ash grey hair with visible dark roots, Chef workwear: white double-breasted chef coat over a navy t-shirt, grey trousers, and black slip-on kitchen shoes. | Appearance: Average height, athletic and practical build suitable for active warehouse management; Structured jawline, sharp and observant dark eyes, expressive eyebrows; Chin-length bob of dyed ash grey hair with visible dark roots",
+      "age": "75 years old",
+      "gender": "female",
+      "ethnicity": "white"
+    },
+    {
+      "time": "2026-10-30 00:49:50.662",
+      "segment": "A7-g3-20261030-015149",
+      "asset_id": "char_jenna_morales",
+      "name": "Jenna Morales",
+      "role": "capable adult warehouse manager who values hard work and distrusts distant executives; direct, observant, and gradually drawn to Noah.",
+      "summary": "Jenna Morales: capable adult warehouse manager who values hard work and distrusts distant executives; direct, observant, and gradually drawn to Noah. Average height, athletic and practical build suitable for active warehouse management, Structured jawline, sharp and observant dark eyes, expressive eyebrows, Chin-length bob of dyed ash grey hair with visible dark roots, Chef workwear: white double-breasted chef coat over a navy t-shirt, grey trousers, and black slip-on kitchen shoes. | Appearance: Average height, athletic and practical build suitable for active warehouse management; Structured jawline, sharp and observant dark eyes, expressive eyebrows; Chin-length bob of dyed ash grey hair with visible dark roots",
+      "age": "75 years old",
+      "gender": "female",
+      "ethnicity": "white",
+      "look": "Average height, athletic and practical build suitable for active warehouse management; Structured jawline, sharp and observant dark eyes, expressive eyebrows; Chin-length bob of dyed ash grey hair with visible dark roots",
+      "default_wardrobe": "Chef workwear: white double-breasted chef coat over a navy t-shirt, grey trousers, and black slip-on kitchen shoes",
+      "has_reference_image": true
+    }
+  ],
+  "char_noah_sterling": [
+    {
+      "time": "2026-10-29 19:39:13.703",
+      "segment": "A7-d1-20261029-194556",
+      "asset_id": "char_noah_sterling",
+      "name": "Noah Sterling",
+      "age": "30",
+      "gender": "male",
+      "ethnicity": "white",
+      "look": "Tall, athletic, broad-shouldered but leaning into a humble posture to blend in; Symmetrical, clean-shaven, strong jawline with bright, sincere, and curious eyes; Slightly tousled, short-textured sandy brown hair",
+      "default_wardrobe": "Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots",
+      "summary": "Noah Sterling: handsome adult heir to Sterling Logistics working under a concealed identity as a warehouse rookie; sincere, resourceful, and falling for Jenna. Tall, athletic, broad-shouldered but leaning into a humble posture to blend in, Symmetrical, clean-shaven, strong jawline with bright, sincere, and curious eyes, Slightly tousled, short-textured sandy brown hair, Rookie warehouse uniform: clean navy blue polo shirt, khaki work pants, and sturdy leather boots. | Appearance: Tall, athletic, broad-shouldered but leaning into a humble posture to blend in; Symmetrical, clean-shaven, strong jawline with bright, sincere, and curious eyes; Slightly tousled, short-textured sandy brown hair"
+    },
+    {
+      "time": "2026-10-29 19:39:19.923",
+      "segment": "A7-d1-20261029-194556",
+      "asset_id": "char_noah_sterling",
+      "default_wardrobe": "Light grey three-piece suit with a matching vest and trousers, white dress shirt, light blue tie, and black dress shoes",
+      "look": "Tall, athletic, broad-shouldered with an upright posture; Symmetrical, clean-shaven, strong jawline with bright, sincere, and curious eyes; Wavy, styled golden blonde hair",
+      "summary": "Noah Sterling: handsome adult heir to Sterling Logistics working under a concealed identity as a warehouse rookie; sincere, resourceful, and falling for Jenna. Tall, athletic, broad-shouldered with an upright posture, Symmetrical, clean-shaven, strong jawline with bright, sincere, and curious eyes, Wavy, styled golden blonde hair, Light grey three-piece suit with a matching vest and trousers, white dress shirt, light blue tie, and black dress shoes. | Appearance: Tall, athletic, broad-shouldered with an upright posture; Symmetrical, clean-shaven, strong jawline with bright, sincere, and curious eyes; Wavy, styled golden blonde hair"
+    }
+  ],
+  "char_caleb": [
+    {
+      "time": "2026-10-29 19:39:19.920",
+      "segment": "A7-d1-20261029-194556",
+      "asset_id": "char_caleb",
+      "default_wardrobe": "Olive green button-up long-sleeved shirt with rolled sleeves, dark trousers, white sneakers",
+      "look": "Trim, athletic build, average height, comfortable in his own skin; Oval, friendly face, warm brown eyes, light stubble with a warm smile; Short, curly dark hair, neat and low-maintenance",
+      "summary": "Caleb: Noah's trusted adult coworker who discovers his identity and urges him to tell Jenna before the board meeting. Trim, athletic build, average height, comfortable in his own skin, Oval, friendly face, warm brown eyes, light stubble with a warm smile, Short, curly dark hair, neat and low-maintenance, Olive green button-up long-sleeved shirt with rolled sleeves, dark trousers, white sneakers. | Appearance: Trim, athletic build, average height, comfortable in his own skin; Oval, friendly face, warm brown eyes, light stubble with a warm smile; Short, curly dark hair, neat and low-maintenance"
+    }
+  ],
+  "char_richard_sterling": [
+    {
+      "time": "2026-10-29 19:39:19.921",
+      "segment": "A7-d1-20261029-194556",
+      "asset_id": "char_richard_sterling",
+      "default_wardrobe": "High-end corporate executive: tailored dark green three-piece suit, crisp white shirt, and a champagne silk tie",
+      "look": "Tall, commanding presence, erect posture, well-tailored build; Sharp, mature contours, piercing grey eyes, distinguished laugh lines; Sleek, silver-grey hair parted neatly to the side",
+      "summary": "Richard Sterling: authoritative adult owner of Sterling Logistics and Noah's father. Tall, commanding presence, erect posture, well-tailored build, Sharp, mature contours, piercing grey eyes, distinguished laugh lines, Sleek, silver-grey hair parted neatly to the side, High-end corporate executive: tailored dark green three-piece suit, crisp white shirt, and a champagne silk tie. | Appearance: Tall, commanding presence, erect posture, well-tailored build; Sharp, mature contours, piercing grey eyes, distinguished laugh lines; Sleek, silver-grey hair parted neatly to the side"
+    }
+  ]
+}

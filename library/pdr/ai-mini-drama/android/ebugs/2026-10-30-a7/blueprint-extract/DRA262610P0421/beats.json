@@ -1,0 +1,393 @@
+{
+  "": [
+    {
+      "time": "2026-10-29 17:20:58.718",
+      "segment": "A7-b1-20261029-172350",
+      "beat_id": "",
+      "cuts": [
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Tessa Shaw",
+            "speaker_tone": "sharp and guarded",
+            "spoken_text": "Did the cables just give?"
+          },
+          "script": "A metallic shudder vibrates through the elevator floor as the cabin drops a foot and grinds to an abrupt halt, knocking Tessa against the brushed brass handrail."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Eli Vance",
+            "speaker_tone": "tense, analytical",
+            "spoken_text": "Secondary brakes caught us. We're suspended between forty and forty-one."
+          },
+          "script": "Eli straightens his collar and presses both palms flat against the digital floor indicator, which flickers and goes dark."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Oriana Wynn",
+            "speaker_tone": "calm, measured",
+            "spoken_text": "Listen. The intercom is live."
+          },
+          "script": "Oriana rests one hand on the opposite wall rail, looking steadily upward as a static hiss breaks from the ceiling grille."
+        },
+        {
+          "cut_id": "",
+          "dialogue": {
+            "speaker_name": "Marcus Vance",
+            "speaker_tone": "urgent through radio static",
+            "spoken_text": "Car six, do not force the doors. Stay back from the threshold."
+          },
+          "script": "A voice crackles loudly through the overhead wall speaker, echoing into the enclosed space."
+        }
+      ],
+      "location": "Express Elevator Cabin",
+      "preview_narration": "When an express elevator plunges into dead silence sixty floors above the city, three people accustomed to total control suddenly find themselves helpless.",
+      "seam": "Eli's hand pauses inches above the elevator panel as Marcus's voice crackles from the speaker grille.",
+      "time_of_day": "Night",
+      "title": "Sudden Plunge",
+      "used_asset_ids": [
+        "char_af4c1a8a",
+        "char_07b3446a",
+        "char_715d1bc1"
+      ],
+      "visual_description": "Tessa Shaw grips the elevator handrail with both hands, her emerald blouse catching the dim overhead amber strip lighting, while Eli Vance stands inches from the darkened control console, his jaw set as he gazes up at the speaker grille. Oriana Wynn stands centered between them, hands resting calmly at her sides in the brushed steel cabin.",
+      "wardrobe": "Tessa Shaw: Emerald green silk collared blouse, high-waisted black tailored trousers, thin gold chain necklace with a geometric pendant, flat-soled black leather dress shoes | Eli Vance: Charcoal fitted zip-up track jacket, plain black crewneck t-shirt, charcoal tailored chinos, black titanium ring, minimalist black sneakers | Oriana Wynn: Cream cashmere mock-neck tunic sweater, matching wide-leg cream wool trousers, textured gold stud earrings, hammered brass cuff bracelet, cream leather loafers"
+    }
+  ],
+  "beat_a28fe81c": [
+    {
+      "time": "2026-10-29 17:21:24.284",
+      "segment": "A7-b1-20261029-172350",
+      "beat_id": "beat_a28fe81c",
+      "fields": [
+        "used_asset_ids"
+      ],
+      "instruction": "Remove char_715d1bc1 from used_asset_ids."
+    },
+    {
+      "time": "2026-10-29 17:21:31.405",
+      "segment": "A7-b1-20261029-172350",
+      "beat_id": "beat_a28fe81c",
+      "cuts": [
+        {
+          "cut_id": "cut_4bbe41d3",
+          "dialogue": {
+            "speaker_name": "Marcus Vance",
+            "speaker_tone": "screaming in panic over comms",
+            "spoken_text": "Brace! The primary hoist line is shearing! Brace now!"
+          },
+          "script": "An electric pop crackles through the speaker, followed by frantic shouting over the line."
+        },
+        {
+          "cut_id": "cut_3aaae3e0",
+          "dialogue": {
+            "speaker_name": "Tessa Shaw",
+            "speaker_tone": "sharp intake of breath",
+            "spoken_text": "Eli!"
+          },
+          "script": "A loud metallic snap screeches overhead as the ceiling lights extinguish into pitch blackness."
+        },
+        {
+          "cut_id": "cut_64ff7b80",
+          "dialogue": {
+            "speaker_name": "Eli Vance",
+            "speaker_tone": "desperate shout",
+            "spoken_text": "Hold onto the rail!"
+          },
+          "script": "Eli scrambles forward in the darkness, grabbing Tessa's arm as the floor violently drops beneath their feet."
+        }
+      ],
+      "location": "Express Elevator Cabin",
+      "need_regenerate_image": false,
+      "preview_narration": "Just as real trust takes hold, an agonizing screech echoes from above, and the floor drops into darkness.",
+      "reply_text": "Removed char_715d1bc1 from used_asset_ids for Beat 6 while preserving all other fields exactly as requested.",
+      "seam": "Eli grips Tessa's arm as the elevator cabin falls into shadow.",
+      "time_of_day": "Night",
+      "used_asset_ids": [
+        "char_af4c1a8a",
+        "char_07b3446a"
+      ],
+      "visual_description": "In the sudden emergency blackout punctured only by a sliver of yellow shaft light through the ceiling vent, Eli Vance lunges across the cabin to shield Tessa Shaw as she grips the brass handrail, both bodies tilting as the floor gives way beneath them.",
+      "wardrobe": "Tessa Shaw: Emerald green silk collared blouse, high-waisted black tailored trousers, thin gold chain necklace with a geometric pendant, flat-soled black leather dress shoes ｜ Eli Vance: Charcoal fitted zip-up track jacket, plain black crewneck t-shirt, charcoal tailored chinos, black titanium ring, minimalist black sneakers ｜ Oriana Wynn: Cream cashmere mock-neck tunic sweater, matching wide-leg cream wool trousers, textured gold stud earrings, hammered brass cuff bracelet, cream leather loafers"
+    },
+    {
+      "time": "2026-10-29 17:55:20.201",
+      "segment": "A7-b2-20261029-180939",
+      "beat_id": "beat_a28fe81c",
+      "fields": [
+        "used_asset_ids"
+      ],
+      "instruction": "Remove char_715d1bc1 from used_asset_ids."
+    },
+    {
+      "time": "2026-10-29 17:55:27.221",
+      "segment": "A7-b2-20261029-180939",
+      "beat_id": "beat_a28fe81c",
+      "cuts": [
+        {
+          "cut_id": "cut_4bbe41d3",
+          "dialogue": {
+            "speaker_name": "Marcus Vance",
+            "speaker_tone": "frantic shout",
+            "spoken_text": "Brace! The primary hoist line is shearing! Brace now!"
+          },
+          "script": "A burst of electrical static pops from the intercom, followed by shouting from above."
+        },
+        {
+          "cut_id": "cut_3aaae3e0",
+          "dialogue": {
+            "speaker_name": "Tessa Shaw",
+            "speaker_tone": "sharp intake of breath",
+            "spoken_text": "Elliot!"
+          },
+          "script": "A loud metallic screech echoes above as the amber strip lights flicker and die."
+        },
+        {
+          "cut_id": "cut_64ff7b80",
+          "dialogue": {
+            "speaker_name": "Elliot Vance",
+            "speaker_tone": "desperate shout",
+            "spoken_text": "Hold onto the rail!"
+          },
+          "script": "Elliot lunges across the dark cabin, gripping Tessa's arm as the floor gives way beneath them."
+        }
+      ],
+      "location": "Express Elevator Cabin",
+      "need_regenerate_image": false,
+      "preview_narration": "Yet just as real intimacy takes hold, a violent snap shatters the silence, and the floor drops into darkness.",
+      "reply_text": "Removed char_715d1bc1 from used_asset_ids while keeping all cuts, visual description, wardrobe, seam, location, and narration untouched as requested.",
+      "seam": "Elliot grips Tessa's arm as the elevator cabin falls into shadow.",
+      "time_of_day": "Night",
+      "used_asset_ids": [
+        "char_af4c1a8a",
+        "char_07b3446a"
+      ],
+      "visual_description": "In the blackout pierced only by a thin streak of pale shaft light from the overhead vent, Elliot Vance lunges across the cabin floor to grasp Tessa Shaw's arm as she clutches the brass railing, both bodies bracing against the sudden downward drop.",
+      "wardrobe": "Tessa Shaw: Emerald green silk collared blouse, high-waisted black tailored trousers, thin gold chain necklace with a geometric pendant, pointed-toe black leather high heels ｜ Elliot Vance: Dark washed grey denim jacket, heather grey crewneck t-shirt, dark grey cargo pants, distressed brown leather work boots ｜ Oriana Wynn: Cream cashmere mock-neck tunic sweater, matching wide-leg cream wool trousers, textured gold stud earrings, hammered brass cuff bracelet, cream leather loafers"
+    }
+  ],
+  "beat_8f5f358a": [
+    {
+      "time": "2026-10-29 17:23:14.975",
+      "segment": "A7-b1-20261029-172350",
+      "beat_id": "beat_8f5f358a",
+      "cuts": [
+        {
+          "cut_id": "cut_af838f53",
+          "dialogue": {
+            "speaker_name": "Tessa Shaw",
+            "speaker_tone": "sharp, guarded",
+            "spoken_text": "Did the cables just give?"
+          },
+          "script": "A metallic shudder vibrates through the floor as the elevator drops a foot and stops abruptly, knocking Tessa against the brass handrail."
+        },
+        {
+          "cut_id": "cut_b085315e",
+          "dialogue": {
+            "speaker_name": "Eli Vance",
+            "speaker_tone": "tense, analytical",
+            "spoken_text": "Secondary brakes caught us. We're suspended between forty and forty-one."
+          },
+          "script": "Eli presses both palms flat against the dark digital floor indicator beside the door."
+        },
+        {
+          "cut_id": "cut_760002b8",
+          "dialogue": {
+            "speaker_name": "Oriana Wynn",
+            "speaker_tone": "calm, measured",
+            "spoken_text": "Listen. The intercom is live."
+          },
+          "script": "Oriana rests one hand on the opposite wall rail, looking upward as static hisses from the ceiling grille."
+        },
+        {
+          "cut_id": "cut_a2d20e8e",
+          "dialogue": {
+            "speaker_name": "Marcus Vance",
+            "speaker_tone": "urgent through static",
+            "spoken_text": "Car six, do not force the doors. Stay back from the threshold."
+          },
+          "script": "A voice crackles loudly through the overhead wall speaker into the enclosed space."
+        }
+      ],
+      "location": "Express Elevator Cabin",
+      "preview_narration": "Suspended sixty floors above the pavement, three strangers accustomed to absolute control find themselves trapped in sudden dark.",
+      "seam": "Eli's hand pauses inches above the elevator panel as Marcus's voice crackles from the speaker grille.",
+      "time_of_day": "Night",
+      "title": "Sudden Plunge",
+      "used_asset_ids": [
+        "char_af4c1a8a",
+        "char_07b3446a",
+        "char_715d1bc1"
+      ],
+      "visual_description": "Tessa Shaw grips the brass handrail with both hands along the brushed steel wall, her green silk blouse catching the amber ceiling strip light. Beside the darkened door console, Eli Vance stands with his arms lowered, looking up at the speaker grille. Oriana Wynn stands centered between them, hands resting calmly at her sides.",
+      "wardrobe": "Tessa Shaw: Emerald green silk collared blouse, high-waisted black tailored trousers, thin gold chain necklace with a geometric pendant, pointed-toe black leather high heels | Eli Vance: Charcoal fitted zip-up track jacket, plain black crewneck t-shirt, charcoal tailored chinos, black titanium ring, minimalist black sneakers | Oriana Wynn: Cream cashmere mock-neck tunic sweater, matching wide-leg cream wool trousers, textured gold stud earrings, hammered brass cuff bracelet, cream leather loafers"
+    },
+    {
+      "time": "2026-10-29 17:37:45.956",
+      "segment": "A7-b2-20261029-180939",
+      "beat_id": "beat_8f5f358a",
+      "cuts": [
+        {
+          "cut_id": "cut_af838f53",
+          "dialogue": {
+            "speaker_name": "Tessa Shaw",
+            "speaker_tone": "sharp, guarded",
+            "spoken_text": "Did the cables just give?"
+          },
+          "script": "A metallic shudder vibrates through the floor as the elevator drops a foot and stops abruptly, knocking Tessa against the brass handrail."
+        },
+        {
+          "cut_id": "cut_b085315e",
+          "dialogue": {
+            "speaker_name": "Eli Vance",
+            "speaker_tone": "tense, analytical",
+            "spoken_text": "Secondary brakes caught us. We're suspended between forty and forty-one."
+          },
+          "script": "Eli presses both palms flat against the dark digital floor indicator beside the door."
+        },
+        {
+          "cut_id": "cut_760002b8",
+          "dialogue": {
+            "speaker_name": "Oriana Wynn",
+            "speaker_tone": "calm, measured",
+            "spoken_text": "Listen. The intercom is live."
+          },
+          "script": "Oriana rests one hand on the opposite wall rail, looking upward as static hisses from the ceiling grille."
+        },
+        {
+          "cut_id": "cut_a2d20e8e",
+          "dialogue": {
+            "speaker_name": "Marcus Vance",
+            "speaker_tone": "urgent through static",
+            "spoken_text": "Car six, do not force the doors. Stay back from the threshold."
+          },
+          "script": "A voice crackles loudly through the overhead wall speaker into the enclosed space."
+        }
+      ],
+      "location": "Express Elevator Cabin",
+      "preview_narration": "Suspended sixty floors up, three strangers accustomed to having absolute control find themselves trapped in sudden dark.",
+      "seam": "Eli's hand pauses inches above the elevator panel as Marcus's voice crackles from the speaker grille.",
+      "time_of_day": "Night",
+      "title": "Sudden Plunge",
+      "used_asset_ids": [
+        "char_af4c1a8a",
+        "char_07b3446a",
+        "char_715d1bc1"
+      ],
+      "visual_description": "Tessa Shaw grips the brass handrail along the brushed steel wall, her emerald green silk blouse catching the amber ceiling strip light. Beside the darkened door console, Eli Vance stands with his arms lowered, looking up toward the speaker grille. Oriana Wynn stands centered between them with hands at her sides in the warm metallic glow.",
+      "wardrobe": "Tessa Shaw: Emerald green silk collared blouse, high-waisted black tailored trousers, thin gold chain necklace with a geometric pendant, pointed-toe black leather high heels ｜ Eli Vance: Dark washed grey denim jacket, heather grey crewneck t-shirt, dark grey cargo pants, distressed brown leather work boots ｜ Oriana Wynn: Cream cashmere mock-neck tunic sweater, matching wide-leg cream wool trousers, textured gold stud earrings, hammered brass cuff bracelet, cream leather loafers"
+    },
+    {
+      "time": "2026-10-29 17:48:54.181",
+      "segment": "A7-b2-20261029-180939",
+      "beat_id": "beat_8f5f358a",
+      "cuts": [
+        {
+          "cut_id": "cut_af838f53",
+          "dialogue": {
+            "speaker_name": "Tessa Shaw",
+            "speaker_tone": "sharp, guarded",
+            "spoken_text": "Did the cables just give?"
+          },
+          "script": "A metallic shudder vibrates through the floor as the elevator drops a foot and stops abruptly, knocking Tessa against the brass handrail."
+        },
+        {
+          "cut_id": "cut_b085315e",
+          "dialogue": {
+            "speaker_name": "Eli Vance",
+            "speaker_tone": "tense, analytical",
+            "spoken_text": "Secondary brakes caught us. We're suspended between forty and forty-one."
+          },
+          "script": "Eli presses both palms flat against the dark digital floor indicator beside the door."
+        },
+        {
+          "cut_id": "cut_760002b8",
+          "dialogue": {
+            "speaker_name": "Oriana Wynn",
+            "speaker_tone": "calm, measured",
+            "spoken_text": "Listen. The intercom is live."
+          },
+          "script": "Oriana rests one hand on the opposite wall rail, looking upward as static hisses from the ceiling grille."
+        },
+        {
+          "cut_id": "cut_a2d20e8e",
+          "dialogue": {
+            "speaker_name": "Marcus Vance",
+            "speaker_tone": "urgent through static",
+            "spoken_text": "Car six, do not force the doors. Stay back from the threshold."
+          },
+          "script": "A voice crackles loudly through the overhead wall speaker into the enclosed space."
+        }
+      ],
+      "location": "Express Elevator Cabin",
+      "preview_narration": "Suspended sixty floors up, three strangers accustomed to having absolute control find themselves trapped in sudden dark.",
+      "seam": "Eli's hand pauses inches above the elevator panel as Marcus's voice crackles from the speaker grille.",
+      "time_of_day": "Night",
+      "title": "Sudden Plunge",
+      "used_asset_ids": [
+        "char_af4c1a8a",
+        "char_07b3446a",
+        "char_715d1bc1"
+      ],
+      "visual_description": "Tessa Shaw grips the brass handrail along the brushed steel wall, her emerald green silk blouse catching the amber ceiling strip light. Beside the darkened door console, Eli Vance stands with his arms lowered, looking up toward the speaker grille. Oriana Wynn stands centered between them with hands at her sides in the warm metallic glow.",
+      "wardrobe": "Tessa Shaw: Emerald green silk collared blouse, high-waisted black tailored trousers, thin gold chain necklace with a geometric pendant, pointed-toe black leather high heels | Eli Vance: Dark washed grey denim jacket, heather grey crewneck t-shirt, dark grey cargo pants, distressed brown leather work boots | Oriana Wynn: Cream cashmere mock-neck tunic sweater, matching wide-leg cream wool trousers, textured gold stud earrings, hammered brass cuff bracelet, cream leather loafers"
+    },
+    {
+      "time": "2026-10-29 17:55:18.079",
+      "segment": "A7-b2-20261029-180939",
+      "beat_id": "beat_8f5f358a",
+      "cuts": [
+        {
+          "cut_id": "cut_af838f53",
+          "dialogue": {
+            "speaker_name": "Tessa Shaw",
+            "speaker_tone": "sharp, guarded",
+            "spoken_text": "Did the cables just give?"
+          },
+          "script": "A metallic shudder vibrates through the floor as the elevator drops a foot and stops abruptly, knocking Tessa against the brass handrail."
+        },
+        {
+          "cut_id": "cut_b085315e",
+          "dialogue": {
+            "speaker_name": "Elliot Vance",
+            "speaker_tone": "tense, analytical",
+            "spoken_text": "Secondary brakes caught us. We're suspended between forty and forty-one."
+          },
+          "script": "Elliot presses both palms flat against the dark digital floor indicator beside the door."
+        },
+        {
+          "cut_id": "cut_760002b8",
+          "dialogue": {
+            "speaker_name": "Oriana Wynn",
+            "speaker_tone": "calm, measured",
+            "spoken_text": "Listen. The intercom is live."
+          },
+          "script": "Oriana rests one hand on the opposite wall rail, looking upward as static hisses from the ceiling grille."
+        },
+        {
+          "cut_id": "cut_a2d20e8e",
+          "dialogue": {
+            "speaker_name": "Marcus Vance",
+            "speaker_tone": "urgent through static",
+            "spoken_text": "Car six, do not force the doors. Stay back from the threshold."
+          },
+          "script": "A voice crackles loudly through the overhead wall speaker into the enclosed space."
+        }
+      ],
+      "location": "Express Elevator Cabin",
+      "preview_narration": "Suspended sixty floors up, three strangers accustomed to having absolute control find themselves trapped in sudden dark.",
+      "seam": "Elliot's hand pauses inches above the elevator panel as Marcus's voice crackles from the speaker grille.",
+      "time_of_day": "Night",
+      "title": "Sudden Plunge",
+      "used_asset_ids": [
+        "char_af4c1a8a",
+        "char_07b3446a",
+        "char_715d1bc1"
+      ],
+      "visual_description": "Tessa Shaw grips the brass handrail along the brushed steel wall, her emerald green silk blouse catching the amber ceiling strip light. Beside the darkened door console, Elliot Vance stands with his arms lowered, looking up toward the speaker grille. Oriana Wynn stands centered between them with hands at her sides in the warm metallic glow.",
+      "wardrobe": "Tessa Shaw: Emerald green silk collared blouse, high-waisted black tailored trousers, thin gold chain necklace with a geometric pendant, pointed-toe black leather high heels ｜ Elliot Vance: Dark washed grey denim jacket, heather grey crewneck t-shirt, dark grey cargo pants, distressed brown leather work boots ｜ Oriana Wynn: Cream cashmere mock-neck tunic sweater, matching wide-leg cream wool trousers, textured gold stud earrings, hammered brass cuff bracelet, cream leather loafers"
+    }
+  ]
+}

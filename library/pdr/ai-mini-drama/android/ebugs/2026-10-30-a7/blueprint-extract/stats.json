@@ -1,0 +1,75 @@
+[
+  {
+    "code": "DRA262610P0420",
+    "sid": "261029_193738_69bb0cf5",
+    "title": "Hidden Identity: a Mine character's face turns about 25 years younger in the full episode's clips",
+    "lines": 821,
+    "prompts": 40,
+    "heads": 3,
+    "chars": 4,
+    "beats": 2,
+    "ages": {
+      "char_jenna_morales": [
+        "75",
+        "75 years old"
+      ],
+      "char_noah_sterling": [
+        "30"
+      ],
+      "char_caleb": [],
+      "char_richard_sterling": []
+    },
+    "names": {
+      "char_jenna_morales": [
+        "Jenna Morales"
+      ],
+      "char_noah_sterling": [
+        "Noah Sterling"
+      ],
+      "char_caleb": [],
+      "char_richard_sterling": []
+    }
+  },
+  {
+    "code": "DRA262610P0421",
+    "sid": "261029_171551_db193be2",
+    "title": "Trapped Together: asking to update two characters charges for and regenerates three",
+    "lines": 961,
+    "prompts": 5,
+    "heads": 21,
+    "chars": 4,
+    "beats": 3,
+    "ages": {
+      "char_af4c1a8a": [
+        "34",
+        "34 years old",
+        "50",
+        "50 years old"
+      ],
+      "char_07b3446a": [
+        "28",
+        "36",
+        "52"
+      ],
+      "char_7e36790c": [],
+      "char_715d1bc1": [
+        "60",
+        "60 years old",
+        "68"
+      ]
+    },
+    "names": {
+      "char_af4c1a8a": [
+        "Tessa Shaw"
+      ],
+      "char_07b3446a": [
+        "Eli Vance",
+        "Elliot Vance"
+      ],
+      "char_7e36790c": [],
+      "char_715d1bc1": [
+        "Oriana Wynn"
+      ]
+    }
+  }
+]
