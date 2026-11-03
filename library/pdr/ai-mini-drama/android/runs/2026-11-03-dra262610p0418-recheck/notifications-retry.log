@@ -1,0 +1,5 @@
+=== 14:46:45 shown=1
+    NotificationRecord(0x0e70ca36: pkg=com.cyberlink.powerdirector.DRA140225_01 user=UserHandle{0} id=2 tag=null importance=4 key=0|com.cyberlink.powerdirector.DRA140225_01|2|null|11628: Notification(channel=default channel shortcut=null contentView=null vibrate=null sound=null defaults=0 flags=AUTO_CANCEL color=0xff008aff vis=PRIVATE semFlags=0x0 semPriority=0 semMissedCount=0))
+            when=1793688402733/1793688402733
+                android.title=String (Your drama is ready)
+                android.text=String ("Hidden identity" is done. Tap to watch it.)

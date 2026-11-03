@@ -1,0 +1,27 @@
+# PowerDirector 16.8.0.2610212, Samsung A53 / Android 15, logcat 2026-11-03 (Asia/Taipei)
+# 6 FCM payloads received (FcmInstanceIDService), 1 notification posted (NotificationManager notify)
+2026-11-03 14:45:51.458  3142  8547 D FcmInstanceIDService: key = Msg, value = "Hidden identity" is done. Tap to watch it.
+2026-11-03 14:45:51.458  3142  8547 D FcmInstanceIDService: key = Nid, value = 112
+2026-11-03 14:45:51.458  3142  8547 D FcmInstanceIDService: key = Title, value = Your drama is ready
+2026-11-03 14:45:51.458  3142  8547 D FcmInstanceIDService: key = Link, value = pdr://click_mini_drama?oid=261029_140101_14651c78&run=7fb688f9-e438-41da-bd5d-05239d90bcb5
+2026-11-03 14:46:25.418  3142  8547 D FcmInstanceIDService: key = Msg, value = "Hidden identity" is done. Tap to watch it.
+2026-11-03 14:46:25.419  3142  8547 D FcmInstanceIDService: key = Nid, value = 112
+2026-11-03 14:46:25.419  3142  8547 D FcmInstanceIDService: key = Title, value = Your drama is ready
+2026-11-03 14:46:25.419  3142  8547 D FcmInstanceIDService: key = Link, value = pdr://click_mini_drama?oid=261029_140101_14651c78&run=7fb688f9-e438-41da-bd5d-05239d90bcb5
+2026-11-03 14:46:25.953  3142  8547 D FcmInstanceIDService: key = Msg, value = "Hidden identity" is done. Tap to watch it.
+2026-11-03 14:46:25.953  3142  8547 D FcmInstanceIDService: key = Nid, value = 112
+2026-11-03 14:46:25.953  3142  8547 D FcmInstanceIDService: key = Title, value = Your drama is ready
+2026-11-03 14:46:25.953  3142  8547 D FcmInstanceIDService: key = Link, value = pdr://click_mini_drama?oid=261029_140101_14651c78&run=7fb688f9-e438-41da-bd5d-05239d90bcb5
+2026-11-03 14:46:26.119  3142  8547 D FcmInstanceIDService: key = Msg, value = "Hidden identity" is done. Tap to watch it.
+2026-11-03 14:46:26.119  3142  8547 D FcmInstanceIDService: key = Nid, value = 112
+2026-11-03 14:46:26.119  3142  8547 D FcmInstanceIDService: key = Title, value = Your drama is ready
+2026-11-03 14:46:26.119  3142  8547 D FcmInstanceIDService: key = Link, value = pdr://click_mini_drama?oid=261029_140101_14651c78&run=7fb688f9-e438-41da-bd5d-05239d90bcb5
+2026-11-03 14:46:30.516  3142  8547 D FcmInstanceIDService: key = Msg, value = "Hidden identity" is done. Tap to watch it.
+2026-11-03 14:46:30.516  3142  8547 D FcmInstanceIDService: key = Nid, value = 112
+2026-11-03 14:46:30.517  3142  8547 D FcmInstanceIDService: key = Title, value = Your drama is ready
+2026-11-03 14:46:30.517  3142  8547 D FcmInstanceIDService: key = Link, value = pdr://click_mini_drama?oid=261029_140101_14651c78&run=7fb688f9-e438-41da-bd5d-05239d90bcb5
+2026-11-03 14:46:42.675  3142  8547 D FcmInstanceIDService: key = Msg, value = "Hidden identity" is done. Tap to watch it.
+2026-11-03 14:46:42.675  3142  8547 D FcmInstanceIDService: key = Nid, value = 112
+2026-11-03 14:46:42.675  3142  8547 D FcmInstanceIDService: key = Title, value = Your drama is ready
+2026-11-03 14:46:42.675  3142  8547 D FcmInstanceIDService: key = Link, value = pdr://click_mini_drama?oid=261029_140101_14651c78&run=7fb688f9-e438-41da-bd5d-05239d90bcb5
+2026-11-03 14:46:42.739  3142  8626 I NotificationManager: com.cyberlink.powerdirector.DRA140225_01: notify(2, null, Notification(channel=default channel shortcut=null contentView=null vibrate=null sound=null defaults=0 flags=AUTO_CANCEL color=0xff008aff vis=P

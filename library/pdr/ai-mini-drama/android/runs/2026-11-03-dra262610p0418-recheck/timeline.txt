@@ -1,0 +1,7 @@
+generate 14:09:30
+home 14:09:39
+14:09:44 turn failed: prompt step 1/7 "HTTP request to cc team gateway failed: Failed to read connection" (logcat); turn_complete final_state=complete
+14:09:30-14:33 no PowerDirector notification posted (dumpsys polled every 10 s)
+14:34 chat ends at the "Fast · Full Video - 90 sec" bubble: no video card, no error; balance 25402 (only the storyboard's 34 charged, video not charged)
+retry generate 14:38:17
+retry home 14:41:19 (vid_1..vid_6 started)
