@@ -1,0 +1,99 @@
+{
+  "saved_at": "2026-11-03T09:37:13.468Z",
+  "version": 2,
+  "summary": "One step per line (user 2026-11-03): cells holding two or more steps now put each step on its own numbered line; wording otherwise unchanged.",
+  "decisions": [
+    {
+      "id": "TC-003",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap the eraser at the canvas's lower left, erase part of the subject (e.g. a shoulder), then go back to the room",
+      "after": "1. Tap the eraser at the canvas's lower left\n2. Erase part of the subject (e.g. a shoulder)\n3. Go back to the room"
+    },
+    {
+      "id": "TC-005",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Press and hold the compare button at the canvas's lower right, then release it",
+      "after": "1. Press and hold the compare button at the canvas's lower right\n2. Release it"
+    },
+    {
+      "id": "TC-006",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap ⓘ at the top left, then close what opens",
+      "after": "1. Tap ⓘ at the top left\n2. Close what opens"
+    },
+    {
+      "id": "TC-007",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap the credit pill at the top right, then come back",
+      "after": "1. Tap the credit pill at the top right\n2. Come back"
+    },
+    {
+      "id": "TC-011",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap 「Neutrals」, then another category tab",
+      "after": "1. Tap 「Neutrals」\n2. Tap another category tab"
+    },
+    {
+      "id": "TC-019",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Paste the text into the box, then try to type one more letter",
+      "after": "1. Paste the text into the box\n2. Try to type one more letter"
+    },
+    {
+      "id": "TC-022",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap 「My Prompts」, then go back to the panel",
+      "after": "1. Tap 「My Prompts」\n2. Go back to the panel"
+    },
+    {
+      "id": "TC-035",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap undo, then redo",
+      "after": "1. Tap undo\n2. Tap redo"
+    },
+    {
+      "id": "TC-039",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open a photo, open 「Background」 and select a template",
+      "after": "1. Open a photo\n2. Open 「Background」 and select a template"
+    },
+    {
+      "id": "TC-041",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Leave AI Background, open it again with another photo and select a template",
+      "after": "1. Leave AI Background\n2. Open it again with another photo and select a template"
+    },
+    {
+      "id": "TC-042",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap Generate, wait for the result, pull the app log and find the generation request",
+      "after": "1. Tap Generate\n2. Wait for the result\n3. Pull the app log and find the generation request"
+    },
+    {
+      "id": "TC-043",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap Generate, wait for the result, pull the app log and find the generation request",
+      "after": "1. Tap Generate\n2. Wait for the result\n3. Pull the app log and find the generation request"
+    },
+    {
+      "id": "TC-044",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Generate with 「1 Free Trial」, pull the app log and find the generation request",
+      "after": "1. Generate with 「1 Free Trial」\n2. Pull the app log and find the generation request"
+    }
+  ],
+  "notes": []
+}

@@ -62,6 +62,14 @@ Writing rules (the table must be usable by a tester who has not read the spec):
   the spec shows them, with 「」 or "".
 - One check per row: one action (or a short numbered sequence for one outcome) and the outcome to verify.
   Put setup in Precondition, not in Action.
+- **One step per line (user, 2026-11-03).** Whenever a cell holds two or more steps the tester performs, each
+  step goes on its own line inside the cell, numbered (`1. Open a template` newline `2. Send one typed message`
+  newline `3. Tap 「Generate」`). This covers numbered runs (`1. … 2. … 3. …`) and plain sentences or clauses of
+  steps (`Open a template, then send a message, then tap …`, `Tap X. Tap Y.`, `Tap X; tap Y`). One tap is one
+  step: `Tap 「General」, then 「AI Issues」` is two lines. A single step needs no number. Precondition states
+  joined by `;` (`Tier Pro; scene videos done`) are conditions, not steps, and may stay on one line; setup
+  steps in a Precondition follow the rule. The CSV field is quoted because it holds line breaks; the review page,
+  Excel and Results pages show them as separate lines. `check.ts` warns on steps run together on one line.
 - Section = the spec's own feature area, in user-journey order (entry → main flow → edge cases → errors →
   settings / history). Rows are grouped by Section and follow the user journey inside it, so a later row can sit
   between earlier ones (REQ-033); IDs keep their numbers and need not be in sequence.

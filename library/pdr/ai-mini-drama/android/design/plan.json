@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-11-03T06:37:15.211Z",
+  "built_at": "2026-11-03T09:39:09.153Z",
   "spec_set": "2026-10-21-2",
   "file": {
     "fileKey": "dZk5HLzZTdcZwWwvN9aZfZ",
@@ -419,7 +419,7 @@
         "segment": "A1-a1",
         "section": "Entry and landing",
         "precondition": "App on Home (Launcher)",
-        "action": "Tap the 「AI Mini Drama」 shortcut; then use system back (Android back gesture or button)",
+        "action": "1. Tap the 「AI Mini Drama」 shortcut\n2. Use system back (Android back gesture or button)",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -459,7 +459,7 @@
         "segment": "A1-a1",
         "section": "Entry and landing",
         "precondition": "App on Home (Launcher)",
-        "action": "Tap the 「AI Mini Drama」 shortcut; then use system back (Android back gesture or button)",
+        "action": "1. Tap the 「AI Mini Drama」 shortcut\n2. Use system back (Android back gesture or button)",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -499,7 +499,7 @@
         "segment": "A1-a1",
         "section": "Entry and landing",
         "precondition": "App on Home (Launcher)",
-        "action": "Tap the 「AI Mini Drama」 shortcut; then use system back (Android back gesture or button)",
+        "action": "1. Tap the 「AI Mini Drama」 shortcut\n2. Use system back (Android back gesture or button)",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -1899,7 +1899,7 @@
         "segment": "A1-a1",
         "section": "Format card",
         "precondition": "Format card shown",
-        "action": "Tap another language, then another caption option",
+        "action": "1. Tap another language\n2. Tap another caption option",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -1939,7 +1939,7 @@
         "segment": "A1-a1",
         "section": "Format card",
         "precondition": "Format card shown",
-        "action": "Tap another language, then another caption option",
+        "action": "1. Tap another language\n2. Tap another caption option",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -2567,7 +2567,7 @@
         "segment": "A1-b1",
         "section": "Characters",
         "precondition": "Choose Character open",
-        "action": "Open the filter and read the Gender and Ethnicity option lists; choose Gender and Ethnicity, apply; tap × on the Gender chip; then tap the filter icon",
+        "action": "1. Open the filter and read the Gender and Ethnicity option lists\n2. Choose Gender and Ethnicity\n3. Tap Apply\n4. Tap × on the Gender chip\n5. Tap the filter icon",
         "result": "Fail",
         "run": "2026-10-29-a7-full"
       },
@@ -2607,7 +2607,7 @@
         "segment": "A1-b1",
         "section": "Characters",
         "precondition": "Choose Character open",
-        "action": "Open the filter and read the Gender and Ethnicity option lists; choose Gender and Ethnicity, apply; tap × on the Gender chip; then tap the filter icon",
+        "action": "1. Open the filter and read the Gender and Ethnicity option lists\n2. Choose Gender and Ethnicity\n3. Tap Apply\n4. Tap × on the Gender chip\n5. Tap the filter icon",
         "result": "Fail",
         "run": "2026-10-29-a7-full"
       },
@@ -3287,7 +3287,7 @@
         "segment": "A1-b1",
         "section": "Characters",
         "precondition": "Unset-characters sheet shown",
-        "action": "Tap 「Generate all」, wait, then tap 「Confirm」",
+        "action": "1. Tap 「Generate all」\n2. Wait\n3. Tap 「Confirm」",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -3327,7 +3327,7 @@
         "segment": "A1-b1",
         "section": "Characters",
         "precondition": "Unset-characters sheet shown",
-        "action": "Tap 「Generate all」, wait, then tap 「Confirm」",
+        "action": "1. Tap 「Generate all」\n2. Wait\n3. Tap 「Confirm」",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -3367,7 +3367,7 @@
         "segment": "A1-b1",
         "section": "Characters",
         "precondition": "Unset-characters sheet shown",
-        "action": "Tap 「Generate all」, wait, then tap 「Confirm」",
+        "action": "1. Tap 「Generate all」\n2. Wait\n3. Tap 「Confirm」",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -3407,7 +3407,7 @@
         "segment": "A1-b1",
         "section": "Characters",
         "precondition": "Unset-characters sheet shown",
-        "action": "Tap 「Generate all」, wait, then tap 「Confirm」",
+        "action": "1. Tap 「Generate all」\n2. Wait\n3. Tap 「Confirm」",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -3487,7 +3487,7 @@
         "segment": "A1-b1",
         "section": "Characters",
         "precondition": "Every character set (custom chat after ✓, and a template chat once its cast arrives)",
-        "action": "Confirm the cast (custom chat) or wait for the Characters Result (template chat); read every assistant message after the characters",
+        "action": "1. Confirm the cast (custom chat) or wait for the Characters Result (template chat)\n2. Read every assistant message after the characters",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -3527,7 +3527,7 @@
         "segment": "A1-b2",
         "section": "Characters",
         "precondition": "Filter panel open with Gender, Ethnicity and Age changed",
-        "action": "Tick 「My characters only」, then tap 「Clear」",
+        "action": "1. Tick 「My characters only」\n2. Tap 「Clear」",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -3567,7 +3567,7 @@
         "segment": "A1-b2",
         "section": "Characters",
         "precondition": "Filter panel open with Gender, Ethnicity and Age changed",
-        "action": "Tick 「My characters only」, then tap 「Clear」",
+        "action": "1. Tick 「My characters only」\n2. Tap 「Clear」",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -3607,7 +3607,7 @@
         "segment": "A1-b2",
         "section": "Characters",
         "precondition": "Filter panel open with Gender, Ethnicity and Age changed",
-        "action": "Tick 「My characters only」, then tap 「Clear」",
+        "action": "1. Tick 「My characters only」\n2. Tap 「Clear」",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -3647,7 +3647,7 @@
         "segment": "A1-b2",
         "section": "Characters",
         "precondition": "Filter panel open with Gender, Ethnicity and Age changed",
-        "action": "Tick 「My characters only」, then tap 「Clear」",
+        "action": "1. Tick 「My characters only」\n2. Tap 「Clear」",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -3687,7 +3687,7 @@
         "segment": "A1-b2",
         "section": "Characters",
         "precondition": "Filter panel open with Gender, Ethnicity and Age changed",
-        "action": "Tick 「My characters only」, then tap 「Clear」",
+        "action": "1. Tick 「My characters only」\n2. Tap 「Clear」",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -3727,7 +3727,7 @@
         "segment": "A1-b2",
         "section": "Characters",
         "precondition": "Filter panel open with Gender, Ethnicity and Age changed",
-        "action": "Tick 「My characters only」, then tap 「Clear」",
+        "action": "1. Tick 「My characters only」\n2. Tap 「Clear」",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -3767,7 +3767,7 @@
         "segment": "A1-b2",
         "section": "Characters",
         "precondition": "Filter panel open with Gender, Ethnicity and Age changed",
-        "action": "Tick 「My characters only」, then tap 「Clear」",
+        "action": "1. Tick 「My characters only」\n2. Tap 「Clear」",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -3847,7 +3847,7 @@
         "segment": "A1-c1",
         "section": "Make your character",
         "precondition": "Library has a user character",
-        "action": "Open its ⋮ menu and tap Delete; tap 「Cancel」; open ⋮ › Delete again and use system back on the dialog",
+        "action": "1. Open its ⋮ menu and tap Delete\n2. Tap 「Cancel」\n3. Open ⋮ › Delete again and use system back on the dialog",
         "result": "Fail",
         "run": "2026-10-29-a7-full"
       },
@@ -4167,7 +4167,7 @@
         "segment": "A1-c1",
         "section": "Make your character",
         "precondition": "Create my character open",
-        "action": "Tap the Age field, type 24 and tap ✓; then tap the filled Age field, change it to 30 and tap ✓; tap the Age field again, type 31 and use system back",
+        "action": "1. Tap the Age field\n2. Type 24 and tap ✓\n3. Tap the filled Age field\n4. Change it to 30 and tap ✓\n5. Tap the Age field again\n6. Type 31 and use system back",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -4207,7 +4207,7 @@
         "segment": "A1-c1",
         "section": "Make your character",
         "precondition": "Create my character open",
-        "action": "Tap the Age field, type 24 and tap ✓; then tap the filled Age field, change it to 30 and tap ✓; tap the Age field again, type 31 and use system back",
+        "action": "1. Tap the Age field\n2. Type 24 and tap ✓\n3. Tap the filled Age field\n4. Change it to 30 and tap ✓\n5. Tap the Age field again\n6. Type 31 and use system back",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -4247,7 +4247,7 @@
         "segment": "A1-c1",
         "section": "Make your character",
         "precondition": "Create my character open",
-        "action": "Tap the Age field, type 24 and tap ✓; then tap the filled Age field, change it to 30 and tap ✓; tap the Age field again, type 31 and use system back",
+        "action": "1. Tap the Age field\n2. Type 24 and tap ✓\n3. Tap the filled Age field\n4. Change it to 30 and tap ✓\n5. Tap the Age field again\n6. Type 31 and use system back",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -4287,7 +4287,7 @@
         "segment": "A1-c1",
         "section": "Make your character",
         "precondition": "Create my character open",
-        "action": "Tap 「Reference (optional)」; use system back; tap 「Reference (optional)」 again",
+        "action": "1. Tap 「Reference (optional)」\n2. Use system back\n3. Tap 「Reference (optional)」 again",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -4367,7 +4367,7 @@
         "segment": "A1-c1",
         "section": "Make your character",
         "precondition": "Crop open with a reference photo",
-        "action": "Drag the photo, then pinch to zoom",
+        "action": "1. Drag the photo\n2. Pinch to zoom",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -4607,7 +4607,7 @@
         "segment": "A1-c2",
         "section": "Make your character",
         "precondition": "Generated character shown",
-        "action": "Tap X, then 「Discard」 in the dialog",
+        "action": "1. Tap X\n2. Tap 「Discard」 in the dialog",
         "result": "Fail",
         "run": "2026-10-29-a7-full"
       },
@@ -4647,7 +4647,7 @@
         "segment": "A1-c2",
         "section": "Make your character",
         "precondition": "Character library shown",
-        "action": "Tap the enlarge icon on a character; open ⋯ and close the menu with system back; open ⋯ and tap 「Download」; open ⋯ again, tap 「Report」 and leave the report flow with system back without sending; then tap ⓧ; open the preview again and close it with system back",
+        "action": "1. Tap the enlarge icon on a character\n2. Open ⋯ and close the menu with system back\n3. Open ⋯ and tap 「Download」\n4. Open ⋯ again\n5. Tap 「Report」 and leave the report flow with system back without sending\n6. Tap ⓧ\n7. Open the preview again and close it with system back",
         "result": "Fail",
         "run": "2026-10-29-a7-full"
       },
@@ -4687,7 +4687,7 @@
         "segment": "A1-c2",
         "section": "Make your character",
         "precondition": "Character library shown",
-        "action": "Tap the enlarge icon on a character; open ⋯ and close the menu with system back; open ⋯ and tap 「Download」; open ⋯ again, tap 「Report」 and leave the report flow with system back without sending; then tap ⓧ; open the preview again and close it with system back",
+        "action": "1. Tap the enlarge icon on a character\n2. Open ⋯ and close the menu with system back\n3. Open ⋯ and tap 「Download」\n4. Open ⋯ again\n5. Tap 「Report」 and leave the report flow with system back without sending\n6. Tap ⓧ\n7. Open the preview again and close it with system back",
         "result": "Fail",
         "run": "2026-10-29-a7-full"
       },
@@ -4727,7 +4727,7 @@
         "segment": "A1-c2",
         "section": "Make your character",
         "precondition": "Character library shown",
-        "action": "Tap the enlarge icon on a character; open ⋯ and close the menu with system back; open ⋯ and tap 「Download」; open ⋯ again, tap 「Report」 and leave the report flow with system back without sending; then tap ⓧ; open the preview again and close it with system back",
+        "action": "1. Tap the enlarge icon on a character\n2. Open ⋯ and close the menu with system back\n3. Open ⋯ and tap 「Download」\n4. Open ⋯ again\n5. Tap 「Report」 and leave the report flow with system back without sending\n6. Tap ⓧ\n7. Open the preview again and close it with system back",
         "result": "Fail",
         "run": "2026-10-29-a7-full"
       },
@@ -4767,7 +4767,7 @@
         "segment": "A1-c2",
         "section": "Make your character",
         "precondition": "Character library shown",
-        "action": "Tap the enlarge icon on a character; open ⋯ and close the menu with system back; open ⋯ and tap 「Download」; open ⋯ again, tap 「Report」 and leave the report flow with system back without sending; then tap ⓧ; open the preview again and close it with system back",
+        "action": "1. Tap the enlarge icon on a character\n2. Open ⋯ and close the menu with system back\n3. Open ⋯ and tap 「Download」\n4. Open ⋯ again\n5. Tap 「Report」 and leave the report flow with system back without sending\n6. Tap ⓧ\n7. Open the preview again and close it with system back",
         "result": "Fail",
         "run": "2026-10-29-a7-full"
       },
@@ -5087,7 +5087,7 @@
         "segment": "A1-d1",
         "section": "Storyboard",
         "precondition": "Storyboard Result shown",
-        "action": "Tap 「View more >」 then use ‹ ›; then leave the scene detail with system back",
+        "action": "1. Tap 「View more >」\n2. Use ‹ ›\n3. Leave the scene detail with system back",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5125,7 +5125,7 @@
         "segment": "A1-d1",
         "section": "Storyboard",
         "precondition": "Storyboard Result shown",
-        "action": "Tap 「View more >」 then use ‹ ›; then leave the scene detail with system back",
+        "action": "1. Tap 「View more >」\n2. Use ‹ ›\n3. Leave the scene detail with system back",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5163,7 +5163,7 @@
         "segment": "A1-d1",
         "section": "Storyboard",
         "precondition": "Storyboard Result shown",
-        "action": "Tap 「View more >」 then use ‹ ›; then leave the scene detail with system back",
+        "action": "1. Tap 「View more >」\n2. Use ‹ ›\n3. Leave the scene detail with system back",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5201,7 +5201,7 @@
         "segment": "A1-d1",
         "section": "Storyboard",
         "precondition": "Storyboard Result shown",
-        "action": "Tap 「View more >」 then use ‹ ›; then leave the scene detail with system back",
+        "action": "1. Tap 「View more >」\n2. Use ‹ ›\n3. Leave the scene detail with system back",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5239,7 +5239,7 @@
         "segment": "A1-d1",
         "section": "Storyboard",
         "precondition": "Storyboard Result shown",
-        "action": "Tap 「View more >」 then use ‹ ›; then leave the scene detail with system back",
+        "action": "1. Tap 「View more >」\n2. Use ‹ ›\n3. Leave the scene detail with system back",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5279,7 +5279,7 @@
         "segment": "A1-d1",
         "section": "Storyboard",
         "precondition": "Storyboard Result shown",
-        "action": "Tap 「View more >」 then use ‹ ›; then leave the scene detail with system back",
+        "action": "1. Tap 「View more >」\n2. Use ‹ ›\n3. Leave the scene detail with system back",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5316,7 +5316,7 @@
         "segment": "A1-d1",
         "section": "Storyboard",
         "precondition": "Storyboard Result shown",
-        "action": "Tap 「View more >」 then use ‹ ›; then leave the scene detail with system back",
+        "action": "1. Tap 「View more >」\n2. Use ‹ ›\n3. Leave the scene detail with system back",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5353,7 +5353,7 @@
         "segment": "A1-d1",
         "section": "Storyboard",
         "precondition": "Storyboard Result shown",
-        "action": "Tap 「View more >」 then use ‹ ›; then leave the scene detail with system back",
+        "action": "1. Tap 「View more >」\n2. Use ‹ ›\n3. Leave the scene detail with system back",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5390,7 +5390,7 @@
         "segment": "A1-d1",
         "section": "Storyboard",
         "precondition": "Storyboard Result shown",
-        "action": "Tap 「View more >」 then use ‹ ›; then leave the scene detail with system back",
+        "action": "1. Tap 「View more >」\n2. Use ‹ ›\n3. Leave the scene detail with system back",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5427,7 +5427,7 @@
         "segment": "A1-d1",
         "section": "Storyboard",
         "precondition": "Scene detail open",
-        "action": "Tap the Location thumbnail, then the main scene image",
+        "action": "1. Tap the Location thumbnail\n2. Tap the main scene image",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5467,7 +5467,7 @@
         "segment": "A1-d1",
         "section": "Storyboard",
         "precondition": "Scene detail open",
-        "action": "Tap the Location thumbnail, then the main scene image",
+        "action": "1. Tap the Location thumbnail\n2. Tap the main scene image",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5507,7 +5507,7 @@
         "segment": "A1-d1",
         "section": "Storyboard",
         "precondition": "Scene detail open",
-        "action": "Tap the Location thumbnail, then the main scene image",
+        "action": "1. Tap the Location thumbnail\n2. Tap the main scene image",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5547,7 +5547,7 @@
         "segment": "A1-d1",
         "section": "Storyboard",
         "precondition": "Scene detail open",
-        "action": "Tap the Location thumbnail, then the main scene image",
+        "action": "1. Tap the Location thumbnail\n2. Tap the main scene image",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5587,7 +5587,7 @@
         "segment": "A1-d1",
         "section": "Storyboard",
         "precondition": "Scene detail open",
-        "action": "Tap the Location thumbnail, then the main scene image",
+        "action": "1. Tap the Location thumbnail\n2. Tap the main scene image",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5627,7 +5627,7 @@
         "segment": "A1-d1",
         "section": "Storyboard",
         "precondition": "Scene detail open",
-        "action": "Tap the Location thumbnail, then the main scene image",
+        "action": "1. Tap the Location thumbnail\n2. Tap the main scene image",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5667,7 +5667,7 @@
         "segment": "A1-d1",
         "section": "Storyboard",
         "precondition": "Failed scene open",
-        "action": "Tap Edit, change the description, tap Done",
+        "action": "1. Tap Edit\n2. Change the description\n3. Tap Done",
         "result": "Fail",
         "run": "2026-10-29-a7-full"
       },
@@ -5707,7 +5707,7 @@
         "segment": "A1-d1",
         "section": "Storyboard",
         "precondition": "Failed scene open",
-        "action": "Tap Edit, change the description, tap Done",
+        "action": "1. Tap Edit\n2. Change the description\n3. Tap Done",
         "result": "Fail",
         "run": "2026-10-29-a7-full"
       },
@@ -5747,7 +5747,7 @@
         "segment": "A1-d1",
         "section": "Storyboard Preview",
         "precondition": "Storyboard finished",
-        "action": "Look at the Storyboard Preview card, then play it; tap ⏸, tap ▶ again, then drag the scrubber to about the middle; then leave the player with system back",
+        "action": "1. Look at the Storyboard Preview card\n2. Play it\n3. Tap ⏸\n4. Tap ▶ again\n5. Drag the scrubber to about the middle\n6. Leave the player with system back",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5787,7 +5787,7 @@
         "segment": "A1-d1",
         "section": "Storyboard Preview",
         "precondition": "Storyboard finished",
-        "action": "Look at the Storyboard Preview card, then play it; tap ⏸, tap ▶ again, then drag the scrubber to about the middle; then leave the player with system back",
+        "action": "1. Look at the Storyboard Preview card\n2. Play it\n3. Tap ⏸\n4. Tap ▶ again\n5. Drag the scrubber to about the middle\n6. Leave the player with system back",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5827,7 +5827,7 @@
         "segment": "A1-d1",
         "section": "Storyboard Preview",
         "precondition": "Storyboard finished",
-        "action": "Look at the Storyboard Preview card, then play it; tap ⏸, tap ▶ again, then drag the scrubber to about the middle; then leave the player with system back",
+        "action": "1. Look at the Storyboard Preview card\n2. Play it\n3. Tap ⏸\n4. Tap ▶ again\n5. Drag the scrubber to about the middle\n6. Leave the player with system back",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5866,7 +5866,7 @@
         "segment": "A1-d1",
         "section": "Storyboard Preview",
         "precondition": "Storyboard finished",
-        "action": "Look at the Storyboard Preview card, then play it; tap ⏸, tap ▶ again, then drag the scrubber to about the middle; then leave the player with system back",
+        "action": "1. Look at the Storyboard Preview card\n2. Play it\n3. Tap ⏸\n4. Tap ▶ again\n5. Drag the scrubber to about the middle\n6. Leave the player with system back",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5905,7 +5905,7 @@
         "segment": "A1-d2",
         "section": "Storyboard",
         "precondition": "Storyboard Result shown",
-        "action": "Tap a scene card's thumbnail; close the scene; then tap the card's text (not View more)",
+        "action": "1. Tap a scene card's thumbnail\n2. Close the scene\n3. Tap the card's text (not View more)",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5945,7 +5945,7 @@
         "segment": "A1-d2",
         "section": "Storyboard",
         "precondition": "Storyboard Result shown",
-        "action": "Tap a scene card's thumbnail; close the scene; then tap the card's text (not View more)",
+        "action": "1. Tap a scene card's thumbnail\n2. Close the scene\n3. Tap the card's text (not View more)",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -5985,7 +5985,7 @@
         "segment": "A1-d2",
         "section": "Storyboard",
         "precondition": "Storyboard Result shown",
-        "action": "Tap a scene card's thumbnail; close the scene; then tap the card's text (not View more)",
+        "action": "1. Tap a scene card's thumbnail\n2. Close the scene\n3. Tap the card's text (not View more)",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -6025,7 +6025,7 @@
         "segment": "A1-d2",
         "section": "Storyboard",
         "precondition": "Storyboard Result shown",
-        "action": "Tap a scene card's thumbnail; close the scene; then tap the card's text (not View more)",
+        "action": "1. Tap a scene card's thumbnail\n2. Close the scene\n3. Tap the card's text (not View more)",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -6065,7 +6065,7 @@
         "segment": "A1-d2",
         "section": "Storyboard",
         "precondition": "Storyboard Result shown",
-        "action": "Tap a scene card's thumbnail; close the scene; then tap the card's text (not View more)",
+        "action": "1. Tap a scene card's thumbnail\n2. Close the scene\n3. Tap the card's text (not View more)",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -6105,7 +6105,7 @@
         "segment": "A1-d2",
         "section": "Storyboard",
         "precondition": "Storyboard Result shown",
-        "action": "Tap a scene card's thumbnail; close the scene; then tap the card's text (not View more)",
+        "action": "1. Tap a scene card's thumbnail\n2. Close the scene\n3. Tap the card's text (not View more)",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -6305,7 +6305,7 @@
         "segment": "A1-d2",
         "section": "Storyboard Preview",
         "precondition": "Storyboard narration speech-to-text fails",
-        "action": "Look at the Storyboard Preview card, then tap Retry",
+        "action": "1. Look at the Storyboard Preview card\n2. Tap Retry",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -6344,7 +6344,7 @@
         "segment": "A1-d2",
         "section": "Storyboard Preview",
         "precondition": "Storyboard narration speech-to-text fails",
-        "action": "Look at the Storyboard Preview card, then tap Retry",
+        "action": "1. Look at the Storyboard Preview card\n2. Tap Retry",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -6383,7 +6383,7 @@
         "segment": "A1-d2",
         "section": "Storyboard Preview",
         "precondition": "Storyboard narration speech-to-text fails",
-        "action": "Look at the Storyboard Preview card, then tap Retry",
+        "action": "1. Look at the Storyboard Preview card\n2. Tap Retry",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -6422,7 +6422,7 @@
         "segment": "A1-d2",
         "section": "Storyboard Preview",
         "precondition": "Storyboard narration speech-to-text fails",
-        "action": "Look at the Storyboard Preview card, then tap Retry",
+        "action": "1. Look at the Storyboard Preview card\n2. Tap Retry",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -6461,7 +6461,7 @@
         "segment": "A1-d2",
         "section": "Storyboard Preview",
         "precondition": "Storyboard narration speech-to-text fails",
-        "action": "Look at the Storyboard Preview card, then tap Retry",
+        "action": "1. Look at the Storyboard Preview card\n2. Tap Retry",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -6501,7 +6501,7 @@
         "segment": "A1-d2",
         "section": "Storyboard Preview",
         "precondition": "Storyboard narration speech-to-text fails",
-        "action": "Look at the Storyboard Preview card, then tap Retry",
+        "action": "1. Look at the Storyboard Preview card\n2. Tap Retry",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -6541,7 +6541,7 @@
         "segment": "A1-e",
         "section": "History",
         "precondition": "History with dramas",
-        "action": "Read a card, then tap 「New Chat」",
+        "action": "1. Read a card\n2. Tap 「New Chat」",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -6581,7 +6581,7 @@
         "segment": "A1-e",
         "section": "History",
         "precondition": "History with dramas",
-        "action": "Read a card, then tap 「New Chat」",
+        "action": "1. Read a card\n2. Tap 「New Chat」",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -6695,7 +6695,7 @@
         "segment": "A1-e",
         "section": "History",
         "precondition": "History with a throwaway drama made for this case (the outline stage is enough)",
-        "action": "Tap ⋮ → Delete on the throwaway drama and tap 「Cancel」; then ⋮ → Delete again and tap 「Delete」",
+        "action": "1. Tap ⋮ → Delete on the throwaway drama and tap 「Cancel」\n2. Tap ⋮ → Delete again and tap 「Delete」",
         "result": "Fail",
         "run": "2026-10-29-a7-full"
       },
@@ -6735,7 +6735,7 @@
         "segment": "A1-e",
         "section": "History",
         "precondition": "History with a throwaway drama made for this case (the outline stage is enough)",
-        "action": "Tap ⋮ → Delete on the throwaway drama and tap 「Cancel」; then ⋮ → Delete again and tap 「Delete」",
+        "action": "1. Tap ⋮ → Delete on the throwaway drama and tap 「Cancel」\n2. Tap ⋮ → Delete again and tap 「Delete」",
         "result": "Fail",
         "run": "2026-10-29-a7-full"
       },
@@ -6935,7 +6935,7 @@
         "segment": "A1-f",
         "section": "Credits and limits",
         "precondition": "Pro account at the daily chat limit (fault switch (iOS Pink; none on Android 16.8) › Show Paid quota dialog)",
-        "action": "Send a message, then tap 「Continue Tomorrow」; send again and close the dialog with system back",
+        "action": "1. Send a message\n2. Tap 「Continue Tomorrow」\n3. Send again and close the dialog with system back",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -6970,7 +6970,7 @@
         "segment": "A1-f",
         "section": "Credits and limits",
         "precondition": "Pro account at the daily chat limit (fault switch (iOS Pink; none on Android 16.8) › Show Paid quota dialog)",
-        "action": "Send a message, then tap 「Continue Tomorrow」; send again and close the dialog with system back",
+        "action": "1. Send a message\n2. Tap 「Continue Tomorrow」\n3. Send again and close the dialog with system back",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -7005,7 +7005,7 @@
         "segment": "A1-f",
         "section": "Credits and limits",
         "precondition": "Tier Free (subscription of the test account: Free); finite daily allowance",
-        "action": "Send chats until the allowance is used up, counting each send; then tap 「Upgrade to Premium」 and leave the subscription page with system back without subscribing",
+        "action": "1. Send chats until the allowance is used up, counting each send\n2. Tap 「Upgrade to Premium」 and leave the subscription page with system back without subscribing",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -7044,7 +7044,7 @@
         "segment": "A1-f",
         "section": "Credits and limits",
         "precondition": "Tier Free (subscription of the test account: Free); finite daily allowance",
-        "action": "Send chats until the allowance is used up, counting each send; then tap 「Upgrade to Premium」 and leave the subscription page with system back without subscribing",
+        "action": "1. Send chats until the allowance is used up, counting each send\n2. Tap 「Upgrade to Premium」 and leave the subscription page with system back without subscribing",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -7083,7 +7083,7 @@
         "segment": "A1-f",
         "section": "Credits and limits",
         "precondition": "Tier Pro, balance below the next action's price",
-        "action": "Look at the charge card, then tap Buy Credit; on 「Top up your credits」 tap the 500 pack, then 「Terms of Use」 and system back, then 「Privacy Policy」 and system back; tap the panel's 「Buy Credit」 and close the Google Play billing sheet with system back (never buy); finally close the panel with system back",
+        "action": "1. Look at the charge card\n2. Tap Buy Credit\n3. On 「Top up your credits」 tap the 500 pack\n4. Tap 「Terms of Use」 and system back\n5. Tap 「Privacy Policy」 and system back\n6. Tap the panel's 「Buy Credit」 and close the Google Play billing sheet with system back (never buy)\n7. Finally close the panel with system back",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -7122,7 +7122,7 @@
         "segment": "A1-f",
         "section": "Credits and limits",
         "precondition": "Tier Pro, balance below the next action's price",
-        "action": "Look at the charge card, then tap Buy Credit; on 「Top up your credits」 tap the 500 pack, then 「Terms of Use」 and system back, then 「Privacy Policy」 and system back; tap the panel's 「Buy Credit」 and close the Google Play billing sheet with system back (never buy); finally close the panel with system back",
+        "action": "1. Look at the charge card\n2. Tap Buy Credit\n3. On 「Top up your credits」 tap the 500 pack\n4. Tap 「Terms of Use」 and system back\n5. Tap 「Privacy Policy」 and system back\n6. Tap the panel's 「Buy Credit」 and close the Google Play billing sheet with system back (never buy)\n7. Finally close the panel with system back",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -7161,7 +7161,7 @@
         "segment": "A1-g1",
         "section": "Video",
         "precondition": "Video settings shown",
-        "action": "Switch Best, Standard and Fast with Preview • 30 sec, then with Full Video",
+        "action": "1. Switch Best, Standard and Fast with Preview • 30 sec\n2. Switch Best, Standard and Fast with Full Video",
         "result": "Fail",
         "run": "2026-10-29-a7-full"
       },
@@ -7481,7 +7481,7 @@
         "segment": "A1-g1",
         "section": "Video",
         "precondition": "Video finished",
-        "action": "Open the result and tap Full Edit, then go back with system back and tap Export Full Video",
+        "action": "1. Open the result and tap Full Edit\n2. Go back with system back and tap Export Full Video",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -7521,7 +7521,7 @@
         "segment": "A1-g1",
         "section": "Video",
         "precondition": "Video finished",
-        "action": "Open the result and tap Full Edit, then go back with system back and tap Export Full Video",
+        "action": "1. Open the result and tap Full Edit\n2. Go back with system back and tap Export Full Video",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -7561,7 +7561,7 @@
         "segment": "A1-g1",
         "section": "Video",
         "precondition": "Video finished",
-        "action": "Open the result and tap Full Edit, then go back with system back and tap Export Full Video",
+        "action": "1. Open the result and tap Full Edit\n2. Go back with system back and tap Export Full Video",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -7601,7 +7601,7 @@
         "segment": "A1-g2",
         "section": "Video errors",
         "precondition": "Failed scene video",
-        "action": "Tap Retry; if it fails again tap Edit",
+        "action": "1. Tap Retry\n2. If it fails again tap Edit",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -7640,7 +7640,7 @@
         "segment": "A1-g2",
         "section": "Video errors",
         "precondition": "Failed scene video",
-        "action": "Tap Retry; if it fails again tap Edit",
+        "action": "1. Tap Retry\n2. If it fails again tap Edit",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -8040,7 +8040,7 @@
         "segment": "A1-g3",
         "section": "Video errors",
         "precondition": "Failed scene-video editor open (Edit on a failed clip, TC-146)",
-        "action": "Tap the expand icon on the description, edit the text, then tap the collapse icon",
+        "action": "1. Tap the expand icon on the description\n2. Edit the text\n3. Tap the collapse icon",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -8160,7 +8160,7 @@
         "segment": "A1-g3",
         "section": "Video errors",
         "precondition": "Video result with failed scenes",
-        "action": "Tap 「Fix scenes」; then use system back",
+        "action": "1. Tap 「Fix scenes」\n2. Use system back",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -8200,7 +8200,7 @@
         "segment": "A1-g3",
         "section": "Video errors",
         "precondition": "Video result with failed scenes",
-        "action": "Tap 「Fix scenes」; then use system back",
+        "action": "1. Tap 「Fix scenes」\n2. Use system back",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -8240,7 +8240,7 @@
         "segment": "A1-g3",
         "section": "Video errors",
         "precondition": "Video result with failed scenes",
-        "action": "Tap 「Fix scenes」; then use system back",
+        "action": "1. Tap 「Fix scenes」\n2. Use system back",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -8280,7 +8280,7 @@
         "segment": "A1-g3",
         "section": "Video errors",
         "precondition": "Video result with failed scenes",
-        "action": "Tap 「Fix scenes」; then use system back",
+        "action": "1. Tap 「Fix scenes」\n2. Use system back",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -8480,7 +8480,7 @@
         "segment": "A1-g3",
         "section": "Video",
         "precondition": "Video settings card shown",
-        "action": "Tap Standard, then Fast",
+        "action": "1. Tap Standard\n2. Tap Fast",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -8520,7 +8520,7 @@
         "segment": "A1-g3",
         "section": "Video",
         "precondition": "Video settings card shown",
-        "action": "Tap Standard, then Fast",
+        "action": "1. Tap Standard\n2. Tap Fast",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -8560,7 +8560,7 @@
         "segment": "A1-i1",
         "section": "Templates",
         "precondition": "Template detail playing",
-        "action": "Tap the video; tap ▶; then tap the volume icon twice",
+        "action": "1. Tap the video\n2. Tap ▶\n3. Tap the volume icon twice",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -8600,7 +8600,7 @@
         "segment": "A1-i1",
         "section": "Templates",
         "precondition": "Template detail playing",
-        "action": "Tap the video; tap ▶; then tap the volume icon twice",
+        "action": "1. Tap the video\n2. Tap ▶\n3. Tap the volume icon twice",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -8640,7 +8640,7 @@
         "segment": "A1-i1",
         "section": "Templates",
         "precondition": "Template detail playing",
-        "action": "Tap the video; tap ▶; then tap the volume icon twice",
+        "action": "1. Tap the video\n2. Tap ▶\n3. Tap the volume icon twice",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -8680,7 +8680,7 @@
         "segment": "A1-i1",
         "section": "Templates",
         "precondition": "Template detail playing",
-        "action": "Tap the video; tap ▶; then tap the volume icon twice",
+        "action": "1. Tap the video\n2. Tap ▶\n3. Tap the volume icon twice",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -8720,7 +8720,7 @@
         "segment": "A1-i1",
         "section": "Templates",
         "precondition": "Template detail playing",
-        "action": "Tap the video; tap ▶; then tap the volume icon twice",
+        "action": "1. Tap the video\n2. Tap ▶\n3. Tap the volume icon twice",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -8760,7 +8760,7 @@
         "segment": "A1-i1",
         "section": "Templates",
         "precondition": "Template detail playing",
-        "action": "Tap the video; tap ▶; then tap the volume icon twice",
+        "action": "1. Tap the video\n2. Tap ▶\n3. Tap the volume icon twice",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -8840,7 +8840,7 @@
         "segment": "A1-i1",
         "section": "Templates",
         "precondition": "Chat started from 「Merger Season」 (row above)",
-        "action": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+        "action": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -8880,7 +8880,7 @@
         "segment": "A1-i1",
         "section": "Templates",
         "precondition": "Chat started from 「Merger Season」 (row above)",
-        "action": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+        "action": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -8920,7 +8920,7 @@
         "segment": "A1-i1",
         "section": "Templates",
         "precondition": "Chat started from 「Merger Season」 (row above)",
-        "action": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+        "action": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -8960,7 +8960,7 @@
         "segment": "A1-i1",
         "section": "Templates",
         "precondition": "Chat started from 「Merger Season」 (row above)",
-        "action": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+        "action": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -9000,7 +9000,7 @@
         "segment": "A1-i1",
         "section": "Templates",
         "precondition": "Chat started from 「Merger Season」 (row above)",
-        "action": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+        "action": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)",
         "result": "Blocked",
         "run": "2026-10-29-a7-full"
       },
@@ -9040,7 +9040,7 @@
         "segment": "A1-i1",
         "section": "Templates",
         "precondition": "More › Workplace Romance › position 3; balance at least 300 credits (stop rule below)",
-        "action": "Open 「The New Guy's Secret」: check the cover and title, play the preview, then tap Make my version",
+        "action": "1. Open 「The New Guy's Secret」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -9080,7 +9080,7 @@
         "segment": "A1-i1",
         "section": "Templates",
         "precondition": "More › Workplace Romance › position 3; balance at least 300 credits (stop rule below)",
-        "action": "Open 「The New Guy's Secret」: check the cover and title, play the preview, then tap Make my version",
+        "action": "1. Open 「The New Guy's Secret」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },
@@ -9120,7 +9120,7 @@
         "segment": "A1-i1",
         "section": "Templates",
         "precondition": "Chat started from 「The Art of Falling」 (row above)",
-        "action": "Choose English and 「Yes, include captions」, tap Generate and scroll to Choose your characters",
+        "action": "1. Choose English and 「Yes, include captions」\n2. Tap Generate and scroll to Choose your characters",
         "result": "Pass",
         "run": "2026-10-29-a7-full"
       },

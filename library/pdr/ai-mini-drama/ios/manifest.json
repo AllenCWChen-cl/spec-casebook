@@ -2,9 +2,9 @@
   "feature": "pdr/ai-mini-drama",
   "platform": "ios",
   "title": "AI Mini Drama",
-  "version": 11,
-  "approved_at": "2026-10-29T07:32:43.681Z",
-  "draft": "20261029-152720",
+  "version": 12,
+  "approved_at": "2026-11-03T09:37:13.313Z",
+  "draft": "edit-20261103-173713",
   "spec_folder": "specs/2026-10-21-2",
   "spec_files": [
     {
@@ -121,6 +121,15 @@
       "approved_at": "2026-10-29T07:32:43.681Z",
       "spec_set_sha256": "2f6431b706887ce2d0ef09f2a20fff26b303e4b2b09bf5378ed4382cd68808fd",
       "draft": "20261029-152720",
+      "cases": 425,
+      "csv": "history/v11.csv",
+      "requirements": "history/v11-requirements.md"
+    },
+    {
+      "version": 12,
+      "approved_at": "2026-11-03T09:37:13.313Z",
+      "spec_set_sha256": "2f6431b706887ce2d0ef09f2a20fff26b303e4b2b09bf5378ed4382cd68808fd",
+      "draft": "edit-20261103-173713",
       "cases": 425,
       "csv": "cases.csv",
       "requirements": "requirements.md"

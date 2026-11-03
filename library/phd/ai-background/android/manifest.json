@@ -2,9 +2,9 @@
   "feature": "phd/ai-background",
   "platform": "android",
   "title": "AI Background",
-  "version": 1,
-  "approved_at": "2026-11-03T07:58:43.948Z",
-  "draft": "20261103-155417",
+  "version": 2,
+  "approved_at": "2026-11-03T09:37:13.479Z",
+  "draft": "edit-20261103-173713",
   "spec_folder": "specs/2026-11-03",
   "spec_files": [
     {
@@ -21,6 +21,15 @@
       "approved_at": "2026-11-03T07:58:43.948Z",
       "spec_set_sha256": "272ca6c61507f83a557dd525aba9d23b73e2fdabe3a5fa3b256b67a5bdb1c7d5",
       "draft": "20261103-155417",
+      "cases": 55,
+      "csv": "history/v1.csv",
+      "requirements": "history/v1-requirements.md"
+    },
+    {
+      "version": 2,
+      "approved_at": "2026-11-03T09:37:13.479Z",
+      "spec_set_sha256": "272ca6c61507f83a557dd525aba9d23b73e2fdabe3a5fa3b256b67a5bdb1c7d5",
+      "draft": "edit-20261103-173713",
       "cases": 55,
       "csv": "cases.csv",
       "requirements": "requirements.md"

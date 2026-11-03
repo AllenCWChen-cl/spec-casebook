@@ -1,0 +1,1345 @@
+{
+  "saved_at": "2026-11-03T09:37:13.313Z",
+  "version": 12,
+  "summary": "One step per line (user 2026-11-03): cells holding two or more steps now put each step on its own numbered line; wording otherwise unchanged.",
+  "decisions": [
+    {
+      "id": "TC-418",
+      "field": "Action",
+      "decision": "modified",
+      "before": "1. Tap the 「AI Mini Drama」 shortcut. 2. On the intro tap the volume icon twice. 3. Tap ‹. 4. Tap the shortcut again, tick 「Don't show again」 and tap 「Try It Now」. 5. Go back to the Launcher and tap the shortcut once more",
+      "after": "1. Tap the 「AI Mini Drama」 shortcut\n2. On the intro tap the volume icon twice\n3. Tap ‹\n4. Tap the shortcut again\n5. Tick 「Don't show again」 and tap 「Try It Now」\n6. Go back to the Launcher and tap the shortcut once more"
+    },
+    {
+      "id": "TC-008",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap the video; tap ▶; then tap the volume icon twice",
+      "after": "1. Tap the video\n2. Tap ▶\n3. Tap the volume icon twice"
+    },
+    {
+      "id": "TC-399",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap the mic button without speaking; then tap it again (or its cancel control) to stop",
+      "after": "1. Tap the mic button without speaking\n2. Tap it again (or its cancel control) to stop"
+    },
+    {
+      "id": "TC-019",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Look above the input, then tap 「More ideas +」",
+      "after": "1. Look above the input\n2. Tap 「More ideas +」"
+    },
+    {
+      "id": "TC-020",
+      "field": "Expected Result",
+      "decision": "modified",
+      "before": "Assistant asks 「What format would you like for your video?」 with 1. Video language (English, Spanish, French, German, Japanese, Korean, Chinese) and 2. Captions (「Yes, include captions」/「No captions」); no aspect-ratio question",
+      "after": "Assistant asks 「What format would you like for your video?」 with two questions:\n1. Video language (English, Spanish, French, German, Japanese, Korean, Chinese)\n2. Captions (「Yes, include captions」/「No captions」)\nNo aspect-ratio question"
+    },
+    {
+      "id": "TC-021",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap another language, then another caption option",
+      "after": "1. Tap another language\n2. Tap another caption option"
+    },
+    {
+      "id": "TC-381",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Type an idea without sending and tap Back; open a new chat, send an idea and tap Back at the format card; open History",
+      "after": "1. Type an idea without sending and tap Back\n2. Open a new chat\n3. Send an idea and tap Back at the format card\n4. Open History"
+    },
+    {
+      "id": "TC-028",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap 「Leave anyway」, then open History",
+      "after": "1. Tap 「Leave anyway」\n2. Open History"
+    },
+    {
+      "id": "TC-394",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap Back, then 「Leave anyway」",
+      "after": "1. Tap Back\n2. Tap 「Leave anyway」"
+    },
+    {
+      "id": "TC-357",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap New chat, then 「Stay」; tap the credit pill, then 「Stay」",
+      "after": "1. Tap New chat\n2. Tap 「Stay」\n3. Tap the credit pill\n4. Tap 「Stay」"
+    },
+    {
+      "id": "TC-358",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap the credit pill, then 「Leave anyway」; then open History",
+      "after": "1. Tap the credit pill\n2. Tap 「Leave anyway」\n3. Open History"
+    },
+    {
+      "id": "TC-398",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap 「Buy More」, then go back; tap 「Subscribe Now」, then go back without subscribing; tap 「Claim」",
+      "after": "1. Tap 「Buy More」\n2. Go back\n3. Tap 「Subscribe Now」\n4. Go back without subscribing\n5. Tap 「Claim」"
+    },
+    {
+      "id": "TC-395",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap History, then 「Leave anyway」",
+      "after": "1. Tap History\n2. Tap 「Leave anyway」"
+    },
+    {
+      "id": "TC-396",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap New chat, then 「Leave anyway」",
+      "after": "1. Tap New chat\n2. Tap 「Leave anyway」"
+    },
+    {
+      "id": "TC-386",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Swipe the app away, reopen it and open History",
+      "after": "1. Swipe the app away\n2. Reopen it and open History"
+    },
+    {
+      "id": "TC-029",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap Back, then reopen the drama from History",
+      "after": "1. Tap Back\n2. Reopen the drama from History"
+    },
+    {
+      "id": "TC-360",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap History; reopen the drama; tap the credit pill; go back; tap New chat",
+      "after": "1. Tap History\n2. Reopen the drama\n3. Tap the credit pill\n4. Go back\n5. Tap New chat"
+    },
+    {
+      "id": "TC-036",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open the filter, choose Gender and Ethnicity, apply; tap × on the Gender chip; then tap the filter icon",
+      "after": "1. Open the filter\n2. Choose Gender and Ethnicity\n3. Tap Apply\n4. Tap × on the Gender chip\n5. Tap the filter icon"
+    },
+    {
+      "id": "TC-038",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap 「Keep choosing」, then X again and 「Leave」",
+      "after": "1. Tap 「Keep choosing」\n2. Tap X again and 「Leave」"
+    },
+    {
+      "id": "TC-041",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap 「Generate all」, wait, then tap 「Confirm」",
+      "after": "1. Tap 「Generate all」\n2. Wait\n3. Tap 「Confirm」"
+    },
+    {
+      "id": "TC-384",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Close the dialog, tap a failed 「!」 character, then try to continue the story",
+      "after": "1. Close the dialog\n2. Tap a failed 「!」 character\n3. Try to continue the story"
+    },
+    {
+      "id": "TC-048",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Enter only a description and the required attributes, tap Generate",
+      "after": "1. Enter only a description and the required attributes\n2. Tap Generate"
+    },
+    {
+      "id": "TC-049",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Add only a reference photo and the required attributes, tap Generate",
+      "after": "1. Add only a reference photo and the required attributes\n2. Tap Generate"
+    },
+    {
+      "id": "TC-050",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Enter a description, leave Gender empty",
+      "after": "1. Enter a description\n2. Leave Gender empty"
+    },
+    {
+      "id": "TC-052",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Add a photo with three people, check that no warning shows yet, then tap Generate; tap 「Use another photo」",
+      "after": "1. Add a photo with three people\n2. Check that no warning shows yet\n3. Tap Generate\n4. Tap 「Use another photo」"
+    },
+    {
+      "id": "TC-053",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Upload a photo with no person and tap Generate; tap 「Use another photo」",
+      "after": "1. Upload a photo with no person and tap Generate\n2. Tap 「Use another photo」"
+    },
+    {
+      "id": "TC-054",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Upload a well-known public figure's photo and tap Generate; tap 「Use another photo」",
+      "after": "1. Upload a well-known public figure's photo and tap Generate\n2. Tap 「Use another photo」"
+    },
+    {
+      "id": "TC-058",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open its ⋮ menu and tap Delete; then tap 「Cancel」",
+      "after": "1. Open its ⋮ menu and tap Delete\n2. Tap 「Cancel」"
+    },
+    {
+      "id": "TC-359",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap History, then 「Stay」; tap New chat, then 「Stay」; tap the credit pill, then 「Leave anyway」",
+      "after": "1. Tap History\n2. Tap 「Stay」\n3. Tap New chat\n4. Tap 「Stay」\n5. Tap the credit pill\n6. Tap 「Leave anyway」"
+    },
+    {
+      "id": "TC-402",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap History; reopen the drama; tap the credit pill; go back; tap New chat",
+      "after": "1. Tap History\n2. Reopen the drama\n3. Tap the credit pill\n4. Go back\n5. Tap New chat"
+    },
+    {
+      "id": "TC-063",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap Back, 「Leave anyway」, then reopen the drama from History and wait",
+      "after": "1. Tap Back\n2. Tap 「Leave anyway」\n3. Reopen the drama from History and wait"
+    },
+    {
+      "id": "TC-403",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Swipe the app away, reopen PowerDirector and open the drama from History",
+      "after": "1. Swipe the app away\n2. Reopen PowerDirector and open the drama from History"
+    },
+    {
+      "id": "TC-404",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Swipe the app away, wait 2 minutes, reopen PowerDirector and open the drama from History",
+      "after": "1. Swipe the app away\n2. Wait 2 minutes\n3. Reopen PowerDirector and open the drama from History"
+    },
+    {
+      "id": "TC-065",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap 「View more >」 then use ‹ ›",
+      "after": "1. Tap 「View more >」\n2. Use ‹ ›"
+    },
+    {
+      "id": "TC-066",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap the Location thumbnail, then the main scene image",
+      "after": "1. Tap the Location thumbnail\n2. Tap the main scene image"
+    },
+    {
+      "id": "TC-067",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open the scene and tap ⓘ; in the dialog tap 「terms of service」, come back and tap 「Got it」",
+      "after": "1. Open the scene and tap ⓘ\n2. In the dialog tap 「terms of service」, come back and tap 「Got it」"
+    },
+    {
+      "id": "TC-069",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Look at the Storyboard Result, then tap the ⟳ on the failed scene's thumbnail",
+      "after": "1. Look at the Storyboard Result\n2. Tap the ⟳ on the failed scene's thumbnail"
+    },
+    {
+      "id": "TC-070",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap Edit, change the description, tap Done",
+      "after": "1. Tap Edit\n2. Change the description\n3. Tap Done"
+    },
+    {
+      "id": "TC-378",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap X, then 「Keep Generating」; tap X again, then 「Leave anyway」",
+      "after": "1. Tap X\n2. Tap 「Keep Generating」\n3. Tap X again\n4. Tap 「Leave anyway」"
+    },
+    {
+      "id": "TC-074",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Play the Storyboard Preview; then pull the logs",
+      "after": "1. Play the Storyboard Preview\n2. Pull the logs"
+    },
+    {
+      "id": "TC-075",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Look at the Storyboard Preview card, then play it; tap ⏸, tap ▶ again, then drag the scrubber to about the middle",
+      "after": "1. Look at the Storyboard Preview card\n2. Play it\n3. Tap ⏸\n4. Tap ▶ again\n5. Drag the scrubber to about the middle"
+    },
+    {
+      "id": "TC-079",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap 「Create video」 on the Storyboard Preview card (record whether the card has it, Q-30), then read the video settings card",
+      "after": "1. Tap 「Create video」 on the Storyboard Preview card (record whether the card has it, Q-30)\n2. Read the video settings card"
+    },
+    {
+      "id": "TC-080",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Switch Best, Standard and Fast with Preview • 30 sec, then with Full Video",
+      "after": "1. Switch Best, Standard and Fast with Preview • 30 sec\n2. Switch Best, Standard and Fast with Full Video"
+    },
+    {
+      "id": "TC-407",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap Back, then 「Stay」",
+      "after": "1. Tap Back\n2. Tap 「Stay」"
+    },
+    {
+      "id": "TC-408",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap History, then 「Stay」; tap New chat, then 「Stay」; tap the credit pill, then 「Leave anyway」",
+      "after": "1. Tap History\n2. Tap 「Stay」\n3. Tap New chat\n4. Tap 「Stay」\n5. Tap the credit pill\n6. Tap 「Leave anyway」"
+    },
+    {
+      "id": "TC-409",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap Back, 「Leave anyway」, then reopen the drama from History and wait",
+      "after": "1. Tap Back\n2. Tap 「Leave anyway」\n3. Reopen the drama from History and wait"
+    },
+    {
+      "id": "TC-410",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Send the app to the background (Home), wait 30 s, then return to PowerDirector",
+      "after": "1. Send the app to the background (Home)\n2. Wait 30 s\n3. Return to PowerDirector"
+    },
+    {
+      "id": "TC-361",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap History; reopen the drama; tap the credit pill; go back; tap New chat",
+      "after": "1. Tap History\n2. Reopen the drama\n3. Tap the credit pill\n4. Go back\n5. Tap New chat"
+    },
+    {
+      "id": "TC-411",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Swipe the app away, wait 5 minutes, reopen PowerDirector and open the drama from History",
+      "after": "1. Swipe the app away\n2. Wait 5 minutes\n3. Reopen PowerDirector and open the drama from History"
+    },
+    {
+      "id": "TC-088",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open the result and tap Full Edit, then go back and tap Export Full Video",
+      "after": "1. Open the result and tap Full Edit\n2. Go back and tap Export Full Video"
+    },
+    {
+      "id": "TC-092",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap Retry; if it fails again tap Edit",
+      "after": "1. Tap Retry\n2. If it fails again tap Edit"
+    },
+    {
+      "id": "TC-362",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Look at the failed clip, then tap ⓘ",
+      "after": "1. Look at the failed clip\n2. Tap ⓘ"
+    },
+    {
+      "id": "TC-093",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap the video card in the chat, then look at the failed clip on the result page",
+      "after": "1. Tap the video card in the chat\n2. Look at the failed clip on the result page"
+    },
+    {
+      "id": "TC-379",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Reopen the drama, read the video card, then open Mine › Credits › Details",
+      "after": "1. Reopen the drama\n2. Read the video card\n3. Open Mine › Credits › Details"
+    },
+    {
+      "id": "TC-096",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Play the old version, tap its download icon; then open the result page and tap 「Export Full Video」 while the scene still shows 「generating...」",
+      "after": "1. Play the old version\n2. Tap its download icon\n3. Open the result page and tap 「Export Full Video」 while the scene still shows 「generating...」"
+    },
+    {
+      "id": "TC-364",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Generate the full video; when it finishes, pull the logs and read this video's tool calls",
+      "after": "1. Generate the full video\n2. When it finishes, pull the logs and read this video's tool calls"
+    },
+    {
+      "id": "TC-365",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap Try again; when the captions appear, pull the logs and compare the STT calls before and after the retry",
+      "after": "1. Tap Try again\n2. When the captions appear, pull the logs and compare the STT calls before and after the retry"
+    },
+    {
+      "id": "TC-100",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Wait for a new assistant message, then for a card above the screen to be rebuilt (e.g. a storyboard image update)",
+      "after": "1. Wait for a new assistant message\n2. Wait for a card above the screen to be rebuilt (e.g. a storyboard image update)"
+    },
+    {
+      "id": "TC-374",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Scroll up to earlier messages, then tap ↓",
+      "after": "1. Scroll up to earlier messages\n2. Tap ↓"
+    },
+    {
+      "id": "TC-101",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open History, then come back",
+      "after": "1. Open History\n2. Come back"
+    },
+    {
+      "id": "TC-102",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open Change Characters, then close it",
+      "after": "1. Open Change Characters\n2. Close it"
+    },
+    {
+      "id": "TC-105",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open History, tap outside the hint",
+      "after": "1. Open History\n2. Tap outside the hint"
+    },
+    {
+      "id": "TC-106",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Read a card, then tap 「New Chat」",
+      "after": "1. Read a card\n2. Tap 「New Chat」"
+    },
+    {
+      "id": "TC-107",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open an older drama, scroll, play and download without editing, return",
+      "after": "1. Open an older drama\n2. Scroll\n3. Play and download without editing\n4. Return"
+    },
+    {
+      "id": "TC-111",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap ⋮ → Delete on the throwaway drama and tap 「Cancel」; then ⋮ → Delete again and tap 「Delete」",
+      "after": "1. Tap ⋮ → Delete on the throwaway drama and tap 「Cancel」\n2. Tap ⋮ → Delete again and tap 「Delete」"
+    },
+    {
+      "id": "TC-114",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Look at the 「Create storyboard」 card; create one storyboard, then look at the next card",
+      "after": "1. Look at the 「Create storyboard」 card\n2. Create one storyboard\n3. Look at the next card"
+    },
+    {
+      "id": "TC-117",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Send a message; tap 「Upgrade to Premium」; on the subscription page tap ‹ without subscribing",
+      "after": "1. Send a message\n2. Tap 「Upgrade to Premium」\n3. On the subscription page tap ‹ without subscribing"
+    },
+    {
+      "id": "TC-419",
+      "field": "Action",
+      "decision": "modified",
+      "before": "1. Tap 「Pro」, then 「Pro+」. 2. Tap 「Monthly」, then 「Yearly」. 3. Tap 「Terms of Service」 and come back. 4. Tap 「Get 7-Day Free Trial」 and cancel the App Store sheet. 5. Tap ‹",
+      "after": "1. Tap 「Pro」\n2. Tap 「Pro+」\n3. Tap 「Monthly」\n4. Tap 「Yearly」\n5. Tap 「Terms of Service」 and come back\n6. Tap 「Get 7-Day Free Trial」 and cancel the App Store sheet\n7. Tap ‹"
+    },
+    {
+      "id": "TC-118",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Send a message, then tap 「Continue Tomorrow」",
+      "after": "1. Send a message\n2. Tap 「Continue Tomorrow」"
+    },
+    {
+      "id": "TC-119",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tick 「My characters only」, then tap 「Clear」",
+      "after": "1. Tick 「My characters only」\n2. Tap 「Clear」"
+    },
+    {
+      "id": "TC-127",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap the Age field, type 24 and tap ✓; then tap the filled Age field, change it to 30 and tap ✓",
+      "after": "1. Tap the Age field\n2. Type 24 and tap ✓\n3. Tap the filled Age field\n4. Change it to 30 and tap ✓"
+    },
+    {
+      "id": "TC-400",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap 「Photo」; tap 「Recents ▾」 and close the album list; tap a stock-source tab (e.g. getty images | iStock) and go back to 「Recents」; tap the enlarge icon on a photo and close the preview; tap the sliders icon beside 「Photo」 and close it; tap the camera icon and cancel",
+      "after": "1. Tap 「Photo」\n2. Tap 「Recents ▾」 and close the album list\n3. Tap a stock-source tab (e.g. getty images | iStock) and go back to 「Recents」\n4. Tap the enlarge icon on a photo and close the preview\n5. Tap the sliders icon beside 「Photo」 and close it\n6. Tap the camera icon and cancel"
+    },
+    {
+      "id": "TC-130",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Drag the photo, then pinch to zoom",
+      "after": "1. Drag the photo\n2. Pinch to zoom"
+    },
+    {
+      "id": "TC-366",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Add the photo, crop the edge object away in Crop and tap ✓, then Generate; afterwards pull the logs and open the stored reference image (ai-mini-drama-reference-photos)",
+      "after": "1. Add the photo, crop the edge object away in Crop and tap ✓\n2. Tap Generate\n3. Afterwards pull the logs and open the stored reference image (ai-mini-drama-reference-photos)"
+    },
+    {
+      "id": "TC-134",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap X, then 「Discard」 in the dialog",
+      "after": "1. Tap X\n2. Tap 「Discard」 in the dialog"
+    },
+    {
+      "id": "TC-135",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap the enlarge icon on a character; open ⋯ and tap 「Download」; open ⋯ again, tap 「Report」 and back out without sending; then tap ⓧ",
+      "after": "1. Tap the enlarge icon on a character\n2. Open ⋯ and tap 「Download」\n3. Open ⋯ again\n4. Tap 「Report」 and back out without sending\n5. Tap ⓧ"
+    },
+    {
+      "id": "TC-138",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap a scene card's thumbnail; close the scene; then tap the card's text (not View more)",
+      "after": "1. Tap a scene card's thumbnail\n2. Close the scene\n3. Tap the card's text (not View more)"
+    },
+    {
+      "id": "TC-375",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap the playing video, then tap ▶",
+      "after": "1. Tap the playing video\n2. Tap ▶"
+    },
+    {
+      "id": "TC-147",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap the expand icon on the description, edit the text, then tap the collapse icon",
+      "after": "1. Tap the expand icon on the description\n2. Edit the text\n3. Tap the collapse icon"
+    },
+    {
+      "id": "TC-158",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Go back to the Launcher, then return to AI Mini Drama (and the task through History if needed)",
+      "after": "1. Go back to the Launcher\n2. Return to AI Mini Drama (and the task through History if needed)"
+    },
+    {
+      "id": "TC-159",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Go back to the Launcher, then return to AI Mini Drama (and the task through History if needed)",
+      "after": "1. Go back to the Launcher\n2. Return to AI Mini Drama (and the task through History if needed)"
+    },
+    {
+      "id": "TC-160",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Go back to the Launcher, then return to AI Mini Drama (and the task through History if needed)",
+      "after": "1. Go back to the Launcher\n2. Return to AI Mini Drama (and the task through History if needed)"
+    },
+    {
+      "id": "TC-161",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Go back to the Launcher, then return to AI Mini Drama (and the task through History if needed)",
+      "after": "1. Go back to the Launcher\n2. Return to AI Mini Drama (and the task through History if needed)"
+    },
+    {
+      "id": "TC-162",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Go back to the Launcher, then return to AI Mini Drama (and the task through History if needed)",
+      "after": "1. Go back to the Launcher\n2. Return to AI Mini Drama (and the task through History if needed)"
+    },
+    {
+      "id": "TC-163",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Go back to the Launcher, then return to AI Mini Drama (and the task through History if needed)",
+      "after": "1. Go back to the Launcher\n2. Return to AI Mini Drama (and the task through History if needed)"
+    },
+    {
+      "id": "TC-164",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Go back to the Launcher, then return to AI Mini Drama (and the task through History if needed)",
+      "after": "1. Go back to the Launcher\n2. Return to AI Mini Drama (and the task through History if needed)"
+    },
+    {
+      "id": "TC-165",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Go back to the Launcher, then return to AI Mini Drama (and the task through History if needed)",
+      "after": "1. Go back to the Launcher\n2. Return to AI Mini Drama (and the task through History if needed)"
+    },
+    {
+      "id": "TC-166",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Go back to the Launcher, then return to AI Mini Drama (and the task through History if needed)",
+      "after": "1. Go back to the Launcher\n2. Return to AI Mini Drama (and the task through History if needed)"
+    },
+    {
+      "id": "TC-167",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Go back to the Launcher, then return to AI Mini Drama (and the task through History if needed)",
+      "after": "1. Go back to the Launcher\n2. Return to AI Mini Drama (and the task through History if needed)"
+    },
+    {
+      "id": "TC-168",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Go back to the Launcher, then return to AI Mini Drama (and the task through History if needed)",
+      "after": "1. Go back to the Launcher\n2. Return to AI Mini Drama (and the task through History if needed)"
+    },
+    {
+      "id": "TC-180",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Repeat the reported steps: Save to library saves the character to Photos and shows \"Saved to Photos\"",
+      "after": "1. Repeat the reported steps\n2. Save to library saves the character to Photos and shows \"Saved to Photos\""
+    },
+    {
+      "id": "TC-202",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Repeat the reported steps: Create my character still shows 0 credits after buying credits",
+      "after": "1. Repeat the reported steps\n2. Create my character still shows 0 credits after buying credits"
+    },
+    {
+      "id": "TC-204",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Repeat the reported steps: Create my character requires a human ethnicity for an animal character",
+      "after": "1. Repeat the reported steps\n2. Create my character requires a human ethnicity for an animal character"
+    },
+    {
+      "id": "TC-210",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Repeat the reported steps: Replay on an ended scene restarts the first scene",
+      "after": "1. Repeat the reported steps\n2. Replay on an ended scene restarts the first scene"
+    },
+    {
+      "id": "TC-216",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Send chats until the allowance is used up, then tap 「Upgrade to Premium」; on the subscription page tap 「Continue」 and cancel the App Store sheet, then tap ‹ without subscribing",
+      "after": "1. Send chats until the allowance is used up\n2. Tap 「Upgrade to Premium」\n3. On the subscription page tap 「Continue」 and cancel the App Store sheet\n4. Tap ‹ without subscribing"
+    },
+    {
+      "id": "TC-218",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open a template, then send one typed message, then tap one task button (e.g. Generate)",
+      "after": "1. Open a template\n2. Send one typed message\n3. Tap one task button (e.g. Generate)"
+    },
+    {
+      "id": "TC-367",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open a template, then send one typed message, then tap one task button (e.g. Generate)",
+      "after": "1. Open a template\n2. Send one typed message\n3. Tap one task button (e.g. Generate)"
+    },
+    {
+      "id": "TC-368",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open a template, then send one typed message, then tap one task button (e.g. Generate)",
+      "after": "1. Open a template\n2. Send one typed message\n3. Tap one task button (e.g. Generate)"
+    },
+    {
+      "id": "TC-219",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Send, then close the limit dialog with X",
+      "after": "1. Send\n2. Close the limit dialog with X"
+    },
+    {
+      "id": "TC-221",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open a template from the landing page and tap 「Make my version」; then close the limit dialog with ⓧ",
+      "after": "1. Open a template from the landing page and tap 「Make my version」\n2. Close the limit dialog with ⓧ"
+    },
+    {
+      "id": "TC-223",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Switch to Pro, then count chats until the limit",
+      "after": "1. Switch to Pro\n2. Count chats until the limit"
+    },
+    {
+      "id": "TC-224",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Delete and reinstall the app, sign in, open AI Mini Drama",
+      "after": "1. Delete and reinstall the app\n2. Sign in\n3. Open AI Mini Drama"
+    },
+    {
+      "id": "TC-225",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Look at the charge card, then tap Buy Credit; on 「Top up your credits」 tap the 500 pack, then 「Terms of Use」 and back, then 「Privacy Policy」 and back; tap 「Buy Credit」 and cancel the App Store sheet (do not buy)",
+      "after": "1. Look at the charge card\n2. Tap Buy Credit\n3. On 「Top up your credits」 tap the 500 pack\n4. Tap 「Terms of Use」 and back\n5. Tap 「Privacy Policy」 and back\n6. Tap 「Buy Credit」 and cancel the App Store sheet (do not buy)"
+    },
+    {
+      "id": "TC-226",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Look at the charge card, then tap its button; on the subscription page tap ‹ without subscribing",
+      "after": "1. Look at the charge card\n2. Tap its button\n3. On the subscription page tap ‹ without subscribing"
+    },
+    {
+      "id": "TC-424",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Generate the characters of a new drama (Generate on the characters card), then pull the logs and read the charge",
+      "after": "1. Generate the characters of a new drama (Generate on the characters card)\n2. Pull the logs and read the charge"
+    },
+    {
+      "id": "TC-421",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap Generate on the 「Create storyboard」 card; then pull the logs",
+      "after": "1. Tap Generate on the 「Create storyboard」 card\n2. Pull the logs"
+    },
+    {
+      "id": "TC-422",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Choose Standard (Seedance 2.0) and the Preview length, read the price, tap Generate; then pull the logs",
+      "after": "1. Choose Standard (Seedance 2.0) and the Preview length\n2. Read the price\n3. Tap Generate\n4. Pull the logs"
+    },
+    {
+      "id": "TC-423",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Choose Fast (Seedance 2.0 Mini) and the Preview length, read the price, tap Generate; then pull the logs",
+      "after": "1. Choose Fast (Seedance 2.0 Mini) and the Preview length\n2. Read the price\n3. Tap Generate\n4. Pull the logs"
+    },
+    {
+      "id": "TC-425",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Regenerate one character (ask Iris to change its look, then Generate on the 「Update characters」 card, as TC-045); then pull the logs",
+      "after": "1. Regenerate one character (ask Iris to change its look, then Generate on the 「Update characters」 card, as TC-045)\n2. Pull the logs"
+    },
+    {
+      "id": "TC-426",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open a scene, tap Edit, change the description, tap Done and 「Regenerate Image」 (as TC-070); then pull the logs",
+      "after": "1. Open a scene\n2. Tap Edit\n3. Change the description\n4. Tap Done and 「Regenerate Image」 (as TC-070)\n5. Pull the logs"
+    },
+    {
+      "id": "TC-427",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Regenerate one scene video (Edit its description in the scene editor, then 「Regenerate Video」, as TC-144); then pull the logs",
+      "after": "1. Regenerate one scene video (Edit its description in the scene editor, then 「Regenerate Video」, as TC-144)\n2. Pull the logs"
+    },
+    {
+      "id": "TC-235",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「Merger Season」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「Merger Season」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-236",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-237",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「Forbidden Office Romance」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「Forbidden Office Romance」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-238",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-239",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「The New Guy's Secret」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「The New Guy's Secret」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-240",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-241",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「The Art of Falling」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「The Art of Falling」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-242",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-243",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「Glad We Came」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「Glad We Came」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-244",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-245",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「Love, Unscripted」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「Love, Unscripted」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-246",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-247",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「The Dragon's Chosen Bride」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「The Dragon's Chosen Bride」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-248",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-249",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「Awakening the Storm」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「Awakening the Storm」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-250",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-251",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「The Hero's Dangerous Heart」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「The Hero's Dangerous Heart」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-252",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-253",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「The Rebel and the Valedictorian」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「The Rebel and the Valedictorian」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-254",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-255",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「After Closing」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「After Closing」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-256",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-257",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「The Fake Engagement」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「The Fake Engagement」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-258",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-259",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「The Pop Star's Secret Girlfriend」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「The Pop Star's Secret Girlfriend」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-260",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-261",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「The House We Both Wanted」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「The House We Both Wanted」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-262",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-263",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「The Heiress and Her Protector」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「The Heiress and Her Protector」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-264",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-265",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「Proposal Across Every Lifetime」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「Proposal Across Every Lifetime」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-266",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-267",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「Six Things You Didn't Know」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「Six Things You Didn't Know」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-268",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-269",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「The Dog Who Remembered Her」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「The Dog Who Remembered Her」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-270",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-271",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「The Ring He Worked For」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「The Ring He Worked For」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-272",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-273",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open 「The Beer Heir」: check the cover and title, play the preview, then tap Make my version",
+      "after": "1. Open 「The Beer Heir」\n2. Check the cover and title\n3. Play the preview\n4. Tap Make my version"
+    },
+    {
+      "id": "TC-274",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Accept the outline, set up the characters, generate the storyboard, choose Seedance 2.0, Generate Video (30 sec preview), then Create the full episode (90 sec)",
+      "after": "1. Accept the outline\n2. Set up the characters\n3. Generate the storyboard\n4. Choose Seedance 2.0\n5. Tap Generate Video (30 sec preview)\n6. Create the full episode (90 sec)"
+    },
+    {
+      "id": "TC-287",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Finish editing each way without closing the keyboard first: Done, Generate, tap outside, Cancel, Return",
+      "after": "Finish editing each way without closing the keyboard first:\n1. Done\n2. Generate\n3. Tap outside\n4. Cancel\n5. Return"
+    },
+    {
+      "id": "TC-292",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap Edit on the main image's error card, then Regenerate",
+      "after": "1. Tap Edit on the main image's error card\n2. Tap Regenerate"
+    },
+    {
+      "id": "TC-413",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap Back, then reopen the drama from History",
+      "after": "1. Tap Back\n2. Reopen the drama from History"
+    },
+    {
+      "id": "TC-297",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Play the video; on a second regenerated drama, leave the chat and come back",
+      "after": "1. Play the video\n2. On a second regenerated drama, leave the chat and come back"
+    },
+    {
+      "id": "TC-299",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Look at the Storyboard Preview card, then tap Retry",
+      "after": "1. Look at the Storyboard Preview card\n2. Tap Retry"
+    },
+    {
+      "id": "TC-303",
+      "field": "Precondition",
+      "decision": "modified",
+      "before": "Fresh install (part of this case): uninstall PowerDirector, reinstall the build under test, restore Developer Server, sign in, set the tier, turn on Log stage timings and Write Log; then a drama at the video settings card",
+      "after": "1. Fresh install (part of this case): uninstall PowerDirector, reinstall the build under test, restore Developer Server, sign in, set the tier, turn on Log stage timings and Write Log\n2. A drama open at the video settings card"
+    },
+    {
+      "id": "TC-303",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap Generate Video, then 「Notify me」",
+      "after": "1. Tap Generate Video\n2. Tap 「Notify me」"
+    },
+    {
+      "id": "TC-304",
+      "field": "Precondition",
+      "decision": "modified",
+      "before": "Fresh install (part of this case): uninstall PowerDirector, reinstall the build under test, restore Developer Server, sign in, set the tier, turn on Log stage timings and Write Log; then a drama at the video settings card",
+      "after": "1. Fresh install (part of this case): uninstall PowerDirector, reinstall the build under test, restore Developer Server, sign in, set the tier, turn on Log stage timings and Write Log\n2. A drama at the video settings card"
+    },
+    {
+      "id": "TC-304",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap Generate Video, tap 「Not now」, then start another video",
+      "after": "1. Tap Generate Video\n2. Tap 「Not now」\n3. Start another video"
+    },
+    {
+      "id": "TC-306",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap 「Close」; on the next finished video tap 「View」",
+      "after": "1. Tap 「Close」\n2. On the next finished video tap 「View」"
+    },
+    {
+      "id": "TC-307",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Wait for the video to finish, then tap the push",
+      "after": "1. Wait for the video to finish\n2. Tap the push"
+    },
+    {
+      "id": "TC-308",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Wait for the video to finish on another page, then for a second one with the app in the background",
+      "after": "1. Wait for the video to finish on another page\n2. Wait for a second one with the app in the background"
+    },
+    {
+      "id": "TC-311",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Open Full Edit, then come back to the chat",
+      "after": "1. Open Full Edit\n2. Come back to the chat"
+    },
+    {
+      "id": "TC-312",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Type to the limit, then paste more text",
+      "after": "1. Type to the limit\n2. Paste more text"
+    },
+    {
+      "id": "TC-314",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Type to the limit, then paste more text",
+      "after": "1. Type to the limit\n2. Paste more text"
+    },
+    {
+      "id": "TC-318",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Ask Iris in the chat to change the story title, then open History",
+      "after": "1. Ask Iris in the chat to change the story title\n2. Open History"
+    },
+    {
+      "id": "TC-319",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Ask Iris in the chat to change the story title, then open History",
+      "after": "1. Ask Iris in the chat to change the story title\n2. Open History"
+    },
+    {
+      "id": "TC-323",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Create a character, a storyboard and a video, then try a credit feature outside AI Mini Drama",
+      "after": "1. Create a character, a storyboard and a video\n2. Try a credit feature outside AI Mini Drama"
+    },
+    {
+      "id": "TC-325",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Run each: (1) Send, then Stop while it replies; (2) Stop, edit the input, Send, Stop; (3) Stop, Back, reopen the chat from History; (4) Back while it replies, return, Stop",
+      "after": "Run each sequence on its own:\n1. Send › Stop while it replies\n2. Stop › edit the input › Send › Stop\n3. Stop › Back › reopen the chat from History\n4. Back while it replies › return › Stop"
+    },
+    {
+      "id": "TC-329",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Ask Iris to regenerate all the characters, answer any question, then tap Generate",
+      "after": "1. Ask Iris to regenerate all the characters\n2. Answer any question\n3. Tap Generate"
+    },
+    {
+      "id": "TC-331",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap download, turn Wi-Fi off before it finishes, turn it back on, then tap download again",
+      "after": "1. Tap download\n2. Turn Wi-Fi off before it finishes\n3. Turn it back on\n4. Tap download again"
+    },
+    {
+      "id": "TC-332",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap Generate, look at the generating screen and tap the dimmed 「generating...」 button",
+      "after": "1. Tap Generate\n2. Look at the generating screen and tap the dimmed 「generating...」 button"
+    },
+    {
+      "id": "TC-333",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap 「Cancel」, then 「Leave anyway」",
+      "after": "1. Tap 「Cancel」\n2. Tap 「Leave anyway」"
+    },
+    {
+      "id": "TC-334",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap X, then 「Keep Generating」",
+      "after": "1. Tap X\n2. Tap 「Keep Generating」"
+    },
+    {
+      "id": "TC-383",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap the dark area outside the sheet, then 「Keep Generating」",
+      "after": "1. Tap the dark area outside the sheet\n2. Tap 「Keep Generating」"
+    },
+    {
+      "id": "TC-335",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Wait for the dialog, then tap 「Close」",
+      "after": "1. Wait for the dialog\n2. Tap 「Close」"
+    },
+    {
+      "id": "TC-420",
+      "field": "Action",
+      "decision": "modified",
+      "before": "1. Tap 「General」, then 「AI Issues」. 2. Tap 「What Prompt did you use?」, add a word, then tap outside the fields. 3. Clear the e-mail field and tap 「Submit」; then type the e-mail back and tap outside the fields. 4. Tap the add-image tile and cancel the picker. 5. Tap 「Privacy Policy」 and come back. 6. Tap ‹",
+      "after": "1. Tap 「General」\n2. Tap 「AI Issues」\n3. Tap 「What Prompt did you use?」\n4. Add a word\n5. Tap outside the fields\n6. Clear the e-mail field and tap 「Submit」\n7. Type the e-mail back and tap outside the fields\n8. Tap the add-image tile and cancel the picker\n9. Tap 「Privacy Policy」 and come back\n10. Tap ‹"
+    },
+    {
+      "id": "TC-337",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap 「Cancel」, then 「Leave anyway」",
+      "after": "1. Tap 「Cancel」\n2. Tap 「Leave anyway」"
+    },
+    {
+      "id": "TC-338",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Wait for the dialog, then tap 「Send Feedback」 (do not submit)",
+      "after": "1. Wait for the dialog\n2. Tap 「Send Feedback」 (do not submit)"
+    },
+    {
+      "id": "TC-339",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap X, then 「Discard」",
+      "after": "1. Tap X\n2. Tap 「Discard」"
+    },
+    {
+      "id": "TC-343",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap 「Export Full Video」; while it exports, look at the preview and tap 「Full Edit」, 「Export Full Video」 and the download icon at the preview's bottom right; then wait",
+      "after": "1. Tap 「Export Full Video」\n2. While it exports, look at the preview and tap 「Full Edit」, 「Export Full Video」 and the download icon at the preview's bottom right\n3. Wait"
+    },
+    {
+      "id": "TC-414",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap the second scene's thumbnail, then wait for the export to end",
+      "after": "1. Tap the second scene's thumbnail\n2. Wait for the export to end"
+    },
+    {
+      "id": "TC-416",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap 「Export Full Video」, turn Wi-Fi off before it finishes, read the result, turn Wi-Fi back on and tap 「Export Full Video」 again",
+      "after": "1. Tap 「Export Full Video」\n2. Turn Wi-Fi off before it finishes\n3. Read the result\n4. Turn Wi-Fi back on and tap 「Export Full Video」 again"
+    },
+    {
+      "id": "TC-347",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Tap Standard, then Fast",
+      "after": "1. Tap Standard\n2. Tap Fast"
+    },
+    {
+      "id": "TC-348",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Ask in chat 「Can you change one of the characters to look older?」, then tap a character chip (e.g. 「The Manager」)",
+      "after": "1. Ask in chat 「Can you change one of the characters to look older?」\n2. Tap a character chip (e.g. 「The Manager」)"
+    },
+    {
+      "id": "TC-352",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Ask in chat to change a character's look, then tap Generate on the card",
+      "after": "1. Ask in chat to change a character's look\n2. Tap Generate on the card"
+    },
+    {
+      "id": "TC-355",
+      "field": "Action",
+      "decision": "modified",
+      "before": "Look under the Storyboard Preview card, then tap 「Create video anyways」",
+      "after": "1. Look under the Storyboard Preview card\n2. Tap 「Create video anyways」"
+    },
+    {
+      "id": "TC-083",
+      "field": "Precondition",
+      "decision": "modified",
+      "before": "Fresh install (part of this case): uninstall PowerDirector, reinstall the build under test, restore Developer Server, sign in, set the tier, turn on Log stage timings and Write Log; then: First time leaving during video generation, in phase ② (「Making your video...」)",
+      "after": "1. Fresh install (part of this case): uninstall PowerDirector, reinstall the build under test, restore Developer Server, sign in, set the tier, turn on Log stage timings and Write Log\n2. First time leaving during video generation, in phase ② (「Making your video...」)"
+    },
+    {
+      "id": "TC-104",
+      "field": "Precondition",
+      "decision": "modified",
+      "before": "Fresh install (part of this case): uninstall PowerDirector, reinstall the build under test, restore Developer Server, sign in, set the tier, turn on Log stage timings and Write Log; then: No dramas saved (or all deleted)",
+      "after": "1. Fresh install (part of this case): uninstall PowerDirector, reinstall the build under test, restore Developer Server, sign in, set the tier, turn on Log stage timings and Write Log\n2. No dramas saved (or all deleted)"
+    },
+    {
+      "id": "TC-105",
+      "field": "Precondition",
+      "decision": "modified",
+      "before": "Fresh install (part of this case): uninstall PowerDirector, reinstall the build under test, restore Developer Server, sign in, set the tier, turn on Log stage timings and Write Log; then: First visit to History on this install",
+      "after": "1. Fresh install (part of this case): uninstall PowerDirector, reinstall the build under test, restore Developer Server, sign in, set the tier, turn on Log stage timings and Write Log\n2. First visit to History on this install"
+    }
+  ],
+  "notes": []
+}

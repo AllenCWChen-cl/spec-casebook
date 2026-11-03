@@ -43,6 +43,14 @@ rows.forEach((r, i) => {
   if (!r['Expected Result']) errors.push(`${at}: empty Expected Result`);
   if (!r.Section) warnings.push(`${at}: empty Section`);
   if (r.Priority && !/^P[1-3]$/.test(r.Priority)) warnings.push(`${at}: Priority should be P1, P2 or P3`);
+  for (const f of ['Precondition', 'Action', 'Expected Result']) {
+    // Numbered runs anywhere; in Action also chained steps ("…, then …", "Tap X. Tap Y.", "Tap X; tap Y"); in Precondition chained "then".
+    const lines = (r[f] ?? '').split('\n').map(l => l.replace(/^\s*\d+[.)]\s+/, '').replace(/\([^()]*\)|「[^」]*」|"[^"]*"/g, '…').replace(/\b(e\.g|i\.e|etc)\./gi, '$1'));
+    const runs = (l: string) => /(^|\s)\d+[.)]\s.*\s\d+[.)]\s/.test(l)
+      || (f !== 'Expected Result' && /\bthen\b/i.test(l))
+      || (f === 'Action' && /[.;]\s+(?:[A-Z「]|tap\b|open\b|go\b|send\b|type\b|select\b|swipe\b|scroll\b|press\b)/.test(l));
+    if (lines.some(runs)) warnings.push(`${at}: ${f} runs several steps together on one line; put each step on its own numbered line (formats.md, one step per line)`);
+  }
   if (!r['Spec Ref']) errors.push(`${at}: empty Spec Ref (every case must trace to a requirement)`);
   else if (reqIds) for (const id of r['Spec Ref'].match(/\bR-\d{3,}\b/g) ?? []) if (!reqIds.has(id)) errors.push(`${at}: Spec Ref ${id} is not in requirements.md`);
   if (draft && r.Change && !CHANGES.includes(r.Change)) errors.push(`${at}: Change must be one of ${CHANGES.join(', ')}`);
