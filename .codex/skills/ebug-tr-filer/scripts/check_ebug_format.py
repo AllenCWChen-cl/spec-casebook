@@ -34,7 +34,8 @@ import argparse, json, os, re, sys
 SOURCE_TAGS = {"EDF", "AIFound", "AIAgent", "MXFound", "AMD", "OEM"}
 TYPE_TAGS = {"UI", "UX", "MX"}
 BELONGS_WEB = {"RD", "Setup Kit", "PC-Art", "PC-Doc", "PM", "Marketing", "RD-ECL"}
-BELONGS_API = {"RD", "RDSK", "PCArt", "PCDoc", "PM", "Marketing", "RD-ECL"}
+# Old "API spellings": the server stores them as sent, matching no web-form option.
+BELONGS_OLD = {"RDSK": "Setup Kit", "PCArt": "PC-Art", "PCDoc": "PC-Doc"}
 MAX_SHORT = 140
 SOFT_SHORT = 120
 MAX_FIRST_LINE = 120   # the one English sentence of Result / Expect Result
@@ -363,7 +364,9 @@ def check_meta(key, e, rep):
     elif sev == 4:
         rep.warn(key, "Severity 4 is very rare in this pool (1 of 175 in the Sept 2026 export)")
     belong = e.get("belong")
-    if belong not in BELONGS_WEB and belong not in BELONGS_API:
+    if belong in BELONGS_OLD:
+        rep.err(key, f"BugBelong {belong!r} matches no web-form option; use {BELONGS_OLD[belong]!r}")
+    elif belong not in BELONGS_WEB:
         rep.err(key, f"BugBelong {belong!r} is not a valid value")
     out, times = e.get("out"), e.get("times")
     for name, v in (("ReproduceOut", out), ("ReproduceTimes", times)):

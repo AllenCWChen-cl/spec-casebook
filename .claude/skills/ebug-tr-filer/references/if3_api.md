@@ -166,7 +166,7 @@ ticket through several stages needs a different person's token at each stage.
 | `BugSource` | ✔ | `QA` / `QAAutoTest` / `RD` / `PL` / `PM` / `OEM` / `BU` / `VIP` / `Others` |
 | `ParentTRCode` | — | the TR this was found on |
 | `ParentSRCode` | — | |
-| `BugBelong` | ✔ | **`RD` / `RDSK` / `PCArt` / `PCDoc` / `PM` / `Marketing` / `RD-ECL`** — note the API spellings. `RD` auto-sets `NeedCodeReview` |
+| `BugBelong` | ✔ | **`RD` / `Setup Kit` / `PC-Art` / `PC-Doc` / `PM` / `Marketing` / `RD-ECL`**, the web-form spellings. The API doc lists `RDSK` / `PCArt` / `PCDoc`, but Create stores them unconverted and they match no option (2026-11-03). `RD` auto-sets `NeedCodeReview` |
 | `ReproduceOut` / `ReproduceTimes` | ✔ | N succeeded out of M attempts |
 | `IsHappened` | ✔ | `Yes` / `No` / `Unknown` — was it in the previous build |
 | `IssueType` / `CustomerIssueID` | — | OEM flow only |
@@ -190,6 +190,8 @@ System-generated, do not send: `BugCode` (`<ProductCode><yymmdd>P<4-digit>`), `I
 
 **Failures:** 400 `{"errors":{"Creator":["The Creator field is required."]}}` (missing/mistyped
 required field) · 401 `Request Unauthorized.` · 500 (Creator not found, IF3 flow failed to start).
+
+⚠ **Create cannot set template fields.** It takes only the fields above. A required template field outside them stays empty: on the PDR Mobile templates that is **OS Language** (`OSLanguage`, a required checkbox: Traditional Chinese / English / 9 Languages / 24 Languages / Japanese / Korean). It was missing on 121 of 148 API-filed tickets (2026-11-03). `ecl_if3.py create` and `readback` list each ticket's missing required fields, to be filled on its web edit form. `ProblemType` is left to RD by design (API doc section 7).
 
 ⚠ **`Version` may silently not persist** — a create with `"Version":"1.0"` read back as `null` while
 `BuildNo` was fine. **Re-query after every create.**

@@ -103,10 +103,14 @@ Returns **200** (not 204) with `FormCode` — the new BugCode — and `Href`. Re
 4. **Omitted numeric fields do not always fail validation** — they can land as `false` / `0` /
    `0001-01-01`. Send `IsOEM`, `Priority`, `Severity`, `ReproduceOut`, `ReproduceTimes` and `DueDate`
    explicitly, every time.
-5. **`BugBelong` spellings differ from the web form.** The API takes `RDSK` / `PCArt` / `PCDoc` where
-   the form shows `Setup Kit` / `PC-Art` / `PC-Doc`. `RD` / `PM` / `Marketing` / `RD-ECL` are the same
-   in both. A decisions table signed off against the web-form labels must be translated before it
-   is POSTed.
+5. **Send `BugBelong` with the web form's spelling** — `RD` / `Setup Kit` / `PC-Art` / `PC-Doc` / `PM` /
+   `Marketing` / `RD-ECL`. The API stores whatever string it gets and validates nothing. The API doc (section 7) lists `RDSK` / `PCArt` / `PCDoc`, but Create stores the
+   string unconverted (only Assign normalizes it), and those values match no dropdown option, and tickets filed with them (DRA262610P0423, DRI261896P0016)
+   reached the Doc team with BugBelong missing (2026-11-03). Every human-filed ticket stores
+   `PC-Doc` / `PC-Art` / `Setup Kit`.
+6. **Create cannot set template fields.** A required one outside its field list stays empty —
+   on PDR Mobile that is **OS Language**. `create` and `readback` list what to fill on each ticket's web
+   edit form (2026-11-03).
 
 Also: `BugBelong: "RD"` silently sets `NeedCodeReview: true`, and Assign **overwrites** `BugBelong`
 and `Priority` on the ticket — it is not just "add an assignee".
@@ -139,8 +143,8 @@ python3 scripts/ecl_if3.py create upload/bodies.json --dry-run \
 ```
 
 `create` reads the **same `bodies.json` that `check_ebug_format.py` validates**, so run the format
-check first and get it to zero errors. Per finding it translates the web-form BugBelong to the API
-spelling (`Setup Kit`→`RDSK`, `PC-Art`→`PCArt`, `PC-Doc`→`PCDoc`), sends every value-typed field
+check first and get it to zero errors. Per finding it sends BugBelong in the web-form spelling (old
+`RDSK` / `PCArt` / `PCDoc` values are mapped back to `Setup Kit` / `PC-Art` / `PC-Doc`), sends every value-typed field
 explicitly, and then **reads the bug back and checks Version / Build / ParentTRCode** — `Status: OK`
 is not proof, and `Version` has been observed not to persist.
 

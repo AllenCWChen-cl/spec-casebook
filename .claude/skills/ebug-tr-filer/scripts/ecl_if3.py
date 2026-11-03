@@ -50,13 +50,15 @@ UPLOAD_PATH = "/IF3/ebug/api/public/Attachment/code/{code}"
 UPLOAD_FORM_DATA_PATH = "$.UploadFiles"
 DOWNLOAD_PATH = "/IF3/ebug/Data/DownloadByToken?o={key}"
 
-# The web form shows the left column; the API takes the right one. A decisions
-# table signed off against the review page uses the web labels.
-BELONG_WEB_TO_API = {
-    "RD": "RD", "Setup Kit": "RDSK", "PC-Art": "PCArt", "PC-Doc": "PCDoc",
-    "PM": "PM", "Marketing": "Marketing", "RD-ECL": "RD-ECL",
-}
-BELONG_API = set(BELONG_WEB_TO_API.values())
+# Send BugBelong with the web form's spelling. The API doc (section 7) lists RDSK / PCArt /
+# PCDoc, but Create stores the string unconverted (only Assign normalizes it), and "PCDoc"
+# matches no dropdown option: DRA262610P0423 and DRI261896P0016 reached the Doc team with
+# BugBelong missing (2026-11-03; web-filed tickets store PC-Doc / PC-Art / Setup Kit).
+# The doc's spellings are mapped back here rather than refused.
+BELONG_API = {"RD", "Setup Kit", "PC-Art", "PC-Doc", "PM", "Marketing", "RD-ECL"}
+BELONG_WEB_TO_API = {b: b for b in BELONG_API}
+BELONG_WEB_TO_API.update({"RDSK": "Setup Kit", "PCArt": "PC-Art", "PCDoc": "PC-Doc",
+                          "Doc": "PC-Doc", "Art": "PC-Art"})
 
 # ECL ProductCode (the BugCode prefix) -> the product token the Short Description
 # format uses. These are NOT the same string and are easy to conflate.
@@ -206,20 +208,71 @@ def cmd_preflight(a):
     return 0
 
 
+def _template_fields(if3_template_id):
+    """Visible fields of an IF3 template: [(FieldCode, FieldName, Style, MustFill, {value: name})].
+    The condition is FormCode = "OTID<IF3TemplateID>" (API doc section 5); a field named
+    IF3TemplateID answers 500."""
+    rows = query("TemplateService.TemplateData",
+                 [{"field": "FormCode", "term": {"query": f"OTID{if3_template_id}"}}],
+                 page_size=1, template=True)
+    if not rows:
+        return []
+    blocks = json.loads(json.loads(rows[0]["DataJSON"])["template"])
+    return [(f["FieldCode"], f["FieldName"], f["Style"], bool(f.get("MustFill")),
+             {i["ItemValue"]: i["ItemName"] for i in f.get("Items") or []
+              if not i.get("IsItemHidden")})
+            for b in blocks if b.get("IsValid", 1)
+            for f in b["Fields"] if not f.get("IsHidden")]
+
+
 def _print_severity_map(if3_template_id):
     """Severity/Priority are integers whose meaning is per-template."""
     try:
-        rows = query("TemplateService.TemplateData",
-                     [{"field": "IF3TemplateID",
-                       "term": {"query": str(if3_template_id)}}],
-                     page_size=100, template=True)
+        fields = _template_fields(if3_template_id)
     except ECLError as e:
         print(f"(could not read template field definitions: {e})")
         return
+    for code, name, _, _, items in fields:
+        if re.search(r"severity|priority", code, re.I):
+            print(f"  {name}: " + " / ".join(f"{v} {n}" for v, n in items.items()))
+
+
+# Fields Create eBug accepts (API doc section 7). A required template field outside this set
+# (OS Language on the PDR Mobile templates, 2026-11-03) is left empty on every API-filed
+# ticket and has to be set on the ticket's web edit form.
+CREATE_FIELDS = {
+    "Creator", "ProductID", "ProductName", "ProductCode", "TemplateID", "TemplateName",
+    "Version", "BuildNo", "IsOEM", "BugSource", "ParentTRCode", "ParentSRCode", "BugBelong",
+    "ReproduceOut", "ReproduceTimes", "IsHappened", "IssueType", "CustomerIssueID", "DueDate",
+    "ShortDescription", "IssueReproducer", "Priority", "Severity", "DescribeIssue",
+}
+
+
+def _web_only_todo(codes):
+    """Print the required fields each ticket still leaves empty that the API cannot set.
+    Returns {BugCode: [field names]}."""
+    rows = []
+    codes = list(codes)
+    for i in range(0, len(codes), 40):
+        rows += query("TSR.EbugLogAndData",
+                      [{"field": "FormCode", "term": {"querys": codes[i:i + 40]}}], page_size=50)
+    fields_by_tpl, todo = {}, {}
     for r in rows:
-        name = str(r.get("FieldName") or r.get("Name") or "")
-        if re.search(r"severity|priority", name, re.I):
-            print(f"  {name}: {json.dumps(r.get('Options') or r, ensure_ascii=False)[:400]}")
+        d = json.loads(r["DataJSON"])
+        tpl = d.get("IF3TemplateID")
+        if tpl not in fields_by_tpl:
+            fields_by_tpl[tpl] = _template_fields(tpl)
+        missing = [f"{name} ({' / '.join(items.values())})" if items else name
+                   for code, name, _, must, items in fields_by_tpl[tpl]
+                   if must and code not in CREATE_FIELDS and d.get(code) in (None, "", [])]
+        if missing:
+            todo[r["FormCode"]] = missing
+    if todo:
+        print("\nRequired fields the API cannot set — fill them on each ticket's web edit form:")
+        for code in codes:
+            if code in todo:
+                print(f"  {code}  {'; '.join(todo[code])}")
+    return todo
 
 
 # ------------------------------------------------------------------- create
@@ -399,7 +452,7 @@ def cmd_create(a):
             # Check the FIRST ticket before filing the rest: one wrong ticket is a
             # correction, twenty is a re-do.
             if _readback([code], expect={"Creator": a.creator, "Build": str(a.build),
-                                         "ParentTRCode": a.tr}):
+                                         "ParentTRCode": a.tr, "BugBelong": belong}):
                 raise ECLError(
                     f"first ticket {code} did not read back as expected (see above). "
                     "Batch stopped after one ticket — fix the cause before re-running; "
@@ -417,6 +470,7 @@ def cmd_create(a):
         print("\nRead-back (Status: OK is not proof — Version has been seen not to persist):")
         bad = _readback([c for _, c in filed], expect={
             "Version": a.version, "Build": str(a.build), "ParentTRCode": a.tr})
+        _web_only_todo([c for _, c in filed])
         if bad:
             print("\n*** Some bugs did not read back correctly. Fix them by hand "
                   "through the web edit form. ***")
@@ -494,6 +548,9 @@ def _readback(codes, expect=None):
             bad.append(c)
             continue
         problems = []
+        if r.get("BugBelong") not in BELONG_API:
+            problems.append(f"BugBelong={r.get('BugBelong')!r} matches no web-form option "
+                            "— set it on the ticket's web edit form")
         for field, want in (expect or {}).items():
             have = r.get(field)
             if have is None and field == "Version":
@@ -511,7 +568,9 @@ def _readback(codes, expect=None):
 
 
 def cmd_readback(a):
-    return 1 if _readback(a.bugcodes) else 0
+    bad = _readback(a.bugcodes)
+    _web_only_todo(a.bugcodes)
+    return 1 if bad else 0
 
 
 # ------------------------------------------------------------ attachments
