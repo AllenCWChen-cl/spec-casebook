@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-11-03T09:39:09.153Z",
+  "built_at": "2026-11-03T09:49:55.374Z",
   "spec_set": "2026-10-21-2",
   "file": {
     "fileKey": "dZk5HLzZTdcZwWwvN9aZfZ",
@@ -13,8 +13,8 @@
   "counts": {
     "screens": 225,
     "routed": 225,
-    "figma_paths": 4,
-    "gaps": 4,
+    "figma_paths": 0,
+    "gaps": 0,
     "no_route": 0,
     "excluded": 0
   },
@@ -63,7 +63,6 @@
       "2831:134158",
       "2824:133153",
       "2831:134214",
-      "4847:34277",
       "3172:101933"
     ],
     "TC-021": [
@@ -205,15 +204,15 @@
       "2778:128718"
     ],
     "TC-065": [
-      "2824:129068",
-      "2824:129247",
-      "2820:113403",
-      "2995:101693",
+      "2824:129032",
+      "2824:129214",
+      "2820:113367",
+      "2995:101657",
       "2820:113540",
-      "3142:68605",
-      "3153:103824",
-      "3153:103575",
-      "3153:104019"
+      "3142:68569",
+      "3153:103788",
+      "3153:103539",
+      "3153:103983"
     ],
     "TC-066": [
       "2820:113523",
@@ -250,10 +249,10 @@
       "3142:69957"
     ],
     "TC-299": [
-      "3142:102521",
-      "3153:103889",
-      "3153:102975",
-      "3153:103954",
+      "3142:102485",
+      "3153:103853",
+      "3153:102939",
+      "3153:103918",
       "2820:115776",
       "3172:102052"
     ],
@@ -273,6 +272,9 @@
       "2824:132753",
       "2831:134270",
       "2824:133718"
+    ],
+    "TC-356": [
+      "4847:34277"
     ],
     "TC-116": [
       "2824:132944"
@@ -387,6 +389,16 @@
     ],
     "TC-523": [
       "3142:70057"
+    ],
+    "TC-551": [
+      "2811:112113"
+    ],
+    "TC-552": [
+      "5366:70814",
+      "5366:70880"
+    ],
+    "TC-553": [
+      "2824:128852"
     ]
   },
   "screens": [
@@ -1769,46 +1781,6 @@
       ],
       "board_png": "specs/2026-10-21-2/extracted/figma/mx.png",
       "inventory_screen": "2831:134214",
-      "status": "routed",
-      "route": {
-        "case": "TC-020",
-        "how": "on",
-        "via": "K-1ba96e",
-        "fit": "low",
-        "edge": "Enter your idea to create drama",
-        "segment": "A1-a1",
-        "section": "Format card",
-        "precondition": "Empty chat",
-        "action": "Send an idea (e.g. 「A barista and a regular fall in love over a lost umbrella」)",
-        "result": "Pass",
-        "run": "2026-10-29-a7-full"
-      },
-      "alternatives": [
-        "TC-022",
-        "TC-025",
-        "TC-026",
-        "TC-033"
-      ]
-    },
-    {
-      "id": "4847:34277",
-      "name": "AI Mini Drama_template",
-      "board": "2820:125545",
-      "board_name": "MX",
-      "abs": [
-        -16114,
-        29236,
-        375,
-        812
-      ],
-      "board_box": [
-        -18405,
-        28640,
-        9294,
-        2950
-      ],
-      "board_png": "specs/2026-10-21-2/extracted/figma/mx.png",
-      "inventory_screen": "4847:34277",
       "status": "routed",
       "route": {
         "case": "TC-020",
@@ -5059,15 +5031,15 @@
       ]
     },
     {
-      "id": "2824:129068",
-      "name": "storyboard",
+      "id": "2824:129032",
+      "name": "Storyboard & Preview",
       "board": "2820:123194",
       "board_name": "Recent Task",
       "abs": [
-        -12792,
-        25850,
-        343,
-        932
+        -12808,
+        25369,
+        375,
+        1599
       ],
       "board_box": [
         -18405,
@@ -5097,15 +5069,15 @@
       ]
     },
     {
-      "id": "2824:129247",
-      "name": "ai",
+      "id": "2824:129214",
+      "name": "storyboard",
       "board": "2820:123194",
       "board_name": "Recent Task",
       "abs": [
-        -12317,
-        25844,
-        343,
-        962
+        -12333,
+        25369,
+        375,
+        2223
       ],
       "board_box": [
         -18405,
@@ -5135,15 +5107,15 @@
       ]
     },
     {
-      "id": "2820:113403",
-      "name": "storyboard",
+      "id": "2820:113367",
+      "name": "Storyboard & Preview",
       "board": "2820:113353",
       "board_name": "Storyboard",
       "abs": [
-        -18105,
-        16891,
-        343,
-        932
+        -18121,
+        16686,
+        375,
+        1599
       ],
       "board_box": [
         -18405,
@@ -5173,15 +5145,15 @@
       ]
     },
     {
-      "id": "2995:101693",
-      "name": "storyboard",
+      "id": "2995:101657",
+      "name": "Storyboard & Preview",
       "board": "2820:113353",
       "board_name": "Storyboard",
       "abs": [
-        -18105,
-        18793,
-        343,
-        932
+        -18121,
+        18588,
+        375,
+        1599
       ],
       "board_box": [
         -18405,
@@ -5251,15 +5223,15 @@
       ]
     },
     {
-      "id": "3142:68605",
-      "name": "storyboard",
+      "id": "3142:68569",
+      "name": "Storyboard & Preview",
       "board": "2820:113353",
       "board_name": "Storyboard",
       "abs": [
-        -15433,
-        17123,
-        343,
-        976
+        -15449,
+        16686,
+        375,
+        1599
       ],
       "board_box": [
         -18405,
@@ -5288,15 +5260,15 @@
       ]
     },
     {
-      "id": "3153:103824",
-      "name": "storyboard",
+      "id": "3153:103788",
+      "name": "Storyboard & Preview",
       "board": "2820:113353",
       "board_name": "Storyboard",
       "abs": [
-        -15433,
-        19023,
-        343,
-        976
+        -15449,
+        18586,
+        375,
+        1599
       ],
       "board_box": [
         -18405,
@@ -5325,15 +5297,15 @@
       ]
     },
     {
-      "id": "3153:103575",
-      "name": "storyboard",
+      "id": "3153:103539",
+      "name": "Storyboard & Preview",
       "board": "2820:113353",
       "board_name": "Storyboard",
       "abs": [
-        -10611,
-        17123,
-        343,
-        976
+        -10627,
+        16686,
+        375,
+        1599
       ],
       "board_box": [
         -18405,
@@ -5362,15 +5334,15 @@
       ]
     },
     {
-      "id": "3153:104019",
-      "name": "storyboard",
+      "id": "3153:103983",
+      "name": "Storyboard & Preview",
       "board": "2820:113353",
       "board_name": "Storyboard",
       "abs": [
-        -10611,
-        19023,
-        343,
-        976
+        -10627,
+        18586,
+        375,
+        1599
       ],
       "board_box": [
         -18405,
@@ -6277,15 +6249,15 @@
       ]
     },
     {
-      "id": "3142:102521",
-      "name": "storyboard",
+      "id": "3142:102485",
+      "name": "Storyboard & Preview",
       "board": "2820:113353",
       "board_name": "Storyboard",
       "abs": [
-        -11561,
-        17123,
-        343,
-        976
+        -11577,
+        16686,
+        375,
+        1599
       ],
       "board_box": [
         -18405,
@@ -6316,15 +6288,15 @@
       ]
     },
     {
-      "id": "3153:103889",
-      "name": "storyboard",
+      "id": "3153:103853",
+      "name": "Storyboard & Preview",
       "board": "2820:113353",
       "board_name": "Storyboard",
       "abs": [
-        -11561,
-        19023,
-        343,
-        976
+        -11577,
+        18586,
+        375,
+        1599
       ],
       "board_box": [
         -18405,
@@ -6355,15 +6327,15 @@
       ]
     },
     {
-      "id": "3153:102975",
-      "name": "storyboard",
+      "id": "3153:102939",
+      "name": "Storyboard & Preview",
       "board": "2820:113353",
       "board_name": "Storyboard",
       "abs": [
-        -11086,
-        17123,
-        343,
-        976
+        -11102,
+        16686,
+        375,
+        1599
       ],
       "board_box": [
         -18405,
@@ -6394,15 +6366,15 @@
       ]
     },
     {
-      "id": "3153:103954",
-      "name": "storyboard",
+      "id": "3153:103918",
+      "name": "Storyboard & Preview",
       "board": "2820:113353",
       "board_name": "Storyboard",
       "abs": [
-        -11086,
-        19023,
-        343,
-        976
+        -11102,
+        18586,
+        375,
+        1599
       ],
       "board_box": [
         -18405,
@@ -6864,6 +6836,46 @@
         "TC-037",
         "TC-121",
         "TC-134"
+      ]
+    },
+    {
+      "id": "4847:34277",
+      "name": "AI Mini Drama_template",
+      "board": "2820:125545",
+      "board_name": "MX",
+      "abs": [
+        -16114,
+        29236,
+        375,
+        812
+      ],
+      "board_box": [
+        -18405,
+        28640,
+        9294,
+        2950
+      ],
+      "board_png": "specs/2026-10-21-2/extracted/figma/mx.png",
+      "inventory_screen": "4847:34277",
+      "status": "routed",
+      "route": {
+        "case": "TC-356",
+        "how": "cited",
+        "via": "4847:34277",
+        "fit": "high",
+        "edge": "",
+        "segment": "A1-f",
+        "section": "Credits and limits",
+        "precondition": "Free storyboard tries used up (the shared test account)",
+        "action": "Look at the 「Create storyboard」 card",
+        "result": "Fail",
+        "run": "2026-10-29-a7-full"
+      },
+      "alternatives": [
+        "TC-114",
+        "TC-020",
+        "TC-022",
+        "TC-025"
       ]
     },
     {
@@ -9172,15 +9184,15 @@
       ]
     },
     {
-      "id": "2811:112144",
-      "name": "content",
+      "id": "2811:112113",
+      "name": "AI Mini Drama_template",
       "board": "2811:89056",
       "board_name": "Choose Character",
       "abs": [
-        -18149,
-        13959,
-        343,
-        767
+        -18165,
+        13519,
+        375,
+        1583
       ],
       "board_box": [
         -18405,
@@ -9191,24 +9203,17 @@
       "board_png": "specs/2026-10-21-2/extracted/figma/choose-character.png",
       "inventory_screen": "2811:112144",
       "status": "routed",
-      "gap": true,
       "route": {
-        "case": "",
-        "how": "figma",
-        "fit": "variant",
-        "steps": [
-          {
-            "screen": "Character Library",
-            "control": "(bring about 「content」 here)",
-            "variant_of": "2811:95861"
-          }
-        ],
-        "edge": "(bring about 「content」 here)",
+        "case": "TC-551",
+        "how": "cited",
+        "via": "2811:112113",
+        "fit": "high",
+        "edge": "",
         "segment": "",
-        "section": "",
-        "precondition": "",
-        "action": "Character Library › (bring about 「content」 here)",
-        "result": "",
+        "section": "Story outline",
+        "precondition": "Outline generated; the app's Appearance set to Light mode",
+        "action": "1. Read the chat with the 「Story Outline & Characters Result」 card\n2. Scroll to the idea box",
+        "result": "Not run",
         "run": ""
       },
       "alternatives": []
@@ -9233,40 +9238,17 @@
       "board_png": "specs/2026-10-21-2/extracted/figma/choose-character.png",
       "inventory_screen": null,
       "status": "routed",
-      "gap": true,
       "route": {
-        "case": "",
-        "how": "figma",
-        "fit": "variant",
-        "steps": [
-          {
-            "screen": "Character Library",
-            "control": {
-              "id": "2811:90400",
-              "name": "left"
-            },
-            "arrow": "2811:90593"
-          },
-          {
-            "screen": "Character Library",
-            "control": {
-              "id": "I2811:89421;2613:59903",
-              "name": "round/ic_full screen"
-            },
-            "arrow": "2811:90592"
-          },
-          {
-            "screen": "Character Library",
-            "control": "(bring about 「story」 here)",
-            "variant_of": "2811:90417"
-          }
-        ],
-        "edge": "(bring about 「story」 here)",
+        "case": "TC-552",
+        "how": "cited",
+        "via": "5366:70814",
+        "fit": "high",
+        "edge": "",
         "segment": "",
-        "section": "",
-        "precondition": "",
-        "action": "Character Library › [object Object] › Character Library › [object Object] › Character Library › (bring about 「story」 here)",
-        "result": "",
+        "section": "Characters",
+        "precondition": "Characters Result shown in the chat",
+        "action": "1. Ask in the chat to rename one character to 「Detective Jack Vance」\n2. Read the new Characters Result row",
+        "result": "Not run",
         "run": ""
       },
       "alternatives": []
@@ -9291,54 +9273,31 @@
       "board_png": "specs/2026-10-21-2/extracted/figma/choose-character.png",
       "inventory_screen": null,
       "status": "routed",
-      "gap": true,
       "route": {
-        "case": "",
-        "how": "figma",
-        "fit": "variant",
-        "steps": [
-          {
-            "screen": "Character Library",
-            "control": {
-              "id": "2811:90400",
-              "name": "left"
-            },
-            "arrow": "2811:90593"
-          },
-          {
-            "screen": "Character Library",
-            "control": {
-              "id": "I2811:89421;2613:59903",
-              "name": "round/ic_full screen"
-            },
-            "arrow": "2811:90592"
-          },
-          {
-            "screen": "Character Library",
-            "control": "(bring about 「story」 here)",
-            "variant_of": "2811:90417"
-          }
-        ],
-        "edge": "(bring about 「story」 here)",
+        "case": "TC-552",
+        "how": "cited",
+        "via": "5366:70880",
+        "fit": "high",
+        "edge": "",
         "segment": "",
-        "section": "",
-        "precondition": "",
-        "action": "Character Library › [object Object] › Character Library › [object Object] › Character Library › (bring about 「story」 here)",
-        "result": "",
+        "section": "Characters",
+        "precondition": "Characters Result shown in the chat",
+        "action": "1. Ask in the chat to rename one character to 「Detective Jack Vance」\n2. Read the new Characters Result row",
+        "result": "Not run",
         "run": ""
       },
       "alternatives": []
     },
     {
-      "id": "2824:128883",
-      "name": "content",
+      "id": "2824:128852",
+      "name": "AI Mini Drama_template",
       "board": "2820:123194",
       "board_name": "Recent Task",
       "abs": [
-        -13915,
-        25824,
-        343,
-        767
+        -13931,
+        25369,
+        375,
+        1598
       ],
       "board_box": [
         -18405,
@@ -9349,32 +9308,17 @@
       "board_png": "specs/2026-10-21-2/extracted/figma/recent-task.png",
       "inventory_screen": null,
       "status": "routed",
-      "gap": true,
       "route": {
-        "case": "",
-        "how": "figma",
-        "fit": "variant",
-        "steps": [
-          {
-            "screen": "Recent Task",
-            "control": {
-              "id": "I2820:123242;12037:8702",
-              "name": "round/ic_more_vertical_filled"
-            },
-            "arrow": "2820:123493"
-          },
-          {
-            "screen": "Recent Task",
-            "control": "(bring about 「content」 here)",
-            "variant_of": "2820:123350"
-          }
-        ],
-        "edge": "(bring about 「content」 here)",
+        "case": "TC-553",
+        "how": "cited",
+        "via": "2824:128852",
+        "fit": "high",
+        "edge": "",
         "segment": "",
-        "section": "",
-        "precondition": "",
-        "action": "Recent Task › [object Object] › Recent Task › (bring about 「content」 here)",
-        "result": "",
+        "section": "History",
+        "precondition": "Drama saved at the outline stage (no characters chosen, no storyboard)",
+        "action": "1. Open History\n2. Tap the drama's card",
+        "result": "Not run",
         "run": ""
       },
       "alternatives": []

@@ -3,6 +3,7 @@
 // control to rows, so no separate navigation plan is written: a screen is reached by
 //   on      a row that presses a control drawn on this screen (inventory.json controls → control-trace.json press)
 //   arrow   a row that walks a flow arrow ending on this screen (inventory.json arrows → requirements.md → rows)
+//   cited   a row whose Notes or Spec Ref name the screen's node id (a frame the inventory does not list)
 // Shared controls (back, close, tab bar) sit on dozens of screens, so a row pressing one says little about which screen
 // it was on: each way gets a `fit` — high for an arrow into the screen or a control on at most 3 screens, mid up to 10,
 // low beyond. The baseline is the row with the best fit, then the best latest result (Pass, then Fail, then anything
@@ -118,8 +119,11 @@ export function buildPlan(feature: string, platform: string, opt: { set?: string
     boards.set(s.board, existsSync(f) ? read(f).board : { id: s.board, name: s.board });
   }
   const overlap = (a: number[], b: number[]) => Math.max(0, Math.min(a[0] + a[2], b[0] + b[2]) - Math.max(a[0], b[0])) * Math.max(0, Math.min(a[1] + a[3], b[1] + b[3]) - Math.max(a[1], b[1]));
+  // (or one drawn inside it: an older inventory may list a card inside a long page, such as a 343 pt outline card in
+  // a 375 pt chat, as its screen)
   const invScreen = (s: any) => inv.screens.find((x: any) => x.id === s.id)
-    ?? inv.screens.filter((x: any) => x.box && overlap(x.box, s.abs) > 0.5 * s.abs[2] * s.abs[3]).sort((a: any, b: any) => overlap(b.box, s.abs) - overlap(a.box, s.abs))[0];
+    ?? inv.screens.filter((x: any) => x.box && (overlap(x.box, s.abs) > 0.5 * s.abs[2] * s.abs[3] || overlap(x.box, s.abs) > 0.8 * x.box[2] * x.box[3]))
+      .sort((a: any, b: any) => overlap(b.box, s.abs) - overlap(a.box, s.abs))[0];
 
   // the Design's own flow arrows: the shortest path to each screen from an entry screen (no arrow leads into it)
   const names = new Map<string, string>(screens.map(s => [s.id, s.name]));
@@ -133,7 +137,7 @@ export function buildPlan(feature: string, platform: string, opt: { set?: string
   for (const q of queue) path.set(q, []);
   while (queue.length) { const at = queue.shift()!;
     for (const a of flows.filter((a: any) => a.from === at && !path.has(a.to))) {
-      path.set(a.to, [...path.get(at)!, { screen: names.get(at), control: a.control ? nodeName(a.control, a.board) : '(arrow without a control)', arrow: a.id }]); queue.push(a.to); } }
+      path.set(a.to, [...path.get(at)!, { screen: names.get(at), control: a.control ? nodeName(a.control.id ?? a.control, a.board) : '(arrow without a control)', arrow: a.id }]); queue.push(a.to); } }
   // a screen no arrow reaches is usually a state drawn beside one that is (a failure, an empty list, a loading frame):
   // the nearest reached screen on the same board, then bring about the state its name says
   const variantOf = (s: any) => screens.filter(x => x.board === s.board && x.id !== s.id && path.has(x.id))
@@ -157,6 +161,10 @@ export function buildPlan(feature: string, platform: string, opt: { set?: string
       const r = arrowRequirement(reqText, a.id);
       for (const tc of r ? reqRows(r) : []) ways.push({ tc, how: 'arrow', via: a.id, edge: edges.get(a.id)?.edge, fit: 2 });
     }
+    // a row whose Notes or Spec Ref name the frame's node id (「Design 5366:70814」): the analysis traced it by hand,
+    // for a frame the inventory does not list (drawn after it was read, or nested in a long page)
+    for (const r of rows) if (active.has(r.ID) && new RegExp(`(^|[^\\d:])${s.id}(?![\\d])`).test(`${r.Notes} ${r['Spec Ref']}`))
+      ways.push({ tc: r.ID, how: 'cited', via: s.id, fit: 2 });
     if (!ways.length) {
       const near = path.has(s.id) ? null : variantOf(s);
       const steps = path.get(s.id) ?? (near && [...path.get(near.id)!, { screen: near.name, control: `(bring about 「${s.name}」 here)`, variant_of: near.id }]);

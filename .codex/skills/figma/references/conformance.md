@@ -40,6 +40,10 @@ every rebuild). For each Design screen of the source read, the route that reache
   a flow arrow into it (`how: arrow`), with the best `fit` — `high` for an arrow or a control on at most 3 screens,
   `mid` up to 10, `low` for a shared control (back, a tab bar: the row only reaches the area) — then the best latest
   result, then journey order. `by_case` lists each row's screens.
+- **A row citing the frame** (`how: cited`, fit `high`): a row whose Notes or Spec Ref name the screen's node id
+  (「Design 5366:70814」). The analysis writes it for a frame the casebook inventory does not list (drawn after the
+  inventory read, or a page the inventory knows only by a card inside it); a screen holding a smaller inventory
+  screen inside it takes that screen's controls.
 - **The Design's own arrows** (no table, or no row reaches it): the shortest path along the flow arrows from the first
   screen of the flow (`how: figma`, `steps`: each screen and the control pressed on it; `fit: entry` for a first
   screen). A screen no arrow reaches takes the path of the nearest reached screen on its board (`fit: variant`: a

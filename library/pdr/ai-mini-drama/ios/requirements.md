@@ -380,6 +380,7 @@ Every cell names the rows that check it, or n/a when the spec defines nothing fo
 | REQ-052 PM / MX Figma inventory; PM Figma 10/22 frames (2026-10-29) | R-332 – R-340; changed R-051, R-052, R-071, R-158, R-249, R-262, R-264 |
 | REQ-057 MX ③ Credit Charging Table (linked sheet): discount prices, no discount on regenerate, action ids (2026-10-29) | R-463, R-464, R-465; Q-32, Q-33 |
 | REQ-059 original prices by default, the promotion price held (2026-10-29) | R-040, R-050, R-061, R-069, R-081, R-147, R-254, R-259, R-260, R-463, R-464, R-465; Q-32, Q-33 |
+| REQ-076 Design screens no row reached (figma source read, 2026-11-03) | R-466, R-467, R-468 |
 
 ## Added 2026-10-21 — PM Spec 20261021 (16:04)
 PM-only rows carry 「PM-only: no Design frame yet (Design 2026-10-19)」 in Notes and change when the Design spec draws them (REQ-024).
@@ -797,3 +798,16 @@ kept: R-040, R-050, R-061, R-069, R-081, R-254, R-259, R-260, R-450, R-465. Held
 R-464 (no discount on regenerate, which only matters inside the promotion), with the R-147 discount price; TC-231
 is parked (removed) and the other REQ-057 discount rows now check the original price and the `_normal` ids.
 Q-32 is answered.
+
+## Added 2026-11-03 — Design screens no row reached (figma source read, REQ-076)
+The design check's plan found four Design frames no row reaches: the light chat on Choose Character, the two long-name
+Characters Result cards of 「1029_DRA262610P0372」 and the Recent Task chat reopened at the outline stage. Each row's Notes
+name its frame's node id, which routes the design check to it.
+- R-466 [DS:figma Choose Character light chat 2811:112113 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=2811-112113; Req: REQ-076] With the app in Light mode, the chat holding the 「Story Outline & Characters Result」 card is drawn light: white page, dark text, the outline card and the 「Choose your characters」 slots on a light surface, 「More ideas +」 and the idea box light; no part stays dark.
+- R-467 [DS:figma Choose Character 「1029_DRA262610P0372」 5366:70814 / 5366:70880 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=5366-70814 (2026-10-29); Req: REQ-076] 「卡片高度依據名字高度彈性增高」: a long character name in the Characters Result row wraps onto a second line under its image (「Detective Jack Vance」), nothing is cut off with 「…」, and the card grows taller to fit; short names keep one line.
+- R-468 [DS:figma Recent Task 「做到 story outline」 2824:128852 https://www.figma.com/design/dZk5HLzZTdcZwWwvN9aZfZ/AI-Mini-Drama?node-id=2824-128852, flow arrow 2820:123493; Req: REQ-076] Tapping a History card of a drama saved at the outline stage reopens its chat at that stage: the idea image, 「What format would you like for your video?」 with the chosen format, the 「Story Outline & Characters Result」 card (Story Outline and Possible Characters), 「Choose your characters」 with empty slots, 「More ideas +」 and the idea box.
+
+### Domain rules
+| Entry | Requirements |
+|---|---|
+| KP-007 A failed generation refunds its credits | R-035, R-036, R-056, R-057, R-067, R-080, R-084, R-157 |

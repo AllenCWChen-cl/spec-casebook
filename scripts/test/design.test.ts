@@ -58,7 +58,7 @@ const S5 = [{ id: '2:50', parent: '2:1', type: 'FRAME', name: 'Island', abs: [30
 const SCREENS = [S1[0], S2[0], S3[0], S4[0]].map(s => ({ board: '1:1', id: s.id, name: s.name, box: s.abs, abs: s.abs })).concat({ board: '2:1', id: '2:50', name: 'Island', box: S5[0].abs, abs: S5[0].abs });
 // the Design's flow arrows: Home's Start → offline (the casebook traces it too), offline's Try again → Orphan
 const ARROWS = [{ board: '1:1', id: '1:98', path: [[200, 610], [420, 100]], from: '1:10', control: '1:15', to: '1:20', kind: 'flow' },
-  { board: '1:1', id: '1:97', path: [[500, 200], [820, 100]], from: '1:20', control: '1:23', to: '1:30', kind: 'flow' }];
+  { board: '1:1', id: '1:97', path: [[500, 200], [820, 100]], from: '1:20', control: { id: '1:23', name: 'next' }, to: '1:30', kind: 'flow' }];
 
 // app page sources: iOS (points) for 1:10, UiAutomator2 (pixels, bounds) for 1:20
 const st = (label: string, x: number, y: number, w: number, h: number, type = 'XCUIElementTypeStaticText', name = '') =>
@@ -154,11 +154,22 @@ test('plan: each screen gets the row that reaches it, or no route', () => {
   assert.equal(by('1:30').route.how, 'figma'); assert.equal(by('1:30').route.fit, 'path'); assert.equal(by('1:30').gap, true);
   assert.deepEqual(by('1:30').route.steps.map((x: any) => x.screen), ['Home', 'Error_offline']);
   assert.equal(by('1:30').route.steps[0].control, 'btn_start');
+  assert.equal(by('1:30').route.action, 'Home › btn_start › Error_offline › Try again', 'an arrow control written as {id, name} still reads as text');
   assert.equal(by('1:40').route.fit, 'variant', 'a state drawn beside Home takes Home\'s path');
   assert.equal(by('2:50').status, 'no-route');
   assert.deepEqual(plan.by_case, { 'TC-001': ['1:10'], 'TC-002': ['1:20'] });
   assert.match(r.out, /2 by Design arrows only \(2 gaps in the table\), 1 no route/);
   assert.match(r.out, /no route: 2:50 Island/);
+});
+
+test('plan: a row whose Notes name a frame the inventory lacks reaches it (cited)', () => {
+  const csv = join(T, 'cases.csv'), was = readFileSync(csv, 'utf8');
+  try {
+    writeFileSync(csv, was + 'TC-003,Island,Signed in,Open the island,The island shows,Low,R-002,Design 2:50 (not in the inventory)\n');
+    assert.equal(design('plan').status, 0);
+    const plan = read(join(T, 'design', 'plan.json')), by = (id: string) => plan.screens.find((s: any) => s.id === id);
+    assert.equal(by('2:50').route.case, 'TC-003'); assert.equal(by('2:50').route.how, 'cited'); assert.ok(!by('2:50').gap);
+  } finally { writeFileSync(csv, was); assert.equal(design('plan').status, 0); }
 });
 
 test('plan on its own: no casebook table, the Design arrows are the route', () => {
