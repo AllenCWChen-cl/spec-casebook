@@ -29,9 +29,10 @@
 // A segment (phases.json) is the unit of work between context resets: finish it, `checkpoint`, then continue in a
 // fresh context that starts with `next`. The checkpoint text must hold everything the next context needs that the
 // files don't: Pink toggles currently on, tier, the drama/chat in use and its stage, credit balance, last log pull.
-import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
+import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readRecords, writeRecords } from './lib/csv.ts';
+import { activityPoints } from './lib/run-ledger.ts';
 
 const COLS = ['ID', 'Phase', 'Segment', 'Needs', 'Section', 'Action', 'Expected Result', 'Result', 'Disposition', 'Actual', 'Evidence', 'Recorded At'];
 const RESULTS = ['Pass', 'Fail', 'Blocked', 'Inconclusive', 'Not run'];
@@ -117,14 +118,10 @@ if (cmd === 'init') {
 } else if (cmd === 'time') {
   // Activity points: activity.log lines, results' Recorded At, and evidence file times (screenshots, logs, ledger).
   const idleMin = Number(rest[rest.indexOf('--idle') + 1]) || 15;
-  const pts: number[] = [];
-  const act = join(runDir, 'activity.log');
-  if (existsSync(act)) for (const l of readFileSync(act, 'utf8').split('\n')) { const t = Date.parse(l.split(' ')[0]); if (t) pts.push(t); }
+  // Evidence times are stamped into activity.log once, so every computer gets the same points (lib/run-ledger.ts).
+  const pts = activityPoints(runDir);
   const rows = load();
   for (const r of rows) { const t = Date.parse(r['Recorded At']); if (t) pts.push(t); }
-  const walk = (d: string): string[] => existsSync(d) ? readdirSync(d).flatMap(f => { const p = join(d, f); return statSync(p).isDirectory() ? walk(p) : [p]; }) : [];
-  for (const sub of ['screenshots', 'ledger']) for (const f of walk(join(runDir, sub))) pts.push(statSync(f).mtimeMs);
-  for (const f of existsSync(join(runDir, 'logs')) ? readdirSync(join(runDir, 'logs')) : []) pts.push(statSync(join(runDir, 'logs', f)).mtimeMs);
   pts.sort((a, b) => a - b);
   if (pts.length < 2) { console.log('Not enough activity yet.'); }
   else {

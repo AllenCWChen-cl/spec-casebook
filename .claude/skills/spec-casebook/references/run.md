@@ -114,6 +114,11 @@ refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows
   is shown as % of a 1× Pro user's limits: the main figure is "est. from token rate", calibrated in
   `runs/usage-calibration.json` (the formula and fields are in the header of `plan-page.ts`; AGENTS.md *Plan usage*);
   "Account total (shared)" stays a muted upper bound, since other users of the account are invisible here.
+  **Same figures on every computer (user, 2026-11-03).** Transcripts and screenshots stay on the machine that ran the
+  session, so the page keeps what it needs in the run folder: every build appends the messages of sessions that name
+  the run folder (inside its active spans) to `<run dir>/tokens.jsonl` and stamps each evidence file's time once into
+  `activity.log` (`<ISO> file <path>`; `scripts/lib/run-ledger.ts`). Keep the page server running on the run machine
+  during the run and commit both files with the run; a computer that did not run it shows the same figures after a pull.
 - **Time and token summary (user, 2026-10-19).** device.ts, app-setup.ts and run-log.ts stamp every command into
   `<run dir>/activity.log`. `run-log.ts <run dir> time [--cases]` reports wall, test and idle time (gaps over 15 min)
   per segment and case. `token-usage.ts --since <run start> <transcript.jsonl …>` sums Claude tokens from every

@@ -14,19 +14,23 @@ export type U = { input: number; cacheWrite: number; cacheRead: number; output: 
 export const zero = (): U => ({ input: 0, cacheWrite: 0, cacheRead: 0, output: 0, messages: 0 });
 export const addMsg = (u: U, m: Msg) => { u.input += m.input; u.cacheWrite += m.cacheWrite; u.cacheRead += m.cacheRead; u.output += m.output; u.messages++; };
 
-const cache = new Map<string, { offset: number; mtime: number; rest: Buffer; msgs: Map<string, Msg> }>();
+const cache = new Map<string, { offset: number; mtime: number; rest: Buffer; msgs: Map<string, Msg>; runs: Set<string> }>();
+// Run folder names (runs/<YYYY-MM-DD-name>/) a transcript mentions: plan-page.ts counts a session toward those runs.
+const RUN_RE = /\b(20\d\d-\d\d-\d\d-[A-Za-z0-9][A-Za-z0-9_-]*)/g;
 function readNew(file: string) {
   const st = statSync(file);
   let c = cache.get(file);
-  if (!c || st.size < c.offset) { c = { offset: 0, mtime: 0, rest: Buffer.alloc(0), msgs: new Map() }; cache.set(file, c); }
-  if (st.size === c.offset && st.mtimeMs === c.mtime) return c.msgs;
+  if (!c || st.size < c.offset) { c = { offset: 0, mtime: 0, rest: Buffer.alloc(0), msgs: new Map(), runs: new Set() }; cache.set(file, c); }
+  if (st.size === c.offset && st.mtimeMs === c.mtime) return c;
   const fd = openSync(file, 'r');
   try {
     const buf = Buffer.alloc(st.size - c.offset); let got = 0;
     while (got < buf.length) { const n = readSync(fd, buf, got, buf.length - got, c.offset + got); if (!n) break; got += n; }
     const all = Buffer.concat([c.rest, buf.subarray(0, got)]);
     const cut = all.lastIndexOf(0x0a) + 1;   // keep a half-written last line for next time
-    for (const line of all.subarray(0, cut).toString('utf8').split('\n')) {
+    const text = all.subarray(0, cut).toString('utf8');
+    for (const m of text.matchAll(RUN_RE)) c.runs.add(m[1]);
+    for (const line of text.split('\n')) {
       if (!line.includes('"usage"')) continue;
       let o: any; try { o = JSON.parse(line); } catch { continue; }
       const m = o.message, ts: string = o.timestamp ?? '', u = m?.usage;
@@ -36,15 +40,18 @@ function readNew(file: string) {
     }
     c.rest = Buffer.from(all.subarray(cut)); c.offset += got; c.mtime = st.mtimeMs;
   } finally { closeSync(fd); }
-  return c.msgs;
+  return c;
 }
 
 /** Every assistant message with usage in these transcripts, deduplicated by message id (last file wins), sorted by time. */
 export function transcriptMessages(files: string[]): Msg[] {
   const byId = new Map<string, Msg>();
-  for (const f of files) { try { for (const [id, m] of readNew(f)) byId.set(id, m); } catch {} }
+  for (const f of files) { try { for (const [id, m] of readNew(f).msgs) byId.set(id, m); } catch {} }
   return [...byId.values()].sort((a, b) => a.t - b.t);
 }
+
+/** Run folder names (YYYY-MM-DD-…) the transcript mentions anywhere. */
+export function transcriptRuns(file: string): Set<string> { try { return readNew(file).runs; } catch { return new Set(); } }
 
 /** Session transcripts and their subagent transcripts for a project folder (default: the one Claude Code uses for `root`). */
 export function projectTranscripts(root: string): string[] {

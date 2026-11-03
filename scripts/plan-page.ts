@@ -6,7 +6,8 @@
 // --lan binds 0.0.0.0 so other computers on the network can open it (no auth: anyone on the LAN can read it).
 // Without --serve the page is static and self-contained (data inline, no fetch), for publishing as an artifact.
 // Time and usage per phase and segment: wall / test / idle (gaps over 15 min) from each run folder's activity points
-// (same as `run-log.ts time`); Claude tokens from this project's transcripts (token-usage.ts) inside the active spans;
+// (same as `run-log.ts time`); Claude tokens from each run folder's tokens.jsonl, which every build tops up from this
+// machine's transcripts (sessions naming the run folder, inside its active spans; lib/run-ledger.ts);
 // plan usage in % of a 1× Pro user's limits. Primary figure: "est. from token rate" = the row's weighted tokens (API
 // price ratios: input 1, cache write 1.25, cache read 0.1, output 5) × a rate calibrated in
 // runs/usage-calibration.json ({ basis: phase id, fiveHourPct, seat, source, weekPerFiveHour, basisWeightedTokens? }):
@@ -28,7 +29,8 @@ import { createServer } from 'node:http';
 import { networkInterfaces } from 'node:os';
 import { join } from 'node:path';
 import { readRecords } from './lib/csv.ts';
-import { addMsg, projectTranscripts, transcriptMessages, zero, type Msg, type U } from './token-usage.ts';
+import { activityPoints, localRunMessages, syncTokens } from './lib/run-ledger.ts';
+import { addMsg, projectTranscripts, zero, type Msg, type U } from './token-usage.ts';
 
 const args = process.argv.slice(2);
 const oi = args.indexOf('--out'); const outArg = oi >= 0 ? args.splice(oi, 2)[1] : undefined;
@@ -49,16 +51,12 @@ const newStat = (): Stat => ({ first: Infinity, last: -Infinity, test: 0, idle: 
 // Price-ratio weight of a message: the proxy for how much plan usage it cost.
 const W = { input: 1, cacheWrite: 1.25, cacheRead: 0.1, output: 5 };
 const weight = (m: Msg | U) => m.input * W.input + m.cacheWrite * W.cacheWrite + m.cacheRead * W.cacheRead + m.output * W.output;
-// Sorted messages plus prefix sums of their weights, rebuilt only when a file's size or mtime changed (token-usage.ts
-// itself reads only the bytes appended since the last call).
+// Messages sorted by time plus prefix sums of their weights.
 type Series = { msgs: Msg[]; pre: Float64Array };
-const seriesCache = new Map<string, { sig: string; s: Series }>();
-function series(key: string, files: string[]): Series {
-  const sig = files.map(f => { try { const x = statSync(f); return `${f}:${x.size}:${x.mtimeMs}`; } catch { return f; } }).join('|');
-  const c = seriesCache.get(key); if (c && c.sig === sig) return c.s;
-  const msgs = transcriptMessages(files), pre = new Float64Array(msgs.length + 1);
+function series(list: Msg[]): Series {
+  const msgs = [...list].sort((a, b) => a.t - b.t), pre = new Float64Array(msgs.length + 1);
   msgs.forEach((m, i) => { pre[i + 1] = pre[i] + weight(m); });
-  const s = { msgs, pre }; seriesCache.set(key, { sig, s }); return s;
+  return { msgs, pre };
 }
 const upper = (s: Series, t: number) => { let lo = 0, hi = s.msgs.length; while (lo < hi) { const m = (lo + hi) >> 1; if (s.msgs[m].t <= t) lo = m + 1; else hi = m; } return lo; };
 const wsum = (s: Series, a: number, b: number) => b > a ? s.pre[upper(s, b)] - s.pre[upper(s, a)] : 0;   // weight of messages in (a, b]
@@ -66,13 +64,8 @@ const wsum = (s: Series, a: number, b: number) => b > a ? s.pre[upper(s, b)] - s
 // Activity points of a run folder, as `run-log.ts time` collects them; each gap of up to 15 min is an active span,
 // labelled with the segment of the next recorded case (after the last one: "wrap-up").
 function activity(dir: string, rows: Record<string, string>[], phase: string) {
-  const pts: number[] = [];
-  const act = join(dir, 'activity.log');
-  if (existsSync(act)) for (const l of readFileSync(act, 'utf8').split('\n')) { const t = Date.parse(l.split(' ')[0]); if (t) pts.push(t); }
+  const pts = activityPoints(dir);   // activity.log, with evidence file times stamped into it (lib/run-ledger.ts)
   for (const r of rows) { const t = Date.parse(r['Recorded At']); if (t) pts.push(t); }
-  const walk = (d: string): string[] => existsSync(d) ? readdirSync(d).flatMap(f => { const p = join(d, f); return statSync(p).isDirectory() ? walk(p) : [p]; }) : [];
-  for (const sub of ['screenshots', 'ledger']) for (const f of walk(join(dir, sub))) pts.push(statSync(f).mtimeMs);
-  for (const f of existsSync(join(dir, 'logs')) ? readdirSync(join(dir, 'logs')) : []) pts.push(statSync(join(dir, 'logs', f)).mtimeMs);
   pts.sort((a, b) => a - b);
   const recs = rows.map(r => ({ t: Date.parse(r['Recorded At']), seg: r.Segment || '-' })).filter(r => r.t).sort((a, b) => a.t - b.t);
   const spans: Span[] = [], idle: { a: number; b: number; seg: string }[] = [];
@@ -138,13 +131,14 @@ function buildData() {
   const byRun: Record<string, typeof latest> = {};
   const phaseRun: Record<string, string> = {};
   const checkpoints: { time: string; next: string; text: string; run: string }[] = [];
+  const runOf: Record<string, string> = {};   // phase → run folder name
   const spans: Span[] = [], idles: { a: number; b: number; phase: string; seg: string }[] = [];
   const stat: Record<string, Stat> = {};   // keys: "<phase>" and "<phase>/<segment>"
   let build = '';
   for (const d of readdirSync(runsDir).filter(d => statSync(join(runsDir, d)).isDirectory()).sort()) {
     const rc = join(runsDir, d, 'results.csv'); if (!existsSync(rc)) continue;
     const state = existsSync(join(runsDir, d, 'run-state.md')) ? readFileSync(join(runsDir, d, 'run-state.md'), 'utf8') : '';
-    const ph = state.match(/^# Run state — ([A-Z]+\d+)/m)?.[1]; if (ph) phaseRun[ph] = `runs/${d}/`;
+    const ph = state.match(/^# Run state — ([A-Z]+\d+)/m)?.[1]; if (ph) { phaseRun[ph] = `runs/${d}/`; runOf[ph] = d; }
     const b = (state.match(/\b[A-Z][A-Za-z]+(?: iOS)? (\d+\.\d+\.\d+ \(\d+\))/)?.[1] ?? state.match(/\b[A-Z][A-Za-z]+(?: Mobile)? for Android (\d+\.\d+\.\d+) \(versionCode (\d+)\)/)?.slice(1).join(" (").concat(")")); if (b) build = b;
     for (const m of state.matchAll(/^### (\S+)( · next (\S+) \(([^)]*)\)| · all recorded)?\n[^\n]*\n\n([\s\S]*?)(?=\n### |\s*$)/gm))
       checkpoints.push({ time: m[1].replace('T', ' ').slice(0, 16) + ' UTC', next: m[3] ? `${m[3]} (${m[4]})` : 'all recorded', text: m[5].trim().replace(/\s+/g, ' ').slice(0, 420) + (m[5].length > 420 ? '…' : ''), run: d });
@@ -161,11 +155,25 @@ function buildData() {
     }
   }
   
+  // Tokens per run folder: its tokens.jsonl (committed, so every computer counts the same messages) plus what this
+  // machine's transcripts add to it: messages of sessions that name the run folder, inside its active spans. A message
+  // inside two runs' spans counts for the run that started later.
+  const files = projectTranscripts(ROOT), local = localRunMessages(files, new Set(Object.values(runOf)));
+  const claim = new Map<string, { m: Msg; ph: string }>();
+  for (const [ph, d] of Object.entries(runOf).sort((a, b) => (stat[a[0]]?.first ?? 0) - (stat[b[0]]?.first ?? 0))) {
+    const mine = spans.filter(sp => sp.phase === ph);
+    const inSpan = (m: Msg) => mine.some(sp => m.t > sp.a && m.t <= sp.b);
+    for (const m of syncTokens(join(runsDir, d, 'tokens.jsonl'), (local.get(d) ?? []).filter(inSpan))) claim.set(m.id, { m, ph });
+  }
+  const byPhase: Record<string, Msg[]> = {};
+  for (const { m, ph } of claim.values()) (byPhase[ph] ??= []).push(m);
+  const ser: Record<string, Series> = Object.fromEntries(Object.keys(runOf).map(ph => [ph, series(byPhase[ph] ?? [])]));
+  const empty = series([]);
   // Time and tokens per phase and segment.
-  const files = projectTranscripts(ROOT), mine = series('project', files), msgs = mine.msgs;
   const st = (k: string) => stat[k] ??= newStat();
   for (const sp of spans) for (const s of [st(sp.phase), st(`${sp.phase}/${sp.seg}`)]) {
     s.test += sp.b - sp.a; s.first = Math.min(s.first, sp.a); s.last = Math.max(s.last, sp.b);
+    const mine = ser[sp.phase] ?? empty, msgs = mine.msgs;
     for (let i = upper(mine, sp.a); i < msgs.length && msgs[i].t <= sp.b; i++) { addMsg(s.tokens, msgs[i]); if (!msgs[i].model.startsWith('<')) s.models[msgs[i].model] = (s.models[msgs[i].model] ?? 0) + 1; }
   }
   for (const g of idles) for (const s of [st(g.phase), st(`${g.phase}/${g.seg}`)]) { s.idle += g.b - g.a; s.gaps++; }
@@ -183,7 +191,7 @@ function buildData() {
     total.approx ||= inc.approx;
     const ov = spans.map(sp => Math.max(0, Math.min(sp.b, inc.to) - Math.max(sp.a, inc.from)));
     if (!ov.some(Boolean)) { total[key === 'fiveHour' ? 'outside5' : 'outsideW'] += pro; continue; }
-    const tw = spans.map((sp, i) => ov[i] ? wsum(mine, Math.max(sp.a, inc.from), Math.min(sp.b, inc.to)) : 0);
+    const tw = spans.map((sp, i) => ov[i] ? wsum(ser[sp.phase] ?? empty, Math.max(sp.a, inc.from), Math.min(sp.b, inc.to)) : 0);
     const runW = tw.reduce((x, y) => x + y, 0), by = runW ? tw : ov, sum = by.reduce((x, y) => x + y, 0);
     total[key] += pro;
     spans.forEach((sp, i) => {
@@ -279,7 +287,7 @@ function buildData() {
       fiveHour: total.fiveHour, weekly: total.weekly, outside5: total.outside5, outsideW: total.outsideW,
       rounds: roundOut, wt: weight(allTok), ...est(weight(allTok)),
       calibration: cal ? { ...cal, basisWt: basisW, rate, weekRatio, weekBasis } : null,
-      transcripts: files.length,
+      transcripts: files.length, ledgerMessages: claim.size,
       latest: last ? { at: last.at, seat: last.proMultiplier, fiveHourPct: last.fiveHourPct, weeklyPct: last.weeklyPct, fiveHourResetsAt: last.fiveHourResetsAt, weeklyResetsAt: last.weeklyResetsAt } : null },
     // Checkpoints of the current run's folders only (a phase that has not started has none yet).
     checkpoints: checkpoints.filter(c => [...currentIds].some(id => phaseRun[id] === `runs/${c.run}/`)).slice(-6).reverse(),
