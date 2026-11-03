@@ -1,5 +1,5 @@
-// One server for all four live pages of a feature and platform: Cases (the review page), Progress (the run plan),
-// Results (every run's cases with screenshots and reasons) and Coverage, each under its own path with a tab bar on top, so one command (and one
+// One server for all the live pages of a feature and platform: Cases (the review page), Progress (the run plan),
+// Results (every run's cases with screenshots and reasons), Coverage and Design (the design check), each under its own path with a tab bar on top, so one command (and one
 // address, also over the LAN) opens them all and they link to each other (a row on Cases opens /coverage/#case=TC-012;
 // a case on Coverage opens /cases/#TC-012).
 // Usage: node scripts/pages.ts <product>/<feature> <ios|android> [--draft <id>] [--plan <RUN-PLAN.md>] [--plan-draft <id>] [--port 4386] [--lan]
@@ -40,6 +40,8 @@ const pages: Page[] = [
     why: `No run plan: needs a runs/RUN-PLAN-*.md and a draft with phases.json (or --plan and --plan-draft).` },
   { id: 'results', path: 'results', label: 'Results', zh: '結果', argv: [script('results-page.ts'), feature, platform, '--serve', '4492'] },
   { id: 'coverage', path: 'coverage', label: 'Coverage', zh: '覆蓋率', argv: [script('coverage-page.ts'), feature, platform, ...withDraft, '--serve', '4491'] },
+  // the design check (figma skill, references/conformance.md): Figma screens against the app's captures
+  { id: 'design', path: 'design', label: 'Design', zh: '設計比對', argv: [script('design-page.ts'), feature, platform, '--serve', '4493'] },
 ];
 
 const planArgv = () => plan.md && plan.draft ? [script('plan-page.ts'), feature, platform, plan.draft, plan.md, '--serve', '4490'] : null;
@@ -135,11 +137,11 @@ const isLocal = (a = '') => a === '127.0.0.1' || a === '::1' || a === '::ffff:12
 
 const server = createServer((req, res) => {
   const url = req.url ?? '/';
-  // the pages are Cases, Progress, Results and Coverage (user, 2026-10-28); /review/ and /plan/ links still work
+  // the pages are Cases, Progress, Results and Coverage (user, 2026-10-28), and Design (2026-11-03); /review/ and /plan/ links still work
   const old = url.match(/^\/(review|plan)(\/.*)?$/);
   if (old) { res.writeHead(301, { location: `/${old[1] === 'review' ? 'cases' : 'progress'}${old[2] ?? '/'}` }); res.end(); return; }
   if (url === '/__stamp') { res.writeHead(200, { 'content-type': 'text/plain', 'cache-control': 'no-store' }); res.end(String(stamp)); return; }
-  const m = url.match(/^\/(cases|progress|results|coverage)(\/.*)?$/);
+  const m = url.match(/^\/(cases|progress|results|coverage|design)(\/.*)?$/);
   if (!m) { res.writeHead(302, { location: '/cases/' }); res.end(); return; }
   const p = pages.find(x => x.path === m[1])!;
   if (!m[2]) { res.writeHead(301, { location: `/${p.path}/` }); res.end(); return; }

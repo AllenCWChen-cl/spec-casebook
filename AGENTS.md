@@ -79,12 +79,22 @@ lines; put the full rule in the skill or reference file that applies it and poin
   (`extracted/figma-pending.json`) and a machine with them catches up later (`reading-the-spec.md`, *No Figma access*). Quota is small: bulk reads per board group, changes found by fingerprint (`figma-check.ts`), every
   read committed (`reading-the-spec.md` step 10).
 - **Full Figma data by script (user, 2026-10-30).** When every node's geometry and styling is needed (not just
-  controls and arrows), read it with the `figma-source` skill, on Design Figma links only (never PM or MX): one
-  `use_figma` script per output chunk plus one full-size screenshot per board cropped locally, never per-frame or
-  per-instance MCP reads (`figma-source/SKILL.md`).
+  controls and arrows), read it with the `figma` skill's source branch, on Design Figma links only (never PM or MX):
+  one `use_figma` script per output chunk plus one full-size screenshot per board cropped locally, never per-frame or
+  per-instance MCP reads (`figma/references/source.md`).
+- **Design check on the casebook's flows (user, 2026-11-03).** Whether the app matches the Design is the `figma`
+  skill's conformance branch (`scripts/design.ts`): the rows that already reach each Design screen are its navigation
+  (else the Design's own arrows), captures ride on casebook runs, two independent review passes settle the findings,
+  and the Design tab shows them; a screen only the Design's arrows reach is a gap for the analysis
+  (`figma/references/conformance.md`). It also works with no casebook table (`figma-source.ts init`).
+- **Figma data shared, one folder per feature (user, 2026-11-03).** Both skills keep a feature's Figma files in
+  `library/<product>/<feature>/specs/<set>/extracted/` (board images in `figma/` with `shots.json`, used by both) and
+  commit what another computer needs (source responses, board images, design plans, captures as 750 px copies, results
+  and verdicts), so a pull needs no Figma call or phone file (`figma/SKILL.md` › *One feature folder*). `npm test`
+  covers the figma scripts.
 - **Phone fixtures (2026-10-27).** What a run needs on the phone or account is in
   `library/<product>/<feature>/<platform>/fixtures.md`.
-- **Live pages (user, 2026-10-28).** `scripts/pages.ts` serves Cases, Progress, Results and Coverage with one shared
+- **Live pages (user, 2026-10-28).** `scripts/pages.ts` serves Cases, Progress, Results, Coverage and Design with one shared
   tab bar holding the only language switch. `+ Add case` takes free text; the agent turns open notes into rows
   (`SKILL.md` step 4, New-case notes).
 - **Never uninstall PowerDirector on the QA iPhone (user, 2026-10-29, until lifted).** The build cannot be installed

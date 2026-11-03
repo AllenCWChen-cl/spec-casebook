@@ -1,7 +1,7 @@
 // Figma source reader: every node of a board (geometry, visibility, fills, strokes, radius, effects, auto
 // layout, text runs, component and variant, variables, styles, prototype links, arrows) read by ONE read-only use_figma
 // script per call instead of one Figma MCP read per frame, data type and component instance.
-// Run by the agent through scripts/figma-source.ts (figma-source skill), which fills the three placeholders and writes
+// Run by the agent through scripts/figma-source.ts (figma skill, references/source.md), which fills the three placeholders and writes
 // each call's `code` to a file; the agent passes that file to use_figma (read-only) and saves the return verbatim.
 //   __MODE__     'list'  sections and top-level nodes of the page holding the first target (one small call)
 //                'plan'  walks the target boards (no styling read, so it is fast), returns one fingerprint per board

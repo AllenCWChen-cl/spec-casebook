@@ -51,6 +51,9 @@ library/*/*/*/drafts/*/server.log
 
 # Run screenshot folders stay local, including the on-screen text dumps saved next to each screenshot
 library/*/*/*/runs/*/screenshots/
+# Design check captures (figma skill, user 2026-11-03): a compact copy of each capture (750 px WebP and its page source)
+# is shared with the run, so another computer can check, review and show the Design tab without the phone's files
+!library/*/*/*/runs/*/design/captures/*.webp
 
 # Pulled app logs (may hold tokens) stay local
 library/*/*/*/runs/*/logs/

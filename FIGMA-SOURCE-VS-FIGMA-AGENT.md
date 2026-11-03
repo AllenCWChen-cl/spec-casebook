@@ -10,6 +10,10 @@ Compared 2026-11-03 on AI Mini Drama, the one feature both have read (the same 1
   unpacked from `docs/qa-plans/20261012-ai-mini-drama/resume/run-state.tar.gz` and read 2026-10-12/13. That run
   stopped at 61/70 worklist tasks when the Figma seat ran out of quota.
 
+**Follow-up (2026-11-03).** figma-source is now the source branch of the `figma` skill, and the Figma Agent's
+conformance job (frame → app state → capture → measure → two review passes → report) is its conformance branch
+(`.claude/skills/figma/references/conformance.md`), built on the casebook's own rows instead of a per-frame plan.
+
 **The two reads are three weeks apart, and the Design file changed in between** (see *Design drift* below). So
 some differences come from the file changing, not from the readers.
 
@@ -174,6 +178,6 @@ The changes worth bringing into figma-source, in order:
 
 1. ~~an arrow crop and an annotation-pointer flag per arrow~~ (done 2026-11-03);
 2. ~~values in `library.json`~~ (done 2026-11-03);
-3. a committed scope/error file from `list`;
-4. the ±1 px screenshot check and a freshness check when saving;
+3. ~~a committed scope/error file from `list`~~ (done 2026-11-03: `scope.json`);
+4. ~~the ±1 px screenshot check and a freshness check when saving~~ (done 2026-11-03);
 5. ~~fixing the blank `library.json` entry~~ (done 2026-11-03).

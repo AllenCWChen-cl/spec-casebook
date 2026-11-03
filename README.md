@@ -34,6 +34,7 @@ can read without the spec, not contract catalogs and claim files.
   - [Building or updating a table](#building-or-updating-a-table)
   - [Running a table on the phone](#running-a-table-on-the-phone)
   - [Filing eBugs](#filing-ebugs)
+  - [Design check and full Figma data (figma skill)](#design-check-and-full-figma-data-figma-skill)
   - [Live pages](#live-pages)
 - [Repository layout](#repository-layout)
   - [Inside a feature folder](#inside-a-feature-folder)
@@ -423,7 +424,7 @@ Typical requests:
 - The draft's `phases.json` splits the table into phases and segments, tags cases with what they need (`video`,
   `purchase`, `new-account`, …) and lists the needs this run can't meet; those cases are recorded Blocked up front.
 - Each segment runs in a clean agent context; the chat you talk to only orchestrates and never asks between
-  segments. A run starts the four-tab pages server (`pages.ts --plan <RUN-PLAN.md>`, `http://127.0.0.1:4386/`): its
+  segments. A run starts the pages server (`pages.ts --plan <RUN-PLAN.md>`, `http://127.0.0.1:4386/`): its
   Progress tab shows every case, checkpoint, time and token use as the run goes, beside Cases, Results and Coverage.
 - Before the first test action: Log stage timings and Write Log on, build and server checked, tier set. When a phase
   needs video, one preview generation runs first as a gate; if it fails, video cases are recorded Blocked instead of
@@ -443,6 +444,54 @@ Figma node, at least one image and the log excerpt when a log shows the cause. T
 checked by `check_ebug_format.py`, and shown on an HTML review page. Filing waits for your decisions there (severity,
 owner, TR, account). After filing, every ticket is read back and recorded in `filed_bugcodes.json`.
 
+### Design check and full Figma data (figma skill)
+
+The `figma` skill ([`.claude/skills/figma/SKILL.md`](.claude/skills/figma/SKILL.md)) answers "does the app match the
+Design?" screen by screen, and reads the Design file's full data when someone needs it (every node's geometry,
+styling, text, components, variables, arrows). It covers everything the Figma Agent's QA covers, by a shorter route,
+and works beside the casebook or on its own. Two parts:
+
+- **Source** ([`references/source.md`](.claude/skills/figma/references/source.md), `scripts/figma-source.ts`): reads
+  the Design boards with a few read-only `use_figma` scripts sized by output (173 calls for AI Mini Drama's 10 boards,
+  against the Figma Agent's 1,642 that did not finish). A later read touches only boards whose fingerprint changed.
+  Every return is saved word for word (a return older than its call is refused), `scope.json` records what was listed,
+  read and not found, and board screenshots are size-checked.
+- **Design check** ([`references/conformance.md`](.claude/skills/figma/references/conformance.md),
+  `scripts/design.ts`): one command, `status` always naming the next step:
+
+  ```bash
+  node scripts/design.ts pdr/ai-mini-drama ios status
+  ```
+
+  1. **Plan** (automatic): each Design screen with the casebook row that reaches it (pressing a control on it or
+     walking an arrow into it), else a path along the Design's own arrows. A screen only the Design reaches is
+     reported as a gap in the table, for the analysis to fix.
+  2. **Capture while running**: `design.ts … screens TC-012` lists what a row reaches; `device.ts <run> design <screen
+     id>` saves the screenshot and page source (also on Android). A design pass walks every route when asked.
+  3. **Check**: `design.ts … check <run>` measures each capture against Figma (wrong state, copy, missing text,
+     truncation, wrapping, position, fill and text colour, icon controls, extra text) and draws a side-by-side sheet.
+  4. **Review**: two independent subagent passes, then `settle`; splits become questions.
+  5. **Decide and file**: answer questions and tick eBugs on the **Design** tab, paste Copy decisions to
+     `design.ts … decide`, and `design.ts … ebugs <run>` lists the bugs for the casebook's eBug flow.
+  6. **Recheck** on the next build: `check <new run> --recheck <old run>` marks each earlier bug fixed or still there.
+
+  The Design tab (`/design/` on the pages server) shows one card per screen coloured by status; a card opens Figma and
+  the app side by side with every difference boxed and its verdict.
+
+**Shared with the casebook, and with every computer.** Both skills keep a feature's Figma files in the same
+`library/<product>/<feature>/specs/<set>/extracted/` folder: one board image per board in `extracted/figma/` (used by
+the coverage page and the design check alike; a board image either one keeps current is never captured again), the
+source read's responses, the design plan, and each run's captures (a 750 px copy and its page source), results and
+verdicts. After a pull, `design.ts` rebuilds the expanded Figma data from them in seconds with no Figma call, and every
+step works without the phone's files.
+
+**On its own**, for a feature the casebook has not read: `node scripts/figma-source.ts <product>/<feature> init
+"<Design Figma link with ?node-id=>"`, then the source read and the design check as above (routes from the Design's
+arrows). A run still needs the product's `product.json` and the phone setup above.
+
+`npm test` runs the figma skill's tests (`scripts/test/design.test.ts`): a synthetic feature with every kind of
+difference planted, run through every command, with no phone and no Figma call.
+
 ### Live pages
 
 One command serves all four pages on one address, with tabs to switch between them:
@@ -451,8 +500,8 @@ One command serves all four pages on one address, with tabs to switch between th
 node scripts/pages.ts pdr/ai-mini-drama ios --lan
 ```
 
-It opens `http://127.0.0.1:4386/` with four tabs, **Cases** (the review page, `/cases/`), **Progress** (the run plan,
-`/progress/`), **Results** (`/results/`) and **Coverage** (`/coverage/`); old `/review/` and `/plan/` links still
+It opens `http://127.0.0.1:4386/` with five tabs, **Cases** (the review page, `/cases/`), **Progress** (the run plan,
+`/progress/`), **Results** (`/results/`), **Coverage** (`/coverage/`) and **Design** (the design check, `/design/`); old `/review/` and `/plan/` links still
 work. With `--lan` it prints the LAN address to share. `--draft <id>` reviews a draft (and shows it on the coverage page); the run plan defaults to the newest
 `runs/RUN-PLAN-*.md` and the newest draft with a `phases.json` (`--plan`, `--plan-draft` pick others). Save on the
 review page works only on the computer running the server; colleagues on the network can read, edit in their
@@ -483,11 +532,12 @@ connections for `node`.
 
 | Page | Command | Address |
 | --- | --- | --- |
-| All four, with tabs | `node scripts/pages.ts pdr/ai-mini-drama ios [--draft <id>] [--lan]` | `http://127.0.0.1:4386/` |
+| All five, with tabs | `node scripts/pages.ts pdr/ai-mini-drama ios [--draft <id>] [--lan]` | `http://127.0.0.1:4386/` |
 | Review a draft or the approved table | `node scripts/review.ts pdr/ai-mini-drama ios [--draft <id>] [--lan]` | `http://127.0.0.1:4387/` |
 | Run plan (phases, cases, time, tokens) | `node scripts/plan-page.ts pdr/ai-mini-drama ios <draft> <run plan .md> --serve [port] [--lan]` | `http://127.0.0.1:4390/` |
 | Results (every run's cases, reasons and screenshots) | `node scripts/results-page.ts pdr/ai-mini-drama ios --serve [port] [--lan]` | `http://127.0.0.1:4492/` |
 | Coverage (controls, arrows, tap proof; English / 繁體中文) | `node scripts/coverage-page.ts pdr/ai-mini-drama ios [--draft <id>] --serve [port] [--lan]` | `http://127.0.0.1:4391/` |
+| Design (each Design screen against the app's capture) | `node scripts/design-page.ts pdr/ai-mini-drama ios --serve [port] [--lan]` | `http://127.0.0.1:4493/` |
 
 Each takes the next free port when its default is busy. Stop a server with Ctrl+C in its terminal. A review server
 should not be left running for a draft that is already saved: saving from it again overwrites that version.
@@ -565,6 +615,10 @@ Using `library/pdr/ai-mini-drama/` as the example:
 | `ios/ebugs/<date>/` | eBug drafts, review page, dedupe and filing records, log excerpts |
 | `ios/recipes/` | Saved device command sequences (`*.steps`) reused across runs |
 | `ios/comparisons/` | Comparisons with other tools (e.g. the spec agent) |
+| `specs/<date>/extracted/figma/` | Board screenshots from Figma (`shots.json`), shared by the coverage page and the figma skill |
+| `specs/<date>/extracted/figma-source/design/` | The figma skill's source read: `responses/`, `hashes.json`, `scope.json` (committed); `out/` (expanded data and crops, rebuilt locally) |
+| `ios/design/plan.json` | Design check plan: each Design screen with the row (or Design path) that reaches it |
+| `ios/runs/<run>/design/` | Design check of a run: `captures.jsonl`, `captures/` (750 px copies and page sources), `compare.json`, review passes, `findings.json`, `ebug-findings.md` |
 
 ## Features in this repository
 
@@ -580,6 +634,7 @@ Using `library/pdr/ai-mini-drama/` as the example:
 | `spec-casebook` | Spec → reviewed table, updates, reuse; coverage passes, standing inputs, value check; on-device runs |
 | `ebug-draft-generator` | eBug drafts from failed cases (casebook overlay first) |
 | `ebug-tr-filer` | Dedupe, format check, review page, filing through the IF3 API, read-back (needs `~/.ecl_token`) |
+| `figma` | Full Design Figma data (source) and the design check against the app (conformance), beside the casebook or on its own |
 
 `spec-casebook/SKILL.md` holds the workflow; the details sit in `references/` (reading the spec, analysis, file
 formats, runs on iPhone and Android, eBugs) and are read only when a task needs them, so a run segment does not load
@@ -612,10 +667,14 @@ All scripts run from the repository root with `node scripts/<name>.ts`. In the u
 | `controls.ts <feature> <platform> [--draft <id>]` | Writes `control-trace.json`: every control group and the rows that press it |
 | `coverage-page.ts <feature> <platform> [--draft <id>] [--serve [port] [--lan]]` | The coverage page: boards with controls and arrows marked, tap proof, what is planned or blocked |
 | `results-page.ts <feature> <platform> [--serve [port] [--lan]]` | The results page: every run's cases with the reason and the screenshots (static: `runs/results.html`) |
-| `pages.ts <feature> <platform> [--draft <id>] [--plan <md>] [--plan-draft <id>] [--lan]` | Serves Cases (review), Progress (run plan), Results and Coverage on one address with tabs and links between them |
+| `pages.ts <feature> <platform> [--draft <id>] [--plan <md>] [--plan-draft <id>] [--lan]` | Serves Cases (review), Progress (run plan), Results, Coverage and Design on one address with tabs and links between them |
+| `design.ts <feature> <platform> plan \| screens <TC> \| check <run> \| settle <run> \| decide \| ebugs <run> \| status` | The design check (figma skill): the row reaching each Design screen, the screens a row reaches, measuring captures against Figma, settling the two review passes, applying the Design tab's decisions, the bugs to file, and the next step |
+| `figma-source.ts <feature> init <link> \| calls list\|plan\|chunks design \| save design \| merge design \| crop design` | The figma skill's source read of the Design file: writes the `use_figma` calls, saves the returns, merges them into every node's data, crops the shared board images |
+| `figma/source.js` | Read-only Figma plugin script behind `figma-source.ts` (run through `use_figma`) |
+| `design-page.ts <feature> <platform> [--serve [port] [--lan]]` | The Design tab: every Design screen's status, Figma and app side by side with the differences |
 | `review.ts <feature> <platform> [--draft <id>] [--lan]` | Serves the review page and saves the approved table (Save from this computer only) |
 | `export.ts <feature> <platform>` | Rebuilds `cases.xlsx` / `cases.html` from `cases.csv` |
-| `device.ts <run dir> <command>` | Appium client for the QA iPhone: screenshots, taps (each logged to `taps.jsonl`), `case`, `scrollto`, `waitfor`, `pink`, recipes, logs, ledger |
+| `device.ts <run dir> <command>` | Appium client for the QA iPhone: screenshots, taps (each logged to `taps.jsonl`), `case`, `scrollto`, `waitfor`, `pink`, recipes, logs, ledger, `design` captures |
 | `device-android.ts <run dir> <command>` | The same for the QA Android phone (UiAutomator2, pixel coordinates), plus `back`, `wifi`, `build`, `logcat`, `pull-logs` |
 | `app-setup.ts <run dir> <command>` | Build check, reinstall from TestFlight, first launch, Developer Server, fresh install, log pulls |
 | `run-log.ts <run dir> <command>` | Records results and dispositions, phases, gate, retest queue, checkpoints, time summary |
@@ -625,7 +684,8 @@ All scripts run from the repository root with `node scripts/<name>.ts`. In the u
 | `ebug-defaults.ts <feature> <platform>` | Filing defaults (creator, TR, source tag) from the newest filed batch |
 
 `npm run <name>` shortcuts exist for the common ones (`status`, `check`, `review`, `export`, `fingerprint`,
-`add-spec`, `new-draft`, `spec-boards`, `render-tiles`, `render-region`, `ebug-defaults`, `coverage`).
+`add-spec`, `new-draft`, `spec-boards`, `render-tiles`, `render-region`, `ebug-defaults`, `coverage`), and `npm test`
+runs the tests in `scripts/test/`.
 
 ## What is not committed
 
@@ -639,7 +699,9 @@ All scripts run from the repository root with `node scripts/<name>.ts`. In the u
 - **Coverage and review images**: `coverage.html` (it embeds the board renders), the board renders in
   `extracted/coverage/` and the review sheets in `extracted/inventory-sheets/`. The board screenshots in
   `extracted/figma/` (listed in `shots.json`) are the exception: committed, so no one spends Figma quota on them
-  again and every checkout shows the boards. The inventory, overrides, reviews and control traces are committed, so the page can be rebuilt.
+  again and every checkout shows the boards (the casebook and the figma skill share them). So are the design check's
+  capture copies (`runs/<run>/design/captures/*.webp`, 750 px), so every computer can check, review and show a run.
+  The figma skill's expanded data (`figma-source/design/out/`) is rebuilt locally from committed files. The inventory, overrides, reviews and control traces are committed, so the page can be rebuilt.
 - **Pulled app logs, Appium session files and full eBug logs** (they can hold tokens). The checked log excerpts
   attached to eBugs are committed.
 - `node_modules/`, Python caches and patch leftovers.
@@ -648,7 +710,8 @@ All scripts run from the repository root with `node scripts/<name>.ts`. In the u
 
 - Write new scripts in TypeScript (`node` runs them directly).
 - Change a skill under `.claude/skills/`, then run `node scripts/sync-skills.ts` to update `.codex/skills/`.
-- After changing a script, run `npm run typecheck` (Node strips the types without checking them).
+- After changing a script, run `npm run typecheck` (Node strips the types without checking them), and `npm test`
+  after changing the figma skill's scripts.
 - Add standing preferences to [`AGENTS.md`](AGENTS.md) › Team preferences (dated) and feature requests to the
   feature's `requests.md`, not to a personal agent memory.
 - Never edit an approved `cases.csv` by hand without a request; go through a draft and the review page.
@@ -660,6 +723,8 @@ All scripts run from the repository root with `node scripts/<name>.ts`. In the u
 - [`AGENTS.md`](AGENTS.md): repository rules and team preferences
 - [`.claude/skills/spec-casebook/SKILL.md`](.claude/skills/spec-casebook/SKILL.md): the full workflow, coverage
   passes, run rules and file formats
+- [`.claude/skills/figma/SKILL.md`](.claude/skills/figma/SKILL.md): the source read and the design check
+- [`FIGMA-SOURCE-VS-FIGMA-AGENT.md`](FIGMA-SOURCE-VS-FIGMA-AGENT.md): how the figma skill compares with the Figma Agent
 - [`library/pdr/ai-mini-drama/requests.md`](library/pdr/ai-mini-drama/requests.md): an example request ledger
 - [`library/pdr/ai-mini-drama/ios/runs/RUN-PLAN-20261019.md`](library/pdr/ai-mini-drama/ios/runs/RUN-PLAN-20261019.md): an example phased run plan
 - [`INVESTIGATE.md`](INVESTIGATE.md): ideas not yet implemented

@@ -18,6 +18,10 @@
 // Recovery: a command that fails because UiAutomator2 is gone (instrumentation crashed, socket hang up, dead session)
 // restarts it once, re-activates the app and retries. When the phone is unplugged, unauthorized, offline or
 // locked behind a PIN/pattern, the script prints BLOCKER and exits 75 (same convention as device.ts).
+//   design SCREEN [--part N] [NOTE]
+//                             design check (figma skill, references/conformance.md): the screenshot and page source of the
+//                             Figma screen SCREEN (node id) now on the phone, to screenshots/design/<id>.png/.xml, logged in
+//                             design/captures.jsonl with the case running (`case ID`) and the window size
 //   shot NAME                 save <run dir>/screenshots/NAME.png (device pixels; adb screencap when no session)
 //   els [filter]              visible elements (format above); filter matches anywhere in the line, case-insensitive
 //   texts [NAME]              the visible on-screen strings only (text and content-desc, ids dropped, duplicates merged),
@@ -237,7 +241,8 @@ async function elementByIdOrText(name: string) {
   }
   throw new Error(`no element with resource-id, text or content-desc "${name}"`);
 }
-function uid() { const m = /userId=(\d+)/.exec(sh(`dumpsys package ${PKG} 2>/dev/null | grep -m1 userId=`)); if (!m) throw new Error(`${PKG} is not installed`); return m[1]; }
+// dumpsys prints userId= up to Android 13, appId= from 14 (the Samsung A53 on 15)
+function uid() { const m = /(?:userId|appId)=(\d+)/.exec(sh(`dumpsys package ${PKG} 2>/dev/null | grep -m1 -E 'userId=|appId='`)); if (!m) throw new Error(`${PKG} is not installed`); return m[1]; }
 const logcatRunning = () => { if (!existsSync(LOGCAT_PID)) return 0; const pid = +readFileSync(LOGCAT_PID, 'utf8'); try { process.kill(pid, 0); return pid; } catch { return 0; } };
 function startLogcat() {
   mkdirSync(LIVE, { recursive: true });
@@ -299,6 +304,20 @@ switch (cmd) {
     if (existsSync(SID)) { try { await s('GET', '/window/rect'); console.log('session alive', sid()); } catch (e) { console.log('session not alive:', String(e).slice(0, 200)); } }
     if (existsSync(UIA_FILE)) { const h = (Date.now() - Date.parse(readFileSync(UIA_FILE, 'utf8'))) / 3_600_000; console.log(`UiAutomator2 started ${h.toFixed(1)} h ago${h > 3 ? ' — run `restart` at the next segment start' : ''}`); }
     const lp = logcatRunning(); console.log(lp ? `logcat capture running (pid ${lp}) → ${readFileSync(join(LIVE, 'current'), 'utf8')}` : 'logcat capture not running');
+    break;
+  }
+  case 'design': {
+    if (!rest[0]) { console.error('design SCREEN: the Figma screen id (design/plan.json)'); process.exit(2); }
+    // --part 2, 3…: the same screen scrolled down (a frame taller than the phone); its texts count for copy and missing
+    const pi = rest.indexOf('--part'), part = pi > 0 ? Number(rest[pi + 1]) : 1, words = rest.slice(1).filter((_, i) => pi < 0 || (i + 1 !== pi && i + 1 !== pi + 1));
+    const dir = join(runDir, 'screenshots', 'design'), name = rest[0].replace(/[:;]/g, '-') + (part > 1 ? `.p${part}` : ''); mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, `${name}.png`), Buffer.from((await s('GET', '/screenshot')).value, 'base64'));
+    writeFileSync(join(dir, `${name}.xml`), await source());
+    const win = (await s('GET', '/window/rect')).value, kase = existsSync(join(runDir, '.case')) ? readFileSync(join(runDir, '.case'), 'utf8').trim() : '';
+    mkdirSync(join(runDir, 'design'), { recursive: true });
+    appendFileSync(join(runDir, 'design', 'captures.jsonl'), JSON.stringify({ t: new Date().toISOString(), screen: rest[0], ...(part > 1 ? { part } : {}), case: kase, note: words.join(' '),
+      png: `screenshots/design/${name}.png`, xml: `screenshots/design/${name}.xml`, win: { w: win.width, h: win.height } }) + '\n');
+    console.log(`captured ${rest[0]}${kase ? ` (${kase})` : ''} → screenshots/design/${name}.png`);
     break;
   }
   case 'shot': {

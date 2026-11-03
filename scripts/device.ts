@@ -11,6 +11,10 @@
 // WDA recovery (2026-10-27): a command that fails because WDA is gone (socket hang up, connection refused, dead
 // session) restarts WDA once, re-activates the app and retries. When the phone is locked or Xcode holds a
 // "preparation error" the restart cannot work: the script prints BLOCKER and exits 75 (unlock the phone, replug USB).
+//   design SCREEN [--part N] [NOTE]
+//                             design check (figma skill, references/conformance.md): the screenshot and page source of the
+//                             Figma screen SCREEN (node id) now on the phone, to screenshots/design/<id>.png/.xml, logged in
+//                             design/captures.jsonl with the case running (`case ID`) and the window size
 //   shot NAME                 save <run dir>/screenshots/NAME.png (device pixels)
 //   els [filter]              visible accessible elements: type | name | label | value | x,y,w,h (points)
 //   tap X Y | hold X Y [s]    tap / long-press at points (every press is logged to taps.jsonl, see logTap)
@@ -254,6 +258,20 @@ switch (cmd) {
     console.log(JSON.stringify((await call('GET', '/status')).value));
     if (existsSync(SID)) { try { await s('GET', '/window/rect'); console.log('session alive', sid()); } catch (e) { console.log('session not alive:', String(e).slice(0, 200)); } }
     if (existsSync(WDA_FILE)) { const h = (Date.now() - Date.parse(readFileSync(WDA_FILE, 'utf8'))) / 3_600_000; console.log(`WDA started ${h.toFixed(1)} h ago${h > 3 ? ' — run `restart` at the next segment start' : ''}`); }
+    break;
+  }
+  case 'design': {
+    if (!rest[0]) { console.error('design SCREEN: the Figma screen id (design/plan.json)'); process.exit(2); }
+    // --part 2, 3…: the same screen scrolled down (a frame taller than the phone); its texts count for copy and missing
+    const pi = rest.indexOf('--part'), part = pi > 0 ? Number(rest[pi + 1]) : 1, words = rest.slice(1).filter((_, i) => pi < 0 || (i + 1 !== pi && i + 1 !== pi + 1));
+    const dir = join(runDir, 'screenshots', 'design'), name = rest[0].replace(/[:;]/g, '-') + (part > 1 ? `.p${part}` : ''); mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, `${name}.png`), Buffer.from((await s('GET', '/screenshot')).value, 'base64'));
+    writeFileSync(join(dir, `${name}.xml`), (await s('GET', '/source')).value);
+    const win = (await s('GET', '/window/rect')).value, kase = existsSync(join(runDir, '.case')) ? readFileSync(join(runDir, '.case'), 'utf8').trim() : '';
+    mkdirSync(join(runDir, 'design'), { recursive: true });
+    appendFileSync(join(runDir, 'design', 'captures.jsonl'), JSON.stringify({ t: new Date().toISOString(), screen: rest[0], ...(part > 1 ? { part } : {}), case: kase, note: words.join(' '),
+      png: `screenshots/design/${name}.png`, xml: `screenshots/design/${name}.xml`, win: { w: win.width, h: win.height } }) + '\n');
+    console.log(`captured ${rest[0]}${kase ? ` (${kase})` : ''} → screenshots/design/${name}.png`);
     break;
   }
   case 'shot': {

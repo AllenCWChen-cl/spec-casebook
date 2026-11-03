@@ -151,8 +151,9 @@ node scripts/review.ts <feature> <platform>                  # edit the approved
 
 Run it in the background (it is a local server on 127.0.0.1, port 4387 or the next free one), give the user the
 printed URL, and tell them what to do. When the user wants the pages shared or together, run
-`node scripts/pages.ts <feature> <platform> [--draft <id>] [--lan]` instead: four tabs on one address, **Cases** (this review
-page, `/cases/`), **Progress** (the run plan, `/progress/`), **Results** and **Coverage** (user, 2026-10-28), with one
+`node scripts/pages.ts <feature> <platform> [--draft <id>] [--lan]` instead: five tabs on one address, **Cases** (this review
+page, `/cases/`), **Progress** (the run plan, `/progress/`), **Results** and **Coverage** (user, 2026-10-28), and **Design**
+(the design check, figma skill), with one
 shared tab bar holding the only English / 中文 switch; each row's **Coverage →** opens the coverage page on that case
 (its requirements, their spec boards and the controls it presses), **Results →** its run records with the screenshots
 and the pass / fail / block reason, and Save works only on this computer:

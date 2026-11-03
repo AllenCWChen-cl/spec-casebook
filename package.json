@@ -21,7 +21,8 @@
     "ebug-defaults": "node scripts/ebug-defaults.ts",
     "coverage": "node scripts/coverage-page.ts",
     "sync-skills": "node scripts/sync-skills.ts",
-    "typecheck": "tsc -p ."
+    "typecheck": "tsc -p .",
+    "test": "node --test scripts/test/*.test.ts"
   },
   "dependencies": {
     "exceljs": "4.4.0",

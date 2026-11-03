@@ -97,6 +97,12 @@ refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows
   type a password), `devserver` (⋯ debug page: Write Log ON, 「Use developer server:」 ON, 「Server Changed」 › OK,
   relaunch, Launcher label check), `fresh` (above). A run's first step is `build` and `reinstall … --check-only` to
   record whether a newer build exists; which build to test is the user's call.
+- **Design captures (user, 2026-11-03).** When the feature has a design plan (`<table>/design/plan.json`, figma
+  skill › conformance), a segment captures the Design screens its rows reach as it passes them: with the row running
+  (`case ID`), `node scripts/design.ts <feature> <platform> screens <ID>` lists them, and on each one
+  `device.ts <run dir> design <screen id>` (one call, no extra navigation). Only the frame's state counts (its
+  language, appearance and the state its name says); list any screen it could not bring about in the segment reply.
+  The check and the review run at the phase wrap-up (`figma/references/conformance.md` steps 3–4).
 - **Live run plan (user, 2026-10-20/29).** A run starts the full pages server:
   `node scripts/pages.ts <feature> <platform> --plan <RUN-PLAN.md> --plan-draft <draft id> [--lan]` serves
   http://127.0.0.1:4386/ with **Progress** (this run plan) beside Cases, Results and Coverage. Reuse a running pages

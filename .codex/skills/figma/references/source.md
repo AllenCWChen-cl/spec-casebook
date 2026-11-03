@@ -1,9 +1,9 @@
----
-name: figma-source
-description: Read the full Figma source data of a feature's Design Figma boards (Design files only, never PM or MX) (every node's geometry, visibility, fills, strokes, radius, shadows, auto layout, text runs and fonts, component and variant, variables and styles, prototype links, flow arrows) plus one full-size image per board cropped per screen, in a few read-only use_figma calls instead of one Figma MCP read per frame, data type and component instance. Use when someone needs pixel-level Figma data for a casebook feature (UI conformance, measuring a screen, design tokens), asks to "pull everything from Figma" for a feature, or asks for the script way of reading Figma. Not for the casebook's control/arrow inventory (that is spec-casebook's scripts/figma/inventory.js).
----
-
 # Figma source data in a few calls
+
+Part of the figma skill (`../SKILL.md`): the **source** branch. It reads the Design boards' full data once; the
+**conformance** branch (`conformance.md`) and anyone needing pixel-level Figma data (measuring a screen, design
+tokens) read its `out/` files instead of calling Figma again. Not for the casebook's control/arrow inventory (that
+is spec-casebook's `scripts/figma/inventory.js`, which also reads PM and MX).
 
 `scripts/figma/source.js` runs inside Figma through `use_figma` and walks every node of a board, including the inside
 of component instances, so one call returns what `get_metadata` + `get_design_context` + `get_variable_defs` return per
@@ -22,10 +22,7 @@ had 959 instance reads queued. A re-read costs only the plan calls when nothing 
 
 ## Before the first call
 
-1. **Design Figma links only** (user, 2026-10-30). The file is `files.design` (`fileKey`, `page`) in the spec set's
-   `extracted/figma-frames.json`, read through `figma-design`; the command refuses any other role. PM and MX Figma
-   files keep spec-casebook's inventory reads. Follow AGENTS.md › *Figma access*: `whoami` on `figma-design` first,
-   never switch accounts by hand.
+1. The rules in `../SKILL.md` › *Before any Figma call* apply (Design file only, `figma-design`, `whoami`).
 2. Load the Figma `figma-use` skill once (the `/figma-use` skill, or the `skill://figma/figma-use/SKILL.md` resource of
    that server) and call `create_session` once per file. Every `use_figma` call below passes the `sessionId`,
    `skillNames: "resource:figma-use"` (or `figma-use` when loaded as a skill), the call's `description`, and the call
@@ -42,9 +39,14 @@ had 959 instance reads queued. A re-read costs only the plan calls when nothing 
 ## Steps
 
 All commands are `node scripts/figma-source.ts <product>/<feature> [<set>] …`; the set defaults to the newest one with
-`figma-frames.json`. Files go to `specs/<set>/extracted/figma-source/design/`.
+`figma-frames.json`. Files go to `specs/<set>/extracted/figma-source/design/`, board images to the shared
+`specs/<set>/extracted/figma/` (`../SKILL.md` › *One feature folder*).
 
-1. **List** (1 call): `calls list design [page or section id]`. The return lists the page's sections, their boards and
+0. **A feature the casebook has not read** (no `figma-frames.json` with `files.design`): `init <Design Figma link>`
+   (with `?node-id=` of the page or section) records it in the newest spec set, starting one with no files if needed.
+
+1. **List** (1 call): `calls list design [page or section id]`; save it with the others (`save design`), so merge
+   writes it into `scope.json` with the boards read and every id a plan did not find. The return lists the page's sections, their boards and
    each board's instance count. Pick the boards the spec covers (skip superseded ones unless asked).
 2. **Plan** (1 call per 4 boards): `calls plan design <board, section or page ids…> [--per 4] [--budget 36000]`. Run
    every plan call **in one message** (parallel). The plan reads no styling (a full read of a big board in one call
@@ -53,11 +55,14 @@ All commands are `node scripts/figma-source.ts <product>/<feature> [<set>] …`;
 3. **Chunks and screenshots**: `calls chunks design [--all] [--scale 1]` writes `calls/todo.json`: a chunk call for
    every board whose fingerprint differs from `hashes.json` (every board with `--all`) and one screenshot per such
    board (`get_screenshot` with the given `nodeId` and `maxDimension`, the board's longest side × scale, so 1 image px
-   = 1 Figma pt at scale 1). Up to 4 calls at once. With more than 4 chunk calls, hand them to parallel subagents, 4
+   = 1 Figma pt at scale 1), saved over the board's shared image. No screenshot for a board whose shared image is
+   current: `shots.json` gives it this fingerprint, or the casebook keeps it (its `hash` is the board's hash in
+   `figma-hashes.json`). Up to 4 calls at once. With more than 4 chunk calls, hand them to parallel subagents, 4
    calls each, with this brief: "For each entry: read the `call` file, call `use_figma` on <server> with fileKey
    <key>, sessionId <id>, skillNames resource:figma-use, description = the entry's `description`, code = the file
    content; write the whole tool result verbatim to `save_to`. Report only the files written and any error."
-4. **Merge**: `save design`, then `merge design`. It puts every record at its walk index and copies each repeated
+4. **Merge**: `save design` (it refuses a return older than its call file: an earlier call with the same
+   description), then `merge design`. It puts every record at its walk index and copies each repeated
    instance's inside from the first one, checking a hash of the full description of both (clipped render bounds and
    drawn share are left out of the hash: each copy sends its own). Exit 10 names what is missing: a missing chunk (run
    it), a `fix-…` call (copies whose check failed; one call per 60 copies, already written: it compares them with
@@ -69,11 +74,15 @@ All commands are `node scripts/figma-source.ts <product>/<feature> [<set>] …`;
    `todo.json` with its chunks, or named by merge): a small call (about 6 KB of code) that pairs every shown instance
    with its main component and returns the layers the instance hides, sending repeated ones once. A return with
    `next` names the following call; merge writes it. AI Mini Drama took 18 such calls for 8,654 layers.
-5. **Crop**: `crop design` (python3 with Pillow) cuts each board image into `out/crops/<board>/<screen>.png`, plus
+5. **Crop**: `crop design` (python3 with Pillow). A new screenshot is shrunk to 256 colours and recorded in
+   `shots.json` with its fingerprint (`source_hash`) first, so the casebook's pages use it too. An image whose long
+   side is not the size asked for (or the board's at 1 px = 1 pt), within 1 px, is reported and not cropped: take it
+   again. It cuts each board image into `out/crops/<board>/<screen>.png`, plus
    `arrow-<arrow>.png` per arrow (its path with 80 pt around, at least 360 pt a side), and writes each arrow's `crop`
    into `arrows.json`. Look at every `pointer` arrow's crop: it is a designer note, often a spec rule.
-6. **Commit** `responses/` and `hashes.json` (calls/ and out/ stay local and can be rebuilt with `merge` and `crop`).
-   Board images are not committed; with full-size images needed on another machine, that costs one screenshot per board.
+6. **Commit** `responses/`, `hashes.json`, `scope.json` and the new board images with `shots.json` (`calls/` and
+   `out/` stay local). Another computer rebuilds `out/` with `merge` and `crop` and no Figma call; `design.ts` does
+   that by itself when `out/` is missing or older than the responses.
 
 **Re-reading later**: run step 2 (plan calls only), then step 3: unchanged boards get no chunk calls and no screenshot.
 
