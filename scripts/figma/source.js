@@ -11,7 +11,8 @@
 //                or a board. 'chunk': [boardId, from, to, firstId, lastId], a row of the plan's `chunks`
 //   __BUDGET__   bytes per chunk return (plan only; default 36000 leaves room under a 40 KB tool result)
 //   A chunk row with a sixth entry 'full' reads its range without shrinking. 'fix' mode: [boardId, [walk index…]] of
-//   copies whose check failed; returns only the inside nodes that differ from the first instance.
+//   copies whose check failed; returns only the inside nodes that differ from the first instance. 'hidden' mode:
+//   [boardId, first instance ordinal]; the layers hidden inside instances (see the hidden section).
 // Output tables are local to one return: records refer to paints (P), effects (E), text runs (T), auto layout (L),
 // prototype reactions (X), main components (M), variables (V) and styles (S) by index; figma-source.ts merge expands them.
 const MODE = __MODE__, TARGETS = __TARGETS__, BUDGET = __BUDGET__ || 36000, NOSHRINK = MODE === 'chunk' && TARGETS[5] === 'full';
@@ -42,7 +43,7 @@ if (MODE === 'list') {
 
 // ---- boards ---------------------------------------------------------------------------------------------------------
 const boards = [], missing = [];
-if (MODE === 'chunk') boards.push(start);
+if (MODE === 'chunk' || MODE === 'hidden') boards.push(start);
 else for (const id of TARGETS) {
   const n = await figma.getNodeByIdAsync(id);
   if (!n) { missing.push(id); continue; }
@@ -423,5 +424,102 @@ if (MODE === 'chunk') {
   }
   return { mode: 'chunk', board: boardId, from, to, first, count, drift, full: NOSHRINK ? 1 : 0, origin: [r2(origin[0]), r2(origin[1])], read_at: new Date().toISOString(),
     tables: enc.T, nodes, bytes: enc.bytes.n, took_ms: Date.now() - t0 };
+}
+
+// ---- hidden -------------------------------------------------------------------------------------------------------------
+// Layers hidden inside an instance are not in the walk: use_figma runs with figma.skipInvisibleInstanceChildren on, and a
+// View seat cannot turn it off (setting it counts as an edit). Each shown instance's children are paired with its main
+// component's; a component child with no shown counterpart is a hidden layer, read from the component (with its subtree)
+// and placed at its offset from the nearest shown ancestor. TARGETS = [boardId, first instance ordinal]; a call stops near
+// __BUDGET__ bytes or 40 s and returns `next`. Records: i id, t type, n name, b board-relative box, pi parent id, af
+// previous sibling id (null: first child), src component node id; ax = box approximate (the shown ancestor is resized
+// from the component); sid = id made up (a library component's local copy has other ids than its instances: `~` marks it).
+// A hidden layer's subtree is the same in every instance that hides it, so it is sent once per call in `tpl` (rows: s id
+// after the layer's instance prefix, i.e. its id minus its `src`, t, n, d box relative to the layer's, p parent row or -1 for the layer, ax, sid) and each
+// layer record names its row list in `tp`. One level up, an instance's hidden layers taken relative to the instance (ids
+// and parents after its prefix, '' for the instance itself, boxes from its corner) are the same in every like instance:
+// each set is sent once in `it` and each instance as [id, `it` row, x, y] in `ins`.
+if (MODE === 'hidden') {
+  const [boardId, from] = TARGETS, bd = start;
+  const ob = bd.absoluteBoundingBox || { x: 0, y: 0 };
+  const all = []; const count = walk(bd, (n, i, p, h) => all.push([n, p, h]));
+  const insts = all.filter(([n, , h]) => n.type === 'INSTANCE' && !h).map(([n]) => n);
+  const strip = id => id[0] === 'I' ? id.slice(1) : id, pre = id => (id[0] === 'I' ? id : 'I' + id) + ';';
+  const nodes = [], tpl = [], tplAt = new Map(), it = [], itAt = new Map(), ins = [], unsure = [], mains = new Map(); let bytes = 0, next = null;
+  const main = async n => { if (!mains.has(n.id)) { let m = null; try { m = await n.getMainComponentAsync(); } catch (e) {} mains.set(n.id, m); } return mains.get(n.id); };
+  // pairs the shown children of `m` with the children of its component-side node `c`: by id where the ids map, else in
+  // order by type and name; null when neither accounts for every shown child
+  const pairKids = (m, c, toId) => {
+    const cs = 'children' in c ? c.children : [], ms = 'children' in m ? m.children : [];
+    if (cs.length === ms.length) return { pairs: cs.map((x, k) => [x, ms[k]]), exact: true };
+    const byId = new Map(ms.map(y => [y.id, y])), pairs = cs.map(x => [x, byId.get(toId(x.id))]);
+    if (pairs.filter(p => p[1]).length === ms.length) return { pairs, exact: true };
+    let j = 0; const seq = cs.map(x => { const y = ms[j]; if (y && y.type === x.type && y.name === x.name) { j++; return [x, y]; } return [x, undefined]; });
+    return j === ms.length ? { pairs: seq, exact: false } : null;
+  };
+  const box = (x, base) => { const b = x.absoluteBoundingBox; return b ? [r2(b.x + base[0] - ob.x), r2(b.y + base[1] - ob.y), r2(b.width), r2(b.height)] : [0, 0, r2(x.width || 0), r2(x.height || 0)]; };
+  // a hidden component-side node and its subtree; idOf maps a component-side id to the board's id space
+  const emit = async (x, base, parentId, after, idOf, approx, depth, out) => {
+    const id = idOf(x.id), r = { i: id, t: x.type, n: x.name, b: box(x, base), pi: parentId, af: after, src: x.id };
+    if (approx) r.ax = 1; if (id.includes('~')) r.sid = 1;
+    out.push(r);
+    if (depth > 12 || !('children' in x)) return;
+    let prev = null;
+    if (x.type === 'INSTANCE') {
+      // its own hidden children are skipped too: pair it with its main component
+      const mc = await main(x), toId = cid => pre(x.id) + strip(cid), pk = mc && pairKids(x, mc, toId);
+      if (!pk) { for (const y of x.children) { await emit(y, base, id, prev, idOf, approx, depth + 1, out); prev = idOf(y.id); } return; }
+      const mb = mc.absoluteBoundingBox, xb = x.absoluteBoundingBox, base2 = mb && xb ? [xb.x + base[0] - mb.x, xb.y + base[1] - mb.y] : base;
+      for (const [cx, y] of pk.pairs) {
+        if (y) { await emit(y, base, id, prev, idOf, approx, depth + 1, out); prev = idOf(y.id); continue; }
+        const of2 = pk.exact ? cid => idOf(toId(cid)) : cid => `${pre(id)}~${strip(cid)}`;
+        await emit(cx, base2, id, prev, of2, approx || x.width !== mc.width || x.height !== mc.height, depth + 1, out); prev = of2(cx.id);
+      }
+      return;
+    }
+    for (const y of x.children) { await emit(y, base, id, prev, idOf, approx, depth + 1, out); prev = idOf(y.id); }
+  };
+  // walks a shown instance against its component; shown nested instances get their own turn in `insts`
+  const visit = async (m, c, inst, toId, depth) => {
+    const pk = pairKids(m, c, toId);
+    if (!pk) { unsure.push(m.id); return; }
+    const mb = m.absoluteBoundingBox, cb = c.absoluteBoundingBox;
+    const base = mb && cb ? [mb.x - cb.x, mb.y - cb.y] : [0, 0], approx = m.width !== c.width || m.height !== c.height;
+    let prev = null;
+    for (const [x, y] of pk.pairs) {
+      if (y) { prev = y.id; if (y.type !== 'INSTANCE' && 'children' in y && depth < 40) await visit(y, x, inst, toId, depth + 1); continue; }
+      const idOf = pk.exact ? cid => toId(cid) : cid => `${pre(m.id)}~${strip(cid)}`;
+      const sub = []; await emit(x, base, m.id, prev, idOf, approx, 0, sub); prev = idOf(x.id);
+      const [root, ...rest] = sub;
+      if (rest.length) {
+        const key = `${x.id}|${root.sid ? 1 : 0}|${approx ? 1 : 0}`;
+        if (!tplAt.has(key)) {
+          const at = root.i.length - strip(x.id).length, row = new Map([[root.i, -1]]), rows = rest.map((d, k) => { row.set(d.i, k);
+            const o = { s: d.i.slice(at), t: d.t, n: d.n, d: [r2(d.b[0] - root.b[0]), r2(d.b[1] - root.b[1]), d.b[2], d.b[3]], p: row.get(d.pi) };
+            if (d.ax) o.ax = 1; if (d.sid) o.sid = 1; return o; });
+          tplAt.set(key, tpl.length); tpl.push(rows); bytes += JSON.stringify(rows).length + 1;
+        }
+        root.tp = tplAt.get(key);
+      }
+      nodes.push(root);
+    }
+  };
+  let k = from;
+  for (; k < insts.length; k++) {
+    if (bytes > BUDGET * 0.8 || Date.now() - t0 > 40000) { next = k; break; }
+    const inst = insts[k], mc = await main(inst);
+    const at = nodes.length;
+    if (mc) await visit(inst, mc, inst, cid => pre(inst.id) + strip(cid), 0);
+    if (nodes.length === at) continue;
+    const recs = nodes.splice(at), P = pre(inst.id), ib = box(inst, [0, 0]);
+    const rel = v => v === null ? null : v === inst.id ? '' : v.startsWith(P) ? v.slice(P.length) : undefined;
+    const rows = recs.map(r => { const o = { s: rel(r.i), t: r.t, n: r.n, d: [r2(r.b[0] - ib[0]), r2(r.b[1] - ib[1]), r.b[2], r.b[3]], p: rel(r.pi), a: rel(r.af), src: r.src };
+      if (r.tp !== undefined) o.tp = r.tp; if (r.ax) o.ax = 1; if (r.sid) o.sid = 1; return o; });
+    if (rows.some(o => !o.s || o.p === undefined || o.a === undefined)) { nodes.push(...recs); bytes += JSON.stringify(recs).length; continue; }
+    const key = JSON.stringify(rows);
+    if (!itAt.has(key)) { itAt.set(key, it.length); it.push(rows); bytes += key.length + 1; }
+    ins.push([inst.id, itAt.get(key), ib[0], ib[1]]); bytes += inst.id.length + 24;
+  }
+  return { mode: 'hidden', board: boardId, from, next, instances: insts.length, count, read_at: new Date().toISOString(), nodes, tpl, it, ins, unsure, bytes, took_ms: Date.now() - t0 };
 }
 throw new Error(`unknown mode ${MODE}`);

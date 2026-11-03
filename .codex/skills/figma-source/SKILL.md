@@ -62,7 +62,13 @@ All commands are `node scripts/figma-source.ts <product>/<feature> [<set>] …`;
    drawn share are left out of the hash: each copy sends its own). Exit 10 names what is missing: a missing chunk (run
    it), a `fix-…` call (copies whose check failed; one call per 60 copies, already written: it compares them with
    the first instance inside Figma and returns only the nodes that differ; run it, save, merge again), or "changed
-   since the plan" (plan that board again and redo its chunks).
+   since the plan" (plan that board again and redo its chunks), or a `hidden-…` call (below).
+   **Hidden layers inside instances** are not in the walk: `use_figma` runs with `figma.skipInvisibleInstanceChildren`
+   on, and a View seat cannot turn it off (setting it counts as an edit; found 2026-11-02 against the Figma Agent's
+   per-node reads, which had 387 such layers the walk lacked). Each board therefore gets `hidden-<board>_0` (in
+   `todo.json` with its chunks, or named by merge): a small call (about 6 KB of code) that pairs every shown instance
+   with its main component and returns the layers the instance hides, sending repeated ones once. A return with
+   `next` names the following call; merge writes it. AI Mini Drama took 18 such calls for 8,654 layers.
 5. **Crop**: `crop design` (python3 with Pillow) cuts each board image into `out/crops/<board>/<screen>.png`.
 6. **Commit** `responses/` and `hashes.json` (calls/ and out/ stay local and can be rebuilt with `merge` and `crop`).
    Board images are not committed; with full-size images needed on another machine, that costs one screenshot per board.
@@ -82,7 +88,11 @@ All commands are `node scripts/figma-source.ts <product>/<feature> [<set>] …`;
   `modes`; `text` (characters, alignment, auto-resize, `runs` with font family, style, size, weight, line height, letter
   spacing, decoration, case, fills, text style); `component` (main component name, set, key) and `component_props`
   (variant values); `reactions` (prototype trigger → destination); `annotations`; `arrow` (path points, tail first);
-  `copy_of` (on a repeated instance: the instance its inside was copied from, checked equal).
+  `copy_of` (on a repeated instance: the instance its inside was copied from, checked equal). A layer hidden inside an
+  instance (hidden call) has `hidden`, its box and name, `from_component` (its node in the main component),
+  `approx_box` when the instance is resized from its component (the box is the component's offset from the nearest
+  shown ancestor), and `made_up_id` when the component comes from a library: the id is then the instance prefix, `~`
+  and the library copy's node id, because the real sublayer id cannot be read.
 - `<board>.metadata.xml`: the same tree in `get_metadata`'s layout (x / y relative to the nearest non-group ancestor),
   with the instances' insides included, for tools that read that format.
 - `screens.json` (phone frames 300–450 pt wide, not nested), `arrows.json` (path, start screen and control, end

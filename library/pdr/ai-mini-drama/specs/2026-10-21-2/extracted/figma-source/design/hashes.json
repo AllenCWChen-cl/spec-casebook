@@ -3,60 +3,60 @@
     "hash": "d93bf085",
     "read_at": "2026-11-02T01:34:55.311Z",
     "name": "1005_Chat",
-    "nodes": 445
+    "nodes": 470
   },
   "2778:127318": {
     "hash": "7a497eab",
     "read_at": "2026-11-02T01:04:04.491Z",
     "name": "main flow",
-    "nodes": 8205
+    "nodes": 9149
   },
   "2566:113114": {
     "hash": "7654133c",
     "read_at": "2026-11-02T01:35:08.769Z",
     "name": "Template Detail",
-    "nodes": 855
+    "nodes": 915
   },
   "2824:129435": {
     "hash": "d0b092be",
     "read_at": "2026-11-02T01:35:04.843Z",
     "name": "Input text",
-    "nodes": 2108
+    "nodes": 2169
   },
   "2566:114674": {
     "hash": "5e66117a",
     "read_at": "2026-11-02T01:35:08.769Z",
     "name": "AI Mini Drama home page",
-    "nodes": 379
+    "nodes": 447
   },
   "2820:113353": {
     "hash": "9d8572f1",
     "read_at": "2026-11-02T01:35:08.769Z",
     "name": "Storyboard",
-    "nodes": 3467
+    "nodes": 3686
   },
   "2820:113981": {
     "hash": "1b753a93",
     "read_at": "2026-11-02T01:34:55.311Z",
     "name": "video",
-    "nodes": 4503
+    "nodes": 4880
   },
   "2820:123194": {
     "hash": "72c63360",
     "read_at": "2026-11-02T01:35:04.843Z",
     "name": "Recent Task",
-    "nodes": 1933
+    "nodes": 3699
   },
   "2820:125545": {
     "hash": "a1e07006",
     "read_at": "2026-11-02T01:35:04.843Z",
     "name": "MX",
-    "nodes": 3887
+    "nodes": 4075
   },
   "2811:89056": {
     "hash": "0e3d144b",
     "read_at": "2026-11-02T01:34:55.311Z",
     "name": "Choose Character",
-    "nodes": 11683
+    "nodes": 16629
   }
 }

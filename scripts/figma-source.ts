@@ -12,7 +12,9 @@
 //   calls chunks <role> [--all] [--scale 1]
 //                                  reads responses/plan-*.json and writes calls/chunk-<board>_<from>.js for every board
 //                                  whose fingerprint differs from hashes.json (all with --all), plus calls/todo.json
-//                                  with the screenshots to take (node id, maxDimension) and the file to save each to
+//                                  with the screenshots to take (node id, maxDimension) and the file to save each to,
+//                                  and calls/hidden-<board>_0.js: the layers hidden inside instances (use_figma skips
+//                                  them), read from each instance's main component
 //   merge <role>                   checks the chunk responses cover every planned board and writes out/: one
 //                                  <board>.json (every node, tables expanded), <board>.metadata.xml (get_metadata
 //                                  layout, instances included), screens.json, arrows.json, library.json (variables,
@@ -55,9 +57,12 @@ const dash = (id: string) => id.replace(/[:;/]/g, '-');
 
 // ---- calls ------------------------------------------------------------------------------------------------------------
 const src = readFileSync(join(ROOT, 'scripts', 'figma', 'source.js'), 'utf8');
-const compact = src.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('//')).join('\n');
+const squeeze = (s: string) => s.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('//')).join('\n');
+const compact = squeeze(src);
+// a hidden call needs only the preamble, the board lookup, the walk and its own section (about a fifth of the reader)
+const compactHidden = squeeze(src.split(/^(?=\/\/ ---- )/m).filter((s, i) => i === 0 || /^\/\/ ---- (boards|walk|hidden)\b/.test(s)).join(''));
 const code = (mode: string, targets: unknown, budget = 0) => {
-  const c = compact.replace('__MODE__', JSON.stringify(mode)).replace('__TARGETS__', JSON.stringify(targets)).replace('__BUDGET__', String(budget));
+  const c = (mode === 'hidden' ? compactHidden : compact).replace('__MODE__', JSON.stringify(mode)).replace('__TARGETS__', JSON.stringify(targets)).replace('__BUDGET__', String(budget));
   if (c.length > 50000) throw new Error(`call is ${c.length} characters; use_figma takes at most 50000`);
   return c;
 };
@@ -69,7 +74,7 @@ const writeCall = (name: string, mode: string, targets: unknown, budget = 0) => 
 
 // ---- responses ----------------------------------------------------------------------------------------------------------
 // a saved return is the extractor's JSON, possibly inside the host's text blocks or with a line of text around it
-const MODES = new Set(['list', 'plan', 'chunk', 'fix']);
+const MODES = new Set(['list', 'plan', 'chunk', 'fix', 'hidden']);
 const findResult = (x: any): any => {
   if (!x || typeof x !== 'object') return null;
   if (MODES.has(x.mode)) return x;
@@ -119,6 +124,7 @@ if (cmd === 'calls' && sub === 'list') {
   for (const [id, b] of boards) {
     if (!all && hashes[id]?.hash === b.hash) { unchanged.push(id); continue; }
     for (const row of chunks.get(id) ?? []) calls.push(writeCall(`chunk-${dash(id)}_${row[1]}`, 'chunk', [row[0], row[1], row[2], row[4], row[5]]));
+    calls.push(writeCall(`hidden-${dash(id)}_0`, 'hidden', [id, 0]));
     const [w, h] = (b.render ?? b.box).slice(2);
     const max = Math.ceil(Math.max(w, h) * scale);
     shots.push(max <= 65536
@@ -249,13 +255,50 @@ function merge() {
       summary.incomplete.push({ board: id, name: b.name, missing: calls.map(c => c.call.split('/').pop()!.replace(/\.js$/, '')), changed_since_plan: [], copies_to_check: mismatch.length });
       continue;
     }
+    // hidden layers inside instances (hidden mode), read after this board's plan from instance 0 on, following `next`
+    const hid: any[] = [];
+    { const got = new Map(responses('hidden-').filter(x => x.r.board === id && x.r.read_at >= b.read_at && x.r.count === b.nodes).map(x => [x.r.from, x.r]));
+      let at: number | null = 0;
+      // an `ins` row is an instance's hidden layers stored once in `it`, relative to the instance
+      const fromIns = (r: any) => (r.ins ?? []).flatMap(([iid, k, x, y]: [string, number, number, number]) => {
+        const P = (iid[0] === 'I' ? iid : 'I' + iid) + ';', abs = (v: string | null) => v === null ? null : v === '' ? iid : P + v;
+        return r.it[k].map((o: any) => ({ i: P + o.s, t: o.t, n: o.n, b: [r2(x + o.d[0]), r2(y + o.d[1]), o.d[2], o.d[3]], pi: abs(o.p), af: abs(o.a), src: o.src, tp: o.tp, ax: o.ax, sid: o.sid }));
+      });
+      for (let r; at !== null && (r = got.get(at)); at = r.next) for (const h of [...r.nodes, ...fromIns(r)]) {
+        hid.push(h);
+        // a template row list: the layer's subtree, ids after the layer's instance prefix, boxes relative to the layer, siblings in order
+        const ids: string[] = [], last = new Map<string, string>(), pre = h.i.slice(0, h.i.length - h.src.replace(/^I/, '').length);
+        for (const o of h.tp !== undefined ? r.tpl[h.tp] : []) {
+          const id = pre + o.s, pi = o.p < 0 ? h.i : ids[o.p];
+          hid.push({ i: id, t: o.t, n: o.n, b: [r2(h.b[0] + o.d[0]), r2(h.b[1] + o.d[1]), o.d[2], o.d[3]], pi, af: last.get(pi) ?? null, ax: o.ax, sid: o.sid });
+          last.set(pi, id); ids.push(id);
+        }
+      }
+      if (at !== null) {
+        const c = writeCall(`hidden-${dash(id)}_${at}`, 'hidden', [id, at]);
+        summary.incomplete.push({ board: id, name: b.name, missing: [c.call.split('/').pop()!.replace(/\.js$/, '')], changed_since_plan: [] });
+        continue;
+      }
+      summary.calls.hidden = (summary.calls.hidden ?? 0) + got.size; }
     const holes = arr.findIndex(n => !n);
     if (holes >= 0) { summary.incomplete.push({ board: id, name: b.name, missing: [`node ${holes} has no record`], changed_since_plan: [] }); continue; }
-    const nodes = arr;
-    for (const n of nodes) { delete n.copied; delete n.copied_drawn; delete n.inside_hash; }
-    // parents and depth (records carry their parent's walk index)
-    nodes.forEach((n, i) => { n.index = i; });
-    for (const n of nodes) { const p = nodes[n.p]; n.parent = p ? p.id : null; n.depth = p ? p.depth + 1 : 0; delete n.p; }
+    for (const n of arr) { delete n.copied; delete n.copied_drawn; delete n.inside_hash; }
+    // parents (records carry their parent's walk index), then the hidden layers after their previous sibling
+    for (const n of arr) { const p = arr[n.p]; n.parent = p ? p.id : null; delete n.p; }
+    const kids = new Map<string, any[]>(), known = new Set(arr.map(n => n.id));
+    const kidsOf = (pid: string) => { if (!kids.has(pid)) kids.set(pid, []); return kids.get(pid)!; };
+    for (const n of arr) if (n.parent) kidsOf(n.parent).push(n);
+    let orphans = 0;
+    for (const h of hid) {
+      if (known.has(h.i)) continue;
+      if (!known.has(h.pi)) { orphans++; continue; }
+      const rec = { id: h.i, type: h.t, name: h.n, box: h.b, hidden: true, ...(h.src ? { from_component: h.src } : {}), ...(h.ax ? { approx_box: true } : {}), ...(h.sid ? { made_up_id: true } : {}), parent: h.pi };
+      const sib = kidsOf(h.pi), after = h.af ? sib.findIndex(s => s.id === h.af) : -1;
+      sib.splice(after + 1, 0, rec); known.add(h.i);
+    }
+    const nodes: any[] = [];
+    const place = (n: any, depth: number) => { n.index = nodes.length; n.depth = depth; nodes.push(n); for (const c of kids.get(n.id) ?? []) place(c, depth + 1); };
+    place(arr[0], 0);
     const [ox, oy] = b.box;
     for (const n of nodes) n.abs = [r2(n.box[0] + ox), r2(n.box[1] + oy), n.box[2], n.box[3]];
     const board = { id, name: b.name, type: b.type, box: b.box, render: b.render, parent: b.parent ?? null, hash: b.hash, read_at: b.read_at, nodes: nodes.length };
@@ -265,7 +308,7 @@ function merge() {
     screens.push(...sc.map(s => ({ board: id, ...s })));
     arrows.push(...findArrows(nodes, sc).map(a => ({ board: id, ...a })));
     hashes[id] = { hash: b.hash, read_at: b.read_at, name: b.name, nodes: nodes.length };
-    summary.boards.push({ id, name: b.name, nodes: nodes.length, copied_instances: copies, screens: sc.length, chunks: have.length, rereads: fulls.length });
+    summary.boards.push({ id, name: b.name, nodes: nodes.length, hidden_in_instances: nodes.length - arr.length, ...(orphans ? { hidden_unplaced: orphans } : {}), copied_instances: copies, screens: sc.length, chunks: have.length, rereads: fulls.length });
   }
   writeJson(join(outDir, 'screens.json'), screens);
   writeJson(join(outDir, 'arrows.json'), arrows);
