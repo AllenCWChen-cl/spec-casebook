@@ -69,7 +69,9 @@ All commands are `node scripts/figma-source.ts <product>/<feature> [<set>] …`;
    `todo.json` with its chunks, or named by merge): a small call (about 6 KB of code) that pairs every shown instance
    with its main component and returns the layers the instance hides, sending repeated ones once. A return with
    `next` names the following call; merge writes it. AI Mini Drama took 18 such calls for 8,654 layers.
-5. **Crop**: `crop design` (python3 with Pillow) cuts each board image into `out/crops/<board>/<screen>.png`.
+5. **Crop**: `crop design` (python3 with Pillow) cuts each board image into `out/crops/<board>/<screen>.png`, plus
+   `arrow-<arrow>.png` per arrow (its path with 80 pt around, at least 360 pt a side), and writes each arrow's `crop`
+   into `arrows.json`. Look at every `pointer` arrow's crop: it is a designer note, often a spec rule.
 6. **Commit** `responses/` and `hashes.json` (calls/ and out/ stay local and can be rebuilt with `merge` and `crop`).
    Board images are not committed; with full-size images needed on another machine, that costs one screenshot per board.
 
@@ -96,12 +98,16 @@ All commands are `node scripts/figma-source.ts <product>/<feature> [<set>] …`;
 - `<board>.metadata.xml`: the same tree in `get_metadata`'s layout (x / y relative to the nearest non-group ancestor),
   with the instances' insides included, for tools that read that format.
 - `screens.json` (phone frames 300–450 pt wide, not nested), `arrows.json` (path, start screen and control, end
-  screen), `library.json` (variables, styles and components used), `summary.json` (calls and bytes),
-  `crops.json` (image size, scale and origin per board).
+  screen, `style` (stroke colour and weight), `kind`: `flow` when drawn in the style most arrows share, `pointer`
+  when not (a designer's note pointing at a detail, not a screen-to-screen flow), and `crop` after `crop`),
+  `library.json` (variables, styles and components used; each variable and style has the `value` it has on the
+  nodes using it, colour as `#rrggbbaa`, a text style as font family, style, size, weight, line height and letter
+  spacing, or `values` with a node count each when modes or overrides give it several, e.g. dark and light),
+  `summary.json` (calls and bytes), `crops.json` (image size, scale and origin per board).
 
 Not read: image fill pixels (only their hash; the board screenshot shows them), vector path data except arrows,
-layout grids, and variable values for other modes (colours and sizes are the values the node resolves to; `modes` is
-set only on frames that pick a mode explicitly).
+layout grids, and variable values in modes no node uses (colours and sizes are the values the node resolves to,
+and `library.json` values come from those nodes; `modes` is set only on frames that pick a mode explicitly).
 
 ## When a call fails
 

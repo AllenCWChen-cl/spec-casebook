@@ -20,8 +20,9 @@
 //                                  layout, instances included), screens.json, arrows.json, library.json (variables,
 //                                  styles, components), summary.json; updates hashes.json for the boards it completed
 //   save <role> [names…]           copies the use_figma returns from the session transcripts into responses/
-//   crop <role>                    cuts out/shots/<board>.png into out/crops/<board>/<screen>.png per screen (needs
-//                                  python3 with Pillow) and writes out/crops.json
+//   crop <role>                    cuts out/shots/<board>.png into out/crops/<board>/<screen>.png per screen and
+//                                  arrow-<arrow>.png per arrow (needs python3 with Pillow), writes out/crops.json and
+//                                  each arrow's crop into out/arrows.json
 // Folder: specs/<set>/extracted/figma-source/<role>/ — responses/ and hashes.json are committed (no one reads an
 // unchanged board again); calls/ and out/ are local.
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
@@ -197,6 +198,7 @@ function merge() {
   }
   mkdirSync(outDir, { recursive: true });
   const lib = { variables: new Map<string, any>(), styles: new Map<string, any>(), components: new Map<string, any>() };
+  const vals = new Map<string, Map<string, number>>();
   const screens: any[] = [], arrows: any[] = [], summary: any = { boards: [], incomplete: [], calls: { plan: responses('plan-').length, chunk: 0 }, bytes: 0 };
   for (const [id, b] of boards) {
     // chunks read after this board's plan; a `full` chunk re-reads one copied instance without shrinking
@@ -307,12 +309,27 @@ function merge() {
     const sc = findScreens(nodes);
     screens.push(...sc.map(s => ({ board: id, ...s })));
     arrows.push(...findArrows(nodes, sc).map(a => ({ board: id, ...a })));
+    collectValues(nodes, vals);
     hashes[id] = { hash: b.hash, read_at: b.read_at, name: b.name, nodes: nodes.length };
     summary.boards.push({ id, name: b.name, nodes: nodes.length, hidden_in_instances: nodes.length - arr.length, ...(orphans ? { hidden_unplaced: orphans } : {}), copied_instances: copies, screens: sc.length, chunks: have.length, rereads: fulls.length });
   }
   writeJson(join(outDir, 'screens.json'), screens);
+  // the arrow style most arrows share is the flow; an arrow drawn otherwise is a designer's pointer at a detail
+  const styleKey = (a: any) => JSON.stringify(a.style), count = new Map<string, number>();
+  for (const a of arrows) count.set(styleKey(a), (count.get(styleKey(a)) ?? 0) + 1);
+  const flow = [...count].sort((a, b) => b[1] - a[1])[0]?.[0];
+  for (const a of arrows) a.kind = styleKey(a) === flow ? 'flow' : 'pointer';
   writeJson(join(outDir, 'arrows.json'), arrows);
-  writeJson(join(outDir, 'library.json'), Object.fromEntries(Object.entries(lib).map(([k, m]) => [k, [...m.values()]])));
+  const valued = (o: any, k: string) => {
+    const m = vals.get(k); if (!m) return o;
+    const e = [...m].sort((a, b) => b[1] - a[1]);
+    return e.length === 1 ? { ...o, value: JSON.parse(e[0][0]) } : { ...o, values: e.map(([v, c]) => ({ value: JSON.parse(v), nodes: c })) };
+  };
+  writeJson(join(outDir, 'library.json'), {
+    variables: [...lib.variables.values()].map(v => valued(v, `${v.collection}/${v.name}`)),
+    styles: [...lib.styles.values()].map(s => valued(s, `style:${s.type}:${s.name}`)),
+    components: [...lib.components.values()],
+  });
   writeJson(join(outDir, 'summary.json'), summary);
   writeJson(hashesPath, hashes);
   console.log(`${summary.boards.length} board(s) merged (${summary.boards.reduce((s: number, b: any) => s + b.nodes, 0)} nodes, ${screens.length} screens, ${arrows.length} arrows) from ${summary.calls.plan} plan and ${summary.calls.chunk} chunk call(s); out: ${rel(outDir)}`);
@@ -324,7 +341,8 @@ function prefixOf(id: string) { return (id[0] === 'I' ? id : 'I' + id) + ';'; }
 
 // ---- expand one record ----------------------------------------------------------------------------------------------------
 function expand(n: any, T: any, lib: any) {
-  const V = (i: number) => { const v = T.V[i]; if (!v) return null; const o = { name: v[0], collection: v[1], type: v[2], remote: !!v[3], key: v[4] }; lib.variables.set(v[0] + '|' + v[1], o); return `${v[1]}/${v[0]}`; };
+  // reads before 2026-11-03 sent componentProperties bindings with no id (name null): left out
+  const V = (i: number) => { const v = T.V[i]; if (!v || v[0] == null) return null; const o = { name: v[0], collection: v[1], type: v[2], remote: !!v[3], key: v[4] }; lib.variables.set(v[0] + '|' + v[1], o); return `${v[1]}/${v[0]}`; };
   const S = (i: number) => { const s = T.S[i]; if (!s) return null; lib.styles.set(s[0] + '|' + s[1], { name: s[0], type: s[1], remote: !!s[2], key: s[3] }); return s[0]; };
   const paint = (i: number) => { const p = T.P[i]; const o: any = { type: p.t };
     if (p.c) o.color = p.c; if (p.o !== undefined) o.opacity = p.o; if (p.v === 0) o.visible = false; if (p.bm) o.blend = p.bm;
@@ -405,23 +423,68 @@ function findArrows(nodes: any[], screens: any[]) {
     const [tx, ty] = n.arrow[0], [hx, hy] = n.arrow[n.arrow.length - 1], from = screenAt(tx, ty, 4);
     const src = nodes.filter(c => (c.type === 'INSTANCE' || c.type === 'FRAME') && !c.hidden && c.depth > 1 && hit(c.box, tx, ty, 6) && c.box[2] * c.box[3] < 200000)
       .sort((a, b) => a.box[2] * a.box[3] - b.box[2] * b.box[3])[0];
-    return { id: n.id, name: n.name, path: n.arrow, from, control: src ? { id: src.id, name: src.name } : null, to: screenAt(hx, hy, 24) };
+    const stroke = Array.isArray(n.strokes) ? n.strokes.find((s: any) => s.visible !== false) : null;
+    return { id: n.id, name: n.name, path: n.arrow, from, control: src ? { id: src.id, name: src.name } : null, to: screenAt(hx, hy, 24),
+      style: { color: stroke?.color ?? null, weight: n.stroke_weight ?? null } };
   });
+}
+// the value each variable and style has on the nodes that use it (read from the nodes, no extra Figma call), counted per
+// value: modes and overrides can give one variable several
+function collectValues(nodes: any[], vals: Map<string, Map<string, number>>) {
+  const add = (k: string | null | undefined, v: unknown) => {
+    if (!k || v === undefined || v === null) return;
+    const m = vals.get(k) ?? new Map<string, number>(), j = JSON.stringify(v); vals.set(k, m); m.set(j, (m.get(j) ?? 0) + 1);
+  };
+  const paints = (ps: any) => { if (Array.isArray(ps)) for (const p of ps) { add(p.variable, p.color); for (const s of p.stops ?? []) add(s.variable, s.color); } };
+  const RUN: Record<string, string> = { fontFamily: 'font_family', fontStyle: 'font_style', fontSize: 'font_size', fontWeight: 'font_weight', lineHeight: 'line_height', letterSpacing: 'letter_spacing' };
+  const EFFECT: Record<string, (e: any) => unknown> = { color: e => e.color, radius: e => e.radius, spread: e => e.spread, offsetX: e => e.offset?.[0], offsetY: e => e.offset?.[1] };
+  for (const n of nodes) {
+    paints(n.fills); paints(n.strokes);
+    for (const e of n.effects ?? []) for (const [k, v] of Object.entries(e.variables ?? {})) add(v as string, EFFECT[k]?.(e));
+    const rad = (i: number) => Array.isArray(n.radius) ? n.radius[i] : n.radius, pad = (i: number) => n.layout?.padding?.[i];
+    const prop: Record<string, unknown> = { width: n.box[2], height: n.box[3], opacity: n.opacity ?? 1, visible: !n.hidden, characters: n.text?.characters,
+      itemSpacing: n.layout?.gap, counterAxisSpacing: n.layout?.cross_gap, paddingTop: pad(0), paddingRight: pad(1), paddingBottom: pad(2), paddingLeft: pad(3),
+      topLeftRadius: rad(0), topRightRadius: rad(1), bottomRightRadius: rad(2), bottomLeftRadius: rad(3),
+      strokeWeight: typeof n.stroke_weight === 'number' ? n.stroke_weight : undefined };
+    for (const [k, v] of Object.entries(n.variables ?? {})) {
+      if (typeof v !== 'string') continue;
+      if (k.startsWith('componentProperties.')) add(v, n.component_props?.[k.slice(20)]); else if (k in prop) add(v, prop[k]);
+    }
+    const st = n.styles ?? {};
+    add(st.fill && `style:PAINT:${st.fill}`, n.fills); add(st.stroke && `style:PAINT:${st.stroke}`, n.strokes); add(st.effect && `style:EFFECT:${st.effect}`, n.effects);
+    for (const r of n.text?.runs ?? []) {
+      paints(r.fills);
+      add(r.text_style && `style:TEXT:${r.text_style}`, { family: r.font_family, style: r.font_style, size: r.font_size, weight: r.font_weight, line_height: r.line_height, letter_spacing: r.letter_spacing });
+      add(r.fill_style && `style:PAINT:${r.fill_style}`, r.fills);
+      for (const [k, v] of Object.entries(r.variables ?? {})) if (typeof v === 'string' && RUN[k]) add(v, r[RUN[k]]);
+    }
+  }
 }
 
 // ---- crop ---------------------------------------------------------------------------------------------------------------
-// one full-size board screenshot → one image per screen; the image covers the board's render bounds (its box when the
+// one full-size board screenshot → one image per screen and one per arrow (its path with ARROW_PAD pt around, enough to
+// show the control it leaves and what it points at); the image covers the board's render bounds (its box when the
 // board clips), and its scale is read from the image width
 function crop() {
+  const ARROW_PAD = 80, ARROW_MIN = 360;
+  // [start, length] of a crop side: the path's span plus ARROW_PAD each way, widened about its centre to ARROW_MIN
+  const span = (v: number[]) => { const a = Math.min(...v) - ARROW_PAD, l = Math.max(...v) + ARROW_PAD - a; return l >= ARROW_MIN ? [a, l] : [a - (ARROW_MIN - l) / 2, ARROW_MIN]; };
   const screens: any[] = existsSync(join(outDir, 'screens.json')) ? read(join(outDir, 'screens.json')) : [];
   if (!screens.length) { console.error(`No ${rel(join(outDir, 'screens.json'))}; run merge first`); process.exit(2); }
+  const arrowsPath = join(outDir, 'arrows.json'), arrows: any[] = existsSync(arrowsPath) ? read(arrowsPath) : [];
   const jobs: any[] = [], report: any[] = [];
-  for (const id of [...new Set(screens.map(s => s.board))]) {
+  for (const id of [...new Set([...screens, ...arrows].map(s => s.board))]) {
     const png = join(outDir, 'shots', `${dash(id)}.png`);
     if (!existsSync(png)) { report.push({ board: id, missing: rel(png) }); continue; }
-    const b = read(join(outDir, `${dash(id)}.json`)).board, cover = b.render ?? b.box;
-    jobs.push({ png, cover, box: b.box, out: join(outDir, 'crops', dash(id)), screens: screens.filter(s => s.board === id).map(s => ({ id: s.id, abs: s.abs })) });
+    const b = read(join(outDir, `${dash(id)}.json`)).board, cover = b.render ?? b.box, [ox, oy] = b.box, out = join(outDir, 'crops', dash(id));
+    const arrowCrops = arrows.filter(a => a.board === id).map(a => {
+      const [x, w] = span(a.path.map((q: number[]) => q[0])), [y, h] = span(a.path.map((q: number[]) => q[1]));
+      a.crop = rel(join(out, `arrow-${dash(a.id)}.png`));
+      return { id: `arrow-${a.id}`, abs: [x + ox, y + oy, w, h] };
+    });
+    jobs.push({ png, cover, box: b.box, out, screens: [...screens.filter(s => s.board === id).map(s => ({ id: s.id, abs: s.abs })), ...arrowCrops] });
   }
+  writeJson(arrowsPath, arrows);
   const py = `import json, sys, os
 from PIL import Image
 res = []
@@ -438,5 +501,5 @@ print(json.dumps(res))`;
   if (r.status !== 0) { console.error(r.stderr || 'python3 with Pillow is needed: pip3 install pillow'); process.exit(1); }
   const done = JSON.parse(r.stdout).map((d: any) => ({ ...d, png: rel(d.png) }));
   writeJson(join(outDir, 'crops.json'), [...done, ...report]);
-  console.log(`${done.reduce((s: number, d: any) => s + d.crops, 0)} screen image(s) from ${done.length} board screenshot(s)${report.length ? `; missing screenshots: ${report.map(x => x.board).join(', ')}` : ''}`);
+  console.log(`${done.reduce((s: number, d: any) => s + d.crops, 0)} screen and arrow image(s) from ${done.length} board screenshot(s)${report.length ? `; missing screenshots: ${report.map(x => x.board).join(', ')}` : ''}`);
 }

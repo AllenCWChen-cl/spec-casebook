@@ -200,7 +200,9 @@ const describe = async (n, origin, hid) => {
   if (Object.keys(st).length) d.st = st;
   if ('boundVariables' in n && n.boundVariables && Object.keys(n.boundVariables).length) {
     const bv = {};
-    for (const k in n.boundVariables) { const v = n.boundVariables[k]; bv[k] = Array.isArray(v) ? v.map(a => a.id) : v.id; }
+    // componentProperties holds one alias per property: kept as componentProperties.<property name>
+    for (const k in n.boundVariables) { const v = n.boundVariables[k];
+      if (k === 'componentProperties') { for (const q in v) bv[`${k}.${q.replace(/#[^#]*$/, '')}`] = v[q].id; } else bv[k] = Array.isArray(v) ? v.map(a => a.id) : v.id; }
     d.bv = bv;
   }
   if ('explicitVariableModes' in n && n.explicitVariableModes && Object.keys(n.explicitVariableModes).length) {
