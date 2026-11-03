@@ -19,6 +19,12 @@ library/<product>/<feature>/
                        runs/<date>/ (evidence from running the table), ebugs/<date>/ (eBug drafts and filing)
 ```
 
+Domain knowledge (facts about the app no spec states) lives in `knowledge/` folders at three scopes, CyberLink
+(`library/knowledge/`), product (`library/<product>/knowledge/`) and feature (`library/<product>/<feature>/knowledge/`),
+read merged by `node scripts/knowledge.ts`. Whenever someone gives some (a note, "remember that…", a colleague's
+notes), hand it to the **domain-knowledge** skill; during a run only park it (`references/run.md`, *Knowledge during a
+run*).
+
 Spec files are copied in by the scripts (`add-spec.ts`, `new-draft.ts`); never store them anywhere else. Put any
 other per-feature material the user asks to keep (exports, notes) under `library/<product>/<feature>/`, never at the repo root.
 
@@ -32,7 +38,8 @@ repo or any other QA tool. A later request may ask to turn exploration findings 
 a normal draft (new rows, `Change` = `new`, the finding named in `Notes`) and send it through review like any
 other change. Never push anything the other way. Requests the user made elsewhere (for example to the spec agent)
 reach the casebook only as entries in the feature's `requests.md`; the one-time import of 2026-10-21 is recorded
-there. Everything a table, a run or a filing needs is in this repo. The spec agent comparison (`references/analysis.md`) reads a
+there. Domain knowledge from those tools reaches it the same way, as a one-time import into `knowledge/sources/`
+(the exploration knowledge bases on 2026-11-03, user-approved; domain-knowledge skill). Everything a table, a run or a filing needs is in this repo. The spec agent comparison (`references/analysis.md`) reads a
 snapshot of the spec agent's cases committed here (`library/<product>/<feature>/spec-agent/<platform>.json`); a clone of the
 spec agent repo, when one is on the machine, only refreshes that snapshot (git only, never its working tree).
 

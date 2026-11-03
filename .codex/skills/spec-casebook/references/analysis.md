@@ -127,6 +127,23 @@ Read these on every new or updated draft, even when the spec set has not changed
 4. **Template roster** (rule 6 below), including the category header icons.
 5. **Run findings.** An observation (O-n) or a filed bug from an earlier run that no row would have caught gets a
    row in the next draft.
+6. **Domain knowledge (user, 2026-11-03).** `node scripts/knowledge.ts <feature> <platform> --for analysis --out
+   <draft>/knowledge.md`, read once before the coverage passes (the CyberLink, product and feature entries merged;
+   the store is kept by the domain-knowledge skill, which you need only when someone gives new knowledge).
+   - `term` entries settle what the spec's words mean (the screen, job or control they name).
+   - A `rule` with authority `spec` or `team` applies wherever it names a job, screen or input the feature has, like
+     the user's QA rules in the coverage passes: write the requirements it gives, cited `[KB: KP-004]`, and list every
+     applicable rule in `requirements.md` › `### Domain rules` (entry → requirements, or `n/a (<why>)`).
+   - A `decision` is applied in the value check: no row asserts what it rules out, and a run finding it explains is
+     not filed. A `risk` tells the passes what to vary (an extra variant or hidden clause on the requirement it names).
+     A `question` goes to Open questions, citing the entry.
+   - An `observed` rule, a `fact` or a `quirk` is an expectation, never a row's only basis: use it to spot what the
+     spec leaves unsaid (an Open question, or a hidden clause the spec does state). A finding resting only on one is a
+     PM question, not an eBug (AGENTS.md, owner and type).
+   - Where the spec and an entry disagree, the spec wins for its feature: an Open question, and the entry goes to the
+     domain-knowledge skill to be marked `disputed`.
+   `check.ts` fails a draft that leaves an applicable rule out and warns when the knowledge changed after the draft
+   read it.
 
 ## Spec agent comparison (only when the user asks; user, 2026-10-27, REQ-036 / REQ-037; replaces REQ-031)
 

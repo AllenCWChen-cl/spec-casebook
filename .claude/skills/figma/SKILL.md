@@ -47,6 +47,15 @@ Commit what each step writes (the tables above and in each reference say what).
   analysis (AGENTS.md *What the repo is for*); the design check never writes rows. Never edit `cases.csv`,
   `requirements.md` or the inventory from here.
 
+## Domain knowledge
+
+The feature's domain knowledge (CyberLink, product and feature entries, kept by the **domain-knowledge** skill) is
+read, not written, here: before a design check, `node scripts/knowledge.ts <feature> <platform> --for analysis --tags
+<screen or area words>` once. Its terms name the screens; a `decision` that rules a difference acceptable (a copy or
+currency the PM accepted) keeps that item off the eBug list; a quirk explains a capture that came out wrong. Knowledge
+someone gives during a design check goes to the domain-knowledge skill afterwards; during a casebook run it is parked
+in the inbox (spec-casebook `run.md`, *Knowledge during a run*).
+
 ## Before any Figma call
 
 1. **Design Figma links only** (user, 2026-10-30). The file is `files.design` (`fileKey`, `page`) in the spec set's

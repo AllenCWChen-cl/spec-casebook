@@ -1,6 +1,8 @@
 # eBug drafts and review page
 
 Part of the spec-casebook skill. The eBug skills carry the full rules (their casebook overlay comes first); this is the casebook order of work.
+Before drafting, read `node scripts/knowledge.ts <feature> <platform> --for ebug` once: the app's names for screens and
+controls, and the `decision` entries (Won't Fix, NAB, PM rulings) that make a finding not a bug.
 
 1. Write `ebugs/<date>/<YYYYMMDD>_eBug_drafts_<Feature>_<version>.md` with `ebug-draft-generator` rules: merge
    failed cases that share one defect, cite the case IDs on each entry's `Report step:` line, and map every

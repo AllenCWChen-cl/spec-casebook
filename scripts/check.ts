@@ -11,11 +11,12 @@
 // - a draft traces every annotation block (annotation-trace.json) and has the "Hidden clauses" and "Variants" grids
 //   for the requirements that need them (user, 2026-10-22, REQ-032);
 import { existsSync, readFileSync } from 'node:fs';
-import { join } from 'node:path';
-import { CHANGES, COLUMNS, arg, assertIds, draftsDir, featureDir, readManifest, readTable, tableDir } from './lib/library.ts';
+import { join, relative } from 'node:path';
+import { CHANGES, COLUMNS, ROOT, arg, assertIds, draftsDir, featureDir, readManifest, readTable, tableDir } from './lib/library.ts';
 import { parseCsv } from './lib/csv.ts';
 import { linkBlocks } from './lib/links.ts';
 import { skillDiffs } from './lib/skills.ts';
+import { KB_ID, applicable, knowledgeHash, loadKnowledge } from './lib/knowledge.ts';
 
 const [feature, platform] = process.argv.slice(2);
 assertIds(feature, platform);
@@ -214,6 +215,30 @@ if (draft && reqText) {
       if (!tcs.length && !/^n\/a \(/.test(by)) errors.push(`Variants: ${id} × ${variant} names no row`);
       for (const tc of tcs) if (!active.has(tc)) errors.push(`Variants: ${id} × ${variant} names ${tc}, which is not an active row`);
     }
+  }
+}
+
+// Domain knowledge (user, 2026-11-03, domain-knowledge skill): every [KB: K…] citation resolves to a current entry,
+// every applicable spec/team rule is cited or listed n/a in "Domain rules", and the draft read the current brief.
+{
+  const kb = loadKnowledge(feature);
+  for (const p of kb.problems) warnings.push(`Knowledge: ${p} (node scripts/knowledge.ts ${feature} --check)`);
+  const byId = new Map(kb.entries.map(e => [e.id, e]));
+  const { shown } = applicable(kb.entries, { platform, use: 'analysis' });
+  if (reqText) {
+    for (const id of new Set(reqText.match(KB_ID) ?? [])) {
+      const e = byId.get(id);
+      if (!e) errors.push(`requirements.md cites ${id}, which is not a knowledge entry for ${feature}`);
+      else if (e.status !== 'current') errors.push(`requirements.md cites ${id}, which is ${e.status}`);
+    }
+    const uncited = shown.filter(e => e.kind === 'rule' && e.authority !== 'observed' && !new RegExp(`\\b${e.id}\\b`).test(reqText));
+    if (uncited.length) (draft ? errors : warnings).push(`Domain rules not cited in requirements.md (cite [KB: …] or list n/a under "Domain rules"): ${uncited.map(e => `${e.id} ${e.title}`).join(', ')}`);
+  }
+  if (draft && kb.entries.length) {
+    const snap = join(dir, 'knowledge.md');
+    const was = existsSync(snap) ? readFileSync(snap, 'utf8').match(/knowledge hash: (\w+)/)?.[1] : undefined;
+    if (!existsSync(snap)) warnings.push(`No knowledge.md in the draft: node scripts/knowledge.ts ${feature} ${platform} --for analysis --out ${relative(ROOT, snap)}, then read it (Standing inputs 6)`);
+    else if (was !== knowledgeHash(shown)) warnings.push(`Domain knowledge changed since the draft wrote knowledge.md: re-run knowledge.ts --out and re-read the changed entries`);
   }
 }
 

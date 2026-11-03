@@ -25,12 +25,13 @@ Spec: <file names>
 - R-150 [DS: flow arrow <node> <Figma URL>] <from → to>: <expected>. Walked by: TC-033.
 ### Build checks
 - R-160 [Build: <TRCode> RD Note (<build>); Req: REQ-021] <statement>
+### Domain rules         | Entry | Requirements |   every applicable spec/team rule of the draft's knowledge.md: R-… or n/a (<why>)
 ### Request ledger coverage
 | Ledger entry | Requirements |      every open table entry of requests.md for this platform
 ```
 
 Source tags: `[PM:<board>]`, `[DS:<board>]`, `[MX:<board>]` (board IDs in `specs/<date>/extracted/boards/`),
-`[DS: flow arrow <node> <URL>]`, `[Req: REQ-…]` (request ledger), `[Build: <TRCode> …]` (RD build notes),
+`[DS: flow arrow <node> <URL>]`, `[Req: REQ-…]` (request ledger), `[KB: KP-…]` (domain knowledge, domain-knowledge skill), `[Build: <TRCode> …]` (RD build notes),
 `[Rule n: …]` (coverage rules), `[DS:figma <label> <node>]` (a Figma-only frame). `check.ts` reads `Walked by:`,
 the three grids, the ledger table, `arrows.json` and `figma-frames.json`, so keep those exact forms.
 

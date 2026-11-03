@@ -1,0 +1,67 @@
+{
+ "from": "PhD domain knowledge from a colleague (user, 2026-11-03; ~/Downloads/domain, itself imported from qadm-phdm-spec-contract-runner-agent/docs/domain/phd commit c00d9c6)",
+ "received": "2026-11-03",
+ "note": "One-time import. Entries keep the source's K ids as aka. Distilled from 260 PHD eBugs 2026-04-01..2026-10-15 plus user-confirmed rules. Originals stay local (git-ignored).",
+ "files": [
+  {
+   "name": "README.md",
+   "bytes": 4120,
+   "sha256": "7d67095c10d025e85f994d62346d132573ef72f1d7fd83c7953df517367835f3"
+  },
+  {
+   "name": "confirmed-rules.md",
+   "bytes": 9421,
+   "sha256": "4396687fb96de1ac921eb03e8364bf4cf31f8659b4b28f76c9afe20c6b805ca1"
+  },
+  {
+   "name": "decisions.md",
+   "bytes": 5493,
+   "sha256": "302c9bb721edc5c0e00e8ec2f17764db29b7de8544a31cc44611b9588c6f1a6b"
+  },
+  {
+   "name": "glossary.md",
+   "bytes": 4429,
+   "sha256": "3988659172ed2a8469e2d2b43e4a4f802dc11b69130643ca57cf59dd46b3ab19"
+  },
+  {
+   "name": "open-questions.md",
+   "bytes": 2466,
+   "sha256": "6811c124d98996cf6bb1afad850244d1a917fe23f5b9aaf404266387b2f11ff0"
+  },
+  {
+   "name": "regression-risks.md",
+   "bytes": 11059,
+   "sha256": "0265643fe841107960246df09c765d240e11be49d24fe4ef37b2c9d3cabe7d49"
+  },
+  {
+   "name": "source/README.zh-Hant.md",
+   "bytes": 4559,
+   "sha256": "a331b4367760532ef757bf8b572652e27ac08857a2306456ea44b3f999510036"
+  },
+  {
+   "name": "source/phd-domain-knowledge.zh-Hant.md",
+   "bytes": 47543,
+   "sha256": "0d78c87757704d9d1d9553730d3dc7e5df7c7a252c3138445049a638ce1ae6d5"
+  },
+  {
+   "name": "source/source-index.json",
+   "bytes": 131411,
+   "sha256": "1c663229b9cedea8bc4530853d8da223d3d66f8655b89941f8a2fa856800bdf8"
+  },
+  {
+   "name": "source/source-index.md",
+   "bytes": 66063,
+   "sha256": "50df3a40ef27f23d1ac551142e4df000010514153e0967f8913a6c5a3fe0aa81"
+  },
+  {
+   "name": "test-setup.md",
+   "bytes": 1742,
+   "sha256": "d0ee6251fd4088eec1587f6b11836abd2a9756dcb5e7f0dc7321f81235009a9f"
+  },
+  {
+   "name": "triage.md",
+   "bytes": 3836,
+   "sha256": "305bb571eb0d7ba106066153b921cecad0f80709c206b3f408a6a2b7894d1fb4"
+  }
+ ]
+}

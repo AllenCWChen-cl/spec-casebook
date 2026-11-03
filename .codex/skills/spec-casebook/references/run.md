@@ -9,7 +9,21 @@ verdict rules.
 `library/<product>/<feature>/<platform>/fixtures.md`, because none of it can be committed. Check it before the first segment;
 when a new row needs a new photo or account state, add it there in the same draft. What the scripts need to know about
 the feature (its log files and tags for `log-slice.ts` and `pull-logs`, its Pink menu and the switches `fresh` turns
-on) is in `library/<product>/<feature>/feature.json`; a new feature adds its own before the first run.
+on) is in `library/<product>/<feature>/feature.json`; a new feature adds its own before the first run. What is known
+about driving the app (debug menus, tier and server switches, log lines, quirks) is the domain knowledge.
+
+**Knowledge during a run (user, 2026-11-03).** A run spends no tokens on taking knowledge in:
+- Each segment reads `node scripts/knowledge.ts <feature> <platform> --for run [--tags <area>]` once at its start:
+  how-tos, quirks, facts and decisions in full, rules, risks, questions and terms as titles (`--grep <id>` prints
+  one when a case needs it), and any parked `--now` item on top. It never runs the domain-knowledge skill. When the
+  phone contradicts an entry it records an observation naming it (`O-3 contradicts KP-002`) and follows the phone.
+- Knowledge someone gives the orchestrator mid-run is parked word for word, not processed:
+  `knowledge.ts <feature> inbox add "<text>" --from "<who, where>"`, with `--now` when the next segment must follow it
+  (it then heads every run brief). Then the orchestrator carries on.
+- The **phase wrap-up** ends with one fresh subagent briefed "Process the knowledge inbox and the observations of
+  <run dir> per the domain-knowledge skill" (skip it when `knowledge.ts <feature> inbox` shows nothing open and no
+  observation names an entry). It corrects contradicted entries, stamps `verified` on entries the run used and found
+  true, files the parked items, and replies in at most 10 lines; the phase report quotes them.
 
 **Tap log and coverage proof (user, 2026-10-28, REQ-038).** Every press through `device.ts` (`tap`, `hold`, `burst`,
 `id`, `lbl`, `tapif`, `clear`, `setval`) is logged to `<run dir>/taps.jsonl` with the element hit, a small screenshot
@@ -62,7 +76,7 @@ refuses them), and it runs in one folder, e.g. `runs/<date>-p23-regression-flows
   subagent, one at a time (Claude Code: Agent tool, general-purpose; Codex: one new native subagent per segment,
   closed after its reply; wait for it to finish before the next), with the one-line brief "Resume casebook run
   <run dir> (or start phase <Pn>) per <RUN-PLAN>: read the plan, run-state.md and `run-log.ts <run dir> next`;
-  follow the spec-casebook skill (SKILL.md, references/run.md); do exactly one segment, then pull and slice the logs,
+  follow the spec-casebook skill (SKILL.md, references/run.md) and read `knowledge.ts <feature> <platform> --for run`; do exactly one segment, then pull and slice the logs,
   checkpoint, update the plan's Status and Log, and reply with at most 10 lines: tally, next case, blockers." A
   phase's last segment adds the phase wrap-up (summary, `time`, tokens, eBug drafts and review page, report.md). The
   orchestrator reads only that reply (never screenshots or logs), decides the next brief from `run-log next` and

@@ -30,7 +30,8 @@ const ID = /^[a-z0-9]+(-[a-z0-9]+)*\/[a-z0-9]+(-[a-z0-9]+)*$/;
 /** Every feature in the library as <product>/<feature>. */
 export function listFeatures(): string[] {
   if (!existsSync(LIBRARY)) return [];
-  const dirs = (d: string) => readdirSync(d).filter(f => !f.startsWith('.') && statSync(join(d, f)).isDirectory());
+  // knowledge/ (CyberLink-wide under library/, per product under library/<product>/) is not a product or feature
+  const dirs = (d: string) => readdirSync(d).filter(f => !f.startsWith('.') && f !== 'knowledge' && statSync(join(d, f)).isDirectory());
   return dirs(LIBRARY).flatMap(product => dirs(join(LIBRARY, product)).map(f => `${product}/${f}`)).sort();
 }
 

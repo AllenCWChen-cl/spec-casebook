@@ -563,8 +563,10 @@ limits the page to one run, to see whether that run pressed everything.
 │   └── lib/                  # Shared helpers (CSV, library paths, spec sets, export)
 ├── templates/                # Review page template
 └── library/
+    ├── knowledge/            # Domain knowledge true of every CyberLink product (KC-…)
     └── <product>/            # One folder per product (pdr = PowerDirector Mobile)
         ├── product.json      # App ids per platform, TestFlight name, eBug (ECL) product names
+        ├── knowledge/        # Domain knowledge true of every feature of the product (KP-…)
         └── <feature>/        # One folder per feature (see below)
 ```
 
@@ -575,6 +577,23 @@ product names), then start the first feature with `node scripts/new-draft.ts <pr
 Give the feature its own `feature.json` (log files and tags, Pink menu) before its first on-device run. Scripts read
 the app ids from `product.json` through the run folder, so a run folder must sit under `library/<product>/…/runs/`
 (or set `CASEBOOK_APP_BUNDLE` / `CASEBOOK_ANDROID_PACKAGE`).
+
+### Domain knowledge
+
+Facts about an app that no spec states (terms, product-wide rules, debug menus, server and tier switches, log lines,
+quirks) are kept as short Markdown entries at three scopes: `library/knowledge/` (CyberLink, `KC-001`…),
+`library/<product>/knowledge/` (`KP-…`) and `library/<product>/<feature>/knowledge/` (`KF-…`), one file per topic.
+Give the agent a note, a doc or a colleague's knowledge base and it files each fact at the right scope
+(the `domain-knowledge` skill, `.claude/skills/domain-knowledge/SKILL.md`). Every draft and every run segment reads them merged:
+
+```bash
+node scripts/knowledge.ts pdr/ai-mini-drama ios --for run
+```
+
+`--ids` lists them in one line each, `--grep <word>` finds one, `--check` validates them. Something you tell the agent
+during a run is parked in `library/<product>/knowledge/inbox.md` (`knowledge.ts <feature> inbox add …`) and filed after
+the phase, so the run itself spends nothing on it. The original documents stay
+on your computer; only the entries and extracted text are committed, so the repo stays small.
 
 ### Moving a checkout from the old layout (2026-10-29)
 
@@ -596,6 +615,7 @@ Using `library/pdr/ai-mini-drama/` as the example:
 | --- | --- |
 | `README.md` | Generated index: approved tables, versions, spec sets received |
 | `requests.md` | Request ledger (`REQ-001`…), re-applied on every draft |
+| `knowledge/` | Domain knowledge of this feature (`KF-…`), one Markdown file per topic; `sources/` keeps what it came from (originals local only) |
 | `feature.json` | What the run scripts need to know about the feature: its app log files and tags (failures, toasts, credits, stage timings) and its Pink menu and fresh-install switches; without it the scripts use generic defaults |
 | `spec-agent.json`, `spec-agent/<platform>.json` | Spec agent settings and the committed snapshot of its cases, for comparison reports on request |
 | `ios/fixtures.md` | What the phone needs for a run: build, account, photos for the upload cases, settings |

@@ -74,3 +74,24 @@ library/*/*/*/runs/plan-server*.log
 # eBug filing staging folders are regenerated copies of the drafts' bodies and attachments (drafts_to_bodies.py)
 library/*/*/*/ebugs/*/upload/
 library/*/*/*/ebugs/*/upload_filing/
+
+# Domain knowledge (user, 2026-11-03): entries are small Markdown and are committed; a source's original files (docs,
+# PDFs, exports, images) stay local like spec files, and only its source.json and extracted text are shared.
+library/knowledge/sources/*/*
+library/*/knowledge/sources/*/*
+library/*/*/knowledge/sources/*/*
+!library/knowledge/sources/*/source.json
+!library/*/knowledge/sources/*/source.json
+!library/*/*/knowledge/sources/*/source.json
+!library/knowledge/sources/*/extracted/
+!library/*/knowledge/sources/*/extracted/
+!library/*/*/knowledge/sources/*/extracted/
+library/knowledge/sources/*/extracted/*
+library/*/knowledge/sources/*/extracted/*
+library/*/*/knowledge/sources/*/extracted/*
+!library/knowledge/sources/*/extracted/*.md
+!library/*/knowledge/sources/*/extracted/*.md
+!library/*/*/knowledge/sources/*/extracted/*.md
+!library/knowledge/sources/*/extracted/*.txt
+!library/*/knowledge/sources/*/extracted/*.txt
+!library/*/*/knowledge/sources/*/extracted/*.txt

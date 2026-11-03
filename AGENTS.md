@@ -9,7 +9,8 @@ two differ).
 
 - The approved table for a feature is `library/<product>/<feature>/<ios|android>/cases.csv`. Treat it as the correct answer
   for that feature; change it only through the review page's Save or an explicit user request.
-- Keep this repo independent from the exploration-test folder, the spec agent repo and other QA tools.
+- Keep this repo independent from the exploration-test folder, the spec agent repo and other QA tools. (One user-approved
+  exception, 2026-11-03: a one-time copy of the exploration knowledge bases into `knowledge/sources/`, see below.)
 - Table rows are written in English.
 - Scripts are TypeScript run directly with Node ≥ 22.18 (types are stripped, not checked). Keep new scripts in
   TypeScript and run `npm run typecheck` after changing any script.
@@ -92,6 +93,12 @@ lines; put the full rule in the skill or reference file that applies it and poin
   commit what another computer needs (source responses, board images, design plans, captures as 750 px copies, results
   and verdicts), so a pull needs no Figma call or phone file (`figma/SKILL.md` › *One feature folder*). `npm test`
   covers the figma scripts.
+- **Domain knowledge (user, 2026-11-03).** Facts about an app that no spec states go in `knowledge/` at the
+  narrowest true scope: CyberLink (`library/knowledge/`, `KC-`), product (`library/<product>/knowledge/`, `KP-`) or
+  feature (`library/<product>/<feature>/knowledge/`, `KF-`); `scripts/knowledge.ts` merges them for analyses
+  (Standing inputs 6) and run segments. Generated or second-hand ones go in as `observed`; originals stay local, only
+  entries, `source.json` and extracted text are committed. Intake and upkeep are the `domain-knowledge` skill; during a
+  run knowledge is only parked (`knowledge.ts … inbox add`) and processed by a fresh subagent at the phase wrap-up.
 - **Phone fixtures (2026-10-27).** What a run needs on the phone or account is in
   `library/<product>/<feature>/<platform>/fixtures.md`.
 - **Live pages (user, 2026-10-28).** `scripts/pages.ts` serves Cases, Progress, Results, Coverage and Design with one shared
