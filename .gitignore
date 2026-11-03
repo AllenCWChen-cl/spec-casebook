@@ -55,6 +55,9 @@ library/*/*/*/runs/*/screenshots/
 # is shared with the run, so another computer can check, review and show the Design tab without the phone's files
 !library/*/*/*/runs/*/design/captures/*.webp
 
+# QA Report evidence ZIPs (qa-report skill) are rebuilt from the screenshots and uploaded to the QR; they stay local
+library/*/*/*/runs/*/*_evidence.zip
+
 # Pulled app logs (may hold tokens) stay local
 library/*/*/*/runs/*/logs/
 library/*/*/*/runs/*/.session

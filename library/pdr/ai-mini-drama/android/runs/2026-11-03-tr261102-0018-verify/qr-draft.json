@@ -1,0 +1,248 @@
+{
+  "tr": "TR261102-0018",
+  "product": "PowerDirector Mobile for Android",
+  "tester": "ETHAN_HSU",
+  "template": "Standard Report",
+  "testingDate": "2026/11/03",
+  "version": "16.8.0",
+  "build": "2611021",
+  "buildDay": "1102",
+  "os": "Android 15",
+  "env": {
+    "device": "Samsung Galaxy A53 (SM-A5360) / Android 15",
+    "server": "Stage",
+    "account": "signed in to the tester's CyberLink test account",
+    "testedBy": "AI agent (Claude Opus 5.5) driving the phone over Appium; verdicts and evidence reviewed by ETHAN_HSU",
+    "install": "APK from the TR's OneDrive folder (MD5 checked), installed over 16.8.0.2610212",
+    "scope": "the 15 eBugs created by ETHAN_HSU in this TR's verify list"
+  },
+  "observations": [
+    "AI Mini Drama export: if 「Stop exporting?」 is left open, the export finishes underneath it and the video is saved while the dialog still says 「Your video won't be saved.」"
+  ],
+  "rows": [
+    {
+      "bug": "DRA262610P0326",
+      "result": "Fail",
+      "summary": "the Gender filter still lists 「Other」 twice (2/2)",
+      "observed": "The Gender filter lists 「Female」「Male」「Other」「Other」: Other still appears twice.",
+      "expected": "Gender lists Female, Male and Others once each (spec: 「Female / Male / Others」).",
+      "images": [
+        "screenshots/16.8.0.2611021_DRA262610P0326_verify.png",
+        "screenshots/f1.png"
+      ],
+      "title": "PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Character filter lists 「Other」 twice under Gender",
+      "severity": "2",
+      "creator": "ETHAN_HSU",
+      "logs": []
+    },
+    {
+      "bug": "DRA262610P0334",
+      "result": "Fail",
+      "summary": "Back during a chat character update still leaves with no dialog; the update runs on and is charged",
+      "observed": "System Back right after Generate on the Update characters card goes to the landing page with no dialog; the update runs on and is charged.",
+      "expected": "Back asks 「Stop and lose your credits?」 with Leave anyway and Keep Generating.",
+      "images": [
+        "screenshots/p0334_card.png",
+        "screenshots/p0334_generating.png",
+        "screenshots/16.8.0.2611021_DRA262610P0334_verify.png",
+        "screenshots/p0334_reopen.png"
+      ],
+      "logs": [
+        "16.8.0.2611021_DRA262610P0334_log.txt"
+      ],
+      "title": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Back during a chat character update leaves with no stop dialog",
+      "severity": "2",
+      "creator": "ETHAN_HSU"
+    },
+    {
+      "bug": "DRA262610P0335",
+      "result": "OK",
+      "summary": "the over-limit text can no longer be entered: a real paste stops at 1000/1000 with the limit message",
+      "note": "The 1,050-character text can no longer be entered: a real paste stops at 1000/1000 with the limit message, so no text is cut.",
+      "images": [
+        "screenshots/p0335_menu.png",
+        "screenshots/16.8.0.2611021_DRA262610P0335_verify.png"
+      ],
+      "title": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Expanded description editor cuts text to 1,000 characters and writes it back",
+      "severity": "2",
+      "creator": "ETHAN_HSU",
+      "logs": []
+    },
+    {
+      "bug": "DRA262610P0337",
+      "result": "OK",
+      "summary": "X, swipe down and Back each ask 「Discard this character?」 and Discard keeps the look out of Mine",
+      "images": [
+        "screenshots/p0337_dialog.png",
+        "screenshots/16.8.0.2611021_DRA262610P0337_swipe.png",
+        "screenshots/16.8.0.2611021_DRA262610P0337_back.png",
+        "screenshots/p0337_back_mine_only.png"
+      ],
+      "logs": [
+        "16.8.0.2611021_DRA262610P0337_log.txt",
+        "16.8.0.2611021_DRA262610P0337_swipe_back_log.txt"
+      ],
+      "title": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Closing a generated character with X, swipe down or Back saves it to Mine anyway",
+      "severity": "3",
+      "creator": "ETHAN_HSU"
+    },
+    {
+      "bug": "DRA262610P0338",
+      "result": "Fail",
+      "summary": "the generated character page still has no Discard button",
+      "observed": "The generated character page still has only X, Download and 「Save to library」; there is no 「Discard」 button.",
+      "expected": "The page offers 「Discard」, which closes it at once without saving or applying the look.",
+      "images": [
+        "screenshots/16.8.0.2611021_DRA262610P0338_verify.png"
+      ],
+      "title": "PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Generated character page has no Discard button",
+      "severity": "3",
+      "creator": "ETHAN_HSU",
+      "logs": []
+    },
+    {
+      "bug": "DRA262610P0349",
+      "result": "OK",
+      "summary": "the scroll-to-bottom button sits at the bottom right and scrolls to the newest message",
+      "images": [
+        "screenshots/16.8.0.2611021_DRA262610P0349_verify.png"
+      ],
+      "title": "PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Scroll-to-bottom button sits at the bottom centre instead of the bottom right",
+      "severity": "3",
+      "creator": "ETHAN_HSU",
+      "logs": []
+    },
+    {
+      "bug": "DRA262610P0352",
+      "result": "OK",
+      "summary": "History thumbnails show the first storyboard frame (3/3 dramas with a storyboard)",
+      "images": [
+        "screenshots/s2_history.png",
+        "screenshots/p0352_tongju_storyboard.png",
+        "screenshots/p0352_hi_story.png"
+      ],
+      "title": "PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: History thumbnail shows a character look instead of the first storyboard frame",
+      "severity": "3",
+      "creator": "ETHAN_HSU",
+      "logs": []
+    },
+    {
+      "bug": "DRA262610P0353",
+      "result": "OK",
+      "summary": "cancelling Choose Character no longer moves the drama to the top of History",
+      "images": [
+        "screenshots/16.8.0.2611021_DRA262610P0353_before.png",
+        "screenshots/p0353_choose.png",
+        "screenshots/16.8.0.2611021_DRA262610P0353_verify.png"
+      ],
+      "title": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Opening a drama and cancelling Choose Character moves it to the top of History",
+      "severity": "2",
+      "creator": "ETHAN_HSU",
+      "logs": []
+    },
+    {
+      "bug": "DRA262610P0357",
+      "result": "OK",
+      "summary": "one tap on Play opens the player and the video plays (2/2)",
+      "images": [
+        "screenshots/p0357_a.png",
+        "screenshots/16.8.0.2611021_DRA262610P0357_verify.png"
+      ],
+      "title": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Play on the video card opens the player paused; it needs a second tap",
+      "severity": "3",
+      "creator": "ETHAN_HSU",
+      "logs": []
+    },
+    {
+      "bug": "DRA262610P0359",
+      "result": "OK",
+      "summary": "leaving an export now asks 「Stop exporting?」 with Stop / Keep exporting",
+      "note": "Fixed with the spec's fallback 「Stop exporting?」; the export does not continue in the background after leaving.",
+      "images": [
+        "screenshots/p0359_producing.png",
+        "screenshots/16.8.0.2611021_DRA262610P0359_verify.png",
+        "screenshots/p0359_saved_toast.png",
+        "screenshots/p0359_after_stop.png"
+      ],
+      "logs": [
+        "16.8.0.2611021_DRA262610P0359_log.txt"
+      ],
+      "title": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: Leaving the export page asks to leave and cancels the export",
+      "severity": "3",
+      "creator": "ETHAN_HSU"
+    },
+    {
+      "bug": "DRA262610P0360",
+      "result": "OK",
+      "summary": "the export shows the drama's own frame while producing and when saved",
+      "images": [
+        "screenshots/16.8.0.2611021_DRA262610P0360_verify.png",
+        "screenshots/p0360_tongju_done.png"
+      ],
+      "title": "PDR-A 16.8.0 - [AIAgent][UI] AI Mini Drama: Export producing and done pages show another drama's thumbnail",
+      "severity": "2",
+      "creator": "ETHAN_HSU",
+      "logs": []
+    },
+    {
+      "bug": "DRA262610P0386",
+      "result": "OK",
+      "summary": "Back on the Add Media album list closes only the list (2/2)",
+      "images": [
+        "screenshots/p0386_album_list.png",
+        "screenshots/16.8.0.2611021_DRA262610P0386_verify.png"
+      ],
+      "title": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: System Back on the Add Media album list closes the whole picker",
+      "severity": "2",
+      "creator": "ETHAN_HSU",
+      "logs": []
+    },
+    {
+      "bug": "DRA262610P0387",
+      "result": "OK",
+      "summary": "Back on the enlarged character preview closes only the preview (4/4)",
+      "images": [
+        "screenshots/p0387_preview.png",
+        "screenshots/16.8.0.2611021_DRA262610P0387_verify.png"
+      ],
+      "title": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: System Back on the enlarged character preview closes Choose Character",
+      "severity": "2",
+      "creator": "ETHAN_HSU",
+      "logs": []
+    },
+    {
+      "bug": "DRA262610P0389",
+      "result": "OK",
+      "summary": "Back in History Manage mode exits Manage and stays in History (2/2)",
+      "images": [
+        "screenshots/p0389_selected.png",
+        "screenshots/16.8.0.2611021_DRA262610P0389_verify.png"
+      ],
+      "title": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: System Back in History Manage mode leaves History instead of exiting Manage",
+      "severity": "2",
+      "creator": "ETHAN_HSU",
+      "logs": []
+    },
+    {
+      "bug": "DRA262610P0391",
+      "result": "OK",
+      "summary": "the Export Full Video sheet was removed, so Back on it can no longer happen",
+      "note": "The Export Full Video sheet was removed (export starts at once on the result page), so Back on the sheet can no longer happen. Back during the export asks 「Stop exporting?」 and Keep exporting stays on the result page.",
+      "images": [
+        "screenshots/p0391_sheet.png",
+        "screenshots/p0391_back_dialog.png",
+        "screenshots/16.8.0.2611021_DRA262610P0391_verify.png"
+      ],
+      "title": "PDR-A 16.8.0 - [AIAgent] AI Mini Drama: System Back on the Export Full Video sheet also closes the result page",
+      "severity": "2",
+      "creator": "ETHAN_HSU",
+      "logs": []
+    }
+  ],
+  "evidence": {
+    "file": "TR261102-0018_16.8.0.2611021_evidence.zip",
+    "sha256": "105b0e32a83c5863d9c04facdb8ec956d8d3ba6cae5404dfc3fbb17c1d008a1b",
+    "files": 41,
+    "url": "https://ecl.cyberlink.com/IF3/Data/Download?o=iForm/2026/11/03/67d9bf6a-e00b-402a-8a2e-da0a1958c281.zip"
+  }
+}

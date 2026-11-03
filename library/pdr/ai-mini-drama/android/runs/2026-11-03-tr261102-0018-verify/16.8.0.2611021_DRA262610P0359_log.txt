@@ -1,0 +1,31 @@
+# DRA262610P0359 / P0391 / P0360 - export on 16.8.0.2611021 (Galaxy A53), excerpt of logs/s2-20261103-163021/logcat-live.txt
+# Export runs on the result page (MPEG4Writer start), system Back -> KEYCODE_BACK + dialog, Toast = 「Saved to Gallery」, MOOV written = file finished
+2026-11-03 16:18:06.340 16104 16235 D CreditSystemManager: getMemberCreditRemain, gGetMemberRemainResponse: GGetMemberRemainResponse(totalRemain=25214
+2026-11-03 16:18:25.432 16104 16726 D MPEG4Writer: PreAllocation enabled
+2026-11-03 16:19:00.360 16104 16726 I MPEG4Writer: MOOV atom was written to the file
+2026-11-03 16:19:00.585 16104 16104 I Toast   : show: caller = zxk.a:27 
+2026-11-03 16:19:31.205 16104 17265 D MPEG4Writer: PreAllocation enabled
+2026-11-03 16:20:03.566 16104 17265 I MPEG4Writer: MOOV atom was written to the file
+2026-11-03 16:20:03.769 16104 16104 I Toast   : show: caller = zxk.a:27 
+2026-11-03 16:20:29.420 16104 17806 D MPEG4Writer: PreAllocation enabled
+2026-11-03 16:20:32.959 16104 16104 D Activity: onKeyDown(KEYCODE_BACK), activity=com.cyberlink.powerdirector.iris.ui.MiniDramaActivity@790c015
+2026-11-03 16:21:01.779 16104 17806 I MPEG4Writer: MOOV atom was written to the file
+2026-11-03 16:21:01.957 16104 16104 I Toast   : show: caller = zxk.a:27 
+2026-11-03 16:21:21.026 16104 18351 D MPEG4Writer: PreAllocation enabled
+2026-11-03 16:21:53.105 16104 18351 I MPEG4Writer: MOOV atom was written to the file
+2026-11-03 16:21:53.293 16104 16104 I Toast   : show: caller = zxk.a:27 
+2026-11-03 16:22:16.001 16104 16235 D CreditSystemManager: getMemberCreditRemain, gGetMemberRemainResponse: GGetMemberRemainResponse(totalRemain=25214
+2026-11-03 16:22:18.823 16104 19012 D MPEG4Writer: PreAllocation enabled
+2026-11-03 16:22:20.782 16104 16104 D Activity: onKeyDown(KEYCODE_BACK), activity=com.cyberlink.powerdirector.iris.ui.MiniDramaActivity@790c015
+2026-11-03 16:22:22.134 16104 19012 I MPEG4Writer: MOOV atom was written to the file
+2026-11-03 16:23:47.599 16104 16104 D Activity: onKeyDown(KEYCODE_BACK), activity=com.cyberlink.powerdirector.iris.ui.MiniDramaActivity@790c015
+2026-11-03 16:25:12.037 16104 16235 D CreditSystemManager: getMemberCreditRemain, gGetMemberRemainResponse: GGetMemberRemainResponse(totalRemain=25214
+2026-11-03 16:25:25.080 16104 19719 D MPEG4Writer: PreAllocation enabled
+2026-11-03 16:25:52.810 16104 19719 I MPEG4Writer: MOOV atom was written to the file
+2026-11-03 16:25:53.014 16104 16104 I Toast   : show: caller = zxk.a:27 
+2026-11-03 16:26:07.709 16104 20237 D MPEG4Writer: PreAllocation enabled
+2026-11-03 16:26:09.738 16104 16104 D Activity: onKeyDown(KEYCODE_BACK), activity=com.cyberlink.powerdirector.iris.ui.MiniDramaActivity@790c015
+2026-11-03 16:26:34.736 16104 20237 I MPEG4Writer: MOOV atom was written to the file
+2026-11-03 16:26:34.918 16104 16104 I Toast   : show: caller = zxk.a:27 
+2026-11-03 16:26:51.416 16104 16104 D Activity: onKeyDown(KEYCODE_BACK), activity=com.cyberlink.powerdirector.iris.ui.MiniDramaActivity@790c015
+2026-11-03 16:29:57.885 16104 16104 D Activity: onKeyDown(KEYCODE_BACK), activity=com.cyberlink.powerdirector.iris.ui.MiniDramaActivity@790c015

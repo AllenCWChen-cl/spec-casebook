@@ -1,0 +1,46 @@
+{
+  "qr": "QR261103-0042",
+  "url": "https://ecl.cyberlink.com/IF3/qr/BPM/FormView/QR261103-0042",
+  "tr": "TR261102-0018",
+  "tester": "ETHAN_HSU",
+  "created": "2026-11-03 17:32 (IF3 Standard Report, template 14564)",
+  "build": "16.8.0.2611021",
+  "shortDescription": "16.8.0.2611021 - Bug verify report (ETHAN_HSU)",
+  "testResult": "PDR-A - Bug verification [OK=12, Fail=3]",
+  "os": "Android 15",
+  "osLanguage": "English",
+  "readBack": "every field, State and Reason matched qr-draft.json; only the 15 ETHAN_HSU rows set; ZIP listed once under Attachment",
+  "ticketsAfter": {
+    "Close": [
+      "DRA262610P0335",
+      "DRA262610P0337",
+      "DRA262610P0349",
+      "DRA262610P0352",
+      "DRA262610P0353",
+      "DRA262610P0357",
+      "DRA262610P0359",
+      "DRA262610P0360",
+      "DRA262610P0386",
+      "DRA262610P0387",
+      "DRA262610P0389",
+      "DRA262610P0391"
+    ],
+    "Fail": [
+      "DRA262610P0326",
+      "DRA262610P0334",
+      "DRA262610P0338"
+    ]
+  },
+  "evidence": {
+    "file": "TR261102-0018_16.8.0.2611021_evidence.zip",
+    "sha256": "105b0e32a83c5863d9c04facdb8ec956d8d3ba6cae5404dfc3fbb17c1d008a1b",
+    "files": 41,
+    "url": "https://ecl.cyberlink.com/IF3/Data/Download?o=iForm/2026/11/03/67d9bf6a-e00b-402a-8a2e-da0a1958c281.zip",
+    "attached": true,
+    "downloadCheck": "downloaded from ECL, SHA-256 matches the local ZIP"
+  },
+  "replaces": {
+    "qr": "QR261103-0039",
+    "note": "filed without the ZIP; cancelled by the user, which put the 15 tickets back to Verifying"
+  }
+}
