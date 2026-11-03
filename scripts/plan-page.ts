@@ -228,7 +228,8 @@ function buildData() {
   // Seat size(s) in force during a phase: the latest snapshot at or before its start, plus any inside it.
   const seatsIn = (s: Stat) => [...new Set(snaps.filter((x, i) => { const t = Date.parse(x.at); return (t > s.first && t <= s.last) || (t <= s.first && !(snaps[i + 1] && Date.parse(snaps[i + 1].at) <= s.first)); }).map(x => x.proMultiplier))];
   const pub = (s?: Stat) => s && Number.isFinite(s.first) ? { wall: s.last - s.first, test: s.test, idle: s.idle, gaps: s.gaps, tokens: s.tokens,
-    wt: weight(s.tokens), ...est(weight(s.tokens)), models: s.models,
+    // No messages in the ledger: the run's sessions were on another computer that has not committed tokens.jsonl yet.
+    wt: weight(s.tokens), ...(s.tokens.messages ? est(weight(s.tokens)) : { est5: null, estW: null }), noTokens: !s.tokens.messages, models: s.models,
     fiveHour: s.covered ? s.fiveHour : null, weekly: s.covered ? s.weekly : null,
     seats: seatsIn(s), readings: s.covered, approx: s.approx, from: new Date(s.first).toISOString(), to: new Date(s.last).toISOString() } : null;
   const last = readings.at(-1);
@@ -246,7 +247,7 @@ function buildData() {
     const tokens = sumU(r.s.map(x => x.tokens)), models: Record<string, number> = {};
     for (const x of r.s) for (const [m, n] of Object.entries(x.models)) models[m] = (models[m] ?? 0) + n;
     return { n: i + 1, phases: r.phases, seats: r.seats, wall: r.s.reduce((a, x) => a + x.wall, 0), test: r.s.reduce((a, x) => a + x.test, 0),
-      idle: r.s.reduce((a, x) => a + x.idle, 0), gaps: r.s.reduce((a, x) => a + x.gaps, 0), tokens, wt: weight(tokens), ...est(weight(tokens)), models,
+      idle: r.s.reduce((a, x) => a + x.idle, 0), gaps: r.s.reduce((a, x) => a + x.gaps, 0), tokens, wt: weight(tokens), ...(tokens.messages ? est(weight(tokens)) : { est5: null, estW: null }), noTokens: !tokens.messages, models,
       fiveHour: add(r.s.map(x => x.fiveHour)), weekly: add(r.s.map(x => x.weekly)), readings: r.s.some(x => x.readings), approx: r.s.some(x => x.approx) };
   });
   const allTok = sumU(roundOut.map(r => r.tokens));
