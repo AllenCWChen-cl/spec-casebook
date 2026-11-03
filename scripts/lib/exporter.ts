@@ -33,6 +33,7 @@ export async function exportTable(feature: string, platform: string) {
     mode: 'view', save: false, feature, platform, title: m.title, draft: m.draft, based_on_version: null,
     version: m.version, approved_at: m.approved_at, spec_files: m.spec_files, rows, previous: {},
     requirements: existsSync(reqPath) ? readFileSync(reqPath, 'utf8') : '', update_plan: '',
+    zh: existsSync(join(dir, 'cases.zh.json')) ? JSON.parse(readFileSync(join(dir, 'cases.zh.json'), 'utf8')) : {},
   }));
   return { xlsx: join(dir, 'cases.xlsx'), html: join(dir, 'cases.html'), cases: rows.length };
 }

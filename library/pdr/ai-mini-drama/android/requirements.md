@@ -375,6 +375,7 @@ Every cell names the rows that check it, or n/a when the spec defines nothing fo
 | REQ-031 Spec agent cases derived from the spec are added (manager, 2026-10-22) | R-265, R-266; rows TC-364, TC-365, TC-366, TC-367, TC-368, TC-369 |
 | REQ-032 The analysis finds spec rules itself (2026-10-22) | R-267 – R-305 (annotation trace, passes 9 and 10) |
 | REQ-076 Design screens no row reached (figma source read, 2026-11-03) | R-482, R-483, R-484 |
+| REQ-077 Regenerate Clip one at a time (PM §13.25, 2026-10-30) | R-485 |
 
 ## Added 2026-10-21 — PM Spec 20261021 (16:04)
 PM-only rows carry 「PM-only: no Design frame yet (Design 2026-10-19)」 in Notes and change when the Design spec draws them (REQ-024).
@@ -519,6 +520,8 @@ Coverage pass 9: a clause the screen does not show, how a tester observes it, an
 | R-479 | each discounted first generation is charged 2 credits per unit under the `…_aiminidrama_discount` action id | logcat after pull-logs: the charge line's `action_id` and `total_credit` (credit lines such as `RefToVideo credit action_id=… total_credit=…`); Mine › Credits › Details: the charged amount | n/a (held until the user says the promotion applies, REQ-059) |
 | R-480 | a regenerate in the discounted session is charged the normal price under the `…_aiminidrama_normal` action id | logcat after pull-logs: the charge line's `action_id` and `total_credit` (credit lines such as `RefToVideo credit action_id=… total_credit=…`); Mine › Credits › Details: the charged amount | n/a (held until the user says the promotion applies, REQ-059) |
 | R-481 | charges are booked under `…_aiminidrama_normal` (the `_discount` ids are held with the promotion, REQ-059) | logcat after pull-logs: the `action_id` of each charge (TextToImage / RefToVideo credit lines) | TC-544, TC-545, TC-546, TC-547, TC-548, TC-549, TC-550 |
+| R-485 | the blocked tap sends nothing, charges nothing and keeps the edited prompt | the clip shows no generating state; the credit pill and Mine › Credits › Details before and after; the description text | TC-437, TC-555 |
+| R-485 | the button is back to normal when the regenerating clip ends, also when it fails | the button's opacity and a tap after the clip ends | TC-554 |
 
 ### Variants
 Coverage pass 10: one line per variant the spec names.
@@ -570,6 +573,9 @@ Coverage pass 10: one line per variant the spec names.
 | R-480 | regenerate a scene video | n/a (held until the user says the promotion applies, REQ-059) |
 | R-481 | normal (`_aiminidrama_normal`) | TC-544, TC-545, TC-546, TC-547, TC-548, TC-549, TC-550 |
 | R-481 | discount (`_aiminidrama_discount`) | n/a (held until the user says the promotion applies, REQ-059) |
+| R-485 | entry: Fix Scene › Edit | TC-437 |
+| R-485 | entry: scene edit page | TC-555 |
+| R-485 | the regenerating clip ends: success / failure | TC-554 |
 
 ## Added 2026-10-27 — Android (REQ-042, REQ-022)
 The Android differences the spec states, found by reading every board note for 「Android」, 「system back」 and the
@@ -1016,4 +1022,11 @@ name its frame's node id, which routes the design check to it.
 ### Domain rules
 | Entry | Requirements |
 |---|---|
-| KP-007 A failed generation refunds its credits | R-035, R-036, R-056, R-057, R-067, R-080, R-084 |
+| KP-007 A failed generation refunds its credits | R-035, R-036, R-056, R-057, R-067, R-080, R-084, R-485 (a blocked Regenerate Clip charges nothing) |
+
+## Added 2026-11-03 — Regenerate Clip one at a time (REQ-077)
+`figma-check.ts` (2026-10-30) found a PM board no group covered: 「10/29 update — Regenerate Clip 一次只能跑一個（PDR-A 16.8.0
+AI Agent bug）」 (4784:70878, Figma only, newer than PM Spec 20261021; group `u1029`, board-notes 「PM — 10/29 Regenerate
+Clip one at a time」). Its ◆60 is a mock: the regenerate price stays the scene's length × the model's rate (R-081).
+
+- R-485 [PM: 10/29 update §13.25 https://www.figma.com/design/44RyrcOcWi2MvhGci9bO5F/AI-Mini-Drama?node-id=4784-70878; Req: REQ-077] Only one clip regenerates at a time. While a clip regenerates, every other scene's 「Regenerate Clip」 is drawn at 40% opacity but stays tappable (not disabled, so the user learns why); tapping it shows the toast 「Another clip is regenerating. Try again when it's done.」, sends nothing, charges nothing and keeps the prompt the user edited. When the regenerating clip ends (success or failure) the button is back to normal. Applies to every entry that regenerates a single clip (Fix Scene › Edit, the scene edit page). Walked by: TC-437, TC-554, TC-555.

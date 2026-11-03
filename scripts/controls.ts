@@ -87,7 +87,7 @@ for (const [group, cs] of groups) {
   entries.push(e);
 }
 entries.sort((a, b) => a.board.localeCompare(b.board) || a.name.localeCompare(b.name));
-writeJsonRows(outPath, { spec_folder: specFolder, platform, inventory: invPath.slice(featureDir(feature).length + 1), entries });
+writeJsonRows(outPath, { spec_folder: specFolder, platform, inventory: invPath.slice(featureDir(feature).length + 1).replace(/\\/g, '/'), entries });
 const by = (f: (e: Entry) => boolean) => entries.filter(f).length;
 console.log(JSON.stringify({ out: outPath, groups: entries.length, traced: by(e => !!e.press), auto_arrow: by(e => e.how === 'arrow'), auto_label: by(e => e.how === 'label'),
   not_applicable: by(e => e.press.startsWith('n/a')), untraced: by(e => !e.press), inputs_without_dismiss: by(e => e.kind === 'input' && !e.dismiss), carried_from: earlier ?? null }, null, 1));

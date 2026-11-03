@@ -54,10 +54,15 @@ function load() {
 }
 load();
 
+// The Chinese reading of the rows: draft.zh.json in the draft, cases.zh.json next to the approved table.
+// Read on every request so a translation written while the server runs shows on reload.
+const zhPath = () => draftDir ? join(draftDir, 'draft.zh.json') : join(table, 'cases.zh.json');
+const readZh = () => existsSync(zhPath()) ? JSON.parse(readFileSync(zhPath(), 'utf8')) : {};
+
 const page = (local: boolean) => renderPage({
   mode: 'review', save: local, feature, platform, title: spec.title ?? feature, draft: draftId,
   based_on_version: manifest?.version ?? null, version: manifest?.version ?? null, approved_at: manifest?.approved_at ?? null,
-  spec_files: spec.spec_files, rows, previous: draftArg ? previous : {}, requirements, update_plan: plan,
+  spec_files: spec.spec_files, rows, previous: draftArg ? previous : {}, requirements, update_plan: plan, zh: readZh(),
 });
 
 type Note = { id: string; section: string; text: string; at?: string };
@@ -76,6 +81,7 @@ async function save(body: { rows: Record<string, string>[]; decisions: unknown[]
   if (draftDir && existsSync(join(draftDir, 'requirements.md'))) copyFileSync(join(draftDir, 'requirements.md'), join(table, 'requirements.md'));
   // the control trace (REQ-038) goes with the table, so coverage-page.ts reads the approved one
   if (draftDir && existsSync(join(draftDir, 'control-trace.json'))) copyFileSync(join(draftDir, 'control-trace.json'), join(table, 'control-trace.json'));
+  if (draftDir && existsSync(zhPath())) copyFileSync(zhPath(), join(table, 'cases.zh.json'));
   const now = new Date().toISOString();
   const entry = { version, approved_at: now, spec_set_sha256: spec.spec_set_sha256, draft: draftId, cases: clean.length, csv: 'cases.csv', requirements: 'requirements.md' };
   const hist = history.filter(h => h.version !== version).map(h => ({ ...h, csv: `history/v${h.version}.csv`, requirements: `history/v${h.version}-requirements.md` }));
