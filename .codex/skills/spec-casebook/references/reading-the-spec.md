@@ -171,6 +171,15 @@ and look at the tile images where layout, arrows or states matter.**
      spec content (step 9, *Follow every link*), so a board holding only a link shows every linked item marked. Board
      images are the committed screenshots (above); `coverage-page.ts --render` (local, from the spec PDFs; pdf point
      = figma point + `files.<key>.pdf.offset`) only fills a board that has none, e.g. in a PDF-only analysis.
+     **A spec read PDF-only keeps committed region images too (user, 2026-11-03, phd/ai-background: the PM boards
+     showed blank).** Render each `boards.json` region of a PDF no Figma file covers into
+     `extracted/figma/region-<id>.png` (`render-region.ts … --max <≥ 0.5 px per pt>`, `--bg 38` when its notes are
+     white text) and record it with `figma-check.ts --shot region-<id>.png <id> --box <region>`; the coverage page
+     shows it on every checkout. **Board names:** a Design board whose Figma name says nothing (「5」, 「Frame 4922」)
+     is read as `{ id, name }` with a name saying what it draws (「Room dark」), and its screenshot is named after it.
+     Name boards before the first control trace: control ids hash the board name, so a later rename orphans every
+     `control-trace.json` (the coverage page then draws no buttons). After a rename, re-run `controls.ts` on every
+     draft and approved table and carry each entry's press over by layer name + label.
 
 ## No Figma access (PDF-only, user, 2026-10-30)
 

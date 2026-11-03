@@ -4,6 +4,8 @@
 //        node scripts/render-region.ts <pdf> --jobs <jobs.json> [--page 1]
 //   x y w h: PDF points, top-left origin, as listed in boards.json or read off an overview render. Omit for the whole page.
 //   --max caps the longest output side in pixels (default 2000; scale never exceeds 4x).
+//   --bg <0-255> the grey the page is drawn on (default 255, white); a PM page exported from a dark Figma canvas
+//   carries its notes as white text, which only shows on a dark background (2026-11-03, e.g. --bg 40).
 //   --jobs: a JSON list of { out, region: [x, y, w, h], max }, all drawn from one load of the PDF (a large spec PDF
 //   takes ~20 s to load, so coverage-page.ts --render sends every board of a PDF at once).
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -12,7 +14,7 @@ import * as mupdf from 'mupdf';
 const args = process.argv.slice(2);
 const opt = (name: string, def: number) => { const i = args.indexOf(name); if (i < 0) return def; const v = Number(args[i + 1]); args.splice(i, 2); return v; };
 const ji = args.indexOf('--jobs'), jobsFile = ji < 0 ? '' : args.splice(ji, 2)[1];
-const maxSide = opt('--max', 2000), pageNo = opt('--page', 1);
+const maxSide = opt('--max', 2000), pageNo = opt('--page', 1), bg = opt('--bg', 255);
 if (jobsFile ? args.length !== 1 : args.length !== 2 && args.length !== 6) { console.error('Usage: node scripts/render-region.ts <pdf> <out.png> [x y w h] [--max 2000] [--page 1]\n       node scripts/render-region.ts <pdf> --jobs <jobs.json> [--page 1]'); process.exit(2); }
 const [pdf, out] = args;
 const doc = mupdf.Document.openDocument(readFileSync(pdf), 'application/pdf');
@@ -24,7 +26,7 @@ const render = (out: string, [x, y, w, h]: number[], max: number) => {
   // MuPDF page space is already top-left origin; scale the page, then cut the requested box out of device space.
   const bbox: [number, number, number, number] = [Math.floor((bx0 + x) * scale), Math.floor((by0 + y) * scale), Math.ceil((bx0 + x + w) * scale), Math.ceil((by0 + y + h) * scale)];
   const pix = new mupdf.Pixmap(mupdf.ColorSpace.DeviceRGB, bbox, false);
-  pix.clear(255);
+  pix.clear(bg);
   const dev = new mupdf.DrawDevice(mupdf.Matrix.scale(scale, scale), pix);
   list.run(dev, mupdf.Matrix.identity);
   dev.close();

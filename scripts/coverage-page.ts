@@ -186,8 +186,12 @@ for (const [pdf, list] of Object.entries(regionsByPdf)) {
     if (!inside.length) {
       // region- in front: a PM or MX Figma board can carry the same name as a region
       const name = `${SPEC_NAME[spec]} · ${r.title}`, img = join(imgDir, `region-${r.id}.jpg`);
-      if (render && existsSync(join(specDir, pdf)) && (!renderSpecs || renderSpecs.includes(spec))) queue(join(specDir, pdf), img, r.region, r.region);
-      boards.push({ name, file: '', spec, id: r.id, region: r.id, box: r.region, imgPath: img, note: `No render yet: run with --render (draws ${r.id} from ${pdf})` });
+      // a spec with no readable Figma file keeps a committed render of the region instead (extracted/figma/region-<id>.png,
+      // recorded with figma-check.ts --shot … --box), so every checkout shows it with no PDF (2026-11-03)
+      const shotPng = join(ex, 'figma', `region-${r.id}.png`), shot = existsSync(shotPng) ? shots[`region-${r.id}.png`] ?? {} : null;
+      if (render && !shot && existsSync(join(specDir, pdf)) && (!renderSpecs || renderSpecs.includes(spec))) queue(join(specDir, pdf), img, r.region, r.region);
+      boards.push({ name, file: '', spec, id: r.id, region: r.id, box: r.region, imgPath: shot ? shotPng : img, ...(shot ? { imgBox: shot.box ?? r.region } : {}),
+        note: `No render yet: run with --render (draws ${r.id} from ${pdf})` });
       inside.push(name);
     }
     regionOf.set(r.id, { id: r.id, title: r.title, spec, boards: inside });

@@ -4,66 +4,66 @@
   "inventory": "specs/2026-11-03/extracted/inventory.json",
   "entries": [
     {
-      "group": "K-cdcd68",
+      "group": "K-5bac8f",
       "kind": "button",
-      "board": "5",
+      "board": "Room dark",
       "boards": [
-        "5",
-        "6"
+        "Room dark",
+        "Room light"
       ],
       "name": "btn_add_credit",
       "label": "100",
       "set": false,
       "instances": 2,
       "screens": [
-        "5",
-        "6"
+        "Room dark",
+        "Room light"
       ],
       "controls": [
-        "K-1d1f54",
-        "K-562aa1"
+        "K-865b46",
+        "K-75dec5"
       ],
       "app": [],
       "press": "TC-007, TC-052"
     },
     {
-      "group": "K-18b0e9",
+      "group": "K-251bb8",
       "kind": "button",
-      "board": "5",
+      "board": "Room dark",
       "boards": [
-        "5",
-        "6"
+        "Room dark",
+        "Room light"
       ],
       "name": "btn_credit_primary_1row",
       "label": "Generate",
       "set": false,
       "instances": 2,
       "screens": [
-        "5",
-        "6"
+        "Room dark",
+        "Room light"
       ],
       "controls": [
-        "K-fe81af",
-        "K-e100cb"
+        "K-224beb",
+        "K-73bab4"
       ],
       "app": [],
       "press": "TC-033, TC-034, TC-053",
       "how": "label"
     },
     {
-      "group": "K-187c47",
+      "group": "K-4ad11f",
       "kind": "button",
-      "board": "5",
+      "board": "Room dark",
       "boards": [
-        "5"
+        "Room dark"
       ],
       "name": "editing_area/ic_eraser_n",
       "label": "",
       "set": false,
       "instances": 2,
       "screens": [
-        "5",
-        "6"
+        "Room dark",
+        "Room light"
       ],
       "controls": [
         "M-9dd04d"
@@ -72,42 +72,42 @@
       "press": "TC-003"
     },
     {
-      "group": "K-f80fa1",
+      "group": "K-02614c",
       "kind": "button",
-      "board": "5",
+      "board": "Room dark",
       "boards": [
-        "5",
-        "6"
+        "Room dark",
+        "Room light"
       ],
       "name": "ic_crop_n",
       "label": "",
       "set": false,
       "instances": 2,
       "screens": [
-        "5",
-        "6"
+        "Room dark",
+        "Room light"
       ],
       "controls": [
-        "K-e8fd78",
-        "K-5a2a8b"
+        "K-816686",
+        "K-fb5d30"
       ],
       "app": [],
       "press": "TC-004"
     },
     {
-      "group": "C-17498b",
+      "group": "C-411474",
       "kind": "button",
-      "board": "5",
+      "board": "Room dark",
       "boards": [
-        "5"
+        "Room dark"
       ],
       "name": "manual/button",
       "label": "choice of 4: 「Close」 「Undo」 「Redo」 「Apply」",
       "set": true,
       "instances": 8,
       "screens": [
-        "5",
-        "6"
+        "Room dark",
+        "Room light"
       ],
       "controls": [
         "M-c37bb3",
@@ -120,128 +120,128 @@
       "how": "label"
     },
     {
-      "group": "K-d3286d",
+      "group": "K-2784e3",
       "kind": "button",
-      "board": "5",
+      "board": "Room dark",
       "boards": [
-        "5",
-        "6"
+        "Room dark",
+        "Room light"
       ],
       "name": "On-screen/btn_BA_n",
       "label": "",
       "set": false,
       "instances": 2,
       "screens": [
-        "5",
-        "6"
+        "Room dark",
+        "Room light"
       ],
       "controls": [
-        "K-c153f9",
-        "K-b85dd7"
+        "K-6b0715",
+        "K-8853e6"
       ],
       "app": [],
       "press": "TC-005"
     },
     {
-      "group": "C-fade26",
+      "group": "C-028fab",
       "kind": "tab",
-      "board": "5",
+      "board": "Room dark",
       "boards": [
-        "5",
-        "6"
+        "Room dark",
+        "Room light"
       ],
       "name": "tab-03",
       "label": "choice of 6: 「Custom」 「Neutrals」 「Ballon」 「Wood」 …",
       "set": true,
       "instances": 12,
       "screens": [
-        "5",
-        "6"
+        "Room dark",
+        "Room light"
       ],
       "controls": [
-        "K-6d1929",
-        "K-f194cb",
-        "K-8b469b",
-        "K-2c8c1f",
-        "K-c680ea",
-        "K-72edbd",
-        "K-6ca530",
-        "K-e0b397",
-        "K-78217f",
-        "K-e938f7",
-        "K-895c47",
-        "K-92c3e0"
+        "K-0a1af0",
+        "K-0bf863",
+        "K-8f7ed8",
+        "K-648bc7",
+        "K-5190aa",
+        "K-a46fcc",
+        "K-ed2e4f",
+        "K-c91fa7",
+        "K-51b8d9",
+        "K-f7d82a",
+        "K-d1876f",
+        "K-8e797b"
       ],
       "app": [],
       "press": "TC-011, TC-010",
       "how": "label"
     },
     {
-      "group": "C-f01f72",
+      "group": "C-f84db4",
       "kind": "item",
-      "board": "5",
+      "board": "Room dark",
       "boards": [
-        "5",
-        "6"
+        "Room dark",
+        "Room light"
       ],
       "name": "thumb_1v1",
       "label": "choice of 2: 「Artistic」 「B&W」",
       "set": true,
       "instances": 4,
       "screens": [
-        "5",
-        "6"
+        "Room dark",
+        "Room light"
       ],
       "controls": [
-        "K-e2c449",
-        "K-fd6e13",
-        "K-1eab94",
-        "K-a972d8"
+        "K-e796c8",
+        "K-97afac",
+        "K-649f32",
+        "K-96e53c"
       ],
       "app": [],
       "press": "TC-015"
     },
     {
-      "group": "C-5ea12b",
+      "group": "C-c1c9cb",
       "kind": "item",
-      "board": "5",
+      "board": "Room dark",
       "boards": [
-        "5"
+        "Room dark"
       ],
       "name": "thumb/80x80/withname/regular",
       "label": "choice of 2: 「Custom」 「Lomo」",
       "set": true,
       "instances": 2,
       "screens": [
-        "5"
+        "Room dark"
       ],
       "controls": [
-        "K-2f3361",
-        "K-e2aed3"
+        "K-a3aff0",
+        "K-3129a6"
       ],
       "app": [],
       "press": "TC-016, TC-015",
       "how": "label"
     },
     {
-      "group": "K-8ee862",
+      "group": "K-a66aef",
       "kind": "button",
-      "board": "5",
+      "board": "Room dark",
       "boards": [
-        "5",
-        "6"
+        "Room dark",
+        "Room light"
       ],
       "name": "top/ic_info",
       "label": "",
       "set": false,
       "instances": 2,
       "screens": [
-        "5",
-        "6"
+        "Room dark",
+        "Room light"
       ],
       "controls": [
-        "K-7128cd",
-        "K-7289ba"
+        "K-c0fd01",
+        "K-eb3fba"
       ],
       "app": [],
       "press": "TC-006"

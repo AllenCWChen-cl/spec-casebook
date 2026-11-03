@@ -1,0 +1,425 @@
+<title>AI Background Progress</title>
+<!-- tab icon (run plan: phase bars), different on each page so the browser tabs are easy to tell apart -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23d9822b'/><path d='M7 9h11M11 16h14M7 23h8' stroke='%23fff' stroke-width='3.6' stroke-linecap='round'/></svg>">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;650;750&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;600;700&display=swap">
+<style>
+/* Layout: a run sheet — summary strip, then phases as stacked ledgers whose segments are rows you can open to see their cases. */
+:root {
+  --bg: #f4f6f6; --panel: #ffffff; --ink: #172426; --muted: #5b6b6e; --line: #d8e0e1; --accent: #0f6e73;
+  --pass: #2f7d4f; --fail: #b8402f; --blocked: #a86b12; --inc: #6a55a8; --notrun: #9aa6a8;
+  --chip-bg: #eef2f2; --hold: #7a5a14; --skip: #7d878a;
+  --display: "Archivo", "Noto Sans TC", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Sans 3", "Noto Sans TC", "Segoe UI", system-ui, "PingFang TC", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111a1b; --panel: #182325; --ink: #e3ecec; --muted: #93a5a7; --line: #2a3a3c; --accent: #4fb8bd;
+  --pass: #5cbf83; --fail: #ec7a66; --blocked: #e0a548; --inc: #a796e0; --notrun: #5f6f71;
+  --chip-bg: #213032; --hold: #e0b85a; --skip: #8c9a9c; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111a1b; --panel: #182325; --ink: #e3ecec; --muted: #93a5a7; --line: #2a3a3c; --accent: #4fb8bd;
+  --pass: #5cbf83; --fail: #ec7a66; --blocked: #e0a548; --inc: #a796e0; --notrun: #5f6f71;
+  --chip-bg: #213032; --hold: #e0b85a; --skip: #8c9a9c; color-scheme: dark }
+* { box-sizing: border-box }
+.actual { color: var(--muted); font-size: 0.85rem; margin-top: 4px; max-width: 46ch }
+body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--body); margin: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 28px 56px }
+.wrap { max-width: 1080px; margin: 0 auto; display: grid; gap: 28px }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: -0.01em }
+h1 { font-size: 1.9rem; font-weight: 750 }
+h2 { font-size: 1.25rem; font-weight: 650 }
+.eyebrow { font: 600 0.72rem/1 var(--mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted) }
+.meta { color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 0.92rem }
+.meta b { color: var(--ink); font-weight: 600 }
+.bar { display: flex; height: 12px; border-radius: 3px; overflow: hidden; background: var(--chip-bg) }
+.bar span { display: block; height: 100% }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font: 0.82rem var(--mono); color: var(--muted) }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px }
+.num { font-variant-numeric: tabular-nums }
+.phase { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; overflow: hidden }
+.phase-head { display: grid; grid-template-columns: auto 1fr auto; gap: 4px 16px; align-items: center; padding: 16px 18px; border-bottom: 1px solid var(--line) }
+.phase-id { font: 750 1.4rem var(--display); color: var(--accent) }
+.phase-note { grid-column: 2 / 4; color: var(--muted); font-size: 0.9rem; min-width: 0 }
+.state { font: 600 0.72rem var(--mono); text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 8px; border-radius: 3px; background: var(--chip-bg); white-space: nowrap }
+.state.done { color: var(--pass) } .state.active { color: var(--accent) } .state.pending { color: var(--muted) }
+.state.hold { color: var(--hold) } .state.skip { color: var(--skip); text-decoration: line-through }
+.seg { border-top: 1px solid var(--line) }
+.seg:first-of-type { border-top: 0 }
+.seg summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 4.2rem minmax(0, 1fr) 7.5rem minmax(120px, 220px) auto; gap: 12px; align-items: center; padding: 11px 18px }
+.seg summary::-webkit-details-marker { display: none }
+.seg summary:hover { background: var(--chip-bg) }
+.seg summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px }
+.seg-id { font: 600 0.9rem var(--mono) }
+.seg-name { min-width: 0 }
+.seg-count { font: 0.82rem var(--mono); color: var(--muted); text-align: right }
+.seg[open] summary { background: var(--chip-bg) }
+.cases { overflow-x: auto; padding: 4px 18px 14px }
+table { border-collapse: collapse; width: 100%; font-size: 0.88rem }
+th { text-align: left; font: 600 0.7rem var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); padding: 6px 8px; border-bottom: 1px solid var(--line) }
+td { padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top }
+td.id { font-family: var(--mono); white-space: nowrap }
+/* links to the same case on the other pages (scripts/pages.ts), and the case a link opened (#case=TC-012) */
+td.id .xl { display: flex; gap: 8px; font: 600 0.68rem var(--mono); margin-top: 2px }
+td.id .xl a { color: var(--accent); text-decoration: none } td.id .xl a:hover { text-decoration: underline }
+tr.focus td { background: var(--chip-bg) } tr.focus td.id { box-shadow: inset 3px 0 0 var(--accent) }
+.r { font: 600 0.72rem var(--mono); padding: 2px 6px; border-radius: 3px; white-space: nowrap; color: var(--panel) }
+.r.Pass { background: var(--pass) } .r.Fail { background: var(--fail) } .r.Blocked { background: var(--blocked) }
+.r.Inconclusive { background: var(--inc) } .r.Notrun { background: var(--notrun) }
+.flow { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 18px; display: grid; gap: 14px }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; counter-reset: s }
+.step { border: 1px solid var(--line); border-radius: 4px; padding: 10px 12px; font-size: 0.9rem; min-width: 0 }
+.step b { display: block; font: 650 0.95rem var(--display); margin-bottom: 2px }
+.step .who { font: 0.72rem var(--mono); color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em }
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px }
+.box { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px; min-width: 0 }
+.box ul { margin: 8px 0 0; padding-left: 18px; display: grid; gap: 6px; font-size: 0.9rem }
+.cp { font-size: 0.86rem; display: grid; gap: 10px; margin-top: 8px }
+.cp div { border-left: 3px solid var(--line); padding-left: 10px }
+.cp .t { font: 0.75rem var(--mono); color: var(--muted) }
+.usage .tbl { overflow-x: auto; margin-top: 10px }
+.usage td, .usage th { white-space: nowrap }
+.usage td.n, .usage th.n { text-align: right; font-variant-numeric: tabular-nums }
+.usage tr.tot td { font-weight: 600; border-bottom: 0 }
+.usage .none { color: var(--muted); font-style: italic }
+.usage th.grp { text-align: center; border-bottom: 1px solid var(--line) }
+.usage td.est { color: var(--accent); font-weight: 600 }
+.usage td.acct, .usage th.acct { color: var(--muted) }
+.usage td.acct { font-size: 0.82rem }
+.usage th { white-space: normal; vertical-align: bottom }
+.usage td, .usage th { padding-inline: 6px }
+.usage .eq { display: block; font: 400 0.7rem var(--mono); color: var(--muted) }
+.usage tr.sub td { font-size: 0.8rem; color: var(--muted); padding-block: 3px }
+.usage tr.sub td:first-child { padding-left: 22px }
+.usage tr.sub td.est { color: var(--accent); font-weight: 400 }
+.usage tr.round td { border-top: 2px solid var(--line) }
+.usage.nosegs tr.sub { display: none }
+.usage .tools { margin-top: 8px; font-size: 0.85rem }
+.usage .tools button { font: 600 0.75rem var(--mono); color: var(--accent); background: var(--chip-bg); border: 1px solid var(--line); border-radius: 3px; padding: 3px 8px; cursor: pointer }
+.usage .notes { color: var(--muted); font-size: 0.85rem; margin: 10px 0 0; display: grid; gap: 4px }
+.stats { display: block; font: 0.74rem var(--mono); color: var(--muted); margin-top: 3px }
+code { font: 0.85em var(--mono); background: var(--chip-bg); padding: 1px 4px; border-radius: 3px }
+@media (max-width: 720px) {
+  .two { grid-template-columns: 1fr }
+  .seg summary { grid-template-columns: 3.6rem minmax(0, 1fr) auto; }
+  .seg summary .bar, .seg summary .seg-count { display: none }
+  .phase-head { grid-template-columns: auto 1fr }
+  .phase-head .state { grid-column: 1 / 3; justify-self: start }
+  .phase-note { grid-column: 1 / 3 }
+}
+.why-lead { margin: 6px 0 0; max-width: 80ch }
+.why-cats { display: grid; gap: 18px; margin-top: 14px }
+.why-cat h3 { font-size: 1rem; font-weight: 650; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap }
+.why-cat h3 .n { font: 600 0.8rem var(--mono); color: var(--blocked) }
+.why-cat .clears { color: var(--muted); font-size: 0.86rem; margin: 2px 0 0 }
+.why-cat ul { margin: 8px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 0.9rem }
+.why-cat li { border-left: 3px solid var(--blocked); padding-left: 10px; min-width: 0 }
+.why-cat li b { font-weight: 600 }
+.why-cat .detail { color: var(--muted); font-size: 0.85rem }
+.why-cat .ids { font: 0.8rem/1.6 var(--mono); overflow-wrap: anywhere }
+.why-cat .ids a { color: inherit }
+.why-cat .case { display: block; font-size: 0.85rem }
+.why-cat .tag { font: 600 0.68rem var(--mono); text-transform: uppercase; letter-spacing: 0.05em; color: var(--hold); background: var(--chip-bg); padding: 1px 6px; border-radius: 3px }
+.why-row { display: block; font-size: 0.82rem; color: var(--blocked); font-weight: 600; margin-top: 4px }
+.run-name { font-size: 15px; color: var(--muted) }
+.how { margin-top: 4px } .how summary { cursor: pointer; font-size: 13.5px; color: var(--muted) } .how .notes { margin-top: 8px }
+.history { display: grid; gap: 14px; margin-top: 18px; padding-top: 18px; border-top: 2px solid var(--line) }
+.hist-head { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap }
+.history .phase { opacity: .92 }
+details.hist > summary { cursor: pointer; font-size: 13.5px; color: var(--muted); padding: 10px 18px }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap }
+.lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--panel) }
+.lang button { font: 600 0.85rem var(--body); border: 0; background: transparent; color: var(--ink); padding: 5px 14px; cursor: pointer }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--panel) }
+.lang button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important } }
+</style>
+
+<div class="wrap">
+  <header style="display:grid;gap:10px">
+    <div class="top"><div class="eyebrow"><span data-zh="測試表進度 · 本次執行">Casebook progress · current run</span></div><div class="lang" role="group" aria-label="Language"><button type="button" data-l="en" aria-pressed="true">English</button><button type="button" data-l="zh" aria-pressed="false">中文</button></div></div>
+    <h1>AI Background Progress</h1>
+    <div class="run-name" id="runname"></div>
+    <div class="meta" id="meta"></div>
+    <div class="bar" id="totalbar" aria-label="Results of the current run"></div>
+    <div class="legend" id="legend"></div>
+  </header>
+
+  <section class="box usage nosegs" aria-labelledby="usage-h">
+    <h2 id="usage-h"><span data-zh="時間與方案用量 · 本次執行">Time and plan usage · this run</span></h2>
+    <div class="tools"><button type="button" aria-pressed="false" onclick="toggleSegs(this)">Show segments</button></div>
+    <div class="tbl"><table id="usage"></table></div>
+    <details class="how"><summary><span data-zh="這些數字怎麼算">How these figures are computed</span></summary><div class="notes" id="usage-notes"></div></details>
+  </section>
+
+  <div id="phases" style="display:grid;gap:18px"></div>
+
+  <section class="box why" id="blocked-box" aria-labelledby="blocked-h">
+    <h2 id="blocked-h"></h2>
+    <p class="why-lead" id="blocked-lead"></p>
+    <div class="why-cats" id="blocked"></div>
+  </section>
+
+  <div class="two">
+    <section class="box"><h2><span data-zh="最近的檢查點">Recent checkpoints</span></h2><div class="cp" id="cps"></div></section>
+    <section class="box"><h2><span data-zh="執行紀錄">Run log</span></h2><ul id="log"></ul></section>
+  </div>
+
+  <section class="flow" aria-labelledby="flow-h">
+    <h2 id="flow-h"><span data-zh="一個區段怎麼跑">How a segment runs</span></h2>
+    <div class="steps">
+      <div class="step"><span class="who"><span data-zh="協調者">Orchestrator</span></span><b><span data-zh="交代一個區段">Brief a segment</span></b><span data-zh="你對話的這個聊天為每個區段啟動一個子代理，每個都從乾淨的上下文開始：接續執行資料夾、讀計畫與 run-state、執行 &lt;code&gt;run-log next&lt;/code&gt;。">The chat you talk to starts one subagent per segment, which begins with a clean context: resume the run folder, read the plan and run-state, run <code>run-log next</code>.</span></div>
+      <div class="step"><span class="who"><span data-zh="階段開始">Phase start</span></span><b><span data-zh="關卡與政策阻擋">Gate and policy blocks</span></b><span data-zh="&lt;code&gt;init&lt;/code&gt; 把需要無法提供之條件的案例記為 Blocked；做一次 Seedance 預覽，再以 &lt;code&gt;gate video&lt;/code&gt; 記錄通過或失敗。"><code>init</code> records cases needing an unavailable fixture as Blocked; one Seedance preview, then <code>gate video</code> pass or fail.</span></div>
+      <div class="step"><span class="who"><span data-zh="區段">Segment</span></span><b><span data-zh="跑一個區段">Run one segment</span></b><span data-zh="每個案例都在手機上執行、做完立刻記錄，使用 &lt;code&gt;waitfor&lt;/code&gt;、&lt;code&gt;pink&lt;/code&gt; 與 recipe，不手動逐步操作。">Each case on the phone, recorded right after it is done, using <code>waitfor</code>, <code>pink</code> and recipes instead of hand-driving.</span></div>
+      <div class="step"><span class="who"><span data-zh="區段">Segment</span></span><b><span data-zh="記錄檔與檢查點">Logs and checkpoint</span></b><span data-zh="&lt;code&gt;pull-logs&lt;/code&gt;、&lt;code&gt;log-slice&lt;/code&gt;，把原因補到 Fail 與 Blocked 案例，再寫檢查點並回覆 10 行以內。"><code>pull-logs</code>, <code>log-slice</code>, causes added to Fail and Blocked cases, then the checkpoint and a 10-line reply.</span></div>
+      <div class="step"><span class="who"><span data-zh="階段結束">Phase end</span></span><b><span data-zh="收尾">Wrap up the phase</span></b><span data-zh="總結、測試時間、Claude token、eBug 草稿與審核頁、報告。不送出任何 eBug。">Summary, test time, Claude tokens, eBug drafts and review page, report. Nothing is filed.</span></div>
+    </div>
+  </section>
+
+  <section class="history" id="history" aria-labelledby="hist-h">
+    <div class="hist-head"><h2 id="hist-h"><span data-zh="先前的執行">Earlier runs</span></h2><span class="eyebrow" id="hist-sum"></span></div>
+    <section class="box usage nosegs" aria-label="Time and plan usage of earlier runs">
+      <h2><span data-zh="時間與方案用量 · 先前的執行">Time and plan usage · earlier runs</span></h2>
+      <div class="tools"><button type="button" aria-pressed="false" onclick="toggleSegs(this)">Show segments</button></div>
+      <div class="tbl"><table id="usage-hist"></table></div>
+    </section>
+    <div id="hist-phases" style="display:grid;gap:14px"></div>
+  </section>
+</div>
+
+<script>
+let DATA = {"feature":"AI Background","version":1,"totalCases":55,"build":"?","unavailable":{"app-log":"observability: no PhotoDirector log pull is set up yet (feature.json has no log files or tags for this app)","appearance":"which app or system setting shows the light Design is unknown (Q-9); a system appearance change needs the user's go-ahead"},"generated":"2026-11-03 09:17 UTC","phases":[{"id":"R1","name":"First use, room and prompt panel (no credits)","current":true,"note":"Round start (KP-104 / KP-105): reset the account through Settings › About › debug dialog so the app is a Free user with 0 credits and the AI Background free trial is unused; screenshots before / after, UUID and token masked. No row in R1 spends credits.","skip":"","hold":"","runDir":"","stats":null,"wrapUp":null,"segments":[{"id":"R1-a","name":"First use and free trial","stats":null,"cases":[{"id":"TC-039","origin":"","needs":"","section":"Free trial","action":"Open a photo, open 「Background」 and select a template","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-040","origin":"","needs":"","section":"Free trial","action":"Tap 「1 Free Trial」 and wait for the result","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-041","origin":"","needs":"","section":"Free trial","action":"Leave AI Background, open it again with another photo and select a template","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-044","origin":"","needs":"app-log","section":"Feature and Action IDs","action":"Generate with 「1 Free Trial」, pull the app log and find the generation request","result":"Not run","disp":"","actual":"","at":""}]},{"id":"R1-b","name":"Room, category tabs and thumbnails","stats":null,"cases":[{"id":"TC-001","origin":"","needs":"","section":"Entry and room","action":"Open 「Background」 (AI Background) from the editor","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-002","origin":"","needs":"","section":"Entry and room","action":"Look at the room before tapping anything","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-008","origin":"","needs":"","section":"Entry and room","action":"Look at the bottom bar before any change","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-003","origin":"","needs":"","section":"Entry and room","action":"Tap the eraser at the canvas's lower left, erase part of the subject (e.g. a shoulder), then go back to the room","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-004","origin":"","needs":"","section":"Entry and room","action":"Tap the crop button next to the eraser, crop the subject tighter and confirm","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-006","origin":"","needs":"","section":"Entry and room","action":"Tap ⓘ at the top left, then close what opens","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-007","origin":"","needs":"","section":"Entry and room","action":"Tap the credit pill at the top right, then come back","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-009","origin":"","needs":"","section":"Category tabs and thumbnails","action":"Look at the category tabs","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-010","origin":"","needs":"","section":"Category tabs and thumbnails","action":"Select the 「Custom」 tab and look at its left edge","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-011","origin":"","needs":"","section":"Category tabs and thumbnails","action":"Tap 「Neutrals」, then another category tab","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-012","origin":"","needs":"","section":"Category tabs and thumbnails","action":"Look at the thumbnail row","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-013","origin":"","needs":"","section":"Category tabs and thumbnails","action":"Look at the start of the thumbnail row","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-014","origin":"","needs":"","section":"Category tabs and thumbnails","action":"Scroll the thumbnails of each category and look for premium templates","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-015","origin":"","needs":"","section":"Category tabs and thumbnails","action":"Tap a template thumbnail (e.g. the first one under 「Neutrals」)","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-045","origin":"","needs":"appearance","section":"Themes","action":"Look at the room","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-055","origin":"","needs":"","section":"Android credits and artwork","action":"Open 「Background」 (AI Background)","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-049","origin":"","needs":"","section":"Android system Back","action":"Press system Back","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-050","origin":"","needs":"","section":"Android system Back","action":"Press system Back","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-051","origin":"","needs":"","section":"Android system Back","action":"Press system Back","result":"Not run","disp":"","actual":"","at":""}]},{"id":"R1-c","name":"Custom prompt panel","stats":null,"cases":[{"id":"TC-025","origin":"","needs":"","section":"Custom prompt panel","action":"Look at the Generate button","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-016","origin":"","needs":"","section":"Custom prompt panel","action":"Tap the 「Custom」 thumbnail","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-017","origin":"","needs":"","section":"Custom prompt panel","action":"Look at the empty panel","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-018","origin":"","needs":"","section":"Custom prompt panel","action":"Type 「a sunny beach at sunset」","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-019","origin":"","needs":"","section":"Custom prompt panel","action":"Paste the text into the box, then try to type one more letter","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-020","origin":"","needs":"","section":"Custom prompt panel","action":"Tap the expand button at the text box's top right","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-021","origin":"","needs":"","section":"Custom prompt panel","action":"Tap the trash button","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-022","origin":"","needs":"","section":"Custom prompt panel","action":"Tap 「My Prompts」, then go back to the panel","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-024","origin":"","needs":"","section":"Custom prompt panel","action":"Tap the canvas above the panel (a blank area)","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-023","origin":"","needs":"","section":"Custom prompt panel","action":"Tap ✓","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-046","origin":"","needs":"","section":"Android system Back","action":"Press system Back once, then once more","result":"Not run","disp":"","actual":"","at":""}]}]},{"id":"R2","name":"Generation and waiting (credits)","current":true,"note":"Template generations at 2 credits, Custom at 5 (Q-1). Read the credit pill before and after every generation.","skip":"","hold":"credits: R1 leaves the account at 0 credits; release when the user has arranged credits for about 6 generations (≈ 25 credits)","runDir":"","stats":null,"wrapUp":null,"segments":[{"id":"R2-a","name":"Template generation and the bottom bar","stats":null,"cases":[{"id":"TC-034","origin":"","needs":"","section":"Generation and waiting","action":"Tap Generate and wait for the result","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-005","origin":"","needs":"","section":"Entry and room","action":"Press and hold the compare button at the canvas's lower right, then release it","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-035","origin":"","needs":"","section":"Generation and waiting","action":"Tap undo, then redo","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-036","origin":"","needs":"","section":"Generation and waiting","action":"Tap ✓ in the bottom bar","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-037","origin":"","needs":"","section":"Generation and waiting","action":"Tap X in the bottom bar (answer any discard prompt with discard)","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-043","origin":"","needs":"app-log","section":"Feature and Action IDs","action":"Tap Generate, wait for the result, pull the app log and find the generation request","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-053","origin":"","needs":"","section":"Android credits and artwork","action":"Tap Generate three times quickly","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-048","origin":"","needs":"","section":"Android system Back","action":"Press system Back","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-052","origin":"","needs":"","section":"Android credits and artwork","action":"Tap the credit pill, then 「Detail」 at the top right of Buy Credit","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-054","origin":"","needs":"","section":"Android credits and artwork","action":"Open My AI Artwork (AI Photos › My Artwork) and look for the result","result":"Not run","disp":"","actual":"","at":""}]},{"id":"R2-b","name":"Custom generation and the wait","stats":null,"cases":[{"id":"TC-026","origin":"","needs":"","section":"Generation and waiting","action":"Tap Generate and watch the room for the first 10 s","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-027","origin":"","needs":"","section":"Generation and waiting","action":"Keep watching from 10 to 20 s","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-028","origin":"","needs":"","section":"Generation and waiting","action":"Keep watching from 20 to 30 s","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-029","origin":"","needs":"","section":"Generation and waiting","action":"Keep watching from 30 to 40 s","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-030","origin":"","needs":"","section":"Generation and waiting","action":"Keep watching from 40 to 45 s","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-031","origin":"","needs":"","section":"Generation and waiting","action":"Keep watching after 45 s until the result arrives","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-032","origin":"","needs":"","section":"Generation and waiting","action":"Look at the room during the wait","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-033","origin":"","needs":"","section":"Generation and waiting","action":"Tap Generate and wait for the result","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-038","origin":"","needs":"","section":"Generation and waiting","action":"During the wait, press Home, wait 20 s and open PhotoDirector again","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-042","origin":"","needs":"app-log","section":"Feature and Action IDs","action":"Tap Generate, wait for the result, pull the app log and find the generation request","result":"Not run","disp":"","actual":"","at":""},{"id":"TC-047","origin":"","needs":"","section":"Android system Back","action":"Press system Back during the wait","result":"Not run","disp":"","actual":"","at":""}]}]}],"usage":{"snapshots":0,"markers":0,"seatAssumed":false,"weights":{"input":1,"cacheWrite":1.25,"cacheRead":0.1,"output":5},"approx":false,"fiveHour":0,"weekly":0,"outside5":0,"outsideW":0,"rounds":[],"wt":0,"est5":null,"estW":null,"calibration":null,"transcripts":238,"ledgerMessages":0,"latest":null},"checkpoints":[],"log":["2026-11-03 Plan prepared for table v1 (55 cases). Waiting on: app ids (product.json), build / TR, feature.json,"]};
+const LIVE = false;
+// Language: English or 中文 for everything the page writes itself; run data (actions, notes, results text, log) stays
+// as written in the files. The choice is remembered per browser (served by pages.ts: the tab bar's switch).
+let LANG = 'en';
+if (window.CASEBOOK) LANG = window.CASEBOOK.lang; else try { if (localStorage.getItem('plan-lang') === 'zh') LANG = 'zh'; } catch (e) {}
+const tx = (en, zh) => LANG === 'zh' ? zh : en;
+const RES = ['Pass', 'Fail', 'Blocked', 'Inconclusive', 'Not run'];
+const RES_ZH = { 'Pass': '通過', 'Fail': '失敗', 'Blocked': '受阻', 'Inconclusive': '無法判定', 'Not run': '未執行' };
+const resName = r => tx(r, RES_ZH[r] ?? r);
+const STATE_ZH = { 'Skipped this round': '本輪略過', 'Deferred': '延後', 'Done': '完成', 'In progress': '進行中', 'Pending': '待執行', 'Skipped': '略過' };
+const stateName = s => tx(s, STATE_ZH[s] ?? s);
+const COLOR = { 'Pass': 'var(--pass)', 'Fail': 'var(--fail)', 'Blocked': 'var(--blocked)', 'Inconclusive': 'var(--inc)', 'Not run': 'var(--notrun)' };
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+// the other pages, when scripts/pages.ts serves this one (window.CASEBOOK); none for the static plan.html
+const PAGES = window.CASEBOOK?.pages ?? {};
+const xlinks = id => (PAGES.review || PAGES.coverage || PAGES.results) ? `<div class="xl">${PAGES.review ? `<a href="${esc(PAGES.review)}#${encodeURIComponent(id)}">${tx('cases', '案例')} →</a>` : ''}${PAGES.results ? `<a href="${esc(PAGES.results)}#case=${encodeURIComponent(id)}">${tx('results', '結果')} →</a>` : ''}${PAGES.coverage ? `<a href="${esc(PAGES.coverage)}#case=${encodeURIComponent(id)}">${tx('coverage', '覆蓋率')} →</a>` : ''}</div>` : '';
+let focusCase = '';
+const tally = cs => { const t = Object.fromEntries(RES.map(r => [r, 0])); cs.forEach(c => t[c.result in t ? c.result : 'Not run']++); return t; };
+const bar = t => { const n = Object.values(t).reduce((a, b) => a + b, 0) || 1; return RES.map(r => t[r] ? `<span style="width:${t[r] / n * 100}%;background:${COLOR[r]}" title="${resName(r)} ${t[r]}"></span>` : '').join(''); };
+const hm = ms => `${Math.floor(ms / 3600000)}h ${String(Math.round(ms / 60000) % 60).padStart(2, '0')}m`;
+const tok = n => n >= 1e6 ? `${(n / 1e6).toFixed(1)}M` : n >= 1e3 ? `${Math.round(n / 1e3)}k` : String(n);
+const tokAll = u => u.input + u.cacheWrite + u.cacheRead + u.output;
+const num = n => n.toLocaleString('en-US');
+const tokTitle = u => tx(`${u.messages} msgs · input ${num(u.input)} · cache write ${num(u.cacheWrite)} · cache read ${num(u.cacheRead)} · output ${num(u.output)}`,
+  `${u.messages} 則訊息 · 輸入 ${num(u.input)} · 快取寫入 ${num(u.cacheWrite)} · 快取讀取 ${num(u.cacheRead)} · 輸出 ${num(u.output)}`);
+const pct = (v, approx, none = tx('no readings', '無讀數')) => v == null ? `<span class="none">${none}</span>` : `${approx ? '≈' : ''}${Math.round(v)}%`;
+// Seat label "<seat>, <note>": the part after ", " is shown small.
+const seatLabel = s => !s ? '' : (s.seats.length ? s.seats.map(m => m === 1 ? 'Pro 1×' : `${m}× Pro`).join(' + ') : tx('seat unknown', '席位不明')) + (s.readings ? '' : `, ${tx('no readings', '無讀數')}`);
+const fmtP = v => v < 9.95 ? `${v.toFixed(1)}%` : `${Math.round(v)}%`;
+// "= N% of an N× seat" for rows that ran on one non-Pro seat (6.25× in round 2, 1.25× from round 3).
+const seatEq = (v, s) => { const m = s && s.seats && s.seats.length === 1 && s.seats[0] !== 1 ? s.seats[0] : null; return m && v != null ? `<span class="eq">${tx(`= ${fmtP(v / m)} of ${m}× seat`, `= ${m}× 席位的 ${fmtP(v / m)}`)}</span>` : ''; };
+const statLine = s => s ? `<span class="stats num">${s.wall > s.test + 60000 ? `${tx('wall', '總時長')} ${hm(s.wall)} · ` : ''}${tx('test', '測試')} ${hm(s.test)}${s.idle ? ` · ${tx('idle', '閒置')} ${hm(s.idle)}` : ''} · <span title="${esc(tokTitle(s.tokens))}">${tok(tokAll(s.tokens))} tokens</span>${s.est5 != null ? ` · ${tx('est. 5-hour', '估計 5 小時')} ${fmtP(s.est5)}${s.estW != null ? ` · ${tx('weekly', '每週')} ~${fmtP(s.estW)}` : ''} ${tx('of 1× Pro', '（1× Pro）')}` : ''}${s.fiveHour != null ? ` · ${tx('account total (shared)', '帳號合計（共用）')} ${pct(s.fiveHour, s.approx)} / ${pct(s.weekly, s.approx)}` : ''}</span>` : '';
+const segBtnText = btn => { const shown = !btn.closest('.usage').classList.contains('nosegs'); btn.textContent = shown ? tx('Hide segments', '隱藏區段') : tx('Show segments', '顯示區段'); };
+function toggleSegs(btn) { const u = btn.closest('.usage'); u.classList.toggle('nosegs'); btn.setAttribute('aria-pressed', String(!u.classList.contains('nosegs'))); segBtnText(btn); }
+const utc = s => esc(s.slice(5, 16).replace('T', ' '));
+// One usage table per part of the page: the current run (with the notes) and the earlier runs.
+function renderUsage(tableId, subset, totalLabel, emptyText) {
+  const U = DATA.usage, C = U.calibration, ps = subset.filter(p => p.stats);
+  if (!ps.length) { document.getElementById(tableId).innerHTML = `<tbody><tr><td class="none">${esc(emptyText)}</td></tr></tbody>`; }
+  const z = { wall: 0, test: 0, idle: 0, gaps: 0, tokens: { input: 0, cacheWrite: 0, cacheRead: 0, output: 0, messages: 0 } };
+  for (const p of ps) { for (const k of ['wall', 'test', 'idle', 'gaps']) z[k] += p.stats[k]; for (const k in z.tokens) z.tokens[k] += p.stats.tokens[k]; }
+  const estCells = (s, eq = true) => `<td class="n est">${s.est5 == null ? `<span class="none">${s.noTokens ? `<span title="${esc(tx('No messages in this run folder\'s tokens.jsonl yet: the computer that ran it has to build this page and commit the file', '此執行資料夾的 tokens.jsonl 尚無訊息：需由執行它的電腦建置此頁並 commit 該檔'))}">${tx('no token data yet', '尚無 token 資料')}</span>` : tx('no calibration', '未校準')}</span>` : fmtP(s.est5) + (eq ? seatEq(s.est5, s) : '')}</td><td class="n est">${s.estW == null ? '<span class="none">—</span>' : '~' + fmtP(s.estW) + (eq ? seatEq(s.estW, s) : '')}</td>`;
+  const acctCells = (h5, wk, approx) => `<td class="n acct">${pct(h5, approx, '—')}</td><td class="n acct">${pct(wk, approx, '—')}</td>`;
+  const gaps = n => tx(`${n} gap${n > 1 ? 's' : ''}`, `${n} 段閒置`);
+  const row = (label, seat, s, cls = '') => `<tr class="${cls}"><td>${label}</td><td>${esc(seat.split(', ')[0])}${seat.includes(', ') ? `<span class="eq">${esc(seat.split(', ').slice(1).join(', '))}</span>` : ''}</td><td class="n">${hm(s.wall)}</td><td class="n">${hm(s.test)}</td><td class="n">${hm(s.idle)}${s.gaps ? `<span class="eq">${gaps(s.gaps)}</span>` : ''}</td><td class="n" title="${esc(tokTitle(s.tokens))}">${tok(tokAll(s.tokens))}${s.wt != null ? `<span class="eq">${tx('wtd', '加權')} ${tok(s.wt)}</span>` : ''}</td>`;
+  const sub = (label, s) => s ? row(label, '', s, 'sub') + estCells(s, false) + acctCells(s.fiveHour, s.weekly, s.approx) + '</tr>' : '';
+  const span = s => `<span class="eq">${utc(s.from)} → ${utc(s.to)} UTC</span>`;
+  const ids = new Set(ps.map(p => p.id));
+  const rounds = (U.rounds || []).map(r => ({ ...r, phases: r.phases.filter(id => ids.has(id)) })).filter(r => r.phases.length);
+  const allRounds = U.rounds || [];
+  const sum = k => ps.some(p => p.stats[k] != null) ? ps.reduce((a, p) => a + (p.stats[k] ?? 0), 0) : null;
+  const body = rounds.map(r => r.phases.map(id => { const p = ps.find(x => x.id === id);
+      return row(`<b>${esc(p.id)}</b> ${span(p.stats)}`, seatLabel(p.stats), p.stats) + estCells(p.stats) + acctCells(p.stats.fiveHour, p.stats.weekly, p.stats.approx) + '</tr>'
+        + p.segments.map(s => sub(`<span title="${esc(s.name)}">${esc(s.id)}</span>`, s.stats)).join('') + sub(tx('wrap-up', '收尾'), p.wrapUp); }).join('')
+    + (r.phases.length > 1 ? row(`${tx(`Round ${r.n} total`, `第 ${r.n} 輪合計`)} <span class="eq">${esc(r.phases.join(' + '))}</span>`, seatLabel(r), r, 'tot round') + estCells(r) + acctCells(r.readings ? r.fiveHour : null, r.readings ? r.weekly : null, r.approx) + '</tr>' : '')).join('');
+  const outside = U.outside5 || U.outsideW ? `<tr><td>${tx('Outside any run', '執行以外')}</td><td></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n est">—</td><td class="n est">—</td>${acctCells(U.outside5, U.outsideW, U.approx)}</tr>` : '';
+  const acctTitle = tx("Snapshot increments during the run's active time, including other users of the account", '執行期間帳號用量快照的增加量，包含帳號的其他使用者');
+  if (ps.length) document.getElementById(tableId).innerHTML = `<thead><tr><th rowspan="2">${tx('Phase', '階段')}</th><th rowspan="2">${tx('Account', '帳號')}</th><th class="n" rowspan="2">${tx('Wall', '總時長')}</th><th class="n" rowspan="2">${tx('Test', '測試')}</th><th class="n" rowspan="2">${tx('Idle &gt;15 min', '閒置 &gt;15 分')}</th><th class="n" rowspan="2">${tx('Claude tokens', 'Claude token')}</th><th class="grp" colspan="2">${tx('Est. from token rate, % of 1× Pro', '依 token 率估計（1× Pro 的 %）')}</th><th class="grp acct" colspan="2">${tx('Account total (shared), % of 1× Pro', '帳號合計（共用，1× Pro 的 %）')}</th></tr>
+    <tr><th class="n" title="${tx('Weighted tokens × the calibrated rate', '加權 token × 校準後的比率')}">${tx('5-hour', '5 小時')}</th><th class="n" title="${tx('5-hour estimate × the weekly ÷ 5-hour ratio', '5 小時估計 × 每週 ÷ 5 小時比')}">${tx('Weekly (rough)', '每週（粗估）')}</th><th class="n acct" title="${acctTitle}">${tx('5-hour', '5 小時')}</th><th class="n acct" title="${acctTitle}">${tx('Weekly', '每週')}</th></tr></thead><tbody>` +
+    body + outside +
+    (ps.length > 1 ? row(esc(totalLabel), '', { ...z, wt: sum('wt') }, 'tot round') + estCells(ps.every(p => p.stats.noTokens) ? { est5: null, estW: null, noTokens: true, seats: [] } : { est5: sum('est5'), estW: sum('estW'), seats: [] }) + acctCells(sum('fiveHour'), sum('weekly'), ps.some(p => p.stats.approx)) + '</tr>' : '') + '</tbody>';
+  if (tableId !== 'usage') return;
+  const L = U.latest, w = U.weights;
+  const opm = t => t.messages ? t.output / t.messages : 0;
+  const basisRound = C ? allRounds.find(r => r.phases.includes(C.basis)) : null;
+  const models = o => Object.keys(o || {}).join(', ') || '?';
+  const outNotes = C && basisRound ? allRounds.filter(r => r !== basisRound).map(r => {
+    const per = r.phases.map(id => { const p = DATA.phases.find(x => x.id === id); return `${esc(id)} ${Math.round(opm(p.stats.tokens))}`; }).join(', ');
+    const extra = C.rate != null ? Math.max(0, opm(basisRound.tokens) - opm(r.tokens)) * r.tokens.messages * w.output * C.rate : 0;
+    const o = Math.round(opm(r.tokens)), ob = Math.round(opm(basisRound.tokens)), b = esc(C.basis), m = num(r.tokens.messages);
+    return tx(`<span><b>Output may be under-recorded.</b> Round ${r.n} transcripts record ${o} output tokens per message (${per}; ${m} messages) against ${ob} in ${b}. If round ${r.n}'s output was really nearer ${b}'s, its estimate is too low: at ${ob} per message it would be about ${Math.round(extra)} points higher (5-hour, 1× Pro).</span>`,
+      `<span><b>輸出可能記錄偏低。</b>第 ${r.n} 輪的對話紀錄每則訊息 ${o} 個輸出 token（${per}；${m} 則訊息），${b} 則是 ${ob}。若第 ${r.n} 輪的輸出其實接近 ${b}，它的估計就偏低：以每則 ${ob} 計算約再高 ${Math.round(extra)} 個百分點（5 小時，1× Pro）。</span>`);
+  }).join('') : '';
+  const WB = C && C.weekBasis;
+  const rateStr = C && C.rate != null ? (C.rate * 1e6).toFixed(2) : '?';
+  const ratio = C && C.weekRatio != null ? C.weekRatio.toFixed(3) : '?';
+  const notes = !C ? [tx(`<span><b>No calibration.</b> Add <code>runs/usage-calibration.json</code> (<code>{ "basis": "P1", "fiveHourPct": 300, "seat": 1, "source": "…", "weekPerFiveHour": null }</code>) to show the token-rate estimate.</span>`,
+      `<span><b>尚未校準。</b>加入 <code>runs/usage-calibration.json</code>（<code>{ "basis": "P1", "fiveHourPct": 300, "seat": 1, "source": "…", "weekPerFiveHour": null }</code>）即可顯示依 token 率的估計。</span>`)] : [
+    tx(`<span><b>Est. from token rate (the main figure).</b> Calibration (<code>runs/usage-calibration.json</code>): ${esc(C.source || '?')} = ${C.fiveHourPct * (C.seat || 1)}% of a 1× Pro 5-hour window for ${esc(C.basis)}'s ${tok(C.basisWt)} weighted tokens, so the rate is ${rateStr}% per million weighted tokens. Each row = its weighted tokens × that rate (weights: input ${w.input}, cache write ${w.cacheWrite}, cache read ${w.cacheRead}, output ${w.output}); "= N% of an N× seat" divides by the seat size of the account the row ran on.</span>`,
+      `<span><b>依 token 率估計（主要數字）。</b>校準（<code>runs/usage-calibration.json</code>）：${esc(C.source || '?')} = ${esc(C.basis)} 的 ${tok(C.basisWt)} 加權 token 用掉 1× Pro 5 小時額度的 ${C.fiveHourPct * (C.seat || 1)}%，所以比率是每百萬加權 token ${rateStr}%。每一列 = 它的加權 token × 這個比率（權重：輸入 ${w.input}、快取寫入 ${w.cacheWrite}、快取讀取 ${w.cacheRead}、輸出 ${w.output}）；「= N× 席位的 N%」是再除以該列所用帳號的席位大小。</span>`),
+    tx(`<span><b>Weekly is rough.</b> ${esc(C.basis)} has no weekly reading, so weekly = the 5-hour estimate × ${ratio}${C.weekPerFiveHour != null ? ' (weekPerFiveHour in the calibration file)' : WB ? `, the weekly ÷ 5-hour ratio in the ${WB.seat}× seat's paired readings (weekly +${Math.round(WB.weekly)}% against 5-hour +${Math.round(WB.fiveHour)}% of 1× Pro, ${utc(WB.from)} → ${utc(WB.to)} UTC). Those readings include other users of the account and assume the seat's weekly limit scales like its 5-hour limit` : ' (no paired readings to take a ratio from)'}.</span>`,
+      `<span><b>每週只是粗估。</b>${esc(C.basis)} 沒有每週讀數，所以每週 = 5 小時估計 × ${ratio}${C.weekPerFiveHour != null ? '（校準檔的 weekPerFiveHour）' : WB ? `，取自 ${WB.seat}× 席位成對讀數的每週 ÷ 5 小時比（每週 +${Math.round(WB.weekly)}%，5 小時 +${Math.round(WB.fiveHour)}%，以 1× Pro 計，${utc(WB.from)} → ${utc(WB.to)} UTC）。這些讀數包含帳號其他使用者的用量，並假設席位的每週上限與 5 小時上限同比例` : '（沒有成對讀數可算比例）'}。</span>`),
+    tx(`<span><b>Assumes the same model and limits throughout:</b> the rate from ${esc(C.basis)} holds for every round only if the same model ran (transcripts: ${allRounds.map(r => `round ${r.n} ${esc(models(r.models))}`).join('; ')}) and each seat's limits scale with its size (a 6.25× or 1.25× Team seat = that many times Pro).</span>`,
+      `<span><b>假設全程使用相同模型與上限：</b>${esc(C.basis)} 的比率只有在每一輪都用同一個模型時才適用（對話紀錄：${allRounds.map(r => `第 ${r.n} 輪 ${esc(models(r.models))}`).join('；')}），並假設每個席位的上限隨席位大小等比放大（6.25× 或 1.25× Team 席位 = 那麼多倍的 Pro）。</span>`),
+  ];
+  document.getElementById('usage-notes').innerHTML = [
+    ...notes, outNotes,
+    tx(`<span><b>Account total (shared) is muted on purpose.</b> It is the account's snapshot increments while the run was active (a 100% stop = one full window). The round-2 account was used heavily by someone else on another machine during P23 and P4 (user, 2026-10-21); their use is invisible to these transcripts, so this figure is far above this run's own use. The earlier token-ratio share (this run's tokens ÷ all tokens on this Mac) was dropped for the same reason: its denominator could not see the other user.</span>`,
+      `<span><b>帳號合計（共用）刻意淡化顯示。</b>它是執行期間帳號用量快照的增加量（用到 100% 而停止 = 一整個額度）。第 2 輪的帳號在 P23 與 P4 期間被其他人在別台電腦大量使用（使用者，2026-10-21）；這些用量不在這裡的對話紀錄中，所以這個數字遠高於本次執行自己的用量。先前的 token 比例分攤（本次執行的 token ÷ 這台 Mac 的所有 token）也因同樣原因取消：分母看不到其他使用者。</span>`),
+    tx(`<span><b>Seat size per account.</b> Each usage snapshot stores its account's seat size (<code>proMultiplier</code>, <code>usage-log.ts --seat N</code>): Pro-% = plan-% × that value, so 625% = one full 5-hour window of a 6.25× Pro Team seat. A seat change marks an account switch and starts a new round; no window spans it.${U.seatAssumed ? " Rows without a value inherit the previous row's (1 before any)." : ''} Plan % comes from ${U.snapshots} usage reading${U.snapshots === 1 ? '' : 's'}${U.markers ? ` and ${U.markers} account marker${U.markers === 1 ? '' : 's'}` : ''} (<code>runs/usage.jsonl</code>).</span>`,
+      `<span><b>每個帳號的席位大小。</b>每筆用量快照都記錄該帳號的席位大小（<code>proMultiplier</code>，<code>usage-log.ts --seat N</code>）：Pro-% = 方案 % × 席位大小，所以 625% = 6.25× Pro Team 席位的一整個 5 小時額度。席位改變代表換了帳號，並開始新的一輪；額度不會跨過它。${U.seatAssumed ? '沒有記錄席位的列沿用前一列（最前面為 1）。' : ''}方案 % 來自 ${U.snapshots} 筆用量讀數${U.markers ? `與 ${U.markers} 個帳號標記` : ''}（<code>runs/usage.jsonl</code>）。</span>`),
+    L ? tx(`<span>Latest reading ${esc(L.at.slice(0, 16).replace('T', ' '))} UTC (${L.seat}× Pro seat): 5-hour ${L.fiveHourPct ?? '?'}%${L.fiveHourResetsAt ? ` (resets ${utc(L.fiveHourResetsAt)})` : ''} · weekly ${L.weeklyPct ?? '?'}%${L.weeklyResetsAt ? ` (resets ${utc(L.weeklyResetsAt)})` : ''} of the plan.</span>`,
+      `<span>最新讀數 ${esc(L.at.slice(0, 16).replace('T', ' '))} UTC（${L.seat}× Pro 席位）：5 小時 ${L.fiveHourPct ?? '?'}%${L.fiveHourResetsAt ? `（${utc(L.fiveHourResetsAt)} 重設）` : ''} · 每週 ${L.weeklyPct ?? '?'}%${L.weeklyResetsAt ? `（${utc(L.weeklyResetsAt)} 重設）` : ''}（方案用量）。</span>`) : '',
+    tx(`<span>Time as <code>run-log.ts time</code> (activity points per run folder; test = gaps up to 15 min). Claude tokens = input + cache write + cache read + output of the ${U.ledgerMessages ?? 0} messages in the run folders' <code>tokens.jsonl</code>, which every computer that builds this page tops up from its own transcripts (sessions and subagents that name the run folder, inside its active spans) and which is committed with the run, so every computer shows the same figures once it has pulled; "wtd" = weighted. A phase row includes its wrap-up.</span>`,
+      `<span>時間同 <code>run-log.ts time</code>（各執行資料夾的活動時間點；測試 = 15 分鐘以內的間隔）。Claude token = 輸入 + 快取寫入 + 快取讀取 + 輸出，取自各執行資料夾 <code>tokens.jsonl</code> 的 ${U.ledgerMessages ?? 0} 則訊息；每台建置此頁的電腦都會從自己的對話紀錄補進去（提到該執行資料夾的工作階段與子代理，在它的活動期間內），並隨執行一起 commit，所以 pull 之後每台電腦顯示的數字相同；「加權」= 加權後。階段列包含它的收尾。</span>`)
+  ].join('');
+}
+// Blocked reasons. Group keys come from plan-page.ts: need:<n> (Blocked up front: the run can't provide <n>),
+// gate:<n> (a failed gate), upstream (an earlier case failed), label:<text> (blocked-reasons.json), other.
+const NEED = {
+  'purchase': ['Purchase (no purchases, sandbox included)', '購買（不購買，沙盒也不行）'],
+  'low-balance': ['Low credit balance', '低點數餘額'],
+  'new-account': ['A new account with no creations', '沒有作品的新帳號'],
+  'chat-count': ['Daily chat count', '每日對話次數'],
+  'remote-config': ['Remote Config daily chat allowance', 'Remote Config 每日對話額度'],
+  'voice': ['Spoken input', '語音輸入'],
+  'full-generation': ['Full template journeys', '完整範本流程'],
+  'stt-failure': ['Speech-to-text failure', '語音轉文字失敗'],
+  'slow-generation': ['A generation that stays running long enough', '持續進行夠久的生成'],
+  'video': ['A generated video', '已生成的影片'],
+};
+const GATE = { 'video': ['Video never generated', '影片始終沒有生成'] };
+const OTHER = {
+  'defect': ['Other defects', '其他缺陷'],
+  'test-data': ['A specific fixture or setup the run couldn\'t make', '本次無法做出的特定測試資料或設定'],
+  'observability': ['A result the app doesn\'t show', 'App 沒有顯示的結果'],
+};
+const whyLabel = (g, cat) => {
+  const [k, v] = [g.split(':')[0], g.slice(g.indexOf(':') + 1)];
+  const l = k === 'need' ? NEED[v] || [`Needs ${v}`, `需要 ${v}`] : k === 'gate' ? GATE[v] || [`Gate ${v} failed`, `${v} 關卡失敗`]
+    : k === 'upstream' ? ['An earlier step failed', '前一步失敗'] : k === 'label' ? [v, v] : OTHER[cat] || ['Other', '其他'];
+  return tx(l[0], l[1]);
+};
+const CAT = {
+  'defect': ['Blocked by a defect', '因缺陷受阻', 'They come back once the defect is fixed; <code>run-log.ts retest</code> lists the ones a failed gate or an earlier step blocked.', '缺陷修好後就能再跑；<code>run-log.ts retest</code> 會列出因關卡失敗或前一步失敗而受阻的案例。'],
+  'test-data': ['Test data the run can\'t set up', '本次無法準備的測試資料', 'They need an account, balance, fixture or setup this run can\'t provide. Ones marked "your rule" stay Blocked until you lift the rule.', '需要本次無法提供的帳號、餘額、測試資料或設定。標示「你的規則」的會一直受阻，直到你解除該規則。'],
+  'observability': ['Can\'t be observed', '無法觀察', 'They need a way to see the result that the app and Pink don\'t give; RD has to add a switch or fixture.', '需要看到 App 與 Pink 都沒有提供的結果；需要 RD 加上開關或測試資料。'],
+};
+// "TC-084, TC-085, TC-086" → "TC-084–086"
+const idRuns = ids => {
+  const ns = ids.map(i => [i, Number(i.match(/(\d+)$/)?.[1])]).sort((a, b) => a[1] - b[1]), out = [];
+  for (let i = 0; i < ns.length; i++) {
+    let j = i; while (j + 1 < ns.length && ns[j + 1][1] === ns[j][1] + 1) j++;
+    out.push(j > i ? `${ns[i][0]}–${ns[j][0].match(/(\d+)$/)[1]}` : ns[i][0]); i = j;
+  }
+  return out;
+};
+function renderBlocked(phases) {
+  const bs = phases.flatMap(p => p.skip || p.hold ? [] : p.segments.flatMap(s => s.cases.filter(c => c.why).map(c => ({ ...c, phase: p.id, seg: s.id }))));
+  const box = document.getElementById('blocked-box'); box.hidden = !bs.length; if (!bs.length) return;
+  const cats = {}; for (const c of bs) ((cats[c.disp || 'other'] ??= {})[c.why.group] ??= []).push(c);
+  const order = Object.keys(cats).sort((a, b) => Object.values(cats[b]).flat().length - Object.values(cats[a]).flat().length);
+  const catName = k => CAT[k] ? tx(CAT[k][0], CAT[k][1]) : k;
+  const n = k => Object.values(cats[k]).flat().length;
+  document.getElementById('blocked-h').textContent = tx(`Why ${bs.length} cases are Blocked`, `${bs.length} 個案例為何受阻`);
+  document.getElementById('blocked-lead').textContent = order.map(k => `${catName(k)}: ${n(k)}`).join(' · ');
+  const link = c => `<a href="#${esc(c.phase)}--${esc(c.seg)}" data-open="${esc(c.phase)}--${esc(c.seg)}">${esc(c.id)}</a>`;
+  document.getElementById('blocked').innerHTML = order.map(k => {
+    const groups = Object.entries(cats[k]).sort((a, b) => b[1].length - a[1].length).map(([g, cs]) => {
+      const need = g.startsWith('need:') ? g.slice(5) : '', why = need ? DATA.unavailable[need] || '' : '';
+      const rule = /\buser\b|REQ-\d+/i.test(why) ? ` <span class="tag">${tx('your rule', '你的規則')}</span>` : '';
+      const noted = cs.filter(c => c.why.note), plain = cs.filter(c => !c.why.note);
+      const bySeg = {}; for (const c of plain) (bySeg[c.seg] ??= []).push(c);
+      const idList = Object.entries(bySeg).map(([s, xs]) => `<span class="ids">${esc(s)}: ${idRuns(xs.map(c => c.id)).map(r => { const c = xs.find(x => x.id === r.split('–')[0]); return `<a href="#${esc(c.phase)}--${esc(s)}" data-open="${esc(c.phase)}--${esc(s)}">${esc(r)}</a>`; }).join(', ')}</span>`).join('<br>');
+      return `<li><b>${esc(whyLabel(g, k))}</b> <span class="num">· ${cs.length}</span>${rule}${why ? `<div class="detail">${esc(why)}</div>` : ''}${idList ? `<div>${idList}</div>` : ''}${noted.map(c => `<span class="case">${link(c)} <span class="detail">${esc(c.why.note)}</span></span>`).join('')}</li>`;
+    }).join('');
+    return `<div class="why-cat"><h3>${esc(catName(k))} <span class="n">${n(k)}</span></h3>${CAT[k] ? `<p class="clears">${tx(CAT[k][2], CAT[k][3])}</p>` : ''}<ul>${groups}</ul></div>`;
+  }).join('');
+}
+// A case link in the Blocked panel opens its segment.
+document.addEventListener('click', e => { const a = e.target.closest('a[data-open]'); if (a) { const d = document.getElementById(a.dataset.open); if (d) d.open = true; } });
+function phaseHtml(p, history) {
+  const cs = p.segments.flatMap(s => s.cases), t = tally(cs);
+  const state = p.skip ? ['skip', 'Skipped this round'] : p.hold ? ['hold', 'Deferred'] : t['Not run'] === 0 ? ['done', 'Done'] : t['Not run'] < cs.length ? ['active', 'In progress'] : ['pending', 'Pending'];
+  const segs = p.segments.map(s => {
+    const st = tally(s.cases), left = st['Not run'];
+    const ss = p.skip ? ['skip', 'Skipped'] : left === 0 ? ['done', 'Done'] : left < s.cases.length ? ['active', 'In progress'] : ['pending', 'Pending'];
+    const rows = s.cases.map(c => `<tr data-case="${esc(c.id)}"${c.id === focusCase ? ' class="focus"' : ''}><td class="id">${esc(c.id)}${c.origin ? ` <span class="eyebrow">${esc(c.origin)}</span>` : ''}${c.needs ? `<div class="eyebrow">${tx('needs', '需要')} ${esc(c.needs)}</div>` : ''}${xlinks(c.id)}</td><td>${esc(c.section)}</td><td>${esc(c.action)}</td><td><span class="r ${esc(c.result.replace(' ', ''))}">${esc(resName(c.result))}</span>${c.disp ? ` <span class="eyebrow">${esc(c.disp)}</span>` : ''}${c.why ? `<span class="why-row">${esc(whyLabel(c.why.group, c.disp))}</span>` : ''}${c.actual ? `<div class="actual">${esc(c.actual)}${c.at ? ` <span class="eyebrow">${esc(c.at)}</span>` : ''}</div>` : ''}</td></tr>`).join('');
+    return `<details class="seg" id="${esc(p.id)}--${esc(s.id)}"${openSegs.has(`${p.id}--${s.id}`) ? ' open' : ''}><summary><span class="seg-id">${esc(s.id)}</span><span class="seg-name">${esc(s.name)}${statLine(s.stats)}</span><span class="seg-count num">${s.cases.length - left}/${s.cases.length} ${tx('recorded', '已記錄')}</span><span class="bar">${bar(st)}</span><span class="state ${ss[0]}">${stateName(ss[1])}</span></summary>
+      <div class="cases"><table><thead><tr><th>${tx('Case', '案例')}</th><th>${tx('Section', '分區')}</th><th>${tx('Action', '操作')}</th><th>${tx('Result', '結果')}</th></tr></thead><tbody>${rows}</tbody></table></div></details>`;
+  }).join('');
+  const head = `<div class="phase-head"><span class="phase-id">${esc(p.id)}</span><h2>${esc(p.name)} <span class="eyebrow num">${tx(`${cs.length} cases · ${p.segments.length} segments`, `${cs.length} 個案例 · ${p.segments.length} 個區段`)}</span></h2><span class="state ${state[0]}">${stateName(state[1])}</span>
+    <div class="phase-note">${esc(p.skip || p.hold || p.note || '')}${p.runDir ? ` <code>${esc(p.runDir)}</code>` : ''}${statLine(p.stats)}</div><div class="bar" style="grid-column:1/-1">${bar(t)}</div></div>`;
+  const body = history ? `<details class="hist" id="hist--${esc(p.id)}"${openSegs.has(`hist--${p.id}`) ? ' open' : ''}><summary>${tx(`Show ${p.segments.length} segments and their cases`, `顯示 ${p.segments.length} 個區段與其案例`)}</summary>${segs}</details>` : segs;
+  return `<section class="phase" aria-label="${esc(p.id)}">${head}${body}</section>`;
+}
+let openSegs = new Set();
+function render() {
+openSegs = new Set([...document.querySelectorAll('details.seg[open], details.hist[open]')].map(d => d.id));
+// Both parts keep the order the phases ran in; only the current run and the earlier runs are separated.
+const cur = DATA.phases.filter(p => p.current), hist = DATA.phases.filter(p => !p.current);
+renderUsage('usage', cur, tx('This run', '本次執行'), tx('No time recorded yet: the figures start with the first segment of this run.', '尚未記錄時間：數字從本次執行的第一個區段開始。'));
+renderUsage('usage-hist', hist, tx('Earlier runs total', '先前執行合計'), tx('No earlier runs.', '沒有先前的執行。'));
+const all = cur.flatMap(p => p.skip || p.hold ? [] : p.segments.flatMap(s => s.cases));
+const nowCase = cur.flatMap(p => p.skip || p.hold ? [] : p.segments.flatMap(s => s.cases.map(c => ({ ...c, seg: s.id })))).find(c => c.result === 'Not run');
+const T = tally(all);
+document.getElementById('runname').textContent = cur.map(p => `${p.id} · ${p.name}`).join(' · ');
+document.getElementById('meta').innerHTML = [
+  [tx('Table', '測試表'), `${esc(DATA.feature)} · v${DATA.version} · ${tx(`${DATA.totalCases} cases`, `${DATA.totalCases} 個案例`)}`],
+  [tx('Build', '版本'), esc(DATA.build)], [tx('In this run', '本次執行'), tx(`${all.length} cases`, `${all.length} 個案例`)],
+  [tx('Recorded', '已記錄'), `${all.length - T['Not run']} / ${all.length}`], [tx('Next', '下一個'), nowCase ? `${esc(nowCase.id)} (${esc(nowCase.seg)})` : '—'],
+  [LIVE ? tx('Live · updated', '即時 · 更新於') : tx('Generated', '產生於'), esc(DATA.generated)]
+].map(([k, v]) => `<span>${k} <b class="num">${v}</b></span>`).join('');
+document.getElementById('totalbar').innerHTML = bar(T);
+document.getElementById('legend').innerHTML = RES.map(r => `<span><i style="background:${COLOR[r]}"></i>${resName(r)} <span class="num">${T[r]}</span></span>`).join('');
+document.getElementById('phases').innerHTML = cur.map(p => phaseHtml(p, false)).join('');
+renderBlocked(cur);
+document.getElementById('history').hidden = !hist.length;
+document.getElementById('hist-sum').textContent = hist.length ? `${hist.map(p => p.id).join(', ')} · ${tx(`${hist.reduce((n, p) => n + p.segments.reduce((m, s) => m + s.cases.length, 0), 0)} cases`, `${hist.reduce((n, p) => n + p.segments.reduce((m, s) => m + s.cases.length, 0), 0)} 個案例`)}` : '';
+document.getElementById('hist-phases').innerHTML = hist.map(p => phaseHtml(p, true)).join('');
+document.getElementById('cps').innerHTML = DATA.checkpoints.map(c => `<div><span class="t">${esc(c.time)} · ${tx('next', '下一個')} ${esc(c.next)}</span><br>${esc(c.text)}</div>`).join('') || `<div>${tx('No checkpoints yet for this run.', '本次執行還沒有檢查點。')}</div>`;
+document.getElementById('log').innerHTML = DATA.log.map(l => `<li>${esc(l)}</li>`).join('');
+}
+// Fixed text carries its Chinese in data-zh; the English is kept in data-en the first time it is swapped.
+function applyStatic() {
+  document.querySelectorAll('[data-zh]').forEach(el => { if (el.dataset.en == null) el.dataset.en = el.innerHTML; el.innerHTML = LANG === 'zh' ? el.dataset.zh : el.dataset.en; });
+  document.querySelectorAll('.usage .tools button').forEach(segBtnText);
+  document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.l === LANG)));
+  document.documentElement.lang = LANG === 'zh' ? 'zh-Hant' : 'en';
+}
+function setLang(l) { LANG = l; try { localStorage.setItem('plan-lang', l); } catch (e) {} applyStatic(); render(); }
+document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.l)));
+// served by scripts/pages.ts: the tab bar holds the one language switch for every page
+if (window.CASEBOOK) { document.querySelector('.lang')?.remove(); addEventListener('casebook-lang', e => { LANG = e.detail; applyStatic(); render(); }); }
+// #case=TC-012 (a link from the review or coverage page): open the segment that runs it, in the current run when it
+// is there, else the latest earlier run, and scroll to its row
+function showCase() {
+  const m = location.hash.match(/^#case=(.+)$/); if (!m) return;
+  focusCase = decodeURIComponent(m[1]);
+  const order = [...DATA.phases.filter(p => p.current), ...DATA.phases.filter(p => !p.current).reverse()];
+  const p = order.find(p => p.segments.some(s => s.cases.some(c => c.id === focusCase))); if (!p) return;
+  const s = p.segments.find(s => s.cases.some(c => c.id === focusCase));
+  render();
+  // render() keeps whatever segments are open, so the live refresh leaves this one open too
+  for (const id of [`hist--${p.id}`, `${p.id}--${s.id}`]) { const d = document.getElementById(id); if (d) d.open = true; }
+  document.getElementById(`${p.id}--${s.id}`)?.querySelector(`tr[data-case="${CSS.escape(focusCase)}"]`)?.scrollIntoView({ block: 'center' });
+}
+addEventListener('hashchange', showCase);
+applyStatic();
+render();
+showCase();
+
+</script>
