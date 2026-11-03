@@ -9,8 +9,9 @@ The app keeps each session's blueprint at
 `/data/user/0/com.cyberlink.powerdirector.DRA140225_01/files/mini_drama/sessions/<session>/host_inputs/blueprint.json`.
 On this build it cannot be copied off the phone: the package is not debuggable (`run-as` refused), it targets SDK 36
 so `adb backup` leaves app data out, the phone is not rooted, and no copy exists under `/sdcard/Android/data/`.
-Both sessions are still on the phone (app data not cleared). RD can take the file from the server by session id,
-or from the phone with a debuggable build of 16.8.0 installed over this one.
+Both sessions are gone from the phone: round A7-j reinstalled the app three times on 2026-10-30 (fresh-install cases),
+and the app's History now starts at 2026/10/30 10:07 (checked 2026-11-03). The in-app debug-info export (REQ-068) can
+no longer reach them, so the full file can only come from the server, by session id.
 
 What logcat holds instead is put together below. Logcat cuts each line at about 4,100 characters, so long JSON
 lines are incomplete; only objects that closed before the cut are in `characters.json` / `beats.json`.

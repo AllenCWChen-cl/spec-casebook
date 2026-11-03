@@ -24,6 +24,9 @@ phone (the QA Sony Xperia 10 III, adb serial HQ61563393, Android 12).
 - The 16.8 build has no Pink menu, no fault switches, no tier switch, no Write Log and no developer-server switch; the
   server shows only as the Launcher toolbar's content-desc (`[AID]Stage_Server`). Fault / error switches are planned
   for a later Android build (user, 2026-10-28); until one ships, fault-injection rows stay Blocked (observability).
+  AI Mini Drama does have a debug-info switch that exports a session (blueprint, optionally media): the two-finger taps
+  on the AI Drama Assistant page's top row (user, 2026-11-03, REQ-068; steps in `run-android.md` › *Debug info and
+  session export*).
 - Signed in with one of the user's CyberLink test accounts (never typed by the agent; the user signs in on the phone).
   A1 ran signed out up to TC-036, then signed in to the user's test account (Free tier, 1,339 credits at 16:27).
   Paid-tier (Pro) rows need an account with a Pro subscription (REQ-043); until then they are Blocked (`paid-tier`).

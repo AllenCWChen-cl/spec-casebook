@@ -43,6 +43,16 @@ adb serial HQ61563393, Android 12, 1080 × 2520; setup in README › Android pho
   otherwise need real failures (network loss). The tier comes from the signed-in account. Builds come from the TR's
   OneDrive folder (`CL_Deluxe.<build>_<SR>_R9.zip`, APK + `Cyberlink.MD5`), installed with `adb install -r` after the
   user approves the download (`fixtures.md`).
+- **Debug info and session export (user, 2026-11-03, REQ-068).** AI Mini Drama has a Pink-like switch: on the 「Hi I'm
+  your AI Drama Assistant」 page, keep tapping the top row with two fingers between Back and the credit icon until the
+  toast 「Tap for debug info: ON」; the Create Your Drama page's top bar then turns yellow (like Stage). Tapping the top
+  of a chat box (Storyboard Result, Story Outline…) opens a menu whose download button exports the session; the
+  popup asks whether to include media (bigger file), EXPORT shows a toast with the path (default under Download).
+  This is how to get a session's `blueprint.json` (the app's private files are not readable over adb): export
+  without media unless the media is needed, then `adb pull` the path the toast names into the eBug batch folder.
+  Debug info stays off in test runs unless a case needs it. Export a finding's session when the finding is made,
+  before any reinstall or `pm clear`: both wipe History (the A7 blueprints for DRA262610P0420 / P0421 were lost to
+  the A7-j reinstalls, 2026-11-03).
 - **Server: Stage vs Production (user, 2026-10-28).** An empty `testserver.config` in `/sdcard/cyberlink/PDR/` means
   Stage at the next launch, absent means Production (`/sdcard/cyberlink/tester.config` holds the SR code and is not
   the switch). A fresh install keeps the file (shared storage); if it is missing the app comes up on Production with
