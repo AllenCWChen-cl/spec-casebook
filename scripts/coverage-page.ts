@@ -85,11 +85,12 @@ async function serveMode(): Promise<never> {
   return new Promise<never>(() => {});
 }
 const table = tableDir(feature, platform);
-const manifest = readManifest(feature, platform)!;
+// null for a feature's first table (no approved version yet): only --draft works then
+const manifest = readManifest(feature, platform);
 // --draft <id>: the draft's rows, requirements and control trace (run results still come from <table>/runs)
 const draftId = arg('draft');
 const src = draftId ? join(draftsDir(feature, platform), draftId) : table;
-const specFolder: string = draftId ? JSON.parse(readFileSync(join(src, 'spec.json'), 'utf8')).spec_folder : manifest.spec_folder;
+const specFolder: string = draftId ? JSON.parse(readFileSync(join(src, 'spec.json'), 'utf8')).spec_folder : manifest!.spec_folder;
 const specDir = join(featureDir(feature), specFolder);
 const ex = join(specDir, 'extracted');
 const inv = JSON.parse(readFileSync(join(ex, 'inventory.json'), 'utf8'));
@@ -307,7 +308,7 @@ const arrows = inv.arrows.filter((a: any) => !a.duplicate_of && a.kind !== 'poin
 // so no board is left blank. A block traced to requirements takes the state of their rows; label / ui / older / Q-n
 // blocks are excluded with their reason; an untraced block is missing. Block positions are PDF points of its board's
 // PDF (boards.json), placed on the Figma board holding them (pdf point = figma point + offset) or on the region board.
-const tracePathA = join(draftId ? src : join(draftsDir(feature, platform), manifest.draft ?? ''), 'annotation-trace.json');
+const tracePathA = join(draftId ? src : join(draftsDir(feature, platform), manifest!.draft ?? ''), 'annotation-trace.json');
 const blocks: any[] = existsSync(tracePathA) ? JSON.parse(readFileSync(tracePathA, 'utf8')).blocks : [];
 // a linked table's items (extracted/links.json) the draft has not traced yet are shown missing, never left off
 // and every linked item carries its short label and place in the list (link_i), which the page draws as a table
@@ -383,7 +384,7 @@ const reqs = Object.fromEntries([...new Set(rows.flatMap(refsOf))].filter(rid =>
 const rowInfo = Object.fromEntries(rows.map(r => { const x = result.get(r.ID);
   return [r.ID, { action: r.Action, expected: r['Expected Result'], section: r.Section, refs: refsOf(r), ...(x ?? { result: 'Not run' }), ...(x?.result === 'Blocked' ? { reason: blockReason(x) } : {}) }]; }));
 const data = {
-  feature, platform, draft: draftId ?? null, title: manifest.title ?? feature, version: draftId ? `${manifest.version} + draft ${draftId}` : manifest.version, spec_folder: specFolder, built_at: new Date().toISOString(),
+  feature, platform, draft: draftId ?? null, title: manifest?.title ?? feature, version: draftId ? (manifest ? `${manifest.version} + draft ${draftId}` : `new table · draft ${draftId}`) : manifest!.version, spec_folder: specFolder, built_at: new Date().toISOString(),
   runs: runNames, taps: taps.length, unmatched: unmatchedView, figma: Object.fromEntries(Object.entries<any>(inv.files).map(([k, f]) => [k, `https://www.figma.com/design/${k}/?node-id=`])),
   boards, screens: inv.screens.map((s: any) => ({ id: s.id, board: s.board, box: s.box, name: s.name, panel: !!s.panel, other: s.platform !== platform && s.platform !== 'any' })),
   groups, arrows, notes, rows: rowInfo, reqs,

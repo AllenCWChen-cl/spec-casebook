@@ -1,0 +1,13 @@
+{
+  "add": [
+    { "screen": "1:451", "screens": ["11:248"], "label": "Eraser", "box": [12, 500, 36, 36], "kind": "button", "layer": "editing_area/ic_eraser_n", "why": "Eraser on the canvas's lower left (5:421): an editing_area instance the extractor's name filter does not take (by hand, 2026-11-03)" },
+    { "screen": "1:451", "screens": ["11:248"], "label": "Close", "box": [12, 740, 32, 32], "kind": "button", "why": "X in bottom_action/4icons (4:158): the bar is one instance, its four icons have no boxes (by hand, 2026-11-03)" },
+    { "screen": "1:451", "screens": ["11:248"], "label": "Undo", "box": [118, 740, 32, 32], "kind": "button", "why": "Undo in bottom_action/4icons (by hand, 2026-11-03)" },
+    { "screen": "1:451", "screens": ["11:248"], "label": "Redo", "box": [225, 740, 32, 32], "kind": "button", "why": "Redo in bottom_action/4icons (by hand, 2026-11-03)" },
+    { "screen": "1:451", "screens": ["11:248"], "label": "Apply", "box": [331, 740, 32, 32], "kind": "button", "why": "✓ in bottom_action/4icons (by hand, 2026-11-03)" }
+  ],
+  "drop": [],
+  "drop_screens": [],
+  "hide": [],
+  "merged": []
+}

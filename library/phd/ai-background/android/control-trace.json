@@ -1,0 +1,250 @@
+{
+  "spec_folder": "specs/2026-11-03",
+  "platform": "android",
+  "inventory": "specs/2026-11-03/extracted/inventory.json",
+  "entries": [
+    {
+      "group": "K-cdcd68",
+      "kind": "button",
+      "board": "5",
+      "boards": [
+        "5",
+        "6"
+      ],
+      "name": "btn_add_credit",
+      "label": "100",
+      "set": false,
+      "instances": 2,
+      "screens": [
+        "5",
+        "6"
+      ],
+      "controls": [
+        "K-1d1f54",
+        "K-562aa1"
+      ],
+      "app": [],
+      "press": "TC-007, TC-052"
+    },
+    {
+      "group": "K-18b0e9",
+      "kind": "button",
+      "board": "5",
+      "boards": [
+        "5",
+        "6"
+      ],
+      "name": "btn_credit_primary_1row",
+      "label": "Generate",
+      "set": false,
+      "instances": 2,
+      "screens": [
+        "5",
+        "6"
+      ],
+      "controls": [
+        "K-fe81af",
+        "K-e100cb"
+      ],
+      "app": [],
+      "press": "TC-033, TC-034, TC-053",
+      "how": "label"
+    },
+    {
+      "group": "K-187c47",
+      "kind": "button",
+      "board": "5",
+      "boards": [
+        "5"
+      ],
+      "name": "editing_area/ic_eraser_n",
+      "label": "",
+      "set": false,
+      "instances": 2,
+      "screens": [
+        "5",
+        "6"
+      ],
+      "controls": [
+        "M-9dd04d"
+      ],
+      "app": [],
+      "press": "TC-003"
+    },
+    {
+      "group": "K-f80fa1",
+      "kind": "button",
+      "board": "5",
+      "boards": [
+        "5",
+        "6"
+      ],
+      "name": "ic_crop_n",
+      "label": "",
+      "set": false,
+      "instances": 2,
+      "screens": [
+        "5",
+        "6"
+      ],
+      "controls": [
+        "K-e8fd78",
+        "K-5a2a8b"
+      ],
+      "app": [],
+      "press": "TC-004"
+    },
+    {
+      "group": "C-17498b",
+      "kind": "button",
+      "board": "5",
+      "boards": [
+        "5"
+      ],
+      "name": "manual/button",
+      "label": "choice of 4: 「Close」 「Undo」 「Redo」 「Apply」",
+      "set": true,
+      "instances": 8,
+      "screens": [
+        "5",
+        "6"
+      ],
+      "controls": [
+        "M-c37bb3",
+        "M-cfb3e8",
+        "M-fad84d",
+        "M-f3ca02"
+      ],
+      "app": [],
+      "press": "TC-035, TC-036, TC-037",
+      "how": "label"
+    },
+    {
+      "group": "K-d3286d",
+      "kind": "button",
+      "board": "5",
+      "boards": [
+        "5",
+        "6"
+      ],
+      "name": "On-screen/btn_BA_n",
+      "label": "",
+      "set": false,
+      "instances": 2,
+      "screens": [
+        "5",
+        "6"
+      ],
+      "controls": [
+        "K-c153f9",
+        "K-b85dd7"
+      ],
+      "app": [],
+      "press": "TC-005"
+    },
+    {
+      "group": "C-fade26",
+      "kind": "tab",
+      "board": "5",
+      "boards": [
+        "5",
+        "6"
+      ],
+      "name": "tab-03",
+      "label": "choice of 6: 「Custom」 「Neutrals」 「Ballon」 「Wood」 …",
+      "set": true,
+      "instances": 12,
+      "screens": [
+        "5",
+        "6"
+      ],
+      "controls": [
+        "K-6d1929",
+        "K-f194cb",
+        "K-8b469b",
+        "K-2c8c1f",
+        "K-c680ea",
+        "K-72edbd",
+        "K-6ca530",
+        "K-e0b397",
+        "K-78217f",
+        "K-e938f7",
+        "K-895c47",
+        "K-92c3e0"
+      ],
+      "app": [],
+      "press": "TC-011, TC-010",
+      "how": "label"
+    },
+    {
+      "group": "C-f01f72",
+      "kind": "item",
+      "board": "5",
+      "boards": [
+        "5",
+        "6"
+      ],
+      "name": "thumb_1v1",
+      "label": "choice of 2: 「Artistic」 「B&W」",
+      "set": true,
+      "instances": 4,
+      "screens": [
+        "5",
+        "6"
+      ],
+      "controls": [
+        "K-e2c449",
+        "K-fd6e13",
+        "K-1eab94",
+        "K-a972d8"
+      ],
+      "app": [],
+      "press": "TC-015"
+    },
+    {
+      "group": "C-5ea12b",
+      "kind": "item",
+      "board": "5",
+      "boards": [
+        "5"
+      ],
+      "name": "thumb/80x80/withname/regular",
+      "label": "choice of 2: 「Custom」 「Lomo」",
+      "set": true,
+      "instances": 2,
+      "screens": [
+        "5"
+      ],
+      "controls": [
+        "K-2f3361",
+        "K-e2aed3"
+      ],
+      "app": [],
+      "press": "TC-016, TC-015",
+      "how": "label"
+    },
+    {
+      "group": "K-8ee862",
+      "kind": "button",
+      "board": "5",
+      "boards": [
+        "5",
+        "6"
+      ],
+      "name": "top/ic_info",
+      "label": "",
+      "set": false,
+      "instances": 2,
+      "screens": [
+        "5",
+        "6"
+      ],
+      "controls": [
+        "K-7128cd",
+        "K-7289ba"
+      ],
+      "app": [],
+      "press": "TC-006"
+    }
+  ]
+}

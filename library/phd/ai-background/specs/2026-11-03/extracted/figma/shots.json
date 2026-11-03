@@ -1,0 +1,26 @@
+{
+  "5.png": {
+    "board": "1:451",
+    "group": "d1",
+    "hash": "4042d2f8",
+    "captured_at": "2026-11-03T07:48:23.844Z"
+  },
+  "6.png": {
+    "board": "11:248",
+    "group": "d1",
+    "hash": "0115f9bf",
+    "captured_at": "2026-11-03T07:48:24.034Z"
+  },
+  "frame-4922.png": {
+    "board": "25:915",
+    "group": "d1",
+    "hash": "b528982c",
+    "captured_at": "2026-11-03T07:48:24.207Z"
+  },
+  "frame-4923.png": {
+    "board": "25:916",
+    "group": "d1",
+    "hash": "be196bb3",
+    "captured_at": "2026-11-03T07:48:24.384Z"
+  }
+}

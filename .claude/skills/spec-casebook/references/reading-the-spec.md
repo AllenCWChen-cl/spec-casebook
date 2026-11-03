@@ -23,6 +23,10 @@ and look at the tile images where layout, arrows or states matter.**
    `specs/<date>/extracted/boards/<id>.md`: the board's text in reading order with canvas coordinates. Tiles stay in
    `boards/<id>/tiles/` (local only). Re-running skips finished steps. Expect about 45–75 min for a 230 MB PM file with `--jobs 3` (10/21: 48 min for 14 boards; the main-flow board alone took 48 min), so run it in the background.
    Do not use macOS Preview/Quick Look/CoreGraphics or pdf.js to render these files: they draw them blank or crash.
+   **White annotations (2026-11-03, phd/ai-background).** A PM page exported from a dark Figma canvas can carry its
+   notes as white text, which renders blank on the white page, so OCR finds nothing. Render one note area first; when
+   it is blank and the PDF's text layer reads cleanly (mupdf `toStructuredText`, Chinese included), write
+   `boards/<id>.md` from the text layer in the same y / x / text form instead of OCR, and say so in its header.
 4. **Read board by board.** Read `boards/<id>.md` first (cheap); then open the tiles of that board that hold
    flows, states or mockups (`boards/<id>/tiles/x<X>-y<Y>.png`, coordinates in the file name) to see what the text
    annotates. Zoom on a spot with `render-region.ts <pdf> <out.png> x y w h --max 2000` when small print matters.

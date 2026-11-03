@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-11-03",
+  "how": "Design page 1:77 listed with get_metadata (figma-design, qa-dm): 2 phone frames (5, 6) and 2 thumbnail-state frames (Frame 4922 / 4923); no dated frame or label. PM file not readable by qa1 (figma-pm) or qa-dm: 'you don't have edit access' (2026-11-03); the PM PDF of 2026-11-03 is read instead.",
+  "pm_checked_at": null,
+  "files": {
+    "design": {
+      "fileKey": "ULY56f3Q9tl6PceuNNoHBD",
+      "page": "1:77",
+      "url": "https://www.figma.com/design/ULY56f3Q9tl6PceuNNoHBD/AI-Background?node-id=1-77",
+      "account": "qa-dm@cyberlink.com (Dev seat, CyberLink DC)"
+    },
+    "pm": {
+      "fileKey": "rCJRmOYzvMhbhTIA7bJjid",
+      "page": "2403:4094",
+      "url": "https://www.figma.com/design/rCJRmOYzvMhbhTIA7bJjid/Background?node-id=2403-4094",
+      "account": "none: qa1@cyberlink.com and qa-dm@cyberlink.com both refused (2026-11-03)",
+      "pdf": "Background - PM Spec.pdf"
+    }
+  },
+  "frames": []
+}

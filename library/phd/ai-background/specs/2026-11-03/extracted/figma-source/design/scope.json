@@ -1,0 +1,66 @@
+{
+  "written_at": "2026-11-03T08:07:12.027Z",
+  "file": "ULY56f3Q9tl6PceuNNoHBD",
+  "page": [
+    "1:77",
+    "Design"
+  ],
+  "listed": [
+    [
+      "1:451",
+      "5",
+      "FRAME"
+    ],
+    [
+      "11:248",
+      "6",
+      "FRAME"
+    ],
+    [
+      "8:248",
+      "_checkerboard_tile",
+      "FRAME"
+    ],
+    [
+      "25:915",
+      "Frame 4922",
+      "FRAME"
+    ],
+    [
+      "25:916",
+      "Frame 4923",
+      "FRAME"
+    ]
+  ],
+  "read": [
+    {
+      "id": "1:451",
+      "name": "5",
+      "read_at": "2026-11-03T07:57:58.475Z",
+      "hash": "1e90fd65",
+      "plan": "plan-1-451-4.json"
+    },
+    {
+      "id": "11:248",
+      "name": "6",
+      "read_at": "2026-11-03T07:57:58.475Z",
+      "hash": "9c80f018",
+      "plan": "plan-1-451-4.json"
+    },
+    {
+      "id": "25:915",
+      "name": "Frame 4922",
+      "read_at": "2026-11-03T07:57:58.475Z",
+      "hash": "af359383",
+      "plan": "plan-1-451-4.json"
+    },
+    {
+      "id": "25:916",
+      "name": "Frame 4923",
+      "read_at": "2026-11-03T07:57:58.475Z",
+      "hash": "3a1876b0",
+      "plan": "plan-1-451-4.json"
+    }
+  ],
+  "missing": []
+}

@@ -1,0 +1,47 @@
+{
+  "spec_folder": "specs/2026-11-03",
+  "skip": [],
+  "skip_reason": "",
+  "grouping": {
+    "x_tolerance": 120,
+    "y_gap": 140
+  },
+  "blocks": [
+    {
+      "id": "pm-cms@5630,212",
+      "board": "pm-cms",
+      "x": 5630,
+      "y": 212,
+      "low": false,
+      "text": "3. CMS & IDs / CMS type",
+      "trace": "R-053, Q-8"
+    },
+    {
+      "id": "pm-cms@5675,544",
+      "board": "pm-cms",
+      "x": 5675,
+      "y": 544,
+      "low": false,
+      "text": "Feature ID: PeopleBackgroundV3 / Action ID / Custom: genimage_1_img_bytedance_seedream5.0pro_none_custom / Template: genimage_1_img_bytedance_seedream5.0pro_none_tmpl / First time free trial task ID: temp_one_time_free",
+      "trace": "R-047, R-050, R-051, R-052"
+    },
+    {
+      "id": "pm-custom@1809,423",
+      "board": "pm-custom",
+      "x": 1809,
+      "y": 423,
+      "low": false,
+      "text": "同現行 flow, AP 去背且用戶裁切/塗抹主體, 由 AP 將去好背的圖送給 Server / Click Custom → 喚起打字 panel (current: click Custom → 開啟新的房間) / 設有 expand/ delete btn & My Prompt / click 空白處 or 勾勾→ panel 不見, Custom 為 selected 狀態 (橘色 stroke), ready for generation / 不走 long task, 讓用戶在房間等, 不設有 my artwork 入口; 等待途中的 handle 方式同 GAI Enhance / 0-10 秒: Analyzing your image... / 10-20 秒: Understanding the scene... / 20-30 秒: Creating the new background... / 30-40 秒: Refining the details... / 40-45 秒: Making the final adjustments... / 45 秒以後: Almost done!",
+      "trace": "R-001, R-002, R-003, R-004, R-020, R-021, R-025, R-026, R-027, R-028, R-030, R-031, R-032, R-033, R-034, R-035, R-036, R-037"
+    },
+    {
+      "id": "pm-room@4110,424",
+      "board": "pm-room",
+      "x": 4110,
+      "y": 424,
+      "low": false,
+      "text": "此圖為實際截圖 / UI 調整 / prompt box 行為 / thumbnail 大小 / category 選取狀態 (Custom 的橘色泡泡太貼近螢幕邊緣)",
+      "trace": "R-011, R-012, R-013, R-020, R-021, R-022, R-028, R-045"
+    }
+  ]
+}

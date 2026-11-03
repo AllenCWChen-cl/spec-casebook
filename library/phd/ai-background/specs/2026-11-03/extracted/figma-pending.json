@@ -1,0 +1,10 @@
+{
+  "since": "2026-11-03",
+  "reason": "PM Figma file not shared with qa1@cyberlink.com (figma-pm) or qa-dm@cyberlink.com: 'you don't have edit access'. The Design file was read in full (inventory, board images, source read).",
+  "links": {
+    "design": null,
+    "pm": "https://www.figma.com/design/rCJRmOYzvMhbhTIA7bJjid/Background?node-id=2403-4094",
+    "mx": null
+  },
+  "owed": ["step 8 (PM)", "step 10 (PM)"]
+}

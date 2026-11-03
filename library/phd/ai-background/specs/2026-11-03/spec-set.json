@@ -1,0 +1,21 @@
+{
+  "feature": "phd/ai-background",
+  "folder": "2026-11-03",
+  "received_at": "2026-11-03T07:45:27.652Z",
+  "spec_set_sha256": "272ca6c61507f83a557dd525aba9d23b73e2fdabe3a5fa3b256b67a5bdb1c7d5",
+  "files": [
+    {
+      "name": "Background - PM Spec.pdf",
+      "sha256": "67372e7822240665c03472c8c618aac7e26bc3f620a851859cb5f66e7a039112",
+      "bytes": 1904612
+    }
+  ],
+  "source_priority": [
+    "design",
+    "pm"
+  ],
+  "figma": {
+    "design": "https://www.figma.com/design/ULY56f3Q9tl6PceuNNoHBD/AI-Background?node-id=1-77",
+    "pm": "https://www.figma.com/design/rCJRmOYzvMhbhTIA7bJjid/Background?node-id=2403-4094"
+  }
+}

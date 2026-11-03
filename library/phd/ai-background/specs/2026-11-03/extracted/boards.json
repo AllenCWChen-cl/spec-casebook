@@ -1,0 +1,7 @@
+{
+  "Background - PM Spec.pdf": [
+    { "id": "pm-custom", "title": "1. Custom: add My Prompt & Refine UI/UX", "region": [0, 150, 3500, 1929] },
+    { "id": "pm-room", "title": "2. Feature Room: Refine UI/UX", "region": [3550, 150, 2000, 1200] },
+    { "id": "pm-cms", "title": "3. CMS & IDs", "region": [5580, 150, 2515, 1000] }
+  ]
+}

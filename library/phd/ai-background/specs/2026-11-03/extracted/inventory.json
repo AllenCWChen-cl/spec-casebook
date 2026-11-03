@@ -1,0 +1,49 @@
+{
+  "built_at": "2026-11-03T07:53:21.756Z",
+  "groups": [
+    "figma-inventory-d1.json"
+  ],
+  "files": {
+    "undefined": {"section":{"id":"1:77","name":"Design","box":[-9999,-9999,10989,10811]},"groups":[{"boards":["5","6","Frame 4922","Frame 4923"]}],"boards":{"5":{"id":"1:451","box":[0,0,375,812]},"6":{"id":"11:248","box":[413,0,375,812]},"Frame 4922":{"id":"25:915","box":[856,273,134,411]},"Frame 4923":{"id":"25:916","box":[-197,273,134,411]}}}
+  },
+  "screens": [
+    {"id":"1:451","board":"5","name":"5","box":[0,0,375,812],"platform":"ios"},
+    {"id":"11:248","board":"6","name":"6","box":[413,0,375,812],"platform":"ios"}
+  ],
+  "controls": [
+    {"id":"K-7128cd","board":"5","name":"top/ic_info","label":"","kind":"button","box":[12,57,24,24],"screens":["1:451"],"node":"I4:284;7614:4588","parent":null,"group":"K-8ee862","platforms":["android","ios"],"set":false},
+    {"id":"K-1d1f54","board":"5","name":"btn_add_credit","label":"100","kind":"button","box":[280,55,83,28],"screens":["1:451"],"node":"I4:284;7610:4131","parent":null,"group":"K-cdcd68","platforms":["android","ios"],"set":false},
+    {"id":"K-c153f9","board":"5","name":"On-screen/btn_BA_n","label":"","kind":"button","box":[327,500,36,36],"screens":["1:451"],"node":"5:420","parent":null,"group":"K-d3286d","platforms":["android","ios"],"set":false},
+    {"id":"K-e8fd78","board":"5","name":"ic_crop_n","label":"","kind":"button","box":[60,500,36,36],"screens":["1:451"],"node":"5:482","parent":null,"group":"K-f80fa1","platforms":["android","ios"],"set":false},
+    {"id":"K-6d1929","board":"5","name":"tab-03","label":"Custom","kind":"tab","box":[12,548,65,24],"screens":["1:451"],"node":"1:546","parent":null,"group":"C-fade26","platforms":["android","ios"],"set":true},
+    {"id":"K-f194cb","board":"5","name":"tab-03","label":"Neutrals","kind":"tab","box":[81,548,68,24],"screens":["1:451"],"node":"1:547","parent":null,"group":"C-fade26","platforms":["android","ios"],"set":true},
+    {"id":"K-8b469b","board":"5","name":"tab-03","label":"Ballon","kind":"tab","box":[153,548,56,24],"screens":["1:451"],"node":"1:548","parent":null,"group":"C-fade26","platforms":["android","ios"],"set":true},
+    {"id":"K-2c8c1f","board":"5","name":"tab-03","label":"Wood","kind":"tab","box":[213,548,55,24],"screens":["1:451"],"node":"1:549","parent":null,"group":"C-fade26","platforms":["android","ios"],"set":true},
+    {"id":"K-c680ea","board":"5","name":"tab-03","label":"Vintage","kind":"tab","box":[272,548,64,24],"screens":["1:451"],"node":"1:550","parent":null,"group":"C-fade26","platforms":["android","ios"],"set":true},
+    {"id":"K-72edbd","board":"5","name":"tab-03","label":"Life","kind":"tab","box":[340,548,43,24],"screens":["1:451"],"node":"1:551","parent":null,"group":"C-fade26","platforms":["android","ios"],"set":true},
+    {"id":"K-2f3361","board":"5","name":"thumb/80x80/withname/regular","label":"Custom","kind":"item","box":[12,580,80,98],"screens":["1:451"],"node":"24:723","parent":null,"group":"C-5ea12b","platforms":["android","ios"],"set":true},
+    {"id":"K-e2aed3","board":"5","name":"thumb/80x80/withname/regular","label":"Lomo","kind":"item","box":[104,580,80,98],"screens":["1:451"],"node":"26:968","parent":null,"group":"C-5ea12b","platforms":["android","ios"],"set":true},
+    {"id":"K-e2c449","board":"5","name":"thumb_1v1","label":"Artistic","kind":"item","box":[188,580,80,98],"screens":["1:451"],"node":"1:910","parent":null,"group":"C-f01f72","platforms":["android","ios"],"set":true},
+    {"id":"K-fd6e13","board":"5","name":"thumb_1v1","label":"B&W","kind":"item","box":[272,580,80,98],"screens":["1:451"],"node":"1:911","parent":null,"group":"C-f01f72","platforms":["android","ios"],"set":true},
+    {"id":"K-fe81af","board":"5","name":"btn_credit_primary_1row","label":"Generate","kind":"button","box":[20,690,335,44],"screens":["1:451"],"node":"5:461","parent":null,"group":"K-18b0e9","platforms":["android","ios"],"set":false},
+    {"id":"K-7289ba","board":"6","name":"top/ic_info","label":"","kind":"button","box":[12,57,24,24],"screens":["11:248"],"node":"I11:317;7614:4588","parent":null,"group":"K-8ee862","platforms":["android","ios"],"set":false},
+    {"id":"K-562aa1","board":"6","name":"btn_add_credit","label":"100","kind":"button","box":[280,55,83,28],"screens":["11:248"],"node":"I11:317;7610:4131","parent":null,"group":"K-cdcd68","platforms":["android","ios"],"set":false},
+    {"id":"K-b85dd7","board":"6","name":"On-screen/btn_BA_n","label":"","kind":"button","box":[327,500,36,36],"screens":["11:248"],"node":"11:325","parent":null,"group":"K-d3286d","platforms":["android","ios"],"set":false},
+    {"id":"K-5a2a8b","board":"6","name":"ic_crop_n","label":"","kind":"button","box":[60,500,36,36],"screens":["11:248"],"node":"11:327","parent":null,"group":"K-f80fa1","platforms":["android","ios"],"set":false},
+    {"id":"K-6ca530","board":"6","name":"tab-03","label":"Custom","kind":"tab","box":[12,548,65,24],"screens":["11:248"],"node":"11:333","parent":null,"group":"C-fade26","platforms":["android","ios"],"set":true},
+    {"id":"K-e0b397","board":"6","name":"tab-03","label":"Neutrals","kind":"tab","box":[81,548,68,24],"screens":["11:248"],"node":"11:334","parent":null,"group":"C-fade26","platforms":["android","ios"],"set":true},
+    {"id":"K-78217f","board":"6","name":"tab-03","label":"Ballon","kind":"tab","box":[153,548,56,24],"screens":["11:248"],"node":"11:335","parent":null,"group":"C-fade26","platforms":["android","ios"],"set":true},
+    {"id":"K-e938f7","board":"6","name":"tab-03","label":"Wood","kind":"tab","box":[213,548,55,24],"screens":["11:248"],"node":"11:336","parent":null,"group":"C-fade26","platforms":["android","ios"],"set":true},
+    {"id":"K-895c47","board":"6","name":"tab-03","label":"Vintage","kind":"tab","box":[272,548,64,24],"screens":["11:248"],"node":"11:337","parent":null,"group":"C-fade26","platforms":["android","ios"],"set":true},
+    {"id":"K-92c3e0","board":"6","name":"tab-03","label":"Life","kind":"tab","box":[340,548,43,24],"screens":["11:248"],"node":"11:338","parent":null,"group":"C-fade26","platforms":["android","ios"],"set":true},
+    {"id":"K-1eab94","board":"6","name":"thumb_1v1","label":"Artistic","kind":"item","box":[188,580,80,98],"screens":["11:248"],"node":"11:430","parent":null,"group":"C-f01f72","platforms":["android","ios"],"set":true},
+    {"id":"K-a972d8","board":"6","name":"thumb_1v1","label":"B&W","kind":"item","box":[272,580,80,98],"screens":["11:248"],"node":"11:431","parent":null,"group":"C-f01f72","platforms":["android","ios"],"set":true},
+    {"id":"K-e100cb","board":"6","name":"btn_credit_primary_1row","label":"Generate","kind":"button","box":[20,690,335,44],"screens":["11:248"],"node":"11:434","parent":null,"group":"K-18b0e9","platforms":["android","ios"],"set":false},
+    {"id":"M-9dd04d","board":"5","name":"editing_area/ic_eraser_n","label":"","kind":"button","box":[12,500,36,36],"screens":["1:451","11:248"],"node":"","parent":null,"group":"K-187c47","platforms":["android","ios"],"set":false},
+    {"id":"M-c37bb3","board":"5","name":"manual/button","label":"Close","kind":"button","box":[12,740,32,32],"screens":["1:451","11:248"],"node":"","parent":null,"group":"C-17498b","platforms":["android","ios"],"set":true},
+    {"id":"M-cfb3e8","board":"5","name":"manual/button","label":"Undo","kind":"button","box":[118,740,32,32],"screens":["1:451","11:248"],"node":"","parent":null,"group":"C-17498b","platforms":["android","ios"],"set":true},
+    {"id":"M-fad84d","board":"5","name":"manual/button","label":"Redo","kind":"button","box":[225,740,32,32],"screens":["1:451","11:248"],"node":"","parent":null,"group":"C-17498b","platforms":["android","ios"],"set":true},
+    {"id":"M-f3ca02","board":"5","name":"manual/button","label":"Apply","kind":"button","box":[331,740,32,32],"screens":["1:451","11:248"],"node":"","parent":null,"group":"C-17498b","platforms":["android","ios"],"set":true}
+  ],
+  "arrows": []
+}

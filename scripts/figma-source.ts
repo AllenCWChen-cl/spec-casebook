@@ -465,12 +465,12 @@ function metadataXml(nodes: any[], parentAt: number[] | null) {
   return lines.join('\n') + '\n';
 }
 // phone screens: frames 300–450 wide and at least 600 tall (taller than 1000 = a long page unless it holds phones),
-// not inside another screen, and at least half drawn
+// not inside another screen, and at least half drawn; a board that is itself one phone frame is its own screen
 function findScreens(nodes: any[]) {
   const sized = (n: any) => ['FRAME', 'INSTANCE', 'COMPONENT'].includes(n.type) && n.box[2] >= 300 && n.box[2] <= 450 && n.box[3] >= 600;
   const byId = new Map(nodes.map(n => [n.id, n]));
   const inside = (n: any, a: any) => { for (let q = byId.get(n.parent); q; q = byId.get(q.parent)) if (q === a) return true; return false; };
-  const cands = nodes.filter(n => n.depth > 0 && !n.hidden && (n.drawn ?? 1) >= 0.5 && sized(n));
+  const cands = nodes.filter(n => !n.hidden && (n.drawn ?? 1) >= 0.5 && sized(n));
   const phones = cands.filter(n => n.box[3] <= 1000 || !cands.some(c => c !== n && c.box[3] <= 1000 && inside(c, n)));
   return phones.filter(n => !phones.some(p => p !== n && inside(n, p))).map(n => ({ id: n.id, name: n.name, box: n.box, abs: n.abs }));
 }
